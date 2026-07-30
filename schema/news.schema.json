@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Frontier Future News database",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "items"],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/newsItem"
+      }
+    }
+  },
+  "$defs": {
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "newsItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "published_at",
+        "collected_at",
+        "categories",
+        "tags",
+        "title_en",
+        "title_zh",
+        "summary_en",
+        "summary_zh",
+        "tech_points_en",
+        "tech_points_zh",
+        "why_it_matters_en",
+        "why_it_matters_zh",
+        "source",
+        "discussion_urls",
+        "evidence_urls",
+        "confidence",
+        "score",
+        "score_breakdown"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "published_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "collected_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["agents", "embodied-ai", "world-models"]
+          }
+        },
+        "tags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          }
+        },
+        "title_en": {"type": "string", "minLength": 1},
+        "title_zh": {"type": "string", "minLength": 1},
+        "summary_en": {"type": "string", "minLength": 1},
+        "summary_zh": {"type": "string", "minLength": 1},
+        "tech_points_en": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "tech_points_zh": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "why_it_matters_en": {"type": "string", "minLength": 1},
+        "why_it_matters_zh": {"type": "string", "minLength": 1},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type", "url", "language"],
+          "properties": {
+            "name": {"type": "string", "minLength": 1},
+            "type": {"enum": ["primary", "research", "media", "community", "aggregator"]},
+            "url": {"$ref": "#/$defs/httpUrl"},
+            "language": {"enum": ["en", "zh", "other"]}
+          }
+        },
+        "discussion_urls": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/httpUrl"}
+        },
+        "evidence_urls": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/httpUrl"}
+        },
+        "confidence": {"enum": ["high", "medium", "low"]},
+        "score": {"type": "integer", "minimum": 0, "maximum": 100},
+        "score_breakdown": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["relevance", "evidence", "novelty", "technical_depth", "traction"],
+          "properties": {
+            "relevance": {"type": "integer", "minimum": 0, "maximum": 30},
+            "evidence": {"type": "integer", "minimum": 0, "maximum": 25},
+            "novelty": {"type": "integer", "minimum": 0, "maximum": 20},
+            "technical_depth": {"type": "integer", "minimum": 0, "maximum": 15},
+            "traction": {"type": "integer", "minimum": 0, "maximum": 10}
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+name: Validate news archive
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Validate canonical news data
+        run: python3 .agents/skills/curate-frontier-news/scripts/validate_news.py --strict
+
+      - name: Check generated views
+        run: python3 .agents/skills/curate-frontier-news/scripts/rebuild_index.py --check
+
+      - name: Run tool tests
+        run: python3 -m unittest discover -s tests

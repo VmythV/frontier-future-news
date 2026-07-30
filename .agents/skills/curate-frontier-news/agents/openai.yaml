@@ -1,0 +1,4 @@
+interface:
+  display_name: "Curate Frontier News"
+  short_description: "Collect, verify, and publish bilingual frontier AI news"
+  default_prompt: "Use $curate-frontier-news to collect verified bilingual frontier AI news, then let me choose whether to save, commit, or push it."
