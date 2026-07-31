@@ -2,6 +2,152 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-07-30-ace-data-0"></a>
+## [ACE-Data-0 在真实家庭中采集同步多模态具身数据](https://arxiv.org/abs/2607.28625)
+
+**English:** [ACE-Data-0 captures synchronized multimodal embodied data in real homes](https://arxiv.org/abs/2607.28625)
+
+- **发布 / Published:** `2026-07-30T17:59:50Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28625) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `dataset`, `robotics`, `multimodal`, `manipulation`, `tactile-sensing`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+ACE-Data-0 将真实住宅转化为空间标定且时间同步的采集环境，用于记录长时程家庭活动。其 150 小时数据集结合了第一和第三视角视频，以及身体、手部、物体、声音和触觉信号。
+
+ACE-Data-0 turns real homes into spatially calibrated and temporally synchronized capture environments for long-horizon household activity. Its 150-hour dataset combines egocentric and exocentric video with body, hand, object, audio, and tactile signals.
+
+### 技术点 / Technical points
+
+- 该数据集包含 1,700 万帧、200 类任务、50 名参与者、两个环境和约 75,000 个交互片段。
+  - The release contains 17 million frames, 200 task categories, 50 participants, two environments, and about 75,000 interaction episodes.
+- 采集系统同时覆盖桌面级与房间级活动，并提供物体几何形状和六自由度位姿标注。
+  - The capture system supports both table-scale and room-scale activity with object geometry and six-degree-of-freedom pose annotations.
+
+### 为什么重要 / Why it matters
+
+家庭尺度的同步物理交互数据可以用同一证据基础支持模仿学习、视觉语言动作模型和预测式世界模型。
+
+Synchronized physical interaction data at household scale can support imitation learning, vision-language-action models, and predictive world models from the same evidence base.
+
+### 链接 / Links
+
+[Evidence 1](https://ace-data-engine.github.io/ACE-Data-0/)
+
+---
+
+<a id="2026-07-30-phizero-physical-language"></a>
+## [PhiZero 为视频世界建模学习离散物理语言](https://arxiv.org/abs/2607.28624)
+
+**English:** [PhiZero learns a discrete physical language for video world modeling](https://arxiv.org/abs/2607.28624)
+
+- **发布 / Published:** `2026-07-30T17:59:46Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28624) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `video-generation`, `simulation`, `physical-reasoning`, `action-conditioning`, `self-supervised-learning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+PhiZero 从自然视频中学习紧凑的离散物理符号，并采用先推理后渲染的流程：视觉语言模型先预测物理语言序列，再由扩散解码器生成未来画面。
+
+PhiZero learns compact discrete physical symbols from in-the-wild video and uses a reason-then-render pipeline: a vision-language model predicts a physical-language sequence before a diffusion decoder renders future frames.
+
+### 技术点 / Technical points
+
+- 训练流程将约 5 万小时视频筛选为 1 万小时，并形成 500 万个运动丰富的四秒片段。
+  - The training pipeline filters roughly 50,000 hours of video into 10,000 hours and five million motion-rich four-second clips.
+- 一个 33 帧片段由 256 个离散物理符号表示，模型还展示了动作条件模拟和零样本运动迁移。
+  - A 33-frame clip is represented with 256 discrete physical symbols, and the model demonstrates action-conditioned simulation and zero-shot motion transfer.
+
+### 为什么重要 / Why it matters
+
+在多模态推理和视频生成之间建立紧凑的符号接口，可能让智能体更容易预测、组合并控制学习到的动态规律。
+
+A compact symbolic interface between multimodal reasoning and video generation could make learned dynamics easier for agents to predict, compose, and control.
+
+### 链接 / Links
+
+[Evidence 1](https://phi-zero.github.io/)
+
+---
+
+<a id="2026-07-30-gemini-robotics-2"></a>
+## [Google DeepMind 发布 Gemini Robotics 2 模型系列](https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/)
+
+**English:** [Google DeepMind introduces the Gemini Robotics 2 model family](https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/)
+
+- **发布 / Published:** `2026-07-30T16:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `vla`, `humanoid`, `reasoning`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `98/100`
+
+### 摘要 / Summary
+
+Gemini Robotics 2 包含面向全身控制的视觉语言动作模型、用于长时程任务的具身推理模型，以及端侧 VLA 模型。Google DeepMind 正通过早期访问和预览计划开放这些系统。
+
+Gemini Robotics 2 combines a whole-body vision-language-action model, an embodied reasoning model for long-horizon tasks, and an on-device VLA model. Google DeepMind is releasing the systems through early-access and preview programs.
+
+### 技术点 / Technical points
+
+- 同一检查点可控制配备不同手型的 Apollo 2 人形机器人和 Franka Duo，覆盖全身运动、双臂协同和灵巧操作。
+  - A shared checkpoint controls Apollo 2 humanoids with different hands and a Franka Duo setup, covering whole-body movement, bi-arm coordination, and dexterous manipulation.
+- Gemini Robotics ER 2 可处理持续数分钟且包含数百次决策的任务；On-Device 2 通常能以少于 200 个样本适配新机器人形态。
+  - Gemini Robotics ER 2 handles tasks lasting several minutes with hundreds of decisions, while On-Device 2 can typically adapt to a new embodiment with fewer than 200 examples.
+- 此次发布还加入 ASIMOV-Agentic 安全基准，以及拒绝不安全 VLA 工具调用或请求人类协助的机制。
+  - The release adds the ASIMOV-Agentic safety benchmark and mechanisms for refusing unsafe VLA tool calls or requesting human assistance.
+
+### 为什么重要 / Why it matters
+
+该系列将机器人基础模型从孤立的机械臂技能推进到全身控制、长时程规划、安全感知工具使用和跨形态本地部署。
+
+The family moves robotics foundation models beyond isolated arm skills toward whole-body control, extended planning, safety-aware tool use, and local deployment across multiple embodiments.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49111237) · [Discussion 2](https://www.reddit.com/r/robotics/comments/1vaxn3p/google_deepmind_announces_gemini_robotics_2/)
+
+---
+
+<a id="2026-07-30-egogenesis-world-action-simulator"></a>
+## [EgoGenesis 构建可控第一视角世界动作模拟器](https://arxiv.org/abs/2607.28243)
+
+**English:** [EgoGenesis builds a controllable egocentric world-action simulator](https://arxiv.org/abs/2607.28243)
+
+- **发布 / Published:** `2026-07-30T14:06:26Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28243) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `video-generation`, `manipulation`, `synthetic-data`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+EgoGenesis 根据机器人动作生成可控的第一视角操作视频，通过固定三维锚点保持初始场景，并用相机感知的度量坐标编码末端执行器运动。
+
+EgoGenesis generates controllable egocentric manipulation videos from robot actions while preserving the initial scene with a fixed 3D anchor and encoding end-effector motion in camera-aware metric coordinates.
+
+### 技术点 / Technical points
+
+- 模型使用约 21 万个片段训练，并采用物体锚定持久记忆模块和 Action-3D 旋转位置编码。
+  - The model is trained on about 210,000 clips and uses an Object-Anchored Persistent Memory module with Action-3D rotary position encoding.
+- 在 400 个真实样本中加入 400 个生成样本后，作者报告单臂分布外成功率从 77% 提升至 84%，双臂从 53% 提升至 70%。
+  - Adding 400 generated samples to 400 real samples raised reported out-of-distribution success from 77% to 84% for single-arm tasks and from 53% to 70% for dual-arm tasks.
+
+### 为什么重要 / Why it matters
+
+如果所报告的迁移增益得到复现，动作一致的合成经验可以降低为稀有任务和陌生环境采集机器人数据的成本。
+
+Action-consistent synthetic experience could reduce the cost of collecting robot data for rare tasks and unfamiliar environments if the reported transfer gains reproduce.
+
+### 链接 / Links
+
+[Evidence 1](https://egogenesis.github.io/)
+
+---
+
 <a id="2026-07-29-checkvla-execution-time-verification"></a>
 ## [CheckVLA 使用动作条件世界模型验证机器人执行](https://arxiv.org/abs/2607.26789)
 
