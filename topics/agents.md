@@ -38,6 +38,78 @@ Reliable trajectory judges are a prerequisite for scalable reinforcement learnin
 
 ---
 
+<a id="2026-07-30-change2task-coding-agent-tasks"></a>
+## [Change2Task 将代码仓库变更转化为可执行编码智能体任务](https://arxiv.org/abs/2607.28591)
+
+**English:** [Change2Task converts repository changes into executable coding-agent tasks](https://arxiv.org/abs/2607.28591)
+
+- **发布 / Published:** `2026-07-30T17:44:31Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28591) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `task-generation`, `software-engineering`, `verification`, `dataset`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Change2Task 从已合并的拉取请求中构造可执行编码智能体任务，并将任务放置在健康的现代代码版本上。它覆盖缺陷修复、功能添加、测试生成、API 迁移和安全修复。
+
+Change2Task derives executable coding-agent tasks from merged pull requests while placing them on healthy modern repository revisions. It targets bug fixing, feature addition, test generation, API migration, and security repair.
+
+### 技术点 / Technical points
+
+- 系统通过 Patch Reversal、Code Mapping 或 Agent Reconstruction 重建任务状态，并验证从健康基线到任务状态再到恢复状态的转换。
+  - The system reconstructs task states through Patch Reversal, Code Mapping, or Agent Reconstruction and verifies the transition from a healthy base to the task state and back to a restored state.
+- 在 1,130 个符合条件的源代码变更中，它报告五类任务的验证构造成功率为 79.6%。
+  - From 1,130 eligible source changes, it reports a 79.6% verified construction rate across five task families.
+- 在匹配的候选集合上，Change2Task 比基于拉取请求的构造基线多恢复 29.2% 的有效任务。
+  - On a matched candidate set, Change2Task recovers 29.2% more verified tasks than a pull-request-based construction baseline.
+
+### 为什么重要 / Why it matters
+
+持续生成新鲜且经过验证的任务，可以缓解编码智能体训练与评测中的数据污染和环境维护瓶颈。
+
+A renewable supply of fresh, verified tasks can reduce contamination and environment-maintenance bottlenecks in coding-agent training and evaluation.
+
+---
+
+<a id="2026-07-30-frontis-ma1-openmle"></a>
+## [Frontis-MA1 为机器学习工程构建可执行的 AI4AI 循环](https://arxiv.org/abs/2607.28568)
+
+**English:** [Frontis-MA1 builds an executable AI4AI loop for machine-learning engineering](https://arxiv.org/abs/2607.28568)
+
+- **发布 / Published:** `2026-07-30T17:34:01Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28568) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ai4ai`, `machine-learning-engineering`, `reinforcement-learning`, `open-source`, `long-horizon`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Frontis-MA1 是一个 35B 参数的机器学习工程智能体，在 OpenMLE 开放体系中训练；该体系连接可验证任务环境、基于执行反馈的后训练和长时程程序演化。
+
+Frontis-MA1 is a 35B machine-learning engineering agent trained within OpenMLE, an open stack connecting verifiable task environments, execution-grounded post-training, and long-horizon program evolution.
+
+### 技术点 / Technical points
+
+- OpenMLE 将 OpenMLE-Gym、OpenMLE-RL 和 OpenMLE-Evo 围绕 Draft、Improve、Debug、Crossover 四类程序演化操作组合起来。
+  - OpenMLE combines OpenMLE-Gym, OpenMLE-RL, and OpenMLE-Evo around four program-evolution operators: Draft, Improve, Debug, and Crossover.
+- 作者报告称，在 MLE-Bench Lite 上，OpenMLE-Evo 将基础模型的 Medal Average 从 39.39% 提升至 60.61%，使用 Evo-Max 后达到 71.21%。
+  - On MLE-Bench Lite, the authors report that OpenMLE-Evo raises Medal Average from 39.39% for the base model to 60.61%, reaching 71.21% with Evo-Max.
+- 开放体系包含模型权重，并在留出的 NatureBench Lite 任务上评测迁移能力。
+  - The released stack includes model weights and evaluates transfer on held-out NatureBench Lite tasks.
+
+### 为什么重要 / Why it matters
+
+它将 AI 改进 AI 的研究约束为可执行、可评分且可复现的工程循环，而不是泛化为开放式通用自我改进。
+
+It constrains AI-for-AI research to an executable, scored, and reproducible engineering loop rather than an open-ended claim of general self-improvement.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/FrontisAI/OpenRSI)
+
+---
+
 <a id="2026-07-30-orca-bench-oncall-agents"></a>
 ## [ORCA-bench 在生产式根因分析任务中测试值班智能体](https://arxiv.org/abs/2607.28545)
 
@@ -67,6 +139,40 @@ ORCA-bench evaluates agents on 1,079 production-style root-cause analysis tasks 
 这些结果揭示了工具调用演示与真实软件运维中可靠自主事故响应之间仍存在巨大差距。
 
 The results expose a large gap between tool-using demonstrations and dependable autonomous incident response in realistic software operations.
+
+---
+
+<a id="2026-07-30-manta-adaptive-multi-agent-topology"></a>
+## [MANTA 在推理期间自适应调整多智能体通信拓扑](https://arxiv.org/abs/2607.28527)
+
+**English:** [MANTA adapts multi-agent communication topology at inference time](https://arxiv.org/abs/2607.28527)
+
+- **发布 / Published:** `2026-07-30T17:01:27Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28527) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `planning`, `tool-use`, `reasoning`, `adaptive-topology`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+MANTA 将多智能体组织视为可在推理期间变化的结构。它先初始化任务条件拓扑，并在协作轨迹显示当前组织不足时执行有边界的更新。
+
+MANTA treats multi-agent organization as a structure that can change during inference. It initializes a task-conditioned topology and applies bounded updates when collaboration traces indicate that the current organization is insufficient.
+
+### 技术点 / Technical points
+
+- 更新可以修改智能体角色、通信连接、执行顺序、信息可见性和验证路径，同时保持任务接口和智能体预算不变。
+  - Updates can modify agent roles, communication links, execution order, information visibility, and validation paths while preserving the task interface and agent budget.
+- 评测覆盖信息检索、工具使用、规划、工作流执行和数学推理五类基准。
+  - Evaluation spans five benchmarks covering information seeking, tool use, planning, workflow execution, and mathematical reasoning.
+- MANTA 报告平均成绩为 74.0，比最强受测基线高 5.8 个百分点，并在 PlanCraft 上取得最佳结果。
+  - MANTA reports a 74.0 average score, 5.8 percentage points above the strongest evaluated baseline, and the best result on PlanCraft.
+
+### 为什么重要 / Why it matters
+
+它将推理时自适应从提示词和单个智能体扩展到协作架构本身。
+
+It extends inference-time adaptation from prompts and individual agents to the architecture of collaboration itself.
 
 ---
 
@@ -209,6 +315,44 @@ Qwen-UI-Agent presents a general-purpose interface agent spanning mobile devices
 跨手机、桌面、浏览器和搜索共享模型与训练体系，可能减少计算机操作智能体的碎片化，并支持更长的跨环境工作流。
 
 A shared model and training system across phones, desktops, browsers, and search could reduce the fragmentation of computer-use agents and support longer cross-environment workflows.
+
+---
+
+<a id="2026-07-30-echoverse-computer-use-environments"></a>
+## [Echoverse 让计算机操作智能体与训练环境共同演化](https://arxiv.org/abs/2607.28074)
+
+**English:** [Echoverse co-evolves computer-use agents and their training environments](https://arxiv.org/abs/2607.28074)
+
+- **发布 / Published:** `2026-07-30T11:48:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28074) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `environment-generation`, `reinforcement-learning`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Echoverse 将规格说明编译为有状态应用，并根据应用数据库检查任务。其共同演化循环把每条评分轨迹同时用于修复环境和验证器，以及训练计算机操作模型。
+
+Echoverse compiles specifications into stateful applications whose tasks are checked against application databases. Its co-evolution loop uses each graded rollout both to repair environments and verifiers and to train the computer-use model.
+
+### 技术点 / Technical points
+
+- 系统强调环境行为深度，针对智能体真实失败的交互，并随着模型改进持续更新任务和验证器。
+  - The system focuses on environment depth, targeting the interactions an agent actually fails and updating tasks and verifiers as the model improves.
+- 在十二个环境上训练的 9B 模型，在十四个评测切分上的成绩从 36.5% 提升至 67.1%。
+  - A 9B model trained on twelve environments improves from 36.5% to 67.1% across fourteen evaluation splits.
+- 使用相同环境进行强化学习时，留出集成绩从 58.8% 提升至 68.0%；其中四个环境作为基准开放。
+  - Using the same environments for reinforcement learning raises held-out score from 58.8% to 68.0%; four environments are released as a benchmark.
+
+### 为什么重要 / Why it matters
+
+结果表明，计算机操作训练依赖行为深度和有依据的验证，而不仅是生成更多合成网站。
+
+The result suggests that computer-use training depends on behavioral depth and grounded verification, not only on generating a larger number of synthetic websites.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/microsoft/Echoverse)
 
 ---
 

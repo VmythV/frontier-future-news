@@ -74,6 +74,108 @@ A compact symbolic interface between multimodal reasoning and video generation c
 
 ---
 
+<a id="2026-07-30-cs-jepa-shared-robot-futures"></a>
+## [CS-JEPA 让机器人群体从局部观察预测共同未来](https://arxiv.org/abs/2607.28443)
+
+**English:** [CS-JEPA lets robot swarms predict a shared future from local observations](https://arxiv.org/abs/2607.28443)
+
+- **发布 / Published:** `2026-07-30T16:16:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28443) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `multi-agent`, `world-model`, `jepa`, `planning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Collective-State JEPA 是一种循环预测架构，使每个机器人能够仅根据局部历史和带宽受限的邻居消息，形成一致的未来群体状态表示。
+
+Collective-State JEPA is a recurrent predictive architecture that lets each robot form the same representation of a future collective state from local history and bandwidth-limited neighbor messages.
+
+### 技术点 / Technical points
+
+- 部署时，每个机器人使用 16 帧局部历史和每条有向边一个 64 浮点循环消息，不依赖全局池化或共享回合时钟。
+  - At deployment, each robot uses a 16-frame local history and one 64-float recurrent message per directed edge without global pooling or a shared episode clock.
+- 冻结表示在少量全局标注回合下接受拓扑和群体规模变化评测，其中配置最多包含 108 个机器人。
+  - Frozen representations are evaluated with small numbers of globally labeled episodes under topology and swarm-size shifts, including configurations up to 108 robots.
+- 在动作条件评测中，CS-JEPA 将分支价值均方误差降低 45.5%，并提高候选分数相关性，包括未见过的群体规模。
+  - In action-conditioned evaluation, CS-JEPA reduces branch-value mean squared error by 45.5% and improves candidate-score correlation, including at an unseen swarm size.
+
+### 为什么重要 / Why it matters
+
+当机器人群体只能进行局部感知、通信受限且规模变化时，共享预测表示可能支持协同规划。
+
+A shared predictive representation could support coordinated planning when robot swarms must operate with local sensing, limited communication, and changing size.
+
+---
+
+<a id="2026-07-30-quantwams-world-action-quantization"></a>
+## [QuantWAMs 为世界动作模型引入部署感知量化](https://arxiv.org/abs/2607.28405)
+
+**English:** [QuantWAMs brings deployment-aware quantization to world-action models](https://arxiv.org/abs/2607.28405)
+
+- **发布 / Published:** `2026-07-30T15:54:29Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28405) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `quantization`, `robotics`, `closed-loop`, `efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+QuantWAMs 是一种训练后量化框架，围绕世界动作模型的联合视频—动作结构和闭环轨迹分布设计，而不是直接采用通用开环校准。
+
+QuantWAMs is a post-training quantization framework designed around the joint video-action structure and closed-loop rollout distribution of world-action models rather than generic open-loop calibration.
+
+### 技术点 / Technical points
+
+- 该框架结合共享基异常值校准、来自联合视频—动作目标的经验 Fisher 显著性和固定干预轨迹审计。
+  - The framework combines shared-basis outlier calibration, empirical-Fisher saliency from the joint video-action objective, and fixed-intervention rollout auditing.
+- 它在 Fast-WAM 和 LingBot-VA 上评测，覆盖 RoboTwin 2.0、LIBERO 以及使用 AgiBot G2 的真实机器人操作。
+  - It is evaluated on Fast-WAM and LingBot-VA across RoboTwin 2.0, LIBERO, and real-robot manipulation with an AgiBot G2.
+- 在以 W4A4 为主的配置下，作者报告仿真均值与 FP16 相差 0.2 至 0.7 个百分点；目标模块的峰值权重与激活内存约为 FP16 的 29%，速度提升 1.4 至 1.6 倍。
+  - Under a W4A4-dominant configuration, reported simulation means are within 0.2 to 0.7 percentage points of FP16, while targeted blocks use about 29% of FP16 peak weight-and-activation memory and run 1.4 to 1.6 times faster.
+
+### 为什么重要 / Why it matters
+
+在不破坏闭环行为稳定性的情况下减少显存和延迟，是将世界动作模型从离线演示部署到机器人硬件的重要条件。
+
+Reducing memory and latency without destabilizing closed-loop behavior is important for moving world-action models from offline demonstrations onto robot hardware.
+
+---
+
+<a id="2026-07-30-tacwam-tactile-world-action-model"></a>
+## [TacWAM 为世界动作模型加入力学感知触觉预测](https://arxiv.org/abs/2607.28391)
+
+**English:** [TacWAM adds mechanics-aware tactile prediction to world-action models](https://arxiv.org/abs/2607.28391)
+
+- **发布 / Published:** `2026-07-30T15:47:01Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28391) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `robotics`, `tactile-sensing`, `manipulation`, `physical-reasoning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+TacWAM 将世界动作模型从视觉未来扩展到触觉预测，在接触丰富操作中建模触觉外观、密集力场、形变流以及全局力和力矩信号。
+
+TacWAM extends world-action models beyond visual futures by predicting tactile appearance, dense force fields, deformation flow, and global force-torque signals during contact-rich manipulation.
+
+### 技术点 / Technical points
+
+- 空间对齐触觉编码器将外观、力和形变映射到共享潜在预测空间，同时重建双侧力和力矩。
+  - A spatially aligned tactile encoder maps appearance, force, and deformation into a shared latent prediction space while reconstructing bilateral force and torque.
+- 触觉历史编码器提供时间上下文；Anchor-Guided Tri-Modal Attention 分离当前锚点、未来目标和动作 token，以避免未来特权信息泄漏。
+  - A tactile-history encoder adds temporal context, and Anchor-Guided Tri-Modal Attention separates current anchors, future targets, and action tokens to avoid privileged-future leakage.
+- 在四项真实任务上，作者报告平均成功率为 75.0%，比最强受测基线高 37.5 个百分点。
+  - Across four real-world tasks, the authors report a 75.0% average success rate, 37.5 percentage points above the strongest evaluated baseline.
+
+### 为什么重要 / Why it matters
+
+未来触觉监督可以揭示仅靠视觉预测难以表达的力、滑动和形变，从而可能改善物理落地的机器人操作。
+
+Future tactile supervision can expose force, slip, and deformation that visual prediction alone cannot represent, potentially improving physically grounded manipulation.
+
+---
+
 <a id="2026-07-30-shadowdancer-action-control"></a>
 ## [ShadowDancer 从配对视频中学习任意动作控制](https://arxiv.org/abs/2607.28362)
 
@@ -175,6 +277,44 @@ Action-consistent synthetic experience could reduce the cost of collecting robot
 ### 链接 / Links
 
 [Evidence 1](https://egogenesis.github.io/)
+
+---
+
+<a id="2026-07-30-odeworld-continuous-time-dynamics"></a>
+## [ODEWorld 在连续物理时间中学习潜空间世界动态](https://arxiv.org/abs/2607.27924)
+
+**English:** [ODEWorld learns latent world dynamics in continuous physical time](https://arxiv.org/abs/2607.27924)
+
+- **发布 / Published:** `2026-07-30T09:37:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.27924) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `continuous-time`, `robotics`, `planning`, `simulation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+ODEWorld 使用 Physical-Time Flow 学习连续潜在速度场，将未来预测转化为在压缩表示空间中由常微分方程求解器执行的时间积分。
+
+ODEWorld uses Physical-Time Flow to learn a continuous latent velocity field, turning future prediction into temporal integration performed by an ordinary differential equation solver in a compressed representation space.
+
+### 技术点 / Technical points
+
+- 模型同时对动态表示和潜在速度场施加 ODE 结构约束，以缓解长时程预测中的表示坍缩。
+  - The model imposes ODE structure on both its dynamical representation and latent velocity field to reduce representation collapse during long-horizon prediction.
+- 连续时间动态支持任意时间分辨率的预测，并允许反向时间预测。
+  - Continuous-time dynamics allow prediction at arbitrary temporal resolutions and support backward-time prediction.
+- 论文同时在视觉生成和下游机器人策略学习中评测该表示。
+  - The paper evaluates the representation for both visual generation and downstream robotic policy learning.
+
+### 为什么重要 / Why it matters
+
+连续时间世界模型可以服务不同控制频率和规划尺度，而无需将学习到的动态绑定到单一离散预测间隔。
+
+A continuous-time world model could serve different control frequencies and planning horizons without tying learned dynamics to one discrete prediction interval.
+
+### 链接 / Links
+
+[Evidence 1](https://dstate.github.io/odeworld_website/) · [Evidence 2](https://github.com/Dstate/ODEWorld)
 
 ---
 
