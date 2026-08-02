@@ -2,6 +2,44 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-07-31-robot-futuring-rl"></a>
+## [robot_futuring_rl 组装真机强化学习闭环](https://github.com/yuanshuacpu/robot_futuring_rl)
+
+**English:** [robot_futuring_rl assembles a real-robot reinforcement-learning loop](https://github.com/yuanshuacpu/robot_futuring_rl)
+
+- **发布 / Published:** `2026-07-31T06:12:27Z`
+- **来源 / Source:** [robot_futuring_rl](https://github.com/yuanshuacpu/robot_futuring_rl) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `robot-learning`, `reinforcement-learning`, `vla`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+robot_futuring_rl 是一个围绕 Physical Intelligence OpenPI 模型构建的开源工程栈，覆盖数据采集、策略训练、任务进度估计和真机强化学习。它将模型训练与 ROS2、PICO 遥操作及部署流程连接起来。
+
+robot_futuring_rl is an open-source engineering stack for collecting data, training policies, estimating task progress, and running reinforcement learning on physical robots around Physical Intelligence's OpenPI models. It connects model training to ROS2 and PICO-based teleoperation and deployment workflows.
+
+### 技术点 / Technical points
+
+- 仓库支持 pi0、pi0-FAST 和 pi0.5 的训练、微调与推理，并提供基于未来进度变化的优势加权行为克隆。
+  - The repository supports training, fine-tuning, and inference for pi0, pi0-FAST, and pi0.5, alongside advantage-weighted behavior cloning based on future progress changes.
+- 价值模型路径将 CLIP 特征与时序 Transformer 结合；两阶段 RL-token 路径先学习冻结策略的前缀表示，再进行 TD3+BC actor-critic 训练。
+  - Its value-model path combines CLIP features with a temporal Transformer, while a two-stage RL-token path first learns a frozen-policy prefix representation and then applies TD3+BC actor-critic training.
+- 进度与完成度标注、基于 LeRobot 的采集、ROS2 桥接和 PICO 遥操作构成硬件在环路径；此次发布未包含新的基准结果、检查点或数据集。
+  - Progress and completion labeling, LeRobot-based collection, a ROS2 bridge, and PICO teleoperation form the hardware-in-the-loop path; the release does not include new benchmark results, checkpoints, or datasets.
+
+### 为什么重要 / Why it matters
+
+该仓库把原本分散的真机学习闭环集中为可检查的工程实现，覆盖从数据采集到部署的流程；由于缺少打包产物，其证据主要支持工程可用性而非已达到的性能。
+
+The repository makes an otherwise fragmented real-robot learning loop inspectable in one place, spanning data collection through deployment, while its lack of packaged artifacts keeps the evidence focused on engineering availability rather than achieved performance.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/abs/2604.23073)
+
+---
+
 <a id="2026-07-30-ace-data-0"></a>
 ## [ACE-Data-0 在真实家庭中采集同步多模态具身数据](https://arxiv.org/abs/2607.28625)
 
