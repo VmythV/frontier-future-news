@@ -2,6 +2,116 @@
 
 # World models / 世界模型
 
+<a id="2026-08-03-worldexam-reactive-world-model-benchmark"></a>
+## [WorldExam 检验世界模型是否真正具有反应性](https://arxiv.org/abs/2608.02603)
+
+**English:** [WorldExam tests whether world models react rather than merely render](https://arxiv.org/abs/2608.02603)
+
+- **发布 / Published:** `2026-08-03T17:59:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02603) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `interactive-environments`, `evaluation`, `spatial-consistency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+WorldExam 提出一个评测生成式世界模型内在反应性的基准，而不只衡量画面质量或指令遵循。在相机、动作和语言驱动三类范式中，作者报告称，20 个受测模型都未能同时实现广泛控制和稳定的环境反应。
+
+WorldExam introduces a benchmark for inherent reactivity in generative world models rather than judging only visual quality or instruction following. Across camera-, action-, and language-driven paradigms, the authors report that none of 20 evaluated models combines broad control with consistently reactive environments.
+
+### 技术点 / Technical points
+
+- 该基准包含 1,474 个案例和八项任务，并从视觉质量、控制遵循、空间一致性和世界反应性四个层级组织评测。
+  - The benchmark contains 1,474 cases across eight tasks and organizes evaluation into visual quality, control adherence, spatial consistency, and world reactivity.
+- 相机驱动模型擅长镜头控制但缺少动态交互，动作驱动模型能精确控制主体但世界大多不响应，语言驱动模型则以复杂控制能力换取更强交互。
+  - Camera-driven models handle camera control well but lack dynamic interaction, action-driven models control subjects precisely but leave the world largely unresponsive, and language-driven models trade complex control for stronger interaction.
+- 项目仓库已经公开，但在采集时测试案例和数据集仍标注为即将发布。
+  - The project repository is public, but its test cases and dataset were still marked as coming soon at collection time.
+
+### 为什么重要 / Why it matters
+
+WorldExam 为可交互世界提供了比视觉保真度更严格的衡量尺度，但尚待发布的数据集目前限制了独立复现。
+
+WorldExam offers a more demanding yardstick for interactive worlds than visual fidelity alone, while the pending dataset release currently limits independent reproduction.
+
+### 链接 / Links
+
+[Evidence 1](https://worldexam.github.io/) · [Evidence 2](https://github.com/YuxueYang1204/WorldExam)
+
+---
+
+<a id="2026-08-02-dreamtrajectory-mobile-manipulation"></a>
+## [DreamTrajectory 用轨迹世界模型校准移动操作动作](https://arxiv.org/abs/2608.01381)
+
+**English:** [DreamTrajectory aligns mobile-manipulation actions with a trajectory world model](https://arxiv.org/abs/2608.01381)
+
+- **发布 / Published:** `2026-08-02T17:02:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01381) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `mobile-manipulation`, `trajectory-prediction`, `model-based-planning`, `language-conditioning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DreamTrajectory 是一种语言条件移动操作策略，同时预测意图层级的末端执行器轨迹和全身动作片段。轻量轨迹世界模型随后预测候选动作会产生的运动，并帮助选择最符合计划的候选项。
+
+DreamTrajectory is a language-conditioned mobile-manipulation policy that predicts an intention-level end-effector trajectory together with a whole-body action chunk. A lightweight trajectory world model then predicts the motion induced by candidate actions and helps select the candidate most consistent with the plan.
+
+### 技术点 / Technical points
+
+- 在测试时，搜索—预测—评分循环采样动作片段，利用轨迹模型前推其后果，并在执行前按其与目标轨迹的一致性评分。
+  - At test time, a search-predict-score loop samples action chunks, rolls their consequences forward with the trajectory model, and scores alignment against the intended trajectory before execution.
+- 作者报告 MS-HAB 成功率从基线的 32.3% 提升到加入轨迹引导后的 47.5%，再通过细化达到 54.8%。
+  - The authors report MS-HAB success rising from 32.3% for the baseline to 47.5% with trajectory guidance and 54.8% with refinement.
+- 三个真实移动操作任务的报告成功率分别为 63.3%、81.7% 和 90.0%；采集时尚未链接公开实现。
+  - Reported success rates on three real mobile-manipulation tasks are 63.3%, 81.7%, and 90.0%; no public implementation was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+DreamTrajectory 将紧凑世界模型用作在线动作校验器，而不只是视频生成器，从而把预测建模直接连接到具身规划。
+
+DreamTrajectory uses a compact world model as an online action verifier rather than only as a video generator, directly connecting predictive modeling to embodied planning.
+
+---
+
+<a id="2026-08-02-miniworld-streaming-world-model"></a>
+## [MiniWorld 将流式世界模型训练缩小到单台 8-GPU 服务器](https://arxiv.org/abs/2608.01127)
+
+**English:** [MiniWorld makes streaming world-model training reproducible on one 8-GPU server](https://arxiv.org/abs/2608.01127)
+
+- **发布 / Published:** `2026-08-02T09:57:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01127) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `streaming-video`, `simulation`, `robotics`, `diffusion`, `open-source`, `model-release`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+MiniWorld 从零训练流式视频世界模型，而不是改造双向视频生成器。它通过有界内存的流式架构，面向机器人动作和相机控制场景提供可复现的长周期预测。
+
+MiniWorld trains streaming video world models from scratch rather than adapting a bidirectional video generator. It targets reproducible long-horizon prediction for robot-action and camera-control settings with a bounded-memory streaming architecture.
+
+### 技术点 / Technical points
+
+- 该架构结合 block-causal Video DiT、rectified-flow 训练、分块 Diffusion Forcing、非递减噪声调度、滚动键值缓存和流水线异步去噪。
+  - The architecture combines a block-causal Video DiT with rectified-flow training, chunk-wise Diffusion Forcing, a non-decreasing noise schedule, rolling key-value caches, and pipelined asynchronous denoising.
+- 训练使用 DROID 机器人动作和 RealEstate10K 相机位姿；作者报告完整模型可在单台八卡服务器上从零训练数日完成。
+  - Training uses DROID robot actions and RealEstate10K camera poses; the authors report that a full model can be trained from scratch in several days on one eight-GPU server.
+- 训练与推理代码以及两个领域的 0.5B、1B 检查点已经公开，但更大检查点仍待发布，且采集时仓库未显示可识别许可证。
+  - Training and inference code plus 0.5B and 1B checkpoints for both domains are public, while larger checkpoints were still pending and the repository did not expose a recognized license at collection time.
+
+### 为什么重要 / Why it matters
+
+MiniWorld 降低了研究流式世界模型的硬件门槛，并为具身动作和相机条件生成同时提供可检查的训练产物。
+
+MiniWorld lowers the hardware barrier for experimenting with streaming world models and provides inspectable training artifacts for both embodied action and camera-conditioned generation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Zhao-Yian/MiniWorld) · [Evidence 2](https://huggingface.co/zhaoyian01/MiniWorld)
+
+---
+
 <a id="2026-07-30-ace-data-0"></a>
 ## [ACE-Data-0 在真实家庭中采集同步多模态具身数据](https://arxiv.org/abs/2607.28625)
 

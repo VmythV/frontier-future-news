@@ -2,6 +2,233 @@
 
 # Agents / 智能体
 
+<a id="2026-08-03-swe-touch-shared-workspace-benchmark"></a>
+## [SWE-Touch 评测共享工作区变化中的编程智能体](https://arxiv.org/abs/2608.02499)
+
+**English:** [SWE-Touch benchmarks coding agents in changing shared workspaces](https://arxiv.org/abs/2608.02499)
+
+- **发布 / Published:** `2026-08-03T17:03:19Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02499) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `collaboration`, `state-awareness`, `dataset`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SWE-Touch 在用户同步修改同一实时工作区时评测编程智能体。它在任务关键区域注入合理的 Counter-Edits，检验智能体能否发现并正确协调外部变化，而不是覆盖或忽略这些修改。
+
+SWE-Touch evaluates coding agents while a user edits the same live workspace. It introduces plausible Counter-Edits in task-critical regions to test whether agents notice and correctly reconcile external changes instead of overwriting or ignoring them.
+
+### 技术点 / Technical points
+
+- 作者在 SWE-bench Verified 以及更长周期的 SWE-Bench Pro 和 DeepSWE 上评测九个编程模型，报告平均解决率下降 7.7 个百分点。
+  - Across nine coding models evaluated on SWE-bench Verified and the longer-horizon SWE-Bench Pro and DeepSWE suites, the authors report an average resolve-rate drop of 7.7 percentage points.
+- 已发布的 v0.1.2 数据集覆盖 250 项任务：SWE-bench Verified 200 项、SWE-Bench Pro 25 项、DeepSWE 25 项，其中包含 242 个经独立验证的代码修改和八个有记录的纯消息回退案例。
+  - The released v0.1.2 dataset covers 250 tasks: 200 from SWE-bench Verified, 25 from SWE-Bench Pro, and 25 from DeepSWE, with 242 independently validated code edits and eight documented message-only fallbacks.
+- 基准代码、生成流程和数据集均已公开；它扩展 Harbor 执行框架，同时保留 Mini-SWE-Agent 循环。
+  - The benchmark code, generation pipeline, and dataset are public and extend the Harbor execution framework while preserving the Mini-SWE-Agent loop.
+
+### 为什么重要 / Why it matters
+
+较高的自主编程得分并不保证智能体能在人与智能体共享且持续变化的工作区中保持状态感知；SWE-Touch 让这种协作失败变得可测量。
+
+Strong autonomous coding scores do not guarantee that an agent can maintain state awareness when humans and agents share a changing workspace; SWE-Touch makes that collaboration failure measurable.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Trae1ounG/SWE-Touch) · [Evidence 2](https://huggingface.co/datasets/Trae1ounG/SWE-Touch)
+
+---
+
+<a id="2026-08-03-agent-trajectory-sentinel"></a>
+## [AgentTrajectorySentinel 实时检测并修复智能体失败](https://arxiv.org/abs/2608.02464)
+
+**English:** [AgentTrajectorySentinel detects and repairs agent failures in real time](https://arxiv.org/abs/2608.02464)
+
+- **发布 / Published:** `2026-08-03T16:34:46Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02464) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reliability`, `failure-detection`, `runtime-monitoring`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+AgentTrajectorySentinel 监控智能体的逐步遥测，在运行结束前检测轨迹失败，并通过回滚和重试进行在线修复。该预印本同时公开代码、轨迹、结果表、数据卡、声明台账和确定性核验脚本。
+
+AgentTrajectorySentinel monitors step-level agent telemetry to detect trajectory failures before a run ends, then uses rollback and retry for online repair. The preprint is accompanied by code, traces, result tables, a data card, a claim ledger, and deterministic verification scripts.
+
+### 技术点 / Technical points
+
+- 系统仅用健康轨迹训练 echo-state-network 集成并结合 CUSUM；在来自三个框架的 2,823 个 episode 上，作者报告在 5% 误报预算下检出率为 0.71、AUROC 为 0.872，每步开销约 200 微秒。
+  - An echo-state-network ensemble with CUSUM is trained only on healthy trajectories; across 2,823 episodes from three frameworks, the authors report 0.71 failure detection at a 5% false-alarm budget, AUROC 0.872, and roughly 200 microseconds of overhead per step.
+- 带定位信息的回滚重试将报告的任务成功率从 52% 提升到 73%，每次运行约增加一次模型调用，并在公开核验结果中优于盲目重采样。
+  - Located rollback-and-retry feedback raises reported task success from 52% to 73% while adding about one model call per run, outperforming blind resampling in the released verification results.
+- 面向具体部署的重新校准仍很重要：报告的冷迁移 AUROC 为 0.527，重新校准后为 0.885。
+  - Deployment-specific calibration remains important: reported cold-transfer AUROC is 0.527 versus 0.885 after recalibration.
+
+### 为什么重要 / Why it matters
+
+该工作把智能体可靠性从事后日志分析转变为低延迟控制闭环，并为新预印本提供了较完整的可检查材料；但迁移结果表明不能依赖通用阈值。
+
+The work turns agent reliability from post-run logging into a low-latency control loop and is unusually inspectable for a new preprint, although its transfer results caution against universal thresholds.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/sunnydubey1111/agent-trajectory-sentinel)
+
+---
+
+<a id="2026-08-03-microsoft-orchard-agent-training"></a>
+## [微软发布 Orchard，在真实智能体框架内训练开放模型](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/)
+
+**English:** [Microsoft releases Orchard for training agents inside real harnesses](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/)
+
+- **发布 / Published:** `2026-08-03T16:00:00Z`
+- **来源 / Source:** [Microsoft Research](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-training`, `reinforcement-learning`, `software-engineering`, `computer-use`, `deployment`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+微软研究院发布 Orchard，这是一个在实际部署所用框架内采集轨迹并训练智能体模型的开放框架。首批工作流通过 Codex、OpenClaw 和 ZeroClaw 环境覆盖软件工程、浏览器交互和个人助理任务。
+
+Microsoft Research released Orchard, an open framework for collecting trajectories and training agentic models inside the same harnesses used for deployment. Its initial workflows cover software engineering, browser interaction, and personal-assistant tasks through Codex, OpenClaw, and ZeroClaw environments.
+
+### 技术点 / Technical points
+
+- Orchard Env 使用 Kubernetes 为数千次 rollout 创建、管理和销毁隔离组件，每次 rollout 使用一个容器，并通过轻量代理记录现有智能体框架中的模型交互。
+  - Orchard Env uses Kubernetes to create, manage, and remove isolated components for thousands of rollouts, with one container per rollout and a lightweight proxy that records model interactions from existing harnesses.
+- Orchard-SWE 从 MiniMax-M2.5 和 Qwen3.5-397B 蒸馏 10.7 万次交互，并结合信用分配微调、平衡自适应 rollout、在线策略蒸馏和约 4B 参数的价值模型。
+  - Orchard-SWE distills 107,000 interactions from MiniMax-M2.5 and Qwen3.5-397B and combines credit-assignment fine-tuning, balanced adaptive rollout, on-policy distillation, and a roughly 4B-parameter value model.
+- 微软报告 SWE-bench Verified 从 61.4% 基线提升到 69.7%，重排后达到 73%；已发布的仓库和数据集便于检查，但基准结果仍为作者报告。
+  - Microsoft reports SWE-bench Verified improving from a 61.4% baseline to 69.7%, or 73% with reranking; the released repository and dataset support inspection, but the benchmark results remain author-reported.
+
+### 为什么重要 / Why it matters
+
+在真实部署框架内训练可以减少环境错配，使 Orchard 成为连接数据采集、强化学习和生产智能体执行的实用途径。
+
+Training inside real deployment harnesses can reduce environment mismatch and makes Orchard a practical bridge from data collection to reinforcement learning and production agent execution.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/microsoft/Orchard) · [Evidence 2](https://huggingface.co/datasets/microsoft/Orchard)
+[Discussion 1](https://news.ycombinator.com/item?id=49158402)
+
+---
+
+<a id="2026-08-03-qwen-cua-computer-use-agent"></a>
+## [Qwen-CUA 用纯截图训练原生计算机操作智能体](https://arxiv.org/abs/2608.02352)
+
+**English:** [Qwen-CUA trains a screenshot-only native computer-use agent](https://arxiv.org/abs/2608.02352)
+
+- **发布 / Published:** `2026-08-03T15:04:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02352) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `screenshot`, `reinforcement-learning`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `93/100`
+
+### 摘要 / Summary
+
+Qwen-CUA 是一个 397B-A17B 混合专家计算机操作智能体，仅观察屏幕截图并通过键盘和鼠标执行动作，不依赖 DOM、无障碍树或任务专用 API。其技术报告重点介绍可验证的大规模交互训练和长周期上下文管理。
+
+Qwen-CUA is a 397B-A17B mixture-of-experts computer-use agent that observes screenshots and acts through keyboard and mouse commands without DOM, accessibility-tree, or task-specific APIs. Its technical report focuses on verifiable large-scale interaction training and long-horizon context management.
+
+### 技术点 / Technical points
+
+- 运行框架保留最近最多 20 张截图，并将更早历史折叠为固定大小的数据块，在保留近期视觉证据的同时复用提示词前缀。
+  - The scaffold retains up to 20 recent screenshots and folds older history into fixed-size blocks, preserving recent visual evidence while allowing reusable prompt prefixes.
+- 团队报告 rollout 集群接近 10 万个 vCPU、数万个并发环境、约 4 万项可验证任务，并使用轨迹切片进行训练信用分配。
+  - The team reports a rollout fleet approaching 100,000 vCPUs, tens of thousands of concurrent environments, roughly 40,000 verifiable tasks, and trajectory slicing for training credit assignment.
+- 报告结果包括 OSWorld-Verified 86.2，以及相较 Qwen3.7 将 RedTeamCUA 攻击成功率从 36.6% 降至 16.4%；采集时尚未链接代码或模型权重。
+  - Reported results include 86.2 on OSWorld-Verified and a RedTeamCUA attack-success reduction from 36.6% to 16.4% versus Qwen3.7; no code or model weights were linked at collection time.
+
+### 为什么重要 / Why it matters
+
+该报告展示了如何在不使用特权界面表示的情况下，以基础设施规模训练纯截图计算机智能体，但独立复现仍有待公开产物。
+
+The report shows how screenshot-only computer agents may be trained at infrastructure scale without privileged interface representations, but independent reproduction awaits released artifacts.
+
+---
+
+<a id="2026-08-03-cloudflare-computer-agent-runtime"></a>
+## [Cloudflare Computer 为智能体统一 isolate、容器与浏览器工作区](https://blog.cloudflare.com/cloudflare-computer/)
+
+**English:** [Cloudflare Computer gives agents one workspace across isolates, containers, and browsers](https://blog.cloudflare.com/cloudflare-computer/)
+
+- **发布 / Published:** `2026-08-03T13:15:24Z`
+- **来源 / Source:** [Cloudflare](https://blog.cloudflare.com/cloudflare-computer/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `sandbox`, `filesystem`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Cloudflare 发布开源智能体运行时 Computer 的早期预览版。它在 Workers isolate、Linux 容器沙箱和浏览器之间调度任务，同时呈现一个持久工作区，并根据任务成本和隔离需求选择执行后端。
+
+Cloudflare released an early preview of Computer, an open-source agent runtime that dispatches work across Workers isolates, Linux container sandboxes, and browsers while presenting one persistent workspace. The runtime is intended to choose an execution backend according to task cost and isolation needs.
+
+### 技术点 / Technical points
+
+- 由 SQLite 支撑的持久虚拟文件系统在不同执行环境之间共享：isolate 使用直接绑定，容器则通过 FUSE 访问同一工作区。
+  - A durable virtual filesystem backed by SQLite is shared across execution environments: isolates use direct bindings, while containers access the same workspace through FUSE.
+- 文件、编辑、shell 和浏览器操作可以受控、审计和观测，使轻量任务留在 isolate 中，仅让较重任务进入容器。
+  - File, edit, shell, and browser operations can be gated, audited, and observed, allowing lightweight work to stay in isolates and only heavier tasks to enter a container.
+- Cloudflare 希望把必须使用容器的智能体工作降至 10% 以下，但这是设计目标而非已测得的生产结果；当前版本明确属于早期预览。
+  - Cloudflare's goal of needing containers for less than 10% of agent work is a design target, not a measured production result, and the release is explicitly an early preview.
+
+### 为什么重要 / Why it matters
+
+Computer 将沙箱视为异构运行时选择，而不是让每项智能体任务都等同于完整容器，有望降低启动成本，同时在需要时保留更强隔离。
+
+Computer treats sandboxing as a heterogeneous runtime decision rather than equating every agent task with a full container, potentially improving startup cost without giving up stronger isolation when needed.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/cloudflare/computer)
+[Discussion 1](https://news.ycombinator.com/item?id=49155598)
+
+---
+
+<a id="2026-08-03-qwen-3-8-max-launch"></a>
+## [通义千问正式发布 Qwen3.8-Max](https://x.com/Alibaba_Qwen/status/2084100707423289643)
+
+**English:** [Qwen formally launches Qwen3.8-Max](https://x.com/Alibaba_Qwen/status/2084100707423289643)
+
+- **发布 / Published:** `2026-08-03T02:15:04Z`
+- **来源 / Source:** [Qwen](https://x.com/Alibaba_Qwen/status/2084100707423289643) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `long-horizon`, `computer-use`, `multimodal`, `model-release`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+在此前预览后，通义千问通过 API 和托管界面正式发布 2.4T 参数的 Qwen3.8-Max，重点面向长周期编程、协作和视觉落地的智能体执行。此次公告展示的是持续自主工作流，而非普通聊天模型更新。
+
+Qwen formally launched the 2.4T-parameter Qwen3.8-Max through its API and hosted interface after an earlier preview, emphasizing long-horizon coding, cowork, and visually grounded agent execution. The announcement describes extended autonomous workflows rather than treating the release as a generic chat-model update.
+
+### 技术点 / Technical points
+
+- 通义千问公开了一条持续十余天的软件开发轨迹，从空目录构建面向生产的 CLI 项目，并展示超过 500 轮的芯片设计优化和按年度跨度规划的电商任务。
+  - Qwen published a software-development trace spanning more than ten days, from an empty folder to a production-oriented CLI project, alongside demonstrations of more than 500 turns of chip-design optimization and year-scale e-commerce planning.
+- 原生视觉反馈闭环让模型在计算机操作工作流中进行规划、执行、检查屏幕结果并纠正后续动作。
+  - A native visual feedback loop lets the model plan, execute, inspect screen results, and correct subsequent actions during computer-use workflows.
+- 发布时 API 定价为每百万输入 token 2 美元、每百万输出 token 6 美元；Max 和 27B 变体的开放权重仅承诺后续发布，当时尚不可用。
+  - At launch, API pricing was listed at $2 per million input tokens and $6 per million output tokens, while open weights for Max and a 27B variant were promised for a later release and were not yet available.
+
+### 为什么重要 / Why it matters
+
+此次发布推动托管前沿模型执行持续数百步、具有视觉依据的工作，但最强能力仍来自厂商演示，承诺开放的权重也需待发布后单独评估。
+
+The launch pushes hosted frontier models toward persistent, visually grounded work over hundreds of steps, but the strongest capability claims are vendor demonstrations and the promised open weights must be evaluated separately when released.
+
+### 链接 / Links
+
+[Evidence 1](https://qwen.ai/blog?id=qwen3.8) · [Evidence 2](https://github.com/qwen-code-dev-bot/oh-my-cli)
+[Discussion 1](https://news.ycombinator.com/item?id=49150470)
+
+---
+
 <a id="2026-07-31-qm-multiplayer-agent-harness"></a>
 ## [qm 为智能体运行框架带来多人协作工作空间](https://github.com/yc-software/qm)
 
