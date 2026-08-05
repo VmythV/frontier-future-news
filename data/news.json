@@ -2,6 +2,108 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-04-isolade-secretless-agent-workbench",
+      "published_at": "2026-08-04T12:42:07Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "sandbox",
+        "microvm",
+        "security",
+        "local-first",
+        "open-source"
+      ],
+      "title_en": "Isolade isolates local coding agents in secretless microVMs",
+      "title_zh": "Isolade 用无密钥 microVM 隔离本地编程智能体",
+      "summary_en": "Isolade publicly launched a local-first coding-agent workbench that runs each agent in a separate microVM. Credentials remain outside the guest and are substituted at configured network boundaries, while the workbench supports parallel repositories and multiple agent providers.",
+      "summary_zh": "Isolade 公开发布一款本地优先的编程智能体工作台，让每个智能体运行在独立 microVM 中。凭证保留在虚拟机之外，并只在配置好的网络边界完成替换；工作台还支持并行仓库和多家智能体供应商。",
+      "tech_points_en": [
+        "Each agent receives isolated compute, filesystem, and network policy, while prewarmed repository profiles reduce repeated environment setup.",
+        "A host-side proxy substitutes credentials only for configured destinations and headers, so provider secrets are not placed inside the guest VM.",
+        "The project supports official agent binaries, subscription-based providers, and cross-provider subagents, but its security architecture has not been independently audited."
+      ],
+      "tech_points_zh": [
+        "每个智能体拥有隔离的计算、文件系统和网络策略，预热的仓库配置则减少重复环境准备。",
+        "宿主侧代理只为配置好的目标和请求头替换凭证，因此供应商密钥不会被放入来宾虚拟机。",
+        "项目支持官方智能体二进制程序、订阅式供应商和跨供应商子智能体，但其安全架构尚未经过独立审计。"
+      ],
+      "why_it_matters_en": "Isolade moves coding-agent security boundaries from prompt-level rules into virtualization and network credential handling, offering a concrete local-first design for running mutually untrusted agents.",
+      "why_it_matters_zh": "Isolade 将编程智能体的安全边界从提示层规则下沉到虚拟化和网络凭证处理，为运行相互不可信的智能体提供了具体的本地优先设计。",
+      "source": {
+        "name": "Isolade",
+        "type": "primary",
+        "url": "https://github.com/isolade/isolade",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49168002"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-04-longhorizon-harness",
+      "published_at": "2026-08-04T04:30:58Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "long-horizon",
+        "computer-use",
+        "agent-runtime",
+        "evaluation",
+        "verification",
+        "open-source"
+      ],
+      "title_en": "LongHorizon-Harness sustains computer-use work through manage-execute-audit loops",
+      "title_zh": "LongHorizon-Harness 用管理—执行—审计循环延长计算机操作任务",
+      "summary_en": "LongHorizon-Harness is an open framework for sustaining long-running computer-use tasks across Claude Code, Codex, and OpenClaw. It separates planning, execution, and independent verification so that work can continue across refreshed agent contexts without discarding task state.",
+      "summary_zh": "LongHorizon-Harness 是一个面向 Claude Code、Codex 和 OpenClaw 的开放框架，用于持续执行长时间计算机操作任务。它将规划、执行和独立核验分离，使工作能够跨越刷新的智能体上下文继续进行，同时保留任务状态。",
+      "tech_points_en": [
+        "A Manager decomposes and tracks the task, an Executor performs each round with fresh context, and an Auditor independently checks files, interfaces, logs, and tests.",
+        "Run directories preserve task state, event streams, audit results, trajectories, workspaces, and final reports for inspection and recovery.",
+        "The authors report raising WeaveBench pass rate from 51.8% to 80.7% and Terminal-Bench 2.1 from 69.7% to 77.2% while using 24% fewer tokens; these results have not been independently reproduced."
+      ],
+      "tech_points_zh": [
+        "Manager 负责拆解和跟踪任务，Executor 在每轮使用新上下文执行，Auditor 则独立检查文件、界面、日志和测试。",
+        "运行目录保留任务状态、事件流、审计结果、轨迹、工作区和最终报告，便于检查与恢复。",
+        "作者报告称，WeaveBench 通过率从 51.8% 提升到 80.7%，Terminal-Bench 2.1 从 69.7% 提升到 77.2%，同时减少 24% token；这些结果尚未独立复现。"
+      ],
+      "why_it_matters_en": "The framework directly targets context exhaustion, state drift, and false completion, three recurring failure modes when agents operate computers for many steps.",
+      "why_it_matters_zh": "该框架直接处理上下文耗尽、状态漂移和虚假完成，这是智能体长时间操作计算机时反复出现的三类失败。",
+      "source": {
+        "name": "AMAP-ML",
+        "type": "primary",
+        "url": "https://github.com/AMAP-ML/LongHorizon-Harness",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://lh-harness.pages.dev/"
+      ],
+      "confidence": "high",
+      "score": 93,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 6
+      }
+    },
+    {
       "id": "2026-08-03-worldexam-reactive-world-model-benchmark",
       "published_at": "2026-08-03T17:59:54Z",
       "collected_at": "2026-08-04T03:42:20Z",
@@ -256,6 +358,103 @@
       }
     },
     {
+      "id": "2026-08-03-chainvla-unified-execution-state",
+      "published_at": "2026-08-03T14:48:20Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "long-horizon",
+        "memory",
+        "bimanual-manipulation",
+        "benchmark"
+      ],
+      "title_en": "ChainVLA carries a unified execution state across long-horizon manipulation queries",
+      "title_zh": "ChainVLA 用统一执行状态衔接长周期操作查询",
+      "summary_en": "ChainVLA is a 1.2B-parameter vision-language-action model that links successive receding-horizon queries through a joint, revisable execution state. Each new prediction inherits both completed task progress and the unexecuted continuation of the previous action horizon instead of restarting from the current observation alone.",
+      "summary_zh": "ChainVLA 是一个 1.2B 参数的视觉—语言—动作模型，通过联合且可修订的执行状态衔接连续的滚动时域查询。每次新预测都会继承已完成的任务进度和上一动作时域尚未执行的部分，而不是只根据当前观测重新开始。",
+      "tech_points_en": [
+        "Progress Context combines a recurrent Working State with Sparse Event Memory so evidence that has left the current view can still condition later decisions.",
+        "Motion Tail carries the previous prediction's unfinished suffix into state construction and trajectory initialization, while the decoder regenerates the full horizon under the latest observation.",
+        "The authors report 62.8% average success on RMBench and 98.8% across four LIBERO suites; comparison rows on the project page were not rerun under a common protocol."
+      ],
+      "tech_points_zh": [
+        "Progress Context 将循环 Working State 与 Sparse Event Memory 结合，使已经离开当前视野的证据仍可影响后续决策。",
+        "Motion Tail 把上一预测未完成的后缀带入状态构建和轨迹初始化，而解码器会依据最新观测重新生成完整时域。",
+        "作者报告 RMBench 平均成功率为 62.8%，四套 LIBERO 平均为 98.8%；项目页中的比较结果并未在统一协议下重新运行。"
+      ],
+      "why_it_matters_en": "ChainVLA reframes long-horizon manipulation as maintaining a continuous but revisable execution state, addressing both memory loss and motion discontinuity at query boundaries.",
+      "why_it_matters_zh": "ChainVLA 将长周期操作重新定义为维护连续但可修订的执行状态，同时处理查询边界上的记忆丢失和动作不连续。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.02326",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://muqy1818.github.io/chainvla-web/"
+      ],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-03-panovla-mobile-manipulation",
+      "published_at": "2026-08-03T14:03:26Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "mobile-manipulation",
+        "bimanual-manipulation",
+        "panoramic-vision",
+        "teleoperation",
+        "dataset"
+      ],
+      "title_en": "PanoVLA adds panoramic spatial context to mobile bimanual manipulation",
+      "title_zh": "PanoVLA 为移动双臂操作加入全景空间上下文",
+      "summary_en": "PanoVLA gives a wheeled bimanual robot panoramic spatial context for mobile manipulation instead of limiting the policy to local camera views. The work combines a virtual-reality whole-body teleoperation system, a 5.5-hour real-world demonstration dataset, and a panorama-conditioned vision-language-action model.",
+      "summary_zh": "PanoVLA 为轮式双臂机器人的移动操作提供全景空间上下文，而不是把策略限制在局部相机视野中。该工作结合虚拟现实全身遥操作系统、5.5 小时真实演示数据集和以全景为条件的视觉—语言—动作模型。",
+      "tech_points_en": [
+        "A Mixture-of-Transformers architecture encodes multiple panorama views and fuses them with language instructions and robot state.",
+        "Across four real-world mobile-manipulation tasks, the authors report 91.3% average stage completion and 73.4% end-to-end success, outperforming local-view baselines."
+      ],
+      "tech_points_zh": [
+        "Mixture-of-Transformers 架构编码多个全景视图，并将其与语言指令和机器人状态融合。",
+        "在四项真实移动操作任务中，作者报告平均阶段完成率为 91.3%、端到端成功率为 73.4%，优于局部视野基线。"
+      ],
+      "why_it_matters_en": "Panoramic context can preserve spatial information as a mobile robot moves and targets leave its current view, a recurring limitation in long-horizon mobile manipulation.",
+      "why_it_matters_zh": "全景上下文可以在移动机器人运动、目标离开当前视野时保留空间信息，从而缓解长周期移动操作中的常见限制。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.02257",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
       "id": "2026-08-03-cloudflare-computer-agent-runtime",
       "published_at": "2026-08-03T13:15:24Z",
       "collected_at": "2026-08-04T03:42:20Z",
@@ -304,6 +503,201 @@
         "evidence": 24,
         "novelty": 16,
         "technical_depth": 13,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-03-real-time-world-action-models",
+      "published_at": "2026-08-03T08:24:36Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "world-action-model",
+        "bimanual-manipulation",
+        "real-time",
+        "action-generation",
+        "predictive-control"
+      ],
+      "title_en": "Real-time WAM study finds temporal alignment matters more than action blending",
+      "title_zh": "实时 WAM 研究显示时间对齐比动作混合更关键",
+      "summary_en": "A real-time world-action-model study compares six deployment strategies on a 10 Hz bimanual robot across dynamic manipulation, precision placement, and long-horizon tasks. The experiments identify temporal alignment between observation, inference, and execution as a more fundamental constraint than smoothing independently generated action chunks after prediction.",
+      "summary_zh": "一项实时世界动作模型研究在 10 Hz 双臂机器人上比较六种部署策略，覆盖动态操作、精密放置和长周期任务。实验指出，观测、推理与执行之间的时间对齐，比预测后平滑独立生成的动作块更为根本。",
+      "tech_points_en": [
+        "The evaluation covers synchronous execution, pure asynchronous switching, post-hoc blending, denoising-time blending, inference-time velocity guidance, and prefix-conditioned generation.",
+        "The authors find that blending cannot repair temporal misalignment, action weighting improves smoothness at the cost of precision, and velocity guidance is unreliable.",
+        "Prefix-conditioned generation provides the strongest reported balance of task performance, execution speed, and smoothness across the tested settings."
+      ],
+      "tech_points_zh": [
+        "评测覆盖同步执行、纯异步切换、事后混合、去噪期间混合、推理期间速度引导和前缀条件生成。",
+        "作者发现，动作混合无法修复时间错位，动作加权以精度为代价提升平滑度，而速度引导表现不稳定。",
+        "在受测设置中，前缀条件生成在任务表现、执行速度和平滑度之间提供了作者报告的最佳平衡。"
+      ],
+      "why_it_matters_en": "The comparison turns real-time generative robot control into a concrete systems question and provides deployment guidance beyond simply increasing policy sampling frequency.",
+      "why_it_matters_zh": "该比较把实时生成式机器人控制转化为具体的系统问题，并提供了超越单纯提高策略采样频率的部署指导。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.01880",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-03-worlddyncache-diffusion-world-models",
+      "published_at": "2026-08-03T07:52:55Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "world-model",
+        "diffusion-model",
+        "inference-acceleration",
+        "latent-dynamics",
+        "caching"
+      ],
+      "title_en": "WorldDynCache accelerates diffusion world models with risk-controlled latent approximation",
+      "title_zh": "WorldDynCache 用风险控制的潜空间近似加速扩散世界模型",
+      "summary_en": "WorldDynCache accelerates diffusion world models by evolving selected latent states with a lightweight dynamics surrogate instead of repeatedly evaluating the full transformer. A risk estimator tracks the likely future impact of approximation error and triggers exact-model anchors when reuse becomes unsafe.",
+      "summary_zh": "WorldDynCache 使用轻量动力学替代模型演化部分潜状态，从而避免反复运行完整 Transformer，加速扩散世界模型。风险估计器跟踪近似误差对未来的潜在影响，并在复用不再安全时触发精确模型锚点。",
+      "tech_points_en": [
+        "The latent-transition risk estimator tracks accumulated downstream impact and is calibrated against defects measured from exact-anchor counterfactuals.",
+        "A condition- and phase-aware lifted latent surrogate advances hidden state without additional transformer evaluations.",
+        "The authors report 4.92x acceleration on HunyuanVoyager-13B and 2.15x on Aether-5B while comparing visual and world-model quality metrics; no public implementation was linked at collection time."
+      ],
+      "tech_points_zh": [
+        "潜状态转移风险估计器跟踪误差累积的下游影响，并依据精确锚点反事实所测得的缺陷进行校准。",
+        "一个感知条件和阶段的提升潜变量替代模型在不额外运行 Transformer 的情况下推进隐藏状态。",
+        "作者报告 HunyuanVoyager-13B 加速 4.92 倍、Aether-5B 加速 2.15 倍，并比较视觉与世界模型质量指标；采集时未链接公开实现。"
+      ],
+      "why_it_matters_en": "Risk-aware reuse offers a more adaptive route to interactive world-model inference than fixed cache schedules, which cannot account for when approximation errors will compound.",
+      "why_it_matters_zh": "风险感知复用为交互式世界模型推理提供了比固定缓存计划更自适应的路径，因为后者无法判断近似误差何时会累积。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.01845",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-03-teleopit-humanoid-teleoperation",
+      "published_at": "2026-08-03T07:45:13Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid",
+        "teleoperation",
+        "dexterous-manipulation",
+        "active-vision",
+        "imitation-learning"
+      ],
+      "title_en": "Teleopit maps full-body, hand, and head VR signals onto a humanoid",
+      "title_zh": "Teleopit 将身体、双手与头部 VR 信号统一映射到人形机器人",
+      "summary_en": "Teleopit is a full-embodiment teleoperation framework that maps an operator's body, hands, and head motion from virtual reality onto a humanoid robot. It combines whole-body locomotion, configurable dexterous-hand retargeting, and two-degree-of-freedom active vision in one data-collection interface.",
+      "summary_zh": "Teleopit 是一个全具身遥操作框架，将操作者在虚拟现实中的身体、双手和头部运动映射到人形机器人。它在同一数据采集界面中结合全身移动、可配置的灵巧手重定向和两自由度主动视觉。",
+      "tech_points_en": [
+        "A history encoder and failure-aware rewind sampling are designed to preserve useful demonstrations while recovering from unsuccessful execution segments.",
+        "The optimization-based hand retargeter uses normalized directions, fingertip closure, and thumb alignment to transfer motion across different robotic hand geometries.",
+        "ACT and GR00T N1.7 policies trained on 96 successful demonstrations reach author-reported success rates of 90% and 95% on the humanoid platform."
+      ],
+      "tech_points_zh": [
+        "历史编码器和失败感知回退采样旨在保留有用演示，同时从执行失败片段中恢复。",
+        "基于优化的手部重定向器使用归一化方向、指尖闭合和拇指对齐，在不同机器人手型之间迁移动作。",
+        "基于 96 条成功演示训练的 ACT 和 GR00T N1.7 策略，在人形平台上取得作者报告的 90% 和 95% 成功率。"
+      ],
+      "why_it_matters_en": "A unified interface for locomotion, dexterous manipulation, and viewpoint control can make humanoid demonstration collection more coherent and reduce the gap between teleoperation and learned policy execution.",
+      "why_it_matters_zh": "统一覆盖移动、灵巧操作和视点控制的接口，可以让人形机器人演示采集更加连贯，并缩小遥操作与学习策略执行之间的差距。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.01834",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://botrunner64.github.io/Teleopit/"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-03-retouch-tactile-vla",
+      "published_at": "2026-08-03T07:31:10Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "tactile-sensing",
+        "dexterous-manipulation",
+        "feedback-control",
+        "dataset"
+      ],
+      "title_en": "ReTouch refines contact-rich VLA control with online tactile prediction",
+      "title_zh": "ReTouch 用在线触觉预测修正接触式 VLA",
+      "summary_en": "ReTouch is a vision-language-action model for contact-rich dexterous manipulation that predicts future tactile states and refines action chunks as new touch observations arrive. The approach turns tactile input into an online feedback signal rather than using it only as passive conditioning.",
+      "summary_zh": "ReTouch 是一个面向接触密集型灵巧操作的视觉—语言—动作模型，它预测未来触觉状态，并随着新触觉观测到来修正动作块。该方法把触觉输入变成在线反馈信号，而不只是被动条件。",
+      "tech_points_en": [
+        "A Tactile-Patch Encoder preserves finger identity and local contact structure, while a high-frequency module jointly predicts future tactile states and action chunks.",
+        "The XHT-Dataset contains 900 real-world demonstrations across seven tasks using an XHand mounted on a UR7e arm.",
+        "The authors report gains of 18.4 percentage points under standard conditions and 23.8 points under challenging conditions over the strongest baseline; no public code or dataset was linked at collection time."
+      ],
+      "tech_points_zh": [
+        "Tactile-Patch Encoder 保留手指身份和局部接触结构，高频模块则联合预测未来触觉状态与动作块。",
+        "XHT-Dataset 包含七项任务的 900 条真实演示，使用安装在 UR7e 机械臂上的 XHand 采集。",
+        "作者报告相对最强基线在标准条件下提升 18.4 个百分点、在挑战条件下提升 23.8 个百分点；采集时未链接公开代码或数据集。"
+      ],
+      "why_it_matters_en": "Closing the tactile feedback loop can improve robustness in insertion, grasping, and other interactions where visual observations alone do not reveal contact forces or slip.",
+      "why_it_matters_zh": "闭合触觉反馈回路有望提高插接、抓取等任务的稳健性，因为仅靠视觉观测无法揭示接触力或滑移。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.01824",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 19,
+        "technical_depth": 15,
         "traction": 3
       }
     },
@@ -358,6 +752,102 @@
         "novelty": 17,
         "technical_depth": 13,
         "traction": 10
+      }
+    },
+    {
+      "id": "2026-08-02-localized-multi-agent-debate",
+      "published_at": "2026-08-02T19:47:03Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "reasoning",
+        "debate",
+        "evaluation",
+        "efficiency"
+      ],
+      "title_en": "LMAD confines multi-agent debate to the point where reasoning diverges",
+      "title_zh": "LMAD 只在推理分歧点展开多智能体辩论",
+      "summary_en": "Localized Multi-Agent Debate represents reasoning as typed trace nodes, identifies the earliest point where agents disagree, and debates only that local segment. A guarded shared state preserves accepted reasoning instead of repeatedly reopening the entire solution.",
+      "summary_zh": "Localized Multi-Agent Debate 将推理表示为带类型的轨迹节点，定位智能体最早出现分歧的位置，并只对该局部片段展开辩论。受保护的共享状态会保留已经接受的推理，而不是反复重新讨论完整解答。",
+      "tech_points_en": [
+        "The protocol localizes the earliest conflicting node, restricts debate to its dependency segment, and commits revisions through guarded shared state.",
+        "Under a fixed configuration spanning four multi-hop question-answering benchmarks, ten backbones, and four model families, the authors report the highest macro-average judge accuracy for every backbone.",
+        "The largest reported gain is 7.20 percentage points over the strongest conventional debate baseline; no public implementation was linked at collection time."
+      ],
+      "tech_points_zh": [
+        "该协议定位最早冲突节点，将辩论限制在其依赖片段，并通过受保护的共享状态提交修订。",
+        "在覆盖四个多跳问答基准、十种骨干模型和四个模型家族的固定配置下，作者报告该方法在每种骨干模型上都取得最高宏平均裁判准确率。",
+        "相对最强传统辩论基线的最大报告提升为 7.20 个百分点；采集时未链接公开实现。"
+      ],
+      "why_it_matters_en": "Localizing disagreement can reduce the inference cost and instability of full-transcript multi-agent debate while retaining reasoning that agents already agree on.",
+      "why_it_matters_zh": "定位分歧可以降低全文多智能体辩论的推理成本和不稳定性，同时保留智能体已经达成一致的推理。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.01463",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-02-super-simple-software-factory",
+      "published_at": "2026-08-02T17:41:00Z",
+      "collected_at": "2026-08-04T12:42:43Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "multi-agent",
+        "workflow",
+        "orchestration",
+        "open-source"
+      ],
+      "title_en": "Super Simple Software Factory puts deterministic Python around bounded coding agents",
+      "title_zh": "Super Simple Software Factory 用确定性 Python 编排有边界的编程智能体",
+      "summary_en": "Super Simple Software Factory is an open workflow template that treats coding agents as bounded graph nodes while deterministic Python owns orchestration and state transitions. Agents propose typed outputs, but executable code controls gates, commits, migrations, and other consequential operations.",
+      "summary_zh": "Super Simple Software Factory 是一个开放工作流模板，将编程智能体视为有边界的图节点，并由确定性 Python 掌管编排和状态转换。智能体提出类型化输出，而门控、提交、迁移等重要操作由可执行代码控制。",
+      "tech_points_en": [
+        "YAML configuration defines named phases, while Pydantic JSON envelopes constrain agent outputs and SQLite records the durable event stream.",
+        "The project includes installation drift checks, smoke tests, model-provider rosters, and an example branch with a stamped repository, demo application, and execution traces.",
+        "The repository had only one initial commit and no comparative evaluation at collection time, so its current evidence is implementation depth rather than demonstrated performance."
+      ],
+      "tech_points_zh": [
+        "YAML 配置定义具名阶段，Pydantic JSON 封装约束智能体输出，SQLite 则记录持久事件流。",
+        "项目包含安装漂移检查、冒烟测试、模型供应商清单，以及带模板化仓库、演示应用和执行轨迹的示例分支。",
+        "采集时仓库只有一次初始提交且没有比较评测，因此当前证据主要来自实现深度，而非已证明的性能。"
+      ],
+      "why_it_matters_en": "The project offers a compact reference for separating probabilistic agent proposals from deterministic workflow control, improving auditability in multi-agent software production.",
+      "why_it_matters_zh": "该项目提供了一个小型参考实现，将概率性的智能体提案与确定性的工作流控制分离，从而提高多智能体软件生产的可审计性。",
+      "source": {
+        "name": "disler",
+        "type": "primary",
+        "url": "https://github.com/disler/super-simple-software-factory",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 6
       }
     },
     {

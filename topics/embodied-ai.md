@@ -2,6 +2,182 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-03-chainvla-unified-execution-state"></a>
+## [ChainVLA 用统一执行状态衔接长周期操作查询](https://arxiv.org/abs/2608.02326)
+
+**English:** [ChainVLA carries a unified execution state across long-horizon manipulation queries](https://arxiv.org/abs/2608.02326)
+
+- **发布 / Published:** `2026-08-03T14:48:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02326) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `long-horizon`, `memory`, `bimanual-manipulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ChainVLA 是一个 1.2B 参数的视觉—语言—动作模型，通过联合且可修订的执行状态衔接连续的滚动时域查询。每次新预测都会继承已完成的任务进度和上一动作时域尚未执行的部分，而不是只根据当前观测重新开始。
+
+ChainVLA is a 1.2B-parameter vision-language-action model that links successive receding-horizon queries through a joint, revisable execution state. Each new prediction inherits both completed task progress and the unexecuted continuation of the previous action horizon instead of restarting from the current observation alone.
+
+### 技术点 / Technical points
+
+- Progress Context 将循环 Working State 与 Sparse Event Memory 结合，使已经离开当前视野的证据仍可影响后续决策。
+  - Progress Context combines a recurrent Working State with Sparse Event Memory so evidence that has left the current view can still condition later decisions.
+- Motion Tail 把上一预测未完成的后缀带入状态构建和轨迹初始化，而解码器会依据最新观测重新生成完整时域。
+  - Motion Tail carries the previous prediction's unfinished suffix into state construction and trajectory initialization, while the decoder regenerates the full horizon under the latest observation.
+- 作者报告 RMBench 平均成功率为 62.8%，四套 LIBERO 平均为 98.8%；项目页中的比较结果并未在统一协议下重新运行。
+  - The authors report 62.8% average success on RMBench and 98.8% across four LIBERO suites; comparison rows on the project page were not rerun under a common protocol.
+
+### 为什么重要 / Why it matters
+
+ChainVLA 将长周期操作重新定义为维护连续但可修订的执行状态，同时处理查询边界上的记忆丢失和动作不连续。
+
+ChainVLA reframes long-horizon manipulation as maintaining a continuous but revisable execution state, addressing both memory loss and motion discontinuity at query boundaries.
+
+### 链接 / Links
+
+[Evidence 1](https://muqy1818.github.io/chainvla-web/)
+
+---
+
+<a id="2026-08-03-panovla-mobile-manipulation"></a>
+## [PanoVLA 为移动双臂操作加入全景空间上下文](https://arxiv.org/abs/2608.02257)
+
+**English:** [PanoVLA adds panoramic spatial context to mobile bimanual manipulation](https://arxiv.org/abs/2608.02257)
+
+- **发布 / Published:** `2026-08-03T14:03:26Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02257) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `mobile-manipulation`, `bimanual-manipulation`, `panoramic-vision`, `teleoperation`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PanoVLA 为轮式双臂机器人的移动操作提供全景空间上下文，而不是把策略限制在局部相机视野中。该工作结合虚拟现实全身遥操作系统、5.5 小时真实演示数据集和以全景为条件的视觉—语言—动作模型。
+
+PanoVLA gives a wheeled bimanual robot panoramic spatial context for mobile manipulation instead of limiting the policy to local camera views. The work combines a virtual-reality whole-body teleoperation system, a 5.5-hour real-world demonstration dataset, and a panorama-conditioned vision-language-action model.
+
+### 技术点 / Technical points
+
+- Mixture-of-Transformers 架构编码多个全景视图，并将其与语言指令和机器人状态融合。
+  - A Mixture-of-Transformers architecture encodes multiple panorama views and fuses them with language instructions and robot state.
+- 在四项真实移动操作任务中，作者报告平均阶段完成率为 91.3%、端到端成功率为 73.4%，优于局部视野基线。
+  - Across four real-world mobile-manipulation tasks, the authors report 91.3% average stage completion and 73.4% end-to-end success, outperforming local-view baselines.
+
+### 为什么重要 / Why it matters
+
+全景上下文可以在移动机器人运动、目标离开当前视野时保留空间信息，从而缓解长周期移动操作中的常见限制。
+
+Panoramic context can preserve spatial information as a mobile robot moves and targets leave its current view, a recurring limitation in long-horizon mobile manipulation.
+
+---
+
+<a id="2026-08-03-real-time-world-action-models"></a>
+## [实时 WAM 研究显示时间对齐比动作混合更关键](https://arxiv.org/abs/2608.01880)
+
+**English:** [Real-time WAM study finds temporal alignment matters more than action blending](https://arxiv.org/abs/2608.01880)
+
+- **发布 / Published:** `2026-08-03T08:24:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01880) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `bimanual-manipulation`, `real-time`, `action-generation`, `predictive-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项实时世界动作模型研究在 10 Hz 双臂机器人上比较六种部署策略，覆盖动态操作、精密放置和长周期任务。实验指出，观测、推理与执行之间的时间对齐，比预测后平滑独立生成的动作块更为根本。
+
+A real-time world-action-model study compares six deployment strategies on a 10 Hz bimanual robot across dynamic manipulation, precision placement, and long-horizon tasks. The experiments identify temporal alignment between observation, inference, and execution as a more fundamental constraint than smoothing independently generated action chunks after prediction.
+
+### 技术点 / Technical points
+
+- 评测覆盖同步执行、纯异步切换、事后混合、去噪期间混合、推理期间速度引导和前缀条件生成。
+  - The evaluation covers synchronous execution, pure asynchronous switching, post-hoc blending, denoising-time blending, inference-time velocity guidance, and prefix-conditioned generation.
+- 作者发现，动作混合无法修复时间错位，动作加权以精度为代价提升平滑度，而速度引导表现不稳定。
+  - The authors find that blending cannot repair temporal misalignment, action weighting improves smoothness at the cost of precision, and velocity guidance is unreliable.
+- 在受测设置中，前缀条件生成在任务表现、执行速度和平滑度之间提供了作者报告的最佳平衡。
+  - Prefix-conditioned generation provides the strongest reported balance of task performance, execution speed, and smoothness across the tested settings.
+
+### 为什么重要 / Why it matters
+
+该比较把实时生成式机器人控制转化为具体的系统问题，并提供了超越单纯提高策略采样频率的部署指导。
+
+The comparison turns real-time generative robot control into a concrete systems question and provides deployment guidance beyond simply increasing policy sampling frequency.
+
+---
+
+<a id="2026-08-03-teleopit-humanoid-teleoperation"></a>
+## [Teleopit 将身体、双手与头部 VR 信号统一映射到人形机器人](https://arxiv.org/abs/2608.01834)
+
+**English:** [Teleopit maps full-body, hand, and head VR signals onto a humanoid](https://arxiv.org/abs/2608.01834)
+
+- **发布 / Published:** `2026-08-03T07:45:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01834) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `teleoperation`, `dexterous-manipulation`, `active-vision`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Teleopit 是一个全具身遥操作框架，将操作者在虚拟现实中的身体、双手和头部运动映射到人形机器人。它在同一数据采集界面中结合全身移动、可配置的灵巧手重定向和两自由度主动视觉。
+
+Teleopit is a full-embodiment teleoperation framework that maps an operator's body, hands, and head motion from virtual reality onto a humanoid robot. It combines whole-body locomotion, configurable dexterous-hand retargeting, and two-degree-of-freedom active vision in one data-collection interface.
+
+### 技术点 / Technical points
+
+- 历史编码器和失败感知回退采样旨在保留有用演示，同时从执行失败片段中恢复。
+  - A history encoder and failure-aware rewind sampling are designed to preserve useful demonstrations while recovering from unsuccessful execution segments.
+- 基于优化的手部重定向器使用归一化方向、指尖闭合和拇指对齐，在不同机器人手型之间迁移动作。
+  - The optimization-based hand retargeter uses normalized directions, fingertip closure, and thumb alignment to transfer motion across different robotic hand geometries.
+- 基于 96 条成功演示训练的 ACT 和 GR00T N1.7 策略，在人形平台上取得作者报告的 90% 和 95% 成功率。
+  - ACT and GR00T N1.7 policies trained on 96 successful demonstrations reach author-reported success rates of 90% and 95% on the humanoid platform.
+
+### 为什么重要 / Why it matters
+
+统一覆盖移动、灵巧操作和视点控制的接口，可以让人形机器人演示采集更加连贯，并缩小遥操作与学习策略执行之间的差距。
+
+A unified interface for locomotion, dexterous manipulation, and viewpoint control can make humanoid demonstration collection more coherent and reduce the gap between teleoperation and learned policy execution.
+
+### 链接 / Links
+
+[Evidence 1](https://botrunner64.github.io/Teleopit/)
+
+---
+
+<a id="2026-08-03-retouch-tactile-vla"></a>
+## [ReTouch 用在线触觉预测修正接触式 VLA](https://arxiv.org/abs/2608.01824)
+
+**English:** [ReTouch refines contact-rich VLA control with online tactile prediction](https://arxiv.org/abs/2608.01824)
+
+- **发布 / Published:** `2026-08-03T07:31:10Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01824) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `tactile-sensing`, `dexterous-manipulation`, `feedback-control`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ReTouch 是一个面向接触密集型灵巧操作的视觉—语言—动作模型，它预测未来触觉状态，并随着新触觉观测到来修正动作块。该方法把触觉输入变成在线反馈信号，而不只是被动条件。
+
+ReTouch is a vision-language-action model for contact-rich dexterous manipulation that predicts future tactile states and refines action chunks as new touch observations arrive. The approach turns tactile input into an online feedback signal rather than using it only as passive conditioning.
+
+### 技术点 / Technical points
+
+- Tactile-Patch Encoder 保留手指身份和局部接触结构，高频模块则联合预测未来触觉状态与动作块。
+  - A Tactile-Patch Encoder preserves finger identity and local contact structure, while a high-frequency module jointly predicts future tactile states and action chunks.
+- XHT-Dataset 包含七项任务的 900 条真实演示，使用安装在 UR7e 机械臂上的 XHand 采集。
+  - The XHT-Dataset contains 900 real-world demonstrations across seven tasks using an XHand mounted on a UR7e arm.
+- 作者报告相对最强基线在标准条件下提升 18.4 个百分点、在挑战条件下提升 23.8 个百分点；采集时未链接公开代码或数据集。
+  - The authors report gains of 18.4 percentage points under standard conditions and 23.8 points under challenging conditions over the strongest baseline; no public code or dataset was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+闭合触觉反馈回路有望提高插接、抓取等任务的稳健性，因为仅靠视觉观测无法揭示接触力或滑移。
+
+Closing the tactile feedback loop can improve robustness in insertion, grasping, and other interactions where visual observations alone do not reveal contact forces or slip.
+
+---
+
 <a id="2026-08-02-fact-contact-rich-vla"></a>
 ## [FACT 用近 2,500 次机器人实验分析接触式 VLA 失败](https://arxiv.org/abs/2608.01402)
 

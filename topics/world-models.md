@@ -40,6 +40,74 @@ WorldExam offers a more demanding yardstick for interactive worlds than visual f
 
 ---
 
+<a id="2026-08-03-real-time-world-action-models"></a>
+## [实时 WAM 研究显示时间对齐比动作混合更关键](https://arxiv.org/abs/2608.01880)
+
+**English:** [Real-time WAM study finds temporal alignment matters more than action blending](https://arxiv.org/abs/2608.01880)
+
+- **发布 / Published:** `2026-08-03T08:24:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01880) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `bimanual-manipulation`, `real-time`, `action-generation`, `predictive-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项实时世界动作模型研究在 10 Hz 双臂机器人上比较六种部署策略，覆盖动态操作、精密放置和长周期任务。实验指出，观测、推理与执行之间的时间对齐，比预测后平滑独立生成的动作块更为根本。
+
+A real-time world-action-model study compares six deployment strategies on a 10 Hz bimanual robot across dynamic manipulation, precision placement, and long-horizon tasks. The experiments identify temporal alignment between observation, inference, and execution as a more fundamental constraint than smoothing independently generated action chunks after prediction.
+
+### 技术点 / Technical points
+
+- 评测覆盖同步执行、纯异步切换、事后混合、去噪期间混合、推理期间速度引导和前缀条件生成。
+  - The evaluation covers synchronous execution, pure asynchronous switching, post-hoc blending, denoising-time blending, inference-time velocity guidance, and prefix-conditioned generation.
+- 作者发现，动作混合无法修复时间错位，动作加权以精度为代价提升平滑度，而速度引导表现不稳定。
+  - The authors find that blending cannot repair temporal misalignment, action weighting improves smoothness at the cost of precision, and velocity guidance is unreliable.
+- 在受测设置中，前缀条件生成在任务表现、执行速度和平滑度之间提供了作者报告的最佳平衡。
+  - Prefix-conditioned generation provides the strongest reported balance of task performance, execution speed, and smoothness across the tested settings.
+
+### 为什么重要 / Why it matters
+
+该比较把实时生成式机器人控制转化为具体的系统问题，并提供了超越单纯提高策略采样频率的部署指导。
+
+The comparison turns real-time generative robot control into a concrete systems question and provides deployment guidance beyond simply increasing policy sampling frequency.
+
+---
+
+<a id="2026-08-03-worlddyncache-diffusion-world-models"></a>
+## [WorldDynCache 用风险控制的潜空间近似加速扩散世界模型](https://arxiv.org/abs/2608.01845)
+
+**English:** [WorldDynCache accelerates diffusion world models with risk-controlled latent approximation](https://arxiv.org/abs/2608.01845)
+
+- **发布 / Published:** `2026-08-03T07:52:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01845) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `diffusion-model`, `inference-acceleration`, `latent-dynamics`, `caching`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WorldDynCache 使用轻量动力学替代模型演化部分潜状态，从而避免反复运行完整 Transformer，加速扩散世界模型。风险估计器跟踪近似误差对未来的潜在影响，并在复用不再安全时触发精确模型锚点。
+
+WorldDynCache accelerates diffusion world models by evolving selected latent states with a lightweight dynamics surrogate instead of repeatedly evaluating the full transformer. A risk estimator tracks the likely future impact of approximation error and triggers exact-model anchors when reuse becomes unsafe.
+
+### 技术点 / Technical points
+
+- 潜状态转移风险估计器跟踪误差累积的下游影响，并依据精确锚点反事实所测得的缺陷进行校准。
+  - The latent-transition risk estimator tracks accumulated downstream impact and is calibrated against defects measured from exact-anchor counterfactuals.
+- 一个感知条件和阶段的提升潜变量替代模型在不额外运行 Transformer 的情况下推进隐藏状态。
+  - A condition- and phase-aware lifted latent surrogate advances hidden state without additional transformer evaluations.
+- 作者报告 HunyuanVoyager-13B 加速 4.92 倍、Aether-5B 加速 2.15 倍，并比较视觉与世界模型质量指标；采集时未链接公开实现。
+  - The authors report 4.92x acceleration on HunyuanVoyager-13B and 2.15x on Aether-5B while comparing visual and world-model quality metrics; no public implementation was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+风险感知复用为交互式世界模型推理提供了比固定缓存计划更自适应的路径，因为后者无法判断近似误差何时会累积。
+
+Risk-aware reuse offers a more adaptive route to interactive world-model inference than fixed cache schedules, which cannot account for when approximation errors will compound.
+
+---
+
 <a id="2026-08-02-dreamtrajectory-mobile-manipulation"></a>
 ## [DreamTrajectory 用轨迹世界模型校准移动操作动作](https://arxiv.org/abs/2608.01381)
 

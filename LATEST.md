@@ -2,6 +2,82 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-04-isolade-secretless-agent-workbench"></a>
+## [Isolade 用无密钥 microVM 隔离本地编程智能体](https://github.com/isolade/isolade)
+
+**English:** [Isolade isolates local coding agents in secretless microVMs](https://github.com/isolade/isolade)
+
+- **发布 / Published:** `2026-08-04T12:42:07Z`
+- **来源 / Source:** [Isolade](https://github.com/isolade/isolade) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `sandbox`, `microvm`, `security`, `local-first`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Isolade 公开发布一款本地优先的编程智能体工作台，让每个智能体运行在独立 microVM 中。凭证保留在虚拟机之外，并只在配置好的网络边界完成替换；工作台还支持并行仓库和多家智能体供应商。
+
+Isolade publicly launched a local-first coding-agent workbench that runs each agent in a separate microVM. Credentials remain outside the guest and are substituted at configured network boundaries, while the workbench supports parallel repositories and multiple agent providers.
+
+### 技术点 / Technical points
+
+- 每个智能体拥有隔离的计算、文件系统和网络策略，预热的仓库配置则减少重复环境准备。
+  - Each agent receives isolated compute, filesystem, and network policy, while prewarmed repository profiles reduce repeated environment setup.
+- 宿主侧代理只为配置好的目标和请求头替换凭证，因此供应商密钥不会被放入来宾虚拟机。
+  - A host-side proxy substitutes credentials only for configured destinations and headers, so provider secrets are not placed inside the guest VM.
+- 项目支持官方智能体二进制程序、订阅式供应商和跨供应商子智能体，但其安全架构尚未经过独立审计。
+  - The project supports official agent binaries, subscription-based providers, and cross-provider subagents, but its security architecture has not been independently audited.
+
+### 为什么重要 / Why it matters
+
+Isolade 将编程智能体的安全边界从提示层规则下沉到虚拟化和网络凭证处理，为运行相互不可信的智能体提供了具体的本地优先设计。
+
+Isolade moves coding-agent security boundaries from prompt-level rules into virtualization and network credential handling, offering a concrete local-first design for running mutually untrusted agents.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49168002)
+
+---
+
+<a id="2026-08-04-longhorizon-harness"></a>
+## [LongHorizon-Harness 用管理—执行—审计循环延长计算机操作任务](https://github.com/AMAP-ML/LongHorizon-Harness)
+
+**English:** [LongHorizon-Harness sustains computer-use work through manage-execute-audit loops](https://github.com/AMAP-ML/LongHorizon-Harness)
+
+- **发布 / Published:** `2026-08-04T04:30:58Z`
+- **来源 / Source:** [AMAP-ML](https://github.com/AMAP-ML/LongHorizon-Harness) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `long-horizon`, `computer-use`, `agent-runtime`, `evaluation`, `verification`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `93/100`
+
+### 摘要 / Summary
+
+LongHorizon-Harness 是一个面向 Claude Code、Codex 和 OpenClaw 的开放框架，用于持续执行长时间计算机操作任务。它将规划、执行和独立核验分离，使工作能够跨越刷新的智能体上下文继续进行，同时保留任务状态。
+
+LongHorizon-Harness is an open framework for sustaining long-running computer-use tasks across Claude Code, Codex, and OpenClaw. It separates planning, execution, and independent verification so that work can continue across refreshed agent contexts without discarding task state.
+
+### 技术点 / Technical points
+
+- Manager 负责拆解和跟踪任务，Executor 在每轮使用新上下文执行，Auditor 则独立检查文件、界面、日志和测试。
+  - A Manager decomposes and tracks the task, an Executor performs each round with fresh context, and an Auditor independently checks files, interfaces, logs, and tests.
+- 运行目录保留任务状态、事件流、审计结果、轨迹、工作区和最终报告，便于检查与恢复。
+  - Run directories preserve task state, event streams, audit results, trajectories, workspaces, and final reports for inspection and recovery.
+- 作者报告称，WeaveBench 通过率从 51.8% 提升到 80.7%，Terminal-Bench 2.1 从 69.7% 提升到 77.2%，同时减少 24% token；这些结果尚未独立复现。
+  - The authors report raising WeaveBench pass rate from 51.8% to 80.7% and Terminal-Bench 2.1 from 69.7% to 77.2% while using 24% fewer tokens; these results have not been independently reproduced.
+
+### 为什么重要 / Why it matters
+
+该框架直接处理上下文耗尽、状态漂移和虚假完成，这是智能体长时间操作计算机时反复出现的三类失败。
+
+The framework directly targets context exhaustion, state drift, and false completion, three recurring failure modes when agents operate computers for many steps.
+
+### 链接 / Links
+
+[Evidence 1](https://lh-harness.pages.dev/)
+
+---
+
 <a id="2026-08-03-worldexam-reactive-world-model-benchmark"></a>
 ## [WorldExam 检验世界模型是否真正具有反应性](https://arxiv.org/abs/2608.02603)
 
@@ -189,6 +265,76 @@ The report shows how screenshot-only computer agents may be trained at infrastru
 
 ---
 
+<a id="2026-08-03-chainvla-unified-execution-state"></a>
+## [ChainVLA 用统一执行状态衔接长周期操作查询](https://arxiv.org/abs/2608.02326)
+
+**English:** [ChainVLA carries a unified execution state across long-horizon manipulation queries](https://arxiv.org/abs/2608.02326)
+
+- **发布 / Published:** `2026-08-03T14:48:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02326) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `long-horizon`, `memory`, `bimanual-manipulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ChainVLA 是一个 1.2B 参数的视觉—语言—动作模型，通过联合且可修订的执行状态衔接连续的滚动时域查询。每次新预测都会继承已完成的任务进度和上一动作时域尚未执行的部分，而不是只根据当前观测重新开始。
+
+ChainVLA is a 1.2B-parameter vision-language-action model that links successive receding-horizon queries through a joint, revisable execution state. Each new prediction inherits both completed task progress and the unexecuted continuation of the previous action horizon instead of restarting from the current observation alone.
+
+### 技术点 / Technical points
+
+- Progress Context 将循环 Working State 与 Sparse Event Memory 结合，使已经离开当前视野的证据仍可影响后续决策。
+  - Progress Context combines a recurrent Working State with Sparse Event Memory so evidence that has left the current view can still condition later decisions.
+- Motion Tail 把上一预测未完成的后缀带入状态构建和轨迹初始化，而解码器会依据最新观测重新生成完整时域。
+  - Motion Tail carries the previous prediction's unfinished suffix into state construction and trajectory initialization, while the decoder regenerates the full horizon under the latest observation.
+- 作者报告 RMBench 平均成功率为 62.8%，四套 LIBERO 平均为 98.8%；项目页中的比较结果并未在统一协议下重新运行。
+  - The authors report 62.8% average success on RMBench and 98.8% across four LIBERO suites; comparison rows on the project page were not rerun under a common protocol.
+
+### 为什么重要 / Why it matters
+
+ChainVLA 将长周期操作重新定义为维护连续但可修订的执行状态，同时处理查询边界上的记忆丢失和动作不连续。
+
+ChainVLA reframes long-horizon manipulation as maintaining a continuous but revisable execution state, addressing both memory loss and motion discontinuity at query boundaries.
+
+### 链接 / Links
+
+[Evidence 1](https://muqy1818.github.io/chainvla-web/)
+
+---
+
+<a id="2026-08-03-panovla-mobile-manipulation"></a>
+## [PanoVLA 为移动双臂操作加入全景空间上下文](https://arxiv.org/abs/2608.02257)
+
+**English:** [PanoVLA adds panoramic spatial context to mobile bimanual manipulation](https://arxiv.org/abs/2608.02257)
+
+- **发布 / Published:** `2026-08-03T14:03:26Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02257) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `mobile-manipulation`, `bimanual-manipulation`, `panoramic-vision`, `teleoperation`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PanoVLA 为轮式双臂机器人的移动操作提供全景空间上下文，而不是把策略限制在局部相机视野中。该工作结合虚拟现实全身遥操作系统、5.5 小时真实演示数据集和以全景为条件的视觉—语言—动作模型。
+
+PanoVLA gives a wheeled bimanual robot panoramic spatial context for mobile manipulation instead of limiting the policy to local camera views. The work combines a virtual-reality whole-body teleoperation system, a 5.5-hour real-world demonstration dataset, and a panorama-conditioned vision-language-action model.
+
+### 技术点 / Technical points
+
+- Mixture-of-Transformers 架构编码多个全景视图，并将其与语言指令和机器人状态融合。
+  - A Mixture-of-Transformers architecture encodes multiple panorama views and fuses them with language instructions and robot state.
+- 在四项真实移动操作任务中，作者报告平均阶段完成率为 91.3%、端到端成功率为 73.4%，优于局部视野基线。
+  - Across four real-world mobile-manipulation tasks, the authors report 91.3% average stage completion and 73.4% end-to-end success, outperforming local-view baselines.
+
+### 为什么重要 / Why it matters
+
+全景上下文可以在移动机器人运动、目标离开当前视野时保留空间信息，从而缓解长周期移动操作中的常见限制。
+
+Panoramic context can preserve spatial information as a mobile robot moves and targets leave its current view, a recurring limitation in long-horizon mobile manipulation.
+
+---
+
 <a id="2026-08-03-cloudflare-computer-agent-runtime"></a>
 ## [Cloudflare Computer 为智能体统一 isolate、容器与浏览器工作区](https://blog.cloudflare.com/cloudflare-computer/)
 
@@ -228,6 +374,146 @@ Computer treats sandboxing as a heterogeneous runtime decision rather than equat
 
 ---
 
+<a id="2026-08-03-real-time-world-action-models"></a>
+## [实时 WAM 研究显示时间对齐比动作混合更关键](https://arxiv.org/abs/2608.01880)
+
+**English:** [Real-time WAM study finds temporal alignment matters more than action blending](https://arxiv.org/abs/2608.01880)
+
+- **发布 / Published:** `2026-08-03T08:24:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01880) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `bimanual-manipulation`, `real-time`, `action-generation`, `predictive-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项实时世界动作模型研究在 10 Hz 双臂机器人上比较六种部署策略，覆盖动态操作、精密放置和长周期任务。实验指出，观测、推理与执行之间的时间对齐，比预测后平滑独立生成的动作块更为根本。
+
+A real-time world-action-model study compares six deployment strategies on a 10 Hz bimanual robot across dynamic manipulation, precision placement, and long-horizon tasks. The experiments identify temporal alignment between observation, inference, and execution as a more fundamental constraint than smoothing independently generated action chunks after prediction.
+
+### 技术点 / Technical points
+
+- 评测覆盖同步执行、纯异步切换、事后混合、去噪期间混合、推理期间速度引导和前缀条件生成。
+  - The evaluation covers synchronous execution, pure asynchronous switching, post-hoc blending, denoising-time blending, inference-time velocity guidance, and prefix-conditioned generation.
+- 作者发现，动作混合无法修复时间错位，动作加权以精度为代价提升平滑度，而速度引导表现不稳定。
+  - The authors find that blending cannot repair temporal misalignment, action weighting improves smoothness at the cost of precision, and velocity guidance is unreliable.
+- 在受测设置中，前缀条件生成在任务表现、执行速度和平滑度之间提供了作者报告的最佳平衡。
+  - Prefix-conditioned generation provides the strongest reported balance of task performance, execution speed, and smoothness across the tested settings.
+
+### 为什么重要 / Why it matters
+
+该比较把实时生成式机器人控制转化为具体的系统问题，并提供了超越单纯提高策略采样频率的部署指导。
+
+The comparison turns real-time generative robot control into a concrete systems question and provides deployment guidance beyond simply increasing policy sampling frequency.
+
+---
+
+<a id="2026-08-03-worlddyncache-diffusion-world-models"></a>
+## [WorldDynCache 用风险控制的潜空间近似加速扩散世界模型](https://arxiv.org/abs/2608.01845)
+
+**English:** [WorldDynCache accelerates diffusion world models with risk-controlled latent approximation](https://arxiv.org/abs/2608.01845)
+
+- **发布 / Published:** `2026-08-03T07:52:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01845) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `diffusion-model`, `inference-acceleration`, `latent-dynamics`, `caching`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WorldDynCache 使用轻量动力学替代模型演化部分潜状态，从而避免反复运行完整 Transformer，加速扩散世界模型。风险估计器跟踪近似误差对未来的潜在影响，并在复用不再安全时触发精确模型锚点。
+
+WorldDynCache accelerates diffusion world models by evolving selected latent states with a lightweight dynamics surrogate instead of repeatedly evaluating the full transformer. A risk estimator tracks the likely future impact of approximation error and triggers exact-model anchors when reuse becomes unsafe.
+
+### 技术点 / Technical points
+
+- 潜状态转移风险估计器跟踪误差累积的下游影响，并依据精确锚点反事实所测得的缺陷进行校准。
+  - The latent-transition risk estimator tracks accumulated downstream impact and is calibrated against defects measured from exact-anchor counterfactuals.
+- 一个感知条件和阶段的提升潜变量替代模型在不额外运行 Transformer 的情况下推进隐藏状态。
+  - A condition- and phase-aware lifted latent surrogate advances hidden state without additional transformer evaluations.
+- 作者报告 HunyuanVoyager-13B 加速 4.92 倍、Aether-5B 加速 2.15 倍，并比较视觉与世界模型质量指标；采集时未链接公开实现。
+  - The authors report 4.92x acceleration on HunyuanVoyager-13B and 2.15x on Aether-5B while comparing visual and world-model quality metrics; no public implementation was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+风险感知复用为交互式世界模型推理提供了比固定缓存计划更自适应的路径，因为后者无法判断近似误差何时会累积。
+
+Risk-aware reuse offers a more adaptive route to interactive world-model inference than fixed cache schedules, which cannot account for when approximation errors will compound.
+
+---
+
+<a id="2026-08-03-teleopit-humanoid-teleoperation"></a>
+## [Teleopit 将身体、双手与头部 VR 信号统一映射到人形机器人](https://arxiv.org/abs/2608.01834)
+
+**English:** [Teleopit maps full-body, hand, and head VR signals onto a humanoid](https://arxiv.org/abs/2608.01834)
+
+- **发布 / Published:** `2026-08-03T07:45:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01834) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `teleoperation`, `dexterous-manipulation`, `active-vision`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Teleopit 是一个全具身遥操作框架，将操作者在虚拟现实中的身体、双手和头部运动映射到人形机器人。它在同一数据采集界面中结合全身移动、可配置的灵巧手重定向和两自由度主动视觉。
+
+Teleopit is a full-embodiment teleoperation framework that maps an operator's body, hands, and head motion from virtual reality onto a humanoid robot. It combines whole-body locomotion, configurable dexterous-hand retargeting, and two-degree-of-freedom active vision in one data-collection interface.
+
+### 技术点 / Technical points
+
+- 历史编码器和失败感知回退采样旨在保留有用演示，同时从执行失败片段中恢复。
+  - A history encoder and failure-aware rewind sampling are designed to preserve useful demonstrations while recovering from unsuccessful execution segments.
+- 基于优化的手部重定向器使用归一化方向、指尖闭合和拇指对齐，在不同机器人手型之间迁移动作。
+  - The optimization-based hand retargeter uses normalized directions, fingertip closure, and thumb alignment to transfer motion across different robotic hand geometries.
+- 基于 96 条成功演示训练的 ACT 和 GR00T N1.7 策略，在人形平台上取得作者报告的 90% 和 95% 成功率。
+  - ACT and GR00T N1.7 policies trained on 96 successful demonstrations reach author-reported success rates of 90% and 95% on the humanoid platform.
+
+### 为什么重要 / Why it matters
+
+统一覆盖移动、灵巧操作和视点控制的接口，可以让人形机器人演示采集更加连贯，并缩小遥操作与学习策略执行之间的差距。
+
+A unified interface for locomotion, dexterous manipulation, and viewpoint control can make humanoid demonstration collection more coherent and reduce the gap between teleoperation and learned policy execution.
+
+### 链接 / Links
+
+[Evidence 1](https://botrunner64.github.io/Teleopit/)
+
+---
+
+<a id="2026-08-03-retouch-tactile-vla"></a>
+## [ReTouch 用在线触觉预测修正接触式 VLA](https://arxiv.org/abs/2608.01824)
+
+**English:** [ReTouch refines contact-rich VLA control with online tactile prediction](https://arxiv.org/abs/2608.01824)
+
+- **发布 / Published:** `2026-08-03T07:31:10Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01824) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `tactile-sensing`, `dexterous-manipulation`, `feedback-control`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ReTouch 是一个面向接触密集型灵巧操作的视觉—语言—动作模型，它预测未来触觉状态，并随着新触觉观测到来修正动作块。该方法把触觉输入变成在线反馈信号，而不只是被动条件。
+
+ReTouch is a vision-language-action model for contact-rich dexterous manipulation that predicts future tactile states and refines action chunks as new touch observations arrive. The approach turns tactile input into an online feedback signal rather than using it only as passive conditioning.
+
+### 技术点 / Technical points
+
+- Tactile-Patch Encoder 保留手指身份和局部接触结构，高频模块则联合预测未来触觉状态与动作块。
+  - A Tactile-Patch Encoder preserves finger identity and local contact structure, while a high-frequency module jointly predicts future tactile states and action chunks.
+- XHT-Dataset 包含七项任务的 900 条真实演示，使用安装在 UR7e 机械臂上的 XHand 采集。
+  - The XHT-Dataset contains 900 real-world demonstrations across seven tasks using an XHand mounted on a UR7e arm.
+- 作者报告相对最强基线在标准条件下提升 18.4 个百分点、在挑战条件下提升 23.8 个百分点；采集时未链接公开代码或数据集。
+  - The authors report gains of 18.4 percentage points under standard conditions and 23.8 points under challenging conditions over the strongest baseline; no public code or dataset was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+闭合触觉反馈回路有望提高插接、抓取等任务的稳健性，因为仅靠视觉观测无法揭示接触力或滑移。
+
+Closing the tactile feedback loop can improve robustness in insertion, grasping, and other interactions where visual observations alone do not reveal contact forces or slip.
+
+---
+
 <a id="2026-08-03-qwen-3-8-max-launch"></a>
 ## [通义千问正式发布 Qwen3.8-Max](https://x.com/Alibaba_Qwen/status/2084100707423289643)
 
@@ -264,6 +550,74 @@ The launch pushes hosted frontier models toward persistent, visually grounded wo
 
 [Evidence 1](https://qwen.ai/blog?id=qwen3.8) · [Evidence 2](https://github.com/qwen-code-dev-bot/oh-my-cli)
 [Discussion 1](https://news.ycombinator.com/item?id=49150470)
+
+---
+
+<a id="2026-08-02-localized-multi-agent-debate"></a>
+## [LMAD 只在推理分歧点展开多智能体辩论](https://arxiv.org/abs/2608.01463)
+
+**English:** [LMAD confines multi-agent debate to the point where reasoning diverges](https://arxiv.org/abs/2608.01463)
+
+- **发布 / Published:** `2026-08-02T19:47:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01463) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `debate`, `evaluation`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Localized Multi-Agent Debate 将推理表示为带类型的轨迹节点，定位智能体最早出现分歧的位置，并只对该局部片段展开辩论。受保护的共享状态会保留已经接受的推理，而不是反复重新讨论完整解答。
+
+Localized Multi-Agent Debate represents reasoning as typed trace nodes, identifies the earliest point where agents disagree, and debates only that local segment. A guarded shared state preserves accepted reasoning instead of repeatedly reopening the entire solution.
+
+### 技术点 / Technical points
+
+- 该协议定位最早冲突节点，将辩论限制在其依赖片段，并通过受保护的共享状态提交修订。
+  - The protocol localizes the earliest conflicting node, restricts debate to its dependency segment, and commits revisions through guarded shared state.
+- 在覆盖四个多跳问答基准、十种骨干模型和四个模型家族的固定配置下，作者报告该方法在每种骨干模型上都取得最高宏平均裁判准确率。
+  - Under a fixed configuration spanning four multi-hop question-answering benchmarks, ten backbones, and four model families, the authors report the highest macro-average judge accuracy for every backbone.
+- 相对最强传统辩论基线的最大报告提升为 7.20 个百分点；采集时未链接公开实现。
+  - The largest reported gain is 7.20 percentage points over the strongest conventional debate baseline; no public implementation was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+定位分歧可以降低全文多智能体辩论的推理成本和不稳定性，同时保留智能体已经达成一致的推理。
+
+Localizing disagreement can reduce the inference cost and instability of full-transcript multi-agent debate while retaining reasoning that agents already agree on.
+
+---
+
+<a id="2026-08-02-super-simple-software-factory"></a>
+## [Super Simple Software Factory 用确定性 Python 编排有边界的编程智能体](https://github.com/disler/super-simple-software-factory)
+
+**English:** [Super Simple Software Factory puts deterministic Python around bounded coding agents](https://github.com/disler/super-simple-software-factory)
+
+- **发布 / Published:** `2026-08-02T17:41:00Z`
+- **来源 / Source:** [disler](https://github.com/disler/super-simple-software-factory) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `workflow`, `orchestration`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Super Simple Software Factory 是一个开放工作流模板，将编程智能体视为有边界的图节点，并由确定性 Python 掌管编排和状态转换。智能体提出类型化输出，而门控、提交、迁移等重要操作由可执行代码控制。
+
+Super Simple Software Factory is an open workflow template that treats coding agents as bounded graph nodes while deterministic Python owns orchestration and state transitions. Agents propose typed outputs, but executable code controls gates, commits, migrations, and other consequential operations.
+
+### 技术点 / Technical points
+
+- YAML 配置定义具名阶段，Pydantic JSON 封装约束智能体输出，SQLite 则记录持久事件流。
+  - YAML configuration defines named phases, while Pydantic JSON envelopes constrain agent outputs and SQLite records the durable event stream.
+- 项目包含安装漂移检查、冒烟测试、模型供应商清单，以及带模板化仓库、演示应用和执行轨迹的示例分支。
+  - The project includes installation drift checks, smoke tests, model-provider rosters, and an example branch with a stamped repository, demo application, and execution traces.
+- 采集时仓库只有一次初始提交且没有比较评测，因此当前证据主要来自实现深度，而非已证明的性能。
+  - The repository had only one initial commit and no comparative evaluation at collection time, so its current evidence is implementation depth rather than demonstrated performance.
+
+### 为什么重要 / Why it matters
+
+该项目提供了一个小型参考实现，将概率性的智能体提案与确定性的工作流控制分离，从而提高多智能体软件生产的可审计性。
+
+The project offers a compact reference for separating probabilistic agent proposals from deterministic workflow control, improving auditability in multi-agent software production.
 
 ---
 
@@ -370,366 +724,3 @@ MiniWorld lowers the hardware barrier for experimenting with streaming world mod
 ### 链接 / Links
 
 [Evidence 1](https://github.com/Zhao-Yian/MiniWorld) · [Evidence 2](https://huggingface.co/zhaoyian01/MiniWorld)
-
----
-
-<a id="2026-07-31-qm-multiplayer-agent-harness"></a>
-## [qm 为智能体运行框架带来多人协作工作空间](https://github.com/yc-software/qm)
-
-**English:** [qm brings multiplayer workspaces to agent harnesses](https://github.com/yc-software/qm)
-
-- **发布 / Published:** `2026-07-31T18:04:58Z`
-- **来源 / Source:** [qm](https://github.com/yc-software/qm) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `collaboration`, `tool-use`, `sandbox`, `open-source`, `security`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-qm 是一个面向 Slack 或网页协作的开源多人智能体运行框架。它为每个用户或房间提供独立作用域的工作区、记忆、文件、凭据、权限、定时任务、应用和沙箱，同时允许团队选择不同的底层智能体框架。
-
-qm is an open-source multiplayer agent harness for shared work through Slack or the web. It gives each person or room a scoped workspace, memory, files, credentials, permissions, scheduled jobs, apps, and sandbox while allowing teams to choose different underlying agent harnesses.
-
-### 技术点 / Technical points
-
-- 无头核心与 PostgreSQL 协调各作用域沙箱，并可选接入 Slack、网页、管理后台和门户插件。
-  - A headless core and PostgreSQL coordinate per-scope sandboxes, with optional Slack, web, admin, and portal plugins.
-- 运行时可互换使用 Pi、OpenCode、Codex 或 Claude Code，不把协作层绑定到单一模型提供商。
-  - The runtime can use Pi, OpenCode, Codex, or Claude Code as interchangeable harnesses rather than coupling collaboration to one model provider.
-- strict、auto 和 dangerous 三档安全策略结合命令拒绝、来源筛查和作用域凭据，但仓库未提供独立安全审计。
-  - Strict, auto, and dangerous security postures combine command denials, provenance screening, and scoped credentials, although the repository does not present an independent security audit.
-
-### 为什么重要 / Why it matters
-
-共享智能体需要单用户编码框架通常不具备的隔离和授权边界；qm 将这些控制纳入协作架构，而不是依赖外部约定。
-
-Shared agents need isolation and authorization boundaries that single-user coding harnesses rarely provide; qm makes those controls part of the collaboration architecture rather than an external convention.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=49126604)
-
----
-
-<a id="2026-07-31-ratchet-coding-agent-checks"></a>
-## [Ratchet 依据代码仓库规则检查编码智能体的编辑](https://github.com/0xwilliamortiz/ratchet)
-
-**English:** [Ratchet checks coding-agent edits against repository rules](https://github.com/0xwilliamortiz/ratchet)
-
-- **发布 / Published:** `2026-07-31T17:54:30Z`
-- **来源 / Source:** [Ratchet](https://github.com/0xwilliamortiz/ratchet) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `verification`, `static-analysis`, `software-engineering`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-Ratchet 为编码智能体的编辑循环加入确定性检查。每次执行 Edit 或 Write 后，它会检查依赖增长、重复符号、可避免的包装层、自制校验逻辑和预算超限，并将结果反馈到同一智能体会话。
-
-Ratchet adds deterministic checks to a coding agent's edit loop. After an Edit or Write operation, it inspects the change for dependency growth, duplicate symbols, avoidable wrappers, bespoke validation, and budget overruns, then reports findings back into the same agent session.
-
-### 技术点 / Technical points
-
-- Claude Code 的 PostToolUse 钩子会衡量每次编辑，并可按所选执行模式给出建议、警戒或阻止操作。
-  - A Claude Code PostToolUse hook measures each edit and can advise, guard, or block according to the selected enforcement mode.
-- 检测项覆盖新增依赖、标准库替代方案、重复定义、单实现接口、简单包装器、校验正则以及文件或行数预算。
-  - Detectors cover new dependencies, standard-library alternatives, duplicate definitions, single-implementation interfaces, trivial wrappers, validation regexes, and file or line budgets.
-- 项目包含会话账本和 115 项测试，但作者明确表示尚无效果基准，并承认规则分析可能产生误报。
-  - The project includes a per-session ledger and 115 tests, but its authors explicitly report no effectiveness benchmark and acknowledge possible false positives from rule-based analysis.
-
-### 为什么重要 / Why it matters
-
-确定性反馈可以在智能体后续编辑不断放大偏差之前捕获可机械识别的问题，作为模型审查的补充，但并不意味着这些检查能够证明代码质量。
-
-Deterministic feedback can catch mechanically identifiable drift before an agent compounds it across later edits, complementing model-based review without implying that the checks prove code quality.
-
----
-
-<a id="2026-07-31-dscode-local-coding-agent"></a>
-## [DSCode 通过隔离工作树运行本地多智能体编码流程](https://github.com/thinkany-ai/dscode)
-
-**English:** [DSCode runs local multi-agent coding workflows with isolated worktrees](https://github.com/thinkany-ai/dscode)
-
-- **发布 / Published:** `2026-07-31T13:33:13Z`
-- **来源 / Source:** [DSCode](https://github.com/thinkany-ai/dscode) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `multi-agent`, `sandbox`, `local-first`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-DSCode 是一个本地优先的编码智能体运行时，默认使用 DeepSeek V4 Flash，同时支持多个模型提供商。它可以并行运行探索、实现、审查和测试角色，并将实现工作隔离在不同的 Git worktree 中。
-
-DSCode is a local-first coding-agent runtime that defaults to DeepSeek V4 Flash while supporting multiple model providers. It can run explorer, implementer, reviewer, and tester roles in parallel and isolates implementation work in separate Git worktrees.
-
-### 技术点 / Technical points
-
-- 提供商适配器覆盖 DeepSeek、OpenAI 或 Codex、Anthropic、OpenRouter、Z.AI、Kimi、MiniMax 和 xAI，并为 DeepSeek 提供前缀缓存与补丁应用适配。
-  - Provider adapters cover DeepSeek, OpenAI or Codex, Anthropic, OpenRouter, Z.AI, Kimi, MiniMax, and xAI, with a DeepSeek-specific adapter for prefix caching and patch application.
-- 编排器支持最多四个并行角色，为实现智能体分配隔离的工作树，并提供终端、CI、JSONL 和 RPC 入口。
-  - The orchestrator supports up to four parallel roles, gives implementers isolated worktrees, and exposes terminal, CI, JSONL, and RPC entry points.
-- 会话保存在本地 JSONL 文件中；文档所述沙箱默认阻断网络、移除凭据，并在配置的沙箱不可用时拒绝继续运行。
-  - Sessions remain in local JSONL files; the documented sandbox blocks network access by default, strips credentials, and fails closed when a configured sandbox is unavailable.
-
-### 为什么重要 / Why it matters
-
-该项目将并行角色分工、模型提供商选择和本地隔离整合到一个可检查的运行时中，但其仍处早期阶段且缺少对比评测，成熟度尚未得到证明。
-
-The project packages parallel role separation, provider choice, and local isolation into one inspectable runtime, although its early stage and lack of comparative evaluations leave maturity unproven.
-
----
-
-<a id="2026-07-31-deepseek-v4-flash-0731"></a>
-## [DeepSeek-V4-Flash-0731 强化智能体与编码工作负载](https://api-docs.deepseek.com/updates/)
-
-**English:** [DeepSeek-V4-Flash-0731 strengthens agent and coding workloads](https://api-docs.deepseek.com/updates/)
-
-- **发布 / Published:** `2026-07-31T07:30:24Z`
-- **来源 / Source:** [DeepSeek](https://api-docs.deepseek.com/updates/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `tool-use`, `reasoning`, `open-weights`, `long-context`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `97/100`
-
-### 摘要 / Summary
-
-DeepSeek 发布 V4 Flash 0731 正式检查点并开放公测 API，重点强化编码智能体和工具使用表现。API 沿用现有模型名称，新检查点则取代此前的预览版本。
-
-DeepSeek released the official V4 Flash 0731 checkpoint and opened public-beta API access, emphasizing stronger code-agent and tool-use performance. The API keeps the existing model names, while the new checkpoint supersedes the preview release.
-
-### 技术点 / Technical points
-
-- DeepSeek 报告该版本在 Terminal Bench 2.1、NL2Repo 和 Toolathlon Verified 上的得分分别为 82.7、54.2 和 70.3。
-  - DeepSeek reports scores of 82.7 on Terminal Bench 2.1, 54.2 on NL2Repo, and 70.3 on Toolathlon Verified for the update.
-- 该版本支持 Responses API、面向 Codex 的使用方式以及 low、high、max 三档推理强度；官方部署方案覆盖 vLLM 和 SGLang。
-  - The release supports the Responses API, Codex-oriented use, and low, high, or max reasoning effort; official deployment recipes cover vLLM and SGLang.
-- 编码智能体评测使用最高推理强度和尚未发布的精简版 DeepSeek Harness，因此不能假定报告结果会原样迁移到其他运行框架。
-  - The code-agent evaluations used maximum effort and an unreleased minimal DeepSeek Harness, so the reported numbers should not be assumed to transfer unchanged to other harnesses.
-
-### 为什么重要 / Why it matters
-
-高能力开放权重检查点与低价 API 的组合扩大了可部署或自托管智能体系统的范围，而独立分析也为价格、性能和异常偏高的输出量提供了交叉检验。
-
-A high-capability open-weight checkpoint paired with a low-cost API broadens the set of agent systems that can be deployed or self-hosted, while independent analysis provides a useful check on price, performance, and unusually high output volume.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731) · [Evidence 2](https://artificialanalysis.ai/models/deepseek-v4-flash)
-[Discussion 1](https://news.ycombinator.com/item?id=49119559)
-
----
-
-<a id="2026-07-31-robot-futuring-rl"></a>
-## [robot_futuring_rl 组装真机强化学习闭环](https://github.com/yuanshuacpu/robot_futuring_rl)
-
-**English:** [robot_futuring_rl assembles a real-robot reinforcement-learning loop](https://github.com/yuanshuacpu/robot_futuring_rl)
-
-- **发布 / Published:** `2026-07-31T06:12:27Z`
-- **来源 / Source:** [robot_futuring_rl](https://github.com/yuanshuacpu/robot_futuring_rl) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `robot-learning`, `reinforcement-learning`, `vla`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-robot_futuring_rl 是一个围绕 Physical Intelligence OpenPI 模型构建的开源工程栈，覆盖数据采集、策略训练、任务进度估计和真机强化学习。它将模型训练与 ROS2、PICO 遥操作及部署流程连接起来。
-
-robot_futuring_rl is an open-source engineering stack for collecting data, training policies, estimating task progress, and running reinforcement learning on physical robots around Physical Intelligence's OpenPI models. It connects model training to ROS2 and PICO-based teleoperation and deployment workflows.
-
-### 技术点 / Technical points
-
-- 仓库支持 pi0、pi0-FAST 和 pi0.5 的训练、微调与推理，并提供基于未来进度变化的优势加权行为克隆。
-  - The repository supports training, fine-tuning, and inference for pi0, pi0-FAST, and pi0.5, alongside advantage-weighted behavior cloning based on future progress changes.
-- 价值模型路径将 CLIP 特征与时序 Transformer 结合；两阶段 RL-token 路径先学习冻结策略的前缀表示，再进行 TD3+BC actor-critic 训练。
-  - Its value-model path combines CLIP features with a temporal Transformer, while a two-stage RL-token path first learns a frozen-policy prefix representation and then applies TD3+BC actor-critic training.
-- 进度与完成度标注、基于 LeRobot 的采集、ROS2 桥接和 PICO 遥操作构成硬件在环路径；此次发布未包含新的基准结果、检查点或数据集。
-  - Progress and completion labeling, LeRobot-based collection, a ROS2 bridge, and PICO teleoperation form the hardware-in-the-loop path; the release does not include new benchmark results, checkpoints, or datasets.
-
-### 为什么重要 / Why it matters
-
-该仓库把原本分散的真机学习闭环集中为可检查的工程实现，覆盖从数据采集到部署的流程；由于缺少打包产物，其证据主要支持工程可用性而非已达到的性能。
-
-The repository makes an otherwise fragmented real-robot learning loop inspectable in one place, spanning data collection through deployment, while its lack of packaged artifacts keeps the evidence focused on engineering availability rather than achieved performance.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/abs/2604.23073)
-
----
-
-<a id="2026-07-30-ace-data-0"></a>
-## [ACE-Data-0 在真实家庭中采集同步多模态具身数据](https://arxiv.org/abs/2607.28625)
-
-**English:** [ACE-Data-0 captures synchronized multimodal embodied data in real homes](https://arxiv.org/abs/2607.28625)
-
-- **发布 / Published:** `2026-07-30T17:59:50Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28625) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `dataset`, `robotics`, `multimodal`, `manipulation`, `tactile-sensing`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-ACE-Data-0 将真实住宅转化为空间标定且时间同步的采集环境，用于记录长时程家庭活动。其 150 小时数据集结合了第一和第三视角视频，以及身体、手部、物体、声音和触觉信号。
-
-ACE-Data-0 turns real homes into spatially calibrated and temporally synchronized capture environments for long-horizon household activity. Its 150-hour dataset combines egocentric and exocentric video with body, hand, object, audio, and tactile signals.
-
-### 技术点 / Technical points
-
-- 该数据集包含 1,700 万帧、200 类任务、50 名参与者、两个环境和约 75,000 个交互片段。
-  - The release contains 17 million frames, 200 task categories, 50 participants, two environments, and about 75,000 interaction episodes.
-- 采集系统同时覆盖桌面级与房间级活动，并提供物体几何形状和六自由度位姿标注。
-  - The capture system supports both table-scale and room-scale activity with object geometry and six-degree-of-freedom pose annotations.
-
-### 为什么重要 / Why it matters
-
-家庭尺度的同步物理交互数据可以用同一证据基础支持模仿学习、视觉语言动作模型和预测式世界模型。
-
-Synchronized physical interaction data at household scale can support imitation learning, vision-language-action models, and predictive world models from the same evidence base.
-
-### 链接 / Links
-
-[Evidence 1](https://ace-data-engine.github.io/ACE-Data-0/)
-
----
-
-<a id="2026-07-30-phizero-physical-language"></a>
-## [PhiZero 为视频世界建模学习离散物理语言](https://arxiv.org/abs/2607.28624)
-
-**English:** [PhiZero learns a discrete physical language for video world modeling](https://arxiv.org/abs/2607.28624)
-
-- **发布 / Published:** `2026-07-30T17:59:46Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28624) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `video-generation`, `simulation`, `physical-reasoning`, `action-conditioning`, `self-supervised-learning`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-PhiZero 从自然视频中学习紧凑的离散物理符号，并采用先推理后渲染的流程：视觉语言模型先预测物理语言序列，再由扩散解码器生成未来画面。
-
-PhiZero learns compact discrete physical symbols from in-the-wild video and uses a reason-then-render pipeline: a vision-language model predicts a physical-language sequence before a diffusion decoder renders future frames.
-
-### 技术点 / Technical points
-
-- 训练流程将约 5 万小时视频筛选为 1 万小时，并形成 500 万个运动丰富的四秒片段。
-  - The training pipeline filters roughly 50,000 hours of video into 10,000 hours and five million motion-rich four-second clips.
-- 一个 33 帧片段由 256 个离散物理符号表示，模型还展示了动作条件模拟和零样本运动迁移。
-  - A 33-frame clip is represented with 256 discrete physical symbols, and the model demonstrates action-conditioned simulation and zero-shot motion transfer.
-
-### 为什么重要 / Why it matters
-
-在多模态推理和视频生成之间建立紧凑的符号接口，可能让智能体更容易预测、组合并控制学习到的动态规律。
-
-A compact symbolic interface between multimodal reasoning and video generation could make learned dynamics easier for agents to predict, compose, and control.
-
-### 链接 / Links
-
-[Evidence 1](https://phi-zero.github.io/)
-
----
-
-<a id="2026-07-30-osreward-computer-use-judges"></a>
-## [OSReward 评测计算机操作智能体轨迹的奖励模型](https://arxiv.org/abs/2607.28609)
-
-**English:** [OSReward evaluates reward models for computer-use agent trajectories](https://arxiv.org/abs/2607.28609)
-
-- **发布 / Published:** `2026-07-30T17:57:41Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28609) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `benchmark`, `reward-model`, `vlm`, `dataset`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-OSReward 使用覆盖网页、Windows、Ubuntu 和移动端的 1,019 条人工核验样本，评测 27 个视觉语言模型作为计算机操作轨迹裁判的能力。研究发现，这些模型普遍倾向于把失败执行判为成功。
-
-OSReward evaluates 27 vision-language models as judges of computer-use trajectories using 1,019 human-verified examples across web, Windows, Ubuntu, and mobile environments. The study finds a broad tendency to accept failed executions as successful.
-
-### 技术点 / Technical points
-
-- 约三分之二的裁判错误被归因于宽松偏差，而且文字动作历史对判断的影响往往超过可见屏幕状态。
-  - About two-thirds of observed judging errors are attributed to leniency, while textual action history often influences decisions more than the visible screen state.
-- 项目还提出 OSReward-Hard、OSReward-Multi、OS-Shepherd-100K 语料库以及 9B 和 35B 奖励模型。
-  - The project introduces OSReward-Hard, OSReward-Multi, the OS-Shepherd-100K corpus, and 9B and 35B reward models.
-
-### 为什么重要 / Why it matters
-
-可靠的轨迹裁判是扩展 GUI 智能体强化学习和自动评测的前提；系统性误报可能把智能体训练成产生看似合理的失败轨迹。
-
-Reliable trajectory judges are a prerequisite for scalable reinforcement learning and automatic evaluation of GUI agents; systematic false positives can train agents toward plausible-looking failures.
-
-### 链接 / Links
-
-[Evidence 1](https://os-copilot.github.io/OSReward-Home/)
-
----
-
-<a id="2026-07-30-fa-rdp-frequency-adaptive-policy"></a>
-## [FA-RDP 围绕物理接触动态调整扩散策略频率](https://arxiv.org/abs/2607.28596)
-
-**English:** [FA-RDP adapts diffusion-policy frequency around physical contact](https://arxiv.org/abs/2607.28596)
-
-- **发布 / Published:** `2026-07-30T17:47:49Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28596) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `manipulation`, `diffusion-policy`, `force-feedback`, `tactile-sensing`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-FA-RDP 针对接触丰富操作中的控制矛盾：接触前需要保留多种有效轨迹，接触后则需要快速响应力反馈。它在单次操作过程中动态调整推理频率和采样深度。
-
-FA-RDP addresses a control tradeoff in contact-rich manipulation: preserving multiple valid trajectories before contact while reacting quickly to force feedback after contact. It dynamically changes both inference frequency and sampling depth during an episode.
-
-### 技术点 / Technical points
-
-- 共享的多频视觉—力觉 Transformer 同时预测高频和低频动作块，并由学习到的多模态指标选择当前采样模式。
-  - A shared multi-frequency vision-force Transformer predicts action chunks at low and high frequencies, while a learned multimodality indicator selects the active sampling mode.
-- 接触前策略采用低频多步采样；随着动作歧义降低，它切换到高频单步采样以更快响应反馈。
-  - Before contact the policy uses multi-step low-frequency sampling; as action ambiguity falls, it switches to one-step high-frequency sampling for faster feedback response.
-- 流形一致性蒸馏重新参数化扩散网络，使其在保留残差扩散监督的同时预测机器人动作流形上的动作。
-  - Manifold Consistency Distillation reparameterizes the diffusion network to predict actions on the robot action manifold while retaining residual diffusion supervision.
-
-### 为什么重要 / Why it matters
-
-相比在自由空间运动和受力约束交互中始终使用同一扩散调度，自适应分配计算可能更适合真实接触任务。
-
-Adaptive compute allocation may fit real contact tasks better than forcing one diffusion schedule across both free-space motion and force-constrained interaction.
-
-### 链接 / Links
-
-[Evidence 1](https://fa-rdp.github.io/)
-
----
-
-<a id="2026-07-30-change2task-coding-agent-tasks"></a>
-## [Change2Task 将代码仓库变更转化为可执行编码智能体任务](https://arxiv.org/abs/2607.28591)
-
-**English:** [Change2Task converts repository changes into executable coding-agent tasks](https://arxiv.org/abs/2607.28591)
-
-- **发布 / Published:** `2026-07-30T17:44:31Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2607.28591) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `task-generation`, `software-engineering`, `verification`, `dataset`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Change2Task 从已合并的拉取请求中构造可执行编码智能体任务，并将任务放置在健康的现代代码版本上。它覆盖缺陷修复、功能添加、测试生成、API 迁移和安全修复。
-
-Change2Task derives executable coding-agent tasks from merged pull requests while placing them on healthy modern repository revisions. It targets bug fixing, feature addition, test generation, API migration, and security repair.
-
-### 技术点 / Technical points
-
-- 系统通过 Patch Reversal、Code Mapping 或 Agent Reconstruction 重建任务状态，并验证从健康基线到任务状态再到恢复状态的转换。
-  - The system reconstructs task states through Patch Reversal, Code Mapping, or Agent Reconstruction and verifies the transition from a healthy base to the task state and back to a restored state.
-- 在 1,130 个符合条件的源代码变更中，它报告五类任务的验证构造成功率为 79.6%。
-  - From 1,130 eligible source changes, it reports a 79.6% verified construction rate across five task families.
-- 在匹配的候选集合上，Change2Task 比基于拉取请求的构造基线多恢复 29.2% 的有效任务。
-  - On a matched candidate set, Change2Task recovers 29.2% more verified tasks than a pull-request-based construction baseline.
-
-### 为什么重要 / Why it matters
-
-持续生成新鲜且经过验证的任务，可以缓解编码智能体训练与评测中的数据污染和环境维护瓶颈。
-
-A renewable supply of fresh, verified tasks can reduce contamination and environment-maintenance bottlenecks in coding-agent training and evaluation.

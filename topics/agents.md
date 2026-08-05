@@ -2,6 +2,82 @@
 
 # Agents / 智能体
 
+<a id="2026-08-04-isolade-secretless-agent-workbench"></a>
+## [Isolade 用无密钥 microVM 隔离本地编程智能体](https://github.com/isolade/isolade)
+
+**English:** [Isolade isolates local coding agents in secretless microVMs](https://github.com/isolade/isolade)
+
+- **发布 / Published:** `2026-08-04T12:42:07Z`
+- **来源 / Source:** [Isolade](https://github.com/isolade/isolade) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `sandbox`, `microvm`, `security`, `local-first`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Isolade 公开发布一款本地优先的编程智能体工作台，让每个智能体运行在独立 microVM 中。凭证保留在虚拟机之外，并只在配置好的网络边界完成替换；工作台还支持并行仓库和多家智能体供应商。
+
+Isolade publicly launched a local-first coding-agent workbench that runs each agent in a separate microVM. Credentials remain outside the guest and are substituted at configured network boundaries, while the workbench supports parallel repositories and multiple agent providers.
+
+### 技术点 / Technical points
+
+- 每个智能体拥有隔离的计算、文件系统和网络策略，预热的仓库配置则减少重复环境准备。
+  - Each agent receives isolated compute, filesystem, and network policy, while prewarmed repository profiles reduce repeated environment setup.
+- 宿主侧代理只为配置好的目标和请求头替换凭证，因此供应商密钥不会被放入来宾虚拟机。
+  - A host-side proxy substitutes credentials only for configured destinations and headers, so provider secrets are not placed inside the guest VM.
+- 项目支持官方智能体二进制程序、订阅式供应商和跨供应商子智能体，但其安全架构尚未经过独立审计。
+  - The project supports official agent binaries, subscription-based providers, and cross-provider subagents, but its security architecture has not been independently audited.
+
+### 为什么重要 / Why it matters
+
+Isolade 将编程智能体的安全边界从提示层规则下沉到虚拟化和网络凭证处理，为运行相互不可信的智能体提供了具体的本地优先设计。
+
+Isolade moves coding-agent security boundaries from prompt-level rules into virtualization and network credential handling, offering a concrete local-first design for running mutually untrusted agents.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49168002)
+
+---
+
+<a id="2026-08-04-longhorizon-harness"></a>
+## [LongHorizon-Harness 用管理—执行—审计循环延长计算机操作任务](https://github.com/AMAP-ML/LongHorizon-Harness)
+
+**English:** [LongHorizon-Harness sustains computer-use work through manage-execute-audit loops](https://github.com/AMAP-ML/LongHorizon-Harness)
+
+- **发布 / Published:** `2026-08-04T04:30:58Z`
+- **来源 / Source:** [AMAP-ML](https://github.com/AMAP-ML/LongHorizon-Harness) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `long-horizon`, `computer-use`, `agent-runtime`, `evaluation`, `verification`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `93/100`
+
+### 摘要 / Summary
+
+LongHorizon-Harness 是一个面向 Claude Code、Codex 和 OpenClaw 的开放框架，用于持续执行长时间计算机操作任务。它将规划、执行和独立核验分离，使工作能够跨越刷新的智能体上下文继续进行，同时保留任务状态。
+
+LongHorizon-Harness is an open framework for sustaining long-running computer-use tasks across Claude Code, Codex, and OpenClaw. It separates planning, execution, and independent verification so that work can continue across refreshed agent contexts without discarding task state.
+
+### 技术点 / Technical points
+
+- Manager 负责拆解和跟踪任务，Executor 在每轮使用新上下文执行，Auditor 则独立检查文件、界面、日志和测试。
+  - A Manager decomposes and tracks the task, an Executor performs each round with fresh context, and an Auditor independently checks files, interfaces, logs, and tests.
+- 运行目录保留任务状态、事件流、审计结果、轨迹、工作区和最终报告，便于检查与恢复。
+  - Run directories preserve task state, event streams, audit results, trajectories, workspaces, and final reports for inspection and recovery.
+- 作者报告称，WeaveBench 通过率从 51.8% 提升到 80.7%，Terminal-Bench 2.1 从 69.7% 提升到 77.2%，同时减少 24% token；这些结果尚未独立复现。
+  - The authors report raising WeaveBench pass rate from 51.8% to 80.7% and Terminal-Bench 2.1 from 69.7% to 77.2% while using 24% fewer tokens; these results have not been independently reproduced.
+
+### 为什么重要 / Why it matters
+
+该框架直接处理上下文耗尽、状态漂移和虚假完成，这是智能体长时间操作计算机时反复出现的三类失败。
+
+The framework directly targets context exhaustion, state drift, and false completion, three recurring failure modes when agents operate computers for many steps.
+
+### 链接 / Links
+
+[Evidence 1](https://lh-harness.pages.dev/)
+
+---
+
 <a id="2026-08-03-swe-touch-shared-workspace-benchmark"></a>
 ## [SWE-Touch 评测共享工作区变化中的编程智能体](https://arxiv.org/abs/2608.02499)
 
@@ -226,6 +302,74 @@ The launch pushes hosted frontier models toward persistent, visually grounded wo
 
 [Evidence 1](https://qwen.ai/blog?id=qwen3.8) · [Evidence 2](https://github.com/qwen-code-dev-bot/oh-my-cli)
 [Discussion 1](https://news.ycombinator.com/item?id=49150470)
+
+---
+
+<a id="2026-08-02-localized-multi-agent-debate"></a>
+## [LMAD 只在推理分歧点展开多智能体辩论](https://arxiv.org/abs/2608.01463)
+
+**English:** [LMAD confines multi-agent debate to the point where reasoning diverges](https://arxiv.org/abs/2608.01463)
+
+- **发布 / Published:** `2026-08-02T19:47:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.01463) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `debate`, `evaluation`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Localized Multi-Agent Debate 将推理表示为带类型的轨迹节点，定位智能体最早出现分歧的位置，并只对该局部片段展开辩论。受保护的共享状态会保留已经接受的推理，而不是反复重新讨论完整解答。
+
+Localized Multi-Agent Debate represents reasoning as typed trace nodes, identifies the earliest point where agents disagree, and debates only that local segment. A guarded shared state preserves accepted reasoning instead of repeatedly reopening the entire solution.
+
+### 技术点 / Technical points
+
+- 该协议定位最早冲突节点，将辩论限制在其依赖片段，并通过受保护的共享状态提交修订。
+  - The protocol localizes the earliest conflicting node, restricts debate to its dependency segment, and commits revisions through guarded shared state.
+- 在覆盖四个多跳问答基准、十种骨干模型和四个模型家族的固定配置下，作者报告该方法在每种骨干模型上都取得最高宏平均裁判准确率。
+  - Under a fixed configuration spanning four multi-hop question-answering benchmarks, ten backbones, and four model families, the authors report the highest macro-average judge accuracy for every backbone.
+- 相对最强传统辩论基线的最大报告提升为 7.20 个百分点；采集时未链接公开实现。
+  - The largest reported gain is 7.20 percentage points over the strongest conventional debate baseline; no public implementation was linked at collection time.
+
+### 为什么重要 / Why it matters
+
+定位分歧可以降低全文多智能体辩论的推理成本和不稳定性，同时保留智能体已经达成一致的推理。
+
+Localizing disagreement can reduce the inference cost and instability of full-transcript multi-agent debate while retaining reasoning that agents already agree on.
+
+---
+
+<a id="2026-08-02-super-simple-software-factory"></a>
+## [Super Simple Software Factory 用确定性 Python 编排有边界的编程智能体](https://github.com/disler/super-simple-software-factory)
+
+**English:** [Super Simple Software Factory puts deterministic Python around bounded coding agents](https://github.com/disler/super-simple-software-factory)
+
+- **发布 / Published:** `2026-08-02T17:41:00Z`
+- **来源 / Source:** [disler](https://github.com/disler/super-simple-software-factory) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `workflow`, `orchestration`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Super Simple Software Factory 是一个开放工作流模板，将编程智能体视为有边界的图节点，并由确定性 Python 掌管编排和状态转换。智能体提出类型化输出，而门控、提交、迁移等重要操作由可执行代码控制。
+
+Super Simple Software Factory is an open workflow template that treats coding agents as bounded graph nodes while deterministic Python owns orchestration and state transitions. Agents propose typed outputs, but executable code controls gates, commits, migrations, and other consequential operations.
+
+### 技术点 / Technical points
+
+- YAML 配置定义具名阶段，Pydantic JSON 封装约束智能体输出，SQLite 则记录持久事件流。
+  - YAML configuration defines named phases, while Pydantic JSON envelopes constrain agent outputs and SQLite records the durable event stream.
+- 项目包含安装漂移检查、冒烟测试、模型供应商清单，以及带模板化仓库、演示应用和执行轨迹的示例分支。
+  - The project includes installation drift checks, smoke tests, model-provider rosters, and an example branch with a stamped repository, demo application, and execution traces.
+- 采集时仓库只有一次初始提交且没有比较评测，因此当前证据主要来自实现深度，而非已证明的性能。
+  - The repository had only one initial commit and no comparative evaluation at collection time, so its current evidence is implementation depth rather than demonstrated performance.
+
+### 为什么重要 / Why it matters
+
+该项目提供了一个小型参考实现，将概率性的智能体提案与确定性的工作流控制分离，从而提高多智能体软件生产的可审计性。
+
+The project offers a compact reference for separating probabilistic agent proposals from deterministic workflow control, improving auditability in multi-agent software production.
 
 ---
 
