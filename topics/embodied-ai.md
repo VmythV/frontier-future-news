@@ -2,6 +2,226 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-04-openeta-embodied-task-agent"></a>
+## [OpenETA 将可审计的智能体循环带入具身任务](https://arxiv.org/abs/2608.03924)
+
+**English:** [OpenETA brings an inspectable agent loop to embodied tasks](https://arxiv.org/abs/2608.03924)
+
+- **发布 / Published:** `2026-08-04T16:56:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.03924) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `embodied-agent`, `robotics`, `tool-use`, `open-source`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `95/100`
+
+### 摘要 / Summary
+
+ETA 提出面向通用、可审计机器人任务的“规划器—接口—世界”架构，并以 Apache 许可证发布 OpenETA 实现，提供仿真与真机接口、可审计记忆和可回放轨迹。
+
+ETA proposes a Planner-Interface-World architecture for general, inspectable robot tasks and releases OpenETA as an Apache-licensed implementation with simulation and real-robot interfaces, auditable memory, and replayable trajectories.
+
+### 技术点 / Technical points
+
+- 规划器每次选择一个工具调用，宿主控制的接口约束执行，世界必须返回结果和新观测后才能进行下一次决策。
+  - The Planner chooses one Tool call at a time, the host-controlled Interface governs execution, and the World must return a result plus a fresh observation before the next decision.
+- OpenETA 将会话工作记忆与不可变证据分离，并把模式、来源、安全门、审批模式和成功回执保留在智能体权限之外。
+  - OpenETA separates session working memory from immutable evidence and keeps schemas, provenance, safety gates, approval modes, and success receipts outside the Agent's authority.
+- 在不使用 VLA 或任务专用策略工具的情况下，作者报告 GPT-5.6 Sol 首次种子解决 130 个 LIBERO 任务中的 92 个，Pass@5 达到 117 个。
+  - Without a VLA or task-specific policy as a Tool, the authors report GPT-5.6 Sol solving 92 of 130 LIBERO tasks on the first seed and 117 of 130 at Pass@5.
+
+### 为什么重要 / Why it matters
+
+该系统将具身智能重新定义为具有明确权限与证据边界的可审计智能体，而不只是端到端动作策略。
+
+The system reframes embodied intelligence as an auditable agent with explicit authority and evidence boundaries rather than only an end-to-end action policy.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/OpenMOSS/OpenETA) · [Evidence 2](https://openmoss.ai/OpenETA/)
+
+---
+
+<a id="2026-08-04-track4action-vla-world-tracking"></a>
+## [Track4Action 将三维世界变化蒸馏进 VLA 策略](https://arxiv.org/abs/2608.03727)
+
+**English:** [Track4Action distills 3D world transitions into VLA policies](https://arxiv.org/abs/2608.03727)
+
+- **发布 / Published:** `2026-08-04T14:25:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.03727) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `3d-tracking`, `knowledge-distillation`, `bimanual-manipulation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Track4Action 使用冻结的世界中心三维跟踪器为视觉—语言—动作策略提供训练期特权监督，并在部署时移除跟踪器和未来视频。
+
+Track4Action uses a frozen world-centric 3D tracker as privileged training supervision for a vision-language-action policy, then removes both the tracker and future video at deployment.
+
+### 技术点 / Technical points
+
+- 可学习跟踪查询从当前 VLA 隐状态推断与动作对齐的几何、运动、可见性和相机变化特征，并调节流匹配动作头。
+  - Learnable track queries infer action-aligned features for geometry, motion, visibility, and camera change from the current VLA hidden state and condition a flow-matching action head.
+- 作者报告其在 LIBERO-Plus 上零样本成功率为 82.3%，在 RoboTwin 2.0 干净与随机化划分上为 80.44% 和 81.48%，四项双臂真机任务平均为 67.5%。
+  - The authors report 82.3% zero-shot success on LIBERO-Plus, 80.44% and 81.48% on clean and randomized RoboTwin 2.0, and 67.5% across four physical bimanual tasks.
+- 跟踪器只定义训练对齐目标，因此部署策略可仅依赖当前观测和语言运行，无需执行跟踪器推理。
+  - The tracker defines only the training alignment target, allowing the deployed policy to operate from the current observation and language without tracker inference.
+
+### 为什么重要 / Why it matters
+
+演示视频可以教会策略动作如何改变三维世界，而无需让部署机器人承担跟踪器的运行成本。
+
+Demonstration video can teach a policy how actions change the 3D world without imposing the runtime cost of a tracker on the deployed robot.
+
+### 链接 / Links
+
+[Evidence 1](https://wing0night.github.io/track4action-project-page/)
+
+---
+
+<a id="2026-08-04-lila-wam-latent-world-action-model"></a>
+## [LiLa-WAM 通过轻量潜空间未来学习机器人动作](https://arxiv.org/abs/2608.03701)
+
+**English:** [LiLa-WAM learns robot actions through lightweight latent futures](https://arxiv.org/abs/2608.03701)
+
+- **发布 / Published:** `2026-08-04T14:06:15Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.03701) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `latent-reasoning`, `single-gpu`, `manipulation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+LiLa-WAM 在紧凑潜空间中联合学习未来状态预测与机器人动作，目标是在单张 24 GB GPU 上端到端训练世界动作模型。
+
+LiLa-WAM jointly learns future-state prediction and robot actions in a compact latent space, targeting end-to-end world-action model training on a single 24 GB GPU.
+
+### 技术点 / Technical points
+
+- 紧凑推理空间由未来状态预测与动作生成共同塑造，不依赖像素空间预测或独立的潜空间构建阶段。
+  - A compact reasoning space is jointly shaped by future-state prediction and action generation instead of relying on pixel-space prediction or a separate latent-construction stage.
+- Visual Transition Token 将任务编码为视觉特征空间中无需语言的方向。
+  - The Visual Transition Token encodes a task as a language-free direction in visual feature space.
+- 作者报告单 GPU 训练在 50 个 RoboTwin 2.0 任务上达到 90.48% 成功率，并在 LIBERO 与真机上开展实验。
+  - The authors report 90.48% success across 50 RoboTwin 2.0 tasks with single-GPU training, plus experiments on LIBERO and real robots.
+
+### 为什么重要 / Why it matters
+
+将世界动作模型训练降至常见单 GPU 硬件，有望扩大预测式机器人控制研究的可及性。
+
+Reducing world-action model training to commodity single-GPU hardware could broaden access to predictive robot-control research.
+
+---
+
+<a id="2026-08-04-phyai-physical-ai-runtime"></a>
+## [PhyAI 统一物理 AI 的边缘与云端推理](https://arxiv.org/abs/2608.03682)
+
+**English:** [PhyAI unifies edge and cloud inference for Physical AI](https://arxiv.org/abs/2608.03682)
+
+- **发布 / Published:** `2026-08-04T13:53:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.03682) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `physical-ai`, `inference`, `vla`, `world-action-model`, `edge-computing`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+PhyAI 发布面向视觉—语言—动作模型与世界动作模型的开放推理运行时，覆盖评测、云端强化学习采样、边缘 GPU 服务和机载部署。
+
+PhyAI releases an open inference runtime for vision-language-action and world-action models across evaluation, cloud reinforcement-learning rollout, edge GPU serving, and onboard deployment.
+
+### 技术点 / Technical points
+
+- 模型适配器保留架构专用的条件输入、求解器、缓存和输出逻辑，同时共享计算图执行、内核、内存管理和并行服务。
+  - Model adapters retain architecture-specific conditioning, solver, cache, and output logic while graph execution, kernels, memory management, and parallel services are shared.
+- 论文报告其相对 pi0、pi0.5、GR00T N1.7 和 MiniCPM-Robot 官方实现取得 1.40 倍至 4.65 倍加速。
+  - The paper reports 1.40x to 4.65x speedups over official pi0, pi0.5, GR00T N1.7, and MiniCPM-Robot implementations.
+- 在八张 H20 GPU 上，Cosmos3-Nano-Policy-DROID 的报告延迟从 2.46 秒降至 1.18 秒；作者也说明专用运行时在部分配置中仍更快。
+  - On Cosmos3-Nano-Policy-DROID, reported latency falls from 2.46 to 1.18 seconds on eight H20 GPUs; the authors note specialized runtimes remain faster in some configurations.
+
+### 为什么重要 / Why it matters
+
+共享运行时可在保留架构专用控制语义的同时，缩小训练采样与低延迟物理智能体部署之间的系统差距。
+
+A shared runtime can reduce the systems gap between training rollouts and latency-sensitive physical-agent deployment while retaining architecture-specific control semantics.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/mingti-org/phyai)
+
+---
+
+<a id="2026-08-03-ego2robot-data-synthesis"></a>
+## [Ego2Robot 从第一人称人类视频合成机器人数据](https://arxiv.org/abs/2608.02580)
+
+**English:** [Ego2Robot synthesizes robot data from egocentric human video](https://arxiv.org/abs/2608.02580)
+
+- **发布 / Published:** `2026-08-03T17:52:26Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02580) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robot-data`, `egocentric-video`, `vla`, `data-synthesis`, `sim-to-real`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Ego2Robot 将精选及野外第一人称人类操作视频转成机器人格式演示，据报告生成覆盖 15 种机器人形态的 18,561 小时训练数据。
+
+Ego2Robot converts curated and in-the-wild egocentric human manipulation videos into robot-format demonstrations, producing a reported 18,561 hours of training data across 15 robot morphologies.
+
+### 技术点 / Technical points
+
+- 该流水线结合手部到机器人的动作重定向、机械臂视觉合成、逆运动学、碰撞过滤和基于 VLM 的视频—动作一致性检查。
+  - The pipeline combines hand-to-robot action retargeting, robot-arm visual synthesis, inverse kinematics, collision filtering, and VLM-based video-action consistency checks.
+- 两条输入路径分别支持带手部姿态标注的数据集，以及经过逐帧重建和时间优化的原始视频。
+  - Two input paths support datasets with hand-pose annotations and raw videos processed with per-frame reconstruction plus temporal optimization.
+- 作者报告 VLA 在外观、布局、机器人形态和任务语义变化下的分布外泛化得到提升，并进行了真机验证。
+  - The authors report improved out-of-distribution VLA generalization across appearance, layout, embodiment, and task-semantic shifts, with real-robot validation.
+
+### 为什么重要 / Why it matters
+
+将丰富的人类视频转成特定机器人形态的演示，可能显著改变 VLA 预训练的数据成本结构。
+
+Converting abundant human video into embodiment-specific demonstrations could materially change the data economics of VLA pretraining.
+
+### 链接 / Links
+
+[Evidence 1](https://www-ye.github.io/ego2robot_blog/)
+
+---
+
+<a id="2026-08-03-cowam-coordination-contracts"></a>
+## [CoWAM 用协调契约限制世界动作模型干预](https://arxiv.org/abs/2608.02578)
+
+**English:** [CoWAM constrains world-action model intervention with coordination contracts](https://arxiv.org/abs/2608.02578)
+
+- **发布 / Published:** `2026-08-03T17:51:58Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02578) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `bimanual-manipulation`, `safety`, `policy-intervention`, `coordination`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CoWAM 为双臂机器人策略增加选择性干预层，只有在满足明确协调与风险义务时，才允许世界动作模型提议替换原动作。
+
+CoWAM adds a selective intervention layer to bimanual robot policies, allowing world-action model proposals to replace nominal actions only when explicit coordination and risk obligations are satisfied.
+
+### 技术点 / Technical points
+
+- 协调契约将同步、角色兼容与碰撞收敛的类型化可接受性检查，同事件条件验证和校准干预门结合。
+  - Coordination contracts combine typed admissibility checks for synchronization, role compatibility, and collision convergence with event-conditioned verification and calibrated intervention gates.
+- 只有替代动作满足全部当前义务且带来明确低风险改善时才替换原动作；原动作也不可接受时触发预定义弃权回退。
+  - The nominal action is preserved unless an alternative satisfies every active obligation and offers a clear low-risk improvement; inadmissible nominal actions trigger a predefined abstention fallback.
+- 在八项仿真任务上，作者报告协调有效选择提升 16.7 个百分点、闭环成功率提升 9.6 个百分点，伤害性干预低于 1%。
+  - Across eight simulated tasks, the authors report a 16.7-point gain in coordination-valid selection, a 9.6-point gain in closed-loop success, and harmful interventions below 1%.
+
+### 为什么重要 / Why it matters
+
+当世界动作模型覆盖策略的权限由明确、可测试的契约管理时，预测未来才能成为更安全的控制证据。
+
+Predicted futures become safer control evidence when a world-action model's authority to override a policy is governed by explicit, testable contracts.
+
+---
+
 <a id="2026-08-03-chainvla-unified-execution-state"></a>
 ## [ChainVLA 用统一执行状态衔接长周期操作查询](https://arxiv.org/abs/2608.02326)
 
