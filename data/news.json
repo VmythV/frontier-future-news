@@ -2,6 +2,448 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-08-kadath-evolutionary-agent-runtime",
+      "published_at": "2026-08-08T15:49:55Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "self-improvement",
+        "evaluation",
+        "open-source"
+      ],
+      "title_en": "KADATH releases an auditable evolutionary multi-agent runtime",
+      "title_zh": "KADATH 发布可审计的进化式多代理运行时",
+      "summary_en": "KADATH evolves populations of agent genomes—prompts, code, tools, and dependencies—against a locked objective while keeping containers, evidence, grading, and Git lineage in an immutable kernel-controlled plane.",
+      "summary_zh": "KADATH 将目标转化为冻结的评分契约，并在多个 epoch 中选择、变异和繁殖包含提示词、代码、工具及依赖的代理“基因组”，同时把容器、证据、评分和 Git 血统留在不可变内核中。",
+      "tech_points_en": [
+        "The kernel controls benchmark contracts, deadlines, containers, evidence, grading, population state, recovery, cleanup, and Git lineage, while genomes may change prompts, code, tools, dependencies, and support files but not objectives or scoring authority.",
+        "Read-only genome containers receive writable workspaces and scoped tokens; evidence is frozen with hashes and symlink checks before a model grader extracts typed facts for kernel-side fitness computation.",
+        "The repository includes 53 lifecycle test methods spanning orchestration and recovery, but publishes no benchmark outcome or independent reproduction of the system's effectiveness."
+      ],
+      "tech_points_zh": [
+        "内核控制基准契约、截止时间、容器、证据、评分、种群状态、恢复、清理和 Git 血统；基因组可修改提示词、代码、工具、依赖和支持文件，但不能改写目标或评分权限。",
+        "只读基因组容器获得可写工作区和范围受限的令牌；证据在模型评分器提取类型化事实之前经过哈希冻结与符号链接检查，最终适应度由内核计算。",
+        "仓库包含覆盖编排和恢复的 53 个生命周期测试方法，但尚未发布基准结果或系统有效性的独立复现。"
+      ],
+      "why_it_matters_en": "It attempts to turn the parts of self-improving agents most vulnerable to reward hacking into verifiable boundaries.",
+      "why_it_matters_zh": "它尝试把自改进代理最容易被奖励黑客攻击的环节变成可验证边界。",
+      "source": {
+        "name": "KADATH",
+        "type": "primary",
+        "url": "https://github.com/i3T4AN/KADATH",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 20,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-08-pydantic-ai-download-memory-advisory",
+      "published_at": "2026-08-08T03:16:08Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "security",
+        "vulnerability",
+        "tool-use",
+        "denial-of-service"
+      ],
+      "title_en": "Pydantic AI patches unbounded remote-download memory use",
+      "title_zh": "Pydantic AI 修复代理远程下载内存耗尽漏洞",
+      "summary_en": "Pydantic AI disclosed a CVSS 6.5 availability vulnerability where model-influenced web fetches or media downloads could buffer an unbounded response and exhaust worker memory. Patched versions enforce a default 50 MiB streaming cap.",
+      "summary_zh": "Pydantic AI 披露一个 CVSS 6.5 的可用性漏洞：受不可信提示控制的代理可让本地 web_fetch 或媒体下载缓冲无限大的响应，耗尽工作进程内存。修复版在流式读取期间实施默认 50 MiB 上限。",
+      "tech_points_en": [
+        "The local web_fetch fallback and FileUrl media path buffered an entire remote response before enforcing a size limit, allowing a model-influenced untrusted URL to exhaust worker memory.",
+        "The advisory rates the issue Moderate at CVSS 6.5 and limits the impact to availability; existing SSRF protections are unchanged, with no identified confidentiality or integrity impact.",
+        "Pydantic AI v1.107.2 and v2.24.0 stream downloads while enforcing a configurable 50 MiB default cap and abort before unbounded buffering."
+      ],
+      "tech_points_zh": [
+        "本地 web_fetch 回退路径和 FileUrl 媒体路径会在执行大小限制前缓冲完整远程响应，使受模型影响的不可信 URL 能够耗尽工作进程内存。",
+        "公告将该问题评为 CVSS 6.5 的中危漏洞，影响仅限可用性；现有 SSRF 防护不变，也未发现机密性或完整性影响。",
+        "Pydantic AI v1.107.2 与 v2.24.0 改为流式下载，并执行默认 50 MiB、可配置的上限，在无限缓冲前中止。"
+      ],
+      "why_it_matters_en": "Once an agent can choose URLs, an ordinary resource-bounding flaw becomes a remotely triggerable denial-of-service surface.",
+      "why_it_matters_zh": "代理可以选择 URL 后，普通资源限制缺陷会变成远程可触发的拒绝服务面。",
+      "source": {
+        "name": "GitHub Security Advisory",
+        "type": "primary",
+        "url": "https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.2"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 5
+      }
+    },
+    {
+      "id": "2026-08-07-google-adk-1-38-security-hardening",
+      "published_at": "2026-08-07T23:41:25Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "security",
+        "tool-use",
+        "framework",
+        "authorization"
+      ],
+      "title_en": "Google ADK 1.38 hardens tool confirmation and filesystem boundaries",
+      "title_zh": "Google ADK 1.38 修复工具确认伪造与文件系统越界",
+      "summary_en": "Google ADK Python v1.38.0 backports several agent-security fixes, forwards configured safety settings to the Live API, verifies the identity and arguments of confirmed tool calls, and confines local file tools to the workspace.",
+      "summary_zh": "Google ADK Python v1.38.0 回补了多项代理安全修复，并把 Live API 的安全设置完整转发下去。工具确认现在核对原始调用身份与参数，文件工具也被限制在工作区内。",
+      "tech_points_en": [
+        "Confirmation responses are accepted only when the target is registered in the agent's Tool dictionary, actually requires confirmation, and matches the original event's ID, name, and arguments.",
+        "Ranged ReadFile no longer interpolates a path into a shell pipeline, and local read, write, and edit operations now resolve paths within the configured workspace boundary.",
+        "The release also forwards safety_settings from generate_content_config to the Live API instead of silently dropping the configured policy."
+      ],
+      "tech_points_zh": [
+        "确认响应仅在目标已注册于代理工具字典、确实要求确认，且调用 ID、名称和参数与原始事件一致时才会被接受。",
+        "分段 ReadFile 不再把路径插入 shell 管道，本地读取、写入和编辑操作也会把解析后的路径限制在配置工作区内。",
+        "该版本还会把 generate_content_config 中的 safety_settings 转发给 Live API，不再静默丢弃已配置的策略。"
+      ],
+      "why_it_matters_en": "The release directly strengthens two critical agent boundaries: human approval cannot be forged, and filesystem tools cannot silently escape the workspace.",
+      "why_it_matters_zh": "这些修复直接加固了代理系统最关键的两条边界：人类授权不能被伪造，文件工具不能悄然逃出工作区。",
+      "source": {
+        "name": "Google Agent Development Kit",
+        "type": "primary",
+        "url": "https://github.com/google/adk-python/releases/tag/v1.38.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/google/adk-python/pull/6575",
+        "https://github.com/google/adk-python/pull/6597"
+      ],
+      "confidence": "high",
+      "score": 94,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-07-claude-code-cross-machine-messaging",
+      "published_at": "2026-08-07T23:08:56Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "developer-tools",
+        "communication",
+        "remote-control"
+      ],
+      "title_en": "Claude Code 2.1.225 extends cross-machine agent messaging",
+      "title_zh": "Claude Code 2.1.225 扩展跨机器代理通信",
+      "summary_en": "Claude Code 2.1.225 lets SendMessage initiate conversations with named Remote Control sessions on other machines, while hardening recipient identity and delivery for headless sessions.",
+      "summary_zh": "Claude Code 2.1.225 允许 SendMessage 按名称主动联系其他机器上的 Remote Control 会话，并加强远程接收者身份绑定及无头会话的消息投递。",
+      "tech_points_en": [
+        "SendMessage can initiate a conversation with a Remote Control session on another machine by name, and ListAgents presents each discoverable session as a name plus stable reference.",
+        "Once a remote recipient is confirmed, identity binding prevents a newly created same-named local agent from silently replacing that destination.",
+        "Delivery fixes prevent messages from remaining indefinitely parked without notice or expiry when a target session is headless or still starting."
+      ],
+      "tech_points_zh": [
+        "SendMessage 可按名称主动联系另一台机器上的 Remote Control 会话，ListAgents 会以名称加稳定引用显示每个可发现会话。",
+        "远程接收者确认后，身份绑定会阻止新建的同名本地代理静默替换该目的地。",
+        "投递修复避免消息在目标会话处于无头模式或仍在启动时无限期搁置且没有提示或过期机制。"
+      ],
+      "why_it_matters_en": "Coding agents are evolving from single-machine subagent trees into recoverable cross-device collaboration networks, making identity and authority boundaries central security concerns.",
+      "why_it_matters_zh": "编码代理正在从单机子代理树演进为跨设备、可恢复的协作网络；身份和权限边界也随之成为核心安全问题。",
+      "source": {
+        "name": "Anthropic",
+        "type": "primary",
+        "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49222824"
+      ],
+      "evidence_urls": [
+        "https://code.claude.com/docs/en/cross-session-messaging",
+        "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.225"
+      ],
+      "confidence": "high",
+      "score": 92,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 7
+      }
+    },
+    {
+      "id": "2026-08-07-phone-harness-iphone-agent-control",
+      "published_at": "2026-08-07T22:28:53Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "mobile",
+        "computer-use",
+        "open-source",
+        "tool-use"
+      ],
+      "title_en": "Phone Harness lets agents control a real iPhone through macOS",
+      "title_zh": "Phone Harness 让代理通过 macOS 控制真实 iPhone",
+      "summary_en": "Phone Harness combines iPhone Mirroring, Apple Vision OCR, and HID-level events so an agent can operate a real iPhone without jailbreaking, Xcode, or WebDriverAgent, using screenshots as ground truth in a DOM-free environment.",
+      "summary_zh": "Phone Harness 利用 macOS 的 iPhone Mirroring、Apple Vision OCR 和 HID 级事件，让代理在无需越狱、Xcode 或 WebDriverAgent 的情况下操作真实 iPhone，并以截图作为无 DOM 环境中的验证真值。",
+      "tech_points_en": [
+        "The harness captures the mirrored iPhone window, extracts visible text with Apple Vision OCR, and emits HID-level Core Graphics events for taps, presses, drags, flicks, scrolling, and keyboard input.",
+        "It is stateless and daemon-free, leaving connection and physical unlock to the user while screenshots provide the agent's only visual ground truth rather than a DOM or accessibility tree.",
+        "The current implementation supports one phone and one mirroring session, lacks multitouch and semantic UI understanding, and requires Accessibility and Screen Recording permissions; no benchmark or independent reproduction is published."
+      ],
+      "tech_points_zh": [
+        "该工具捕获 iPhone 镜像窗口，用 Apple Vision OCR 提取可见文本，并通过 HID 级 Core Graphics 事件执行点击、长按、拖动、轻扫、滚动和键盘输入。",
+        "它不维护状态也不运行守护进程，由用户负责连接和实体解锁；截图是代理唯一的视觉真值，而非 DOM 或无障碍树。",
+        "当前实现仅支持一部手机和一个镜像会话，不支持多点触控与语义化界面理解，并要求辅助功能和屏幕录制权限；项目尚未发布基准或独立复现。"
+      ],
+      "why_it_matters_en": "It substantially lowers the barrier to experimenting with real phone agents while exposing the risks of OCR ambiguity and privileged desktop control.",
+      "why_it_matters_zh": "它显著降低了真实手机代理实验的接入门槛，也暴露出 OCR 语义不足和高权限桌面控制的风险。",
+      "source": {
+        "name": "Phone Harness",
+        "type": "primary",
+        "url": "https://github.com/ShawnPana/phone-harness",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 20,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-07-pi-peer-agent-mailboxes",
+      "published_at": "2026-08-07T21:35:43Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "communication",
+        "open-source",
+        "durable-execution"
+      ],
+      "title_en": "pi-peer adds durable local mailboxes between agent sessions",
+      "title_zh": "pi-peer 为本机代理会话加入持久消息箱",
+      "summary_en": "pi-peer is a small Pi extension that lets local agent sessions discover and message one another through durable filesystem mailboxes, while bounding feedback loops through authority stripping, throttling, and backlog limits.",
+      "summary_zh": "pi-peer 是一个极简 Pi 扩展，让同一台机器上的代理会话发现彼此、发送纯文本消息，并在进程重启后保留未读邮件，同时通过权限降级、限速和积压上限约束代理回声循环。",
+      "tech_points_en": [
+        "Two Tools, list_peers and message_peer, use shared filesystem mailboxes keyed by working directory and session identity; unread messages survive restarts and receipt is represented by unlinking a queued file.",
+        "Messages are plain text, carry no user authority, and render slash commands inert, while mailbox directories and files use owner-only permissions.",
+        "A 32 KiB message cap, duplicate suppression, rate limiting above eight messages per 30 seconds, and a 50-message backlog bound constrain local agent feedback loops; communication does not cross machines."
+      ],
+      "tech_points_zh": [
+        "list_peers 与 message_peer 两个工具使用按工作目录和会话身份划分的共享文件系统消息箱；未读消息可跨重启保留，接收则通过删除队列文件表示。",
+        "消息仅为纯文本、不携带用户权限，斜杠命令会被处理为不可执行文本，消息箱目录和文件也只允许所有者访问。",
+        "32 KiB 消息上限、重复抑制、30 秒超过八条后的限速及 50 条积压上限共同约束本地代理回声循环；通信不能跨机器。"
+      ],
+      "why_it_matters_en": "It demonstrates a compact safety pattern for agent collaboration: share information without sharing authority or hidden state.",
+      "why_it_matters_zh": "这是一个小而清晰的代理协作安全模式：共享信息，但不共享权限或隐藏状态。",
+      "source": {
+        "name": "pi-peer",
+        "type": "primary",
+        "url": "https://github.com/shift-labs-ai/pi-peer",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://www.npmjs.com/package/@shift-labs/pi-peer/v/0.1.0"
+      ],
+      "confidence": "medium",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 20,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-07-openai-astra-critical-cyber-gating",
+      "published_at": "2026-08-07T15:20:00Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "cybersecurity",
+        "safety",
+        "evaluation",
+        "model-release"
+      ],
+      "title_en": "OpenAI gates Astra over potential Critical cyber capability",
+      "title_zh": "OpenAI 因 Astra 潜在“关键级”网络能力暂停部分工作",
+      "summary_en": "OpenAI says recent internal evaluations cannot rule out Astra reaching its Critical cyber-capability threshold, prompting a pause on internal activities that do not meet strengthened controls. Astra is not yet released and was not involved in the earlier Hugging Face incident.",
+      "summary_zh": "OpenAI 的最新内部评估无法排除 Astra 已达到其 Preparedness Framework 中的 Critical 网络能力门槛，因此暂停不满足强化控制要求的部分内部活动。Astra 尚未发布，也未参与此前的 Hugging Face 事件。",
+      "tech_points_en": [
+        "OpenAI defines the Critical threshold as autonomous zero-day discovery against hardened critical systems or end-to-end execution of novel attacks from a high-level goal.",
+        "The company is requiring stricter isolation, restricted network and Tool access, stronger model-weight protection, monitoring, and sandboxed execution, and has paused Astra work that does not meet those controls.",
+        "Universal monitoring in agent applications includes chain-of-thought signals that can trigger review or interruption, alongside external government and safety testing before release decisions."
+      ],
+      "tech_points_zh": [
+        "OpenAI 将 Critical 门槛定义为：自主发现针对强化关键系统的零日漏洞，或根据高层目标端到端执行新型攻击。",
+        "公司要求采用更严格的隔离、受限网络与工具访问、更强模型权重保护、监控和沙箱执行，并暂停不满足这些控制要求的 Astra 工作。",
+        "代理应用的统一监控包括可触发审查或中断的思维链信号，并在发布决策前配合政府与外部安全测试。"
+      ],
+      "why_it_matters_en": "This is an unusually explicit case of frontier agent capability triggering release gates and runtime controls rather than only post-hoc risk disclosure.",
+      "why_it_matters_zh": "这是一起罕见且明确的案例：前沿代理能力直接触发模型发布门控和运行时控制，而不只是事后风险披露。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://openai.com/index/responding-next-frontier-critical-cyber-capabilities",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49213029"
+      ],
+      "evidence_urls": [
+        "https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks"
+      ],
+      "confidence": "high",
+      "score": 98,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 9
+      }
+    },
+    {
+      "id": "2026-08-07-databricks-coding-agent-cost-playbook",
+      "published_at": "2026-08-07T11:50:39Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agents",
+        "cost",
+        "infrastructure",
+        "routing"
+      ],
+      "title_en": "Databricks publishes a coding-agent cost playbook",
+      "title_zh": "Databricks 发布大规模编码代理成本实战报告",
+      "summary_en": "Databricks outlines a coding-agent cost playbook based on its own deployments and discussions with Stripe, Coinbase, Uber, and Ramp, combining model and task routing, a meta-harness, progressive spending controls, and context reduction.",
+      "summary_zh": "Databricks 总结了自身及 Stripe、Coinbase、Uber、Ramp 等公司的代理成本控制经验，提出通过模型与任务路由、元 harness、渐进式预算控制和上下文压缩，把大规模编码代理支出保持在可预测范围内。",
+      "tech_points_en": [
+        "The proposed efficiency frontier separates models from harnesses through a meta-harness, then routes requests and tasks according to quality, latency, and cost requirements.",
+        "Databricks reports that its internal Smart Router reduced average task cost by more than 30% while roughly matching the quality of the most expensive model in its comparison set.",
+        "Harness tuning, less verbose tools, compaction, and cache-aware context management reportedly cut generated tokens and cost by nearly 50% without observed quality loss; the figures are directional internal results rather than independently audited benchmarks."
+      ],
+      "tech_points_zh": [
+        "该效率前沿通过元 harness 解耦模型与执行框架，再依据质量、延迟和成本要求对请求与任务进行路由。",
+        "Databricks 报告其内部 Smart Router 将平均任务成本降低超过 30%，同时质量大致追平对比组中最昂贵的模型。",
+        "通过 harness 调优、降低工具输出冗余、压缩和缓存感知的上下文管理，生成 token 与成本据称下降近 50% 且未观察到质量损失；这些数字是内部方向性结果，并非独立审计基准。"
+      ],
+      "why_it_matters_en": "Agent economics are becoming an architecture problem requiring meta-harnesses, AI gateways, routing, spending controls, and unified tracing.",
+      "why_it_matters_zh": "代理经济性正在转变为架构问题，需要元 harness、AI Gateway、路由、预算摩擦和统一追踪共同解决。",
+      "source": {
+        "name": "Databricks",
+        "type": "primary",
+        "url": "https://www.databricks.com/blog/managing-ai-coding-costs-scale",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49214468"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-07-agentscope-2-0-6-agent-service",
+      "published_at": "2026-08-07T10:39:34Z",
+      "collected_at": "2026-08-09T09:33:44Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "framework",
+        "mcp",
+        "skills",
+        "security",
+        "agent-service"
+      ],
+      "title_en": "AgentScope 2.0.6 adds channels, hubs, and permission middleware",
+      "title_zh": "AgentScope 2.0.6 增加渠道、技能市场与权限钩子",
+      "summary_en": "AgentScope 2.0.6 expands its agent-service layer with Feishu and Discord channels, Apple Container workspaces, MCP and skill hubs, permission middleware, and fixes for streaming performance and tool errors.",
+      "summary_zh": "AgentScope 2.0.6 将代理服务进一步产品化，加入飞书与 Discord 渠道、Apple Container 工作区、MCP/技能市场安装和权限检查中间件，并改进流式性能与工具错误处理。",
+      "tech_points_en": [
+        "The agent service gains Feishu and Discord channels plus an Apple Container workspace backend for isolated local execution.",
+        "Agents can install MCP servers and Skills from configured hubs or markets, while new on_check_permission middleware provides a host-side authorization hook.",
+        "The release changes stream accumulation from quadratic to linear behavior and fixes Tool, interruption, error-propagation, and tracing paths across the service stack."
+      ],
+      "tech_points_zh": [
+        "代理服务新增飞书与 Discord 渠道，并加入 Apple Container 工作区后端以支持隔离的本地执行。",
+        "代理可从配置的中心或市场安装 MCP 服务器与技能，新的 on_check_permission 中间件则提供宿主侧授权钩子。",
+        "该版本把流式结果累积从二次复杂度优化为线性复杂度，并修复服务栈中的工具、中断、错误传播和追踪路径。"
+      ],
+      "why_it_matters_en": "The release brings communication, isolation, skill distribution, and authorization into one service layer, showing agent frameworks evolving into operable platforms.",
+      "why_it_matters_zh": "更新把通信、隔离、技能分发和授权放进同一服务层，体现代理框架向可运营平台演进。",
+      "source": {
+        "name": "AgentScope",
+        "type": "primary",
+        "url": "https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.6",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 6
+      }
+    },
+    {
       "id": "2026-08-04-openeta-embodied-task-agent",
       "published_at": "2026-08-04T16:56:09Z",
       "collected_at": "2026-08-05T03:34:41Z",

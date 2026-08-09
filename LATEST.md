@@ -2,6 +2,338 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-08-kadath-evolutionary-agent-runtime"></a>
+## [KADATH 发布可审计的进化式多代理运行时](https://github.com/i3T4AN/KADATH)
+
+**English:** [KADATH releases an auditable evolutionary multi-agent runtime](https://github.com/i3T4AN/KADATH)
+
+- **发布 / Published:** `2026-08-08T15:49:55Z`
+- **来源 / Source:** [KADATH](https://github.com/i3T4AN/KADATH) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `self-improvement`, `evaluation`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+KADATH 将目标转化为冻结的评分契约，并在多个 epoch 中选择、变异和繁殖包含提示词、代码、工具及依赖的代理“基因组”，同时把容器、证据、评分和 Git 血统留在不可变内核中。
+
+KADATH evolves populations of agent genomes—prompts, code, tools, and dependencies—against a locked objective while keeping containers, evidence, grading, and Git lineage in an immutable kernel-controlled plane.
+
+### 技术点 / Technical points
+
+- 内核控制基准契约、截止时间、容器、证据、评分、种群状态、恢复、清理和 Git 血统；基因组可修改提示词、代码、工具、依赖和支持文件，但不能改写目标或评分权限。
+  - The kernel controls benchmark contracts, deadlines, containers, evidence, grading, population state, recovery, cleanup, and Git lineage, while genomes may change prompts, code, tools, dependencies, and support files but not objectives or scoring authority.
+- 只读基因组容器获得可写工作区和范围受限的令牌；证据在模型评分器提取类型化事实之前经过哈希冻结与符号链接检查，最终适应度由内核计算。
+  - Read-only genome containers receive writable workspaces and scoped tokens; evidence is frozen with hashes and symlink checks before a model grader extracts typed facts for kernel-side fitness computation.
+- 仓库包含覆盖编排和恢复的 53 个生命周期测试方法，但尚未发布基准结果或系统有效性的独立复现。
+  - The repository includes 53 lifecycle test methods spanning orchestration and recovery, but publishes no benchmark outcome or independent reproduction of the system's effectiveness.
+
+### 为什么重要 / Why it matters
+
+它尝试把自改进代理最容易被奖励黑客攻击的环节变成可验证边界。
+
+It attempts to turn the parts of self-improving agents most vulnerable to reward hacking into verifiable boundaries.
+
+---
+
+<a id="2026-08-08-pydantic-ai-download-memory-advisory"></a>
+## [Pydantic AI 修复代理远程下载内存耗尽漏洞](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8)
+
+**English:** [Pydantic AI patches unbounded remote-download memory use](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8)
+
+- **发布 / Published:** `2026-08-08T03:16:08Z`
+- **来源 / Source:** [GitHub Security Advisory](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security`, `vulnerability`, `tool-use`, `denial-of-service`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Pydantic AI 披露一个 CVSS 6.5 的可用性漏洞：受不可信提示控制的代理可让本地 web_fetch 或媒体下载缓冲无限大的响应，耗尽工作进程内存。修复版在流式读取期间实施默认 50 MiB 上限。
+
+Pydantic AI disclosed a CVSS 6.5 availability vulnerability where model-influenced web fetches or media downloads could buffer an unbounded response and exhaust worker memory. Patched versions enforce a default 50 MiB streaming cap.
+
+### 技术点 / Technical points
+
+- 本地 web_fetch 回退路径和 FileUrl 媒体路径会在执行大小限制前缓冲完整远程响应，使受模型影响的不可信 URL 能够耗尽工作进程内存。
+  - The local web_fetch fallback and FileUrl media path buffered an entire remote response before enforcing a size limit, allowing a model-influenced untrusted URL to exhaust worker memory.
+- 公告将该问题评为 CVSS 6.5 的中危漏洞，影响仅限可用性；现有 SSRF 防护不变，也未发现机密性或完整性影响。
+  - The advisory rates the issue Moderate at CVSS 6.5 and limits the impact to availability; existing SSRF protections are unchanged, with no identified confidentiality or integrity impact.
+- Pydantic AI v1.107.2 与 v2.24.0 改为流式下载，并执行默认 50 MiB、可配置的上限，在无限缓冲前中止。
+  - Pydantic AI v1.107.2 and v2.24.0 stream downloads while enforcing a configurable 50 MiB default cap and abort before unbounded buffering.
+
+### 为什么重要 / Why it matters
+
+代理可以选择 URL 后，普通资源限制缺陷会变成远程可触发的拒绝服务面。
+
+Once an agent can choose URLs, an ordinary resource-bounding flaw becomes a remotely triggerable denial-of-service surface.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.2)
+
+---
+
+<a id="2026-08-07-google-adk-1-38-security-hardening"></a>
+## [Google ADK 1.38 修复工具确认伪造与文件系统越界](https://github.com/google/adk-python/releases/tag/v1.38.0)
+
+**English:** [Google ADK 1.38 hardens tool confirmation and filesystem boundaries](https://github.com/google/adk-python/releases/tag/v1.38.0)
+
+- **发布 / Published:** `2026-08-07T23:41:25Z`
+- **来源 / Source:** [Google Agent Development Kit](https://github.com/google/adk-python/releases/tag/v1.38.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security`, `tool-use`, `framework`, `authorization`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+Google ADK Python v1.38.0 回补了多项代理安全修复，并把 Live API 的安全设置完整转发下去。工具确认现在核对原始调用身份与参数，文件工具也被限制在工作区内。
+
+Google ADK Python v1.38.0 backports several agent-security fixes, forwards configured safety settings to the Live API, verifies the identity and arguments of confirmed tool calls, and confines local file tools to the workspace.
+
+### 技术点 / Technical points
+
+- 确认响应仅在目标已注册于代理工具字典、确实要求确认，且调用 ID、名称和参数与原始事件一致时才会被接受。
+  - Confirmation responses are accepted only when the target is registered in the agent's Tool dictionary, actually requires confirmation, and matches the original event's ID, name, and arguments.
+- 分段 ReadFile 不再把路径插入 shell 管道，本地读取、写入和编辑操作也会把解析后的路径限制在配置工作区内。
+  - Ranged ReadFile no longer interpolates a path into a shell pipeline, and local read, write, and edit operations now resolve paths within the configured workspace boundary.
+- 该版本还会把 generate_content_config 中的 safety_settings 转发给 Live API，不再静默丢弃已配置的策略。
+  - The release also forwards safety_settings from generate_content_config to the Live API instead of silently dropping the configured policy.
+
+### 为什么重要 / Why it matters
+
+这些修复直接加固了代理系统最关键的两条边界：人类授权不能被伪造，文件工具不能悄然逃出工作区。
+
+The release directly strengthens two critical agent boundaries: human approval cannot be forged, and filesystem tools cannot silently escape the workspace.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/google/adk-python/pull/6575) · [Evidence 2](https://github.com/google/adk-python/pull/6597)
+
+---
+
+<a id="2026-08-07-claude-code-cross-machine-messaging"></a>
+## [Claude Code 2.1.225 扩展跨机器代理通信](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225)
+
+**English:** [Claude Code 2.1.225 extends cross-machine agent messaging](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225)
+
+- **发布 / Published:** `2026-08-07T23:08:56Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `developer-tools`, `communication`, `remote-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.225 允许 SendMessage 按名称主动联系其他机器上的 Remote Control 会话，并加强远程接收者身份绑定及无头会话的消息投递。
+
+Claude Code 2.1.225 lets SendMessage initiate conversations with named Remote Control sessions on other machines, while hardening recipient identity and delivery for headless sessions.
+
+### 技术点 / Technical points
+
+- SendMessage 可按名称主动联系另一台机器上的 Remote Control 会话，ListAgents 会以名称加稳定引用显示每个可发现会话。
+  - SendMessage can initiate a conversation with a Remote Control session on another machine by name, and ListAgents presents each discoverable session as a name plus stable reference.
+- 远程接收者确认后，身份绑定会阻止新建的同名本地代理静默替换该目的地。
+  - Once a remote recipient is confirmed, identity binding prevents a newly created same-named local agent from silently replacing that destination.
+- 投递修复避免消息在目标会话处于无头模式或仍在启动时无限期搁置且没有提示或过期机制。
+  - Delivery fixes prevent messages from remaining indefinitely parked without notice or expiry when a target session is headless or still starting.
+
+### 为什么重要 / Why it matters
+
+编码代理正在从单机子代理树演进为跨设备、可恢复的协作网络；身份和权限边界也随之成为核心安全问题。
+
+Coding agents are evolving from single-machine subagent trees into recoverable cross-device collaboration networks, making identity and authority boundaries central security concerns.
+
+### 链接 / Links
+
+[Evidence 1](https://code.claude.com/docs/en/cross-session-messaging) · [Evidence 2](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.225)
+[Discussion 1](https://news.ycombinator.com/item?id=49222824)
+
+---
+
+<a id="2026-08-07-phone-harness-iphone-agent-control"></a>
+## [Phone Harness 让代理通过 macOS 控制真实 iPhone](https://github.com/ShawnPana/phone-harness)
+
+**English:** [Phone Harness lets agents control a real iPhone through macOS](https://github.com/ShawnPana/phone-harness)
+
+- **发布 / Published:** `2026-08-07T22:28:53Z`
+- **来源 / Source:** [Phone Harness](https://github.com/ShawnPana/phone-harness) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mobile`, `computer-use`, `open-source`, `tool-use`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Phone Harness 利用 macOS 的 iPhone Mirroring、Apple Vision OCR 和 HID 级事件，让代理在无需越狱、Xcode 或 WebDriverAgent 的情况下操作真实 iPhone，并以截图作为无 DOM 环境中的验证真值。
+
+Phone Harness combines iPhone Mirroring, Apple Vision OCR, and HID-level events so an agent can operate a real iPhone without jailbreaking, Xcode, or WebDriverAgent, using screenshots as ground truth in a DOM-free environment.
+
+### 技术点 / Technical points
+
+- 该工具捕获 iPhone 镜像窗口，用 Apple Vision OCR 提取可见文本，并通过 HID 级 Core Graphics 事件执行点击、长按、拖动、轻扫、滚动和键盘输入。
+  - The harness captures the mirrored iPhone window, extracts visible text with Apple Vision OCR, and emits HID-level Core Graphics events for taps, presses, drags, flicks, scrolling, and keyboard input.
+- 它不维护状态也不运行守护进程，由用户负责连接和实体解锁；截图是代理唯一的视觉真值，而非 DOM 或无障碍树。
+  - It is stateless and daemon-free, leaving connection and physical unlock to the user while screenshots provide the agent's only visual ground truth rather than a DOM or accessibility tree.
+- 当前实现仅支持一部手机和一个镜像会话，不支持多点触控与语义化界面理解，并要求辅助功能和屏幕录制权限；项目尚未发布基准或独立复现。
+  - The current implementation supports one phone and one mirroring session, lacks multitouch and semantic UI understanding, and requires Accessibility and Screen Recording permissions; no benchmark or independent reproduction is published.
+
+### 为什么重要 / Why it matters
+
+它显著降低了真实手机代理实验的接入门槛，也暴露出 OCR 语义不足和高权限桌面控制的风险。
+
+It substantially lowers the barrier to experimenting with real phone agents while exposing the risks of OCR ambiguity and privileged desktop control.
+
+---
+
+<a id="2026-08-07-pi-peer-agent-mailboxes"></a>
+## [pi-peer 为本机代理会话加入持久消息箱](https://github.com/shift-labs-ai/pi-peer)
+
+**English:** [pi-peer adds durable local mailboxes between agent sessions](https://github.com/shift-labs-ai/pi-peer)
+
+- **发布 / Published:** `2026-08-07T21:35:43Z`
+- **来源 / Source:** [pi-peer](https://github.com/shift-labs-ai/pi-peer) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `communication`, `open-source`, `durable-execution`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+pi-peer 是一个极简 Pi 扩展，让同一台机器上的代理会话发现彼此、发送纯文本消息，并在进程重启后保留未读邮件，同时通过权限降级、限速和积压上限约束代理回声循环。
+
+pi-peer is a small Pi extension that lets local agent sessions discover and message one another through durable filesystem mailboxes, while bounding feedback loops through authority stripping, throttling, and backlog limits.
+
+### 技术点 / Technical points
+
+- list_peers 与 message_peer 两个工具使用按工作目录和会话身份划分的共享文件系统消息箱；未读消息可跨重启保留，接收则通过删除队列文件表示。
+  - Two Tools, list_peers and message_peer, use shared filesystem mailboxes keyed by working directory and session identity; unread messages survive restarts and receipt is represented by unlinking a queued file.
+- 消息仅为纯文本、不携带用户权限，斜杠命令会被处理为不可执行文本，消息箱目录和文件也只允许所有者访问。
+  - Messages are plain text, carry no user authority, and render slash commands inert, while mailbox directories and files use owner-only permissions.
+- 32 KiB 消息上限、重复抑制、30 秒超过八条后的限速及 50 条积压上限共同约束本地代理回声循环；通信不能跨机器。
+  - A 32 KiB message cap, duplicate suppression, rate limiting above eight messages per 30 seconds, and a 50-message backlog bound constrain local agent feedback loops; communication does not cross machines.
+
+### 为什么重要 / Why it matters
+
+这是一个小而清晰的代理协作安全模式：共享信息，但不共享权限或隐藏状态。
+
+It demonstrates a compact safety pattern for agent collaboration: share information without sharing authority or hidden state.
+
+### 链接 / Links
+
+[Evidence 1](https://www.npmjs.com/package/@shift-labs/pi-peer/v/0.1.0)
+
+---
+
+<a id="2026-08-07-openai-astra-critical-cyber-gating"></a>
+## [OpenAI 因 Astra 潜在“关键级”网络能力暂停部分工作](https://openai.com/index/responding-next-frontier-critical-cyber-capabilities)
+
+**English:** [OpenAI gates Astra over potential Critical cyber capability](https://openai.com/index/responding-next-frontier-critical-cyber-capabilities)
+
+- **发布 / Published:** `2026-08-07T15:20:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/responding-next-frontier-critical-cyber-capabilities) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `cybersecurity`, `safety`, `evaluation`, `model-release`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `98/100`
+
+### 摘要 / Summary
+
+OpenAI 的最新内部评估无法排除 Astra 已达到其 Preparedness Framework 中的 Critical 网络能力门槛，因此暂停不满足强化控制要求的部分内部活动。Astra 尚未发布，也未参与此前的 Hugging Face 事件。
+
+OpenAI says recent internal evaluations cannot rule out Astra reaching its Critical cyber-capability threshold, prompting a pause on internal activities that do not meet strengthened controls. Astra is not yet released and was not involved in the earlier Hugging Face incident.
+
+### 技术点 / Technical points
+
+- OpenAI 将 Critical 门槛定义为：自主发现针对强化关键系统的零日漏洞，或根据高层目标端到端执行新型攻击。
+  - OpenAI defines the Critical threshold as autonomous zero-day discovery against hardened critical systems or end-to-end execution of novel attacks from a high-level goal.
+- 公司要求采用更严格的隔离、受限网络与工具访问、更强模型权重保护、监控和沙箱执行，并暂停不满足这些控制要求的 Astra 工作。
+  - The company is requiring stricter isolation, restricted network and Tool access, stronger model-weight protection, monitoring, and sandboxed execution, and has paused Astra work that does not meet those controls.
+- 代理应用的统一监控包括可触发审查或中断的思维链信号，并在发布决策前配合政府与外部安全测试。
+  - Universal monitoring in agent applications includes chain-of-thought signals that can trigger review or interruption, alongside external government and safety testing before release decisions.
+
+### 为什么重要 / Why it matters
+
+这是一起罕见且明确的案例：前沿代理能力直接触发模型发布门控和运行时控制，而不只是事后风险披露。
+
+This is an unusually explicit case of frontier agent capability triggering release gates and runtime controls rather than only post-hoc risk disclosure.
+
+### 链接 / Links
+
+[Evidence 1](https://www.axios.com/2026/08/07/openai-astra-model-delay-cybersecurity-risks)
+[Discussion 1](https://news.ycombinator.com/item?id=49213029)
+
+---
+
+<a id="2026-08-07-databricks-coding-agent-cost-playbook"></a>
+## [Databricks 发布大规模编码代理成本实战报告](https://www.databricks.com/blog/managing-ai-coding-costs-scale)
+
+**English:** [Databricks publishes a coding-agent cost playbook](https://www.databricks.com/blog/managing-ai-coding-costs-scale)
+
+- **发布 / Published:** `2026-08-07T11:50:39Z`
+- **来源 / Source:** [Databricks](https://www.databricks.com/blog/managing-ai-coding-costs-scale) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `cost`, `infrastructure`, `routing`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Databricks 总结了自身及 Stripe、Coinbase、Uber、Ramp 等公司的代理成本控制经验，提出通过模型与任务路由、元 harness、渐进式预算控制和上下文压缩，把大规模编码代理支出保持在可预测范围内。
+
+Databricks outlines a coding-agent cost playbook based on its own deployments and discussions with Stripe, Coinbase, Uber, and Ramp, combining model and task routing, a meta-harness, progressive spending controls, and context reduction.
+
+### 技术点 / Technical points
+
+- 该效率前沿通过元 harness 解耦模型与执行框架，再依据质量、延迟和成本要求对请求与任务进行路由。
+  - The proposed efficiency frontier separates models from harnesses through a meta-harness, then routes requests and tasks according to quality, latency, and cost requirements.
+- Databricks 报告其内部 Smart Router 将平均任务成本降低超过 30%，同时质量大致追平对比组中最昂贵的模型。
+  - Databricks reports that its internal Smart Router reduced average task cost by more than 30% while roughly matching the quality of the most expensive model in its comparison set.
+- 通过 harness 调优、降低工具输出冗余、压缩和缓存感知的上下文管理，生成 token 与成本据称下降近 50% 且未观察到质量损失；这些数字是内部方向性结果，并非独立审计基准。
+  - Harness tuning, less verbose tools, compaction, and cache-aware context management reportedly cut generated tokens and cost by nearly 50% without observed quality loss; the figures are directional internal results rather than independently audited benchmarks.
+
+### 为什么重要 / Why it matters
+
+代理经济性正在转变为架构问题，需要元 harness、AI Gateway、路由、预算摩擦和统一追踪共同解决。
+
+Agent economics are becoming an architecture problem requiring meta-harnesses, AI gateways, routing, spending controls, and unified tracing.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49214468)
+
+---
+
+<a id="2026-08-07-agentscope-2-0-6-agent-service"></a>
+## [AgentScope 2.0.6 增加渠道、技能市场与权限钩子](https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.6)
+
+**English:** [AgentScope 2.0.6 adds channels, hubs, and permission middleware](https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.6)
+
+- **发布 / Published:** `2026-08-07T10:39:34Z`
+- **来源 / Source:** [AgentScope](https://github.com/agentscope-ai/agentscope/releases/tag/v2.0.6) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `framework`, `mcp`, `skills`, `security`, `agent-service`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+AgentScope 2.0.6 将代理服务进一步产品化，加入飞书与 Discord 渠道、Apple Container 工作区、MCP/技能市场安装和权限检查中间件，并改进流式性能与工具错误处理。
+
+AgentScope 2.0.6 expands its agent-service layer with Feishu and Discord channels, Apple Container workspaces, MCP and skill hubs, permission middleware, and fixes for streaming performance and tool errors.
+
+### 技术点 / Technical points
+
+- 代理服务新增飞书与 Discord 渠道，并加入 Apple Container 工作区后端以支持隔离的本地执行。
+  - The agent service gains Feishu and Discord channels plus an Apple Container workspace backend for isolated local execution.
+- 代理可从配置的中心或市场安装 MCP 服务器与技能，新的 on_check_permission 中间件则提供宿主侧授权钩子。
+  - Agents can install MCP servers and Skills from configured hubs or markets, while new on_check_permission middleware provides a host-side authorization hook.
+- 该版本把流式结果累积从二次复杂度优化为线性复杂度，并修复服务栈中的工具、中断、错误传播和追踪路径。
+  - The release changes stream accumulation from quadratic to linear behavior and fixes Tool, interruption, error-propagation, and tracing paths across the service stack.
+
+### 为什么重要 / Why it matters
+
+更新把通信、隔离、技能分发和授权放进同一服务层，体现代理框架向可运营平台演进。
+
+The release brings communication, isolation, skill distribution, and authorization into one service layer, showing agent frameworks evolving into operable platforms.
+
+---
+
 <a id="2026-08-04-openeta-embodied-task-agent"></a>
 ## [OpenETA 将可审计的智能体循环带入具身任务](https://arxiv.org/abs/2608.03924)
 
@@ -414,333 +746,3 @@ WorldExam offers a more demanding yardstick for interactive worlds than visual f
 ### 链接 / Links
 
 [Evidence 1](https://worldexam.github.io/) · [Evidence 2](https://github.com/YuxueYang1204/WorldExam)
-
----
-
-<a id="2026-08-03-ego2robot-data-synthesis"></a>
-## [Ego2Robot 从第一人称人类视频合成机器人数据](https://arxiv.org/abs/2608.02580)
-
-**English:** [Ego2Robot synthesizes robot data from egocentric human video](https://arxiv.org/abs/2608.02580)
-
-- **发布 / Published:** `2026-08-03T17:52:26Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02580) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robot-data`, `egocentric-video`, `vla`, `data-synthesis`, `sim-to-real`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-Ego2Robot 将精选及野外第一人称人类操作视频转成机器人格式演示，据报告生成覆盖 15 种机器人形态的 18,561 小时训练数据。
-
-Ego2Robot converts curated and in-the-wild egocentric human manipulation videos into robot-format demonstrations, producing a reported 18,561 hours of training data across 15 robot morphologies.
-
-### 技术点 / Technical points
-
-- 该流水线结合手部到机器人的动作重定向、机械臂视觉合成、逆运动学、碰撞过滤和基于 VLM 的视频—动作一致性检查。
-  - The pipeline combines hand-to-robot action retargeting, robot-arm visual synthesis, inverse kinematics, collision filtering, and VLM-based video-action consistency checks.
-- 两条输入路径分别支持带手部姿态标注的数据集，以及经过逐帧重建和时间优化的原始视频。
-  - Two input paths support datasets with hand-pose annotations and raw videos processed with per-frame reconstruction plus temporal optimization.
-- 作者报告 VLA 在外观、布局、机器人形态和任务语义变化下的分布外泛化得到提升，并进行了真机验证。
-  - The authors report improved out-of-distribution VLA generalization across appearance, layout, embodiment, and task-semantic shifts, with real-robot validation.
-
-### 为什么重要 / Why it matters
-
-将丰富的人类视频转成特定机器人形态的演示，可能显著改变 VLA 预训练的数据成本结构。
-
-Converting abundant human video into embodiment-specific demonstrations could materially change the data economics of VLA pretraining.
-
-### 链接 / Links
-
-[Evidence 1](https://www-ye.github.io/ego2robot_blog/)
-
----
-
-<a id="2026-08-03-cowam-coordination-contracts"></a>
-## [CoWAM 用协调契约限制世界动作模型干预](https://arxiv.org/abs/2608.02578)
-
-**English:** [CoWAM constrains world-action model intervention with coordination contracts](https://arxiv.org/abs/2608.02578)
-
-- **发布 / Published:** `2026-08-03T17:51:58Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02578) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `world-action-model`, `bimanual-manipulation`, `safety`, `policy-intervention`, `coordination`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-CoWAM 为双臂机器人策略增加选择性干预层，只有在满足明确协调与风险义务时，才允许世界动作模型提议替换原动作。
-
-CoWAM adds a selective intervention layer to bimanual robot policies, allowing world-action model proposals to replace nominal actions only when explicit coordination and risk obligations are satisfied.
-
-### 技术点 / Technical points
-
-- 协调契约将同步、角色兼容与碰撞收敛的类型化可接受性检查，同事件条件验证和校准干预门结合。
-  - Coordination contracts combine typed admissibility checks for synchronization, role compatibility, and collision convergence with event-conditioned verification and calibrated intervention gates.
-- 只有替代动作满足全部当前义务且带来明确低风险改善时才替换原动作；原动作也不可接受时触发预定义弃权回退。
-  - The nominal action is preserved unless an alternative satisfies every active obligation and offers a clear low-risk improvement; inadmissible nominal actions trigger a predefined abstention fallback.
-- 在八项仿真任务上，作者报告协调有效选择提升 16.7 个百分点、闭环成功率提升 9.6 个百分点，伤害性干预低于 1%。
-  - Across eight simulated tasks, the authors report a 16.7-point gain in coordination-valid selection, a 9.6-point gain in closed-loop success, and harmful interventions below 1%.
-
-### 为什么重要 / Why it matters
-
-当世界动作模型覆盖策略的权限由明确、可测试的契约管理时，预测未来才能成为更安全的控制证据。
-
-Predicted futures become safer control evidence when a world-action model's authority to override a policy is governed by explicit, testable contracts.
-
----
-
-<a id="2026-08-03-swe-touch-shared-workspace-benchmark"></a>
-## [SWE-Touch 评测共享工作区变化中的编程智能体](https://arxiv.org/abs/2608.02499)
-
-**English:** [SWE-Touch benchmarks coding agents in changing shared workspaces](https://arxiv.org/abs/2608.02499)
-
-- **发布 / Published:** `2026-08-03T17:03:19Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02499) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `collaboration`, `state-awareness`, `dataset`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-SWE-Touch 在用户同步修改同一实时工作区时评测编程智能体。它在任务关键区域注入合理的 Counter-Edits，检验智能体能否发现并正确协调外部变化，而不是覆盖或忽略这些修改。
-
-SWE-Touch evaluates coding agents while a user edits the same live workspace. It introduces plausible Counter-Edits in task-critical regions to test whether agents notice and correctly reconcile external changes instead of overwriting or ignoring them.
-
-### 技术点 / Technical points
-
-- 作者在 SWE-bench Verified 以及更长周期的 SWE-Bench Pro 和 DeepSWE 上评测九个编程模型，报告平均解决率下降 7.7 个百分点。
-  - Across nine coding models evaluated on SWE-bench Verified and the longer-horizon SWE-Bench Pro and DeepSWE suites, the authors report an average resolve-rate drop of 7.7 percentage points.
-- 已发布的 v0.1.2 数据集覆盖 250 项任务：SWE-bench Verified 200 项、SWE-Bench Pro 25 项、DeepSWE 25 项，其中包含 242 个经独立验证的代码修改和八个有记录的纯消息回退案例。
-  - The released v0.1.2 dataset covers 250 tasks: 200 from SWE-bench Verified, 25 from SWE-Bench Pro, and 25 from DeepSWE, with 242 independently validated code edits and eight documented message-only fallbacks.
-- 基准代码、生成流程和数据集均已公开；它扩展 Harbor 执行框架，同时保留 Mini-SWE-Agent 循环。
-  - The benchmark code, generation pipeline, and dataset are public and extend the Harbor execution framework while preserving the Mini-SWE-Agent loop.
-
-### 为什么重要 / Why it matters
-
-较高的自主编程得分并不保证智能体能在人与智能体共享且持续变化的工作区中保持状态感知；SWE-Touch 让这种协作失败变得可测量。
-
-Strong autonomous coding scores do not guarantee that an agent can maintain state awareness when humans and agents share a changing workspace; SWE-Touch makes that collaboration failure measurable.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/Trae1ounG/SWE-Touch) · [Evidence 2](https://huggingface.co/datasets/Trae1ounG/SWE-Touch)
-
----
-
-<a id="2026-08-03-agent-trajectory-sentinel"></a>
-## [AgentTrajectorySentinel 实时检测并修复智能体失败](https://arxiv.org/abs/2608.02464)
-
-**English:** [AgentTrajectorySentinel detects and repairs agent failures in real time](https://arxiv.org/abs/2608.02464)
-
-- **发布 / Published:** `2026-08-03T16:34:46Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02464) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reliability`, `failure-detection`, `runtime-monitoring`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-AgentTrajectorySentinel 监控智能体的逐步遥测，在运行结束前检测轨迹失败，并通过回滚和重试进行在线修复。该预印本同时公开代码、轨迹、结果表、数据卡、声明台账和确定性核验脚本。
-
-AgentTrajectorySentinel monitors step-level agent telemetry to detect trajectory failures before a run ends, then uses rollback and retry for online repair. The preprint is accompanied by code, traces, result tables, a data card, a claim ledger, and deterministic verification scripts.
-
-### 技术点 / Technical points
-
-- 系统仅用健康轨迹训练 echo-state-network 集成并结合 CUSUM；在来自三个框架的 2,823 个 episode 上，作者报告在 5% 误报预算下检出率为 0.71、AUROC 为 0.872，每步开销约 200 微秒。
-  - An echo-state-network ensemble with CUSUM is trained only on healthy trajectories; across 2,823 episodes from three frameworks, the authors report 0.71 failure detection at a 5% false-alarm budget, AUROC 0.872, and roughly 200 microseconds of overhead per step.
-- 带定位信息的回滚重试将报告的任务成功率从 52% 提升到 73%，每次运行约增加一次模型调用，并在公开核验结果中优于盲目重采样。
-  - Located rollback-and-retry feedback raises reported task success from 52% to 73% while adding about one model call per run, outperforming blind resampling in the released verification results.
-- 面向具体部署的重新校准仍很重要：报告的冷迁移 AUROC 为 0.527，重新校准后为 0.885。
-  - Deployment-specific calibration remains important: reported cold-transfer AUROC is 0.527 versus 0.885 after recalibration.
-
-### 为什么重要 / Why it matters
-
-该工作把智能体可靠性从事后日志分析转变为低延迟控制闭环，并为新预印本提供了较完整的可检查材料；但迁移结果表明不能依赖通用阈值。
-
-The work turns agent reliability from post-run logging into a low-latency control loop and is unusually inspectable for a new preprint, although its transfer results caution against universal thresholds.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/sunnydubey1111/agent-trajectory-sentinel)
-
----
-
-<a id="2026-08-03-microsoft-orchard-agent-training"></a>
-## [微软发布 Orchard，在真实智能体框架内训练开放模型](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/)
-
-**English:** [Microsoft releases Orchard for training agents inside real harnesses](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/)
-
-- **发布 / Published:** `2026-08-03T16:00:00Z`
-- **来源 / Source:** [Microsoft Research](https://www.microsoft.com/en-us/research/blog/orchard-an-open-framework-for-scalable-agentic-ai/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `agent-training`, `reinforcement-learning`, `software-engineering`, `computer-use`, `deployment`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
-
-### 摘要 / Summary
-
-微软研究院发布 Orchard，这是一个在实际部署所用框架内采集轨迹并训练智能体模型的开放框架。首批工作流通过 Codex、OpenClaw 和 ZeroClaw 环境覆盖软件工程、浏览器交互和个人助理任务。
-
-Microsoft Research released Orchard, an open framework for collecting trajectories and training agentic models inside the same harnesses used for deployment. Its initial workflows cover software engineering, browser interaction, and personal-assistant tasks through Codex, OpenClaw, and ZeroClaw environments.
-
-### 技术点 / Technical points
-
-- Orchard Env 使用 Kubernetes 为数千次 rollout 创建、管理和销毁隔离组件，每次 rollout 使用一个容器，并通过轻量代理记录现有智能体框架中的模型交互。
-  - Orchard Env uses Kubernetes to create, manage, and remove isolated components for thousands of rollouts, with one container per rollout and a lightweight proxy that records model interactions from existing harnesses.
-- Orchard-SWE 从 MiniMax-M2.5 和 Qwen3.5-397B 蒸馏 10.7 万次交互，并结合信用分配微调、平衡自适应 rollout、在线策略蒸馏和约 4B 参数的价值模型。
-  - Orchard-SWE distills 107,000 interactions from MiniMax-M2.5 and Qwen3.5-397B and combines credit-assignment fine-tuning, balanced adaptive rollout, on-policy distillation, and a roughly 4B-parameter value model.
-- 微软报告 SWE-bench Verified 从 61.4% 基线提升到 69.7%，重排后达到 73%；已发布的仓库和数据集便于检查，但基准结果仍为作者报告。
-  - Microsoft reports SWE-bench Verified improving from a 61.4% baseline to 69.7%, or 73% with reranking; the released repository and dataset support inspection, but the benchmark results remain author-reported.
-
-### 为什么重要 / Why it matters
-
-在真实部署框架内训练可以减少环境错配，使 Orchard 成为连接数据采集、强化学习和生产智能体执行的实用途径。
-
-Training inside real deployment harnesses can reduce environment mismatch and makes Orchard a practical bridge from data collection to reinforcement learning and production agent execution.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/microsoft/Orchard) · [Evidence 2](https://huggingface.co/datasets/microsoft/Orchard)
-[Discussion 1](https://news.ycombinator.com/item?id=49158402)
-
----
-
-<a id="2026-08-03-qwen-cua-computer-use-agent"></a>
-## [Qwen-CUA 用纯截图训练原生计算机操作智能体](https://arxiv.org/abs/2608.02352)
-
-**English:** [Qwen-CUA trains a screenshot-only native computer-use agent](https://arxiv.org/abs/2608.02352)
-
-- **发布 / Published:** `2026-08-03T15:04:20Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02352) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `screenshot`, `reinforcement-learning`, `safety`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `93/100`
-
-### 摘要 / Summary
-
-Qwen-CUA 是一个 397B-A17B 混合专家计算机操作智能体，仅观察屏幕截图并通过键盘和鼠标执行动作，不依赖 DOM、无障碍树或任务专用 API。其技术报告重点介绍可验证的大规模交互训练和长周期上下文管理。
-
-Qwen-CUA is a 397B-A17B mixture-of-experts computer-use agent that observes screenshots and acts through keyboard and mouse commands without DOM, accessibility-tree, or task-specific APIs. Its technical report focuses on verifiable large-scale interaction training and long-horizon context management.
-
-### 技术点 / Technical points
-
-- 运行框架保留最近最多 20 张截图，并将更早历史折叠为固定大小的数据块，在保留近期视觉证据的同时复用提示词前缀。
-  - The scaffold retains up to 20 recent screenshots and folds older history into fixed-size blocks, preserving recent visual evidence while allowing reusable prompt prefixes.
-- 团队报告 rollout 集群接近 10 万个 vCPU、数万个并发环境、约 4 万项可验证任务，并使用轨迹切片进行训练信用分配。
-  - The team reports a rollout fleet approaching 100,000 vCPUs, tens of thousands of concurrent environments, roughly 40,000 verifiable tasks, and trajectory slicing for training credit assignment.
-- 报告结果包括 OSWorld-Verified 86.2，以及相较 Qwen3.7 将 RedTeamCUA 攻击成功率从 36.6% 降至 16.4%；采集时尚未链接代码或模型权重。
-  - Reported results include 86.2 on OSWorld-Verified and a RedTeamCUA attack-success reduction from 36.6% to 16.4% versus Qwen3.7; no code or model weights were linked at collection time.
-
-### 为什么重要 / Why it matters
-
-该报告展示了如何在不使用特权界面表示的情况下，以基础设施规模训练纯截图计算机智能体，但独立复现仍有待公开产物。
-
-The report shows how screenshot-only computer agents may be trained at infrastructure scale without privileged interface representations, but independent reproduction awaits released artifacts.
-
----
-
-<a id="2026-08-03-chainvla-unified-execution-state"></a>
-## [ChainVLA 用统一执行状态衔接长周期操作查询](https://arxiv.org/abs/2608.02326)
-
-**English:** [ChainVLA carries a unified execution state across long-horizon manipulation queries](https://arxiv.org/abs/2608.02326)
-
-- **发布 / Published:** `2026-08-03T14:48:20Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02326) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `long-horizon`, `memory`, `bimanual-manipulation`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-ChainVLA 是一个 1.2B 参数的视觉—语言—动作模型，通过联合且可修订的执行状态衔接连续的滚动时域查询。每次新预测都会继承已完成的任务进度和上一动作时域尚未执行的部分，而不是只根据当前观测重新开始。
-
-ChainVLA is a 1.2B-parameter vision-language-action model that links successive receding-horizon queries through a joint, revisable execution state. Each new prediction inherits both completed task progress and the unexecuted continuation of the previous action horizon instead of restarting from the current observation alone.
-
-### 技术点 / Technical points
-
-- Progress Context 将循环 Working State 与 Sparse Event Memory 结合，使已经离开当前视野的证据仍可影响后续决策。
-  - Progress Context combines a recurrent Working State with Sparse Event Memory so evidence that has left the current view can still condition later decisions.
-- Motion Tail 把上一预测未完成的后缀带入状态构建和轨迹初始化，而解码器会依据最新观测重新生成完整时域。
-  - Motion Tail carries the previous prediction's unfinished suffix into state construction and trajectory initialization, while the decoder regenerates the full horizon under the latest observation.
-- 作者报告 RMBench 平均成功率为 62.8%，四套 LIBERO 平均为 98.8%；项目页中的比较结果并未在统一协议下重新运行。
-  - The authors report 62.8% average success on RMBench and 98.8% across four LIBERO suites; comparison rows on the project page were not rerun under a common protocol.
-
-### 为什么重要 / Why it matters
-
-ChainVLA 将长周期操作重新定义为维护连续但可修订的执行状态，同时处理查询边界上的记忆丢失和动作不连续。
-
-ChainVLA reframes long-horizon manipulation as maintaining a continuous but revisable execution state, addressing both memory loss and motion discontinuity at query boundaries.
-
-### 链接 / Links
-
-[Evidence 1](https://muqy1818.github.io/chainvla-web/)
-
----
-
-<a id="2026-08-03-panovla-mobile-manipulation"></a>
-## [PanoVLA 为移动双臂操作加入全景空间上下文](https://arxiv.org/abs/2608.02257)
-
-**English:** [PanoVLA adds panoramic spatial context to mobile bimanual manipulation](https://arxiv.org/abs/2608.02257)
-
-- **发布 / Published:** `2026-08-03T14:03:26Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.02257) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `mobile-manipulation`, `bimanual-manipulation`, `panoramic-vision`, `teleoperation`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-PanoVLA 为轮式双臂机器人的移动操作提供全景空间上下文，而不是把策略限制在局部相机视野中。该工作结合虚拟现实全身遥操作系统、5.5 小时真实演示数据集和以全景为条件的视觉—语言—动作模型。
-
-PanoVLA gives a wheeled bimanual robot panoramic spatial context for mobile manipulation instead of limiting the policy to local camera views. The work combines a virtual-reality whole-body teleoperation system, a 5.5-hour real-world demonstration dataset, and a panorama-conditioned vision-language-action model.
-
-### 技术点 / Technical points
-
-- Mixture-of-Transformers 架构编码多个全景视图，并将其与语言指令和机器人状态融合。
-  - A Mixture-of-Transformers architecture encodes multiple panorama views and fuses them with language instructions and robot state.
-- 在四项真实移动操作任务中，作者报告平均阶段完成率为 91.3%、端到端成功率为 73.4%，优于局部视野基线。
-  - Across four real-world mobile-manipulation tasks, the authors report 91.3% average stage completion and 73.4% end-to-end success, outperforming local-view baselines.
-
-### 为什么重要 / Why it matters
-
-全景上下文可以在移动机器人运动、目标离开当前视野时保留空间信息，从而缓解长周期移动操作中的常见限制。
-
-Panoramic context can preserve spatial information as a mobile robot moves and targets leave its current view, a recurring limitation in long-horizon mobile manipulation.
-
----
-
-<a id="2026-08-03-cloudflare-computer-agent-runtime"></a>
-## [Cloudflare Computer 为智能体统一 isolate、容器与浏览器工作区](https://blog.cloudflare.com/cloudflare-computer/)
-
-**English:** [Cloudflare Computer gives agents one workspace across isolates, containers, and browsers](https://blog.cloudflare.com/cloudflare-computer/)
-
-- **发布 / Published:** `2026-08-03T13:15:24Z`
-- **来源 / Source:** [Cloudflare](https://blog.cloudflare.com/cloudflare-computer/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `sandbox`, `filesystem`, `tool-use`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Cloudflare 发布开源智能体运行时 Computer 的早期预览版。它在 Workers isolate、Linux 容器沙箱和浏览器之间调度任务，同时呈现一个持久工作区，并根据任务成本和隔离需求选择执行后端。
-
-Cloudflare released an early preview of Computer, an open-source agent runtime that dispatches work across Workers isolates, Linux container sandboxes, and browsers while presenting one persistent workspace. The runtime is intended to choose an execution backend according to task cost and isolation needs.
-
-### 技术点 / Technical points
-
-- 由 SQLite 支撑的持久虚拟文件系统在不同执行环境之间共享：isolate 使用直接绑定，容器则通过 FUSE 访问同一工作区。
-  - A durable virtual filesystem backed by SQLite is shared across execution environments: isolates use direct bindings, while containers access the same workspace through FUSE.
-- 文件、编辑、shell 和浏览器操作可以受控、审计和观测，使轻量任务留在 isolate 中，仅让较重任务进入容器。
-  - File, edit, shell, and browser operations can be gated, audited, and observed, allowing lightweight work to stay in isolates and only heavier tasks to enter a container.
-- Cloudflare 希望把必须使用容器的智能体工作降至 10% 以下，但这是设计目标而非已测得的生产结果；当前版本明确属于早期预览。
-  - Cloudflare's goal of needing containers for less than 10% of agent work is a design target, not a measured production result, and the release is explicitly an early preview.
-
-### 为什么重要 / Why it matters
-
-Computer 将沙箱视为异构运行时选择，而不是让每项智能体任务都等同于完整容器，有望降低启动成本，同时在需要时保留更强隔离。
-
-Computer treats sandboxing as a heterogeneous runtime decision rather than equating every agent task with a full container, potentially improving startup cost without giving up stronger isolation when needed.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/cloudflare/computer)
-[Discussion 1](https://news.ycombinator.com/item?id=49155598)
