@@ -2,6 +2,122 @@
 
 # Agents / 智能体
 
+<a id="2026-08-09-pi-from-scratch-coding-agent"></a>
+## [PI from Scratch 用约 600 行 TypeScript 拆解编码代理](https://github.com/SaladDay/pi-from-scratch)
+
+**English:** [PI from Scratch exposes a coding agent in roughly 600 lines](https://github.com/SaladDay/pi-from-scratch)
+
+- **发布 / Published:** `2026-08-09T12:15:30Z`
+- **来源 / Source:** [PI from Scratch](https://github.com/SaladDay/pi-from-scratch) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `developer-tools`, `tool-use`, `education`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+PI from Scratch 是一个交互式教程和精简的 TypeScript 编码代理实现，能够读取文件、修改代码和执行命令。渐进式源码视图与预生成 trace 让读者无需大型框架即可检查代理循环。
+
+PI from Scratch is an interactive tutorial and compact TypeScript implementation of a coding agent that can read files, edit code, and run commands. Its progressive source view and pre-generated traces make the agent loop inspectable without a large framework.
+
+### 技术点 / Technical points
+
+- 约 600 行的 nano-pi 实现使用 OpenAI 兼容 API，并支持文件读取、代码编辑和命令执行。
+  - The approximately 600-line nano-pi implementation uses an OpenAI-compatible API and supports file reading, code editing, and command execution.
+- 教程在文章旁逐步展示实现，并通过类似断点的 trace 导航检查执行流程。
+  - The tutorial reveals the implementation progressively beside the article and provides trace inspection with breakpoint-like navigation through execution flow.
+- 在线 trace 是预生成的静态数据，阅读托管教程不会发起模型请求；MIT 许可仓库还包含代理和网站测试。
+  - Online traces are pre-generated static data, so reading the hosted tutorial does not initiate model requests; the MIT-licensed repository also includes tests for the agent and site.
+
+### 为什么重要 / Why it matters
+
+它通过一个可完整通读的小型实现，降低了理解代理循环、工具调用和运行框架数据流的门槛。
+
+It lowers the barrier to understanding agent loops, tool calling, and harness data flow through a small implementation that can be read end to end.
+
+### 链接 / Links
+
+[Evidence 1](https://pi-from-scratch.vercel.app/) · [Evidence 2](https://api.github.com/repos/SaladDay/pi-from-scratch)
+
+---
+
+<a id="2026-08-09-wardline-v2-agent-control-plane"></a>
+## [Wardline v2 为代理工具流量加入联邦异常拦截](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0)
+
+**English:** [Wardline v2 adds federated anomaly blocking to agent tool traffic](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0)
+
+- **发布 / Published:** `2026-08-09T07:00:44Z`
+- **来源 / Source:** [Wardline](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security`, `safety`, `mcp`, `authorization`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Wardline v2 发布了位于 AI 代理与 MCP、工具或 gRPC 服务之间的开源控制面代理。它可执行策略与预算、跨实例关联异常，并临时阻断可疑代理身份，而不只是记录告警。
+
+Wardline v2 ships an open-source control-plane proxy between AI agents and MCP, tool, or gRPC services. It can enforce policy and budgets, correlate anomalies across instances, and temporarily block a suspicious agent identity instead of only recording an alert.
+
+### 技术点 / Technical points
+
+- 自基线启发式检测覆盖速率突增、新工具、拒绝率变化和组合 z-score，并以有时限的自动封禁作为强制措施。
+  - Self-baselining heuristics cover rate spikes, novel tools, deny-rate changes, and a combined z-score, with bounded-TTL auto-blocking as an enforcement action.
+- YAML、内嵌 OPA/Rego 和 Cedar 策略后端可治理 MCP 工具、资源与提示，并结合 OIDC 或 SPIFFE 引导、SCIM 配置的 RBAC 和租户隔离。
+  - YAML, embedded OPA/Rego, and Cedar policy backends can govern MCP tools, resources, and prompts, alongside OIDC or SPIFFE bootstrap, SCIM-provisioned RBAC, and tenant isolation.
+- 该版本增加签名且去标识化的联邦摘要、基于 Postgres 的高可用状态、签名合规证据包、刷新令牌族撤销以及 gRPC 传输。
+  - The release adds signed pseudonymized federation summaries, Postgres-backed high-availability state, signed compliance-evidence bundles, refresh-token family revocation, and a gRPC transport.
+
+### 为什么重要 / Why it matters
+
+它把代理授权与异常响应移到模型之外的确定性执行层，但这个年轻项目尚未经过独立评估。
+
+It moves agent authorization and anomaly response into a deterministic enforcement layer outside the model, although the young project has not yet been independently evaluated.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/kabirnarang39/wardline)
+[Discussion 1](https://news.ycombinator.com/item?id=49235863)
+
+---
+
+<a id="2026-08-09-ctxray-codex-context-audit"></a>
+## [CtxRay 让 Codex 上下文加载可审计、可锁定](https://github.com/FramY2/ctxray)
+
+**English:** [CtxRay makes Codex context loading auditable and lockable](https://github.com/FramY2/ctxray)
+
+- **发布 / Published:** `2026-08-09T03:12:38Z`
+- **来源 / Source:** [CtxRay](https://github.com/FramY2/ctxray) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `observability`, `context-management`, `developer-tools`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+CtxRay 是一个本地优先的 CLI 与 Codex 插件，用于映射任务开始前加载的 instructions、skills、plugins 和 MCP 配置。它可编译预期 profile、记录脱敏上下文锁文件，并检测不同运行之间的漂移。
+
+CtxRay is a local-first CLI and Codex plugin that maps the instructions, skills, plugins, and MCP configuration loaded before a task. It compiles intentional profiles, records a redacted context lockfile, and detects drift between runs.
+
+### 技术点 / Technical points
+
+- 审计会生成有边界的上下文地图，并可通过 dry run 和自动备份，把可审查 YAML profile 编译为原生 Codex TOML。
+  - Audits produce a bounded context map and can compile reviewable YAML profiles into native Codex TOML with dry runs and automatic backups.
+- 脱敏锁文件支持可复现性检查，并在 instructions、skills、plugins 或 MCP 配置变化时执行适合 CI 的漂移检测。
+  - A redacted lockfile supports reproducibility checks and CI-ready drift detection when instructions, skills, plugins, or MCP configuration change.
+- 回合后收据将 token 和使用数据标记为精确、估算、比较或未知；工具本身不调用模型、不需要 API key，并声明无遥测。
+  - Post-turn receipts label token and usage data as exact, estimated, comparative, or unknown; the tool calls no model, needs no API key, and declares no telemetry.
+
+### 为什么重要 / Why it matters
+
+隐式上下文正成为编码代理的可复现性、供应链与成本控制边界，但 CtxRay 的有效性目前仅由其自身仓库和基准材料支持。
+
+Implicit context is becoming a reproducibility, supply-chain, and cost-control boundary for coding agents, but CtxRay's effectiveness is currently supported only by its own repository and benchmark artifacts.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/FramY2/ctxray)
+[Discussion 1](https://news.ycombinator.com/item?id=49238209)
+
+---
+
 <a id="2026-08-08-kadath-evolutionary-agent-runtime"></a>
 ## [KADATH 发布可审计的进化式多代理运行时](https://github.com/i3T4AN/KADATH)
 
@@ -33,6 +149,120 @@ KADATH evolves populations of agent genomes—prompts, code, tools, and dependen
 它尝试把自改进代理最容易被奖励黑客攻击的环节变成可验证边界。
 
 It attempts to turn the parts of self-improving agents most vulnerable to reward hacking into verifiable boundaries.
+
+---
+
+<a id="2026-08-08-onessh-agent-ssh-gateway"></a>
+## [OneSSH 集中管理代理可撤销的远程主机权限](https://github.com/Lynricsy/OneSSH)
+
+**English:** [OneSSH centralizes revocable remote-host access for agents](https://github.com/Lynricsy/OneSSH)
+
+- **发布 / Published:** `2026-08-08T04:33:17Z`
+- **来源 / Source:** [OneSSH](https://github.com/Lynricsy/OneSSH) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security`, `mcp`, `authorization`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+OneSSH 是面向 AI 代理的集中式 SSH 与 MCP 网关。它把可复用的主机凭据保留在网关内，同时向代理签发限制到指定主机和能力的令牌，并提供集中撤销与结构化审计。
+
+OneSSH is a centralized SSH and MCP gateway for AI agents. It keeps reusable host credentials inside the gateway while issuing agent tokens scoped to selected hosts and capabilities, with centralized revocation and structured auditing.
+
+### 技术点 / Technical points
+
+- SSH 密钥和密码以 AES-256-GCM 存储，仅在网关建立连接时解密，因此代理不会获得明文凭据。
+  - SSH keys and passwords are stored under AES-256-GCM and decrypted only while the gateway establishes a connection, so agents do not receive the plaintext credentials.
+- MCP OAuth 2.1 流程使用 S256 PKCE、动态客户端注册、刷新令牌轮换和主机范围选择；手动令牌将执行权限与主机管理权限分离。
+  - The MCP OAuth 2.1 flow uses S256 PKCE, dynamic client registration, refresh-token rotation, and host-scope selection; manual tokens separate execution rights from host-management rights.
+- SSH 与 SFTP 工具支持持久命令会话、后台任务、原子写入、expected-SHA256 编辑锁、跨主机传输，以及不记录文件正文和编辑内容的审计。
+  - SSH and SFTP tools support persistent command sessions, background jobs, atomic writes, expected-SHA256 edit locking, cross-host transfers, and audits that omit file bodies and edit contents.
+
+### 为什么重要 / Why it matters
+
+它为需要操作服务器的代理提供了比复用 SSH 私钥更实际的最小权限方案，但其安全属性仍有待独立审查。
+
+It offers a practical least-privilege alternative to giving server-operating agents reusable SSH keys, while its security properties still await independent review.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Lynricsy/OneSSH)
+
+---
+
+<a id="2026-08-08-pydantic-ai-2-27-compaction"></a>
+## [Pydantic AI 2.27 强化跨适配器上下文压缩](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0)
+
+**English:** [Pydantic AI 2.27 strengthens cross-adapter context compaction](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0)
+
+- **发布 / Published:** `2026-08-08T03:51:40Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `framework`, `context-management`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Pydantic AI v2.27.0 通过在 Vercel AI、AG-UI、OpenAI Responses 和 Anthropic 流程间保留压缩上下文，改善长期运行代理的互操作性。该版本还增加 Snowflake Cortex 支持与多项可观测性修复。
+
+Pydantic AI v2.27.0 improves long-running agent interoperability by preserving compacted context across Vercel AI, AG-UI, OpenAI Responses, and Anthropic flows. The release also adds Snowflake Cortex support and several observability fixes.
+
+### 技术点 / Technical points
+
+- CompactionPart 可通过 Vercel AI 与 AG-UI 适配器往返，不再在转换过程中被丢弃。
+  - CompactionPart can round-trip through the Vercel AI and AG-UI adapters instead of being discarded during conversion.
+- Anthropic 压缩的 encrypted_content 会被原样保留；当 OpenAI Responses 的压缩项已保留 standing prompt 时，也不会重复发送。
+  - Anthropic compaction encrypted_content is preserved verbatim, while OpenAI Responses avoids resending a standing prompt already retained by a compaction item.
+- 该版本增加 SnowflakeModel、SnowflakeProvider 和 xAI 代理数量设置，并修复 OpenTelemetry 序列化中的二进制脱敏与结构化工具返回数据。
+  - The release adds SnowflakeModel and SnowflakeProvider, an xAI agent-count setting, and fixes for binary redaction and structured tool-return data in OpenTelemetry serialization.
+
+### 为什么重要 / Why it matters
+
+上下文压缩正从节省 token 的优化手段，演变为长期运行代理的互操作性边界。
+
+Context compaction is becoming an interoperability boundary for long-running agents rather than only a token-saving optimization.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/7287) · [Evidence 2](https://github.com/pydantic/pydantic-ai/pull/7286) · [Evidence 3](https://github.com/pydantic/pydantic-ai/pull/7264)
+
+---
+
+<a id="2026-08-08-unreal-mcp-blueprint-index"></a>
+## [Unreal MCP 让代理以索引化、低 token 方式控制蓝图](https://github.com/ZiggyMar/unreal-mcp)
+
+**English:** [Unreal MCP gives agents indexed, token-efficient Blueprint control](https://github.com/ZiggyMar/unreal-mcp)
+
+- **发布 / Published:** `2026-08-08T03:51:08Z`
+- **来源 / Source:** [Unreal MCP](https://github.com/ZiggyMar/unreal-mcp) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mcp`, `developer-tools`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Unreal MCP 结合 C++ 编辑器桥接与 TypeScript MCP 服务，让编码代理无需接收引擎规模的原始 JSON，即可检查和修改 Unreal Engine 蓝图。项目重点采用分层读取与持久增量项目索引。
+
+Unreal MCP combines a C++ editor bridge with a TypeScript MCP server so coding agents can inspect and modify Unreal Engine Blueprints without receiving raw engine-sized JSON dumps. It emphasizes tiered reads and a persistent incremental project index.
+
+### 技术点 / Technical points
+
+- 桥接层使用 Unreal 的 Kismet2、EdGraph 和 AssetRegistry API；MCP 层压缩字段名、限制结果大小，并先提供分层摘要再返回完整细节。
+  - The bridge uses Unreal's Kismet2, EdGraph, and AssetRegistry APIs, while the MCP layer compacts field names, caps result sizes, and exposes tiered summaries before full detail.
+- 基于 AssetRegistry 的索引在磁盘缓存蓝图、函数、变量和跨资产引用，并随资产变化增量更新；可选本地模型可补充搜索摘要。
+  - An AssetRegistry-backed index caches Blueprints, functions, variables, and cross-asset references on disk and updates incrementally as assets change; optional local-model enrichment can add search summaries.
+- 写操作在具名 Unreal 撤销事务中执行；仓库记录了 UE 5.6 与 5.8 的实机验证，也列出了尚无专门检查的节点类型。
+  - Writes run inside named Unreal undo transactions, and the repository documents live verification on UE 5.6 and 5.8 together with node types that still lack dedicated checks.
+
+### 为什么重要 / Why it matters
+
+它展示了大型可视化代码库如何向编码代理提供结构化、有状态且关注 token 成本的接口，但该实现尚未被独立复现。
+
+It demonstrates how a large visual codebase can expose structured, stateful, and token-aware interfaces to coding agents, although the implementation has not been independently reproduced.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZiggyMar/unreal-mcp/blob/main/docs/LIVE_VERIFICATION.md) · [Evidence 2](https://api.github.com/repos/ZiggyMar/unreal-mcp)
 
 ---
 
