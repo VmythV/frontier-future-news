@@ -2,6 +2,74 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-10-world-tokens-embodied-policy"></a>
+## [World Tokens 在机器人部署时移除视频世界模型推理](https://arxiv.org/abs/2608.09730)
+
+**English:** [World Tokens removes video world-model inference from robot deployment](https://arxiv.org/abs/2608.09730)
+
+- **发布 / Published:** `2026-08-10T15:30:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09730) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `world-model`, `simulation`, `efficient-inference`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+World Tokens 是一种具身策略架构，在训练期间利用未来视频预测塑造机器人控制表征，并在部署时移除视频世界模型分支。该设计旨在保留动态感知特征，同时避免在控制循环中承担视频生成成本。
+
+World Tokens is an embodied-policy architecture that uses future-video prediction to shape robot-control representations during training, then removes the video world-model branch at deployment. The design aims to retain dynamics-aware features without paying video-generation cost inside the control loop.
+
+### 技术点 / Technical points
+
+- World Adapter 将 VLM 特征转换为一组固定的 world tokens，同时为未来视频去噪器和动作专家提供条件。
+  - A World Adapter transforms VLM features into a fixed set of world tokens that condition both a future-video denoiser and the action expert.
+- 独占路由使 world tokens 成为动作专家唯一的视觉语言上下文，让转移学习梯度直接塑造控制所用表征。
+  - Exclusive routing makes the world tokens the action expert's only visual-language context so transition-learning gradients directly shape the representation used for control.
+- 在使用 2B 主干且没有具身动作预训练的情况下，作者报告其在 LIBERO 上具备竞争力、取得所报告的 SIMPLER 最佳平均成绩、提升真实 R1 Pro 机器人成功率，并保持 VLA 级动作延迟。
+  - With a 2B backbone and no embodied action pretraining, the authors report competitive LIBERO results, the best reported SIMPLER averages, improved real-robot R1 Pro success, and VLA-level action latency.
+
+### 为什么重要 / Why it matters
+
+它提供了一种实用分工：世界模型负责改善训练，而部署后的机器人仍保持传统 VLA 策略的延迟水平。
+
+It offers a practical division of labor in which world modeling improves training while the deployed robot retains the latency profile of a conventional VLA policy.
+
+---
+
+<a id="2026-08-10-harnesswam-world-action-planning"></a>
+## [HarnessWAM 为世界动作模型加入规划与恢复能力](https://arxiv.org/abs/2608.09516)
+
+**English:** [HarnessWAM adds planning and recovery around world action models](https://arxiv.org/abs/2608.09516)
+
+- **发布 / Published:** `2026-08-10T12:15:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09516) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `world-action-model`, `planning`, `failure-recovery`, `long-horizon`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+HarnessWAM 在世界动作模型外增加显式任务状态、结构化规划、执行验证和局部失败恢复。它针对短时域预测控制与机器人长程多阶段任务所需审议之间的差距。
+
+HarnessWAM wraps a world action model with explicit task state, structured planning, execution verification, and local failure recovery. It targets the gap between short-horizon predictive control and the deliberation needed for long, multi-stage robot tasks.
+
+### 技术点 / Technical points
+
+- 基于 VLM 的 Task Manager 维护有证据支撑的场景信念和结构化任务图，再把语义计划投射为机器人能力边界内的原子技能。
+  - A VLM-based Task Manager maintains an evidence-grounded scene belief and a structured task graph, then projects semantic plans into atomic skills within the robot's capability boundary.
+- 双时间尺度循环把持续的轻量进度估计与关键里程碑处的 Task Manager 审议结合起来，从而支持补充观察、重规划或局部恢复。
+  - A dual-timescale loop combines continuous lightweight progress estimation with Task Manager deliberation at salient milestones, allowing observation gathering, replanning, or local recovery.
+- 作者报告其在 RoboMemArena 上完整任务成功率为 59.6%、子任务成功率为 69.9%，在 RoboCerebra Ideal 上成功率为 23.7%。
+  - The authors report 59.6 percent full-task success and 69.9 percent subtask success on RoboMemArena, plus 23.7 percent success on RoboCerebra Ideal.
+
+### 为什么重要 / Why it matters
+
+它展示了模型外部记忆和代理式控制如何把局部预测策略扩展为可规划、可验证且可恢复的机器人行为。
+
+It shows how model-external memory and agentic control can extend a local predictive policy into robot behavior that is plannable, verifiable, and recoverable.
+
+---
+
 <a id="2026-08-04-openeta-embodied-task-agent"></a>
 ## [OpenETA 将可审计的智能体循环带入具身任务](https://arxiv.org/abs/2608.03924)
 

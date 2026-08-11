@@ -2,6 +2,510 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-10-needle-2-edge-agent-model",
+      "published_at": "2026-08-10T17:22:07Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "edge-ai",
+        "tool-use",
+        "function-calling",
+        "quantization",
+        "open-source"
+      ],
+      "title_en": "Needle 2 puts a 14 MB tool-calling model on tiny devices",
+      "title_zh": "Needle 2 将 14 MB 工具调用模型带到微型设备",
+      "summary_en": "Cactus released Needle 2, a 45-million-parameter model specialized for tool calling, device control, and structured extraction. The Apache-2.0 release packages the model and its engine into a 14 MB binary whose full session uses about 28 MB of memory.",
+      "summary_zh": "Cactus 发布了 Needle 2，这是一款专用于工具调用、设备控制和结构化抽取的 4500 万参数模型。该 Apache-2.0 发布将模型与引擎封装为 14 MB 二进制，完整会话约占 28 MB 内存。",
+      "tech_points_en": [
+        "Quantization-aware training applies the Cactus mixed approximately two-bit format throughout training instead of compressing the model only after training.",
+        "A 256-token sliding window bounds KV memory, tool declarations remain pinned as persistent sinks, and a byte-level grammar compiled from declared schemas constrains every response to a call envelope.",
+        "Cactus reports roughly 500 decode tokens per second on a Raspberry Pi 5 and publishes strict exact-match evaluations across Mobile Actions, DroidCall, Seal-Tools, and BFCL; these measurements have not been independently reproduced."
+      ],
+      "tech_points_zh": [
+        "量化感知训练在整个训练过程中使用 Cactus 的约二比特混合格式，而不是只在训练完成后压缩模型。",
+        "256-token 滑动窗口限制 KV 内存，工具声明作为持久 sink 固定保留，并由声明 schema 编译出的字节级语法将每次响应约束为调用封装。",
+        "Cactus 报告其在 Raspberry Pi 5 上的解码速度约为每秒 500 token，并发布 Mobile Actions、DroidCall、Seal-Tools 和 BFCL 的严格精确匹配评测；这些数据尚未被独立复现。"
+      ],
+      "why_it_matters_en": "It demonstrates that narrow, verifiable tool-routing agents can fit into low-cost edge hardware without carrying the memory and compute cost of a general chat model.",
+      "why_it_matters_zh": "它表明狭窄且可验证的工具路由代理可以装入低成本边缘硬件，而无需承担通用聊天模型的内存与计算成本。",
+      "source": {
+        "name": "Cactus Compute",
+        "type": "primary",
+        "url": "https://cactuscompute.com/needle",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49246804"
+      ],
+      "evidence_urls": [
+        "https://github.com/cactus-compute/needle",
+        "https://huggingface.co/Cactus-Compute/needle2",
+        "https://arxiv.org/abs/2607.18363"
+      ],
+      "confidence": "medium",
+      "score": 91,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 7
+      }
+    },
+    {
+      "id": "2026-08-10-spotify-xirp-agentic-development",
+      "published_at": "2026-08-10T15:40:05Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "multi-agent",
+        "orchestration",
+        "developer-tools",
+        "context-management"
+      ],
+      "title_en": "Spotify launches Xirp for vendor-neutral parallel coding agents",
+      "title_zh": "Spotify 推出面向厂商中立并行编码代理的 Xirp",
+      "summary_en": "Spotify launched Xirp, an agentic development environment that coordinates coding sessions across Claude Code, Gemini CLI, Codex, and other harnesses. Spotify says thousands of its engineers have used Xirp across more than 36,000 sessions.",
+      "summary_zh": "Spotify 推出了 Xirp，这是一套可跨 Claude Code、Gemini CLI、Codex 等运行框架协调编码会话的代理式开发环境。Spotify 称已有数千名内部工程师通过 Xirp 运行超过 36,000 个会话。",
+      "tech_points_en": [
+        "Each concurrent session receives an isolated Git worktree so dozens of agents can operate on the same repository without sharing a working directory.",
+        "Session state is decoupled from a particular harness, allowing developers to switch agents or models while preserving the working context.",
+        "When connected to Spotify Portal, Xirp injects software-catalog context such as dependencies, ownership, and architecture decisions, then returns transcripts and metadata for organizational visibility."
+      ],
+      "tech_points_zh": [
+        "每个并发会话都获得隔离的 Git worktree，使数十个代理能够在同一仓库上工作而不共享工作目录。",
+        "会话状态与特定运行框架解耦，开发者可在保留工作上下文的同时切换代理或模型。",
+        "连接 Spotify Portal 后，Xirp 会注入依赖、所有权和架构决策等软件目录上下文，并回传转录与元数据以提供组织级可见性。"
+      ],
+      "why_it_matters_en": "It treats context portability, workspace isolation, and organization-wide observability as first-class infrastructure for scaling multi-agent software development.",
+      "why_it_matters_zh": "它把上下文可移植性、工作区隔离和组织级可观测性作为扩展多代理软件开发的一等基础设施。",
+      "source": {
+        "name": "Spotify Portal",
+        "type": "primary",
+        "url": "https://portal.spotify.com/blog/introducing-xirp",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49245118"
+      ],
+      "evidence_urls": [
+        "https://xirp.spotify.com/"
+      ],
+      "confidence": "high",
+      "score": 91,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 5
+      }
+    },
+    {
+      "id": "2026-08-10-colluskill-cross-skill-attacks",
+      "published_at": "2026-08-10T15:32:44Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "security",
+        "skills",
+        "supply-chain",
+        "benchmark",
+        "safety"
+      ],
+      "title_en": "ColluSkill exposes attacks hidden across multiple agent skills",
+      "title_zh": "ColluSkill 揭示隐藏在多个代理技能之间的攻击",
+      "summary_en": "ColluSkill studies an agent supply-chain blind spot in which several individually plausible skills cooperate to produce a malicious workflow only when composed. The accompanying ChainGuard defense evaluates a candidate skill together with the skills already installed in the agent environment.",
+      "summary_zh": "ColluSkill 研究了代理供应链中的一个盲区：多个单独看似合理的技能只有在组合后才协同形成恶意工作流。配套防御 ChainGuard 会将候选技能与代理环境中已安装的技能一并评估。",
+      "tech_points_en": [
+        "The attack decomposes malicious intent into interdependent sub-payloads connected through contextual dependencies, artifact passing, and execution handoffs.",
+        "Across six evaluated skill scanners, the authors report an average attack success rate of 96.0 percent.",
+        "ChainGuard reconstructs cross-skill dependencies and capability composition, reducing reported attack success to 22.5 percent while allowing 99.5 percent of benign workflows to pass."
+      ],
+      "tech_points_zh": [
+        "该攻击把恶意意图拆分为相互依赖的子载荷，并通过上下文依赖、产物传递和执行交接连接起来。",
+        "在六种被评估的技能扫描器上，作者报告平均攻击成功率为 96.0%。",
+        "ChainGuard 重建跨技能依赖和能力组合，将报告的攻击成功率降至 22.5%，同时允许 99.5% 的良性工作流通过。"
+      ],
+      "why_it_matters_en": "Agent skill security needs workflow-level analysis of composed capabilities and data flows rather than treating every installed package as an independent unit.",
+      "why_it_matters_zh": "代理技能安全需要在工作流层面分析组合能力与数据流，而不能把每个已安装包视为相互独立的单元。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.09732",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-10-world-tokens-embodied-policy",
+      "published_at": "2026-08-10T15:30:38Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "world-model",
+        "simulation",
+        "efficient-inference"
+      ],
+      "title_en": "World Tokens removes video world-model inference from robot deployment",
+      "title_zh": "World Tokens 在机器人部署时移除视频世界模型推理",
+      "summary_en": "World Tokens is an embodied-policy architecture that uses future-video prediction to shape robot-control representations during training, then removes the video world-model branch at deployment. The design aims to retain dynamics-aware features without paying video-generation cost inside the control loop.",
+      "summary_zh": "World Tokens 是一种具身策略架构，在训练期间利用未来视频预测塑造机器人控制表征，并在部署时移除视频世界模型分支。该设计旨在保留动态感知特征，同时避免在控制循环中承担视频生成成本。",
+      "tech_points_en": [
+        "A World Adapter transforms VLM features into a fixed set of world tokens that condition both a future-video denoiser and the action expert.",
+        "Exclusive routing makes the world tokens the action expert's only visual-language context so transition-learning gradients directly shape the representation used for control.",
+        "With a 2B backbone and no embodied action pretraining, the authors report competitive LIBERO results, the best reported SIMPLER averages, improved real-robot R1 Pro success, and VLA-level action latency."
+      ],
+      "tech_points_zh": [
+        "World Adapter 将 VLM 特征转换为一组固定的 world tokens，同时为未来视频去噪器和动作专家提供条件。",
+        "独占路由使 world tokens 成为动作专家唯一的视觉语言上下文，让转移学习梯度直接塑造控制所用表征。",
+        "在使用 2B 主干且没有具身动作预训练的情况下，作者报告其在 LIBERO 上具备竞争力、取得所报告的 SIMPLER 最佳平均成绩、提升真实 R1 Pro 机器人成功率，并保持 VLA 级动作延迟。"
+      ],
+      "why_it_matters_en": "It offers a practical division of labor in which world modeling improves training while the deployed robot retains the latency profile of a conventional VLA policy.",
+      "why_it_matters_zh": "它提供了一种实用分工：世界模型负责改善训练，而部署后的机器人仍保持传统 VLA 策略的延迟水平。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.09730",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-10-moli-agent-browser-engine",
+      "published_at": "2026-08-10T13:20:30Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "browser-agent",
+        "mcp",
+        "open-source",
+        "rust"
+      ],
+      "title_en": "Moli opens a Rust browser engine designed for AI agents",
+      "title_zh": "Moli 开源面向 AI 代理设计的 Rust 浏览器引擎",
+      "summary_en": "Moli is a new open-source headless browser built around the access patterns of AI agents. It exposes DOM, semantic, network, and storage state by default, performing layout and pixel rendering only when an agent explicitly requests geometry or images.",
+      "summary_zh": "Moli 是一款围绕 AI 代理访问模式构建的新开源无头浏览器。它默认提供 DOM、语义、网络和存储状态，仅在代理明确请求几何信息或图像时执行布局与像素渲染。",
+      "tech_points_en": [
+        "The Rust runtime combines V8 JavaScript, a native DOM, Servo and Stylo styling, Taffy and Parley layout, and on-demand software rendering rather than wrapping Chromium.",
+        "One server exposes MCP, Chrome DevTools Protocol, WebDriver Classic, and WebDriver BiDi, while extraction-first operations can skip layout and paint entirely.",
+        "In its own 192-URL crawl, Moli reports 53.6 percent useful-page success and 73 MiB median RSS versus Chrome Headless at 52.6 percent and 773 MiB; independent reproduction is still needed."
+      ],
+      "tech_points_zh": [
+        "该 Rust 运行时组合 V8 JavaScript、原生 DOM、Servo 与 Stylo 样式系统、Taffy 与 Parley 布局和按需软件渲染，而不是封装 Chromium。",
+        "单个服务器提供 MCP、Chrome DevTools Protocol、WebDriver Classic 和 WebDriver BiDi，而以抽取为主的操作可以完全跳过布局与绘制。",
+        "在其自有的 192 URL 爬取测试中，Moli 报告有效页面成功率为 53.6%、中位 RSS 为 73 MiB；Chrome Headless 分别为 52.6% 和 773 MiB，仍需独立复现。"
+      ],
+      "why_it_matters_en": "A structure-first, pixels-on-demand browser could substantially increase the density of browsing agents, retrieval pipelines, evaluation environments, and reinforcement-learning rollouts.",
+      "why_it_matters_zh": "结构优先、像素按需的浏览器可能显著提高浏览代理、检索流水线、评测环境和强化学习 rollout 的并发密度。",
+      "source": {
+        "name": "Moli",
+        "type": "primary",
+        "url": "https://github.com/lexmount/moli",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49244802",
+        "https://www.reddit.com/r/codex/comments/1vl404k/purerust_sandboxed_localfirst_browser_for_agents/"
+      ],
+      "evidence_urls": [
+        "https://medium.com/@Koukyosyumei/building-a-pure-rust-sandboxed-local-first-browser-for-ai-agents-h5i-browser-light-ce4c13f16e5a"
+      ],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 20,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-10-linear-agent-custom-harness",
+      "published_at": "2026-08-10T12:19:00Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-architecture",
+        "tool-use",
+        "skills",
+        "orchestration",
+        "authorization"
+      ],
+      "title_en": "Linear details the custom harness behind Linear Agent",
+      "title_zh": "Linear 详解 Linear Agent 背后的自研运行框架",
+      "summary_en": "Linear published a production architecture account of how it bounds an open-ended workspace agent through its system prompt, tool interfaces, product semantics, scoped system skills, and a custom execution harness. The design favors controlled composition over exposing the full SDK or GraphQL surface.",
+      "summary_zh": "Linear 发布了生产架构说明，介绍其如何通过系统提示、工具接口、产品语义、限定范围的系统技能和自研执行框架约束开放式工作区代理。该设计优先采用受控组合，而不是暴露完整 SDK 或 GraphQL 接口。",
+      "tech_points_en": [
+        "System skills bundle prompt fragments, metadata, and tools, then load before a run or on demand so each thread receives only the capabilities it needs.",
+        "The harness injects newly loaded tools during an active run while preserving model-provider prefix caching and applies approval rules using conversational context, not only tool names and parameters.",
+        "Sub-agent work appears synchronous to the parent, but the durable workflow engine suspends the parent during asynchronous execution and resumes it when the tool call completes."
+      ],
+      "tech_points_zh": [
+        "系统技能将提示片段、元数据和工具打包，并在运行前或按需加载，使每个线程只获得所需能力。",
+        "运行框架可在活跃回合中注入新加载的工具，同时保留模型提供方的前缀缓存，并使用对话上下文而非仅凭工具名与参数决定是否审批。",
+        "子代理工作对父代理表现为同步调用，但持久工作流引擎会在异步执行期间挂起父代理，并在工具调用完成后恢复。"
+      ],
+      "why_it_matters_en": "It provides a concrete production blueprint for progressive capability loading, contextual authorization, durable execution, and cost-aware agent orchestration.",
+      "why_it_matters_zh": "它为渐进式能力加载、上下文授权、持久执行和成本感知的代理编排提供了具体生产蓝图。",
+      "source": {
+        "name": "Linear",
+        "type": "primary",
+        "url": "https://linear.app/now/how-we-built-linear-agent",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49252304"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-10-harnesswam-world-action-planning",
+      "published_at": "2026-08-10T12:15:59Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "planning",
+        "failure-recovery",
+        "long-horizon"
+      ],
+      "title_en": "HarnessWAM adds planning and recovery around world action models",
+      "title_zh": "HarnessWAM 为世界动作模型加入规划与恢复能力",
+      "summary_en": "HarnessWAM wraps a world action model with explicit task state, structured planning, execution verification, and local failure recovery. It targets the gap between short-horizon predictive control and the deliberation needed for long, multi-stage robot tasks.",
+      "summary_zh": "HarnessWAM 在世界动作模型外增加显式任务状态、结构化规划、执行验证和局部失败恢复。它针对短时域预测控制与机器人长程多阶段任务所需审议之间的差距。",
+      "tech_points_en": [
+        "A VLM-based Task Manager maintains an evidence-grounded scene belief and a structured task graph, then projects semantic plans into atomic skills within the robot's capability boundary.",
+        "A dual-timescale loop combines continuous lightweight progress estimation with Task Manager deliberation at salient milestones, allowing observation gathering, replanning, or local recovery.",
+        "The authors report 59.6 percent full-task success and 69.9 percent subtask success on RoboMemArena, plus 23.7 percent success on RoboCerebra Ideal."
+      ],
+      "tech_points_zh": [
+        "基于 VLM 的 Task Manager 维护有证据支撑的场景信念和结构化任务图，再把语义计划投射为机器人能力边界内的原子技能。",
+        "双时间尺度循环把持续的轻量进度估计与关键里程碑处的 Task Manager 审议结合起来，从而支持补充观察、重规划或局部恢复。",
+        "作者报告其在 RoboMemArena 上完整任务成功率为 59.6%、子任务成功率为 69.9%，在 RoboCerebra Ideal 上成功率为 23.7%。"
+      ],
+      "why_it_matters_en": "It shows how model-external memory and agentic control can extend a local predictive policy into robot behavior that is plannable, verifiable, and recoverable.",
+      "why_it_matters_zh": "它展示了模型外部记忆和代理式控制如何把局部预测策略扩展为可规划、可验证且可恢复的机器人行为。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.09516",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-10-sekai2-world-model-dataset",
+      "published_at": "2026-08-10T11:23:01Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "dataset",
+        "video",
+        "spatial-intelligence",
+        "camera-control",
+        "long-horizon"
+      ],
+      "title_en": "Sekai2 releases 2,826 hours of trajectory-annotated world-model video",
+      "title_zh": "Sekai2 发布 2826 小时带轨迹标注的世界模型视频",
+      "summary_en": "Sekai2 is a multi-source real-world video dataset for long-horizon and camera-controllable world modeling. It contains 128,892 clips totaling 2,826 hours from 10,428 source videos across 113 countries or regions.",
+      "summary_zh": "Sekai2 是面向长时域、相机可控世界建模的多来源真实视频数据集。它包含来自 113 个国家或地区、10,428 个源视频的 128,892 个片段，总计 2,826 小时。",
+      "tech_points_en": [
+        "Every clip includes a camera trajectory and hierarchical annotations separating subject motion, environment dynamics, static scene content, and camera behavior, yielding 649,597 temporally grounded segments.",
+        "The release emphasizes sustained observation: 43,594 decomposed segments reach two minutes and account for 51.4 percent of the footage.",
+        "A set of 982 panoramic sequences follows nonlinear paths with loops and revisits, providing repeated views for persistent scene representations and long-term spatial memory."
+      ],
+      "tech_points_zh": [
+        "每个片段都包含相机轨迹和分离主体运动、环境动态、静态场景内容与相机行为的层级标注，共形成 649,597 个时间对齐片段。",
+        "该发布强调持续观察：43,594 个拆分片段达到两分钟，占全部视频时长的 51.4%。",
+        "其中 982 条全景序列沿包含环路与重访的非线性路径采集，为持久场景表征和长程空间记忆提供重复视角。"
+      ],
+      "why_it_matters_en": "Camera trajectories, long observations, and revisited locations provide supervision for temporal persistence and geometric consistency that ordinary web-video corpora usually lack.",
+      "why_it_matters_zh": "相机轨迹、长时观察和地点重访为时间持续性与几何一致性提供了普通网络视频语料通常缺少的监督。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.09449",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-10-meta-muse-glimmer",
+      "published_at": "2026-08-10T00:00:00Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-weights",
+        "local-ai",
+        "tool-use",
+        "coding-agent",
+        "multimodal"
+      ],
+      "title_en": "Meta releases Muse Glimmer for local always-on agents",
+      "title_zh": "Meta 发布面向本地常驻代理的 Muse Glimmer",
+      "summary_en": "Meta Superintelligence Labs released Muse Glimmer, a 30-billion-parameter open-weight model optimized for always-on local agent workflows. The Apache-2.0 model targets tool use, coding, multimodal input, multi-step reasoning, and recovery from failed tool calls on consumer hardware.",
+      "summary_zh": "Meta Superintelligence Labs 发布了 Muse Glimmer，这是一款针对本地常驻代理工作流优化的 300 亿参数开放权重模型。该 Apache-2.0 模型面向消费级硬件上的工具使用、编程、多模态输入、多步推理和工具调用失败恢复。",
+      "tech_points_en": [
+        "Training combines logit distillation from Muse Spark, an agent-heavy longer-context middle phase, and post-training with supervised fine-tuning, on-policy distillation, and reinforcement learning.",
+        "Meta evaluates the model across end-to-end agent tasks, tool use, long-horizon reasoning, recovery, multimodal input, scaffold compatibility, controllable effort, and more than 100 languages.",
+        "Approximately four-bit quantization reduces the language model to under 20 GB, while a lightweight DFlash-based drafter accelerates generation through speculative decoding within a 24 GB or 32 GB memory envelope."
+      ],
+      "tech_points_zh": [
+        "训练结合来自 Muse Spark 的 logit distillation、偏重代理与长上下文的中期阶段，以及包含监督微调、on-policy distillation 和强化学习的后训练。",
+        "Meta 从端到端代理任务、工具使用、长程推理、失败恢复、多模态输入、运行框架兼容性、可控推理强度和 100 多种语言等方面评估该模型。",
+        "约四比特量化把语言模型压缩到 20 GB 以下，同时基于 DFlash 的轻量 drafter 通过推测解码加速生成，使整体可在 24 GB 或 32 GB 内存范围内运行。"
+      ],
+      "why_it_matters_en": "It brings a comparatively capable open agent model into the memory range of high-end personal computers, enabling private and offline tool-using workflows without a cloud model dependency.",
+      "why_it_matters_zh": "它把能力较强的开放代理模型带入高端个人电脑的内存范围，使私有、离线的工具调用工作流不再依赖云端模型。",
+      "source": {
+        "name": "Meta AI Research",
+        "type": "primary",
+        "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49241679",
+        "https://www.reddit.com/r/LocalLLaMA/comments/1vkk6vy/mark_zuckerberg_on_releases/"
+      ],
+      "evidence_urls": [
+        "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+      ],
+      "confidence": "high",
+      "score": 96,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 10
+      }
+    },
+    {
+      "id": "2026-08-09-janus-agentic-laboratory",
+      "published_at": "2026-08-09T16:43:05Z",
+      "collected_at": "2026-08-11T09:54:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "self-improvement",
+        "skills",
+        "memory",
+        "open-source"
+      ],
+      "title_en": "Janus open-sources a governed evolving agent laboratory",
+      "title_zh": "Janus 开源具备治理机制的可演化代理实验室",
+      "summary_en": "Janus v1.0.0 is an open-source desktop workspace for persistent human-agent and multi-agent collaboration. It organizes delegated work around reviewable deliverables while recording agent roles, performance, leadership, and governed capability versions.",
+      "summary_zh": "Janus v1.0.0 是一个面向持久人机协作和多代理协作的开源桌面工作区。它围绕可审查交付物组织委派任务，并记录代理角色、绩效、领导关系和受治理的能力版本。",
+      "tech_points_en": [
+        "Persistent task groups support direct work, specialist assignment, dependency-aware orchestration, cross-user delegation, isolated task workspaces, and owner review.",
+        "Personal and cohort evolution can revise skills and memory from work evidence, but activation passes through explicit evaluation, review, adoption, and rollback stages.",
+        "The community self-hosting stack uses PostgreSQL, MinIO, an isolated evolution worker, a cloud API, and Caddy; no independent effectiveness evaluation is published."
+      ],
+      "tech_points_zh": [
+        "持久任务组支持直接执行、专家分派、依赖感知编排、跨用户委派、隔离任务工作区和所有者审查。",
+        "个人与群组演化可根据工作证据修改技能和记忆，但激活需要经过明确的评估、审查、采用与回滚阶段。",
+        "社区自托管栈使用 PostgreSQL、MinIO、隔离的演化 worker、云 API 和 Caddy；目前尚无独立有效性评估。"
+      ],
+      "why_it_matters_en": "It explores how transient multi-agent conversations could become durable work systems with explicit responsibility, evidence, and reversible capability governance.",
+      "why_it_matters_zh": "它探索了如何把短暂的多代理对话转变为具有明确责任、证据和可逆能力治理的持久工作系统。",
+      "source": {
+        "name": "Janus",
+        "type": "primary",
+        "url": "https://github.com/iLearn-Agent/Janus/releases/tag/Release",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/iLearn-Agent/Janus"
+      ],
+      "confidence": "medium",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 21,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 3
+      }
+    },
+    {
       "id": "2026-08-09-pi-from-scratch-coding-agent",
       "published_at": "2026-08-09T12:15:30Z",
       "collected_at": "2026-08-10T07:22:12Z",

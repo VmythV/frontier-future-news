@@ -2,6 +2,40 @@
 
 # World models / 世界模型
 
+<a id="2026-08-10-sekai2-world-model-dataset"></a>
+## [Sekai2 发布 2826 小时带轨迹标注的世界模型视频](https://arxiv.org/abs/2608.09449)
+
+**English:** [Sekai2 releases 2,826 hours of trajectory-annotated world-model video](https://arxiv.org/abs/2608.09449)
+
+- **发布 / Published:** `2026-08-10T11:23:01Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09449) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `dataset`, `video`, `spatial-intelligence`, `camera-control`, `long-horizon`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Sekai2 是面向长时域、相机可控世界建模的多来源真实视频数据集。它包含来自 113 个国家或地区、10,428 个源视频的 128,892 个片段，总计 2,826 小时。
+
+Sekai2 is a multi-source real-world video dataset for long-horizon and camera-controllable world modeling. It contains 128,892 clips totaling 2,826 hours from 10,428 source videos across 113 countries or regions.
+
+### 技术点 / Technical points
+
+- 每个片段都包含相机轨迹和分离主体运动、环境动态、静态场景内容与相机行为的层级标注，共形成 649,597 个时间对齐片段。
+  - Every clip includes a camera trajectory and hierarchical annotations separating subject motion, environment dynamics, static scene content, and camera behavior, yielding 649,597 temporally grounded segments.
+- 该发布强调持续观察：43,594 个拆分片段达到两分钟，占全部视频时长的 51.4%。
+  - The release emphasizes sustained observation: 43,594 decomposed segments reach two minutes and account for 51.4 percent of the footage.
+- 其中 982 条全景序列沿包含环路与重访的非线性路径采集，为持久场景表征和长程空间记忆提供重复视角。
+  - A set of 982 panoramic sequences follows nonlinear paths with loops and revisits, providing repeated views for persistent scene representations and long-term spatial memory.
+
+### 为什么重要 / Why it matters
+
+相机轨迹、长时观察和地点重访为时间持续性与几何一致性提供了普通网络视频语料通常缺少的监督。
+
+Camera trajectories, long observations, and revisited locations provide supervision for temporal persistence and geometric consistency that ordinary web-video corpora usually lack.
+
+---
+
 <a id="2026-08-04-lila-wam-latent-world-action-model"></a>
 ## [LiLa-WAM 通过轻量潜空间未来学习机器人动作](https://arxiv.org/abs/2608.03701)
 

@@ -2,6 +2,272 @@
 
 # Agents / 智能体
 
+<a id="2026-08-10-needle-2-edge-agent-model"></a>
+## [Needle 2 将 14 MB 工具调用模型带到微型设备](https://cactuscompute.com/needle)
+
+**English:** [Needle 2 puts a 14 MB tool-calling model on tiny devices](https://cactuscompute.com/needle)
+
+- **发布 / Published:** `2026-08-10T17:22:07Z`
+- **来源 / Source:** [Cactus Compute](https://cactuscompute.com/needle) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `edge-ai`, `tool-use`, `function-calling`, `quantization`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Cactus 发布了 Needle 2，这是一款专用于工具调用、设备控制和结构化抽取的 4500 万参数模型。该 Apache-2.0 发布将模型与引擎封装为 14 MB 二进制，完整会话约占 28 MB 内存。
+
+Cactus released Needle 2, a 45-million-parameter model specialized for tool calling, device control, and structured extraction. The Apache-2.0 release packages the model and its engine into a 14 MB binary whose full session uses about 28 MB of memory.
+
+### 技术点 / Technical points
+
+- 量化感知训练在整个训练过程中使用 Cactus 的约二比特混合格式，而不是只在训练完成后压缩模型。
+  - Quantization-aware training applies the Cactus mixed approximately two-bit format throughout training instead of compressing the model only after training.
+- 256-token 滑动窗口限制 KV 内存，工具声明作为持久 sink 固定保留，并由声明 schema 编译出的字节级语法将每次响应约束为调用封装。
+  - A 256-token sliding window bounds KV memory, tool declarations remain pinned as persistent sinks, and a byte-level grammar compiled from declared schemas constrains every response to a call envelope.
+- Cactus 报告其在 Raspberry Pi 5 上的解码速度约为每秒 500 token，并发布 Mobile Actions、DroidCall、Seal-Tools 和 BFCL 的严格精确匹配评测；这些数据尚未被独立复现。
+  - Cactus reports roughly 500 decode tokens per second on a Raspberry Pi 5 and publishes strict exact-match evaluations across Mobile Actions, DroidCall, Seal-Tools, and BFCL; these measurements have not been independently reproduced.
+
+### 为什么重要 / Why it matters
+
+它表明狭窄且可验证的工具路由代理可以装入低成本边缘硬件，而无需承担通用聊天模型的内存与计算成本。
+
+It demonstrates that narrow, verifiable tool-routing agents can fit into low-cost edge hardware without carrying the memory and compute cost of a general chat model.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/cactus-compute/needle) · [Evidence 2](https://huggingface.co/Cactus-Compute/needle2) · [Evidence 3](https://arxiv.org/abs/2607.18363)
+[Discussion 1](https://news.ycombinator.com/item?id=49246804)
+
+---
+
+<a id="2026-08-10-spotify-xirp-agentic-development"></a>
+## [Spotify 推出面向厂商中立并行编码代理的 Xirp](https://portal.spotify.com/blog/introducing-xirp)
+
+**English:** [Spotify launches Xirp for vendor-neutral parallel coding agents](https://portal.spotify.com/blog/introducing-xirp)
+
+- **发布 / Published:** `2026-08-10T15:40:05Z`
+- **来源 / Source:** [Spotify Portal](https://portal.spotify.com/blog/introducing-xirp) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `orchestration`, `developer-tools`, `context-management`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Spotify 推出了 Xirp，这是一套可跨 Claude Code、Gemini CLI、Codex 等运行框架协调编码会话的代理式开发环境。Spotify 称已有数千名内部工程师通过 Xirp 运行超过 36,000 个会话。
+
+Spotify launched Xirp, an agentic development environment that coordinates coding sessions across Claude Code, Gemini CLI, Codex, and other harnesses. Spotify says thousands of its engineers have used Xirp across more than 36,000 sessions.
+
+### 技术点 / Technical points
+
+- 每个并发会话都获得隔离的 Git worktree，使数十个代理能够在同一仓库上工作而不共享工作目录。
+  - Each concurrent session receives an isolated Git worktree so dozens of agents can operate on the same repository without sharing a working directory.
+- 会话状态与特定运行框架解耦，开发者可在保留工作上下文的同时切换代理或模型。
+  - Session state is decoupled from a particular harness, allowing developers to switch agents or models while preserving the working context.
+- 连接 Spotify Portal 后，Xirp 会注入依赖、所有权和架构决策等软件目录上下文，并回传转录与元数据以提供组织级可见性。
+  - When connected to Spotify Portal, Xirp injects software-catalog context such as dependencies, ownership, and architecture decisions, then returns transcripts and metadata for organizational visibility.
+
+### 为什么重要 / Why it matters
+
+它把上下文可移植性、工作区隔离和组织级可观测性作为扩展多代理软件开发的一等基础设施。
+
+It treats context portability, workspace isolation, and organization-wide observability as first-class infrastructure for scaling multi-agent software development.
+
+### 链接 / Links
+
+[Evidence 1](https://xirp.spotify.com/)
+[Discussion 1](https://news.ycombinator.com/item?id=49245118)
+
+---
+
+<a id="2026-08-10-colluskill-cross-skill-attacks"></a>
+## [ColluSkill 揭示隐藏在多个代理技能之间的攻击](https://arxiv.org/abs/2608.09732)
+
+**English:** [ColluSkill exposes attacks hidden across multiple agent skills](https://arxiv.org/abs/2608.09732)
+
+- **发布 / Published:** `2026-08-10T15:32:44Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09732) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security`, `skills`, `supply-chain`, `benchmark`, `safety`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ColluSkill 研究了代理供应链中的一个盲区：多个单独看似合理的技能只有在组合后才协同形成恶意工作流。配套防御 ChainGuard 会将候选技能与代理环境中已安装的技能一并评估。
+
+ColluSkill studies an agent supply-chain blind spot in which several individually plausible skills cooperate to produce a malicious workflow only when composed. The accompanying ChainGuard defense evaluates a candidate skill together with the skills already installed in the agent environment.
+
+### 技术点 / Technical points
+
+- 该攻击把恶意意图拆分为相互依赖的子载荷，并通过上下文依赖、产物传递和执行交接连接起来。
+  - The attack decomposes malicious intent into interdependent sub-payloads connected through contextual dependencies, artifact passing, and execution handoffs.
+- 在六种被评估的技能扫描器上，作者报告平均攻击成功率为 96.0%。
+  - Across six evaluated skill scanners, the authors report an average attack success rate of 96.0 percent.
+- ChainGuard 重建跨技能依赖和能力组合，将报告的攻击成功率降至 22.5%，同时允许 99.5% 的良性工作流通过。
+  - ChainGuard reconstructs cross-skill dependencies and capability composition, reducing reported attack success to 22.5 percent while allowing 99.5 percent of benign workflows to pass.
+
+### 为什么重要 / Why it matters
+
+代理技能安全需要在工作流层面分析组合能力与数据流，而不能把每个已安装包视为相互独立的单元。
+
+Agent skill security needs workflow-level analysis of composed capabilities and data flows rather than treating every installed package as an independent unit.
+
+---
+
+<a id="2026-08-10-moli-agent-browser-engine"></a>
+## [Moli 开源面向 AI 代理设计的 Rust 浏览器引擎](https://github.com/lexmount/moli)
+
+**English:** [Moli opens a Rust browser engine designed for AI agents](https://github.com/lexmount/moli)
+
+- **发布 / Published:** `2026-08-10T13:20:30Z`
+- **来源 / Source:** [Moli](https://github.com/lexmount/moli) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `browser-agent`, `mcp`, `open-source`, `rust`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Moli 是一款围绕 AI 代理访问模式构建的新开源无头浏览器。它默认提供 DOM、语义、网络和存储状态，仅在代理明确请求几何信息或图像时执行布局与像素渲染。
+
+Moli is a new open-source headless browser built around the access patterns of AI agents. It exposes DOM, semantic, network, and storage state by default, performing layout and pixel rendering only when an agent explicitly requests geometry or images.
+
+### 技术点 / Technical points
+
+- 该 Rust 运行时组合 V8 JavaScript、原生 DOM、Servo 与 Stylo 样式系统、Taffy 与 Parley 布局和按需软件渲染，而不是封装 Chromium。
+  - The Rust runtime combines V8 JavaScript, a native DOM, Servo and Stylo styling, Taffy and Parley layout, and on-demand software rendering rather than wrapping Chromium.
+- 单个服务器提供 MCP、Chrome DevTools Protocol、WebDriver Classic 和 WebDriver BiDi，而以抽取为主的操作可以完全跳过布局与绘制。
+  - One server exposes MCP, Chrome DevTools Protocol, WebDriver Classic, and WebDriver BiDi, while extraction-first operations can skip layout and paint entirely.
+- 在其自有的 192 URL 爬取测试中，Moli 报告有效页面成功率为 53.6%、中位 RSS 为 73 MiB；Chrome Headless 分别为 52.6% 和 773 MiB，仍需独立复现。
+  - In its own 192-URL crawl, Moli reports 53.6 percent useful-page success and 73 MiB median RSS versus Chrome Headless at 52.6 percent and 773 MiB; independent reproduction is still needed.
+
+### 为什么重要 / Why it matters
+
+结构优先、像素按需的浏览器可能显著提高浏览代理、检索流水线、评测环境和强化学习 rollout 的并发密度。
+
+A structure-first, pixels-on-demand browser could substantially increase the density of browsing agents, retrieval pipelines, evaluation environments, and reinforcement-learning rollouts.
+
+### 链接 / Links
+
+[Evidence 1](https://medium.com/@Koukyosyumei/building-a-pure-rust-sandboxed-local-first-browser-for-ai-agents-h5i-browser-light-ce4c13f16e5a)
+[Discussion 1](https://news.ycombinator.com/item?id=49244802) · [Discussion 2](https://www.reddit.com/r/codex/comments/1vl404k/purerust_sandboxed_localfirst_browser_for_agents/)
+
+---
+
+<a id="2026-08-10-linear-agent-custom-harness"></a>
+## [Linear 详解 Linear Agent 背后的自研运行框架](https://linear.app/now/how-we-built-linear-agent)
+
+**English:** [Linear details the custom harness behind Linear Agent](https://linear.app/now/how-we-built-linear-agent)
+
+- **发布 / Published:** `2026-08-10T12:19:00Z`
+- **来源 / Source:** [Linear](https://linear.app/now/how-we-built-linear-agent) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-architecture`, `tool-use`, `skills`, `orchestration`, `authorization`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Linear 发布了生产架构说明，介绍其如何通过系统提示、工具接口、产品语义、限定范围的系统技能和自研执行框架约束开放式工作区代理。该设计优先采用受控组合，而不是暴露完整 SDK 或 GraphQL 接口。
+
+Linear published a production architecture account of how it bounds an open-ended workspace agent through its system prompt, tool interfaces, product semantics, scoped system skills, and a custom execution harness. The design favors controlled composition over exposing the full SDK or GraphQL surface.
+
+### 技术点 / Technical points
+
+- 系统技能将提示片段、元数据和工具打包，并在运行前或按需加载，使每个线程只获得所需能力。
+  - System skills bundle prompt fragments, metadata, and tools, then load before a run or on demand so each thread receives only the capabilities it needs.
+- 运行框架可在活跃回合中注入新加载的工具，同时保留模型提供方的前缀缓存，并使用对话上下文而非仅凭工具名与参数决定是否审批。
+  - The harness injects newly loaded tools during an active run while preserving model-provider prefix caching and applies approval rules using conversational context, not only tool names and parameters.
+- 子代理工作对父代理表现为同步调用，但持久工作流引擎会在异步执行期间挂起父代理，并在工具调用完成后恢复。
+  - Sub-agent work appears synchronous to the parent, but the durable workflow engine suspends the parent during asynchronous execution and resumes it when the tool call completes.
+
+### 为什么重要 / Why it matters
+
+它为渐进式能力加载、上下文授权、持久执行和成本感知的代理编排提供了具体生产蓝图。
+
+It provides a concrete production blueprint for progressive capability loading, contextual authorization, durable execution, and cost-aware agent orchestration.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49252304)
+
+---
+
+<a id="2026-08-10-meta-muse-glimmer"></a>
+## [Meta 发布面向本地常驻代理的 Muse Glimmer](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model)
+
+**English:** [Meta releases Muse Glimmer for local always-on agents](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model)
+
+- **发布 / Published:** `2026-08-10T00:00:00Z`
+- **来源 / Source:** [Meta AI Research](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-weights`, `local-ai`, `tool-use`, `coding-agent`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
+
+### 摘要 / Summary
+
+Meta Superintelligence Labs 发布了 Muse Glimmer，这是一款针对本地常驻代理工作流优化的 300 亿参数开放权重模型。该 Apache-2.0 模型面向消费级硬件上的工具使用、编程、多模态输入、多步推理和工具调用失败恢复。
+
+Meta Superintelligence Labs released Muse Glimmer, a 30-billion-parameter open-weight model optimized for always-on local agent workflows. The Apache-2.0 model targets tool use, coding, multimodal input, multi-step reasoning, and recovery from failed tool calls on consumer hardware.
+
+### 技术点 / Technical points
+
+- 训练结合来自 Muse Spark 的 logit distillation、偏重代理与长上下文的中期阶段，以及包含监督微调、on-policy distillation 和强化学习的后训练。
+  - Training combines logit distillation from Muse Spark, an agent-heavy longer-context middle phase, and post-training with supervised fine-tuning, on-policy distillation, and reinforcement learning.
+- Meta 从端到端代理任务、工具使用、长程推理、失败恢复、多模态输入、运行框架兼容性、可控推理强度和 100 多种语言等方面评估该模型。
+  - Meta evaluates the model across end-to-end agent tasks, tool use, long-horizon reasoning, recovery, multimodal input, scaffold compatibility, controllable effort, and more than 100 languages.
+- 约四比特量化把语言模型压缩到 20 GB 以下，同时基于 DFlash 的轻量 drafter 通过推测解码加速生成，使整体可在 24 GB 或 32 GB 内存范围内运行。
+  - Approximately four-bit quantization reduces the language model to under 20 GB, while a lightweight DFlash-based drafter accelerates generation through speculative decoding within a 24 GB or 32 GB memory envelope.
+
+### 为什么重要 / Why it matters
+
+它把能力较强的开放代理模型带入高端个人电脑的内存范围，使私有、离线的工具调用工作流不再依赖云端模型。
+
+It brings a comparatively capable open agent model into the memory range of high-end personal computers, enabling private and offline tool-using workflows without a cloud model dependency.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/meta-models/Muse-Glimmer-30B)
+[Discussion 1](https://news.ycombinator.com/item?id=49241679) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vkk6vy/mark_zuckerberg_on_releases/)
+
+---
+
+<a id="2026-08-09-janus-agentic-laboratory"></a>
+## [Janus 开源具备治理机制的可演化代理实验室](https://github.com/iLearn-Agent/Janus/releases/tag/Release)
+
+**English:** [Janus open-sources a governed evolving agent laboratory](https://github.com/iLearn-Agent/Janus/releases/tag/Release)
+
+- **发布 / Published:** `2026-08-09T16:43:05Z`
+- **来源 / Source:** [Janus](https://github.com/iLearn-Agent/Janus/releases/tag/Release) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `self-improvement`, `skills`, `memory`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Janus v1.0.0 是一个面向持久人机协作和多代理协作的开源桌面工作区。它围绕可审查交付物组织委派任务，并记录代理角色、绩效、领导关系和受治理的能力版本。
+
+Janus v1.0.0 is an open-source desktop workspace for persistent human-agent and multi-agent collaboration. It organizes delegated work around reviewable deliverables while recording agent roles, performance, leadership, and governed capability versions.
+
+### 技术点 / Technical points
+
+- 持久任务组支持直接执行、专家分派、依赖感知编排、跨用户委派、隔离任务工作区和所有者审查。
+  - Persistent task groups support direct work, specialist assignment, dependency-aware orchestration, cross-user delegation, isolated task workspaces, and owner review.
+- 个人与群组演化可根据工作证据修改技能和记忆，但激活需要经过明确的评估、审查、采用与回滚阶段。
+  - Personal and cohort evolution can revise skills and memory from work evidence, but activation passes through explicit evaluation, review, adoption, and rollback stages.
+- 社区自托管栈使用 PostgreSQL、MinIO、隔离的演化 worker、云 API 和 Caddy；目前尚无独立有效性评估。
+  - The community self-hosting stack uses PostgreSQL, MinIO, an isolated evolution worker, a cloud API, and Caddy; no independent effectiveness evaluation is published.
+
+### 为什么重要 / Why it matters
+
+它探索了如何把短暂的多代理对话转变为具有明确责任、证据和可逆能力治理的持久工作系统。
+
+It explores how transient multi-agent conversations could become durable work systems with explicit responsibility, evidence, and reversible capability governance.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/iLearn-Agent/Janus)
+
+---
+
 <a id="2026-08-09-pi-from-scratch-coding-agent"></a>
 ## [PI from Scratch 用约 600 行 TypeScript 拆解编码代理](https://github.com/SaladDay/pi-from-scratch)
 
