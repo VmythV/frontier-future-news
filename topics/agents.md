@@ -2,6 +2,180 @@
 
 # Agents / 智能体
 
+<a id="2026-08-11-grothendieck-ai-research"></a>
+## [长时程 AI 协助收紧 Grothendieck 常数的上下界](https://arxiv.org/abs/2608.11195)
+
+**English:** [Long-horizon AI helps tighten both bounds on the Grothendieck constant](https://arxiv.org/abs/2608.11195)
+
+- **发布 / Published:** `2026-08-11T17:53:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11195) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agent`, `mathematics`, `long-horizon`, `human-ai-collaboration`, `reasoning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+研究者报告称，一套长时程 AI 研究系统提出的思路被用于改进 Grothendieck 常数的已知上下界。论文将这一成果作为人机数学协作案例，并说明专家如何评估和发展系统提出的想法。
+
+Researchers report that a long-horizon AI research system contributed insights used to improve both known bounds on the Grothendieck constant. The paper presents the result as a case study in human-AI mathematical collaboration and describes how experts evaluated and developed the system's ideas.
+
+### 技术点 / Technical points
+
+- 论文报告的新区间为 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4。
+  - The reported interval is 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4.
+- 作者称 AI 系统提出了领域专家认为具有新意的见解，而人类负责验证并推进数学推导。
+  - The authors say the AI system arrived at insights that domain experts regarded as novel, while humans supplied validation and mathematical development.
+- 该案例记录了长时程 AI 用于开放式数学研究时的实际优势、弱点和有效工作条件。
+  - The case study documents practical strengths, weaknesses, and working conditions for using long-horizon AI in open-ended mathematics research.
+
+### 为什么重要 / Why it matters
+
+这是 AI 研究代理参与开放数学问题进展的罕见具体证据，但相关主张目前仍主要建立在作者预印本及其专家评审流程之上。
+
+It is unusually concrete evidence of an AI research agent contributing to progress on an open mathematical problem, though the claims currently rest on the authors' preprint and expert process.
+
+---
+
+<a id="2026-08-11-catastrophic-remembering-agent-instructions"></a>
+## [“灾难性记忆”解释编码代理指令为何持续膨胀](https://arxiv.org/abs/2608.11095)
+
+**English:** [Catastrophic remembering explains why coding-agent instructions keep growing](https://arxiv.org/abs/2608.11095)
+
+- **发布 / Published:** `2026-08-11T16:00:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11095) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `context-management`, `prompt-engineering`, `developer-tools`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项针对编码代理指令文件的研究提出“灾难性记忆”：添加规则成本很低，但当规则缘由丢失后，安全删除它会变得困难。作者认为，保留指令存在理由的注释能够阻止提示词只增不减。
+
+A study of coding-agent instruction files identifies catastrophic remembering: adding a rule is cheap, but deleting it safely becomes difficult after its rationale is lost. The authors argue that comments preserving why an instruction exists can stop append-only prompt growth.
+
+### 技术点 / Technical points
+
+- 实证分析覆盖 1,867 个仓库中的 247,694 条指令生命周期，并报告代理提示词在生命周期内增长了 226%。
+  - The empirical analysis covers 247,694 instruction lifetimes in 1,867 repositories and reports that agentic prompts grew by 226 percent over their lifetime.
+- 指令越旧，被删除的可能性越低，这与维护者逐渐失去判断删除是否安全所需证据的现象一致。
+  - Older instructions became progressively less likely to be deleted, consistent with maintainers losing the evidence needed to judge whether removal is safe.
+- 在受控可验证环境中，记录潜在理由的注释消除了 99.3% 的冗余指令，并使 WildIFEval 指令遵循表现最多提升 23.1%。
+  - Comments encoding latent rationale removed 99.3 percent of excess instructions in controlled verifiable worlds and improved WildIFEval instruction following by up to 23.1 percent.
+
+### 为什么重要 / Why it matters
+
+智能体配置可能需要类似代码的来源记录与维护实践，才能安全移除过时指令，避免运行提示永久演变成只追加日志。
+
+Agent configuration may need code-like provenance and maintenance practices so obsolete guidance can be removed without turning operational prompts into permanent append-only logs.
+
+---
+
+<a id="2026-08-11-vibelifebench-persistent-life-agents"></a>
+## [VibeLifeBench 测试跨越模拟数周的持续型智能体](https://arxiv.org/abs/2608.10875)
+
+**English:** [VibeLifeBench tests persistent agents across simulated weeks](https://arxiv.org/abs/2608.10875)
+
+- **发布 / Published:** `2026-08-11T12:52:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10875) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `long-horizon`, `personal-agent`, `tool-use`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+VibeLifeBench 评估个人智能体能否在模拟世界跨越数周持续变化时保持主动性与一致性。任务要求智能体发现未被通知的事件、判断何时行动或询问、维持隐含约束，并留下可验证的服务状态。
+
+VibeLifeBench evaluates whether personal agents remain proactive and consistent while a simulated world changes over multiple weeks. Tasks require agents to discover silent events, choose when to act or ask, preserve implicit constraints, and leave verifiable service state behind.
+
+### 技术点 / Technical points
+
+- 论文描述了覆盖十个日常生活领域的 200 项长时程任务，运行于包含 22 个模拟服务的世界中。
+  - The paper describes 200 long-horizon tasks across ten everyday-life domains in a simulated world of 22 mock services.
+- 细粒度加权检查直接读取最终状态、行动时机和约束遵循情况，而不是只对智能体最终文本评分。
+  - Fine-grained weighted checks inspect end state, action timing, and constraint adherence rather than grading only the agent's final prose.
+- 当前公开的仅任务版本包含 20 项任务和 1,247 个原子检查，运行时与服务实现需另行提供。
+  - The current public task-only release contains 20 tasks and 1,247 atomic checks and requires compatible runtime and service implementations supplied separately.
+
+### 为什么重要 / Why it matters
+
+它覆盖短时提示驱动基准所忽略的主动性与持续性，但论文的 200 项任务与公开的 20 项子集之间仍有差距，目前限制了完整复现。
+
+It targets proactivity and persistence that short prompt-driven benchmarks miss, while the gap between the 200-task paper and the 20-task public subset limits full reproduction today.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/EvolventAI/Vibelifebench)
+
+---
+
+<a id="2026-08-11-redagentbench-executable-red-teaming"></a>
+## [REDAgentBench 通过可执行状态验证智能体违规](https://arxiv.org/abs/2608.10669)
+
+**English:** [REDAgentBench verifies agent violations through executable state](https://arxiv.org/abs/2608.10669)
+
+- **发布 / Published:** `2026-08-11T08:48:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10669) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `red-teaming`, `safety`, `tool-use`, `agent-evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+REDAgentBench 根据明确安全约束自动生成攻击，在隔离的服务沙箱中执行，并通过服务回执和最终状态变化验证有害效果。这样可以把真实策略违规与不完整文本轨迹或评测可见性造成的假象区分开来。
+
+REDAgentBench autonomously derives attacks from explicit safety constraints, runs them in isolated service sandboxes, and verifies harmful effects from receipts and final-state changes. This separates actual policy violations from artifacts of incomplete text traces or evaluator visibility.
+
+### 技术点 / Technical points
+
+- 该基准包含横跨五类服务界面的 1,661 个可执行案例，并在三种智能体框架下评测六个模型。
+  - The benchmark contains 1,661 executable cases across five service surfaces and evaluates six models under three agent harnesses.
+- 宏平均攻击成功率为 65.69%，报告结果会随框架、证据视图以及是否披露评测上下文而变化。
+  - Its macro-average attack success rate was 65.69 percent, with reported results changing according to harness, evidence view, and disclosure of evaluation context.
+- 在匹配重放中，无训练策略提醒将确认违规降低了 70 多个百分点。
+  - A training-free policy reminder reduced confirmed violations by more than 70 percentage points in matched replay.
+
+### 为什么重要 / Why it matters
+
+可执行证据能够区分真实发生的有害动作与仅在文本上显得危险的输出，也能揭示被不完整观测或裁决所掩盖的违规。
+
+Executable evidence can distinguish harmful actions that truly occurred from unsafe-looking text and can expose violations hidden by incomplete observation or adjudication.
+
+---
+
+<a id="2026-08-10-linkedin-self-evolving-support-agent"></a>
+## [LinkedIn 报告生产环境中的自进化客服智能体](https://arxiv.org/abs/2608.10224)
+
+**English:** [LinkedIn reports a self-evolving support agent in production](https://arxiv.org/abs/2608.10224)
+
+- **发布 / Published:** `2026-08-10T20:51:18Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10224) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `production`, `self-evolution`, `customer-support`, `retrieval`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+LinkedIn 描述了一套生产环境客服智能体系统，将检索增强生成、进化式提示优化、版本化评测和运行护栏组合起来。提示词、检索与评测形成持续改进闭环，无需重新训练基础模型。
+
+LinkedIn describes a production support-agent system that combines retrieval-augmented generation, evolutionary prompt optimization, versioned evaluation, and operational guardrails. Prompts, retrieval, and evaluation form a continuous improvement loop without retraining the foundation model.
+
+### 技术点 / Technical points
+
+- 模块化工作流在运行控制下对提示词、检索行为和面向生产的评测进行版本管理。
+  - The modular workflow versions prompts, retrieval behavior, and production-aligned evaluation under operational controls.
+- 离线仿真与消融实验报告其相较普通 RAG 和基线代理具有更高的回答完整性和更少的幻觉。
+  - Offline simulations and ablations report better completeness and fewer hallucinations than vanilla RAG and baseline agents.
+- 两周随机生产测试报告：问答自助率提高 9.0 个百分点、取消业务自助率提高 4.8 个百分点、路由准确率提高 30.6 个百分点。
+  - A two-week randomized production test reported gains of 9.0 percentage points in QA self-service, 4.8 points in cancellation self-service, and 30.6 points in routing accuracy.
+
+### 为什么重要 / Why it matters
+
+它提供了少见的生产证据，将智能体自我改进与可测量用户结果及受控运行流程相连接。
+
+It provides uncommon production evidence connecting agent self-improvement to measurable user outcomes and a guarded operational process.
+
+---
+
 <a id="2026-08-10-needle-2-edge-agent-model"></a>
 ## [Needle 2 将 14 MB 工具调用模型带到微型设备](https://cactuscompute.com/needle)
 

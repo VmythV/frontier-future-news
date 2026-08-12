@@ -2,6 +2,150 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-11-surgical-wam-video-pretraining"></a>
+## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
+
+**English:** [Surgical WAM turns action-free video into surgical robot control priors](https://arxiv.org/abs/2608.11204)
+
+- **发布 / Published:** `2026-08-11T17:59:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11204) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `surgical-robotics`, `video-pretraining`, `bimanual`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Surgical WAM 先从无动作标注的内窥镜视频中学习手术视觉动态，再使用固定规模的动作标注示范微调闭环控制器。该统一生成模型同时预测未来观测与可执行的手术机器人动作片段。
+
+Surgical WAM first learns surgical visual dynamics from action-free endoscopic video, then fine-tunes a closed-loop controller with a fixed budget of action-labeled demonstrations. The unified generative model predicts both future observations and executable surgical robot action chunks.
+
+### 技术点 / Technical points
+
+- 该模型基于 Cosmos Policy 构建，把从相对充足的内窥镜视频中学到的动态知识迁移到动作生成。
+  - The model is built on Cosmos Policy and transfers dynamics learned from comparatively abundant endoscopic video into action generation.
+- 部署时采用滚动时域控制，每次只执行预测动作片段的短前缀，再根据新观测重新规划。
+  - At deployment it uses receding-horizon control, executing a short prefix of each predicted action chunk before replanning from the new observation.
+- 在四项仿真手术任务中，视频预训练将平均成功率从 63.5% 提升至 77.8%，并使 PegTransfer 提高 20 个百分点。
+  - Across four simulated surgical tasks, video pretraining raised average success from 63.5 percent to 77.8 percent and improved PegTransfer by 20 percentage points.
+
+### 为什么重要 / Why it matters
+
+它提供了一条从普通视频提取可复用控制先验、减少昂贵遥操作手术示范数据的路径，但目前报告的评测仍限于仿真环境。
+
+It offers a route to reducing expensive teleoperated surgical demonstrations by extracting reusable control priors from ordinary video, although the reported evaluation remains simulated.
+
+---
+
+<a id="2026-08-11-flex-pi-multistream-wam"></a>
+## [Flex-π 在统一世界—动作模型中融合 RGB、几何、语义与动作](https://arxiv.org/abs/2608.10860)
+
+**English:** [Flex-π unifies RGB, geometry, semantics, and actions in one world-action model](https://arxiv.org/abs/2608.10860)
+
+- **发布 / Published:** `2026-08-11T12:33:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10860) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `vla`, `bimanual`, `multimodal`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Flex-π 是一个 60 亿参数的世界—动作模型，可联合去噪动作、RGB、三维点图和对象级语义流。同一个检查点可以使用不同流组合运行，从快速纯动作模式扩展到完整联合生成。
+
+Flex-π is a 6-billion-parameter world-action model that jointly denoises actions with RGB, 3D pointmaps, and object-centric semantic streams. One checkpoint can run with different subsets of those streams, ranging from a fast action-only mode to full joint generation.
+
+### 技术点 / Technical points
+
+- 冻结的视频生成 VAE 同时编码 RGB 和三维点图，无需点图专用预训练或额外传感器。
+  - A frozen video-generation VAE encodes both RGB and 3D pointmaps without pointmap-specific pretraining or additional sensors.
+- Mixture-of-Transformers 骨干联合去噪所有数据流，而逐流丢弃和跨模态强制机制提供推理时算力弹性。
+  - A Mixture-of-Transformers backbone jointly denoises all streams, while per-stream dropout and cross-modality forcing provide inference-time compute flexibility.
+- 作者报告其在分布内外的精细真实双臂任务上达到强基线的二至七倍表现，同时运行速度快于 π0.5。
+  - The authors report performance two to seven times that of strong baselines on precise real-world bimanual tasks in and out of distribution, while running faster than π0.5.
+
+### 为什么重要 / Why it matters
+
+它让更丰富的空间监督适配不同部署预算，而无需为每种传感与计算配置分别训练机器人策略。
+
+It makes richer spatial supervision compatible with variable deployment budgets instead of requiring separately trained robot policies for each sensing and compute configuration.
+
+### 链接 / Links
+
+[Evidence 1](https://flex-pi.github.io/)
+
+---
+
+<a id="2026-08-11-dura-vla-robot-attacks"></a>
+## [DURA 为 VLA 机器人生成自然外观的对抗贴片](https://arxiv.org/abs/2608.10393)
+
+**English:** [DURA creates natural-looking adversarial patches against VLA robots](https://arxiv.org/abs/2608.10393)
+
+- **发布 / Published:** `2026-08-11T02:41:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10393) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `adversarial-attack`, `safety`, `diffusion`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DURA 是一种基于扩散模型的无约束攻击，可在生成自然外观贴片的同时，将视觉—语言—动作模型引向攻击者指定的机器人动作。它面向实体操作系统，不再只依赖显眼的像素空间扰动。
+
+DURA is a diffusion-based unrestricted attack that creates visually natural patches while steering a vision-language-action model toward attacker-selected robot actions. It targets physical manipulation systems without relying only on conspicuous pixel-space perturbations.
+
+### 技术点 / Technical points
+
+- 该攻击沿预训练扩散模型的潜轨迹优化，以保持合理、自然的视觉外观。
+  - The attack optimizes along the latent trajectory of a pretrained diffusion model to preserve plausible visual appearance.
+- 它既支持白盒访问，也支持只需观察受害模型预测动作的黑盒设置。
+  - It supports both white-box access and a black-box setting that requires only the victim model's predicted actions.
+- 作者报告 DURA 在仿真与实体机器人实验中均优于既有攻击方法。
+  - The authors report that DURA outperforms prior attacks in simulation and on physical robots.
+
+### 为什么重要 / Why it matters
+
+实体智能体安全不能假设语义上普通的物体或装饰必然是机器人策略的无害输入。
+
+Physical-agent safety cannot assume that semantically ordinary objects or decorations are harmless inputs to a robot policy.
+
+---
+
+<a id="2026-08-10-fact-failure-aware-wam"></a>
+## [FACT 让世界—动作模型学习失败动作的后果](https://arxiv.org/abs/2608.10232)
+
+**English:** [FACT teaches world-action models what failed actions cause](https://arxiv.org/abs/2608.10232)
+
+- **发布 / Published:** `2026-08-10T21:10:46Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10232) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `failure-recovery`, `bimanual`, `world-model`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+FACT 根据实际执行的动作预测未来视频与任务进度，以缓解世界—动作模型训练中的成功偏差。失败轨迹不再被丢弃，而是成为学习动作后果的有效监督。
+
+FACT addresses success bias in world-action-model training by predicting future video and task progress conditioned on the action actually executed. Failed rollouts become valid supervision for learning action consequences instead of being discarded.
+
+### 技术点 / Technical points
+
+- 动作条件接口把实际执行动作与其视觉后果及估计任务进度直接关联起来。
+  - The action-conditioned interface links an executed action directly to its visual consequence and estimated task progress.
+- 具备失败感知能力的进度预测器可在推理时选择性地为采样动作候选排序。
+  - A failure-aware progress predictor can optionally rank sampled action candidates during inference.
+- 仿真和真实双臂操作实验报告其优于多种基线，并能从更多失败数据中受益，同时减少错误动作后的成功偏置幻觉。
+  - Experiments in simulation and real-world bimanual manipulation report improvements over multiple baselines, gains from additional failure data, and less success-biased hallucination after bad actions.
+
+### 为什么重要 / Why it matters
+
+只用成功示范训练的规划器可能在错误动作后幻想不现实的有利未来；FACT 直接训练模型表征这些失败后果。
+
+A planner trained only on successful demonstrations can imagine implausibly favorable futures after bad actions; FACT directly trains the model to represent those failures.
+
+### 链接 / Links
+
+[Evidence 1](https://fact-wam.github.io/)
+
+---
+
 <a id="2026-08-10-world-tokens-embodied-policy"></a>
 ## [World Tokens 在机器人部署时移除视频世界模型推理](https://arxiv.org/abs/2608.09730)
 

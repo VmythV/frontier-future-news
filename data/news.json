@@ -2,6 +2,495 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-11-surgical-wam-video-pretraining",
+      "published_at": "2026-08-11T17:59:13Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "surgical-robotics",
+        "video-pretraining",
+        "bimanual"
+      ],
+      "title_en": "Surgical WAM turns action-free video into surgical robot control priors",
+      "title_zh": "Surgical WAM 将无动作视频转化为手术机器人控制先验",
+      "summary_en": "Surgical WAM first learns surgical visual dynamics from action-free endoscopic video, then fine-tunes a closed-loop controller with a fixed budget of action-labeled demonstrations. The unified generative model predicts both future observations and executable surgical robot action chunks.",
+      "summary_zh": "Surgical WAM 先从无动作标注的内窥镜视频中学习手术视觉动态，再使用固定规模的动作标注示范微调闭环控制器。该统一生成模型同时预测未来观测与可执行的手术机器人动作片段。",
+      "tech_points_en": [
+        "The model is built on Cosmos Policy and transfers dynamics learned from comparatively abundant endoscopic video into action generation.",
+        "At deployment it uses receding-horizon control, executing a short prefix of each predicted action chunk before replanning from the new observation.",
+        "Across four simulated surgical tasks, video pretraining raised average success from 63.5 percent to 77.8 percent and improved PegTransfer by 20 percentage points."
+      ],
+      "tech_points_zh": [
+        "该模型基于 Cosmos Policy 构建，把从相对充足的内窥镜视频中学到的动态知识迁移到动作生成。",
+        "部署时采用滚动时域控制，每次只执行预测动作片段的短前缀，再根据新观测重新规划。",
+        "在四项仿真手术任务中，视频预训练将平均成功率从 63.5% 提升至 77.8%，并使 PegTransfer 提高 20 个百分点。"
+      ],
+      "why_it_matters_en": "It offers a route to reducing expensive teleoperated surgical demonstrations by extracting reusable control priors from ordinary video, although the reported evaluation remains simulated.",
+      "why_it_matters_zh": "它提供了一条从普通视频提取可复用控制先验、减少昂贵遥操作手术示范数据的路径，但目前报告的评测仍限于仿真环境。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.11204",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-11-grothendieck-ai-research",
+      "published_at": "2026-08-11T17:53:48Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "research-agent",
+        "mathematics",
+        "long-horizon",
+        "human-ai-collaboration",
+        "reasoning"
+      ],
+      "title_en": "Long-horizon AI helps tighten both bounds on the Grothendieck constant",
+      "title_zh": "长时程 AI 协助收紧 Grothendieck 常数的上下界",
+      "summary_en": "Researchers report that a long-horizon AI research system contributed insights used to improve both known bounds on the Grothendieck constant. The paper presents the result as a case study in human-AI mathematical collaboration and describes how experts evaluated and developed the system's ideas.",
+      "summary_zh": "研究者报告称，一套长时程 AI 研究系统提出的思路被用于改进 Grothendieck 常数的已知上下界。论文将这一成果作为人机数学协作案例，并说明专家如何评估和发展系统提出的想法。",
+      "tech_points_en": [
+        "The reported interval is 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4.",
+        "The authors say the AI system arrived at insights that domain experts regarded as novel, while humans supplied validation and mathematical development.",
+        "The case study documents practical strengths, weaknesses, and working conditions for using long-horizon AI in open-ended mathematics research."
+      ],
+      "tech_points_zh": [
+        "论文报告的新区间为 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4。",
+        "作者称 AI 系统提出了领域专家认为具有新意的见解，而人类负责验证并推进数学推导。",
+        "该案例记录了长时程 AI 用于开放式数学研究时的实际优势、弱点和有效工作条件。"
+      ],
+      "why_it_matters_en": "It is unusually concrete evidence of an AI research agent contributing to progress on an open mathematical problem, though the claims currently rest on the authors' preprint and expert process.",
+      "why_it_matters_zh": "这是 AI 研究代理参与开放数学问题进展的罕见具体证据，但相关主张目前仍主要建立在作者预印本及其专家评审流程之上。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.11195",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 23,
+        "novelty": 19,
+        "technical_depth": 14,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-11-viscore-world-model-planning",
+      "published_at": "2026-08-11T17:34:10Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "world-model",
+        "planning",
+        "evaluation",
+        "latent-dynamics",
+        "benchmark"
+      ],
+      "title_en": "VIScore connects latent world-model quality to planning success",
+      "title_zh": "VIScore 将潜世界模型质量与规划成功率连接起来",
+      "summary_en": "VIScore evaluates planning-relevant world-model quality across the encoder, predictor, and search planner rather than measuring the encoded latent alone. Its three components target whether predicted states are reachable and influential and whether planning search hallucinates.",
+      "summary_zh": "VIScore 跨编码器、预测器和搜索规划器评估与规划相关的世界模型质量，而不再只测量编码后的潜表示。它的三个组成部分关注预测状态是否可达、是否具有影响力，以及规划搜索是否产生幻觉。",
+      "tech_points_en": [
+        "The Veracity-Influence-Sobriety score covers the encoded feature, predictor capacity and reachability, and search-planner hallucination.",
+        "The study contrasts SIGReg and VISReg despite their shared isotropic-Gaussian target and finds that only the more controllable VISReg improves out-of-domain planning.",
+        "VIScore achieved Spearman correlations above 0.75 with cross-task success across both seen and unseen models and datasets in the authors' evaluation."
+      ],
+      "tech_points_zh": [
+        "真实性—影响力—清醒度评分覆盖编码特征、预测器容量与可达性，以及搜索规划器幻觉。",
+        "研究比较了目标同为各向同性高斯分布的 SIGReg 与 VISReg，并发现只有控制更灵活的 VISReg 改善了域外规划。",
+        "在作者的评测中，VIScore 对已见和未见模型及数据集的跨任务成功率均达到 0.75 以上的 Spearman 相关性。"
+      ],
+      "why_it_matters_en": "World models used for decisions need diagnostics tied to planning outcomes, not only visually tidy or statistically regular latent representations.",
+      "why_it_matters_zh": "用于决策的世界模型需要与规划结果挂钩的诊断方式，而不能只依赖外观良好或统计规整的潜表示。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.11174",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-11-catastrophic-remembering-agent-instructions",
+      "published_at": "2026-08-11T16:00:55Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "context-management",
+        "prompt-engineering",
+        "developer-tools",
+        "evaluation"
+      ],
+      "title_en": "Catastrophic remembering explains why coding-agent instructions keep growing",
+      "title_zh": "“灾难性记忆”解释编码代理指令为何持续膨胀",
+      "summary_en": "A study of coding-agent instruction files identifies catastrophic remembering: adding a rule is cheap, but deleting it safely becomes difficult after its rationale is lost. The authors argue that comments preserving why an instruction exists can stop append-only prompt growth.",
+      "summary_zh": "一项针对编码代理指令文件的研究提出“灾难性记忆”：添加规则成本很低，但当规则缘由丢失后，安全删除它会变得困难。作者认为，保留指令存在理由的注释能够阻止提示词只增不减。",
+      "tech_points_en": [
+        "The empirical analysis covers 247,694 instruction lifetimes in 1,867 repositories and reports that agentic prompts grew by 226 percent over their lifetime.",
+        "Older instructions became progressively less likely to be deleted, consistent with maintainers losing the evidence needed to judge whether removal is safe.",
+        "Comments encoding latent rationale removed 99.3 percent of excess instructions in controlled verifiable worlds and improved WildIFEval instruction following by up to 23.1 percent."
+      ],
+      "tech_points_zh": [
+        "实证分析覆盖 1,867 个仓库中的 247,694 条指令生命周期，并报告代理提示词在生命周期内增长了 226%。",
+        "指令越旧，被删除的可能性越低，这与维护者逐渐失去判断删除是否安全所需证据的现象一致。",
+        "在受控可验证环境中，记录潜在理由的注释消除了 99.3% 的冗余指令，并使 WildIFEval 指令遵循表现最多提升 23.1%。"
+      ],
+      "why_it_matters_en": "Agent configuration may need code-like provenance and maintenance practices so obsolete guidance can be removed without turning operational prompts into permanent append-only logs.",
+      "why_it_matters_zh": "智能体配置可能需要类似代码的来源记录与维护实践，才能安全移除过时指令，避免运行提示永久演变成只追加日志。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.11095",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-11-vibelifebench-persistent-life-agents",
+      "published_at": "2026-08-11T12:52:38Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "long-horizon",
+        "personal-agent",
+        "tool-use",
+        "evaluation"
+      ],
+      "title_en": "VibeLifeBench tests persistent agents across simulated weeks",
+      "title_zh": "VibeLifeBench 测试跨越模拟数周的持续型智能体",
+      "summary_en": "VibeLifeBench evaluates whether personal agents remain proactive and consistent while a simulated world changes over multiple weeks. Tasks require agents to discover silent events, choose when to act or ask, preserve implicit constraints, and leave verifiable service state behind.",
+      "summary_zh": "VibeLifeBench 评估个人智能体能否在模拟世界跨越数周持续变化时保持主动性与一致性。任务要求智能体发现未被通知的事件、判断何时行动或询问、维持隐含约束，并留下可验证的服务状态。",
+      "tech_points_en": [
+        "The paper describes 200 long-horizon tasks across ten everyday-life domains in a simulated world of 22 mock services.",
+        "Fine-grained weighted checks inspect end state, action timing, and constraint adherence rather than grading only the agent's final prose.",
+        "The current public task-only release contains 20 tasks and 1,247 atomic checks and requires compatible runtime and service implementations supplied separately."
+      ],
+      "tech_points_zh": [
+        "论文描述了覆盖十个日常生活领域的 200 项长时程任务，运行于包含 22 个模拟服务的世界中。",
+        "细粒度加权检查直接读取最终状态、行动时机和约束遵循情况，而不是只对智能体最终文本评分。",
+        "当前公开的仅任务版本包含 20 项任务和 1,247 个原子检查，运行时与服务实现需另行提供。"
+      ],
+      "why_it_matters_en": "It targets proactivity and persistence that short prompt-driven benchmarks miss, while the gap between the 200-task paper and the 20-task public subset limits full reproduction today.",
+      "why_it_matters_zh": "它覆盖短时提示驱动基准所忽略的主动性与持续性，但论文的 200 项任务与公开的 20 项子集之间仍有差距，目前限制了完整复现。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10875",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/datasets/EvolventAI/Vibelifebench"
+      ],
+      "confidence": "medium",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 20,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-11-flex-pi-multistream-wam",
+      "published_at": "2026-08-11T12:33:51Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "vla",
+        "bimanual",
+        "multimodal"
+      ],
+      "title_en": "Flex-π unifies RGB, geometry, semantics, and actions in one world-action model",
+      "title_zh": "Flex-π 在统一世界—动作模型中融合 RGB、几何、语义与动作",
+      "summary_en": "Flex-π is a 6-billion-parameter world-action model that jointly denoises actions with RGB, 3D pointmaps, and object-centric semantic streams. One checkpoint can run with different subsets of those streams, ranging from a fast action-only mode to full joint generation.",
+      "summary_zh": "Flex-π 是一个 60 亿参数的世界—动作模型，可联合去噪动作、RGB、三维点图和对象级语义流。同一个检查点可以使用不同流组合运行，从快速纯动作模式扩展到完整联合生成。",
+      "tech_points_en": [
+        "A frozen video-generation VAE encodes both RGB and 3D pointmaps without pointmap-specific pretraining or additional sensors.",
+        "A Mixture-of-Transformers backbone jointly denoises all streams, while per-stream dropout and cross-modality forcing provide inference-time compute flexibility.",
+        "The authors report performance two to seven times that of strong baselines on precise real-world bimanual tasks in and out of distribution, while running faster than π0.5."
+      ],
+      "tech_points_zh": [
+        "冻结的视频生成 VAE 同时编码 RGB 和三维点图，无需点图专用预训练或额外传感器。",
+        "Mixture-of-Transformers 骨干联合去噪所有数据流，而逐流丢弃和跨模态强制机制提供推理时算力弹性。",
+        "作者报告其在分布内外的精细真实双臂任务上达到强基线的二至七倍表现，同时运行速度快于 π0.5。"
+      ],
+      "why_it_matters_en": "It makes richer spatial supervision compatible with variable deployment budgets instead of requiring separately trained robot policies for each sensing and compute configuration.",
+      "why_it_matters_zh": "它让更丰富的空间监督适配不同部署预算，而无需为每种传感与计算配置分别训练机器人策略。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10860",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://flex-pi.github.io/"
+      ],
+      "confidence": "medium",
+      "score": 91,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-11-redagentbench-executable-red-teaming",
+      "published_at": "2026-08-11T08:48:54Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "red-teaming",
+        "safety",
+        "tool-use",
+        "agent-evaluation"
+      ],
+      "title_en": "REDAgentBench verifies agent violations through executable state",
+      "title_zh": "REDAgentBench 通过可执行状态验证智能体违规",
+      "summary_en": "REDAgentBench autonomously derives attacks from explicit safety constraints, runs them in isolated service sandboxes, and verifies harmful effects from receipts and final-state changes. This separates actual policy violations from artifacts of incomplete text traces or evaluator visibility.",
+      "summary_zh": "REDAgentBench 根据明确安全约束自动生成攻击，在隔离的服务沙箱中执行，并通过服务回执和最终状态变化验证有害效果。这样可以把真实策略违规与不完整文本轨迹或评测可见性造成的假象区分开来。",
+      "tech_points_en": [
+        "The benchmark contains 1,661 executable cases across five service surfaces and evaluates six models under three agent harnesses.",
+        "Its macro-average attack success rate was 65.69 percent, with reported results changing according to harness, evidence view, and disclosure of evaluation context.",
+        "A training-free policy reminder reduced confirmed violations by more than 70 percentage points in matched replay."
+      ],
+      "tech_points_zh": [
+        "该基准包含横跨五类服务界面的 1,661 个可执行案例，并在三种智能体框架下评测六个模型。",
+        "宏平均攻击成功率为 65.69%，报告结果会随框架、证据视图以及是否披露评测上下文而变化。",
+        "在匹配重放中，无训练策略提醒将确认违规降低了 70 多个百分点。"
+      ],
+      "why_it_matters_en": "Executable evidence can distinguish harmful actions that truly occurred from unsafe-looking text and can expose violations hidden by incomplete observation or adjudication.",
+      "why_it_matters_zh": "可执行证据能够区分真实发生的有害动作与仅在文本上显得危险的输出，也能揭示被不完整观测或裁决所掩盖的违规。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10669",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-11-dura-vla-robot-attacks",
+      "published_at": "2026-08-11T02:41:08Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "adversarial-attack",
+        "safety",
+        "diffusion"
+      ],
+      "title_en": "DURA creates natural-looking adversarial patches against VLA robots",
+      "title_zh": "DURA 为 VLA 机器人生成自然外观的对抗贴片",
+      "summary_en": "DURA is a diffusion-based unrestricted attack that creates visually natural patches while steering a vision-language-action model toward attacker-selected robot actions. It targets physical manipulation systems without relying only on conspicuous pixel-space perturbations.",
+      "summary_zh": "DURA 是一种基于扩散模型的无约束攻击，可在生成自然外观贴片的同时，将视觉—语言—动作模型引向攻击者指定的机器人动作。它面向实体操作系统，不再只依赖显眼的像素空间扰动。",
+      "tech_points_en": [
+        "The attack optimizes along the latent trajectory of a pretrained diffusion model to preserve plausible visual appearance.",
+        "It supports both white-box access and a black-box setting that requires only the victim model's predicted actions.",
+        "The authors report that DURA outperforms prior attacks in simulation and on physical robots."
+      ],
+      "tech_points_zh": [
+        "该攻击沿预训练扩散模型的潜轨迹优化，以保持合理、自然的视觉外观。",
+        "它既支持白盒访问，也支持只需观察受害模型预测动作的黑盒设置。",
+        "作者报告 DURA 在仿真与实体机器人实验中均优于既有攻击方法。"
+      ],
+      "why_it_matters_en": "Physical-agent safety cannot assume that semantically ordinary objects or decorations are harmless inputs to a robot policy.",
+      "why_it_matters_zh": "实体智能体安全不能假设语义上普通的物体或装饰必然是机器人策略的无害输入。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10393",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-10-fact-failure-aware-wam",
+      "published_at": "2026-08-10T21:10:46Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "failure-recovery",
+        "bimanual",
+        "world-model"
+      ],
+      "title_en": "FACT teaches world-action models what failed actions cause",
+      "title_zh": "FACT 让世界—动作模型学习失败动作的后果",
+      "summary_en": "FACT addresses success bias in world-action-model training by predicting future video and task progress conditioned on the action actually executed. Failed rollouts become valid supervision for learning action consequences instead of being discarded.",
+      "summary_zh": "FACT 根据实际执行的动作预测未来视频与任务进度，以缓解世界—动作模型训练中的成功偏差。失败轨迹不再被丢弃，而是成为学习动作后果的有效监督。",
+      "tech_points_en": [
+        "The action-conditioned interface links an executed action directly to its visual consequence and estimated task progress.",
+        "A failure-aware progress predictor can optionally rank sampled action candidates during inference.",
+        "Experiments in simulation and real-world bimanual manipulation report improvements over multiple baselines, gains from additional failure data, and less success-biased hallucination after bad actions."
+      ],
+      "tech_points_zh": [
+        "动作条件接口把实际执行动作与其视觉后果及估计任务进度直接关联起来。",
+        "具备失败感知能力的进度预测器可在推理时选择性地为采样动作候选排序。",
+        "仿真和真实双臂操作实验报告其优于多种基线，并能从更多失败数据中受益，同时减少错误动作后的成功偏置幻觉。"
+      ],
+      "why_it_matters_en": "A planner trained only on successful demonstrations can imagine implausibly favorable futures after bad actions; FACT directly trains the model to represent those failures.",
+      "why_it_matters_zh": "只用成功示范训练的规划器可能在错误动作后幻想不现实的有利未来；FACT 直接训练模型表征这些失败后果。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10232",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://fact-wam.github.io/"
+      ],
+      "confidence": "medium",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-10-linkedin-self-evolving-support-agent",
+      "published_at": "2026-08-10T20:51:18Z",
+      "collected_at": "2026-08-12T07:50:07Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "production",
+        "self-evolution",
+        "customer-support",
+        "retrieval",
+        "evaluation"
+      ],
+      "title_en": "LinkedIn reports a self-evolving support agent in production",
+      "title_zh": "LinkedIn 报告生产环境中的自进化客服智能体",
+      "summary_en": "LinkedIn describes a production support-agent system that combines retrieval-augmented generation, evolutionary prompt optimization, versioned evaluation, and operational guardrails. Prompts, retrieval, and evaluation form a continuous improvement loop without retraining the foundation model.",
+      "summary_zh": "LinkedIn 描述了一套生产环境客服智能体系统，将检索增强生成、进化式提示优化、版本化评测和运行护栏组合起来。提示词、检索与评测形成持续改进闭环，无需重新训练基础模型。",
+      "tech_points_en": [
+        "The modular workflow versions prompts, retrieval behavior, and production-aligned evaluation under operational controls.",
+        "Offline simulations and ablations report better completeness and fewer hallucinations than vanilla RAG and baseline agents.",
+        "A two-week randomized production test reported gains of 9.0 percentage points in QA self-service, 4.8 points in cancellation self-service, and 30.6 points in routing accuracy."
+      ],
+      "tech_points_zh": [
+        "模块化工作流在运行控制下对提示词、检索行为和面向生产的评测进行版本管理。",
+        "离线仿真与消融实验报告其相较普通 RAG 和基线代理具有更高的回答完整性和更少的幻觉。",
+        "两周随机生产测试报告：问答自助率提高 9.0 个百分点、取消业务自助率提高 4.8 个百分点、路由准确率提高 30.6 个百分点。"
+      ],
+      "why_it_matters_en": "It provides uncommon production evidence connecting agent self-improvement to measurable user outcomes and a guarded operational process.",
+      "why_it_matters_zh": "它提供了少见的生产证据，将智能体自我改进与可测量用户结果及受控运行流程相连接。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.10224",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 5
+      }
+    },
+    {
       "id": "2026-08-10-needle-2-edge-agent-model",
       "published_at": "2026-08-10T17:22:07Z",
       "collected_at": "2026-08-11T09:54:26Z",

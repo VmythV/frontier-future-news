@@ -2,6 +2,358 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-11-surgical-wam-video-pretraining"></a>
+## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
+
+**English:** [Surgical WAM turns action-free video into surgical robot control priors](https://arxiv.org/abs/2608.11204)
+
+- **发布 / Published:** `2026-08-11T17:59:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11204) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `surgical-robotics`, `video-pretraining`, `bimanual`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Surgical WAM 先从无动作标注的内窥镜视频中学习手术视觉动态，再使用固定规模的动作标注示范微调闭环控制器。该统一生成模型同时预测未来观测与可执行的手术机器人动作片段。
+
+Surgical WAM first learns surgical visual dynamics from action-free endoscopic video, then fine-tunes a closed-loop controller with a fixed budget of action-labeled demonstrations. The unified generative model predicts both future observations and executable surgical robot action chunks.
+
+### 技术点 / Technical points
+
+- 该模型基于 Cosmos Policy 构建，把从相对充足的内窥镜视频中学到的动态知识迁移到动作生成。
+  - The model is built on Cosmos Policy and transfers dynamics learned from comparatively abundant endoscopic video into action generation.
+- 部署时采用滚动时域控制，每次只执行预测动作片段的短前缀，再根据新观测重新规划。
+  - At deployment it uses receding-horizon control, executing a short prefix of each predicted action chunk before replanning from the new observation.
+- 在四项仿真手术任务中，视频预训练将平均成功率从 63.5% 提升至 77.8%，并使 PegTransfer 提高 20 个百分点。
+  - Across four simulated surgical tasks, video pretraining raised average success from 63.5 percent to 77.8 percent and improved PegTransfer by 20 percentage points.
+
+### 为什么重要 / Why it matters
+
+它提供了一条从普通视频提取可复用控制先验、减少昂贵遥操作手术示范数据的路径，但目前报告的评测仍限于仿真环境。
+
+It offers a route to reducing expensive teleoperated surgical demonstrations by extracting reusable control priors from ordinary video, although the reported evaluation remains simulated.
+
+---
+
+<a id="2026-08-11-grothendieck-ai-research"></a>
+## [长时程 AI 协助收紧 Grothendieck 常数的上下界](https://arxiv.org/abs/2608.11195)
+
+**English:** [Long-horizon AI helps tighten both bounds on the Grothendieck constant](https://arxiv.org/abs/2608.11195)
+
+- **发布 / Published:** `2026-08-11T17:53:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11195) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agent`, `mathematics`, `long-horizon`, `human-ai-collaboration`, `reasoning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+研究者报告称，一套长时程 AI 研究系统提出的思路被用于改进 Grothendieck 常数的已知上下界。论文将这一成果作为人机数学协作案例，并说明专家如何评估和发展系统提出的想法。
+
+Researchers report that a long-horizon AI research system contributed insights used to improve both known bounds on the Grothendieck constant. The paper presents the result as a case study in human-AI mathematical collaboration and describes how experts evaluated and developed the system's ideas.
+
+### 技术点 / Technical points
+
+- 论文报告的新区间为 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4。
+  - The reported interval is 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4.
+- 作者称 AI 系统提出了领域专家认为具有新意的见解，而人类负责验证并推进数学推导。
+  - The authors say the AI system arrived at insights that domain experts regarded as novel, while humans supplied validation and mathematical development.
+- 该案例记录了长时程 AI 用于开放式数学研究时的实际优势、弱点和有效工作条件。
+  - The case study documents practical strengths, weaknesses, and working conditions for using long-horizon AI in open-ended mathematics research.
+
+### 为什么重要 / Why it matters
+
+这是 AI 研究代理参与开放数学问题进展的罕见具体证据，但相关主张目前仍主要建立在作者预印本及其专家评审流程之上。
+
+It is unusually concrete evidence of an AI research agent contributing to progress on an open mathematical problem, though the claims currently rest on the authors' preprint and expert process.
+
+---
+
+<a id="2026-08-11-viscore-world-model-planning"></a>
+## [VIScore 将潜世界模型质量与规划成功率连接起来](https://arxiv.org/abs/2608.11174)
+
+**English:** [VIScore connects latent world-model quality to planning success](https://arxiv.org/abs/2608.11174)
+
+- **发布 / Published:** `2026-08-11T17:34:10Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11174) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `planning`, `evaluation`, `latent-dynamics`, `benchmark`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+VIScore 跨编码器、预测器和搜索规划器评估与规划相关的世界模型质量，而不再只测量编码后的潜表示。它的三个组成部分关注预测状态是否可达、是否具有影响力，以及规划搜索是否产生幻觉。
+
+VIScore evaluates planning-relevant world-model quality across the encoder, predictor, and search planner rather than measuring the encoded latent alone. Its three components target whether predicted states are reachable and influential and whether planning search hallucinates.
+
+### 技术点 / Technical points
+
+- 真实性—影响力—清醒度评分覆盖编码特征、预测器容量与可达性，以及搜索规划器幻觉。
+  - The Veracity-Influence-Sobriety score covers the encoded feature, predictor capacity and reachability, and search-planner hallucination.
+- 研究比较了目标同为各向同性高斯分布的 SIGReg 与 VISReg，并发现只有控制更灵活的 VISReg 改善了域外规划。
+  - The study contrasts SIGReg and VISReg despite their shared isotropic-Gaussian target and finds that only the more controllable VISReg improves out-of-domain planning.
+- 在作者的评测中，VIScore 对已见和未见模型及数据集的跨任务成功率均达到 0.75 以上的 Spearman 相关性。
+  - VIScore achieved Spearman correlations above 0.75 with cross-task success across both seen and unseen models and datasets in the authors' evaluation.
+
+### 为什么重要 / Why it matters
+
+用于决策的世界模型需要与规划结果挂钩的诊断方式，而不能只依赖外观良好或统计规整的潜表示。
+
+World models used for decisions need diagnostics tied to planning outcomes, not only visually tidy or statistically regular latent representations.
+
+---
+
+<a id="2026-08-11-catastrophic-remembering-agent-instructions"></a>
+## [“灾难性记忆”解释编码代理指令为何持续膨胀](https://arxiv.org/abs/2608.11095)
+
+**English:** [Catastrophic remembering explains why coding-agent instructions keep growing](https://arxiv.org/abs/2608.11095)
+
+- **发布 / Published:** `2026-08-11T16:00:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11095) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `context-management`, `prompt-engineering`, `developer-tools`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项针对编码代理指令文件的研究提出“灾难性记忆”：添加规则成本很低，但当规则缘由丢失后，安全删除它会变得困难。作者认为，保留指令存在理由的注释能够阻止提示词只增不减。
+
+A study of coding-agent instruction files identifies catastrophic remembering: adding a rule is cheap, but deleting it safely becomes difficult after its rationale is lost. The authors argue that comments preserving why an instruction exists can stop append-only prompt growth.
+
+### 技术点 / Technical points
+
+- 实证分析覆盖 1,867 个仓库中的 247,694 条指令生命周期，并报告代理提示词在生命周期内增长了 226%。
+  - The empirical analysis covers 247,694 instruction lifetimes in 1,867 repositories and reports that agentic prompts grew by 226 percent over their lifetime.
+- 指令越旧，被删除的可能性越低，这与维护者逐渐失去判断删除是否安全所需证据的现象一致。
+  - Older instructions became progressively less likely to be deleted, consistent with maintainers losing the evidence needed to judge whether removal is safe.
+- 在受控可验证环境中，记录潜在理由的注释消除了 99.3% 的冗余指令，并使 WildIFEval 指令遵循表现最多提升 23.1%。
+  - Comments encoding latent rationale removed 99.3 percent of excess instructions in controlled verifiable worlds and improved WildIFEval instruction following by up to 23.1 percent.
+
+### 为什么重要 / Why it matters
+
+智能体配置可能需要类似代码的来源记录与维护实践，才能安全移除过时指令，避免运行提示永久演变成只追加日志。
+
+Agent configuration may need code-like provenance and maintenance practices so obsolete guidance can be removed without turning operational prompts into permanent append-only logs.
+
+---
+
+<a id="2026-08-11-vibelifebench-persistent-life-agents"></a>
+## [VibeLifeBench 测试跨越模拟数周的持续型智能体](https://arxiv.org/abs/2608.10875)
+
+**English:** [VibeLifeBench tests persistent agents across simulated weeks](https://arxiv.org/abs/2608.10875)
+
+- **发布 / Published:** `2026-08-11T12:52:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10875) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `long-horizon`, `personal-agent`, `tool-use`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+VibeLifeBench 评估个人智能体能否在模拟世界跨越数周持续变化时保持主动性与一致性。任务要求智能体发现未被通知的事件、判断何时行动或询问、维持隐含约束，并留下可验证的服务状态。
+
+VibeLifeBench evaluates whether personal agents remain proactive and consistent while a simulated world changes over multiple weeks. Tasks require agents to discover silent events, choose when to act or ask, preserve implicit constraints, and leave verifiable service state behind.
+
+### 技术点 / Technical points
+
+- 论文描述了覆盖十个日常生活领域的 200 项长时程任务，运行于包含 22 个模拟服务的世界中。
+  - The paper describes 200 long-horizon tasks across ten everyday-life domains in a simulated world of 22 mock services.
+- 细粒度加权检查直接读取最终状态、行动时机和约束遵循情况，而不是只对智能体最终文本评分。
+  - Fine-grained weighted checks inspect end state, action timing, and constraint adherence rather than grading only the agent's final prose.
+- 当前公开的仅任务版本包含 20 项任务和 1,247 个原子检查，运行时与服务实现需另行提供。
+  - The current public task-only release contains 20 tasks and 1,247 atomic checks and requires compatible runtime and service implementations supplied separately.
+
+### 为什么重要 / Why it matters
+
+它覆盖短时提示驱动基准所忽略的主动性与持续性，但论文的 200 项任务与公开的 20 项子集之间仍有差距，目前限制了完整复现。
+
+It targets proactivity and persistence that short prompt-driven benchmarks miss, while the gap between the 200-task paper and the 20-task public subset limits full reproduction today.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/EvolventAI/Vibelifebench)
+
+---
+
+<a id="2026-08-11-flex-pi-multistream-wam"></a>
+## [Flex-π 在统一世界—动作模型中融合 RGB、几何、语义与动作](https://arxiv.org/abs/2608.10860)
+
+**English:** [Flex-π unifies RGB, geometry, semantics, and actions in one world-action model](https://arxiv.org/abs/2608.10860)
+
+- **发布 / Published:** `2026-08-11T12:33:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10860) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `vla`, `bimanual`, `multimodal`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Flex-π 是一个 60 亿参数的世界—动作模型，可联合去噪动作、RGB、三维点图和对象级语义流。同一个检查点可以使用不同流组合运行，从快速纯动作模式扩展到完整联合生成。
+
+Flex-π is a 6-billion-parameter world-action model that jointly denoises actions with RGB, 3D pointmaps, and object-centric semantic streams. One checkpoint can run with different subsets of those streams, ranging from a fast action-only mode to full joint generation.
+
+### 技术点 / Technical points
+
+- 冻结的视频生成 VAE 同时编码 RGB 和三维点图，无需点图专用预训练或额外传感器。
+  - A frozen video-generation VAE encodes both RGB and 3D pointmaps without pointmap-specific pretraining or additional sensors.
+- Mixture-of-Transformers 骨干联合去噪所有数据流，而逐流丢弃和跨模态强制机制提供推理时算力弹性。
+  - A Mixture-of-Transformers backbone jointly denoises all streams, while per-stream dropout and cross-modality forcing provide inference-time compute flexibility.
+- 作者报告其在分布内外的精细真实双臂任务上达到强基线的二至七倍表现，同时运行速度快于 π0.5。
+  - The authors report performance two to seven times that of strong baselines on precise real-world bimanual tasks in and out of distribution, while running faster than π0.5.
+
+### 为什么重要 / Why it matters
+
+它让更丰富的空间监督适配不同部署预算，而无需为每种传感与计算配置分别训练机器人策略。
+
+It makes richer spatial supervision compatible with variable deployment budgets instead of requiring separately trained robot policies for each sensing and compute configuration.
+
+### 链接 / Links
+
+[Evidence 1](https://flex-pi.github.io/)
+
+---
+
+<a id="2026-08-11-redagentbench-executable-red-teaming"></a>
+## [REDAgentBench 通过可执行状态验证智能体违规](https://arxiv.org/abs/2608.10669)
+
+**English:** [REDAgentBench verifies agent violations through executable state](https://arxiv.org/abs/2608.10669)
+
+- **发布 / Published:** `2026-08-11T08:48:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10669) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `red-teaming`, `safety`, `tool-use`, `agent-evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+REDAgentBench 根据明确安全约束自动生成攻击，在隔离的服务沙箱中执行，并通过服务回执和最终状态变化验证有害效果。这样可以把真实策略违规与不完整文本轨迹或评测可见性造成的假象区分开来。
+
+REDAgentBench autonomously derives attacks from explicit safety constraints, runs them in isolated service sandboxes, and verifies harmful effects from receipts and final-state changes. This separates actual policy violations from artifacts of incomplete text traces or evaluator visibility.
+
+### 技术点 / Technical points
+
+- 该基准包含横跨五类服务界面的 1,661 个可执行案例，并在三种智能体框架下评测六个模型。
+  - The benchmark contains 1,661 executable cases across five service surfaces and evaluates six models under three agent harnesses.
+- 宏平均攻击成功率为 65.69%，报告结果会随框架、证据视图以及是否披露评测上下文而变化。
+  - Its macro-average attack success rate was 65.69 percent, with reported results changing according to harness, evidence view, and disclosure of evaluation context.
+- 在匹配重放中，无训练策略提醒将确认违规降低了 70 多个百分点。
+  - A training-free policy reminder reduced confirmed violations by more than 70 percentage points in matched replay.
+
+### 为什么重要 / Why it matters
+
+可执行证据能够区分真实发生的有害动作与仅在文本上显得危险的输出，也能揭示被不完整观测或裁决所掩盖的违规。
+
+Executable evidence can distinguish harmful actions that truly occurred from unsafe-looking text and can expose violations hidden by incomplete observation or adjudication.
+
+---
+
+<a id="2026-08-11-dura-vla-robot-attacks"></a>
+## [DURA 为 VLA 机器人生成自然外观的对抗贴片](https://arxiv.org/abs/2608.10393)
+
+**English:** [DURA creates natural-looking adversarial patches against VLA robots](https://arxiv.org/abs/2608.10393)
+
+- **发布 / Published:** `2026-08-11T02:41:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10393) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `adversarial-attack`, `safety`, `diffusion`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DURA 是一种基于扩散模型的无约束攻击，可在生成自然外观贴片的同时，将视觉—语言—动作模型引向攻击者指定的机器人动作。它面向实体操作系统，不再只依赖显眼的像素空间扰动。
+
+DURA is a diffusion-based unrestricted attack that creates visually natural patches while steering a vision-language-action model toward attacker-selected robot actions. It targets physical manipulation systems without relying only on conspicuous pixel-space perturbations.
+
+### 技术点 / Technical points
+
+- 该攻击沿预训练扩散模型的潜轨迹优化，以保持合理、自然的视觉外观。
+  - The attack optimizes along the latent trajectory of a pretrained diffusion model to preserve plausible visual appearance.
+- 它既支持白盒访问，也支持只需观察受害模型预测动作的黑盒设置。
+  - It supports both white-box access and a black-box setting that requires only the victim model's predicted actions.
+- 作者报告 DURA 在仿真与实体机器人实验中均优于既有攻击方法。
+  - The authors report that DURA outperforms prior attacks in simulation and on physical robots.
+
+### 为什么重要 / Why it matters
+
+实体智能体安全不能假设语义上普通的物体或装饰必然是机器人策略的无害输入。
+
+Physical-agent safety cannot assume that semantically ordinary objects or decorations are harmless inputs to a robot policy.
+
+---
+
+<a id="2026-08-10-fact-failure-aware-wam"></a>
+## [FACT 让世界—动作模型学习失败动作的后果](https://arxiv.org/abs/2608.10232)
+
+**English:** [FACT teaches world-action models what failed actions cause](https://arxiv.org/abs/2608.10232)
+
+- **发布 / Published:** `2026-08-10T21:10:46Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10232) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `failure-recovery`, `bimanual`, `world-model`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+FACT 根据实际执行的动作预测未来视频与任务进度，以缓解世界—动作模型训练中的成功偏差。失败轨迹不再被丢弃，而是成为学习动作后果的有效监督。
+
+FACT addresses success bias in world-action-model training by predicting future video and task progress conditioned on the action actually executed. Failed rollouts become valid supervision for learning action consequences instead of being discarded.
+
+### 技术点 / Technical points
+
+- 动作条件接口把实际执行动作与其视觉后果及估计任务进度直接关联起来。
+  - The action-conditioned interface links an executed action directly to its visual consequence and estimated task progress.
+- 具备失败感知能力的进度预测器可在推理时选择性地为采样动作候选排序。
+  - A failure-aware progress predictor can optionally rank sampled action candidates during inference.
+- 仿真和真实双臂操作实验报告其优于多种基线，并能从更多失败数据中受益，同时减少错误动作后的成功偏置幻觉。
+  - Experiments in simulation and real-world bimanual manipulation report improvements over multiple baselines, gains from additional failure data, and less success-biased hallucination after bad actions.
+
+### 为什么重要 / Why it matters
+
+只用成功示范训练的规划器可能在错误动作后幻想不现实的有利未来；FACT 直接训练模型表征这些失败后果。
+
+A planner trained only on successful demonstrations can imagine implausibly favorable futures after bad actions; FACT directly trains the model to represent those failures.
+
+### 链接 / Links
+
+[Evidence 1](https://fact-wam.github.io/)
+
+---
+
+<a id="2026-08-10-linkedin-self-evolving-support-agent"></a>
+## [LinkedIn 报告生产环境中的自进化客服智能体](https://arxiv.org/abs/2608.10224)
+
+**English:** [LinkedIn reports a self-evolving support agent in production](https://arxiv.org/abs/2608.10224)
+
+- **发布 / Published:** `2026-08-10T20:51:18Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10224) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `production`, `self-evolution`, `customer-support`, `retrieval`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+LinkedIn 描述了一套生产环境客服智能体系统，将检索增强生成、进化式提示优化、版本化评测和运行护栏组合起来。提示词、检索与评测形成持续改进闭环，无需重新训练基础模型。
+
+LinkedIn describes a production support-agent system that combines retrieval-augmented generation, evolutionary prompt optimization, versioned evaluation, and operational guardrails. Prompts, retrieval, and evaluation form a continuous improvement loop without retraining the foundation model.
+
+### 技术点 / Technical points
+
+- 模块化工作流在运行控制下对提示词、检索行为和面向生产的评测进行版本管理。
+  - The modular workflow versions prompts, retrieval behavior, and production-aligned evaluation under operational controls.
+- 离线仿真与消融实验报告其相较普通 RAG 和基线代理具有更高的回答完整性和更少的幻觉。
+  - Offline simulations and ablations report better completeness and fewer hallucinations than vanilla RAG and baseline agents.
+- 两周随机生产测试报告：问答自助率提高 9.0 个百分点、取消业务自助率提高 4.8 个百分点、路由准确率提高 30.6 个百分点。
+  - A two-week randomized production test reported gains of 9.0 percentage points in QA self-service, 4.8 points in cancellation self-service, and 30.6 points in routing accuracy.
+
+### 为什么重要 / Why it matters
+
+它提供了少见的生产证据，将智能体自我改进与可测量用户结果及受控运行流程相连接。
+
+It provides uncommon production evidence connecting agent self-improvement to measurable user outcomes and a guarded operational process.
+
+---
+
 <a id="2026-08-10-needle-2-edge-agent-model"></a>
 ## [Needle 2 将 14 MB 工具调用模型带到微型设备](https://cactuscompute.com/needle)
 
@@ -367,382 +719,3 @@ It explores how transient multi-agent conversations could become durable work sy
 ### 链接 / Links
 
 [Evidence 1](https://github.com/iLearn-Agent/Janus)
-
----
-
-<a id="2026-08-09-pi-from-scratch-coding-agent"></a>
-## [PI from Scratch 用约 600 行 TypeScript 拆解编码代理](https://github.com/SaladDay/pi-from-scratch)
-
-**English:** [PI from Scratch exposes a coding agent in roughly 600 lines](https://github.com/SaladDay/pi-from-scratch)
-
-- **发布 / Published:** `2026-08-09T12:15:30Z`
-- **来源 / Source:** [PI from Scratch](https://github.com/SaladDay/pi-from-scratch) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `developer-tools`, `tool-use`, `education`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
-
-### 摘要 / Summary
-
-PI from Scratch 是一个交互式教程和精简的 TypeScript 编码代理实现，能够读取文件、修改代码和执行命令。渐进式源码视图与预生成 trace 让读者无需大型框架即可检查代理循环。
-
-PI from Scratch is an interactive tutorial and compact TypeScript implementation of a coding agent that can read files, edit code, and run commands. Its progressive source view and pre-generated traces make the agent loop inspectable without a large framework.
-
-### 技术点 / Technical points
-
-- 约 600 行的 nano-pi 实现使用 OpenAI 兼容 API，并支持文件读取、代码编辑和命令执行。
-  - The approximately 600-line nano-pi implementation uses an OpenAI-compatible API and supports file reading, code editing, and command execution.
-- 教程在文章旁逐步展示实现，并通过类似断点的 trace 导航检查执行流程。
-  - The tutorial reveals the implementation progressively beside the article and provides trace inspection with breakpoint-like navigation through execution flow.
-- 在线 trace 是预生成的静态数据，阅读托管教程不会发起模型请求；MIT 许可仓库还包含代理和网站测试。
-  - Online traces are pre-generated static data, so reading the hosted tutorial does not initiate model requests; the MIT-licensed repository also includes tests for the agent and site.
-
-### 为什么重要 / Why it matters
-
-它通过一个可完整通读的小型实现，降低了理解代理循环、工具调用和运行框架数据流的门槛。
-
-It lowers the barrier to understanding agent loops, tool calling, and harness data flow through a small implementation that can be read end to end.
-
-### 链接 / Links
-
-[Evidence 1](https://pi-from-scratch.vercel.app/) · [Evidence 2](https://api.github.com/repos/SaladDay/pi-from-scratch)
-
----
-
-<a id="2026-08-09-wardline-v2-agent-control-plane"></a>
-## [Wardline v2 为代理工具流量加入联邦异常拦截](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0)
-
-**English:** [Wardline v2 adds federated anomaly blocking to agent tool traffic](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0)
-
-- **发布 / Published:** `2026-08-09T07:00:44Z`
-- **来源 / Source:** [Wardline](https://github.com/kabirnarang39/wardline/releases/tag/v2.0.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `safety`, `mcp`, `authorization`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Wardline v2 发布了位于 AI 代理与 MCP、工具或 gRPC 服务之间的开源控制面代理。它可执行策略与预算、跨实例关联异常，并临时阻断可疑代理身份，而不只是记录告警。
-
-Wardline v2 ships an open-source control-plane proxy between AI agents and MCP, tool, or gRPC services. It can enforce policy and budgets, correlate anomalies across instances, and temporarily block a suspicious agent identity instead of only recording an alert.
-
-### 技术点 / Technical points
-
-- 自基线启发式检测覆盖速率突增、新工具、拒绝率变化和组合 z-score，并以有时限的自动封禁作为强制措施。
-  - Self-baselining heuristics cover rate spikes, novel tools, deny-rate changes, and a combined z-score, with bounded-TTL auto-blocking as an enforcement action.
-- YAML、内嵌 OPA/Rego 和 Cedar 策略后端可治理 MCP 工具、资源与提示，并结合 OIDC 或 SPIFFE 引导、SCIM 配置的 RBAC 和租户隔离。
-  - YAML, embedded OPA/Rego, and Cedar policy backends can govern MCP tools, resources, and prompts, alongside OIDC or SPIFFE bootstrap, SCIM-provisioned RBAC, and tenant isolation.
-- 该版本增加签名且去标识化的联邦摘要、基于 Postgres 的高可用状态、签名合规证据包、刷新令牌族撤销以及 gRPC 传输。
-  - The release adds signed pseudonymized federation summaries, Postgres-backed high-availability state, signed compliance-evidence bundles, refresh-token family revocation, and a gRPC transport.
-
-### 为什么重要 / Why it matters
-
-它把代理授权与异常响应移到模型之外的确定性执行层，但这个年轻项目尚未经过独立评估。
-
-It moves agent authorization and anomaly response into a deterministic enforcement layer outside the model, although the young project has not yet been independently evaluated.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/kabirnarang39/wardline)
-[Discussion 1](https://news.ycombinator.com/item?id=49235863)
-
----
-
-<a id="2026-08-09-ctxray-codex-context-audit"></a>
-## [CtxRay 让 Codex 上下文加载可审计、可锁定](https://github.com/FramY2/ctxray)
-
-**English:** [CtxRay makes Codex context loading auditable and lockable](https://github.com/FramY2/ctxray)
-
-- **发布 / Published:** `2026-08-09T03:12:38Z`
-- **来源 / Source:** [CtxRay](https://github.com/FramY2/ctxray) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `observability`, `context-management`, `developer-tools`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-CtxRay 是一个本地优先的 CLI 与 Codex 插件，用于映射任务开始前加载的 instructions、skills、plugins 和 MCP 配置。它可编译预期 profile、记录脱敏上下文锁文件，并检测不同运行之间的漂移。
-
-CtxRay is a local-first CLI and Codex plugin that maps the instructions, skills, plugins, and MCP configuration loaded before a task. It compiles intentional profiles, records a redacted context lockfile, and detects drift between runs.
-
-### 技术点 / Technical points
-
-- 审计会生成有边界的上下文地图，并可通过 dry run 和自动备份，把可审查 YAML profile 编译为原生 Codex TOML。
-  - Audits produce a bounded context map and can compile reviewable YAML profiles into native Codex TOML with dry runs and automatic backups.
-- 脱敏锁文件支持可复现性检查，并在 instructions、skills、plugins 或 MCP 配置变化时执行适合 CI 的漂移检测。
-  - A redacted lockfile supports reproducibility checks and CI-ready drift detection when instructions, skills, plugins, or MCP configuration change.
-- 回合后收据将 token 和使用数据标记为精确、估算、比较或未知；工具本身不调用模型、不需要 API key，并声明无遥测。
-  - Post-turn receipts label token and usage data as exact, estimated, comparative, or unknown; the tool calls no model, needs no API key, and declares no telemetry.
-
-### 为什么重要 / Why it matters
-
-隐式上下文正成为编码代理的可复现性、供应链与成本控制边界，但 CtxRay 的有效性目前仅由其自身仓库和基准材料支持。
-
-Implicit context is becoming a reproducibility, supply-chain, and cost-control boundary for coding agents, but CtxRay's effectiveness is currently supported only by its own repository and benchmark artifacts.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/FramY2/ctxray)
-[Discussion 1](https://news.ycombinator.com/item?id=49238209)
-
----
-
-<a id="2026-08-08-kadath-evolutionary-agent-runtime"></a>
-## [KADATH 发布可审计的进化式多代理运行时](https://github.com/i3T4AN/KADATH)
-
-**English:** [KADATH releases an auditable evolutionary multi-agent runtime](https://github.com/i3T4AN/KADATH)
-
-- **发布 / Published:** `2026-08-08T15:49:55Z`
-- **来源 / Source:** [KADATH](https://github.com/i3T4AN/KADATH) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `self-improvement`, `evaluation`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-KADATH 将目标转化为冻结的评分契约，并在多个 epoch 中选择、变异和繁殖包含提示词、代码、工具及依赖的代理“基因组”，同时把容器、证据、评分和 Git 血统留在不可变内核中。
-
-KADATH evolves populations of agent genomes—prompts, code, tools, and dependencies—against a locked objective while keeping containers, evidence, grading, and Git lineage in an immutable kernel-controlled plane.
-
-### 技术点 / Technical points
-
-- 内核控制基准契约、截止时间、容器、证据、评分、种群状态、恢复、清理和 Git 血统；基因组可修改提示词、代码、工具、依赖和支持文件，但不能改写目标或评分权限。
-  - The kernel controls benchmark contracts, deadlines, containers, evidence, grading, population state, recovery, cleanup, and Git lineage, while genomes may change prompts, code, tools, dependencies, and support files but not objectives or scoring authority.
-- 只读基因组容器获得可写工作区和范围受限的令牌；证据在模型评分器提取类型化事实之前经过哈希冻结与符号链接检查，最终适应度由内核计算。
-  - Read-only genome containers receive writable workspaces and scoped tokens; evidence is frozen with hashes and symlink checks before a model grader extracts typed facts for kernel-side fitness computation.
-- 仓库包含覆盖编排和恢复的 53 个生命周期测试方法，但尚未发布基准结果或系统有效性的独立复现。
-  - The repository includes 53 lifecycle test methods spanning orchestration and recovery, but publishes no benchmark outcome or independent reproduction of the system's effectiveness.
-
-### 为什么重要 / Why it matters
-
-它尝试把自改进代理最容易被奖励黑客攻击的环节变成可验证边界。
-
-It attempts to turn the parts of self-improving agents most vulnerable to reward hacking into verifiable boundaries.
-
----
-
-<a id="2026-08-08-onessh-agent-ssh-gateway"></a>
-## [OneSSH 集中管理代理可撤销的远程主机权限](https://github.com/Lynricsy/OneSSH)
-
-**English:** [OneSSH centralizes revocable remote-host access for agents](https://github.com/Lynricsy/OneSSH)
-
-- **发布 / Published:** `2026-08-08T04:33:17Z`
-- **来源 / Source:** [OneSSH](https://github.com/Lynricsy/OneSSH) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `mcp`, `authorization`, `tool-use`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-OneSSH 是面向 AI 代理的集中式 SSH 与 MCP 网关。它把可复用的主机凭据保留在网关内，同时向代理签发限制到指定主机和能力的令牌，并提供集中撤销与结构化审计。
-
-OneSSH is a centralized SSH and MCP gateway for AI agents. It keeps reusable host credentials inside the gateway while issuing agent tokens scoped to selected hosts and capabilities, with centralized revocation and structured auditing.
-
-### 技术点 / Technical points
-
-- SSH 密钥和密码以 AES-256-GCM 存储，仅在网关建立连接时解密，因此代理不会获得明文凭据。
-  - SSH keys and passwords are stored under AES-256-GCM and decrypted only while the gateway establishes a connection, so agents do not receive the plaintext credentials.
-- MCP OAuth 2.1 流程使用 S256 PKCE、动态客户端注册、刷新令牌轮换和主机范围选择；手动令牌将执行权限与主机管理权限分离。
-  - The MCP OAuth 2.1 flow uses S256 PKCE, dynamic client registration, refresh-token rotation, and host-scope selection; manual tokens separate execution rights from host-management rights.
-- SSH 与 SFTP 工具支持持久命令会话、后台任务、原子写入、expected-SHA256 编辑锁、跨主机传输，以及不记录文件正文和编辑内容的审计。
-  - SSH and SFTP tools support persistent command sessions, background jobs, atomic writes, expected-SHA256 edit locking, cross-host transfers, and audits that omit file bodies and edit contents.
-
-### 为什么重要 / Why it matters
-
-它为需要操作服务器的代理提供了比复用 SSH 私钥更实际的最小权限方案，但其安全属性仍有待独立审查。
-
-It offers a practical least-privilege alternative to giving server-operating agents reusable SSH keys, while its security properties still await independent review.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/Lynricsy/OneSSH)
-
----
-
-<a id="2026-08-08-pydantic-ai-2-27-compaction"></a>
-## [Pydantic AI 2.27 强化跨适配器上下文压缩](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0)
-
-**English:** [Pydantic AI 2.27 strengthens cross-adapter context compaction](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0)
-
-- **发布 / Published:** `2026-08-08T03:51:40Z`
-- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.27.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `framework`, `context-management`, `observability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Pydantic AI v2.27.0 通过在 Vercel AI、AG-UI、OpenAI Responses 和 Anthropic 流程间保留压缩上下文，改善长期运行代理的互操作性。该版本还增加 Snowflake Cortex 支持与多项可观测性修复。
-
-Pydantic AI v2.27.0 improves long-running agent interoperability by preserving compacted context across Vercel AI, AG-UI, OpenAI Responses, and Anthropic flows. The release also adds Snowflake Cortex support and several observability fixes.
-
-### 技术点 / Technical points
-
-- CompactionPart 可通过 Vercel AI 与 AG-UI 适配器往返，不再在转换过程中被丢弃。
-  - CompactionPart can round-trip through the Vercel AI and AG-UI adapters instead of being discarded during conversion.
-- Anthropic 压缩的 encrypted_content 会被原样保留；当 OpenAI Responses 的压缩项已保留 standing prompt 时，也不会重复发送。
-  - Anthropic compaction encrypted_content is preserved verbatim, while OpenAI Responses avoids resending a standing prompt already retained by a compaction item.
-- 该版本增加 SnowflakeModel、SnowflakeProvider 和 xAI 代理数量设置，并修复 OpenTelemetry 序列化中的二进制脱敏与结构化工具返回数据。
-  - The release adds SnowflakeModel and SnowflakeProvider, an xAI agent-count setting, and fixes for binary redaction and structured tool-return data in OpenTelemetry serialization.
-
-### 为什么重要 / Why it matters
-
-上下文压缩正从节省 token 的优化手段，演变为长期运行代理的互操作性边界。
-
-Context compaction is becoming an interoperability boundary for long-running agents rather than only a token-saving optimization.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/7287) · [Evidence 2](https://github.com/pydantic/pydantic-ai/pull/7286) · [Evidence 3](https://github.com/pydantic/pydantic-ai/pull/7264)
-
----
-
-<a id="2026-08-08-unreal-mcp-blueprint-index"></a>
-## [Unreal MCP 让代理以索引化、低 token 方式控制蓝图](https://github.com/ZiggyMar/unreal-mcp)
-
-**English:** [Unreal MCP gives agents indexed, token-efficient Blueprint control](https://github.com/ZiggyMar/unreal-mcp)
-
-- **发布 / Published:** `2026-08-08T03:51:08Z`
-- **来源 / Source:** [Unreal MCP](https://github.com/ZiggyMar/unreal-mcp) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `mcp`, `developer-tools`, `tool-use`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Unreal MCP 结合 C++ 编辑器桥接与 TypeScript MCP 服务，让编码代理无需接收引擎规模的原始 JSON，即可检查和修改 Unreal Engine 蓝图。项目重点采用分层读取与持久增量项目索引。
-
-Unreal MCP combines a C++ editor bridge with a TypeScript MCP server so coding agents can inspect and modify Unreal Engine Blueprints without receiving raw engine-sized JSON dumps. It emphasizes tiered reads and a persistent incremental project index.
-
-### 技术点 / Technical points
-
-- 桥接层使用 Unreal 的 Kismet2、EdGraph 和 AssetRegistry API；MCP 层压缩字段名、限制结果大小，并先提供分层摘要再返回完整细节。
-  - The bridge uses Unreal's Kismet2, EdGraph, and AssetRegistry APIs, while the MCP layer compacts field names, caps result sizes, and exposes tiered summaries before full detail.
-- 基于 AssetRegistry 的索引在磁盘缓存蓝图、函数、变量和跨资产引用，并随资产变化增量更新；可选本地模型可补充搜索摘要。
-  - An AssetRegistry-backed index caches Blueprints, functions, variables, and cross-asset references on disk and updates incrementally as assets change; optional local-model enrichment can add search summaries.
-- 写操作在具名 Unreal 撤销事务中执行；仓库记录了 UE 5.6 与 5.8 的实机验证，也列出了尚无专门检查的节点类型。
-  - Writes run inside named Unreal undo transactions, and the repository documents live verification on UE 5.6 and 5.8 together with node types that still lack dedicated checks.
-
-### 为什么重要 / Why it matters
-
-它展示了大型可视化代码库如何向编码代理提供结构化、有状态且关注 token 成本的接口，但该实现尚未被独立复现。
-
-It demonstrates how a large visual codebase can expose structured, stateful, and token-aware interfaces to coding agents, although the implementation has not been independently reproduced.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/ZiggyMar/unreal-mcp/blob/main/docs/LIVE_VERIFICATION.md) · [Evidence 2](https://api.github.com/repos/ZiggyMar/unreal-mcp)
-
----
-
-<a id="2026-08-08-pydantic-ai-download-memory-advisory"></a>
-## [Pydantic AI 修复代理远程下载内存耗尽漏洞](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8)
-
-**English:** [Pydantic AI patches unbounded remote-download memory use](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8)
-
-- **发布 / Published:** `2026-08-08T03:16:08Z`
-- **来源 / Source:** [GitHub Security Advisory](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-v2xh-2vp8-57h8) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `vulnerability`, `tool-use`, `denial-of-service`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Pydantic AI 披露一个 CVSS 6.5 的可用性漏洞：受不可信提示控制的代理可让本地 web_fetch 或媒体下载缓冲无限大的响应，耗尽工作进程内存。修复版在流式读取期间实施默认 50 MiB 上限。
-
-Pydantic AI disclosed a CVSS 6.5 availability vulnerability where model-influenced web fetches or media downloads could buffer an unbounded response and exhaust worker memory. Patched versions enforce a default 50 MiB streaming cap.
-
-### 技术点 / Technical points
-
-- 本地 web_fetch 回退路径和 FileUrl 媒体路径会在执行大小限制前缓冲完整远程响应，使受模型影响的不可信 URL 能够耗尽工作进程内存。
-  - The local web_fetch fallback and FileUrl media path buffered an entire remote response before enforcing a size limit, allowing a model-influenced untrusted URL to exhaust worker memory.
-- 公告将该问题评为 CVSS 6.5 的中危漏洞，影响仅限可用性；现有 SSRF 防护不变，也未发现机密性或完整性影响。
-  - The advisory rates the issue Moderate at CVSS 6.5 and limits the impact to availability; existing SSRF protections are unchanged, with no identified confidentiality or integrity impact.
-- Pydantic AI v1.107.2 与 v2.24.0 改为流式下载，并执行默认 50 MiB、可配置的上限，在无限缓冲前中止。
-  - Pydantic AI v1.107.2 and v2.24.0 stream downloads while enforcing a configurable 50 MiB default cap and abort before unbounded buffering.
-
-### 为什么重要 / Why it matters
-
-代理可以选择 URL 后，普通资源限制缺陷会变成远程可触发的拒绝服务面。
-
-Once an agent can choose URLs, an ordinary resource-bounding flaw becomes a remotely triggerable denial-of-service surface.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.2)
-
----
-
-<a id="2026-08-07-google-adk-1-38-security-hardening"></a>
-## [Google ADK 1.38 修复工具确认伪造与文件系统越界](https://github.com/google/adk-python/releases/tag/v1.38.0)
-
-**English:** [Google ADK 1.38 hardens tool confirmation and filesystem boundaries](https://github.com/google/adk-python/releases/tag/v1.38.0)
-
-- **发布 / Published:** `2026-08-07T23:41:25Z`
-- **来源 / Source:** [Google Agent Development Kit](https://github.com/google/adk-python/releases/tag/v1.38.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `tool-use`, `framework`, `authorization`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
-
-### 摘要 / Summary
-
-Google ADK Python v1.38.0 回补了多项代理安全修复，并把 Live API 的安全设置完整转发下去。工具确认现在核对原始调用身份与参数，文件工具也被限制在工作区内。
-
-Google ADK Python v1.38.0 backports several agent-security fixes, forwards configured safety settings to the Live API, verifies the identity and arguments of confirmed tool calls, and confines local file tools to the workspace.
-
-### 技术点 / Technical points
-
-- 确认响应仅在目标已注册于代理工具字典、确实要求确认，且调用 ID、名称和参数与原始事件一致时才会被接受。
-  - Confirmation responses are accepted only when the target is registered in the agent's Tool dictionary, actually requires confirmation, and matches the original event's ID, name, and arguments.
-- 分段 ReadFile 不再把路径插入 shell 管道，本地读取、写入和编辑操作也会把解析后的路径限制在配置工作区内。
-  - Ranged ReadFile no longer interpolates a path into a shell pipeline, and local read, write, and edit operations now resolve paths within the configured workspace boundary.
-- 该版本还会把 generate_content_config 中的 safety_settings 转发给 Live API，不再静默丢弃已配置的策略。
-  - The release also forwards safety_settings from generate_content_config to the Live API instead of silently dropping the configured policy.
-
-### 为什么重要 / Why it matters
-
-这些修复直接加固了代理系统最关键的两条边界：人类授权不能被伪造，文件工具不能悄然逃出工作区。
-
-The release directly strengthens two critical agent boundaries: human approval cannot be forged, and filesystem tools cannot silently escape the workspace.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/google/adk-python/pull/6575) · [Evidence 2](https://github.com/google/adk-python/pull/6597)
-
----
-
-<a id="2026-08-07-claude-code-cross-machine-messaging"></a>
-## [Claude Code 2.1.225 扩展跨机器代理通信](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225)
-
-**English:** [Claude Code 2.1.225 extends cross-machine agent messaging](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225)
-
-- **发布 / Published:** `2026-08-07T23:08:56Z`
-- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md#21225) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `developer-tools`, `communication`, `remote-control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
-
-### 摘要 / Summary
-
-Claude Code 2.1.225 允许 SendMessage 按名称主动联系其他机器上的 Remote Control 会话，并加强远程接收者身份绑定及无头会话的消息投递。
-
-Claude Code 2.1.225 lets SendMessage initiate conversations with named Remote Control sessions on other machines, while hardening recipient identity and delivery for headless sessions.
-
-### 技术点 / Technical points
-
-- SendMessage 可按名称主动联系另一台机器上的 Remote Control 会话，ListAgents 会以名称加稳定引用显示每个可发现会话。
-  - SendMessage can initiate a conversation with a Remote Control session on another machine by name, and ListAgents presents each discoverable session as a name plus stable reference.
-- 远程接收者确认后，身份绑定会阻止新建的同名本地代理静默替换该目的地。
-  - Once a remote recipient is confirmed, identity binding prevents a newly created same-named local agent from silently replacing that destination.
-- 投递修复避免消息在目标会话处于无头模式或仍在启动时无限期搁置且没有提示或过期机制。
-  - Delivery fixes prevent messages from remaining indefinitely parked without notice or expiry when a target session is headless or still starting.
-
-### 为什么重要 / Why it matters
-
-编码代理正在从单机子代理树演进为跨设备、可恢复的协作网络；身份和权限边界也随之成为核心安全问题。
-
-Coding agents are evolving from single-machine subagent trees into recoverable cross-device collaboration networks, making identity and authority boundaries central security concerns.
-
-### 链接 / Links
-
-[Evidence 1](https://code.claude.com/docs/en/cross-session-messaging) · [Evidence 2](https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.225)
-[Discussion 1](https://news.ycombinator.com/item?id=49222824)
