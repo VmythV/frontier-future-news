@@ -2,6 +2,116 @@
 
 # World models / 世界模型
 
+<a id="2026-08-13-playworld-agent-player-benchmark"></a>
+## [PlayWorld 用智能体玩家评测长时程交互世界模型](https://arxiv.org/abs/2608.13552)
+
+**English:** [PlayWorld evaluates long-horizon world models with agent players](https://arxiv.org/abs/2608.13552)
+
+- **发布 / Published:** `2026-08-13T17:59:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13552) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `interactive-world-model`, `multimodal-agent`, `long-horizon`, `video-generation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+PlayWorld 让多模态智能体玩家在交互式视频世界模型中追求指定目标。由于玩家会针对受测模型调整动作，基准无需强制所有模型执行同一动作序列，也能比较其长时程行为。
+
+PlayWorld uses multimodal agent players to pursue specified objectives inside interactive video world models. Because each player adapts its actions to the model being tested, the benchmark can compare long-horizon behavior without forcing every model through an identical action sequence.
+
+### 技术点 / Technical points
+
+- 该基准包含 171 个目标驱动场景，覆盖几何一致性、交互保真度、视野内外演化、视频质量和可控性。
+  - The benchmark contains 171 objective-driven scenarios spanning geometry consistency, interaction fidelity, visible and out-of-view evolution, video quality, and controllability.
+- 智能体玩家可为不同模型选择相应动作序列，例如完成整圈转向或进入水中，以检验环境响应是否连贯。
+  - Agent players can choose model-specific action sequences for tasks such as completing a full turn or entering water to test whether the environment responds coherently.
+- 作者在九个受测世界模型中发现，长时程空间一致性与状态演化仍普遍存在弱点。
+  - Across nine evaluated world models, the authors found persistent weaknesses in long-horizon spatial consistency and state evolution.
+
+### 为什么重要 / Why it matters
+
+它把世界模型评测从短视频和固定控制序列转向：自适应智能体能否在生成环境中可靠完成目标。
+
+It shifts world-model evaluation from short clips and fixed controls toward whether an adaptive agent can reliably accomplish objectives inside a generated environment.
+
+### 链接 / Links
+
+[Evidence 1](https://kxding.github.io/project/PlayWorld/) · [Evidence 2](https://github.com/kxding/PlayWorld)
+
+---
+
+<a id="2026-08-13-dreamx-phi-robot-world-model"></a>
+## [DreamX-Phi 为机器人世界模型加入几何动作忠实度](https://arxiv.org/abs/2608.13489)
+
+**English:** [DreamX-Phi adds geometric action fidelity to robotic world modeling](https://arxiv.org/abs/2608.13489)
+
+- **发布 / Published:** `2026-08-13T17:18:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13489) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `video-world-model`, `action-conditioning`, `geometry`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DreamX-Phi 1.0 根据当前画面、语言指令以及预设的末端执行器位姿和夹爪状态序列预测未来机器人观测。其设计针对画面看似真实、却移动错误机械臂或丢失被操作物体的预测失败。
+
+DreamX-Phi 1.0 predicts future robot observations from a current frame, a language instruction, and a prescribed sequence of end-effector poses and gripper states. Its design targets rollouts that may look realistic while moving the wrong arm or losing track of a manipulated object.
+
+### 技术点 / Technical points
+
+- PRoPE 风格的几何编码把每条机械臂各自的 SE(3) 变换注入注意力，以保持机械臂身份和刚体运动结构。
+  - PRoPE-style geometric encoding injects separate per-arm SE(3) transformations into attention to preserve arm identity and rigid-motion structure.
+- 深度分支约束场景几何，SAM3 掩码与冻结的 V-JEPA 教师则促进物体在抓取交互中的一致性。
+  - A depth branch constrains scene geometry, while SAM3 masks and a frozen V-JEPA teacher encourage object consistency through grasping interactions.
+- 分布匹配蒸馏把多步视频生成器压缩为少步学生模型，以提高部署效率。
+  - Distribution-matching distillation compresses the multi-step video generator into a few-step student for more efficient deployment.
+
+### 为什么重要 / Why it matters
+
+它把与机器人指令运动及物体几何的因果一致性，与视频真实感并列为要求；这对于使用生成未来进行规划或合成数据至关重要。
+
+It treats causal agreement with commanded robot motion and object geometry as requirements alongside video realism, which is essential if generated futures are used for planning or data synthesis.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/AMAP-ML/DreamX-Phi)
+
+---
+
+<a id="2026-08-13-contactguard-precontact-world-model"></a>
+## [ContactGuard 在接触前预测机器人操作失败](https://arxiv.org/abs/2608.13438)
+
+**English:** [ContactGuard predicts robot manipulation failures before contact](https://arxiv.org/abs/2608.13438)
+
+- **发布 / Published:** `2026-08-13T16:25:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13438) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `safety`, `latent-world-model`, `action-conditioning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ContactGuard 在机器人真正接触物体前监控分块视觉运动策略。它在潜在视觉空间中预测策略计划动作的短期后果，并在预测未来表明可能失败时中止执行。
+
+ContactGuard monitors chunked visuomotor policies before a robot commits to physical contact. It predicts the short-horizon consequence of the policy's planned actions in latent visual space and aborts execution when the predicted future indicates likely failure.
+
+### 技术点 / Technical points
+
+- 动作条件世界模型从无标签机器人轨迹中学习紧凑的多视角视觉动态，而不是直接预测像素。
+  - The action-conditioned world model learns compact multi-view visual dynamics from unlabeled robot trajectories rather than predicting pixels directly.
+- 轻量失败探针使用规模相对较小的接触前标注片段进行训练。
+  - A lightweight failure probe is trained from a comparatively small labeled collection of pre-contact clips.
+- 部署时，监控器在即将接触前确定预测起点，沿策略自身的动作片段前向推演，并在不修改原策略的情况下提供实时中止信号。
+  - At deployment the monitor anchors its prediction before imminent contact, rolls forward under the policy's own action chunk, and provides a live abort signal without modifying that policy.
+
+### 为什么重要 / Why it matters
+
+它展示了学习式世界模型可以充当独立安全层，在不可逆的物理接触发生前预判富接触操作失败。
+
+It demonstrates a learned world model serving as a separate safety layer that can anticipate contact-rich failures before irreversible physical interaction occurs.
+
+---
+
 <a id="2026-08-11-surgical-wam-video-pretraining"></a>
 ## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
 

@@ -2,6 +2,371 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-13-autodesign-meta-harness-optimization"></a>
+## [AutoDesign 通过执行轨迹反馈优化智能体 Harness](https://arxiv.org/abs/2608.13560)
+
+**English:** [AutoDesign optimizes an agent harness through rollout feedback](https://arxiv.org/abs/2608.13560)
+
+- **发布 / Published:** `2026-08-13T17:59:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13560) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `self-improvement`, `long-horizon`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AutoDesign 提出元级 Harness 优化：优化器分析完整执行轨迹，再指导代码智能体改进固定模型外围的可复用系统。其开源实现面向把学术论文长时程转换为可编辑传播材料的任务。
+
+AutoDesign introduces meta-harness optimization, in which an optimizer analyzes complete execution trajectories and directs a coding agent to improve the reusable system surrounding a fixed model. The released implementation targets the long-horizon conversion of academic papers into editable communication artifacts.
+
+### 技术点 / Technical points
+
+- 外层循环依次执行回放、评估、单组件更新提案和验收；候选只有在提高训练表现且不降低独立开发集得分时才会保留。
+  - Its outer loop alternates rollout, evaluation, a one-component update proposal, and acceptance conditioned on improving training performance without reducing an independent development score.
+- PosterBench 提供覆盖五个学科的 100 篇论文主赛道，以及用于受控比较的共享 10 篇论文子集。
+  - PosterBench provides a 100-paper main track across five disciplines plus a shared 10-paper subset for controlled comparisons.
+- 在七种匹配的模型与代码智能体配置中，学得的 DesignHarness 将平均 PosterBench 得分从 54.99 提升到 67.39。
+  - Across seven matched model and coding-agent configurations, the learned DesignHarness raised the average PosterBench score from 54.99 to 67.39.
+
+### 为什么重要 / Why it matters
+
+它把工具、记忆、运行时、编排、评估和反馈组成的智能体 Harness 本身作为可检查的优化对象，而不是修改模型权重。
+
+It makes the agent harness itself—tools, memory, runtime, orchestration, evaluation, and feedback—the object of inspectable optimization rather than changing model weights.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Yaxin9Luo/AutoDesign)
+
+---
+
+<a id="2026-08-13-playworld-agent-player-benchmark"></a>
+## [PlayWorld 用智能体玩家评测长时程交互世界模型](https://arxiv.org/abs/2608.13552)
+
+**English:** [PlayWorld evaluates long-horizon world models with agent players](https://arxiv.org/abs/2608.13552)
+
+- **发布 / Published:** `2026-08-13T17:59:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13552) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `interactive-world-model`, `multimodal-agent`, `long-horizon`, `video-generation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+PlayWorld 让多模态智能体玩家在交互式视频世界模型中追求指定目标。由于玩家会针对受测模型调整动作，基准无需强制所有模型执行同一动作序列，也能比较其长时程行为。
+
+PlayWorld uses multimodal agent players to pursue specified objectives inside interactive video world models. Because each player adapts its actions to the model being tested, the benchmark can compare long-horizon behavior without forcing every model through an identical action sequence.
+
+### 技术点 / Technical points
+
+- 该基准包含 171 个目标驱动场景，覆盖几何一致性、交互保真度、视野内外演化、视频质量和可控性。
+  - The benchmark contains 171 objective-driven scenarios spanning geometry consistency, interaction fidelity, visible and out-of-view evolution, video quality, and controllability.
+- 智能体玩家可为不同模型选择相应动作序列，例如完成整圈转向或进入水中，以检验环境响应是否连贯。
+  - Agent players can choose model-specific action sequences for tasks such as completing a full turn or entering water to test whether the environment responds coherently.
+- 作者在九个受测世界模型中发现，长时程空间一致性与状态演化仍普遍存在弱点。
+  - Across nine evaluated world models, the authors found persistent weaknesses in long-horizon spatial consistency and state evolution.
+
+### 为什么重要 / Why it matters
+
+它把世界模型评测从短视频和固定控制序列转向：自适应智能体能否在生成环境中可靠完成目标。
+
+It shifts world-model evaluation from short clips and fixed controls toward whether an adaptive agent can reliably accomplish objectives inside a generated environment.
+
+### 链接 / Links
+
+[Evidence 1](https://kxding.github.io/project/PlayWorld/) · [Evidence 2](https://github.com/kxding/PlayWorld)
+
+---
+
+<a id="2026-08-13-vero-repository-verified-agents"></a>
+## [Vero 将代码智能体的形式化验证推进到仓库级](https://arxiv.org/abs/2608.13522)
+
+**English:** [Vero brings formally verified coding agents to repository scale](https://arxiv.org/abs/2608.13522)
+
+- **发布 / Published:** `2026-08-13T17:41:27Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13522) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `formal-verification`, `lean`, `software-engineering`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Vero 评测代码智能体能否在连贯的多模块仓库中同时合成实现与机器检查证明。作者报告称，最强受测智能体完整解决了 43 个实例中的 27 个，并且在最难仓库上未能闭合任何规格。
+
+Vero evaluates whether coding agents can jointly synthesize implementations and machine-checked proofs across coherent multi-module repositories. The authors report that the strongest tested agent fully solved 27 of 43 instances and closed no specifications on the hardest repositories.
+
+### 技术点 / Technical points
+
+- 43 个实例取自真实的 Python、Dafny、Verus 和 Coq 仓库，并表示为带固定 API 和人工整理规格的 Lean 4 项目。
+  - The 43 instances are derived from real Python, Dafny, Verus, and Coq repositories and represented as Lean 4 projects with fixed APIs and manually curated specifications.
+- 基准同时支持仅证明和代码加证明两种模式，从而可将证明合成能力与实现决策分开评估。
+  - The benchmark supports both proof-only and joint code-and-proof modes so that proof synthesis can be separated from implementation decisions.
+- 审计机制允许智能体形式化证明给定规格不可满足或参考代码错误，使整理缺陷被显式发现，而不会被误计为模型失败。
+  - An audit mechanism lets agents formally demonstrate that a supplied specification is unsatisfiable or that reference code is incorrect, exposing curation defects instead of counting them as model failures.
+
+### 为什么重要 / Why it matters
+
+它把代码智能体评测从单元测试通过推进到由形式化规格和机器检查证明支撑的仓库级一致性。
+
+It moves coding-agent evaluation beyond unit-test success toward repository-wide consistency backed by formal specifications and machine-checked proofs.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/sunblaze-ucb/vero)
+
+---
+
+<a id="2026-08-13-dreamx-phi-robot-world-model"></a>
+## [DreamX-Phi 为机器人世界模型加入几何动作忠实度](https://arxiv.org/abs/2608.13489)
+
+**English:** [DreamX-Phi adds geometric action fidelity to robotic world modeling](https://arxiv.org/abs/2608.13489)
+
+- **发布 / Published:** `2026-08-13T17:18:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13489) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `video-world-model`, `action-conditioning`, `geometry`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DreamX-Phi 1.0 根据当前画面、语言指令以及预设的末端执行器位姿和夹爪状态序列预测未来机器人观测。其设计针对画面看似真实、却移动错误机械臂或丢失被操作物体的预测失败。
+
+DreamX-Phi 1.0 predicts future robot observations from a current frame, a language instruction, and a prescribed sequence of end-effector poses and gripper states. Its design targets rollouts that may look realistic while moving the wrong arm or losing track of a manipulated object.
+
+### 技术点 / Technical points
+
+- PRoPE 风格的几何编码把每条机械臂各自的 SE(3) 变换注入注意力，以保持机械臂身份和刚体运动结构。
+  - PRoPE-style geometric encoding injects separate per-arm SE(3) transformations into attention to preserve arm identity and rigid-motion structure.
+- 深度分支约束场景几何，SAM3 掩码与冻结的 V-JEPA 教师则促进物体在抓取交互中的一致性。
+  - A depth branch constrains scene geometry, while SAM3 masks and a frozen V-JEPA teacher encourage object consistency through grasping interactions.
+- 分布匹配蒸馏把多步视频生成器压缩为少步学生模型，以提高部署效率。
+  - Distribution-matching distillation compresses the multi-step video generator into a few-step student for more efficient deployment.
+
+### 为什么重要 / Why it matters
+
+它把与机器人指令运动及物体几何的因果一致性，与视频真实感并列为要求；这对于使用生成未来进行规划或合成数据至关重要。
+
+It treats causal agreement with commanded robot motion and object geometry as requirements alongside video realism, which is essential if generated futures are used for planning or data synthesis.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/AMAP-ML/DreamX-Phi)
+
+---
+
+<a id="2026-08-13-contactguard-precontact-world-model"></a>
+## [ContactGuard 在接触前预测机器人操作失败](https://arxiv.org/abs/2608.13438)
+
+**English:** [ContactGuard predicts robot manipulation failures before contact](https://arxiv.org/abs/2608.13438)
+
+- **发布 / Published:** `2026-08-13T16:25:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13438) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `safety`, `latent-world-model`, `action-conditioning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ContactGuard 在机器人真正接触物体前监控分块视觉运动策略。它在潜在视觉空间中预测策略计划动作的短期后果，并在预测未来表明可能失败时中止执行。
+
+ContactGuard monitors chunked visuomotor policies before a robot commits to physical contact. It predicts the short-horizon consequence of the policy's planned actions in latent visual space and aborts execution when the predicted future indicates likely failure.
+
+### 技术点 / Technical points
+
+- 动作条件世界模型从无标签机器人轨迹中学习紧凑的多视角视觉动态，而不是直接预测像素。
+  - The action-conditioned world model learns compact multi-view visual dynamics from unlabeled robot trajectories rather than predicting pixels directly.
+- 轻量失败探针使用规模相对较小的接触前标注片段进行训练。
+  - A lightweight failure probe is trained from a comparatively small labeled collection of pre-contact clips.
+- 部署时，监控器在即将接触前确定预测起点，沿策略自身的动作片段前向推演，并在不修改原策略的情况下提供实时中止信号。
+  - At deployment the monitor anchors its prediction before imminent contact, rolls forward under the policy's own action chunk, and provides a live abort signal without modifying that policy.
+
+### 为什么重要 / Why it matters
+
+它展示了学习式世界模型可以充当独立安全层，在不可逆的物理接触发生前预判富接触操作失败。
+
+It demonstrates a learned world model serving as a separate safety layer that can anticipate contact-rich failures before irreversible physical interaction occurs.
+
+---
+
+<a id="2026-08-13-long-horizon-ai-rnd-evaluation"></a>
+## [长时程 AI 研发智能体仍更像工程优化器](https://arxiv.org/abs/2608.13417)
+
+**English:** [Long-horizon AI R&D agents still resemble engineering optimizers](https://arxiv.org/abs/2608.13417)
+
+- **发布 / Published:** `2026-08-13T16:11:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13417) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `long-horizon`, `research-agent`, `evaluation`, `experience-reuse`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项过程级研究在 36 个长时程 AI 研发任务上评估七个前沿模型。除最终得分外，它还考察智能体如何构建方案、执行实验、响应反馈以及复用积累的经验。
+
+A process-level study evaluates seven frontier models on 36 long-horizon AI research and development tasks. Rather than relying only on final scores, it examines how agents frame solutions, execute experiments, respond to feedback, and reuse accumulated experience.
+
+### 技术点 / Technical points
+
+- 规则指标把单次执行行为划分为方案构建、执行和反馈控制，受控比较则衡量任务内与跨任务的经验复用。
+  - Rule-based metrics organize within-run behavior into Solution Framing, Execution, and Feedback Control, while controlled comparisons measure experience reuse within and across tasks.
+- 智能体能够制定并实施实用方案，但不同执行之间结果差异显著，最强方案也主要是调整或组合已有技术。
+  - Agents could formulate and implement practical solutions, but outcomes varied substantially across runs and the strongest approaches mostly adapted or combined established techniques.
+- 经验复用有时改善后续决策，有时也会造成误导；Harness 设计同样显著影响表现稳定性。
+  - Experience reuse sometimes improved later decisions and sometimes misled them; harness design also materially affected performance stability.
+
+### 为什么重要 / Why it matters
+
+这些发现为训练、推理时策略、记忆和 Harness 设计指出具体瓶颈，同时提醒不能把较高最终得分直接等同于自主科研能力。
+
+The findings identify concrete bottlenecks for training, inference-time strategy, memory, and harness design while cautioning against equating a strong final score with autonomous research ability.
+
+---
+
+<a id="2026-08-13-faraday-research-replication-agent"></a>
+## [Faraday 通过研究复现训练 AI 科学家](https://arxiv.org/abs/2608.13331)
+
+**English:** [Faraday trains AI scientists through research replication](https://arxiv.org/abs/2608.13331)
+
+- **发布 / Published:** `2026-08-13T14:59:27Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13331) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agent`, `scientific-discovery`, `paper-replication`, `long-horizon`, `post-training`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Replica 把论文复现构造成可扩展任务空间，用于训练和评估科研智能体。研究者后训练了 270 亿参数的 Faraday，它在追求上层复现目标时把实现工作委派给代码智能体。
+
+Replica turns paper replication into a scalable task space for training and evaluating scientific agents. The researchers post-trained Faraday, a 27-billion-parameter agent that delegates implementation work to coding agents while pursuing the higher-level replication objective.
+
+### 技术点 / Technical points
+
+- 自动生成的量表式评审器提供可扩展奖励信号；作者报告其噪声较低，并与人类对复现质量的评估一致。
+  - An automatically generated rubric-based judge supplies a scalable reward signal and is reported to have low noise and agreement with human replication assessments.
+- 作者报告 Faraday 在留出复现任务上超过 Claude Opus 4.8 和 GPT-5.5，但该比较尚未得到独立复现。
+  - On held-out replication tasks, the authors report that Faraday outperformed Claude Opus 4.8 and GPT-5.5, although this comparison has not yet been independently reproduced.
+- 执行轨迹分析表明，后训练系统比对比的通用智能体更稳定地遵循假设驱动的实验实践。
+  - Rollout analysis suggests that the post-trained system more consistently follows hypothesis-driven experimental practices than the compared general-purpose agents.
+
+### 为什么重要 / Why it matters
+
+研究复现既提供可衡量的训练目标，也包含科研智能体在可信开放式发现前必须掌握的、规格不完备的长时程实验过程。
+
+Research replication supplies both a measurable training objective and the underspecified, long-horizon experimentation that scientific agents must learn before credible open-ended discovery.
+
+---
+
+<a id="2026-08-13-deepseek-harness-plugin-runtime"></a>
+## [DeepSeek 开源“万物皆插件”的智能体 Harness](https://github.com/deepseek-ai/deepseek-harness)
+
+**English:** [DeepSeek open-sources an everything-as-a-plugin agent harness](https://github.com/deepseek-ai/deepseek-harness)
+
+- **发布 / Published:** `2026-08-13T11:56:32Z`
+- **来源 / Source:** [DeepSeek AI](https://github.com/deepseek-ai/deepseek-harness) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `plugin-architecture`, `open-source`, `orchestration`, `developer-tools`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
+
+### 摘要 / Summary
+
+DeepSeek 发布了采用 MIT 许可证的智能体运行框架 DeepSeek Harness，其主要子系统都以可替换插件实现。首个版本被明确标为开发者预览，接口演进过程中预计会出现破坏兼容性的变更。
+
+DeepSeek released DeepSeek Harness, an MIT-licensed agent runtime whose major subsystems are implemented as replaceable plugins. The initial release is explicitly a developer preview and is expected to introduce compatibility-breaking changes as its interfaces evolve.
+
+### 技术点 / Technical points
+
+- 该架构由 Cordis 驱动，把模型、工具、技能、会话、沙箱、文件系统、循环、编排和用户界面都暴露为插件。
+  - The Cordis-powered architecture exposes models, tools, skills, sessions, sandboxes, filesystems, loops, orchestration, and the user interface as plugins.
+- 开发者可通过 npx @deepseek-ai/dsh web 从 npm 启动内置网页界面；默认监听本机 3080 端口。
+  - Developers can start the bundled web interface from npm with npx @deepseek-ai/dsh web; it listens on localhost port 3080 by default.
+- 仓库提供中英文文档，并建议独立开发的插件使用 dsh-plugin 主题以便被发现。
+  - The repository includes English and Chinese documentation and invites independently developed plugins to use the dsh-plugin topic for discovery.
+
+### 为什么重要 / Why it matters
+
+这是大型模型开发者推出的少见完整、可检查智能体运行框架，并为替换编排、执行、存储和界面组件提供了明确扩展边界。
+
+It provides an unusually complete and inspectable agent runtime from a major model developer, with explicit extension boundaries for swapping orchestration, execution, storage, and interface components.
+
+### 链接 / Links
+
+[Evidence 1](https://www.deepseek.com/harness/en/)
+[Discussion 1](https://news.ycombinator.com/item?id=49296046) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vnau0y/github_deepseekaideepseekharness/)
+
+---
+
+<a id="2026-08-13-humanoidvln-physics-benchmark"></a>
+## [HumanoidVLN 跨不同人形机器人形态评测导航](https://arxiv.org/abs/2608.12860)
+
+**English:** [HumanoidVLN benchmarks navigation across diverse humanoid bodies](https://arxiv.org/abs/2608.12860)
+
+- **发布 / Published:** `2026-08-13T06:16:05Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12860) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `vision-language-navigation`, `simulation`, `benchmark`, `sim-to-real`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+HumanoidVLN 是面向不同尺寸和控制特性人形机器人的物理落地视觉语言导航模拟器与基准。它把语言引导导航模型与双足运动及特定形态的执行约束连接起来。
+
+HumanoidVLN is a physics-grounded simulator and benchmark for vision-language navigation across humanoid robots with different dimensions and control characteristics. It connects language-guided navigation models to bipedal locomotion and embodiment-specific execution constraints.
+
+### 技术点 / Technical points
+
+- 该平台基于 NVIDIA Isaac Sim，展示了四种人形机器人，其下肢自由度为 10 至 12 个、身高范围为 1.17 至 1.80 米。
+  - Built on NVIDIA Isaac Sim, the platform demonstrates four humanoids spanning 10 to 12 lower-body degrees of freedom and heights from 1.17 to 1.80 meters.
+- 分层控制栈将强化学习运动策略与可替换的比例微分或模型预测路径跟踪器结合，数据集提供 933 条碰撞感知参考轨迹。
+  - A hierarchical stack combines reinforcement-learned locomotion with interchangeable proportional-derivative or model-predictive path trackers, and the dataset provides 933 collision-aware reference episodes.
+- 在 20 条 Unitree G1 仿真到现实试验中，作者报告导航误差相关系数为 0.935，平均绝对差为 0.68 米。
+  - In a 20-episode Unitree G1 simulation-to-real pilot, navigation errors had a reported correlation of 0.935 and a mean absolute difference of 0.68 meters.
+
+### 为什么重要 / Why it matters
+
+它在同一物理闭环中评估导航模型、运动控制器和机器人形态，揭示轮式智能体或纯运动学基准忽略的具身影响。
+
+It evaluates navigation models, locomotion controllers, and robot morphology in one physical loop, exposing embodiment effects that wheeled-agent or kinematic-only benchmarks omit.
+
+### 链接 / Links
+
+[Evidence 1](https://humanoid-vln.github.io/)
+
+---
+
+<a id="2026-08-12-agent-skills-induced-failures"></a>
+## [看似相关的技能仍可能导致语言模型智能体失败](https://arxiv.org/abs/2608.11888)
+
+**English:** [Relevant skills can still make language-model agents fail](https://arxiv.org/abs/2608.11888)
+
+- **发布 / Published:** `2026-08-12T10:15:19Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11888) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `safety`, `reliability`, `benchmark`, `cost-efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项差分研究把语言模型智能体的功能失败和成本退化归因到具体加载技能。在 SkillsBench 与 SWE-Skills-Bench 上，作者识别出 307 个技能诱发问题，包括 125 个功能失败和 182 个效率退化。
+
+A differential study attributes functional failures and cost regressions to individual skills loaded into language-model agents. Across SkillsBench and SWE-Skills-Bench, the authors identified 307 skill-induced failures: 125 functional failures and 182 efficiency regressions.
+
+### 技术点 / Technical points
+
+- 每次目标执行都与无技能执行或语义匹配技能执行比较，后者必须成功完成同一任务或以更低成本完成。
+  - Each target run is compared with a no-skill or semantically matched skill run that completes the same task successfully or at lower cost.
+- 功能失败很少源自明显无关的技能；看似相关的指导反而常使智能体遗漏必要内容或实施错误。
+  - Functional failures were rarely caused by obviously irrelevant skills; apparently relevant guidance often led agents to omit or incorrectly implement required elements.
+- SkillTriage 对成对失败进行分类，其中过度验证和繁重实现流程分别构成 67 个和 30 个过度程序案例。
+  - SkillTriage categorizes paired failures, with excessive verification and heavyweight implementation pipelines accounting for 67 and 30 excessive-procedure cases respectively.
+
+### 为什么重要 / Why it matters
+
+这些结果支持按需加载技能、开展差分回归测试并设置明确成本预算，而不是假定每个看似相关的指令包都会带来收益。
+
+The results support selective skill loading, differential regression testing, and explicit cost budgets instead of assuming that every relevant-looking instruction package is beneficial.
+
+---
+
 <a id="2026-08-11-surgical-wam-video-pretraining"></a>
 ## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
 
@@ -351,371 +716,3 @@ LinkedIn describes a production support-agent system that combines retrieval-aug
 它提供了少见的生产证据，将智能体自我改进与可测量用户结果及受控运行流程相连接。
 
 It provides uncommon production evidence connecting agent self-improvement to measurable user outcomes and a guarded operational process.
-
----
-
-<a id="2026-08-10-needle-2-edge-agent-model"></a>
-## [Needle 2 将 14 MB 工具调用模型带到微型设备](https://cactuscompute.com/needle)
-
-**English:** [Needle 2 puts a 14 MB tool-calling model on tiny devices](https://cactuscompute.com/needle)
-
-- **发布 / Published:** `2026-08-10T17:22:07Z`
-- **来源 / Source:** [Cactus Compute](https://cactuscompute.com/needle) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `edge-ai`, `tool-use`, `function-calling`, `quantization`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
-
-### 摘要 / Summary
-
-Cactus 发布了 Needle 2，这是一款专用于工具调用、设备控制和结构化抽取的 4500 万参数模型。该 Apache-2.0 发布将模型与引擎封装为 14 MB 二进制，完整会话约占 28 MB 内存。
-
-Cactus released Needle 2, a 45-million-parameter model specialized for tool calling, device control, and structured extraction. The Apache-2.0 release packages the model and its engine into a 14 MB binary whose full session uses about 28 MB of memory.
-
-### 技术点 / Technical points
-
-- 量化感知训练在整个训练过程中使用 Cactus 的约二比特混合格式，而不是只在训练完成后压缩模型。
-  - Quantization-aware training applies the Cactus mixed approximately two-bit format throughout training instead of compressing the model only after training.
-- 256-token 滑动窗口限制 KV 内存，工具声明作为持久 sink 固定保留，并由声明 schema 编译出的字节级语法将每次响应约束为调用封装。
-  - A 256-token sliding window bounds KV memory, tool declarations remain pinned as persistent sinks, and a byte-level grammar compiled from declared schemas constrains every response to a call envelope.
-- Cactus 报告其在 Raspberry Pi 5 上的解码速度约为每秒 500 token，并发布 Mobile Actions、DroidCall、Seal-Tools 和 BFCL 的严格精确匹配评测；这些数据尚未被独立复现。
-  - Cactus reports roughly 500 decode tokens per second on a Raspberry Pi 5 and publishes strict exact-match evaluations across Mobile Actions, DroidCall, Seal-Tools, and BFCL; these measurements have not been independently reproduced.
-
-### 为什么重要 / Why it matters
-
-它表明狭窄且可验证的工具路由代理可以装入低成本边缘硬件，而无需承担通用聊天模型的内存与计算成本。
-
-It demonstrates that narrow, verifiable tool-routing agents can fit into low-cost edge hardware without carrying the memory and compute cost of a general chat model.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/cactus-compute/needle) · [Evidence 2](https://huggingface.co/Cactus-Compute/needle2) · [Evidence 3](https://arxiv.org/abs/2607.18363)
-[Discussion 1](https://news.ycombinator.com/item?id=49246804)
-
----
-
-<a id="2026-08-10-spotify-xirp-agentic-development"></a>
-## [Spotify 推出面向厂商中立并行编码代理的 Xirp](https://portal.spotify.com/blog/introducing-xirp)
-
-**English:** [Spotify launches Xirp for vendor-neutral parallel coding agents](https://portal.spotify.com/blog/introducing-xirp)
-
-- **发布 / Published:** `2026-08-10T15:40:05Z`
-- **来源 / Source:** [Spotify Portal](https://portal.spotify.com/blog/introducing-xirp) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `multi-agent`, `orchestration`, `developer-tools`, `context-management`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
-
-### 摘要 / Summary
-
-Spotify 推出了 Xirp，这是一套可跨 Claude Code、Gemini CLI、Codex 等运行框架协调编码会话的代理式开发环境。Spotify 称已有数千名内部工程师通过 Xirp 运行超过 36,000 个会话。
-
-Spotify launched Xirp, an agentic development environment that coordinates coding sessions across Claude Code, Gemini CLI, Codex, and other harnesses. Spotify says thousands of its engineers have used Xirp across more than 36,000 sessions.
-
-### 技术点 / Technical points
-
-- 每个并发会话都获得隔离的 Git worktree，使数十个代理能够在同一仓库上工作而不共享工作目录。
-  - Each concurrent session receives an isolated Git worktree so dozens of agents can operate on the same repository without sharing a working directory.
-- 会话状态与特定运行框架解耦，开发者可在保留工作上下文的同时切换代理或模型。
-  - Session state is decoupled from a particular harness, allowing developers to switch agents or models while preserving the working context.
-- 连接 Spotify Portal 后，Xirp 会注入依赖、所有权和架构决策等软件目录上下文，并回传转录与元数据以提供组织级可见性。
-  - When connected to Spotify Portal, Xirp injects software-catalog context such as dependencies, ownership, and architecture decisions, then returns transcripts and metadata for organizational visibility.
-
-### 为什么重要 / Why it matters
-
-它把上下文可移植性、工作区隔离和组织级可观测性作为扩展多代理软件开发的一等基础设施。
-
-It treats context portability, workspace isolation, and organization-wide observability as first-class infrastructure for scaling multi-agent software development.
-
-### 链接 / Links
-
-[Evidence 1](https://xirp.spotify.com/)
-[Discussion 1](https://news.ycombinator.com/item?id=49245118)
-
----
-
-<a id="2026-08-10-colluskill-cross-skill-attacks"></a>
-## [ColluSkill 揭示隐藏在多个代理技能之间的攻击](https://arxiv.org/abs/2608.09732)
-
-**English:** [ColluSkill exposes attacks hidden across multiple agent skills](https://arxiv.org/abs/2608.09732)
-
-- **发布 / Published:** `2026-08-10T15:32:44Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09732) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `skills`, `supply-chain`, `benchmark`, `safety`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-ColluSkill 研究了代理供应链中的一个盲区：多个单独看似合理的技能只有在组合后才协同形成恶意工作流。配套防御 ChainGuard 会将候选技能与代理环境中已安装的技能一并评估。
-
-ColluSkill studies an agent supply-chain blind spot in which several individually plausible skills cooperate to produce a malicious workflow only when composed. The accompanying ChainGuard defense evaluates a candidate skill together with the skills already installed in the agent environment.
-
-### 技术点 / Technical points
-
-- 该攻击把恶意意图拆分为相互依赖的子载荷，并通过上下文依赖、产物传递和执行交接连接起来。
-  - The attack decomposes malicious intent into interdependent sub-payloads connected through contextual dependencies, artifact passing, and execution handoffs.
-- 在六种被评估的技能扫描器上，作者报告平均攻击成功率为 96.0%。
-  - Across six evaluated skill scanners, the authors report an average attack success rate of 96.0 percent.
-- ChainGuard 重建跨技能依赖和能力组合，将报告的攻击成功率降至 22.5%，同时允许 99.5% 的良性工作流通过。
-  - ChainGuard reconstructs cross-skill dependencies and capability composition, reducing reported attack success to 22.5 percent while allowing 99.5 percent of benign workflows to pass.
-
-### 为什么重要 / Why it matters
-
-代理技能安全需要在工作流层面分析组合能力与数据流，而不能把每个已安装包视为相互独立的单元。
-
-Agent skill security needs workflow-level analysis of composed capabilities and data flows rather than treating every installed package as an independent unit.
-
----
-
-<a id="2026-08-10-world-tokens-embodied-policy"></a>
-## [World Tokens 在机器人部署时移除视频世界模型推理](https://arxiv.org/abs/2608.09730)
-
-**English:** [World Tokens removes video world-model inference from robot deployment](https://arxiv.org/abs/2608.09730)
-
-- **发布 / Published:** `2026-08-10T15:30:38Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09730) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `world-model`, `simulation`, `efficient-inference`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-World Tokens 是一种具身策略架构，在训练期间利用未来视频预测塑造机器人控制表征，并在部署时移除视频世界模型分支。该设计旨在保留动态感知特征，同时避免在控制循环中承担视频生成成本。
-
-World Tokens is an embodied-policy architecture that uses future-video prediction to shape robot-control representations during training, then removes the video world-model branch at deployment. The design aims to retain dynamics-aware features without paying video-generation cost inside the control loop.
-
-### 技术点 / Technical points
-
-- World Adapter 将 VLM 特征转换为一组固定的 world tokens，同时为未来视频去噪器和动作专家提供条件。
-  - A World Adapter transforms VLM features into a fixed set of world tokens that condition both a future-video denoiser and the action expert.
-- 独占路由使 world tokens 成为动作专家唯一的视觉语言上下文，让转移学习梯度直接塑造控制所用表征。
-  - Exclusive routing makes the world tokens the action expert's only visual-language context so transition-learning gradients directly shape the representation used for control.
-- 在使用 2B 主干且没有具身动作预训练的情况下，作者报告其在 LIBERO 上具备竞争力、取得所报告的 SIMPLER 最佳平均成绩、提升真实 R1 Pro 机器人成功率，并保持 VLA 级动作延迟。
-  - With a 2B backbone and no embodied action pretraining, the authors report competitive LIBERO results, the best reported SIMPLER averages, improved real-robot R1 Pro success, and VLA-level action latency.
-
-### 为什么重要 / Why it matters
-
-它提供了一种实用分工：世界模型负责改善训练，而部署后的机器人仍保持传统 VLA 策略的延迟水平。
-
-It offers a practical division of labor in which world modeling improves training while the deployed robot retains the latency profile of a conventional VLA policy.
-
----
-
-<a id="2026-08-10-moli-agent-browser-engine"></a>
-## [Moli 开源面向 AI 代理设计的 Rust 浏览器引擎](https://github.com/lexmount/moli)
-
-**English:** [Moli opens a Rust browser engine designed for AI agents](https://github.com/lexmount/moli)
-
-- **发布 / Published:** `2026-08-10T13:20:30Z`
-- **来源 / Source:** [Moli](https://github.com/lexmount/moli) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `browser-agent`, `mcp`, `open-source`, `rust`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Moli 是一款围绕 AI 代理访问模式构建的新开源无头浏览器。它默认提供 DOM、语义、网络和存储状态，仅在代理明确请求几何信息或图像时执行布局与像素渲染。
-
-Moli is a new open-source headless browser built around the access patterns of AI agents. It exposes DOM, semantic, network, and storage state by default, performing layout and pixel rendering only when an agent explicitly requests geometry or images.
-
-### 技术点 / Technical points
-
-- 该 Rust 运行时组合 V8 JavaScript、原生 DOM、Servo 与 Stylo 样式系统、Taffy 与 Parley 布局和按需软件渲染，而不是封装 Chromium。
-  - The Rust runtime combines V8 JavaScript, a native DOM, Servo and Stylo styling, Taffy and Parley layout, and on-demand software rendering rather than wrapping Chromium.
-- 单个服务器提供 MCP、Chrome DevTools Protocol、WebDriver Classic 和 WebDriver BiDi，而以抽取为主的操作可以完全跳过布局与绘制。
-  - One server exposes MCP, Chrome DevTools Protocol, WebDriver Classic, and WebDriver BiDi, while extraction-first operations can skip layout and paint entirely.
-- 在其自有的 192 URL 爬取测试中，Moli 报告有效页面成功率为 53.6%、中位 RSS 为 73 MiB；Chrome Headless 分别为 52.6% 和 773 MiB，仍需独立复现。
-  - In its own 192-URL crawl, Moli reports 53.6 percent useful-page success and 73 MiB median RSS versus Chrome Headless at 52.6 percent and 773 MiB; independent reproduction is still needed.
-
-### 为什么重要 / Why it matters
-
-结构优先、像素按需的浏览器可能显著提高浏览代理、检索流水线、评测环境和强化学习 rollout 的并发密度。
-
-A structure-first, pixels-on-demand browser could substantially increase the density of browsing agents, retrieval pipelines, evaluation environments, and reinforcement-learning rollouts.
-
-### 链接 / Links
-
-[Evidence 1](https://medium.com/@Koukyosyumei/building-a-pure-rust-sandboxed-local-first-browser-for-ai-agents-h5i-browser-light-ce4c13f16e5a)
-[Discussion 1](https://news.ycombinator.com/item?id=49244802) · [Discussion 2](https://www.reddit.com/r/codex/comments/1vl404k/purerust_sandboxed_localfirst_browser_for_agents/)
-
----
-
-<a id="2026-08-10-linear-agent-custom-harness"></a>
-## [Linear 详解 Linear Agent 背后的自研运行框架](https://linear.app/now/how-we-built-linear-agent)
-
-**English:** [Linear details the custom harness behind Linear Agent](https://linear.app/now/how-we-built-linear-agent)
-
-- **发布 / Published:** `2026-08-10T12:19:00Z`
-- **来源 / Source:** [Linear](https://linear.app/now/how-we-built-linear-agent) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-architecture`, `tool-use`, `skills`, `orchestration`, `authorization`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Linear 发布了生产架构说明，介绍其如何通过系统提示、工具接口、产品语义、限定范围的系统技能和自研执行框架约束开放式工作区代理。该设计优先采用受控组合，而不是暴露完整 SDK 或 GraphQL 接口。
-
-Linear published a production architecture account of how it bounds an open-ended workspace agent through its system prompt, tool interfaces, product semantics, scoped system skills, and a custom execution harness. The design favors controlled composition over exposing the full SDK or GraphQL surface.
-
-### 技术点 / Technical points
-
-- 系统技能将提示片段、元数据和工具打包，并在运行前或按需加载，使每个线程只获得所需能力。
-  - System skills bundle prompt fragments, metadata, and tools, then load before a run or on demand so each thread receives only the capabilities it needs.
-- 运行框架可在活跃回合中注入新加载的工具，同时保留模型提供方的前缀缓存，并使用对话上下文而非仅凭工具名与参数决定是否审批。
-  - The harness injects newly loaded tools during an active run while preserving model-provider prefix caching and applies approval rules using conversational context, not only tool names and parameters.
-- 子代理工作对父代理表现为同步调用，但持久工作流引擎会在异步执行期间挂起父代理，并在工具调用完成后恢复。
-  - Sub-agent work appears synchronous to the parent, but the durable workflow engine suspends the parent during asynchronous execution and resumes it when the tool call completes.
-
-### 为什么重要 / Why it matters
-
-它为渐进式能力加载、上下文授权、持久执行和成本感知的代理编排提供了具体生产蓝图。
-
-It provides a concrete production blueprint for progressive capability loading, contextual authorization, durable execution, and cost-aware agent orchestration.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=49252304)
-
----
-
-<a id="2026-08-10-harnesswam-world-action-planning"></a>
-## [HarnessWAM 为世界动作模型加入规划与恢复能力](https://arxiv.org/abs/2608.09516)
-
-**English:** [HarnessWAM adds planning and recovery around world action models](https://arxiv.org/abs/2608.09516)
-
-- **发布 / Published:** `2026-08-10T12:15:59Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09516) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `world-action-model`, `planning`, `failure-recovery`, `long-horizon`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-HarnessWAM 在世界动作模型外增加显式任务状态、结构化规划、执行验证和局部失败恢复。它针对短时域预测控制与机器人长程多阶段任务所需审议之间的差距。
-
-HarnessWAM wraps a world action model with explicit task state, structured planning, execution verification, and local failure recovery. It targets the gap between short-horizon predictive control and the deliberation needed for long, multi-stage robot tasks.
-
-### 技术点 / Technical points
-
-- 基于 VLM 的 Task Manager 维护有证据支撑的场景信念和结构化任务图，再把语义计划投射为机器人能力边界内的原子技能。
-  - A VLM-based Task Manager maintains an evidence-grounded scene belief and a structured task graph, then projects semantic plans into atomic skills within the robot's capability boundary.
-- 双时间尺度循环把持续的轻量进度估计与关键里程碑处的 Task Manager 审议结合起来，从而支持补充观察、重规划或局部恢复。
-  - A dual-timescale loop combines continuous lightweight progress estimation with Task Manager deliberation at salient milestones, allowing observation gathering, replanning, or local recovery.
-- 作者报告其在 RoboMemArena 上完整任务成功率为 59.6%、子任务成功率为 69.9%，在 RoboCerebra Ideal 上成功率为 23.7%。
-  - The authors report 59.6 percent full-task success and 69.9 percent subtask success on RoboMemArena, plus 23.7 percent success on RoboCerebra Ideal.
-
-### 为什么重要 / Why it matters
-
-它展示了模型外部记忆和代理式控制如何把局部预测策略扩展为可规划、可验证且可恢复的机器人行为。
-
-It shows how model-external memory and agentic control can extend a local predictive policy into robot behavior that is plannable, verifiable, and recoverable.
-
----
-
-<a id="2026-08-10-sekai2-world-model-dataset"></a>
-## [Sekai2 发布 2826 小时带轨迹标注的世界模型视频](https://arxiv.org/abs/2608.09449)
-
-**English:** [Sekai2 releases 2,826 hours of trajectory-annotated world-model video](https://arxiv.org/abs/2608.09449)
-
-- **发布 / Published:** `2026-08-10T11:23:01Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.09449) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `dataset`, `video`, `spatial-intelligence`, `camera-control`, `long-horizon`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Sekai2 是面向长时域、相机可控世界建模的多来源真实视频数据集。它包含来自 113 个国家或地区、10,428 个源视频的 128,892 个片段，总计 2,826 小时。
-
-Sekai2 is a multi-source real-world video dataset for long-horizon and camera-controllable world modeling. It contains 128,892 clips totaling 2,826 hours from 10,428 source videos across 113 countries or regions.
-
-### 技术点 / Technical points
-
-- 每个片段都包含相机轨迹和分离主体运动、环境动态、静态场景内容与相机行为的层级标注，共形成 649,597 个时间对齐片段。
-  - Every clip includes a camera trajectory and hierarchical annotations separating subject motion, environment dynamics, static scene content, and camera behavior, yielding 649,597 temporally grounded segments.
-- 该发布强调持续观察：43,594 个拆分片段达到两分钟，占全部视频时长的 51.4%。
-  - The release emphasizes sustained observation: 43,594 decomposed segments reach two minutes and account for 51.4 percent of the footage.
-- 其中 982 条全景序列沿包含环路与重访的非线性路径采集，为持久场景表征和长程空间记忆提供重复视角。
-  - A set of 982 panoramic sequences follows nonlinear paths with loops and revisits, providing repeated views for persistent scene representations and long-term spatial memory.
-
-### 为什么重要 / Why it matters
-
-相机轨迹、长时观察和地点重访为时间持续性与几何一致性提供了普通网络视频语料通常缺少的监督。
-
-Camera trajectories, long observations, and revisited locations provide supervision for temporal persistence and geometric consistency that ordinary web-video corpora usually lack.
-
----
-
-<a id="2026-08-10-meta-muse-glimmer"></a>
-## [Meta 发布面向本地常驻代理的 Muse Glimmer](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model)
-
-**English:** [Meta releases Muse Glimmer for local always-on agents](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model)
-
-- **发布 / Published:** `2026-08-10T00:00:00Z`
-- **来源 / Source:** [Meta AI Research](https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-weights`, `local-ai`, `tool-use`, `coding-agent`, `multimodal`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
-
-### 摘要 / Summary
-
-Meta Superintelligence Labs 发布了 Muse Glimmer，这是一款针对本地常驻代理工作流优化的 300 亿参数开放权重模型。该 Apache-2.0 模型面向消费级硬件上的工具使用、编程、多模态输入、多步推理和工具调用失败恢复。
-
-Meta Superintelligence Labs released Muse Glimmer, a 30-billion-parameter open-weight model optimized for always-on local agent workflows. The Apache-2.0 model targets tool use, coding, multimodal input, multi-step reasoning, and recovery from failed tool calls on consumer hardware.
-
-### 技术点 / Technical points
-
-- 训练结合来自 Muse Spark 的 logit distillation、偏重代理与长上下文的中期阶段，以及包含监督微调、on-policy distillation 和强化学习的后训练。
-  - Training combines logit distillation from Muse Spark, an agent-heavy longer-context middle phase, and post-training with supervised fine-tuning, on-policy distillation, and reinforcement learning.
-- Meta 从端到端代理任务、工具使用、长程推理、失败恢复、多模态输入、运行框架兼容性、可控推理强度和 100 多种语言等方面评估该模型。
-  - Meta evaluates the model across end-to-end agent tasks, tool use, long-horizon reasoning, recovery, multimodal input, scaffold compatibility, controllable effort, and more than 100 languages.
-- 约四比特量化把语言模型压缩到 20 GB 以下，同时基于 DFlash 的轻量 drafter 通过推测解码加速生成，使整体可在 24 GB 或 32 GB 内存范围内运行。
-  - Approximately four-bit quantization reduces the language model to under 20 GB, while a lightweight DFlash-based drafter accelerates generation through speculative decoding within a 24 GB or 32 GB memory envelope.
-
-### 为什么重要 / Why it matters
-
-它把能力较强的开放代理模型带入高端个人电脑的内存范围，使私有、离线的工具调用工作流不再依赖云端模型。
-
-It brings a comparatively capable open agent model into the memory range of high-end personal computers, enabling private and offline tool-using workflows without a cloud model dependency.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/meta-models/Muse-Glimmer-30B)
-[Discussion 1](https://news.ycombinator.com/item?id=49241679) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vkk6vy/mark_zuckerberg_on_releases/)
-
----
-
-<a id="2026-08-09-janus-agentic-laboratory"></a>
-## [Janus 开源具备治理机制的可演化代理实验室](https://github.com/iLearn-Agent/Janus/releases/tag/Release)
-
-**English:** [Janus open-sources a governed evolving agent laboratory](https://github.com/iLearn-Agent/Janus/releases/tag/Release)
-
-- **发布 / Published:** `2026-08-09T16:43:05Z`
-- **来源 / Source:** [Janus](https://github.com/iLearn-Agent/Janus/releases/tag/Release) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `self-improvement`, `skills`, `memory`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-Janus v1.0.0 是一个面向持久人机协作和多代理协作的开源桌面工作区。它围绕可审查交付物组织委派任务，并记录代理角色、绩效、领导关系和受治理的能力版本。
-
-Janus v1.0.0 is an open-source desktop workspace for persistent human-agent and multi-agent collaboration. It organizes delegated work around reviewable deliverables while recording agent roles, performance, leadership, and governed capability versions.
-
-### 技术点 / Technical points
-
-- 持久任务组支持直接执行、专家分派、依赖感知编排、跨用户委派、隔离任务工作区和所有者审查。
-  - Persistent task groups support direct work, specialist assignment, dependency-aware orchestration, cross-user delegation, isolated task workspaces, and owner review.
-- 个人与群组演化可根据工作证据修改技能和记忆，但激活需要经过明确的评估、审查、采用与回滚阶段。
-  - Personal and cohort evolution can revise skills and memory from work evidence, but activation passes through explicit evaluation, review, adoption, and rollback stages.
-- 社区自托管栈使用 PostgreSQL、MinIO、隔离的演化 worker、云 API 和 Caddy；目前尚无独立有效性评估。
-  - The community self-hosting stack uses PostgreSQL, MinIO, an isolated evolution worker, a cloud API, and Caddy; no independent effectiveness evaluation is published.
-
-### 为什么重要 / Why it matters
-
-它探索了如何把短暂的多代理对话转变为具有明确责任、证据和可逆能力治理的持久工作系统。
-
-It explores how transient multi-agent conversations could become durable work systems with explicit responsibility, evidence, and reversible capability governance.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/iLearn-Agent/Janus)

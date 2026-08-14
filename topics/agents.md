@@ -2,6 +2,223 @@
 
 # Agents / 智能体
 
+<a id="2026-08-13-autodesign-meta-harness-optimization"></a>
+## [AutoDesign 通过执行轨迹反馈优化智能体 Harness](https://arxiv.org/abs/2608.13560)
+
+**English:** [AutoDesign optimizes an agent harness through rollout feedback](https://arxiv.org/abs/2608.13560)
+
+- **发布 / Published:** `2026-08-13T17:59:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13560) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `self-improvement`, `long-horizon`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AutoDesign 提出元级 Harness 优化：优化器分析完整执行轨迹，再指导代码智能体改进固定模型外围的可复用系统。其开源实现面向把学术论文长时程转换为可编辑传播材料的任务。
+
+AutoDesign introduces meta-harness optimization, in which an optimizer analyzes complete execution trajectories and directs a coding agent to improve the reusable system surrounding a fixed model. The released implementation targets the long-horizon conversion of academic papers into editable communication artifacts.
+
+### 技术点 / Technical points
+
+- 外层循环依次执行回放、评估、单组件更新提案和验收；候选只有在提高训练表现且不降低独立开发集得分时才会保留。
+  - Its outer loop alternates rollout, evaluation, a one-component update proposal, and acceptance conditioned on improving training performance without reducing an independent development score.
+- PosterBench 提供覆盖五个学科的 100 篇论文主赛道，以及用于受控比较的共享 10 篇论文子集。
+  - PosterBench provides a 100-paper main track across five disciplines plus a shared 10-paper subset for controlled comparisons.
+- 在七种匹配的模型与代码智能体配置中，学得的 DesignHarness 将平均 PosterBench 得分从 54.99 提升到 67.39。
+  - Across seven matched model and coding-agent configurations, the learned DesignHarness raised the average PosterBench score from 54.99 to 67.39.
+
+### 为什么重要 / Why it matters
+
+它把工具、记忆、运行时、编排、评估和反馈组成的智能体 Harness 本身作为可检查的优化对象，而不是修改模型权重。
+
+It makes the agent harness itself—tools, memory, runtime, orchestration, evaluation, and feedback—the object of inspectable optimization rather than changing model weights.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Yaxin9Luo/AutoDesign)
+
+---
+
+<a id="2026-08-13-vero-repository-verified-agents"></a>
+## [Vero 将代码智能体的形式化验证推进到仓库级](https://arxiv.org/abs/2608.13522)
+
+**English:** [Vero brings formally verified coding agents to repository scale](https://arxiv.org/abs/2608.13522)
+
+- **发布 / Published:** `2026-08-13T17:41:27Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13522) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `formal-verification`, `lean`, `software-engineering`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Vero 评测代码智能体能否在连贯的多模块仓库中同时合成实现与机器检查证明。作者报告称，最强受测智能体完整解决了 43 个实例中的 27 个，并且在最难仓库上未能闭合任何规格。
+
+Vero evaluates whether coding agents can jointly synthesize implementations and machine-checked proofs across coherent multi-module repositories. The authors report that the strongest tested agent fully solved 27 of 43 instances and closed no specifications on the hardest repositories.
+
+### 技术点 / Technical points
+
+- 43 个实例取自真实的 Python、Dafny、Verus 和 Coq 仓库，并表示为带固定 API 和人工整理规格的 Lean 4 项目。
+  - The 43 instances are derived from real Python, Dafny, Verus, and Coq repositories and represented as Lean 4 projects with fixed APIs and manually curated specifications.
+- 基准同时支持仅证明和代码加证明两种模式，从而可将证明合成能力与实现决策分开评估。
+  - The benchmark supports both proof-only and joint code-and-proof modes so that proof synthesis can be separated from implementation decisions.
+- 审计机制允许智能体形式化证明给定规格不可满足或参考代码错误，使整理缺陷被显式发现，而不会被误计为模型失败。
+  - An audit mechanism lets agents formally demonstrate that a supplied specification is unsatisfiable or that reference code is incorrect, exposing curation defects instead of counting them as model failures.
+
+### 为什么重要 / Why it matters
+
+它把代码智能体评测从单元测试通过推进到由形式化规格和机器检查证明支撑的仓库级一致性。
+
+It moves coding-agent evaluation beyond unit-test success toward repository-wide consistency backed by formal specifications and machine-checked proofs.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/sunblaze-ucb/vero)
+
+---
+
+<a id="2026-08-13-long-horizon-ai-rnd-evaluation"></a>
+## [长时程 AI 研发智能体仍更像工程优化器](https://arxiv.org/abs/2608.13417)
+
+**English:** [Long-horizon AI R&D agents still resemble engineering optimizers](https://arxiv.org/abs/2608.13417)
+
+- **发布 / Published:** `2026-08-13T16:11:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13417) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `long-horizon`, `research-agent`, `evaluation`, `experience-reuse`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项过程级研究在 36 个长时程 AI 研发任务上评估七个前沿模型。除最终得分外，它还考察智能体如何构建方案、执行实验、响应反馈以及复用积累的经验。
+
+A process-level study evaluates seven frontier models on 36 long-horizon AI research and development tasks. Rather than relying only on final scores, it examines how agents frame solutions, execute experiments, respond to feedback, and reuse accumulated experience.
+
+### 技术点 / Technical points
+
+- 规则指标把单次执行行为划分为方案构建、执行和反馈控制，受控比较则衡量任务内与跨任务的经验复用。
+  - Rule-based metrics organize within-run behavior into Solution Framing, Execution, and Feedback Control, while controlled comparisons measure experience reuse within and across tasks.
+- 智能体能够制定并实施实用方案，但不同执行之间结果差异显著，最强方案也主要是调整或组合已有技术。
+  - Agents could formulate and implement practical solutions, but outcomes varied substantially across runs and the strongest approaches mostly adapted or combined established techniques.
+- 经验复用有时改善后续决策，有时也会造成误导；Harness 设计同样显著影响表现稳定性。
+  - Experience reuse sometimes improved later decisions and sometimes misled them; harness design also materially affected performance stability.
+
+### 为什么重要 / Why it matters
+
+这些发现为训练、推理时策略、记忆和 Harness 设计指出具体瓶颈，同时提醒不能把较高最终得分直接等同于自主科研能力。
+
+The findings identify concrete bottlenecks for training, inference-time strategy, memory, and harness design while cautioning against equating a strong final score with autonomous research ability.
+
+---
+
+<a id="2026-08-13-faraday-research-replication-agent"></a>
+## [Faraday 通过研究复现训练 AI 科学家](https://arxiv.org/abs/2608.13331)
+
+**English:** [Faraday trains AI scientists through research replication](https://arxiv.org/abs/2608.13331)
+
+- **发布 / Published:** `2026-08-13T14:59:27Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13331) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agent`, `scientific-discovery`, `paper-replication`, `long-horizon`, `post-training`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Replica 把论文复现构造成可扩展任务空间，用于训练和评估科研智能体。研究者后训练了 270 亿参数的 Faraday，它在追求上层复现目标时把实现工作委派给代码智能体。
+
+Replica turns paper replication into a scalable task space for training and evaluating scientific agents. The researchers post-trained Faraday, a 27-billion-parameter agent that delegates implementation work to coding agents while pursuing the higher-level replication objective.
+
+### 技术点 / Technical points
+
+- 自动生成的量表式评审器提供可扩展奖励信号；作者报告其噪声较低，并与人类对复现质量的评估一致。
+  - An automatically generated rubric-based judge supplies a scalable reward signal and is reported to have low noise and agreement with human replication assessments.
+- 作者报告 Faraday 在留出复现任务上超过 Claude Opus 4.8 和 GPT-5.5，但该比较尚未得到独立复现。
+  - On held-out replication tasks, the authors report that Faraday outperformed Claude Opus 4.8 and GPT-5.5, although this comparison has not yet been independently reproduced.
+- 执行轨迹分析表明，后训练系统比对比的通用智能体更稳定地遵循假设驱动的实验实践。
+  - Rollout analysis suggests that the post-trained system more consistently follows hypothesis-driven experimental practices than the compared general-purpose agents.
+
+### 为什么重要 / Why it matters
+
+研究复现既提供可衡量的训练目标，也包含科研智能体在可信开放式发现前必须掌握的、规格不完备的长时程实验过程。
+
+Research replication supplies both a measurable training objective and the underspecified, long-horizon experimentation that scientific agents must learn before credible open-ended discovery.
+
+---
+
+<a id="2026-08-13-deepseek-harness-plugin-runtime"></a>
+## [DeepSeek 开源“万物皆插件”的智能体 Harness](https://github.com/deepseek-ai/deepseek-harness)
+
+**English:** [DeepSeek open-sources an everything-as-a-plugin agent harness](https://github.com/deepseek-ai/deepseek-harness)
+
+- **发布 / Published:** `2026-08-13T11:56:32Z`
+- **来源 / Source:** [DeepSeek AI](https://github.com/deepseek-ai/deepseek-harness) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `plugin-architecture`, `open-source`, `orchestration`, `developer-tools`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
+
+### 摘要 / Summary
+
+DeepSeek 发布了采用 MIT 许可证的智能体运行框架 DeepSeek Harness，其主要子系统都以可替换插件实现。首个版本被明确标为开发者预览，接口演进过程中预计会出现破坏兼容性的变更。
+
+DeepSeek released DeepSeek Harness, an MIT-licensed agent runtime whose major subsystems are implemented as replaceable plugins. The initial release is explicitly a developer preview and is expected to introduce compatibility-breaking changes as its interfaces evolve.
+
+### 技术点 / Technical points
+
+- 该架构由 Cordis 驱动，把模型、工具、技能、会话、沙箱、文件系统、循环、编排和用户界面都暴露为插件。
+  - The Cordis-powered architecture exposes models, tools, skills, sessions, sandboxes, filesystems, loops, orchestration, and the user interface as plugins.
+- 开发者可通过 npx @deepseek-ai/dsh web 从 npm 启动内置网页界面；默认监听本机 3080 端口。
+  - Developers can start the bundled web interface from npm with npx @deepseek-ai/dsh web; it listens on localhost port 3080 by default.
+- 仓库提供中英文文档，并建议独立开发的插件使用 dsh-plugin 主题以便被发现。
+  - The repository includes English and Chinese documentation and invites independently developed plugins to use the dsh-plugin topic for discovery.
+
+### 为什么重要 / Why it matters
+
+这是大型模型开发者推出的少见完整、可检查智能体运行框架，并为替换编排、执行、存储和界面组件提供了明确扩展边界。
+
+It provides an unusually complete and inspectable agent runtime from a major model developer, with explicit extension boundaries for swapping orchestration, execution, storage, and interface components.
+
+### 链接 / Links
+
+[Evidence 1](https://www.deepseek.com/harness/en/)
+[Discussion 1](https://news.ycombinator.com/item?id=49296046) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vnau0y/github_deepseekaideepseekharness/)
+
+---
+
+<a id="2026-08-12-agent-skills-induced-failures"></a>
+## [看似相关的技能仍可能导致语言模型智能体失败](https://arxiv.org/abs/2608.11888)
+
+**English:** [Relevant skills can still make language-model agents fail](https://arxiv.org/abs/2608.11888)
+
+- **发布 / Published:** `2026-08-12T10:15:19Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11888) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `safety`, `reliability`, `benchmark`, `cost-efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项差分研究把语言模型智能体的功能失败和成本退化归因到具体加载技能。在 SkillsBench 与 SWE-Skills-Bench 上，作者识别出 307 个技能诱发问题，包括 125 个功能失败和 182 个效率退化。
+
+A differential study attributes functional failures and cost regressions to individual skills loaded into language-model agents. Across SkillsBench and SWE-Skills-Bench, the authors identified 307 skill-induced failures: 125 functional failures and 182 efficiency regressions.
+
+### 技术点 / Technical points
+
+- 每次目标执行都与无技能执行或语义匹配技能执行比较，后者必须成功完成同一任务或以更低成本完成。
+  - Each target run is compared with a no-skill or semantically matched skill run that completes the same task successfully or at lower cost.
+- 功能失败很少源自明显无关的技能；看似相关的指导反而常使智能体遗漏必要内容或实施错误。
+  - Functional failures were rarely caused by obviously irrelevant skills; apparently relevant guidance often led agents to omit or incorrectly implement required elements.
+- SkillTriage 对成对失败进行分类，其中过度验证和繁重实现流程分别构成 67 个和 30 个过度程序案例。
+  - SkillTriage categorizes paired failures, with excessive verification and heavyweight implementation pipelines accounting for 67 and 30 excessive-procedure cases respectively.
+
+### 为什么重要 / Why it matters
+
+这些结果支持按需加载技能、开展差分回归测试并设置明确成本预算，而不是假定每个看似相关的指令包都会带来收益。
+
+The results support selective skill loading, differential regression testing, and explicit cost budgets instead of assuming that every relevant-looking instruction package is beneficial.
+
+---
+
 <a id="2026-08-11-grothendieck-ai-research"></a>
 ## [长时程 AI 协助收紧 Grothendieck 常数的上下界](https://arxiv.org/abs/2608.11195)
 

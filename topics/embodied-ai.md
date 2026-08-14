@@ -2,6 +2,116 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-13-dreamx-phi-robot-world-model"></a>
+## [DreamX-Phi 为机器人世界模型加入几何动作忠实度](https://arxiv.org/abs/2608.13489)
+
+**English:** [DreamX-Phi adds geometric action fidelity to robotic world modeling](https://arxiv.org/abs/2608.13489)
+
+- **发布 / Published:** `2026-08-13T17:18:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13489) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `video-world-model`, `action-conditioning`, `geometry`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DreamX-Phi 1.0 根据当前画面、语言指令以及预设的末端执行器位姿和夹爪状态序列预测未来机器人观测。其设计针对画面看似真实、却移动错误机械臂或丢失被操作物体的预测失败。
+
+DreamX-Phi 1.0 predicts future robot observations from a current frame, a language instruction, and a prescribed sequence of end-effector poses and gripper states. Its design targets rollouts that may look realistic while moving the wrong arm or losing track of a manipulated object.
+
+### 技术点 / Technical points
+
+- PRoPE 风格的几何编码把每条机械臂各自的 SE(3) 变换注入注意力，以保持机械臂身份和刚体运动结构。
+  - PRoPE-style geometric encoding injects separate per-arm SE(3) transformations into attention to preserve arm identity and rigid-motion structure.
+- 深度分支约束场景几何，SAM3 掩码与冻结的 V-JEPA 教师则促进物体在抓取交互中的一致性。
+  - A depth branch constrains scene geometry, while SAM3 masks and a frozen V-JEPA teacher encourage object consistency through grasping interactions.
+- 分布匹配蒸馏把多步视频生成器压缩为少步学生模型，以提高部署效率。
+  - Distribution-matching distillation compresses the multi-step video generator into a few-step student for more efficient deployment.
+
+### 为什么重要 / Why it matters
+
+它把与机器人指令运动及物体几何的因果一致性，与视频真实感并列为要求；这对于使用生成未来进行规划或合成数据至关重要。
+
+It treats causal agreement with commanded robot motion and object geometry as requirements alongside video realism, which is essential if generated futures are used for planning or data synthesis.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/AMAP-ML/DreamX-Phi)
+
+---
+
+<a id="2026-08-13-contactguard-precontact-world-model"></a>
+## [ContactGuard 在接触前预测机器人操作失败](https://arxiv.org/abs/2608.13438)
+
+**English:** [ContactGuard predicts robot manipulation failures before contact](https://arxiv.org/abs/2608.13438)
+
+- **发布 / Published:** `2026-08-13T16:25:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13438) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `manipulation`, `safety`, `latent-world-model`, `action-conditioning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ContactGuard 在机器人真正接触物体前监控分块视觉运动策略。它在潜在视觉空间中预测策略计划动作的短期后果，并在预测未来表明可能失败时中止执行。
+
+ContactGuard monitors chunked visuomotor policies before a robot commits to physical contact. It predicts the short-horizon consequence of the policy's planned actions in latent visual space and aborts execution when the predicted future indicates likely failure.
+
+### 技术点 / Technical points
+
+- 动作条件世界模型从无标签机器人轨迹中学习紧凑的多视角视觉动态，而不是直接预测像素。
+  - The action-conditioned world model learns compact multi-view visual dynamics from unlabeled robot trajectories rather than predicting pixels directly.
+- 轻量失败探针使用规模相对较小的接触前标注片段进行训练。
+  - A lightweight failure probe is trained from a comparatively small labeled collection of pre-contact clips.
+- 部署时，监控器在即将接触前确定预测起点，沿策略自身的动作片段前向推演，并在不修改原策略的情况下提供实时中止信号。
+  - At deployment the monitor anchors its prediction before imminent contact, rolls forward under the policy's own action chunk, and provides a live abort signal without modifying that policy.
+
+### 为什么重要 / Why it matters
+
+它展示了学习式世界模型可以充当独立安全层，在不可逆的物理接触发生前预判富接触操作失败。
+
+It demonstrates a learned world model serving as a separate safety layer that can anticipate contact-rich failures before irreversible physical interaction occurs.
+
+---
+
+<a id="2026-08-13-humanoidvln-physics-benchmark"></a>
+## [HumanoidVLN 跨不同人形机器人形态评测导航](https://arxiv.org/abs/2608.12860)
+
+**English:** [HumanoidVLN benchmarks navigation across diverse humanoid bodies](https://arxiv.org/abs/2608.12860)
+
+- **发布 / Published:** `2026-08-13T06:16:05Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12860) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `vision-language-navigation`, `simulation`, `benchmark`, `sim-to-real`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+HumanoidVLN 是面向不同尺寸和控制特性人形机器人的物理落地视觉语言导航模拟器与基准。它把语言引导导航模型与双足运动及特定形态的执行约束连接起来。
+
+HumanoidVLN is a physics-grounded simulator and benchmark for vision-language navigation across humanoid robots with different dimensions and control characteristics. It connects language-guided navigation models to bipedal locomotion and embodiment-specific execution constraints.
+
+### 技术点 / Technical points
+
+- 该平台基于 NVIDIA Isaac Sim，展示了四种人形机器人，其下肢自由度为 10 至 12 个、身高范围为 1.17 至 1.80 米。
+  - Built on NVIDIA Isaac Sim, the platform demonstrates four humanoids spanning 10 to 12 lower-body degrees of freedom and heights from 1.17 to 1.80 meters.
+- 分层控制栈将强化学习运动策略与可替换的比例微分或模型预测路径跟踪器结合，数据集提供 933 条碰撞感知参考轨迹。
+  - A hierarchical stack combines reinforcement-learned locomotion with interchangeable proportional-derivative or model-predictive path trackers, and the dataset provides 933 collision-aware reference episodes.
+- 在 20 条 Unitree G1 仿真到现实试验中，作者报告导航误差相关系数为 0.935，平均绝对差为 0.68 米。
+  - In a 20-episode Unitree G1 simulation-to-real pilot, navigation errors had a reported correlation of 0.935 and a mean absolute difference of 0.68 meters.
+
+### 为什么重要 / Why it matters
+
+它在同一物理闭环中评估导航模型、运动控制器和机器人形态，揭示轮式智能体或纯运动学基准忽略的具身影响。
+
+It evaluates navigation models, locomotion controllers, and robot morphology in one physical loop, exposing embodiment effects that wheeled-agent or kinematic-only benchmarks omit.
+
+### 链接 / Links
+
+[Evidence 1](https://humanoid-vln.github.io/)
+
+---
+
 <a id="2026-08-11-surgical-wam-video-pretraining"></a>
 ## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
 
