@@ -2,6 +2,44 @@
 
 # Agents / 智能体
 
+<a id="2026-08-14-writer-palmyra-x6-agent-harness"></a>
+## [WRITER 发布 Palmyra X6 与更高效的智能体 Harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
+
+**English:** [WRITER releases Palmyra X6 and a more efficient agent harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
+
+- **发布 / Published:** `2026-08-14T18:19:37Z`
+- **来源 / Source:** [WRITER](https://writer.com/blog/palmyra-x6-major-harness-release/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `enterprise-ai`, `cost-efficiency`, `long-horizon`, `governance`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WRITER 发布了面向企业智能体工作流、基于 GLM 5.2 后训练的 Palmyra X6，同时重构 WRITER Agent Harness 并增加用量治理功能。该公司报告称，在其内部评测中，模型与 Harness 组合使用可将平均任务成本降低 52%、速度提高 48%，质量提高 10%。
+
+WRITER released Palmyra X6, a model post-trained from GLM 5.2 for enterprise agent workflows, together with a rebuilt WRITER Agent harness and new usage-governance controls. The company reports that pairing the model and harness lowers average task cost by 52%, improves speed by 48%, and raises quality by 10% on its internal evaluations.
+
+### 技术点 / Technical points
+
+- Palmyra X6 按九项企业能力接受评测，包括知识落地、工具使用、子智能体委派和长任务连贯性；WRITER 称其可围绕单一目标无人值守运行最长八小时。
+  - Palmyra X6 is evaluated across nine enterprise capabilities including grounding, tool use, sub-agent delegation, and long-running coherence; WRITER says it can pursue one goal unattended for up to eight hours.
+- 配套受控研究在 22 个任务和六个模型上仅替换编排层，报告称任务 token 用量减少 38%、单任务成本降低 41%、中位耗时降低 44%，同时保持任务完成质量。
+  - A linked controlled study swapped only the orchestration layer across 22 tasks and six models, reporting 38% fewer tokens, 41% lower cost per task, and 44% lower median wall-clock time while maintaining task-completion quality.
+- 此次发布还加入自适应推理、批量与并行执行、工具错误恢复、受治理的多模型选择，以及组织级用量控制。
+  - The release adds adaptive reasoning, batched and parallel execution, recovery from tool errors, governed multi-model selection, and organization-level consumption controls.
+
+### 为什么重要 / Why it matters
+
+它把编排层视为可独立测量和优化的智能体成本、延迟与可靠性杠杆，而不是把系统经济性完全归因于底层模型。
+
+It treats orchestration as an independently measurable lever for agent cost, latency, and reliability instead of attributing system economics only to the underlying model.
+
+### 链接 / Links
+
+[Evidence 1](https://writer.com/blog/aug-roundup-new-at-writer/) · [Evidence 2](https://arxiv.org/abs/2607.06906)
+
+---
+
 <a id="2026-08-13-autodesign-meta-harness-optimization"></a>
 ## [AutoDesign 通过执行轨迹反馈优化智能体 Harness](https://arxiv.org/abs/2608.13560)
 
@@ -37,6 +75,82 @@ It makes the agent harness itself—tools, memory, runtime, orchestration, evalu
 ### 链接 / Links
 
 [Evidence 1](https://github.com/Yaxin9Luo/AutoDesign)
+
+---
+
+<a id="2026-08-13-omniscientist-multimodal-ai-scientist"></a>
+## [OmniScientist 直接从多模态原始证据开展科研](https://arxiv.org/abs/2608.13558)
+
+**English:** [OmniScientist conducts research directly from multimodal raw evidence](https://arxiv.org/abs/2608.13558)
+
+- **发布 / Published:** `2026-08-13T17:59:52Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13558) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ai-scientist`, `multimodal`, `research-automation`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+OmniScientist 是一个端到端 AI 科学家系统，在构思、实验和论文撰写全过程中持续使用异构原始证据。三个自主智能体运行于确定性流水线内，并通过可执行检查约束新颖性、统计有效性、来源追踪和数值可追溯性。
+
+OmniScientist is an end-to-end AI scientist that keeps heterogeneous raw evidence available throughout ideation, experimentation, and manuscript preparation. Three autonomous agents operate inside a deterministic pipeline with executable checks for novelty, statistical validity, provenance, and numerical traceability.
+
+### 技术点 / Technical points
+
+- 系统直接处理图像、信号、音频、视频、三维结构、轨迹、表格、公式和图等证据，而非仅依赖标签或预计算摘要。
+  - The system works over evidence including images, signals, audio, video, 3D structures, trajectories, tables, formulae, and graphs rather than relying only on labels or precomputed summaries.
+- 论文报告称，系统在覆盖五个学科族和四类证据的 36 个案例中均完成了从原始数据到论文的完整流程。
+  - The paper reports complete raw-data-to-manuscript runs on 36 cases spanning five discipline families and four evidence families.
+- 与只能接收预计算标量特征的版本相比，直接感知在七项评价维度上均有提升，并赢得 85% 的成对判断。
+  - Against a variant limited to precomputed scalar features, direct perception improved all seven evaluation dimensions and won 85% of paired judgments.
+
+### 为什么重要 / Why it matters
+
+它推动 AI 科学家从以文本为中心的流程自动化，转向以可检查实验依据支撑科研结论。
+
+It moves AI-scientist systems beyond text-centric workflow automation toward claims grounded in inspectable experimental evidence.
+
+### 链接 / Links
+
+[Evidence 1](https://omni-scientist.github.io/)
+
+---
+
+<a id="2026-08-13-quotebench-command-path-evaluation"></a>
+## [QuoteBench 揭示匹配分数掩盖的智能体命令链路故障](https://arxiv.org/abs/2608.13547)
+
+**English:** [QuoteBench exposes command-path failures hidden by matched agent scores](https://arxiv.org/abs/2608.13547)
+
+- **发布 / Published:** `2026-08-13T17:57:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13547) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `tool-use`, `execution-safety`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+QuoteBench 将命令生成与代码智能体执行接口中的序列化、包装和重复解析分开评测。其最终状态验证表明，相近的端到端分数可能掩盖传输链路造成的大量故障，而模型在生成阶段只补偿了其中一部分。
+
+QuoteBench separates command generation from the serialization, wrapping, and reparsing performed by a coding agent's execution interface. Its final-state evaluation shows that similar end-to-end scores can conceal large transport-induced failures that a model partly compensates for during generation.
+
+### 技术点 / Technical points
+
+- 该基准包含来自 14 类真实故障模式的 56 个单轮 Bash 任务，并验证最终程序状态，而不是匹配命令文本。
+  - The benchmark contains 56 one-shot Bash tasks from 14 incident-derived families and validates the resulting program state rather than matching command text.
+- 把完全相同的模型回复送入额外解析器后，八种配置的成功率下降了 55.4 至 73.2 个百分点。
+  - Replaying identical model replies through one added parser reduced success by 55.4 to 73.2 percentage points across eight configurations.
+- 提前披露不利边界后，六种配置恢复了 30.4 至 60.7 个百分点，另两种没有恢复；实际部署路径还改变了部分模型排序。
+  - Disclosing the hostile boundary recovered 30.4 to 60.7 points for six configurations but produced no recovery for two, and the deployment path changed parts of the model ordering.
+
+### 为什么重要 / Why it matters
+
+它表明代码智能体评测必须同时报告生成契约、工具接口、执行路径和验证器，不能把总分当作模型的固有属性。
+
+It shows that coding-agent evaluations must report the generation contract, tool interface, execution path, and validator instead of treating a score as an intrinsic model property.
+
+### 链接 / Links
+
+[Evidence 1](https://quotebench.lsamc.website/)
 
 ---
 
@@ -146,6 +260,40 @@ Research replication supplies both a measurable training objective and the under
 
 ---
 
+<a id="2026-08-13-statebridge-latent-agent-communication"></a>
+## [StateBridge 实现 LLM 智能体之间的免训练潜在通信](https://arxiv.org/abs/2608.13317)
+
+**English:** [StateBridge enables training-free latent communication between LLM agents](https://arxiv.org/abs/2608.13317)
+
+- **发布 / Published:** `2026-08-13T14:40:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13317) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `latent-communication`, `reasoning`, `training-free`, `model-interoperability`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+StateBridge 通过闭式正交变换，将发送模型的末层隐状态对齐到接收模型的输入空间。它避免了以往潜在通信系统所需的专用训练投影器和逐层工作记忆注入。
+
+StateBridge aligns a sender model's final hidden states with a receiver model's input space through a closed-form orthogonal transformation. It avoids the trained projectors and layer-by-layer memory injection used by earlier latent-communication systems.
+
+### 技术点 / Technical points
+
+- 轻量级范数校准和词表锚定使对齐后的状态与接收模型的预训练输入分布兼容。
+  - Lightweight norm calibration and vocabulary anchoring make the aligned states compatible with the receiver's pretrained input distribution.
+- 变换后的状态作为连续前缀加入输入，而无需先离散化为文本 token。
+  - The transformed states are prepended as a continuous prefix rather than being discretized into text tokens.
+- 在来自两个模型家族的四个模型上，覆盖数学推理、代码生成和问答的实验中，StateBridge 在 26 个模型—任务组合中的 22 个取得最好或并列最好结果。
+  - Across math reasoning, code generation, and question answering with four models from two families, StateBridge was best or tied-best on 22 of 26 model-task pairs.
+
+### 为什么重要 / Why it matters
+
+它消除了任务专用投影器训练，使异构智能体之间的高带宽通信更易迁移。
+
+It makes higher-bandwidth communication between heterogeneous agents more portable by removing task-specific projector training.
+
+---
+
 <a id="2026-08-13-deepseek-harness-plugin-runtime"></a>
 ## [DeepSeek 开源“万物皆插件”的智能体 Harness](https://github.com/deepseek-ai/deepseek-harness)
 
@@ -182,6 +330,40 @@ It provides an unusually complete and inspectable agent runtime from a major mod
 
 [Evidence 1](https://www.deepseek.com/harness/en/)
 [Discussion 1](https://news.ycombinator.com/item?id=49296046) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vnau0y/github_deepseekaideepseekharness/)
+
+---
+
+<a id="2026-08-13-skillevo-multiturn-skill-evolution"></a>
+## [SkillEvo 利用多轮交互反馈持续演化智能体技能](https://arxiv.org/abs/2608.13120)
+
+**English:** [SkillEvo evolves agent skills from multi-turn interaction feedback](https://arxiv.org/abs/2608.13120)
+
+- **发布 / Published:** `2026-08-13T11:49:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13120) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `self-improvement`, `multi-turn`, `governance`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+SkillEvo 把多轮用户模拟从终点评测改造成持续产生新反馈的机制，用于修订智能体技能。独立治理层会主动修复事实退化和结构膨胀，而不只是拒绝得分更低的版本。
+
+SkillEvo turns multi-turn user simulation from a final evaluation into a generator of new feedback for revising agent skills. An independent governance layer actively repairs factual degradation and structural bloat instead of merely rejecting a lower-scoring revision.
+
+### 技术点 / Technical points
+
+- 追问会暴露单轮问答评测无法发现的缺陷，并在连续迭代中持续补充修订信号。
+  - Follow-up questions expose defects that remain invisible to single-turn question-answering evaluation and replenish the revision signal over successive rounds.
+- 治理机制定位事实与结构退化，使系统能够在保留有效改动的同时主动修复问题。
+  - Governance localizes factual and structural regressions so that the system can repair them while preserving useful changes.
+- 在六类云服务、九个生产技能和 98 个技能参考文件上，论文报告其相较自反思提高 23.0 分，相较单轮问答驱动演化提高 15.4 分。
+  - Across six cloud-service categories, nine production skills, and 98 skill-reference files, the paper reports gains of 23.0 points over self-reflection and 15.4 points over single-turn-QA-driven evolution.
+
+### 为什么重要 / Why it matters
+
+它把智能体技能视为受治理、持续评测的资产，使其能够从实际长交互中暴露的失败持续改进。
+
+It frames agent skills as governed, continuously evaluated assets that can improve from the long interaction failures they cause in practice.
 
 ---
 

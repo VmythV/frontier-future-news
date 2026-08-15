@@ -2,6 +2,57 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-14-writer-palmyra-x6-agent-harness",
+      "published_at": "2026-08-14T18:19:37Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-harness",
+        "enterprise-ai",
+        "cost-efficiency",
+        "long-horizon",
+        "governance"
+      ],
+      "title_en": "WRITER releases Palmyra X6 and a more efficient agent harness",
+      "title_zh": "WRITER 发布 Palmyra X6 与更高效的智能体 Harness",
+      "summary_en": "WRITER released Palmyra X6, a model post-trained from GLM 5.2 for enterprise agent workflows, together with a rebuilt WRITER Agent harness and new usage-governance controls. The company reports that pairing the model and harness lowers average task cost by 52%, improves speed by 48%, and raises quality by 10% on its internal evaluations.",
+      "summary_zh": "WRITER 发布了面向企业智能体工作流、基于 GLM 5.2 后训练的 Palmyra X6，同时重构 WRITER Agent Harness 并增加用量治理功能。该公司报告称，在其内部评测中，模型与 Harness 组合使用可将平均任务成本降低 52%、速度提高 48%，质量提高 10%。",
+      "tech_points_en": [
+        "Palmyra X6 is evaluated across nine enterprise capabilities including grounding, tool use, sub-agent delegation, and long-running coherence; WRITER says it can pursue one goal unattended for up to eight hours.",
+        "A linked controlled study swapped only the orchestration layer across 22 tasks and six models, reporting 38% fewer tokens, 41% lower cost per task, and 44% lower median wall-clock time while maintaining task-completion quality.",
+        "The release adds adaptive reasoning, batched and parallel execution, recovery from tool errors, governed multi-model selection, and organization-level consumption controls."
+      ],
+      "tech_points_zh": [
+        "Palmyra X6 按九项企业能力接受评测，包括知识落地、工具使用、子智能体委派和长任务连贯性；WRITER 称其可围绕单一目标无人值守运行最长八小时。",
+        "配套受控研究在 22 个任务和六个模型上仅替换编排层，报告称任务 token 用量减少 38%、单任务成本降低 41%、中位耗时降低 44%，同时保持任务完成质量。",
+        "此次发布还加入自适应推理、批量与并行执行、工具错误恢复、受治理的多模型选择，以及组织级用量控制。"
+      ],
+      "why_it_matters_en": "It treats orchestration as an independently measurable lever for agent cost, latency, and reliability instead of attributing system economics only to the underlying model.",
+      "why_it_matters_zh": "它把编排层视为可独立测量和优化的智能体成本、延迟与可靠性杠杆，而不是把系统经济性完全归因于底层模型。",
+      "source": {
+        "name": "WRITER",
+        "type": "primary",
+        "url": "https://writer.com/blog/palmyra-x6-major-harness-release/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://writer.com/blog/aug-roundup-new-at-writer/",
+        "https://arxiv.org/abs/2607.06906"
+      ],
+      "confidence": "medium",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 4
+      }
+    },
+    {
       "id": "2026-08-13-autodesign-meta-harness-optimization",
       "published_at": "2026-08-13T17:59:57Z",
       "collected_at": "2026-08-14T10:03:50Z",
@@ -49,6 +100,56 @@
         "novelty": 19,
         "technical_depth": 15,
         "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-13-omniscientist-multimodal-ai-scientist",
+      "published_at": "2026-08-13T17:59:52Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "ai-scientist",
+        "multimodal",
+        "research-automation",
+        "multi-agent",
+        "open-source"
+      ],
+      "title_en": "OmniScientist conducts research directly from multimodal raw evidence",
+      "title_zh": "OmniScientist 直接从多模态原始证据开展科研",
+      "summary_en": "OmniScientist is an end-to-end AI scientist that keeps heterogeneous raw evidence available throughout ideation, experimentation, and manuscript preparation. Three autonomous agents operate inside a deterministic pipeline with executable checks for novelty, statistical validity, provenance, and numerical traceability.",
+      "summary_zh": "OmniScientist 是一个端到端 AI 科学家系统，在构思、实验和论文撰写全过程中持续使用异构原始证据。三个自主智能体运行于确定性流水线内，并通过可执行检查约束新颖性、统计有效性、来源追踪和数值可追溯性。",
+      "tech_points_en": [
+        "The system works over evidence including images, signals, audio, video, 3D structures, trajectories, tables, formulae, and graphs rather than relying only on labels or precomputed summaries.",
+        "The paper reports complete raw-data-to-manuscript runs on 36 cases spanning five discipline families and four evidence families.",
+        "Against a variant limited to precomputed scalar features, direct perception improved all seven evaluation dimensions and won 85% of paired judgments."
+      ],
+      "tech_points_zh": [
+        "系统直接处理图像、信号、音频、视频、三维结构、轨迹、表格、公式和图等证据，而非仅依赖标签或预计算摘要。",
+        "论文报告称，系统在覆盖五个学科族和四类证据的 36 个案例中均完成了从原始数据到论文的完整流程。",
+        "与只能接收预计算标量特征的版本相比，直接感知在七项评价维度上均有提升，并赢得 85% 的成对判断。"
+      ],
+      "why_it_matters_en": "It moves AI-scientist systems beyond text-centric workflow automation toward claims grounded in inspectable experimental evidence.",
+      "why_it_matters_zh": "它推动 AI 科学家从以文本为中心的流程自动化，转向以可检查实验依据支撑科研结论。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13558",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://omni-scientist.github.io/"
+      ],
+      "confidence": "medium",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 2
       }
     },
     {
@@ -100,6 +201,56 @@
         "novelty": 19,
         "technical_depth": 15,
         "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-13-quotebench-command-path-evaluation",
+      "published_at": "2026-08-13T17:57:20Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding-agent",
+        "tool-use",
+        "execution-safety",
+        "open-source"
+      ],
+      "title_en": "QuoteBench exposes command-path failures hidden by matched agent scores",
+      "title_zh": "QuoteBench 揭示匹配分数掩盖的智能体命令链路故障",
+      "summary_en": "QuoteBench separates command generation from the serialization, wrapping, and reparsing performed by a coding agent's execution interface. Its final-state evaluation shows that similar end-to-end scores can conceal large transport-induced failures that a model partly compensates for during generation.",
+      "summary_zh": "QuoteBench 将命令生成与代码智能体执行接口中的序列化、包装和重复解析分开评测。其最终状态验证表明，相近的端到端分数可能掩盖传输链路造成的大量故障，而模型在生成阶段只补偿了其中一部分。",
+      "tech_points_en": [
+        "The benchmark contains 56 one-shot Bash tasks from 14 incident-derived families and validates the resulting program state rather than matching command text.",
+        "Replaying identical model replies through one added parser reduced success by 55.4 to 73.2 percentage points across eight configurations.",
+        "Disclosing the hostile boundary recovered 30.4 to 60.7 points for six configurations but produced no recovery for two, and the deployment path changed parts of the model ordering."
+      ],
+      "tech_points_zh": [
+        "该基准包含来自 14 类真实故障模式的 56 个单轮 Bash 任务，并验证最终程序状态，而不是匹配命令文本。",
+        "把完全相同的模型回复送入额外解析器后，八种配置的成功率下降了 55.4 至 73.2 个百分点。",
+        "提前披露不利边界后，六种配置恢复了 30.4 至 60.7 个百分点，另两种没有恢复；实际部署路径还改变了部分模型排序。"
+      ],
+      "why_it_matters_en": "It shows that coding-agent evaluations must report the generation contract, tool interface, execution path, and validator instead of treating a score as an intrinsic model property.",
+      "why_it_matters_zh": "它表明代码智能体评测必须同时报告生成契约、工具接口、执行路径和验证器，不能把总分当作模型的固有属性。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13547",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://quotebench.lsamc.website/"
+      ],
+      "confidence": "medium",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 2
       }
     },
     {
@@ -201,6 +352,102 @@
         "novelty": 18,
         "technical_depth": 14,
         "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-13-vla-task-progress-probe",
+      "published_at": "2026-08-13T16:58:29Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "interpretability",
+        "runtime-monitoring",
+        "out-of-distribution",
+        "robotics"
+      ],
+      "title_en": "A linear probe decodes task progress from VLA representations",
+      "title_zh": "线性探针可从 VLA 表征中解码任务进度",
+      "summary_en": "Researchers find that normalized time remaining in a robot trajectory is linearly readable from the residual stream of the π₀.₅ vision-language-action model. The signal is already present in its pretrained PaliGemma backbone before robot-specific training and can support lightweight runtime monitoring.",
+      "summary_zh": "研究人员发现，机器人轨迹的归一化剩余时间可以从视觉—语言—动作模型 π₀.₅ 的残差流中线性读出。该信号在进行机器人专用训练之前就已存在于预训练 PaliGemma 主干中，并可用于轻量级运行时监控。",
+      "tech_points_en": [
+        "A single linear probe generalizes to unseen tasks and responds to language counterfactuals when trained across multiple prompts.",
+        "The probe works as a label-free out-of-distribution detector for stalled task progress and is competitive with more specialized methods.",
+        "The same representation did not provide meaningful policy steering, separating monitoring utility from direct control."
+      ],
+      "tech_points_zh": [
+        "单个线性探针可泛化到未见任务，并在多提示训练后对语言反事实变化作出响应。",
+        "该探针可作为检测任务进度停滞的无标签分布外检测器，表现可与更专门的方法竞争。",
+        "同一表征未能有效引导策略，说明监控价值与直接控制能力并不等同。"
+      ],
+      "why_it_matters_en": "It offers an interpretable, low-overhead signal for detecting stalled or abnormal behavior in deployed general-purpose robot policies.",
+      "why_it_matters_zh": "它为检测已部署通用机器人策略的停滞或异常行为提供了可解释、低开销的信号。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13474",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-13-unitexture-vla-adversarial-texture",
+      "published_at": "2026-08-13T16:38:57Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "adversarial-attack",
+        "safety",
+        "robotics",
+        "manipulation"
+      ],
+      "title_en": "UniTexture attacks VLA policies across tasks with one adversarial texture",
+      "title_zh": "UniTexture 用单一对抗纹理跨任务攻击 VLA 策略",
+      "summary_en": "UniTexture optimizes the surface texture of one 3D object to induce attacker-selected action deviations across multiple robot tasks. The optimization spans instructions, states, and viewpoints, exposing a shared physical-appearance vulnerability in generalist vision-language-action policies.",
+      "summary_zh": "UniTexture 优化单个三维物体的表面纹理，以便在多个机器人任务中诱导攻击者指定的动作偏移。优化过程同时覆盖指令、状态和视角，暴露了通用视觉—语言—动作策略共享的物理外观漏洞。",
+      "tech_points_en": [
+        "The attack backpropagates from policy action outputs through a differentiable renderer to shared surface-texture parameters.",
+        "Across OpenVLA and π₀.₅ manipulation evaluations, mean task success fell from 90.0% under benign conditions to 48.4% under attack.",
+        "The optimized texture also transferred across evaluation suites and models without re-optimization."
+      ],
+      "tech_points_zh": [
+        "该攻击通过可微渲染器，把策略动作输出的梯度反向传播到共享表面纹理参数。",
+        "在 OpenVLA 和 π₀.₅ 的操作评测中，平均任务成功率从正常条件下的 90.0% 降至受攻击时的 48.4%。",
+        "优化后的纹理无需重新优化，还能在不同评测套件和模型之间迁移。"
+      ],
+      "why_it_matters_en": "It demonstrates that a reusable physical object appearance can systematically compromise multiple tasks and models, raising deployment-level safety concerns for VLA-controlled robots.",
+      "why_it_matters_zh": "它证明可复用的实体物体外观能够系统性破坏多个任务和模型，对 VLA 控制机器人的实际部署安全提出警示。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13453",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 1
       }
     },
     {
@@ -349,6 +596,54 @@
       }
     },
     {
+      "id": "2026-08-13-statebridge-latent-agent-communication",
+      "published_at": "2026-08-13T14:40:59Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "latent-communication",
+        "reasoning",
+        "training-free",
+        "model-interoperability"
+      ],
+      "title_en": "StateBridge enables training-free latent communication between LLM agents",
+      "title_zh": "StateBridge 实现 LLM 智能体之间的免训练潜在通信",
+      "summary_en": "StateBridge aligns a sender model's final hidden states with a receiver model's input space through a closed-form orthogonal transformation. It avoids the trained projectors and layer-by-layer memory injection used by earlier latent-communication systems.",
+      "summary_zh": "StateBridge 通过闭式正交变换，将发送模型的末层隐状态对齐到接收模型的输入空间。它避免了以往潜在通信系统所需的专用训练投影器和逐层工作记忆注入。",
+      "tech_points_en": [
+        "Lightweight norm calibration and vocabulary anchoring make the aligned states compatible with the receiver's pretrained input distribution.",
+        "The transformed states are prepended as a continuous prefix rather than being discretized into text tokens.",
+        "Across math reasoning, code generation, and question answering with four models from two families, StateBridge was best or tied-best on 22 of 26 model-task pairs."
+      ],
+      "tech_points_zh": [
+        "轻量级范数校准和词表锚定使对齐后的状态与接收模型的预训练输入分布兼容。",
+        "变换后的状态作为连续前缀加入输入，而无需先离散化为文本 token。",
+        "在来自两个模型家族的四个模型上，覆盖数学推理、代码生成和问答的实验中，StateBridge 在 26 个模型—任务组合中的 22 个取得最好或并列最好结果。"
+      ],
+      "why_it_matters_en": "It makes higher-bandwidth communication between heterogeneous agents more portable by removing task-specific projector training.",
+      "why_it_matters_zh": "它消除了任务专用投影器训练，使异构智能体之间的高带宽通信更易迁移。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13317",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
       "id": "2026-08-13-deepseek-harness-plugin-runtime",
       "published_at": "2026-08-13T11:56:32Z",
       "collected_at": "2026-08-14T10:03:50Z",
@@ -399,6 +694,202 @@
         "novelty": 18,
         "technical_depth": 14,
         "traction": 9
+      }
+    },
+    {
+      "id": "2026-08-13-skillevo-multiturn-skill-evolution",
+      "published_at": "2026-08-13T11:49:02Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-skills",
+        "self-improvement",
+        "multi-turn",
+        "governance",
+        "evaluation"
+      ],
+      "title_en": "SkillEvo evolves agent skills from multi-turn interaction feedback",
+      "title_zh": "SkillEvo 利用多轮交互反馈持续演化智能体技能",
+      "summary_en": "SkillEvo turns multi-turn user simulation from a final evaluation into a generator of new feedback for revising agent skills. An independent governance layer actively repairs factual degradation and structural bloat instead of merely rejecting a lower-scoring revision.",
+      "summary_zh": "SkillEvo 把多轮用户模拟从终点评测改造成持续产生新反馈的机制，用于修订智能体技能。独立治理层会主动修复事实退化和结构膨胀，而不只是拒绝得分更低的版本。",
+      "tech_points_en": [
+        "Follow-up questions expose defects that remain invisible to single-turn question-answering evaluation and replenish the revision signal over successive rounds.",
+        "Governance localizes factual and structural regressions so that the system can repair them while preserving useful changes.",
+        "Across six cloud-service categories, nine production skills, and 98 skill-reference files, the paper reports gains of 23.0 points over self-reflection and 15.4 points over single-turn-QA-driven evolution."
+      ],
+      "tech_points_zh": [
+        "追问会暴露单轮问答评测无法发现的缺陷，并在连续迭代中持续补充修订信号。",
+        "治理机制定位事实与结构退化，使系统能够在保留有效改动的同时主动修复问题。",
+        "在六类云服务、九个生产技能和 98 个技能参考文件上，论文报告其相较自反思提高 23.0 分，相较单轮问答驱动演化提高 15.4 分。"
+      ],
+      "why_it_matters_en": "It frames agent skills as governed, continuously evaluated assets that can improve from the long interaction failures they cause in practice.",
+      "why_it_matters_zh": "它把智能体技能视为受治理、持续评测的资产，使其能够从实际长交互中暴露的失败持续改进。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13120",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 20,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-13-s2-hwm-event-world-model",
+      "published_at": "2026-08-13T11:29:20Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-model",
+        "long-horizon",
+        "model-based-rl",
+        "surgical-robotics"
+      ],
+      "title_en": "S2-HWM models long-horizon surgical manipulation with sparse events",
+      "title_zh": "S2-HWM 用稀疏事件建模长时程手术机器人操作",
+      "summary_en": "S2-HWM learns sparse, variable-duration event boundaries from primitive latent trajectories for long-horizon surgical manipulation. An event-level manager selects goals while a primitive-step worker executes actions until the next learned boundary.",
+      "summary_zh": "S2-HWM 从原始潜在轨迹中学习稀疏且时长可变的事件边界，用于长时程手术机器人操作。事件级管理器选择目标，逐步执行的工作器持续行动，直到下一个学习到的边界。",
+      "tech_points_en": [
+        "Event evidence schedules manager updates and segments trajectories without manually specifying task stages.",
+        "An Event Transition Model predicts the next boundary state, segment duration, and accumulated reward, extending imagination beyond primitive-step rollouts.",
+        "On a SurRoL-based PegTransfer task, S2-HWM reached 98.7% success, 22.7 percentage points above a flat GAS DreamerV3 baseline."
+      ],
+      "tech_points_zh": [
+        "事件证据负责安排管理器更新并切分轨迹，无需人工指定任务阶段。",
+        "事件转移模型预测下一边界状态、片段持续时间和累计奖励，使想象范围超越逐步回放。",
+        "在基于 SurRoL 的 PegTransfer 任务上，S2-HWM 成功率达到 98.7%，比平坦 GAS DreamerV3 基线高 22.7 个百分点。"
+      ],
+      "why_it_matters_en": "Variable-duration event abstraction can make world-model planning more effective on sparse-reward physical tasks whose meaningful changes occur irregularly.",
+      "why_it_matters_zh": "对于重要状态变化并非等间隔发生的稀疏奖励实体任务，可变时长事件抽象能够提升世界模型规划效率。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13103",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-13-h2r-bench-world-models",
+      "published_at": "2026-08-13T10:14:33Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "video-world-model",
+        "robotics",
+        "cross-embodiment",
+        "dataset"
+      ],
+      "title_en": "H2R-Bench tests human-to-robot video generation in world models",
+      "title_zh": "H2R-Bench 评测世界模型的人类到机器人视频生成",
+      "summary_en": "H2R-Bench evaluates whether video world models can transform egocentric human manipulation demonstrations into robot-centric videos under a specified embodiment. It targets the use of abundant human video as a scalable source of synthetic robot-learning experience.",
+      "summary_zh": "H2R-Bench 评测视频世界模型能否根据指定机器人形态，把第一视角人类操作示范转换为以机器人为中心的视频。它检验能否利用大量人类视频规模化生成机器人学习经验。",
+      "tech_points_en": [
+        "Each instance combines a human demonstration, target-embodiment constraints, and source-grounded annotations for goals, action events, functional contacts, and object responses.",
+        "The benchmark measures goal-state completion, action-event completion, contact transfer, embodiment correctness, and general video quality.",
+        "Across 11 video-generation models, six manipulation families, and two robot embodiments, even leading systems frequently failed on embodiment consistency, physical interaction, and task execution."
+      ],
+      "tech_points_zh": [
+        "每个实例包含人类示范、目标形态约束，以及基于源视频的任务目标、动作事件、功能接触和物体响应标注。",
+        "基准分别测量目标状态完成、动作事件完成、接触迁移、形态正确性和整体视频质量。",
+        "在 11 个视频生成模型、六类操作和两种机器人形态上，即使领先系统也经常无法保持形态一致性、物理交互和任务执行。"
+      ],
+      "why_it_matters_en": "It provides a structured reality check for using human video and generative world models to reduce the cost of collecting robot demonstrations.",
+      "why_it_matters_zh": "它为利用人类视频和生成式世界模型降低机器人示范采集成本的设想提供了结构化现实检验。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.13049",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-13-world-model-planner-objective",
+      "published_at": "2026-08-13T08:43:54Z",
+      "collected_at": "2026-08-15T08:45:14Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "latent-world-model",
+        "planning",
+        "representation-learning",
+        "model-based-rl",
+        "open-source"
+      ],
+      "title_en": "A world-model reproduction finds the planner objective is the bottleneck",
+      "title_zh": "世界模型复现实验发现规划目标才是瓶颈",
+      "summary_en": "A reproduction of LeWorldModel on TwoRoom finds that long-horizon failures can arise from the planner's objective even when the latent predictor retains the required spatial information. Squared latent distance becomes poorly aligned with reachability at long range and can reward movement away from the goal.",
+      "summary_zh": "一项在 TwoRoom 上复现 LeWorldModel 的研究发现，即使潜在预测器保留了所需空间信息，规划器目标仍可能导致长时程失败。平方潜在距离在远距离上与可达性错位，甚至可能奖励远离目标的移动。",
+      "tech_points_en": [
+        "A ridge probe recovered position from the frozen embedding at R²=0.9922, indicating that the relevant state information remained encoded.",
+        "Replacing only the planning objective, without retraining or fine-tuning the world model, raised goal success at offset 100 from 26.0% to 98.0%.",
+        "A frame-separation objective predicted geometric distance less accurately but planned better because it learned reachability around the environment's dividing wall."
+      ],
+      "tech_points_zh": [
+        "岭回归探针从冻结表征中恢复位置时达到 R²=0.9922，说明相关状态信息仍被编码。",
+        "仅替换规划目标、不重新训练或微调世界模型，就把 offset 100 的目标成功率从 26.0% 提升到 98.0%。",
+        "基于帧间隔训练的目标对几何距离预测得更不准确，却因学到如何绕过环境隔墙的可达性而规划得更好。"
+      ],
+      "why_it_matters_en": "It shows that prediction accuracy alone can misdiagnose world-model failures; evaluations must also test whether the planner's objective can exploit the learned representation.",
+      "why_it_matters_zh": "它表明仅看预测准确率可能误判世界模型失败原因；评测还必须检验规划目标能否真正利用学到的表征。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.12959",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/joyjeet-singh/tinylab"
+      ],
+      "confidence": "medium",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 1
       }
     },
     {

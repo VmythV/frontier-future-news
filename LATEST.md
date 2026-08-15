@@ -2,6 +2,44 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-14-writer-palmyra-x6-agent-harness"></a>
+## [WRITER 发布 Palmyra X6 与更高效的智能体 Harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
+
+**English:** [WRITER releases Palmyra X6 and a more efficient agent harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
+
+- **发布 / Published:** `2026-08-14T18:19:37Z`
+- **来源 / Source:** [WRITER](https://writer.com/blog/palmyra-x6-major-harness-release/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `enterprise-ai`, `cost-efficiency`, `long-horizon`, `governance`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WRITER 发布了面向企业智能体工作流、基于 GLM 5.2 后训练的 Palmyra X6，同时重构 WRITER Agent Harness 并增加用量治理功能。该公司报告称，在其内部评测中，模型与 Harness 组合使用可将平均任务成本降低 52%、速度提高 48%，质量提高 10%。
+
+WRITER released Palmyra X6, a model post-trained from GLM 5.2 for enterprise agent workflows, together with a rebuilt WRITER Agent harness and new usage-governance controls. The company reports that pairing the model and harness lowers average task cost by 52%, improves speed by 48%, and raises quality by 10% on its internal evaluations.
+
+### 技术点 / Technical points
+
+- Palmyra X6 按九项企业能力接受评测，包括知识落地、工具使用、子智能体委派和长任务连贯性；WRITER 称其可围绕单一目标无人值守运行最长八小时。
+  - Palmyra X6 is evaluated across nine enterprise capabilities including grounding, tool use, sub-agent delegation, and long-running coherence; WRITER says it can pursue one goal unattended for up to eight hours.
+- 配套受控研究在 22 个任务和六个模型上仅替换编排层，报告称任务 token 用量减少 38%、单任务成本降低 41%、中位耗时降低 44%，同时保持任务完成质量。
+  - A linked controlled study swapped only the orchestration layer across 22 tasks and six models, reporting 38% fewer tokens, 41% lower cost per task, and 44% lower median wall-clock time while maintaining task-completion quality.
+- 此次发布还加入自适应推理、批量与并行执行、工具错误恢复、受治理的多模型选择，以及组织级用量控制。
+  - The release adds adaptive reasoning, batched and parallel execution, recovery from tool errors, governed multi-model selection, and organization-level consumption controls.
+
+### 为什么重要 / Why it matters
+
+它把编排层视为可独立测量和优化的智能体成本、延迟与可靠性杠杆，而不是把系统经济性完全归因于底层模型。
+
+It treats orchestration as an independently measurable lever for agent cost, latency, and reliability instead of attributing system economics only to the underlying model.
+
+### 链接 / Links
+
+[Evidence 1](https://writer.com/blog/aug-roundup-new-at-writer/) · [Evidence 2](https://arxiv.org/abs/2607.06906)
+
+---
+
 <a id="2026-08-13-autodesign-meta-harness-optimization"></a>
 ## [AutoDesign 通过执行轨迹反馈优化智能体 Harness](https://arxiv.org/abs/2608.13560)
 
@@ -40,6 +78,44 @@ It makes the agent harness itself—tools, memory, runtime, orchestration, evalu
 
 ---
 
+<a id="2026-08-13-omniscientist-multimodal-ai-scientist"></a>
+## [OmniScientist 直接从多模态原始证据开展科研](https://arxiv.org/abs/2608.13558)
+
+**English:** [OmniScientist conducts research directly from multimodal raw evidence](https://arxiv.org/abs/2608.13558)
+
+- **发布 / Published:** `2026-08-13T17:59:52Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13558) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ai-scientist`, `multimodal`, `research-automation`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+OmniScientist 是一个端到端 AI 科学家系统，在构思、实验和论文撰写全过程中持续使用异构原始证据。三个自主智能体运行于确定性流水线内，并通过可执行检查约束新颖性、统计有效性、来源追踪和数值可追溯性。
+
+OmniScientist is an end-to-end AI scientist that keeps heterogeneous raw evidence available throughout ideation, experimentation, and manuscript preparation. Three autonomous agents operate inside a deterministic pipeline with executable checks for novelty, statistical validity, provenance, and numerical traceability.
+
+### 技术点 / Technical points
+
+- 系统直接处理图像、信号、音频、视频、三维结构、轨迹、表格、公式和图等证据，而非仅依赖标签或预计算摘要。
+  - The system works over evidence including images, signals, audio, video, 3D structures, trajectories, tables, formulae, and graphs rather than relying only on labels or precomputed summaries.
+- 论文报告称，系统在覆盖五个学科族和四类证据的 36 个案例中均完成了从原始数据到论文的完整流程。
+  - The paper reports complete raw-data-to-manuscript runs on 36 cases spanning five discipline families and four evidence families.
+- 与只能接收预计算标量特征的版本相比，直接感知在七项评价维度上均有提升，并赢得 85% 的成对判断。
+  - Against a variant limited to precomputed scalar features, direct perception improved all seven evaluation dimensions and won 85% of paired judgments.
+
+### 为什么重要 / Why it matters
+
+它推动 AI 科学家从以文本为中心的流程自动化，转向以可检查实验依据支撑科研结论。
+
+It moves AI-scientist systems beyond text-centric workflow automation toward claims grounded in inspectable experimental evidence.
+
+### 链接 / Links
+
+[Evidence 1](https://omni-scientist.github.io/)
+
+---
+
 <a id="2026-08-13-playworld-agent-player-benchmark"></a>
 ## [PlayWorld 用智能体玩家评测长时程交互世界模型](https://arxiv.org/abs/2608.13552)
 
@@ -75,6 +151,44 @@ It shifts world-model evaluation from short clips and fixed controls toward whet
 ### 链接 / Links
 
 [Evidence 1](https://kxding.github.io/project/PlayWorld/) · [Evidence 2](https://github.com/kxding/PlayWorld)
+
+---
+
+<a id="2026-08-13-quotebench-command-path-evaluation"></a>
+## [QuoteBench 揭示匹配分数掩盖的智能体命令链路故障](https://arxiv.org/abs/2608.13547)
+
+**English:** [QuoteBench exposes command-path failures hidden by matched agent scores](https://arxiv.org/abs/2608.13547)
+
+- **发布 / Published:** `2026-08-13T17:57:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13547) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `tool-use`, `execution-safety`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+QuoteBench 将命令生成与代码智能体执行接口中的序列化、包装和重复解析分开评测。其最终状态验证表明，相近的端到端分数可能掩盖传输链路造成的大量故障，而模型在生成阶段只补偿了其中一部分。
+
+QuoteBench separates command generation from the serialization, wrapping, and reparsing performed by a coding agent's execution interface. Its final-state evaluation shows that similar end-to-end scores can conceal large transport-induced failures that a model partly compensates for during generation.
+
+### 技术点 / Technical points
+
+- 该基准包含来自 14 类真实故障模式的 56 个单轮 Bash 任务，并验证最终程序状态，而不是匹配命令文本。
+  - The benchmark contains 56 one-shot Bash tasks from 14 incident-derived families and validates the resulting program state rather than matching command text.
+- 把完全相同的模型回复送入额外解析器后，八种配置的成功率下降了 55.4 至 73.2 个百分点。
+  - Replaying identical model replies through one added parser reduced success by 55.4 to 73.2 percentage points across eight configurations.
+- 提前披露不利边界后，六种配置恢复了 30.4 至 60.7 个百分点，另两种没有恢复；实际部署路径还改变了部分模型排序。
+  - Disclosing the hostile boundary recovered 30.4 to 60.7 points for six configurations but produced no recovery for two, and the deployment path changed parts of the model ordering.
+
+### 为什么重要 / Why it matters
+
+它表明代码智能体评测必须同时报告生成契约、工具接口、执行路径和验证器，不能把总分当作模型的固有属性。
+
+It shows that coding-agent evaluations must report the generation contract, tool interface, execution path, and validator instead of treating a score as an intrinsic model property.
+
+### 链接 / Links
+
+[Evidence 1](https://quotebench.lsamc.website/)
 
 ---
 
@@ -151,6 +265,74 @@ It treats causal agreement with commanded robot motion and object geometry as re
 ### 链接 / Links
 
 [Evidence 1](https://github.com/AMAP-ML/DreamX-Phi)
+
+---
+
+<a id="2026-08-13-vla-task-progress-probe"></a>
+## [线性探针可从 VLA 表征中解码任务进度](https://arxiv.org/abs/2608.13474)
+
+**English:** [A linear probe decodes task progress from VLA representations](https://arxiv.org/abs/2608.13474)
+
+- **发布 / Published:** `2026-08-13T16:58:29Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13474) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `interpretability`, `runtime-monitoring`, `out-of-distribution`, `robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+研究人员发现，机器人轨迹的归一化剩余时间可以从视觉—语言—动作模型 π₀.₅ 的残差流中线性读出。该信号在进行机器人专用训练之前就已存在于预训练 PaliGemma 主干中，并可用于轻量级运行时监控。
+
+Researchers find that normalized time remaining in a robot trajectory is linearly readable from the residual stream of the π₀.₅ vision-language-action model. The signal is already present in its pretrained PaliGemma backbone before robot-specific training and can support lightweight runtime monitoring.
+
+### 技术点 / Technical points
+
+- 单个线性探针可泛化到未见任务，并在多提示训练后对语言反事实变化作出响应。
+  - A single linear probe generalizes to unseen tasks and responds to language counterfactuals when trained across multiple prompts.
+- 该探针可作为检测任务进度停滞的无标签分布外检测器，表现可与更专门的方法竞争。
+  - The probe works as a label-free out-of-distribution detector for stalled task progress and is competitive with more specialized methods.
+- 同一表征未能有效引导策略，说明监控价值与直接控制能力并不等同。
+  - The same representation did not provide meaningful policy steering, separating monitoring utility from direct control.
+
+### 为什么重要 / Why it matters
+
+它为检测已部署通用机器人策略的停滞或异常行为提供了可解释、低开销的信号。
+
+It offers an interpretable, low-overhead signal for detecting stalled or abnormal behavior in deployed general-purpose robot policies.
+
+---
+
+<a id="2026-08-13-unitexture-vla-adversarial-texture"></a>
+## [UniTexture 用单一对抗纹理跨任务攻击 VLA 策略](https://arxiv.org/abs/2608.13453)
+
+**English:** [UniTexture attacks VLA policies across tasks with one adversarial texture](https://arxiv.org/abs/2608.13453)
+
+- **发布 / Published:** `2026-08-13T16:38:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13453) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `adversarial-attack`, `safety`, `robotics`, `manipulation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+UniTexture 优化单个三维物体的表面纹理，以便在多个机器人任务中诱导攻击者指定的动作偏移。优化过程同时覆盖指令、状态和视角，暴露了通用视觉—语言—动作策略共享的物理外观漏洞。
+
+UniTexture optimizes the surface texture of one 3D object to induce attacker-selected action deviations across multiple robot tasks. The optimization spans instructions, states, and viewpoints, exposing a shared physical-appearance vulnerability in generalist vision-language-action policies.
+
+### 技术点 / Technical points
+
+- 该攻击通过可微渲染器，把策略动作输出的梯度反向传播到共享表面纹理参数。
+  - The attack backpropagates from policy action outputs through a differentiable renderer to shared surface-texture parameters.
+- 在 OpenVLA 和 π₀.₅ 的操作评测中，平均任务成功率从正常条件下的 90.0% 降至受攻击时的 48.4%。
+  - Across OpenVLA and π₀.₅ manipulation evaluations, mean task success fell from 90.0% under benign conditions to 48.4% under attack.
+- 优化后的纹理无需重新优化，还能在不同评测套件和模型之间迁移。
+  - The optimized texture also transferred across evaluation suites and models without re-optimization.
+
+### 为什么重要 / Why it matters
+
+它证明可复用的实体物体外观能够系统性破坏多个任务和模型，对 VLA 控制机器人的实际部署安全提出警示。
+
+It demonstrates that a reusable physical object appearance can systematically compromise multiple tasks and models, raising deployment-level safety concerns for VLA-controlled robots.
 
 ---
 
@@ -256,6 +438,40 @@ Research replication supplies both a measurable training objective and the under
 
 ---
 
+<a id="2026-08-13-statebridge-latent-agent-communication"></a>
+## [StateBridge 实现 LLM 智能体之间的免训练潜在通信](https://arxiv.org/abs/2608.13317)
+
+**English:** [StateBridge enables training-free latent communication between LLM agents](https://arxiv.org/abs/2608.13317)
+
+- **发布 / Published:** `2026-08-13T14:40:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13317) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `latent-communication`, `reasoning`, `training-free`, `model-interoperability`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+StateBridge 通过闭式正交变换，将发送模型的末层隐状态对齐到接收模型的输入空间。它避免了以往潜在通信系统所需的专用训练投影器和逐层工作记忆注入。
+
+StateBridge aligns a sender model's final hidden states with a receiver model's input space through a closed-form orthogonal transformation. It avoids the trained projectors and layer-by-layer memory injection used by earlier latent-communication systems.
+
+### 技术点 / Technical points
+
+- 轻量级范数校准和词表锚定使对齐后的状态与接收模型的预训练输入分布兼容。
+  - Lightweight norm calibration and vocabulary anchoring make the aligned states compatible with the receiver's pretrained input distribution.
+- 变换后的状态作为连续前缀加入输入，而无需先离散化为文本 token。
+  - The transformed states are prepended as a continuous prefix rather than being discretized into text tokens.
+- 在来自两个模型家族的四个模型上，覆盖数学推理、代码生成和问答的实验中，StateBridge 在 26 个模型—任务组合中的 22 个取得最好或并列最好结果。
+  - Across math reasoning, code generation, and question answering with four models from two families, StateBridge was best or tied-best on 22 of 26 model-task pairs.
+
+### 为什么重要 / Why it matters
+
+它消除了任务专用投影器训练，使异构智能体之间的高带宽通信更易迁移。
+
+It makes higher-bandwidth communication between heterogeneous agents more portable by removing task-specific projector training.
+
+---
+
 <a id="2026-08-13-deepseek-harness-plugin-runtime"></a>
 ## [DeepSeek 开源“万物皆插件”的智能体 Harness](https://github.com/deepseek-ai/deepseek-harness)
 
@@ -292,6 +508,146 @@ It provides an unusually complete and inspectable agent runtime from a major mod
 
 [Evidence 1](https://www.deepseek.com/harness/en/)
 [Discussion 1](https://news.ycombinator.com/item?id=49296046) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1vnau0y/github_deepseekaideepseekharness/)
+
+---
+
+<a id="2026-08-13-skillevo-multiturn-skill-evolution"></a>
+## [SkillEvo 利用多轮交互反馈持续演化智能体技能](https://arxiv.org/abs/2608.13120)
+
+**English:** [SkillEvo evolves agent skills from multi-turn interaction feedback](https://arxiv.org/abs/2608.13120)
+
+- **发布 / Published:** `2026-08-13T11:49:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13120) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `self-improvement`, `multi-turn`, `governance`, `evaluation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+SkillEvo 把多轮用户模拟从终点评测改造成持续产生新反馈的机制，用于修订智能体技能。独立治理层会主动修复事实退化和结构膨胀，而不只是拒绝得分更低的版本。
+
+SkillEvo turns multi-turn user simulation from a final evaluation into a generator of new feedback for revising agent skills. An independent governance layer actively repairs factual degradation and structural bloat instead of merely rejecting a lower-scoring revision.
+
+### 技术点 / Technical points
+
+- 追问会暴露单轮问答评测无法发现的缺陷，并在连续迭代中持续补充修订信号。
+  - Follow-up questions expose defects that remain invisible to single-turn question-answering evaluation and replenish the revision signal over successive rounds.
+- 治理机制定位事实与结构退化，使系统能够在保留有效改动的同时主动修复问题。
+  - Governance localizes factual and structural regressions so that the system can repair them while preserving useful changes.
+- 在六类云服务、九个生产技能和 98 个技能参考文件上，论文报告其相较自反思提高 23.0 分，相较单轮问答驱动演化提高 15.4 分。
+  - Across six cloud-service categories, nine production skills, and 98 skill-reference files, the paper reports gains of 23.0 points over self-reflection and 15.4 points over single-turn-QA-driven evolution.
+
+### 为什么重要 / Why it matters
+
+它把智能体技能视为受治理、持续评测的资产，使其能够从实际长交互中暴露的失败持续改进。
+
+It frames agent skills as governed, continuously evaluated assets that can improve from the long interaction failures they cause in practice.
+
+---
+
+<a id="2026-08-13-s2-hwm-event-world-model"></a>
+## [S2-HWM 用稀疏事件建模长时程手术机器人操作](https://arxiv.org/abs/2608.13103)
+
+**English:** [S2-HWM models long-horizon surgical manipulation with sparse events](https://arxiv.org/abs/2608.13103)
+
+- **发布 / Published:** `2026-08-13T11:29:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13103) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `long-horizon`, `model-based-rl`, `surgical-robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+S2-HWM 从原始潜在轨迹中学习稀疏且时长可变的事件边界，用于长时程手术机器人操作。事件级管理器选择目标，逐步执行的工作器持续行动，直到下一个学习到的边界。
+
+S2-HWM learns sparse, variable-duration event boundaries from primitive latent trajectories for long-horizon surgical manipulation. An event-level manager selects goals while a primitive-step worker executes actions until the next learned boundary.
+
+### 技术点 / Technical points
+
+- 事件证据负责安排管理器更新并切分轨迹，无需人工指定任务阶段。
+  - Event evidence schedules manager updates and segments trajectories without manually specifying task stages.
+- 事件转移模型预测下一边界状态、片段持续时间和累计奖励，使想象范围超越逐步回放。
+  - An Event Transition Model predicts the next boundary state, segment duration, and accumulated reward, extending imagination beyond primitive-step rollouts.
+- 在基于 SurRoL 的 PegTransfer 任务上，S2-HWM 成功率达到 98.7%，比平坦 GAS DreamerV3 基线高 22.7 个百分点。
+  - On a SurRoL-based PegTransfer task, S2-HWM reached 98.7% success, 22.7 percentage points above a flat GAS DreamerV3 baseline.
+
+### 为什么重要 / Why it matters
+
+对于重要状态变化并非等间隔发生的稀疏奖励实体任务，可变时长事件抽象能够提升世界模型规划效率。
+
+Variable-duration event abstraction can make world-model planning more effective on sparse-reward physical tasks whose meaningful changes occur irregularly.
+
+---
+
+<a id="2026-08-13-h2r-bench-world-models"></a>
+## [H2R-Bench 评测世界模型的人类到机器人视频生成](https://arxiv.org/abs/2608.13049)
+
+**English:** [H2R-Bench tests human-to-robot video generation in world models](https://arxiv.org/abs/2608.13049)
+
+- **发布 / Published:** `2026-08-13T10:14:33Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13049) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `video-world-model`, `robotics`, `cross-embodiment`, `dataset`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+H2R-Bench 评测视频世界模型能否根据指定机器人形态，把第一视角人类操作示范转换为以机器人为中心的视频。它检验能否利用大量人类视频规模化生成机器人学习经验。
+
+H2R-Bench evaluates whether video world models can transform egocentric human manipulation demonstrations into robot-centric videos under a specified embodiment. It targets the use of abundant human video as a scalable source of synthetic robot-learning experience.
+
+### 技术点 / Technical points
+
+- 每个实例包含人类示范、目标形态约束，以及基于源视频的任务目标、动作事件、功能接触和物体响应标注。
+  - Each instance combines a human demonstration, target-embodiment constraints, and source-grounded annotations for goals, action events, functional contacts, and object responses.
+- 基准分别测量目标状态完成、动作事件完成、接触迁移、形态正确性和整体视频质量。
+  - The benchmark measures goal-state completion, action-event completion, contact transfer, embodiment correctness, and general video quality.
+- 在 11 个视频生成模型、六类操作和两种机器人形态上，即使领先系统也经常无法保持形态一致性、物理交互和任务执行。
+  - Across 11 video-generation models, six manipulation families, and two robot embodiments, even leading systems frequently failed on embodiment consistency, physical interaction, and task execution.
+
+### 为什么重要 / Why it matters
+
+它为利用人类视频和生成式世界模型降低机器人示范采集成本的设想提供了结构化现实检验。
+
+It provides a structured reality check for using human video and generative world models to reduce the cost of collecting robot demonstrations.
+
+---
+
+<a id="2026-08-13-world-model-planner-objective"></a>
+## [世界模型复现实验发现规划目标才是瓶颈](https://arxiv.org/abs/2608.12959)
+
+**English:** [A world-model reproduction finds the planner objective is the bottleneck](https://arxiv.org/abs/2608.12959)
+
+- **发布 / Published:** `2026-08-13T08:43:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12959) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-world-model`, `planning`, `representation-learning`, `model-based-rl`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项在 TwoRoom 上复现 LeWorldModel 的研究发现，即使潜在预测器保留了所需空间信息，规划器目标仍可能导致长时程失败。平方潜在距离在远距离上与可达性错位，甚至可能奖励远离目标的移动。
+
+A reproduction of LeWorldModel on TwoRoom finds that long-horizon failures can arise from the planner's objective even when the latent predictor retains the required spatial information. Squared latent distance becomes poorly aligned with reachability at long range and can reward movement away from the goal.
+
+### 技术点 / Technical points
+
+- 岭回归探针从冻结表征中恢复位置时达到 R²=0.9922，说明相关状态信息仍被编码。
+  - A ridge probe recovered position from the frozen embedding at R²=0.9922, indicating that the relevant state information remained encoded.
+- 仅替换规划目标、不重新训练或微调世界模型，就把 offset 100 的目标成功率从 26.0% 提升到 98.0%。
+  - Replacing only the planning objective, without retraining or fine-tuning the world model, raised goal success at offset 100 from 26.0% to 98.0%.
+- 基于帧间隔训练的目标对几何距离预测得更不准确，却因学到如何绕过环境隔墙的可达性而规划得更好。
+  - A frame-separation objective predicted geometric distance less accurately but planned better because it learned reachability around the environment's dividing wall.
+
+### 为什么重要 / Why it matters
+
+它表明仅看预测准确率可能误判世界模型失败原因；评测还必须检验规划目标能否真正利用学到的表征。
+
+It shows that prediction accuracy alone can misdiagnose world-model failures; evaluations must also test whether the planner's objective can exploit the learned representation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/joyjeet-singh/tinylab)
 
 ---
 
@@ -364,355 +720,3 @@ A differential study attributes functional failures and cost regressions to indi
 这些结果支持按需加载技能、开展差分回归测试并设置明确成本预算，而不是假定每个看似相关的指令包都会带来收益。
 
 The results support selective skill loading, differential regression testing, and explicit cost budgets instead of assuming that every relevant-looking instruction package is beneficial.
-
----
-
-<a id="2026-08-11-surgical-wam-video-pretraining"></a>
-## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
-
-**English:** [Surgical WAM turns action-free video into surgical robot control priors](https://arxiv.org/abs/2608.11204)
-
-- **发布 / Published:** `2026-08-11T17:59:13Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11204) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `surgical-robotics`, `video-pretraining`, `bimanual`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-Surgical WAM 先从无动作标注的内窥镜视频中学习手术视觉动态，再使用固定规模的动作标注示范微调闭环控制器。该统一生成模型同时预测未来观测与可执行的手术机器人动作片段。
-
-Surgical WAM first learns surgical visual dynamics from action-free endoscopic video, then fine-tunes a closed-loop controller with a fixed budget of action-labeled demonstrations. The unified generative model predicts both future observations and executable surgical robot action chunks.
-
-### 技术点 / Technical points
-
-- 该模型基于 Cosmos Policy 构建，把从相对充足的内窥镜视频中学到的动态知识迁移到动作生成。
-  - The model is built on Cosmos Policy and transfers dynamics learned from comparatively abundant endoscopic video into action generation.
-- 部署时采用滚动时域控制，每次只执行预测动作片段的短前缀，再根据新观测重新规划。
-  - At deployment it uses receding-horizon control, executing a short prefix of each predicted action chunk before replanning from the new observation.
-- 在四项仿真手术任务中，视频预训练将平均成功率从 63.5% 提升至 77.8%，并使 PegTransfer 提高 20 个百分点。
-  - Across four simulated surgical tasks, video pretraining raised average success from 63.5 percent to 77.8 percent and improved PegTransfer by 20 percentage points.
-
-### 为什么重要 / Why it matters
-
-它提供了一条从普通视频提取可复用控制先验、减少昂贵遥操作手术示范数据的路径，但目前报告的评测仍限于仿真环境。
-
-It offers a route to reducing expensive teleoperated surgical demonstrations by extracting reusable control priors from ordinary video, although the reported evaluation remains simulated.
-
----
-
-<a id="2026-08-11-grothendieck-ai-research"></a>
-## [长时程 AI 协助收紧 Grothendieck 常数的上下界](https://arxiv.org/abs/2608.11195)
-
-**English:** [Long-horizon AI helps tighten both bounds on the Grothendieck constant](https://arxiv.org/abs/2608.11195)
-
-- **发布 / Published:** `2026-08-11T17:53:48Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11195) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `research-agent`, `mathematics`, `long-horizon`, `human-ai-collaboration`, `reasoning`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-研究者报告称，一套长时程 AI 研究系统提出的思路被用于改进 Grothendieck 常数的已知上下界。论文将这一成果作为人机数学协作案例，并说明专家如何评估和发展系统提出的想法。
-
-Researchers report that a long-horizon AI research system contributed insights used to improve both known bounds on the Grothendieck constant. The paper presents the result as a case study in human-AI mathematical collaboration and describes how experts evaluated and developed the system's ideas.
-
-### 技术点 / Technical points
-
-- 论文报告的新区间为 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4。
-  - The reported interval is 6π/11 ≤ K_G ≤ π/(2 log(1+√2)) − 10^-4.
-- 作者称 AI 系统提出了领域专家认为具有新意的见解，而人类负责验证并推进数学推导。
-  - The authors say the AI system arrived at insights that domain experts regarded as novel, while humans supplied validation and mathematical development.
-- 该案例记录了长时程 AI 用于开放式数学研究时的实际优势、弱点和有效工作条件。
-  - The case study documents practical strengths, weaknesses, and working conditions for using long-horizon AI in open-ended mathematics research.
-
-### 为什么重要 / Why it matters
-
-这是 AI 研究代理参与开放数学问题进展的罕见具体证据，但相关主张目前仍主要建立在作者预印本及其专家评审流程之上。
-
-It is unusually concrete evidence of an AI research agent contributing to progress on an open mathematical problem, though the claims currently rest on the authors' preprint and expert process.
-
----
-
-<a id="2026-08-11-viscore-world-model-planning"></a>
-## [VIScore 将潜世界模型质量与规划成功率连接起来](https://arxiv.org/abs/2608.11174)
-
-**English:** [VIScore connects latent world-model quality to planning success](https://arxiv.org/abs/2608.11174)
-
-- **发布 / Published:** `2026-08-11T17:34:10Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11174) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `world-model`, `planning`, `evaluation`, `latent-dynamics`, `benchmark`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-VIScore 跨编码器、预测器和搜索规划器评估与规划相关的世界模型质量，而不再只测量编码后的潜表示。它的三个组成部分关注预测状态是否可达、是否具有影响力，以及规划搜索是否产生幻觉。
-
-VIScore evaluates planning-relevant world-model quality across the encoder, predictor, and search planner rather than measuring the encoded latent alone. Its three components target whether predicted states are reachable and influential and whether planning search hallucinates.
-
-### 技术点 / Technical points
-
-- 真实性—影响力—清醒度评分覆盖编码特征、预测器容量与可达性，以及搜索规划器幻觉。
-  - The Veracity-Influence-Sobriety score covers the encoded feature, predictor capacity and reachability, and search-planner hallucination.
-- 研究比较了目标同为各向同性高斯分布的 SIGReg 与 VISReg，并发现只有控制更灵活的 VISReg 改善了域外规划。
-  - The study contrasts SIGReg and VISReg despite their shared isotropic-Gaussian target and finds that only the more controllable VISReg improves out-of-domain planning.
-- 在作者的评测中，VIScore 对已见和未见模型及数据集的跨任务成功率均达到 0.75 以上的 Spearman 相关性。
-  - VIScore achieved Spearman correlations above 0.75 with cross-task success across both seen and unseen models and datasets in the authors' evaluation.
-
-### 为什么重要 / Why it matters
-
-用于决策的世界模型需要与规划结果挂钩的诊断方式，而不能只依赖外观良好或统计规整的潜表示。
-
-World models used for decisions need diagnostics tied to planning outcomes, not only visually tidy or statistically regular latent representations.
-
----
-
-<a id="2026-08-11-catastrophic-remembering-agent-instructions"></a>
-## [“灾难性记忆”解释编码代理指令为何持续膨胀](https://arxiv.org/abs/2608.11095)
-
-**English:** [Catastrophic remembering explains why coding-agent instructions keep growing](https://arxiv.org/abs/2608.11095)
-
-- **发布 / Published:** `2026-08-11T16:00:55Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11095) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `context-management`, `prompt-engineering`, `developer-tools`, `evaluation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-一项针对编码代理指令文件的研究提出“灾难性记忆”：添加规则成本很低，但当规则缘由丢失后，安全删除它会变得困难。作者认为，保留指令存在理由的注释能够阻止提示词只增不减。
-
-A study of coding-agent instruction files identifies catastrophic remembering: adding a rule is cheap, but deleting it safely becomes difficult after its rationale is lost. The authors argue that comments preserving why an instruction exists can stop append-only prompt growth.
-
-### 技术点 / Technical points
-
-- 实证分析覆盖 1,867 个仓库中的 247,694 条指令生命周期，并报告代理提示词在生命周期内增长了 226%。
-  - The empirical analysis covers 247,694 instruction lifetimes in 1,867 repositories and reports that agentic prompts grew by 226 percent over their lifetime.
-- 指令越旧，被删除的可能性越低，这与维护者逐渐失去判断删除是否安全所需证据的现象一致。
-  - Older instructions became progressively less likely to be deleted, consistent with maintainers losing the evidence needed to judge whether removal is safe.
-- 在受控可验证环境中，记录潜在理由的注释消除了 99.3% 的冗余指令，并使 WildIFEval 指令遵循表现最多提升 23.1%。
-  - Comments encoding latent rationale removed 99.3 percent of excess instructions in controlled verifiable worlds and improved WildIFEval instruction following by up to 23.1 percent.
-
-### 为什么重要 / Why it matters
-
-智能体配置可能需要类似代码的来源记录与维护实践，才能安全移除过时指令，避免运行提示永久演变成只追加日志。
-
-Agent configuration may need code-like provenance and maintenance practices so obsolete guidance can be removed without turning operational prompts into permanent append-only logs.
-
----
-
-<a id="2026-08-11-vibelifebench-persistent-life-agents"></a>
-## [VibeLifeBench 测试跨越模拟数周的持续型智能体](https://arxiv.org/abs/2608.10875)
-
-**English:** [VibeLifeBench tests persistent agents across simulated weeks](https://arxiv.org/abs/2608.10875)
-
-- **发布 / Published:** `2026-08-11T12:52:38Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10875) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `long-horizon`, `personal-agent`, `tool-use`, `evaluation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-VibeLifeBench 评估个人智能体能否在模拟世界跨越数周持续变化时保持主动性与一致性。任务要求智能体发现未被通知的事件、判断何时行动或询问、维持隐含约束，并留下可验证的服务状态。
-
-VibeLifeBench evaluates whether personal agents remain proactive and consistent while a simulated world changes over multiple weeks. Tasks require agents to discover silent events, choose when to act or ask, preserve implicit constraints, and leave verifiable service state behind.
-
-### 技术点 / Technical points
-
-- 论文描述了覆盖十个日常生活领域的 200 项长时程任务，运行于包含 22 个模拟服务的世界中。
-  - The paper describes 200 long-horizon tasks across ten everyday-life domains in a simulated world of 22 mock services.
-- 细粒度加权检查直接读取最终状态、行动时机和约束遵循情况，而不是只对智能体最终文本评分。
-  - Fine-grained weighted checks inspect end state, action timing, and constraint adherence rather than grading only the agent's final prose.
-- 当前公开的仅任务版本包含 20 项任务和 1,247 个原子检查，运行时与服务实现需另行提供。
-  - The current public task-only release contains 20 tasks and 1,247 atomic checks and requires compatible runtime and service implementations supplied separately.
-
-### 为什么重要 / Why it matters
-
-它覆盖短时提示驱动基准所忽略的主动性与持续性，但论文的 200 项任务与公开的 20 项子集之间仍有差距，目前限制了完整复现。
-
-It targets proactivity and persistence that short prompt-driven benchmarks miss, while the gap between the 200-task paper and the 20-task public subset limits full reproduction today.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/datasets/EvolventAI/Vibelifebench)
-
----
-
-<a id="2026-08-11-flex-pi-multistream-wam"></a>
-## [Flex-π 在统一世界—动作模型中融合 RGB、几何、语义与动作](https://arxiv.org/abs/2608.10860)
-
-**English:** [Flex-π unifies RGB, geometry, semantics, and actions in one world-action model](https://arxiv.org/abs/2608.10860)
-
-- **发布 / Published:** `2026-08-11T12:33:51Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10860) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `vla`, `bimanual`, `multimodal`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
-
-### 摘要 / Summary
-
-Flex-π 是一个 60 亿参数的世界—动作模型，可联合去噪动作、RGB、三维点图和对象级语义流。同一个检查点可以使用不同流组合运行，从快速纯动作模式扩展到完整联合生成。
-
-Flex-π is a 6-billion-parameter world-action model that jointly denoises actions with RGB, 3D pointmaps, and object-centric semantic streams. One checkpoint can run with different subsets of those streams, ranging from a fast action-only mode to full joint generation.
-
-### 技术点 / Technical points
-
-- 冻结的视频生成 VAE 同时编码 RGB 和三维点图，无需点图专用预训练或额外传感器。
-  - A frozen video-generation VAE encodes both RGB and 3D pointmaps without pointmap-specific pretraining or additional sensors.
-- Mixture-of-Transformers 骨干联合去噪所有数据流，而逐流丢弃和跨模态强制机制提供推理时算力弹性。
-  - A Mixture-of-Transformers backbone jointly denoises all streams, while per-stream dropout and cross-modality forcing provide inference-time compute flexibility.
-- 作者报告其在分布内外的精细真实双臂任务上达到强基线的二至七倍表现，同时运行速度快于 π0.5。
-  - The authors report performance two to seven times that of strong baselines on precise real-world bimanual tasks in and out of distribution, while running faster than π0.5.
-
-### 为什么重要 / Why it matters
-
-它让更丰富的空间监督适配不同部署预算，而无需为每种传感与计算配置分别训练机器人策略。
-
-It makes richer spatial supervision compatible with variable deployment budgets instead of requiring separately trained robot policies for each sensing and compute configuration.
-
-### 链接 / Links
-
-[Evidence 1](https://flex-pi.github.io/)
-
----
-
-<a id="2026-08-11-redagentbench-executable-red-teaming"></a>
-## [REDAgentBench 通过可执行状态验证智能体违规](https://arxiv.org/abs/2608.10669)
-
-**English:** [REDAgentBench verifies agent violations through executable state](https://arxiv.org/abs/2608.10669)
-
-- **发布 / Published:** `2026-08-11T08:48:54Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10669) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `red-teaming`, `safety`, `tool-use`, `agent-evaluation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-REDAgentBench 根据明确安全约束自动生成攻击，在隔离的服务沙箱中执行，并通过服务回执和最终状态变化验证有害效果。这样可以把真实策略违规与不完整文本轨迹或评测可见性造成的假象区分开来。
-
-REDAgentBench autonomously derives attacks from explicit safety constraints, runs them in isolated service sandboxes, and verifies harmful effects from receipts and final-state changes. This separates actual policy violations from artifacts of incomplete text traces or evaluator visibility.
-
-### 技术点 / Technical points
-
-- 该基准包含横跨五类服务界面的 1,661 个可执行案例，并在三种智能体框架下评测六个模型。
-  - The benchmark contains 1,661 executable cases across five service surfaces and evaluates six models under three agent harnesses.
-- 宏平均攻击成功率为 65.69%，报告结果会随框架、证据视图以及是否披露评测上下文而变化。
-  - Its macro-average attack success rate was 65.69 percent, with reported results changing according to harness, evidence view, and disclosure of evaluation context.
-- 在匹配重放中，无训练策略提醒将确认违规降低了 70 多个百分点。
-  - A training-free policy reminder reduced confirmed violations by more than 70 percentage points in matched replay.
-
-### 为什么重要 / Why it matters
-
-可执行证据能够区分真实发生的有害动作与仅在文本上显得危险的输出，也能揭示被不完整观测或裁决所掩盖的违规。
-
-Executable evidence can distinguish harmful actions that truly occurred from unsafe-looking text and can expose violations hidden by incomplete observation or adjudication.
-
----
-
-<a id="2026-08-11-dura-vla-robot-attacks"></a>
-## [DURA 为 VLA 机器人生成自然外观的对抗贴片](https://arxiv.org/abs/2608.10393)
-
-**English:** [DURA creates natural-looking adversarial patches against VLA robots](https://arxiv.org/abs/2608.10393)
-
-- **发布 / Published:** `2026-08-11T02:41:08Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10393) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `adversarial-attack`, `safety`, `diffusion`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-DURA 是一种基于扩散模型的无约束攻击，可在生成自然外观贴片的同时，将视觉—语言—动作模型引向攻击者指定的机器人动作。它面向实体操作系统，不再只依赖显眼的像素空间扰动。
-
-DURA is a diffusion-based unrestricted attack that creates visually natural patches while steering a vision-language-action model toward attacker-selected robot actions. It targets physical manipulation systems without relying only on conspicuous pixel-space perturbations.
-
-### 技术点 / Technical points
-
-- 该攻击沿预训练扩散模型的潜轨迹优化，以保持合理、自然的视觉外观。
-  - The attack optimizes along the latent trajectory of a pretrained diffusion model to preserve plausible visual appearance.
-- 它既支持白盒访问，也支持只需观察受害模型预测动作的黑盒设置。
-  - It supports both white-box access and a black-box setting that requires only the victim model's predicted actions.
-- 作者报告 DURA 在仿真与实体机器人实验中均优于既有攻击方法。
-  - The authors report that DURA outperforms prior attacks in simulation and on physical robots.
-
-### 为什么重要 / Why it matters
-
-实体智能体安全不能假设语义上普通的物体或装饰必然是机器人策略的无害输入。
-
-Physical-agent safety cannot assume that semantically ordinary objects or decorations are harmless inputs to a robot policy.
-
----
-
-<a id="2026-08-10-fact-failure-aware-wam"></a>
-## [FACT 让世界—动作模型学习失败动作的后果](https://arxiv.org/abs/2608.10232)
-
-**English:** [FACT teaches world-action models what failed actions cause](https://arxiv.org/abs/2608.10232)
-
-- **发布 / Published:** `2026-08-10T21:10:46Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10232) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `failure-recovery`, `bimanual`, `world-model`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-FACT 根据实际执行的动作预测未来视频与任务进度，以缓解世界—动作模型训练中的成功偏差。失败轨迹不再被丢弃，而是成为学习动作后果的有效监督。
-
-FACT addresses success bias in world-action-model training by predicting future video and task progress conditioned on the action actually executed. Failed rollouts become valid supervision for learning action consequences instead of being discarded.
-
-### 技术点 / Technical points
-
-- 动作条件接口把实际执行动作与其视觉后果及估计任务进度直接关联起来。
-  - The action-conditioned interface links an executed action directly to its visual consequence and estimated task progress.
-- 具备失败感知能力的进度预测器可在推理时选择性地为采样动作候选排序。
-  - A failure-aware progress predictor can optionally rank sampled action candidates during inference.
-- 仿真和真实双臂操作实验报告其优于多种基线，并能从更多失败数据中受益，同时减少错误动作后的成功偏置幻觉。
-  - Experiments in simulation and real-world bimanual manipulation report improvements over multiple baselines, gains from additional failure data, and less success-biased hallucination after bad actions.
-
-### 为什么重要 / Why it matters
-
-只用成功示范训练的规划器可能在错误动作后幻想不现实的有利未来；FACT 直接训练模型表征这些失败后果。
-
-A planner trained only on successful demonstrations can imagine implausibly favorable futures after bad actions; FACT directly trains the model to represent those failures.
-
-### 链接 / Links
-
-[Evidence 1](https://fact-wam.github.io/)
-
----
-
-<a id="2026-08-10-linkedin-self-evolving-support-agent"></a>
-## [LinkedIn 报告生产环境中的自进化客服智能体](https://arxiv.org/abs/2608.10224)
-
-**English:** [LinkedIn reports a self-evolving support agent in production](https://arxiv.org/abs/2608.10224)
-
-- **发布 / Published:** `2026-08-10T20:51:18Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.10224) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `production`, `self-evolution`, `customer-support`, `retrieval`, `evaluation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-LinkedIn 描述了一套生产环境客服智能体系统，将检索增强生成、进化式提示优化、版本化评测和运行护栏组合起来。提示词、检索与评测形成持续改进闭环，无需重新训练基础模型。
-
-LinkedIn describes a production support-agent system that combines retrieval-augmented generation, evolutionary prompt optimization, versioned evaluation, and operational guardrails. Prompts, retrieval, and evaluation form a continuous improvement loop without retraining the foundation model.
-
-### 技术点 / Technical points
-
-- 模块化工作流在运行控制下对提示词、检索行为和面向生产的评测进行版本管理。
-  - The modular workflow versions prompts, retrieval behavior, and production-aligned evaluation under operational controls.
-- 离线仿真与消融实验报告其相较普通 RAG 和基线代理具有更高的回答完整性和更少的幻觉。
-  - Offline simulations and ablations report better completeness and fewer hallucinations than vanilla RAG and baseline agents.
-- 两周随机生产测试报告：问答自助率提高 9.0 个百分点、取消业务自助率提高 4.8 个百分点、路由准确率提高 30.6 个百分点。
-  - A two-week randomized production test reported gains of 9.0 percentage points in QA self-service, 4.8 points in cancellation self-service, and 30.6 points in routing accuracy.
-
-### 为什么重要 / Why it matters
-
-它提供了少见的生产证据，将智能体自我改进与可测量用户结果及受控运行流程相连接。
-
-It provides uncommon production evidence connecting agent self-improvement to measurable user outcomes and a guarded operational process.

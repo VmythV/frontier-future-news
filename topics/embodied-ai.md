@@ -40,6 +40,74 @@ It treats causal agreement with commanded robot motion and object geometry as re
 
 ---
 
+<a id="2026-08-13-vla-task-progress-probe"></a>
+## [线性探针可从 VLA 表征中解码任务进度](https://arxiv.org/abs/2608.13474)
+
+**English:** [A linear probe decodes task progress from VLA representations](https://arxiv.org/abs/2608.13474)
+
+- **发布 / Published:** `2026-08-13T16:58:29Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13474) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `interpretability`, `runtime-monitoring`, `out-of-distribution`, `robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+研究人员发现，机器人轨迹的归一化剩余时间可以从视觉—语言—动作模型 π₀.₅ 的残差流中线性读出。该信号在进行机器人专用训练之前就已存在于预训练 PaliGemma 主干中，并可用于轻量级运行时监控。
+
+Researchers find that normalized time remaining in a robot trajectory is linearly readable from the residual stream of the π₀.₅ vision-language-action model. The signal is already present in its pretrained PaliGemma backbone before robot-specific training and can support lightweight runtime monitoring.
+
+### 技术点 / Technical points
+
+- 单个线性探针可泛化到未见任务，并在多提示训练后对语言反事实变化作出响应。
+  - A single linear probe generalizes to unseen tasks and responds to language counterfactuals when trained across multiple prompts.
+- 该探针可作为检测任务进度停滞的无标签分布外检测器，表现可与更专门的方法竞争。
+  - The probe works as a label-free out-of-distribution detector for stalled task progress and is competitive with more specialized methods.
+- 同一表征未能有效引导策略，说明监控价值与直接控制能力并不等同。
+  - The same representation did not provide meaningful policy steering, separating monitoring utility from direct control.
+
+### 为什么重要 / Why it matters
+
+它为检测已部署通用机器人策略的停滞或异常行为提供了可解释、低开销的信号。
+
+It offers an interpretable, low-overhead signal for detecting stalled or abnormal behavior in deployed general-purpose robot policies.
+
+---
+
+<a id="2026-08-13-unitexture-vla-adversarial-texture"></a>
+## [UniTexture 用单一对抗纹理跨任务攻击 VLA 策略](https://arxiv.org/abs/2608.13453)
+
+**English:** [UniTexture attacks VLA policies across tasks with one adversarial texture](https://arxiv.org/abs/2608.13453)
+
+- **发布 / Published:** `2026-08-13T16:38:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13453) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `adversarial-attack`, `safety`, `robotics`, `manipulation`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+UniTexture 优化单个三维物体的表面纹理，以便在多个机器人任务中诱导攻击者指定的动作偏移。优化过程同时覆盖指令、状态和视角，暴露了通用视觉—语言—动作策略共享的物理外观漏洞。
+
+UniTexture optimizes the surface texture of one 3D object to induce attacker-selected action deviations across multiple robot tasks. The optimization spans instructions, states, and viewpoints, exposing a shared physical-appearance vulnerability in generalist vision-language-action policies.
+
+### 技术点 / Technical points
+
+- 该攻击通过可微渲染器，把策略动作输出的梯度反向传播到共享表面纹理参数。
+  - The attack backpropagates from policy action outputs through a differentiable renderer to shared surface-texture parameters.
+- 在 OpenVLA 和 π₀.₅ 的操作评测中，平均任务成功率从正常条件下的 90.0% 降至受攻击时的 48.4%。
+  - Across OpenVLA and π₀.₅ manipulation evaluations, mean task success fell from 90.0% under benign conditions to 48.4% under attack.
+- 优化后的纹理无需重新优化，还能在不同评测套件和模型之间迁移。
+  - The optimized texture also transferred across evaluation suites and models without re-optimization.
+
+### 为什么重要 / Why it matters
+
+它证明可复用的实体物体外观能够系统性破坏多个任务和模型，对 VLA 控制机器人的实际部署安全提出警示。
+
+It demonstrates that a reusable physical object appearance can systematically compromise multiple tasks and models, raising deployment-level safety concerns for VLA-controlled robots.
+
+---
+
 <a id="2026-08-13-contactguard-precontact-world-model"></a>
 ## [ContactGuard 在接触前预测机器人操作失败](https://arxiv.org/abs/2608.13438)
 
@@ -71,6 +139,74 @@ ContactGuard monitors chunked visuomotor policies before a robot commits to phys
 它展示了学习式世界模型可以充当独立安全层，在不可逆的物理接触发生前预判富接触操作失败。
 
 It demonstrates a learned world model serving as a separate safety layer that can anticipate contact-rich failures before irreversible physical interaction occurs.
+
+---
+
+<a id="2026-08-13-s2-hwm-event-world-model"></a>
+## [S2-HWM 用稀疏事件建模长时程手术机器人操作](https://arxiv.org/abs/2608.13103)
+
+**English:** [S2-HWM models long-horizon surgical manipulation with sparse events](https://arxiv.org/abs/2608.13103)
+
+- **发布 / Published:** `2026-08-13T11:29:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13103) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `long-horizon`, `model-based-rl`, `surgical-robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+S2-HWM 从原始潜在轨迹中学习稀疏且时长可变的事件边界，用于长时程手术机器人操作。事件级管理器选择目标，逐步执行的工作器持续行动，直到下一个学习到的边界。
+
+S2-HWM learns sparse, variable-duration event boundaries from primitive latent trajectories for long-horizon surgical manipulation. An event-level manager selects goals while a primitive-step worker executes actions until the next learned boundary.
+
+### 技术点 / Technical points
+
+- 事件证据负责安排管理器更新并切分轨迹，无需人工指定任务阶段。
+  - Event evidence schedules manager updates and segments trajectories without manually specifying task stages.
+- 事件转移模型预测下一边界状态、片段持续时间和累计奖励，使想象范围超越逐步回放。
+  - An Event Transition Model predicts the next boundary state, segment duration, and accumulated reward, extending imagination beyond primitive-step rollouts.
+- 在基于 SurRoL 的 PegTransfer 任务上，S2-HWM 成功率达到 98.7%，比平坦 GAS DreamerV3 基线高 22.7 个百分点。
+  - On a SurRoL-based PegTransfer task, S2-HWM reached 98.7% success, 22.7 percentage points above a flat GAS DreamerV3 baseline.
+
+### 为什么重要 / Why it matters
+
+对于重要状态变化并非等间隔发生的稀疏奖励实体任务，可变时长事件抽象能够提升世界模型规划效率。
+
+Variable-duration event abstraction can make world-model planning more effective on sparse-reward physical tasks whose meaningful changes occur irregularly.
+
+---
+
+<a id="2026-08-13-h2r-bench-world-models"></a>
+## [H2R-Bench 评测世界模型的人类到机器人视频生成](https://arxiv.org/abs/2608.13049)
+
+**English:** [H2R-Bench tests human-to-robot video generation in world models](https://arxiv.org/abs/2608.13049)
+
+- **发布 / Published:** `2026-08-13T10:14:33Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13049) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `video-world-model`, `robotics`, `cross-embodiment`, `dataset`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+H2R-Bench 评测视频世界模型能否根据指定机器人形态，把第一视角人类操作示范转换为以机器人为中心的视频。它检验能否利用大量人类视频规模化生成机器人学习经验。
+
+H2R-Bench evaluates whether video world models can transform egocentric human manipulation demonstrations into robot-centric videos under a specified embodiment. It targets the use of abundant human video as a scalable source of synthetic robot-learning experience.
+
+### 技术点 / Technical points
+
+- 每个实例包含人类示范、目标形态约束，以及基于源视频的任务目标、动作事件、功能接触和物体响应标注。
+  - Each instance combines a human demonstration, target-embodiment constraints, and source-grounded annotations for goals, action events, functional contacts, and object responses.
+- 基准分别测量目标状态完成、动作事件完成、接触迁移、形态正确性和整体视频质量。
+  - The benchmark measures goal-state completion, action-event completion, contact transfer, embodiment correctness, and general video quality.
+- 在 11 个视频生成模型、六类操作和两种机器人形态上，即使领先系统也经常无法保持形态一致性、物理交互和任务执行。
+  - Across 11 video-generation models, six manipulation families, and two robot embodiments, even leading systems frequently failed on embodiment consistency, physical interaction, and task execution.
+
+### 为什么重要 / Why it matters
+
+它为利用人类视频和生成式世界模型降低机器人示范采集成本的设想提供了结构化现实检验。
+
+It provides a structured reality check for using human video and generative world models to reduce the cost of collecting robot demonstrations.
 
 ---
 

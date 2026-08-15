@@ -112,6 +112,112 @@ It demonstrates a learned world model serving as a separate safety layer that ca
 
 ---
 
+<a id="2026-08-13-s2-hwm-event-world-model"></a>
+## [S2-HWM 用稀疏事件建模长时程手术机器人操作](https://arxiv.org/abs/2608.13103)
+
+**English:** [S2-HWM models long-horizon surgical manipulation with sparse events](https://arxiv.org/abs/2608.13103)
+
+- **发布 / Published:** `2026-08-13T11:29:20Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13103) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `long-horizon`, `model-based-rl`, `surgical-robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+S2-HWM 从原始潜在轨迹中学习稀疏且时长可变的事件边界，用于长时程手术机器人操作。事件级管理器选择目标，逐步执行的工作器持续行动，直到下一个学习到的边界。
+
+S2-HWM learns sparse, variable-duration event boundaries from primitive latent trajectories for long-horizon surgical manipulation. An event-level manager selects goals while a primitive-step worker executes actions until the next learned boundary.
+
+### 技术点 / Technical points
+
+- 事件证据负责安排管理器更新并切分轨迹，无需人工指定任务阶段。
+  - Event evidence schedules manager updates and segments trajectories without manually specifying task stages.
+- 事件转移模型预测下一边界状态、片段持续时间和累计奖励，使想象范围超越逐步回放。
+  - An Event Transition Model predicts the next boundary state, segment duration, and accumulated reward, extending imagination beyond primitive-step rollouts.
+- 在基于 SurRoL 的 PegTransfer 任务上，S2-HWM 成功率达到 98.7%，比平坦 GAS DreamerV3 基线高 22.7 个百分点。
+  - On a SurRoL-based PegTransfer task, S2-HWM reached 98.7% success, 22.7 percentage points above a flat GAS DreamerV3 baseline.
+
+### 为什么重要 / Why it matters
+
+对于重要状态变化并非等间隔发生的稀疏奖励实体任务，可变时长事件抽象能够提升世界模型规划效率。
+
+Variable-duration event abstraction can make world-model planning more effective on sparse-reward physical tasks whose meaningful changes occur irregularly.
+
+---
+
+<a id="2026-08-13-h2r-bench-world-models"></a>
+## [H2R-Bench 评测世界模型的人类到机器人视频生成](https://arxiv.org/abs/2608.13049)
+
+**English:** [H2R-Bench tests human-to-robot video generation in world models](https://arxiv.org/abs/2608.13049)
+
+- **发布 / Published:** `2026-08-13T10:14:33Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13049) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `video-world-model`, `robotics`, `cross-embodiment`, `dataset`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+H2R-Bench 评测视频世界模型能否根据指定机器人形态，把第一视角人类操作示范转换为以机器人为中心的视频。它检验能否利用大量人类视频规模化生成机器人学习经验。
+
+H2R-Bench evaluates whether video world models can transform egocentric human manipulation demonstrations into robot-centric videos under a specified embodiment. It targets the use of abundant human video as a scalable source of synthetic robot-learning experience.
+
+### 技术点 / Technical points
+
+- 每个实例包含人类示范、目标形态约束，以及基于源视频的任务目标、动作事件、功能接触和物体响应标注。
+  - Each instance combines a human demonstration, target-embodiment constraints, and source-grounded annotations for goals, action events, functional contacts, and object responses.
+- 基准分别测量目标状态完成、动作事件完成、接触迁移、形态正确性和整体视频质量。
+  - The benchmark measures goal-state completion, action-event completion, contact transfer, embodiment correctness, and general video quality.
+- 在 11 个视频生成模型、六类操作和两种机器人形态上，即使领先系统也经常无法保持形态一致性、物理交互和任务执行。
+  - Across 11 video-generation models, six manipulation families, and two robot embodiments, even leading systems frequently failed on embodiment consistency, physical interaction, and task execution.
+
+### 为什么重要 / Why it matters
+
+它为利用人类视频和生成式世界模型降低机器人示范采集成本的设想提供了结构化现实检验。
+
+It provides a structured reality check for using human video and generative world models to reduce the cost of collecting robot demonstrations.
+
+---
+
+<a id="2026-08-13-world-model-planner-objective"></a>
+## [世界模型复现实验发现规划目标才是瓶颈](https://arxiv.org/abs/2608.12959)
+
+**English:** [A world-model reproduction finds the planner objective is the bottleneck](https://arxiv.org/abs/2608.12959)
+
+- **发布 / Published:** `2026-08-13T08:43:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12959) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-world-model`, `planning`, `representation-learning`, `model-based-rl`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项在 TwoRoom 上复现 LeWorldModel 的研究发现，即使潜在预测器保留了所需空间信息，规划器目标仍可能导致长时程失败。平方潜在距离在远距离上与可达性错位，甚至可能奖励远离目标的移动。
+
+A reproduction of LeWorldModel on TwoRoom finds that long-horizon failures can arise from the planner's objective even when the latent predictor retains the required spatial information. Squared latent distance becomes poorly aligned with reachability at long range and can reward movement away from the goal.
+
+### 技术点 / Technical points
+
+- 岭回归探针从冻结表征中恢复位置时达到 R²=0.9922，说明相关状态信息仍被编码。
+  - A ridge probe recovered position from the frozen embedding at R²=0.9922, indicating that the relevant state information remained encoded.
+- 仅替换规划目标、不重新训练或微调世界模型，就把 offset 100 的目标成功率从 26.0% 提升到 98.0%。
+  - Replacing only the planning objective, without retraining or fine-tuning the world model, raised goal success at offset 100 from 26.0% to 98.0%.
+- 基于帧间隔训练的目标对几何距离预测得更不准确，却因学到如何绕过环境隔墙的可达性而规划得更好。
+  - A frame-separation objective predicted geometric distance less accurately but planned better because it learned reachability around the environment's dividing wall.
+
+### 为什么重要 / Why it matters
+
+它表明仅看预测准确率可能误判世界模型失败原因；评测还必须检验规划目标能否真正利用学到的表征。
+
+It shows that prediction accuracy alone can misdiagnose world-model failures; evaluations must also test whether the planner's objective can exploit the learned representation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/joyjeet-singh/tinylab)
+
+---
+
 <a id="2026-08-11-surgical-wam-video-pretraining"></a>
 ## [Surgical WAM 将无动作视频转化为手术机器人控制先验](https://arxiv.org/abs/2608.11204)
 
