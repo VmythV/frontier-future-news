@@ -2,6 +2,45 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-15-yadda-executable-specifications-agents"></a>
+## [Yadda 3.x 让可执行规格更适合编码智能体工作流](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html)
+
+**English:** [Yadda 3.x makes executable specifications more useful to coding agents](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html)
+
+- **发布 / Published:** `2026-08-15T10:57:34Z`
+- **来源 / Source:** [Stephen Cresswell](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `executable-specifications`, `behavior-driven-development`, `testing`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Yadda 3 使用当前 Node.js 工具链重构这套 JavaScript 行为驱动开发库，加入 TypeScript 类型以及 Playwright、Puppeteer 示例。3.1 版还支持以 GitHub 风格 Markdown 编写可执行功能规格，使同一份材料能够同时作为可读文档、智能体上下文和持续验证的行为契约。
+
+Yadda 3 modernizes the JavaScript behavior-driven development library with current Node.js tooling, TypeScript definitions, and Playwright and Puppeteer examples. Version 3.1 also lets teams write executable feature specifications as GitHub-flavored Markdown, allowing the same artifact to serve as readable documentation, agent context, and a continuously checked behavioral contract.
+
+### 技术点 / Technical points
+
+- 3.0 版移除过时的浏览器和包管理器集成，将测试套件迁移到 node:test，以 ES6 语法更新源码，并加入 TypeScript 类型和当前浏览器测试示例。
+  - The 3.0 release removes obsolete browser and package-manager integrations, moves the suite to node:test, modernizes the source to ES6, and adds TypeScript definitions and current browser-testing examples.
+- 3.1 版可解析 GitHub 风格 Markdown 功能文件，同时保持其可执行性，因此需求能够自然地与仓库文档及项目知识材料共存。
+  - Version 3.1 parses GitHub-flavored Markdown feature files while preserving their executability, so requirements can live naturally beside repository documentation and project knowledge artifacts.
+- 维护者报告称，Claude Code 按分阶段计划完成了大部分现代化工作；生产代码与对应测试的修改被刻意分开，使原有测试套件继续充当外部约束。
+  - The maintainer reports that Claude Code performed most of the modernization under a phased plan, with production-code and corresponding test changes deliberately separated so the existing suite remained an external constraint.
+
+### 为什么重要 / Why it matters
+
+可执行的自然语言规格能为并行编码智能体提供共享且机器可检查的预期行为定义，既减少需求漂移，也降低智能体同时改写实现与正确性定义的风险。
+
+Executable natural-language specifications can give parallel coding agents a shared, machine-checkable definition of intended behavior, reducing both requirement drift and the risk that an agent changes an implementation and its definition of correctness together.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/acuminous/yadda/releases/tag/v3.1.0) · [Evidence 2](https://github.com/acuminous/yadda)
+[Discussion 1](https://news.ycombinator.com/item?id=49310495)
+
+---
+
 <a id="2026-08-14-writer-palmyra-x6-agent-harness"></a>
 ## [WRITER 发布 Palmyra X6 与更高效的智能体 Harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
 
@@ -37,6 +76,158 @@ It treats orchestration as an independently measurable lever for agent cost, lat
 ### 链接 / Links
 
 [Evidence 1](https://writer.com/blog/aug-roundup-new-at-writer/) · [Evidence 2](https://arxiv.org/abs/2607.06906)
+
+---
+
+<a id="2026-08-14-endoplexity-guarded-browser-agent"></a>
+## [Endoplexity 将 Claude 与 Cursor 订阅转化为受约束的浏览器智能体](https://github.com/Endokelp/Endoplexity)
+
+**English:** [Endoplexity turns Claude and Cursor subscriptions into a guarded browser agent](https://github.com/Endokelp/Endoplexity)
+
+- **发布 / Published:** `2026-08-14T17:37:36Z`
+- **来源 / Source:** [Endoplexity](https://github.com/Endokelp/Endoplexity) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `browser-agents`, `computer-use`, `human-in-the-loop`, `agent-security`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Endoplexity 通过仅限本机的桥接服务，将 Chrome 侧边栏连接到已认证的 Claude 或 Cursor 命令行智能体，使其现有智能体循环无需额外模型 API Key 即可操作用户的活动浏览器会话。工具权限、文件边界和审批模式均由桥接层执行，而不是交给模型指令约束。
+
+Endoplexity connects a Chrome side panel to authenticated Claude or Cursor command-line agents through a loopback bridge, allowing those existing agent loops to operate the user's active browser session without a separate model API key. Its tool permissions, file boundaries, and approval modes are enforced in the bridge rather than left to model instructions.
+
+### 技术点 / Technical points
+
+- Chrome 扩展自行持有 CDP 连接，并与固定来源的本地桥接服务交换消息；面向 CLI 的 MCP 端点则使用保存在权限受限本地文件中的令牌。
+  - The Chrome extension owns the CDP connection and exchanges messages with an origin-pinned local bridge; the CLI-facing MCP endpoint instead uses a token stored in a permission-restricted local file.
+- 页面以辅助功能树快照表示，操作会直接返回其产生的新状态，后续观察只传输发生变化的行，以减少浏览器智能体的上下文用量。
+  - Pages are represented as accessibility-tree snapshots, actions return the state they produce, and later observations transmit only changed lines to reduce browser-agent context usage.
+- 提交、删除和购买操作可要求桥接层人工批准，但项目明确警告，其可见标签启发式规则可能漏掉非英文、非常规或纯图标控件；早期 v0.0.1 代码库报告包含 156 项单元测试。
+  - Submitting, deleting, and purchasing can require bridge-level human approval, although the project explicitly warns that its visible-label heuristic can miss non-English, unusual, or icon-only controls; the early v0.0.1 codebase reports 156 unit tests.
+
+### 为什么重要 / Why it matters
+
+它展示了本地浏览器智能体如何复用订阅支持的模型循环，同时把高影响权限放到模型无法通过提示自行扩大的执行层；不过，操作真实登录态浏览器仍需谨慎监督。
+
+It shows how a local browser agent can reuse subscription-backed model loops while placing high-impact permissions in an execution layer the model cannot expand through prompting, though operating a real authenticated browser still demands careful supervision.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Endokelp/Endoplexity/blob/main/SECURITY.md) · [Evidence 2](https://github.com/Endokelp/Endoplexity/blob/main/docs/handrun.md)
+
+---
+
+<a id="2026-08-14-dsh-computer-use-background-control"></a>
+## [DSH Computer Use 0.3 实现不抢鼠标的浏览器与 macOS 后台控制](https://github.com/ZRui-C/dsh-computer-use/releases/tag/v0.3.0)
+
+**English:** [DSH Computer Use 0.3 enables pointer-free background browser and macOS control](https://github.com/ZRui-C/dsh-computer-use/releases/tag/v0.3.0)
+
+- **发布 / Published:** `2026-08-14T14:51:04Z`
+- **来源 / Source:** [DSH Computer Use](https://github.com/ZRui-C/dsh-computer-use/releases/tag/v0.3.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `desktop-agents`, `browser-agents`, `accessibility`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DSH Computer Use 0.3 是面向 DeepSeek Harness 的文本优先电脑控制组件的首个公开 macOS 版本。它结合浏览器与操作系统辅助功能数据和定向输入路径，使智能体能够在后台操作指定标签页、进程或窗口，而不移动用户的实体鼠标。
+
+DSH Computer Use 0.3 is the first public macOS release of a text-first computer-control bundle for DeepSeek Harness. It combines browser and operating-system accessibility data with targeted input paths so an agent can operate a specific tab, process, or window in the background without moving the user's physical pointer.
+
+### 技术点 / Technical points
+
+- Chromium 观察使用 Playwright 与 CDP 的辅助功能或 DOM 数据，并可选 OCR；macOS 观察优先使用辅助功能树，再通过 Vision OCR 和独立窗口捕获弥补语义缺口。
+  - Chromium observation uses Playwright and CDP accessibility or DOM data with optional OCR, while macOS observation prioritizes the Accessibility tree and fills semantic gaps with Vision OCR and independent window capture.
+- 每次桌面操作都携带 PID、WindowServer 窗口 ID、AX 窗口框架和元素身份，将操作后的观察固定在同一目标上，并使用可穿透的软件光标而不移动实体鼠标。
+  - Each desktop action carries the PID, WindowServer window ID, AX frame, and element identity, keeps the post-action observation pinned to that target, and uses a click-through software cursor rather than moving the physical pointer.
+- 观察和操作调用使用有界语义快照及稳定引用；过期引用会关闭失败，文件上传被限制在 DSH 会话工作区内，公开的 Universal 2 构建已完成 Developer ID 签名与公证。
+  - Observe and action calls use bounded semantic snapshots and stable references; stale references fail closed, file uploads are confined to the DSH session workspace, and the public Universal 2 build is Developer ID signed and notarized.
+
+### 为什么重要 / Why it matters
+
+该版本针对电脑智能体反复出现的三类故障：抢占前台、操作错误窗口和复用过期视觉目标，同时明确披露其不受支持的 macOS 私有 API 边界。
+
+The release addresses three recurring computer-agent failure modes—stealing the foreground, acting on the wrong window, and reusing stale visual targets—while making its unsupported macOS private-API boundary explicit.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZRui-C/dsh-computer-use) · [Evidence 2](https://github.com/ZRui-C/dsh-computer-use/blob/main/SECURITY.md)
+
+---
+
+<a id="2026-08-14-dsh-noema-long-term-memory"></a>
+## [Noema 为 DeepSeek Harness 加入可审计的长期记忆](https://github.com/ZSeven-W/dsh-noema)
+
+**English:** [Noema brings inspectable long-term memory to DeepSeek Harness](https://github.com/ZSeven-W/dsh-noema)
+
+- **发布 / Published:** `2026-08-14T14:29:02Z`
+- **来源 / Source:** [DSH Noema](https://github.com/ZSeven-W/dsh-noema) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-memory`, `long-term-memory`, `local-first`, `coding-agents`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DSH Noema 将 DeepSeek Harness 连接到 Noema 的本地优先、非向量记忆系统，以可直接检查的 Markdown 保存持久知识，而不是使用不透明的嵌入索引。它通过面向模型的工具和设置界面提供召回、全文搜索、图探索、审核与删除操作。
+
+DSH Noema connects DeepSeek Harness to Noema's local-first, non-vector memory system, storing durable knowledge as inspectable Markdown rather than an opaque embedding index. It exposes recall, full-text search, graph exploration, review, and deletion operations through model-facing tools and a settings interface.
+
+### 技术点 / Technical points
+
+- 插件提供带 token 预算的召回、全文搜索、目录浏览、基于共享实体的多跳召回，以及解释某条记忆为何被选中或未被选中的工具。
+  - The plugin provides token-budgeted recall, full-text search, catalog browsing, multi-hop recall through shared entities, and an explanation tool showing why a memory was or was not selected.
+- 导入器可读取包括 Codex、Claude Code、Cursor 和 opencode 在内的九种编码智能体环境中的记忆与指令文件，再通过按来源路径和内容建立的账本对章节去重。
+  - Its importer reads memory and instruction files from nine coding-agent environments, including Codex, Claude Code, Cursor, and opencode, then deduplicates sections with a ledger keyed by source path and content.
+- 记忆保存在可配置本地目录中并可由人直接编辑；写入策略、审核队列、墓碑删除、服务保活和热重载则提供对记忆生命周期的运行控制。
+  - Memories remain human-editable under a configurable local root, while write policies, review queues, tombstoning, server keep-alive, and hot reload provide operational control over the memory lifecycle.
+
+### 为什么重要 / Why it matters
+
+该集成让跨会话智能体记忆具备可迁移、可解释并可由用户直接治理的特性，同时处理多个编码工具共享同一仓库指令时产生的重复上下文。
+
+The integration makes cross-session agent memory portable, explainable, and directly governable by users, while addressing duplicate context when several coding tools share the same repository instructions.
+
+### 链接 / Links
+
+[Evidence 1](https://www.npmjs.com/package/@zseven-w/dsh-noema)
+
+---
+
+<a id="2026-08-14-dsh-anchored-standard-tool-staging"></a>
+## [Anchored Standard 分阶段开放工具以保留 DeepSeek 的初始推理轨迹](https://github.com/xiaobright/dsh-anchored-standard)
+
+**English:** [Anchored Standard stages tool exposure to preserve DeepSeek's initial reasoning trajectory](https://github.com/xiaobright/dsh-anchored-standard)
+
+- **发布 / Published:** `2026-08-14T14:06:39Z`
+- **来源 / Source:** [Anchored Standard](https://github.com/xiaobright/dsh-anchored-standard) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `tool-use`, `orchestration`, `reasoning`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Anchored Standard 是一个实验性社区预设：DeepSeek Harness 会话的首次模型请求只获得真实的双工具 Minimal schema，并暂时移除自动注入的指令摘要和技能目录；首次持久化工具调用或智能体回复后，会话再升级到基于发现机制的常驻工具目录。
+
+Anchored Standard is an experimental community preset that gives DeepSeek Harness sessions the real two-tool Minimal schema on their first model request, suppresses automatically injected instruction and skill-catalog context, and then promotes them to a resident discovery-based tool catalog after the first durable tool call or assistant message.
+
+### 技术点 / Technical points
+
+- 启动阶段只暴露 bash 与 str_replace_editor；升级状态由持久化会话事件推导，因此重新加载和恢复仍能保留阶段转换，后续工具通过发现机制解锁，而不是一次性全部写入提示。
+  - The bootstrap phase exposes only bash and str_replace_editor; promotion state is derived from durable session events so reload and resume preserve the transition, while later tools are unlocked through discovery rather than dumped into the prompt at once.
+- 项目消融实验报告称，Minimal 工具 schema 在 5 次试验中全部选择目标轨迹，Standard 系列 schema 在 11 次试验中全部产生相反轨迹，而加入技能目录提醒后，9 次测试均未能复现锚定。
+  - The project's ablations report that the Minimal tool schema selected its target trajectory in 5 of 5 trials, standard-family schemas produced the contrasting trajectory in 11 of 11 trials, and adding the skill-catalog reminder prevented the anchor in all 9 tested runs.
+- 两个 Project2 运行得分为 98 和 99，对照中 Standard 与 PTC 报告为 91 和 92，官方 Minimal 两次运行则为 99 和 96；作者明确将其限定为单一任务上的可复现证据，而非通用性能声明。
+  - Two Project2 runs scored 98 and 99, compared with reported Standard and PTC scores of 91 and 92 and official Minimal runs of 99 and 96; the authors explicitly describe this as reproducible evidence for one task, not a universal performance claim.
+
+### 为什么重要 / Why it matters
+
+它提供了具体证据，说明智能体 Harness 所暴露的工具与上下文即使不改变模型权重，也可能改变推理行为，因此分阶段能力开放可以成为可独立测试的编排控制手段。
+
+It provides concrete evidence that the tools and context visible through an agent harness can alter reasoning behavior without changing model weights, making staged capability exposure an independently testable orchestration control.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/xiaobright/modeltest)
 
 ---
 
@@ -542,181 +733,3 @@ SkillEvo turns multi-turn user simulation from a final evaluation into a generat
 它把智能体技能视为受治理、持续评测的资产，使其能够从实际长交互中暴露的失败持续改进。
 
 It frames agent skills as governed, continuously evaluated assets that can improve from the long interaction failures they cause in practice.
-
----
-
-<a id="2026-08-13-s2-hwm-event-world-model"></a>
-## [S2-HWM 用稀疏事件建模长时程手术机器人操作](https://arxiv.org/abs/2608.13103)
-
-**English:** [S2-HWM models long-horizon surgical manipulation with sparse events](https://arxiv.org/abs/2608.13103)
-
-- **发布 / Published:** `2026-08-13T11:29:20Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13103) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-model`, `long-horizon`, `model-based-rl`, `surgical-robotics`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-S2-HWM 从原始潜在轨迹中学习稀疏且时长可变的事件边界，用于长时程手术机器人操作。事件级管理器选择目标，逐步执行的工作器持续行动，直到下一个学习到的边界。
-
-S2-HWM learns sparse, variable-duration event boundaries from primitive latent trajectories for long-horizon surgical manipulation. An event-level manager selects goals while a primitive-step worker executes actions until the next learned boundary.
-
-### 技术点 / Technical points
-
-- 事件证据负责安排管理器更新并切分轨迹，无需人工指定任务阶段。
-  - Event evidence schedules manager updates and segments trajectories without manually specifying task stages.
-- 事件转移模型预测下一边界状态、片段持续时间和累计奖励，使想象范围超越逐步回放。
-  - An Event Transition Model predicts the next boundary state, segment duration, and accumulated reward, extending imagination beyond primitive-step rollouts.
-- 在基于 SurRoL 的 PegTransfer 任务上，S2-HWM 成功率达到 98.7%，比平坦 GAS DreamerV3 基线高 22.7 个百分点。
-  - On a SurRoL-based PegTransfer task, S2-HWM reached 98.7% success, 22.7 percentage points above a flat GAS DreamerV3 baseline.
-
-### 为什么重要 / Why it matters
-
-对于重要状态变化并非等间隔发生的稀疏奖励实体任务，可变时长事件抽象能够提升世界模型规划效率。
-
-Variable-duration event abstraction can make world-model planning more effective on sparse-reward physical tasks whose meaningful changes occur irregularly.
-
----
-
-<a id="2026-08-13-h2r-bench-world-models"></a>
-## [H2R-Bench 评测世界模型的人类到机器人视频生成](https://arxiv.org/abs/2608.13049)
-
-**English:** [H2R-Bench tests human-to-robot video generation in world models](https://arxiv.org/abs/2608.13049)
-
-- **发布 / Published:** `2026-08-13T10:14:33Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13049) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `benchmark`, `video-world-model`, `robotics`, `cross-embodiment`, `dataset`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-H2R-Bench 评测视频世界模型能否根据指定机器人形态，把第一视角人类操作示范转换为以机器人为中心的视频。它检验能否利用大量人类视频规模化生成机器人学习经验。
-
-H2R-Bench evaluates whether video world models can transform egocentric human manipulation demonstrations into robot-centric videos under a specified embodiment. It targets the use of abundant human video as a scalable source of synthetic robot-learning experience.
-
-### 技术点 / Technical points
-
-- 每个实例包含人类示范、目标形态约束，以及基于源视频的任务目标、动作事件、功能接触和物体响应标注。
-  - Each instance combines a human demonstration, target-embodiment constraints, and source-grounded annotations for goals, action events, functional contacts, and object responses.
-- 基准分别测量目标状态完成、动作事件完成、接触迁移、形态正确性和整体视频质量。
-  - The benchmark measures goal-state completion, action-event completion, contact transfer, embodiment correctness, and general video quality.
-- 在 11 个视频生成模型、六类操作和两种机器人形态上，即使领先系统也经常无法保持形态一致性、物理交互和任务执行。
-  - Across 11 video-generation models, six manipulation families, and two robot embodiments, even leading systems frequently failed on embodiment consistency, physical interaction, and task execution.
-
-### 为什么重要 / Why it matters
-
-它为利用人类视频和生成式世界模型降低机器人示范采集成本的设想提供了结构化现实检验。
-
-It provides a structured reality check for using human video and generative world models to reduce the cost of collecting robot demonstrations.
-
----
-
-<a id="2026-08-13-world-model-planner-objective"></a>
-## [世界模型复现实验发现规划目标才是瓶颈](https://arxiv.org/abs/2608.12959)
-
-**English:** [A world-model reproduction finds the planner objective is the bottleneck](https://arxiv.org/abs/2608.12959)
-
-- **发布 / Published:** `2026-08-13T08:43:54Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12959) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `latent-world-model`, `planning`, `representation-learning`, `model-based-rl`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-一项在 TwoRoom 上复现 LeWorldModel 的研究发现，即使潜在预测器保留了所需空间信息，规划器目标仍可能导致长时程失败。平方潜在距离在远距离上与可达性错位，甚至可能奖励远离目标的移动。
-
-A reproduction of LeWorldModel on TwoRoom finds that long-horizon failures can arise from the planner's objective even when the latent predictor retains the required spatial information. Squared latent distance becomes poorly aligned with reachability at long range and can reward movement away from the goal.
-
-### 技术点 / Technical points
-
-- 岭回归探针从冻结表征中恢复位置时达到 R²=0.9922，说明相关状态信息仍被编码。
-  - A ridge probe recovered position from the frozen embedding at R²=0.9922, indicating that the relevant state information remained encoded.
-- 仅替换规划目标、不重新训练或微调世界模型，就把 offset 100 的目标成功率从 26.0% 提升到 98.0%。
-  - Replacing only the planning objective, without retraining or fine-tuning the world model, raised goal success at offset 100 from 26.0% to 98.0%.
-- 基于帧间隔训练的目标对几何距离预测得更不准确，却因学到如何绕过环境隔墙的可达性而规划得更好。
-  - A frame-separation objective predicted geometric distance less accurately but planned better because it learned reachability around the environment's dividing wall.
-
-### 为什么重要 / Why it matters
-
-它表明仅看预测准确率可能误判世界模型失败原因；评测还必须检验规划目标能否真正利用学到的表征。
-
-It shows that prediction accuracy alone can misdiagnose world-model failures; evaluations must also test whether the planner's objective can exploit the learned representation.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/joyjeet-singh/tinylab)
-
----
-
-<a id="2026-08-13-humanoidvln-physics-benchmark"></a>
-## [HumanoidVLN 跨不同人形机器人形态评测导航](https://arxiv.org/abs/2608.12860)
-
-**English:** [HumanoidVLN benchmarks navigation across diverse humanoid bodies](https://arxiv.org/abs/2608.12860)
-
-- **发布 / Published:** `2026-08-13T06:16:05Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.12860) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `vision-language-navigation`, `simulation`, `benchmark`, `sim-to-real`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-HumanoidVLN 是面向不同尺寸和控制特性人形机器人的物理落地视觉语言导航模拟器与基准。它把语言引导导航模型与双足运动及特定形态的执行约束连接起来。
-
-HumanoidVLN is a physics-grounded simulator and benchmark for vision-language navigation across humanoid robots with different dimensions and control characteristics. It connects language-guided navigation models to bipedal locomotion and embodiment-specific execution constraints.
-
-### 技术点 / Technical points
-
-- 该平台基于 NVIDIA Isaac Sim，展示了四种人形机器人，其下肢自由度为 10 至 12 个、身高范围为 1.17 至 1.80 米。
-  - Built on NVIDIA Isaac Sim, the platform demonstrates four humanoids spanning 10 to 12 lower-body degrees of freedom and heights from 1.17 to 1.80 meters.
-- 分层控制栈将强化学习运动策略与可替换的比例微分或模型预测路径跟踪器结合，数据集提供 933 条碰撞感知参考轨迹。
-  - A hierarchical stack combines reinforcement-learned locomotion with interchangeable proportional-derivative or model-predictive path trackers, and the dataset provides 933 collision-aware reference episodes.
-- 在 20 条 Unitree G1 仿真到现实试验中，作者报告导航误差相关系数为 0.935，平均绝对差为 0.68 米。
-  - In a 20-episode Unitree G1 simulation-to-real pilot, navigation errors had a reported correlation of 0.935 and a mean absolute difference of 0.68 meters.
-
-### 为什么重要 / Why it matters
-
-它在同一物理闭环中评估导航模型、运动控制器和机器人形态，揭示轮式智能体或纯运动学基准忽略的具身影响。
-
-It evaluates navigation models, locomotion controllers, and robot morphology in one physical loop, exposing embodiment effects that wheeled-agent or kinematic-only benchmarks omit.
-
-### 链接 / Links
-
-[Evidence 1](https://humanoid-vln.github.io/)
-
----
-
-<a id="2026-08-12-agent-skills-induced-failures"></a>
-## [看似相关的技能仍可能导致语言模型智能体失败](https://arxiv.org/abs/2608.11888)
-
-**English:** [Relevant skills can still make language-model agents fail](https://arxiv.org/abs/2608.11888)
-
-- **发布 / Published:** `2026-08-12T10:15:19Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.11888) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-skills`, `safety`, `reliability`, `benchmark`, `cost-efficiency`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-一项差分研究把语言模型智能体的功能失败和成本退化归因到具体加载技能。在 SkillsBench 与 SWE-Skills-Bench 上，作者识别出 307 个技能诱发问题，包括 125 个功能失败和 182 个效率退化。
-
-A differential study attributes functional failures and cost regressions to individual skills loaded into language-model agents. Across SkillsBench and SWE-Skills-Bench, the authors identified 307 skill-induced failures: 125 functional failures and 182 efficiency regressions.
-
-### 技术点 / Technical points
-
-- 每次目标执行都与无技能执行或语义匹配技能执行比较，后者必须成功完成同一任务或以更低成本完成。
-  - Each target run is compared with a no-skill or semantically matched skill run that completes the same task successfully or at lower cost.
-- 功能失败很少源自明显无关的技能；看似相关的指导反而常使智能体遗漏必要内容或实施错误。
-  - Functional failures were rarely caused by obviously irrelevant skills; apparently relevant guidance often led agents to omit or incorrectly implement required elements.
-- SkillTriage 对成对失败进行分类，其中过度验证和繁重实现流程分别构成 67 个和 30 个过度程序案例。
-  - SkillTriage categorizes paired failures, with excessive verification and heavyweight implementation pipelines accounting for 67 and 30 excessive-procedure cases respectively.
-
-### 为什么重要 / Why it matters
-
-这些结果支持按需加载技能、开展差分回归测试并设置明确成本预算，而不是假定每个看似相关的指令包都会带来收益。
-
-The results support selective skill loading, differential regression testing, and explicit cost budgets instead of assuming that every relevant-looking instruction package is beneficial.
