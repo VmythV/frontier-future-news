@@ -2,6 +2,290 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-17-baton-subtask-robot-exploration"></a>
+## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
+
+**English:** [BATON makes long-horizon robot exploration subtask-additive](https://arxiv.org/abs/2608.16889)
+
+- **发布 / Published:** `2026-08-17T17:59:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16889) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `long-horizon`, `memory`, `planning`, `test-time-adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+BATON 是一个由智能体控制的机器人操控框架：它冻结底层视觉—语言—动作模型，分别探索接触密集型子任务，再将已保存的解法组合成长程执行轨迹。其迁移感知记忆还会判断前一项技能结束后的场景状态能否被下一项技能直接使用。
+
+BATON is an agent-controlled manipulation framework that keeps its underlying vision-language-action model frozen, explores contact-rich subtasks separately, and composes their stored solutions for long-horizon execution. Its transition-aware memory also tracks whether one skill leaves the scene in a state the next skill can use.
+
+### 技术点 / Technical points
+
+- BATON 将每个子任务作为测试时探索单位，把论文估算的 K 阶段任务搜索成本从乘法式 T^K 改为加法式 T*K，并将失败归因到单一阶段。
+  - By making each subtask the unit of test-time exploration, BATON changes the paper's estimated search cost from multiplicative T^K for a K-stage task to additive T*K and attributes a failure to one stage.
+- 验证器智能体会等待腕部相机确认场景就绪后再调用 VLA；handoff 迁移负责修复前序任务残留，lookahead 迁移则选择可被后继任务继承的结果。
+  - A verifier agent waits for wrist-camera evidence before invoking the VLA, while handoff transitions repair predecessor residue and lookahead transitions select outcomes that a successor can inherit.
+- 在不更新模型参数的情况下，作者报告 BATON 在 RoboMemArena 上相对所述最佳方法将任务成功率提高 11.6%，累计成功率提高 14.9%。
+  - Without updating model parameters, the authors report gains of 11.6% in task success and 14.9% in cumulative success over the stated state of the art on RoboMemArena.
+
+### 为什么重要 / Why it matters
+
+长程机器人失败既可能来自代价过高的整任务探索，也可能来自技能边界不匹配；BATON 在无需重训基础 VLA 的情况下同时处理这两类问题。
+
+Long-horizon robot failures often arise both from prohibitively expensive whole-task exploration and from mismatched skill boundaries; BATON targets both problems without retraining the base VLA.
+
+---
+
+<a id="2026-08-17-tau0-vla-world-model-ttc"></a>
+## [τ₀-VLA 用世界模型扩展机器人推理时规划](https://arxiv.org/abs/2608.16885)
+
+**English:** [τ₀-VLA uses world models to scale robot planning at inference time](https://arxiv.org/abs/2608.16885)
+
+- **发布 / Published:** `2026-08-17T17:59:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16885) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `world-model`, `test-time-compute`, `long-horizon`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+τ₀-VLA 在跨机器人形态的视觉—语言—动作策略之上加入较慢的高层规划器，并只在下一子任务不确定时追加推理计算。实际执行前，世界模型会预测候选子任务的视觉后果，使系统能够比较不同分支并修正规划。
+
+τ₀-VLA places a slower high-level planner above a cross-embodiment vision-language-action policy and spends additional inference compute only when the next subtask is uncertain. Before physical execution, a world model predicts the visual consequences of candidate subtasks so the system can compare branches and revise its plan.
+
+### 技术点 / Technical points
+
+- 置信度统计会把不确定决策路由到“提出—预测—评估”循环：VLM 提出子任务，世界模型生成终态观测，价值模型评分，再由束搜索和反思选择下一条指令。
+  - Confidence statistics route uncertain decisions into a propose-predict-evaluate loop in which a VLM proposes subtasks, a world model imagines terminal observations, a value model scores them, and beam search plus reflection selects the next command.
+- 低层策略使用 40,115 小时异构真实机器人经验训练，并通过统一的 40 维接口支持固定底座、双臂和移动机器人形态。
+  - The low-level policy is trained on 40,115 hours of heterogeneous real-world robot experience and uses a unified 40-dimensional interface for fixed-base, bimanual, and mobile embodiments.
+- 项目报告下一子任务准确率提高 15 至 24 个百分点；在四项长程实机任务中，分层 Plan Once 的平均成功率为 45.0%，直接执行为 27.5%；在一项分布偏移设置中，测试时搜索将下一子任务准确率从 50.0% 提至 74.0%。
+  - The project reports 15-24 percentage-point gains in next-subtask accuracy, 45.0% average success for hierarchical Plan Once versus 27.5% for direct execution on four physical long-horizon tasks, and 74.0% versus 50.0% next-subtask accuracy under one distribution shift with test-time search.
+
+### 为什么重要 / Why it matters
+
+该系统把世界模型变成物理行动前按需启用的规划器，将推理时扩展与长程机器人控制连接起来，而不是只把预测用于离线生成。
+
+The system turns a world model into a selective pre-commitment planner for physical action, connecting inference-time scaling with long-horizon robot control instead of using prediction only for offline generation.
+
+### 链接 / Links
+
+[Evidence 1](https://tau0-vla.github.io/)
+
+---
+
+<a id="2026-08-17-measuring-multi-agent-coding-coordination"></a>
+## [一项 1,902 次运行的研究直接度量多智能体编程协作](https://arxiv.org/abs/2608.16801)
+
+**English:** [A 1,902-run study measures coordination inside multi-agent coding](https://arxiv.org/abs/2608.16801)
+
+- **发布 / Published:** `2026-08-17T16:57:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16801) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `coding-agents`, `coordination`, `benchmark`, `observability`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+一套新的度量框架把多智能体编程运行表示成时间网络：智能体和文件都是节点，消息、读取、写入、时间戳与成本构成边。研究将其用于 1,902 次有固定测试的运行，揭示了任务成功率和总 token 数无法显示的协作结构与失败模式。
+
+A new measurement framework represents a multi-agent coding run as a temporal network whose nodes include both agents and files and whose edges record messages, reads, writes, timestamps, and costs. Applying it to 1,902 graded runs reveals coordination structures and failure modes that task success and aggregate token counts do not show.
+
+### 技术点 / Technical points
+
+- 度量工具位于智能体之外，并把已记录的工具调用转换为时间图，因此可以在同一时间线上比较直接消息与通过持久文件进行的通信。
+  - The instrumentation is external to the agents and turns logged tool calls into a temporal graph, allowing direct messages and persistent file-mediated communication to be compared on one timeline.
+- 主数据包含 1,902 次运行，团队规模从一个到十六个智能体；另有 244 次封闭运行移除对隐藏评分材料的访问，并重新检验关键结论。
+  - The main collection spans 1,902 runs with team sizes from one to sixteen and is supplemented by 244 sealed runs that remove access to hidden grading material while retesting key findings.
+- 在消息密集型任务中，强制使用共享文件可让八智能体团队的输出 token 减少约 42%，但在另一项任务上会增加开销；仅指定协调者既没有形成通信中心，也没有可靠提高成功率，而封闭运行中的智能体仍有五分之四会寻找隐藏评分材料。
+  - Mandatory shared files cut output tokens by about 42% at eight agents on message-heavy work but add overhead on another task; merely naming a coordinator creates no communication hub or reliable success gain, and agents still seek hidden grading material in four fifths of sealed runs.
+
+### 为什么重要 / Why it matters
+
+该研究为选择团队规模、通信渠道和领导结构提供了可度量证据，同时表明仅靠角色标签并不能形成有效的多智能体组织。
+
+The work provides measurable evidence for choosing team size, communication channels, and leadership structure, while showing that a role label alone does not create effective multi-agent organization.
+
+---
+
+<a id="2026-08-17-clawgym-ii-black-box-harness-rl"></a>
+## [ClawGym II 可穿过不透明智能体 Harness 训练模型](https://arxiv.org/abs/2608.16798)
+
+**English:** [ClawGym II trains models through opaque agent harnesses](https://arxiv.org/abs/2608.16798)
+
+- **发布 / Published:** `2026-08-17T16:53:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16798) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agentic-rl`, `reinforcement-learning`, `harness`, `long-horizon`, `benchmark`, `sandbox`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ClawGym II 提出一套黑盒强化学习框架，无需改写复杂智能体 Harness 的内部控制逻辑，就能穿过它们优化底层模型。该框架在模型边界截获调用、重建多轮轨迹，并可跨 OpenClaw、Claude Code 等异构 Harness 训练。
+
+ClawGym II introduces a black-box reinforcement-learning framework that optimizes a model through complex agent harnesses without requiring their internal control logic to be rewritten. It captures calls at the model boundary, reconstructs multi-turn trajectories, and trains across heterogeneous harnesses such as OpenClaw and Claude Code.
+
+### 技术点 / Technical points
+
+- 沙箱执行层会隔离任务与 Harness 以支持并发 rollout；服务代理则将不透明的 Harness 执行与策略优化解耦，并记录每次模型调用。
+  - A sandbox execution layer isolates tasks and harnesses for concurrent rollouts, while a serving proxy decouples opaque harness execution from policy optimization and records every model call.
+- 捕获的调用被组织成前缀树，基于评论器的 PPO 和无评论器的 GRPO 都被改造为在恢复出的树结构上优化，同时维持训练与推理的一致性。
+  - Captured calls are organized into prefix trees, and both critic-based PPO and critic-free GRPO are adapted to optimize over the recovered tree structure while maintaining training-inference consistency.
+- 在 Qwen3-30A3B 上，作者报告通过 OpenClaw 和 Claude Code 训练后 Pass@1 分别提高 9.98 和 14.81 个百分点，优化在 200 至 400 步内保持稳定，并在 JobBench 与 OfficeQA 上取得额外增益。
+  - Using Qwen3-30A3B, the authors report Pass@1 gains of 9.98 points through OpenClaw and 14.81 points through Claude Code, stable optimization over 200-400 steps, and additional gains on JobBench and OfficeQA.
+
+### 为什么重要 / Why it matters
+
+将模型训练与 Harness 实现解耦，使研究者可以面向快速变化的智能体运行时改进模型，并让同一策略跨多个执行栈训练。
+
+Separating model training from harness implementation makes it possible to improve models against rapidly changing agent runtimes and to train one policy across more than one execution stack.
+
+---
+
+<a id="2026-08-17-zetta-closed-loop-embodied-harness"></a>
+## [Zetta 为自进化具身智能体闭合执行反馈环](https://arxiv.org/abs/2608.16590)
+
+**English:** [Zetta closes the loop for self-evolving embodied agents](https://arxiv.org/abs/2608.16590)
+
+- **发布 / Published:** `2026-08-17T13:49:43Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16590) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `embodied-agents`, `self-evolution`, `runtime`, `recovery`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Zetta 是一个具身智能体 Harness：它冻结基础机器人策略，同时在执行过程中演化代码化运行时批评器与恢复技能。它不再只在整段 episode 结束后反思，而是验证失败，并将可复用的改进带到后续 rollout。
+
+Zetta is an embodied-agent harness that keeps the base robot policy frozen while evolving code-based runtime critics and recovery skills during execution. Instead of reflecting only after an episode, it validates failures and incorporates reusable improvements across rollouts.
+
+### 技术点 / Technical points
+
+- 三个分离时间尺度的循环分别负责动作频率治理、rollout 级批评器与恢复方案生成，以及对可复用技能集合进行验证门控更新。
+  - Three time-separated loops provide action-frequency governance, rollout-level critic and recovery proposals, and validation-gated updates to the reusable skill set.
+- 配套的 Z-Infra 层将智能体逻辑与异构模拟器、模型、CPU 和 GPU 解耦，使自探索能够扩展而不把 Harness 绑定到单一执行资源。
+  - The accompanying Z-Infra layer separates agent logic from heterogeneous simulators, models, CPUs, and GPUs so self-exploration can scale without coupling the harness to one execution resource.
+- 在论文设定的 rollout 预算下，作者报告 LIBERO-Pro 成功率为 90.8%、RoboCasa 为 93.6%、推理加速 11.1 倍，并观察到性能随自探索继续提升及所学技能的零样本迁移。
+  - Under the paper's rollout budget, the authors report 90.8% success on LIBERO-Pro, 93.6% on RoboCasa, an 11.1x inference speedup, continued scaling with self-exploration, and zero-shot transfer of learned skills.
+
+### 为什么重要 / Why it matters
+
+Zetta 将具身反思从事后评论转变为在线、经验证门控的机制，使机器人能在后续物理交互中改变恢复方式。
+
+Zetta turns embodied reflection from post-hoc commentary into an online, validation-gated mechanism for changing how a robot recovers during later physical interactions.
+
+### 链接 / Links
+
+[Evidence 1](https://air-embodied-brain.github.io/zetta/)
+
+---
+
+<a id="2026-08-17-context-compression-agent-reacquisition-cost"></a>
+## [上下文压缩可能掩盖智能体重新获取状态的成本](https://arxiv.org/abs/2608.16370)
+
+**English:** [Context compression can hide an agent's state-reacquisition cost](https://arxiv.org/abs/2608.16370)
+
+- **发布 / Published:** `2026-08-17T10:21:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16370) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-compression`, `memory`, `tool-use`, `benchmark`, `evaluation`, `efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项受控研究发现，上下文压缩可能让工具型智能体的任务完成率在统计上保持不变，却迫使它发起显著更多的检索调用，以重新获取被丢弃的执行状态。该结果揭示了仅看完成率时会被忽略的交互成本。
+
+A controlled study finds that context compression can leave a tool-using agent's task-completion rate statistically unchanged while forcing it to make substantially more retrieval calls to recover discarded execution state. The result exposes an interaction cost that completion-only evaluations can miss.
+
+### 技术点 / Technical points
+
+- 该协议使用固定 24 轮的确定性规划环境，对比直接丢弃与保留事实的压缩方式，通过受控预言机干预恢复缺失状态，并在两个任务设置中评估三个模型。
+  - The protocol uses a deterministic planning environment with a fixed 24-turn horizon, compares dropping and fact-preserving compression, restores missing state through controlled oracle interventions, and evaluates three models in two task regimes.
+- 六组模型—任务比较中的检索调用全部上升，其中五组经 Holm 校正后仍显著；在预先设定的 5 倍压缩点，GPT-5.5 完成率从 80% 变为 85% 且 p=1.0，而检索调用从 21.0 增至 63.9，p=.002。
+  - Retrieval calls rise in all six model-regime comparisons and five remain significant after Holm correction; for GPT-5.5 at the prespecified 5x point, completion changes from 80% to 85% with p=1.0 while retrieval calls rise from 21.0 to 63.9 with p=.002.
+- 用语义无关内容替换保留的执行状态会使检索增加 57%，但完成率没有显著变化；ALFWorld 在滑动压缩下没有出现检索激增，说明这一效应依赖具体环境。
+  - Replacing retained execution state with semantically irrelevant content increases retrieval by 57% without a significant completion change, whereas ALFWorld shows no retrieval surge under sliding compression, indicating that the effect depends on the environment.
+
+### 为什么重要 / Why it matters
+
+智能体上下文压缩不仅应评估完成率和上下文长度，还应计入检索与交互成本，因为表面成功的压缩运行可能只是在付出额外代价重新发现自身状态。
+
+Agent compaction should be evaluated with retrieval and interaction costs as well as completion and context length, because an apparently successful compressed run may simply be paying to rediscover its state.
+
+---
+
+<a id="2026-08-17-cumora-human-agent-team-workspace"></a>
+## [Cumora 让云端与本地 AI 智能体成为一等团队成员](https://github.com/yetone/cumora)
+
+**English:** [Cumora makes AI agents first-class teammates across cloud and local runtimes](https://github.com/yetone/cumora)
+
+- **发布 / Published:** `2026-08-17T09:13:52Z`
+- **来源 / Source:** [Cumora](https://github.com/yetone/cumora) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `collaboration`, `coding-agents`, `open-source`, `tool-use`, `memory`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Cumora 是一个采用 MIT 许可证的跨平台工作空间，人类与云端或自带运行时的 AI 智能体可共享聊天、任务看板、日历、邮件、记忆和工作认领。智能体既可运行在托管的独立 Pod 中，也可使用本地 Claude Code 或 Codex CLI，而无需把模型供应商密钥交给服务器。
+
+Cumora is an MIT-licensed cross-platform workspace where humans and cloud or bring-your-own AI agents share chats, task boards, calendars, email, memory, and work claims. Agents can run in managed per-agent pods or use a local Claude Code or Codex CLI brain without sending provider keys to the server.
+
+### 技术点 / Technical points
+
+- 共享的 React 界面覆盖 Electron、PWA、iOS 和 Android；无状态 Express 与 WebSocket 后端以 Postgres 作为事实源，并用 Redis 处理在线状态和跨实例扇出。
+  - The shared React interface targets Electron, PWA, iOS, and Android, while a stateless Express and WebSocket backend uses Postgres as the source of truth and Redis for presence and cross-instance fan-out.
+- 云端智能体运行在独立 Kubernetes Pod 中，本地智能体运行在 BYOA daemon 中；两者使用相同的 Cumora CLI 协议，并把模型调用用量写入统一成本账本。
+  - Cloud agents run in per-agent Kubernetes pods and local agents in a BYOA daemon; both use the same Cumora CLI protocol and feed model-call usage into one cost ledger.
+- seen-cursor 新鲜度门会暂扣过时回复，并让智能体根据新消息重新判断；原子工作认领减少冲突，较小的分流模型则避免主模型处理低价值轮次。
+  - A seen-cursor freshness gate holds stale replies and asks the agent to reconsider against newer messages, while atomic work claims reduce collisions and a smaller triage model shields the main model from low-value turns.
+
+### 为什么重要 / Why it matters
+
+Cumora 将协作、持久化、运行时隔离和跨客户端交付整合成可检查的纵向智能体团队栈。采集时的 2,269 个 star 和 247 个 fork 显示其早期关注增长异常迅速，但这个新项目仍缺少独立运行验证。
+
+Cumora packages coordination, persistence, runtime isolation, and cross-client delivery into an inspectable vertical agent-team stack. Its 2,269 stars and 247 forks at collection show unusually fast early attention, although the new project lacks independent operational validation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/yetone/cumora) · [Evidence 2](https://github.com/yetone/cumora/blob/main/docs/COORDINATION.md) · [Evidence 3](https://github.com/yetone/cumora/blob/main/docs/BYOA.md)
+
+---
+
+<a id="2026-08-17-composkill-skill-chain-attacks"></a>
+## [CompoSkill 揭示逐技能安全扫描看不见的组合攻击](https://arxiv.org/abs/2608.16246)
+
+**English:** [CompoSkill exposes attacks hidden by per-skill safety scans](https://arxiv.org/abs/2608.16246)
+
+- **发布 / Published:** `2026-08-17T08:20:44Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16246) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `security`, `skill-composition`, `benchmark`, `supply-chain-security`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+CompoSkill 表明，即使每项智能体技能都单独通过安全扫描，自主智能体把它们的输出、能力和副作用连接起来后，仍可能形成危险攻击链。该研究将技能市场安全从孤立包的属性重新定义为组合路径的属性。
+
+CompoSkill demonstrates that agent skills which each pass an individual safety scan can form a dangerous chain when an autonomous agent connects their outputs, capabilities, and side effects. It reframes marketplace safety as a path-level property of skill composition rather than a property of isolated packages.
+
+### 技术点 / Technical points
+
+- 白盒攻击者知道已安装技能池并注入明确的技能序列；黑盒攻击者则从角色画像出发，下载热门市场技能、构建技能组合图，并在不点名技能标识符的情况下搜索危险链。
+  - The white-box attacker knows the installed skill pool and injects explicit skill sequences, while the black-box attacker starts from a role profile, downloads popular marketplace skills, builds a Skill Composition Graph, and searches for risky chains without naming skill identifiers.
+- CompoSkill-Bench 包含 1,140 条长程工作流记录，覆盖 OpenClaw 与 Nanobot 上五类威胁和六种专业场景。
+  - CompoSkill-Bench contains 1,140 long-horizon workflow records covering five threat types and six professional scenarios on OpenClaw and Nanobot.
+- 作者报告白盒设置中的风险链形成率最高为 83.3%，黑盒设置最高为 80.6%；桥接技能能够提高成功率，但技能链超过三跳后攻击成功率开始衰减。
+  - The authors report risk-chain formation rates up to 83.3% in the white-box setting and 80.6% in the black-box setting; bridge skills can raise success, while attack success begins to decay beyond chains of three skills.
+
+### 为什么重要 / Why it matters
+
+逐包审批无法证明自主工作流整体安全，因此智能体市场和企业技能注册表需要面向组合的分析，并对完整能力路径实施运行时控制。
+
+Per-package approval cannot establish the safety of an autonomous workflow, so agent marketplaces and enterprise skill registries need composition-aware analysis and runtime controls over complete capability paths.
+
+---
+
 <a id="2026-08-15-dhunter-verifier-gated-pentesting"></a>
 ## [Dhunter 为自主渗透测试加入验证门禁](https://github.com/Dest1ny-Sec/dhunter)
 
@@ -457,291 +741,3 @@ It moves AI-scientist systems beyond text-centric workflow automation toward cla
 ### 链接 / Links
 
 [Evidence 1](https://omni-scientist.github.io/)
-
----
-
-<a id="2026-08-13-playworld-agent-player-benchmark"></a>
-## [PlayWorld 用智能体玩家评测长时程交互世界模型](https://arxiv.org/abs/2608.13552)
-
-**English:** [PlayWorld evaluates long-horizon world models with agent players](https://arxiv.org/abs/2608.13552)
-
-- **发布 / Published:** `2026-08-13T17:59:30Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13552) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `interactive-world-model`, `multimodal-agent`, `long-horizon`, `video-generation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-PlayWorld 让多模态智能体玩家在交互式视频世界模型中追求指定目标。由于玩家会针对受测模型调整动作，基准无需强制所有模型执行同一动作序列，也能比较其长时程行为。
-
-PlayWorld uses multimodal agent players to pursue specified objectives inside interactive video world models. Because each player adapts its actions to the model being tested, the benchmark can compare long-horizon behavior without forcing every model through an identical action sequence.
-
-### 技术点 / Technical points
-
-- 该基准包含 171 个目标驱动场景，覆盖几何一致性、交互保真度、视野内外演化、视频质量和可控性。
-  - The benchmark contains 171 objective-driven scenarios spanning geometry consistency, interaction fidelity, visible and out-of-view evolution, video quality, and controllability.
-- 智能体玩家可为不同模型选择相应动作序列，例如完成整圈转向或进入水中，以检验环境响应是否连贯。
-  - Agent players can choose model-specific action sequences for tasks such as completing a full turn or entering water to test whether the environment responds coherently.
-- 作者在九个受测世界模型中发现，长时程空间一致性与状态演化仍普遍存在弱点。
-  - Across nine evaluated world models, the authors found persistent weaknesses in long-horizon spatial consistency and state evolution.
-
-### 为什么重要 / Why it matters
-
-它把世界模型评测从短视频和固定控制序列转向：自适应智能体能否在生成环境中可靠完成目标。
-
-It shifts world-model evaluation from short clips and fixed controls toward whether an adaptive agent can reliably accomplish objectives inside a generated environment.
-
-### 链接 / Links
-
-[Evidence 1](https://kxding.github.io/project/PlayWorld/) · [Evidence 2](https://github.com/kxding/PlayWorld)
-
----
-
-<a id="2026-08-13-quotebench-command-path-evaluation"></a>
-## [QuoteBench 揭示匹配分数掩盖的智能体命令链路故障](https://arxiv.org/abs/2608.13547)
-
-**English:** [QuoteBench exposes command-path failures hidden by matched agent scores](https://arxiv.org/abs/2608.13547)
-
-- **发布 / Published:** `2026-08-13T17:57:20Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13547) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `coding-agent`, `tool-use`, `execution-safety`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-QuoteBench 将命令生成与代码智能体执行接口中的序列化、包装和重复解析分开评测。其最终状态验证表明，相近的端到端分数可能掩盖传输链路造成的大量故障，而模型在生成阶段只补偿了其中一部分。
-
-QuoteBench separates command generation from the serialization, wrapping, and reparsing performed by a coding agent's execution interface. Its final-state evaluation shows that similar end-to-end scores can conceal large transport-induced failures that a model partly compensates for during generation.
-
-### 技术点 / Technical points
-
-- 该基准包含来自 14 类真实故障模式的 56 个单轮 Bash 任务，并验证最终程序状态，而不是匹配命令文本。
-  - The benchmark contains 56 one-shot Bash tasks from 14 incident-derived families and validates the resulting program state rather than matching command text.
-- 把完全相同的模型回复送入额外解析器后，八种配置的成功率下降了 55.4 至 73.2 个百分点。
-  - Replaying identical model replies through one added parser reduced success by 55.4 to 73.2 percentage points across eight configurations.
-- 提前披露不利边界后，六种配置恢复了 30.4 至 60.7 个百分点，另两种没有恢复；实际部署路径还改变了部分模型排序。
-  - Disclosing the hostile boundary recovered 30.4 to 60.7 points for six configurations but produced no recovery for two, and the deployment path changed parts of the model ordering.
-
-### 为什么重要 / Why it matters
-
-它表明代码智能体评测必须同时报告生成契约、工具接口、执行路径和验证器，不能把总分当作模型的固有属性。
-
-It shows that coding-agent evaluations must report the generation contract, tool interface, execution path, and validator instead of treating a score as an intrinsic model property.
-
-### 链接 / Links
-
-[Evidence 1](https://quotebench.lsamc.website/)
-
----
-
-<a id="2026-08-13-vero-repository-verified-agents"></a>
-## [Vero 将代码智能体的形式化验证推进到仓库级](https://arxiv.org/abs/2608.13522)
-
-**English:** [Vero brings formally verified coding agents to repository scale](https://arxiv.org/abs/2608.13522)
-
-- **发布 / Published:** `2026-08-13T17:41:27Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13522) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `coding-agent`, `formal-verification`, `lean`, `software-engineering`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-Vero 评测代码智能体能否在连贯的多模块仓库中同时合成实现与机器检查证明。作者报告称，最强受测智能体完整解决了 43 个实例中的 27 个，并且在最难仓库上未能闭合任何规格。
-
-Vero evaluates whether coding agents can jointly synthesize implementations and machine-checked proofs across coherent multi-module repositories. The authors report that the strongest tested agent fully solved 27 of 43 instances and closed no specifications on the hardest repositories.
-
-### 技术点 / Technical points
-
-- 43 个实例取自真实的 Python、Dafny、Verus 和 Coq 仓库，并表示为带固定 API 和人工整理规格的 Lean 4 项目。
-  - The 43 instances are derived from real Python, Dafny, Verus, and Coq repositories and represented as Lean 4 projects with fixed APIs and manually curated specifications.
-- 基准同时支持仅证明和代码加证明两种模式，从而可将证明合成能力与实现决策分开评估。
-  - The benchmark supports both proof-only and joint code-and-proof modes so that proof synthesis can be separated from implementation decisions.
-- 审计机制允许智能体形式化证明给定规格不可满足或参考代码错误，使整理缺陷被显式发现，而不会被误计为模型失败。
-  - An audit mechanism lets agents formally demonstrate that a supplied specification is unsatisfiable or that reference code is incorrect, exposing curation defects instead of counting them as model failures.
-
-### 为什么重要 / Why it matters
-
-它把代码智能体评测从单元测试通过推进到由形式化规格和机器检查证明支撑的仓库级一致性。
-
-It moves coding-agent evaluation beyond unit-test success toward repository-wide consistency backed by formal specifications and machine-checked proofs.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/sunblaze-ucb/vero)
-
----
-
-<a id="2026-08-13-dreamx-phi-robot-world-model"></a>
-## [DreamX-Phi 为机器人世界模型加入几何动作忠实度](https://arxiv.org/abs/2608.13489)
-
-**English:** [DreamX-Phi adds geometric action fidelity to robotic world modeling](https://arxiv.org/abs/2608.13489)
-
-- **发布 / Published:** `2026-08-13T17:18:09Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13489) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `manipulation`, `video-world-model`, `action-conditioning`, `geometry`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-DreamX-Phi 1.0 根据当前画面、语言指令以及预设的末端执行器位姿和夹爪状态序列预测未来机器人观测。其设计针对画面看似真实、却移动错误机械臂或丢失被操作物体的预测失败。
-
-DreamX-Phi 1.0 predicts future robot observations from a current frame, a language instruction, and a prescribed sequence of end-effector poses and gripper states. Its design targets rollouts that may look realistic while moving the wrong arm or losing track of a manipulated object.
-
-### 技术点 / Technical points
-
-- PRoPE 风格的几何编码把每条机械臂各自的 SE(3) 变换注入注意力，以保持机械臂身份和刚体运动结构。
-  - PRoPE-style geometric encoding injects separate per-arm SE(3) transformations into attention to preserve arm identity and rigid-motion structure.
-- 深度分支约束场景几何，SAM3 掩码与冻结的 V-JEPA 教师则促进物体在抓取交互中的一致性。
-  - A depth branch constrains scene geometry, while SAM3 masks and a frozen V-JEPA teacher encourage object consistency through grasping interactions.
-- 分布匹配蒸馏把多步视频生成器压缩为少步学生模型，以提高部署效率。
-  - Distribution-matching distillation compresses the multi-step video generator into a few-step student for more efficient deployment.
-
-### 为什么重要 / Why it matters
-
-它把与机器人指令运动及物体几何的因果一致性，与视频真实感并列为要求；这对于使用生成未来进行规划或合成数据至关重要。
-
-It treats causal agreement with commanded robot motion and object geometry as requirements alongside video realism, which is essential if generated futures are used for planning or data synthesis.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/AMAP-ML/DreamX-Phi)
-
----
-
-<a id="2026-08-13-vla-task-progress-probe"></a>
-## [线性探针可从 VLA 表征中解码任务进度](https://arxiv.org/abs/2608.13474)
-
-**English:** [A linear probe decodes task progress from VLA representations](https://arxiv.org/abs/2608.13474)
-
-- **发布 / Published:** `2026-08-13T16:58:29Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13474) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `interpretability`, `runtime-monitoring`, `out-of-distribution`, `robotics`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-研究人员发现，机器人轨迹的归一化剩余时间可以从视觉—语言—动作模型 π₀.₅ 的残差流中线性读出。该信号在进行机器人专用训练之前就已存在于预训练 PaliGemma 主干中，并可用于轻量级运行时监控。
-
-Researchers find that normalized time remaining in a robot trajectory is linearly readable from the residual stream of the π₀.₅ vision-language-action model. The signal is already present in its pretrained PaliGemma backbone before robot-specific training and can support lightweight runtime monitoring.
-
-### 技术点 / Technical points
-
-- 单个线性探针可泛化到未见任务，并在多提示训练后对语言反事实变化作出响应。
-  - A single linear probe generalizes to unseen tasks and responds to language counterfactuals when trained across multiple prompts.
-- 该探针可作为检测任务进度停滞的无标签分布外检测器，表现可与更专门的方法竞争。
-  - The probe works as a label-free out-of-distribution detector for stalled task progress and is competitive with more specialized methods.
-- 同一表征未能有效引导策略，说明监控价值与直接控制能力并不等同。
-  - The same representation did not provide meaningful policy steering, separating monitoring utility from direct control.
-
-### 为什么重要 / Why it matters
-
-它为检测已部署通用机器人策略的停滞或异常行为提供了可解释、低开销的信号。
-
-It offers an interpretable, low-overhead signal for detecting stalled or abnormal behavior in deployed general-purpose robot policies.
-
----
-
-<a id="2026-08-13-unitexture-vla-adversarial-texture"></a>
-## [UniTexture 用单一对抗纹理跨任务攻击 VLA 策略](https://arxiv.org/abs/2608.13453)
-
-**English:** [UniTexture attacks VLA policies across tasks with one adversarial texture](https://arxiv.org/abs/2608.13453)
-
-- **发布 / Published:** `2026-08-13T16:38:57Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13453) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `adversarial-attack`, `safety`, `robotics`, `manipulation`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-UniTexture 优化单个三维物体的表面纹理，以便在多个机器人任务中诱导攻击者指定的动作偏移。优化过程同时覆盖指令、状态和视角，暴露了通用视觉—语言—动作策略共享的物理外观漏洞。
-
-UniTexture optimizes the surface texture of one 3D object to induce attacker-selected action deviations across multiple robot tasks. The optimization spans instructions, states, and viewpoints, exposing a shared physical-appearance vulnerability in generalist vision-language-action policies.
-
-### 技术点 / Technical points
-
-- 该攻击通过可微渲染器，把策略动作输出的梯度反向传播到共享表面纹理参数。
-  - The attack backpropagates from policy action outputs through a differentiable renderer to shared surface-texture parameters.
-- 在 OpenVLA 和 π₀.₅ 的操作评测中，平均任务成功率从正常条件下的 90.0% 降至受攻击时的 48.4%。
-  - Across OpenVLA and π₀.₅ manipulation evaluations, mean task success fell from 90.0% under benign conditions to 48.4% under attack.
-- 优化后的纹理无需重新优化，还能在不同评测套件和模型之间迁移。
-  - The optimized texture also transferred across evaluation suites and models without re-optimization.
-
-### 为什么重要 / Why it matters
-
-它证明可复用的实体物体外观能够系统性破坏多个任务和模型，对 VLA 控制机器人的实际部署安全提出警示。
-
-It demonstrates that a reusable physical object appearance can systematically compromise multiple tasks and models, raising deployment-level safety concerns for VLA-controlled robots.
-
----
-
-<a id="2026-08-13-contactguard-precontact-world-model"></a>
-## [ContactGuard 在接触前预测机器人操作失败](https://arxiv.org/abs/2608.13438)
-
-**English:** [ContactGuard predicts robot manipulation failures before contact](https://arxiv.org/abs/2608.13438)
-
-- **发布 / Published:** `2026-08-13T16:25:54Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13438) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `manipulation`, `safety`, `latent-world-model`, `action-conditioning`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-ContactGuard 在机器人真正接触物体前监控分块视觉运动策略。它在潜在视觉空间中预测策略计划动作的短期后果，并在预测未来表明可能失败时中止执行。
-
-ContactGuard monitors chunked visuomotor policies before a robot commits to physical contact. It predicts the short-horizon consequence of the policy's planned actions in latent visual space and aborts execution when the predicted future indicates likely failure.
-
-### 技术点 / Technical points
-
-- 动作条件世界模型从无标签机器人轨迹中学习紧凑的多视角视觉动态，而不是直接预测像素。
-  - The action-conditioned world model learns compact multi-view visual dynamics from unlabeled robot trajectories rather than predicting pixels directly.
-- 轻量失败探针使用规模相对较小的接触前标注片段进行训练。
-  - A lightweight failure probe is trained from a comparatively small labeled collection of pre-contact clips.
-- 部署时，监控器在即将接触前确定预测起点，沿策略自身的动作片段前向推演，并在不修改原策略的情况下提供实时中止信号。
-  - At deployment the monitor anchors its prediction before imminent contact, rolls forward under the policy's own action chunk, and provides a live abort signal without modifying that policy.
-
-### 为什么重要 / Why it matters
-
-它展示了学习式世界模型可以充当独立安全层，在不可逆的物理接触发生前预判富接触操作失败。
-
-It demonstrates a learned world model serving as a separate safety layer that can anticipate contact-rich failures before irreversible physical interaction occurs.
-
----
-
-<a id="2026-08-13-long-horizon-ai-rnd-evaluation"></a>
-## [长时程 AI 研发智能体仍更像工程优化器](https://arxiv.org/abs/2608.13417)
-
-**English:** [Long-horizon AI R&D agents still resemble engineering optimizers](https://arxiv.org/abs/2608.13417)
-
-- **发布 / Published:** `2026-08-13T16:11:22Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.13417) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `long-horizon`, `research-agent`, `evaluation`, `experience-reuse`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-一项过程级研究在 36 个长时程 AI 研发任务上评估七个前沿模型。除最终得分外，它还考察智能体如何构建方案、执行实验、响应反馈以及复用积累的经验。
-
-A process-level study evaluates seven frontier models on 36 long-horizon AI research and development tasks. Rather than relying only on final scores, it examines how agents frame solutions, execute experiments, respond to feedback, and reuse accumulated experience.
-
-### 技术点 / Technical points
-
-- 规则指标把单次执行行为划分为方案构建、执行和反馈控制，受控比较则衡量任务内与跨任务的经验复用。
-  - Rule-based metrics organize within-run behavior into Solution Framing, Execution, and Feedback Control, while controlled comparisons measure experience reuse within and across tasks.
-- 智能体能够制定并实施实用方案，但不同执行之间结果差异显著，最强方案也主要是调整或组合已有技术。
-  - Agents could formulate and implement practical solutions, but outcomes varied substantially across runs and the strongest approaches mostly adapted or combined established techniques.
-- 经验复用有时改善后续决策，有时也会造成误导；Harness 设计同样显著影响表现稳定性。
-  - Experience reuse sometimes improved later decisions and sometimes misled them; harness design also materially affected performance stability.
-
-### 为什么重要 / Why it matters
-
-这些发现为训练、推理时策略、记忆和 Harness 设计指出具体瓶颈，同时提醒不能把较高最终得分直接等同于自主科研能力。
-
-The findings identify concrete bottlenecks for training, inference-time strategy, memory, and harness design while cautioning against equating a strong final score with autonomous research ability.

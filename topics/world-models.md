@@ -2,6 +2,44 @@
 
 # World models / 世界模型
 
+<a id="2026-08-17-tau0-vla-world-model-ttc"></a>
+## [τ₀-VLA 用世界模型扩展机器人推理时规划](https://arxiv.org/abs/2608.16885)
+
+**English:** [τ₀-VLA uses world models to scale robot planning at inference time](https://arxiv.org/abs/2608.16885)
+
+- **发布 / Published:** `2026-08-17T17:59:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16885) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `world-model`, `test-time-compute`, `long-horizon`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+τ₀-VLA 在跨机器人形态的视觉—语言—动作策略之上加入较慢的高层规划器，并只在下一子任务不确定时追加推理计算。实际执行前，世界模型会预测候选子任务的视觉后果，使系统能够比较不同分支并修正规划。
+
+τ₀-VLA places a slower high-level planner above a cross-embodiment vision-language-action policy and spends additional inference compute only when the next subtask is uncertain. Before physical execution, a world model predicts the visual consequences of candidate subtasks so the system can compare branches and revise its plan.
+
+### 技术点 / Technical points
+
+- 置信度统计会把不确定决策路由到“提出—预测—评估”循环：VLM 提出子任务，世界模型生成终态观测，价值模型评分，再由束搜索和反思选择下一条指令。
+  - Confidence statistics route uncertain decisions into a propose-predict-evaluate loop in which a VLM proposes subtasks, a world model imagines terminal observations, a value model scores them, and beam search plus reflection selects the next command.
+- 低层策略使用 40,115 小时异构真实机器人经验训练，并通过统一的 40 维接口支持固定底座、双臂和移动机器人形态。
+  - The low-level policy is trained on 40,115 hours of heterogeneous real-world robot experience and uses a unified 40-dimensional interface for fixed-base, bimanual, and mobile embodiments.
+- 项目报告下一子任务准确率提高 15 至 24 个百分点；在四项长程实机任务中，分层 Plan Once 的平均成功率为 45.0%，直接执行为 27.5%；在一项分布偏移设置中，测试时搜索将下一子任务准确率从 50.0% 提至 74.0%。
+  - The project reports 15-24 percentage-point gains in next-subtask accuracy, 45.0% average success for hierarchical Plan Once versus 27.5% for direct execution on four physical long-horizon tasks, and 74.0% versus 50.0% next-subtask accuracy under one distribution shift with test-time search.
+
+### 为什么重要 / Why it matters
+
+该系统把世界模型变成物理行动前按需启用的规划器，将推理时扩展与长程机器人控制连接起来，而不是只把预测用于离线生成。
+
+The system turns a world model into a selective pre-commitment planner for physical action, connecting inference-time scaling with long-horizon robot control instead of using prediction only for offline generation.
+
+### 链接 / Links
+
+[Evidence 1](https://tau0-vla.github.io/)
+
+---
+
 <a id="2026-08-13-playworld-agent-player-benchmark"></a>
 ## [PlayWorld 用智能体玩家评测长时程交互世界模型](https://arxiv.org/abs/2608.13552)
 

@@ -2,6 +2,116 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-17-baton-subtask-robot-exploration"></a>
+## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
+
+**English:** [BATON makes long-horizon robot exploration subtask-additive](https://arxiv.org/abs/2608.16889)
+
+- **发布 / Published:** `2026-08-17T17:59:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16889) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `long-horizon`, `memory`, `planning`, `test-time-adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+BATON 是一个由智能体控制的机器人操控框架：它冻结底层视觉—语言—动作模型，分别探索接触密集型子任务，再将已保存的解法组合成长程执行轨迹。其迁移感知记忆还会判断前一项技能结束后的场景状态能否被下一项技能直接使用。
+
+BATON is an agent-controlled manipulation framework that keeps its underlying vision-language-action model frozen, explores contact-rich subtasks separately, and composes their stored solutions for long-horizon execution. Its transition-aware memory also tracks whether one skill leaves the scene in a state the next skill can use.
+
+### 技术点 / Technical points
+
+- BATON 将每个子任务作为测试时探索单位，把论文估算的 K 阶段任务搜索成本从乘法式 T^K 改为加法式 T*K，并将失败归因到单一阶段。
+  - By making each subtask the unit of test-time exploration, BATON changes the paper's estimated search cost from multiplicative T^K for a K-stage task to additive T*K and attributes a failure to one stage.
+- 验证器智能体会等待腕部相机确认场景就绪后再调用 VLA；handoff 迁移负责修复前序任务残留，lookahead 迁移则选择可被后继任务继承的结果。
+  - A verifier agent waits for wrist-camera evidence before invoking the VLA, while handoff transitions repair predecessor residue and lookahead transitions select outcomes that a successor can inherit.
+- 在不更新模型参数的情况下，作者报告 BATON 在 RoboMemArena 上相对所述最佳方法将任务成功率提高 11.6%，累计成功率提高 14.9%。
+  - Without updating model parameters, the authors report gains of 11.6% in task success and 14.9% in cumulative success over the stated state of the art on RoboMemArena.
+
+### 为什么重要 / Why it matters
+
+长程机器人失败既可能来自代价过高的整任务探索，也可能来自技能边界不匹配；BATON 在无需重训基础 VLA 的情况下同时处理这两类问题。
+
+Long-horizon robot failures often arise both from prohibitively expensive whole-task exploration and from mismatched skill boundaries; BATON targets both problems without retraining the base VLA.
+
+---
+
+<a id="2026-08-17-tau0-vla-world-model-ttc"></a>
+## [τ₀-VLA 用世界模型扩展机器人推理时规划](https://arxiv.org/abs/2608.16885)
+
+**English:** [τ₀-VLA uses world models to scale robot planning at inference time](https://arxiv.org/abs/2608.16885)
+
+- **发布 / Published:** `2026-08-17T17:59:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16885) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `world-model`, `test-time-compute`, `long-horizon`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+τ₀-VLA 在跨机器人形态的视觉—语言—动作策略之上加入较慢的高层规划器，并只在下一子任务不确定时追加推理计算。实际执行前，世界模型会预测候选子任务的视觉后果，使系统能够比较不同分支并修正规划。
+
+τ₀-VLA places a slower high-level planner above a cross-embodiment vision-language-action policy and spends additional inference compute only when the next subtask is uncertain. Before physical execution, a world model predicts the visual consequences of candidate subtasks so the system can compare branches and revise its plan.
+
+### 技术点 / Technical points
+
+- 置信度统计会把不确定决策路由到“提出—预测—评估”循环：VLM 提出子任务，世界模型生成终态观测，价值模型评分，再由束搜索和反思选择下一条指令。
+  - Confidence statistics route uncertain decisions into a propose-predict-evaluate loop in which a VLM proposes subtasks, a world model imagines terminal observations, a value model scores them, and beam search plus reflection selects the next command.
+- 低层策略使用 40,115 小时异构真实机器人经验训练，并通过统一的 40 维接口支持固定底座、双臂和移动机器人形态。
+  - The low-level policy is trained on 40,115 hours of heterogeneous real-world robot experience and uses a unified 40-dimensional interface for fixed-base, bimanual, and mobile embodiments.
+- 项目报告下一子任务准确率提高 15 至 24 个百分点；在四项长程实机任务中，分层 Plan Once 的平均成功率为 45.0%，直接执行为 27.5%；在一项分布偏移设置中，测试时搜索将下一子任务准确率从 50.0% 提至 74.0%。
+  - The project reports 15-24 percentage-point gains in next-subtask accuracy, 45.0% average success for hierarchical Plan Once versus 27.5% for direct execution on four physical long-horizon tasks, and 74.0% versus 50.0% next-subtask accuracy under one distribution shift with test-time search.
+
+### 为什么重要 / Why it matters
+
+该系统把世界模型变成物理行动前按需启用的规划器，将推理时扩展与长程机器人控制连接起来，而不是只把预测用于离线生成。
+
+The system turns a world model into a selective pre-commitment planner for physical action, connecting inference-time scaling with long-horizon robot control instead of using prediction only for offline generation.
+
+### 链接 / Links
+
+[Evidence 1](https://tau0-vla.github.io/)
+
+---
+
+<a id="2026-08-17-zetta-closed-loop-embodied-harness"></a>
+## [Zetta 为自进化具身智能体闭合执行反馈环](https://arxiv.org/abs/2608.16590)
+
+**English:** [Zetta closes the loop for self-evolving embodied agents](https://arxiv.org/abs/2608.16590)
+
+- **发布 / Published:** `2026-08-17T13:49:43Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16590) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `embodied-agents`, `self-evolution`, `runtime`, `recovery`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Zetta 是一个具身智能体 Harness：它冻结基础机器人策略，同时在执行过程中演化代码化运行时批评器与恢复技能。它不再只在整段 episode 结束后反思，而是验证失败，并将可复用的改进带到后续 rollout。
+
+Zetta is an embodied-agent harness that keeps the base robot policy frozen while evolving code-based runtime critics and recovery skills during execution. Instead of reflecting only after an episode, it validates failures and incorporates reusable improvements across rollouts.
+
+### 技术点 / Technical points
+
+- 三个分离时间尺度的循环分别负责动作频率治理、rollout 级批评器与恢复方案生成，以及对可复用技能集合进行验证门控更新。
+  - Three time-separated loops provide action-frequency governance, rollout-level critic and recovery proposals, and validation-gated updates to the reusable skill set.
+- 配套的 Z-Infra 层将智能体逻辑与异构模拟器、模型、CPU 和 GPU 解耦，使自探索能够扩展而不把 Harness 绑定到单一执行资源。
+  - The accompanying Z-Infra layer separates agent logic from heterogeneous simulators, models, CPUs, and GPUs so self-exploration can scale without coupling the harness to one execution resource.
+- 在论文设定的 rollout 预算下，作者报告 LIBERO-Pro 成功率为 90.8%、RoboCasa 为 93.6%、推理加速 11.1 倍，并观察到性能随自探索继续提升及所学技能的零样本迁移。
+  - Under the paper's rollout budget, the authors report 90.8% success on LIBERO-Pro, 93.6% on RoboCasa, an 11.1x inference speedup, continued scaling with self-exploration, and zero-shot transfer of learned skills.
+
+### 为什么重要 / Why it matters
+
+Zetta 将具身反思从事后评论转变为在线、经验证门控的机制，使机器人能在后续物理交互中改变恢复方式。
+
+Zetta turns embodied reflection from post-hoc commentary into an online, validation-gated mechanism for changing how a robot recovers during later physical interactions.
+
+### 链接 / Links
+
+[Evidence 1](https://air-embodied-brain.github.io/zetta/)
+
+---
+
 <a id="2026-08-13-dreamx-phi-robot-world-model"></a>
 ## [DreamX-Phi 为机器人世界模型加入几何动作忠实度](https://arxiv.org/abs/2608.13489)
 

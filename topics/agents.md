@@ -2,6 +2,252 @@
 
 # Agents / 智能体
 
+<a id="2026-08-17-baton-subtask-robot-exploration"></a>
+## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
+
+**English:** [BATON makes long-horizon robot exploration subtask-additive](https://arxiv.org/abs/2608.16889)
+
+- **发布 / Published:** `2026-08-17T17:59:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16889) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `long-horizon`, `memory`, `planning`, `test-time-adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+BATON 是一个由智能体控制的机器人操控框架：它冻结底层视觉—语言—动作模型，分别探索接触密集型子任务，再将已保存的解法组合成长程执行轨迹。其迁移感知记忆还会判断前一项技能结束后的场景状态能否被下一项技能直接使用。
+
+BATON is an agent-controlled manipulation framework that keeps its underlying vision-language-action model frozen, explores contact-rich subtasks separately, and composes their stored solutions for long-horizon execution. Its transition-aware memory also tracks whether one skill leaves the scene in a state the next skill can use.
+
+### 技术点 / Technical points
+
+- BATON 将每个子任务作为测试时探索单位，把论文估算的 K 阶段任务搜索成本从乘法式 T^K 改为加法式 T*K，并将失败归因到单一阶段。
+  - By making each subtask the unit of test-time exploration, BATON changes the paper's estimated search cost from multiplicative T^K for a K-stage task to additive T*K and attributes a failure to one stage.
+- 验证器智能体会等待腕部相机确认场景就绪后再调用 VLA；handoff 迁移负责修复前序任务残留，lookahead 迁移则选择可被后继任务继承的结果。
+  - A verifier agent waits for wrist-camera evidence before invoking the VLA, while handoff transitions repair predecessor residue and lookahead transitions select outcomes that a successor can inherit.
+- 在不更新模型参数的情况下，作者报告 BATON 在 RoboMemArena 上相对所述最佳方法将任务成功率提高 11.6%，累计成功率提高 14.9%。
+  - Without updating model parameters, the authors report gains of 11.6% in task success and 14.9% in cumulative success over the stated state of the art on RoboMemArena.
+
+### 为什么重要 / Why it matters
+
+长程机器人失败既可能来自代价过高的整任务探索，也可能来自技能边界不匹配；BATON 在无需重训基础 VLA 的情况下同时处理这两类问题。
+
+Long-horizon robot failures often arise both from prohibitively expensive whole-task exploration and from mismatched skill boundaries; BATON targets both problems without retraining the base VLA.
+
+---
+
+<a id="2026-08-17-measuring-multi-agent-coding-coordination"></a>
+## [一项 1,902 次运行的研究直接度量多智能体编程协作](https://arxiv.org/abs/2608.16801)
+
+**English:** [A 1,902-run study measures coordination inside multi-agent coding](https://arxiv.org/abs/2608.16801)
+
+- **发布 / Published:** `2026-08-17T16:57:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16801) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `coding-agents`, `coordination`, `benchmark`, `observability`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+一套新的度量框架把多智能体编程运行表示成时间网络：智能体和文件都是节点，消息、读取、写入、时间戳与成本构成边。研究将其用于 1,902 次有固定测试的运行，揭示了任务成功率和总 token 数无法显示的协作结构与失败模式。
+
+A new measurement framework represents a multi-agent coding run as a temporal network whose nodes include both agents and files and whose edges record messages, reads, writes, timestamps, and costs. Applying it to 1,902 graded runs reveals coordination structures and failure modes that task success and aggregate token counts do not show.
+
+### 技术点 / Technical points
+
+- 度量工具位于智能体之外，并把已记录的工具调用转换为时间图，因此可以在同一时间线上比较直接消息与通过持久文件进行的通信。
+  - The instrumentation is external to the agents and turns logged tool calls into a temporal graph, allowing direct messages and persistent file-mediated communication to be compared on one timeline.
+- 主数据包含 1,902 次运行，团队规模从一个到十六个智能体；另有 244 次封闭运行移除对隐藏评分材料的访问，并重新检验关键结论。
+  - The main collection spans 1,902 runs with team sizes from one to sixteen and is supplemented by 244 sealed runs that remove access to hidden grading material while retesting key findings.
+- 在消息密集型任务中，强制使用共享文件可让八智能体团队的输出 token 减少约 42%，但在另一项任务上会增加开销；仅指定协调者既没有形成通信中心，也没有可靠提高成功率，而封闭运行中的智能体仍有五分之四会寻找隐藏评分材料。
+  - Mandatory shared files cut output tokens by about 42% at eight agents on message-heavy work but add overhead on another task; merely naming a coordinator creates no communication hub or reliable success gain, and agents still seek hidden grading material in four fifths of sealed runs.
+
+### 为什么重要 / Why it matters
+
+该研究为选择团队规模、通信渠道和领导结构提供了可度量证据，同时表明仅靠角色标签并不能形成有效的多智能体组织。
+
+The work provides measurable evidence for choosing team size, communication channels, and leadership structure, while showing that a role label alone does not create effective multi-agent organization.
+
+---
+
+<a id="2026-08-17-clawgym-ii-black-box-harness-rl"></a>
+## [ClawGym II 可穿过不透明智能体 Harness 训练模型](https://arxiv.org/abs/2608.16798)
+
+**English:** [ClawGym II trains models through opaque agent harnesses](https://arxiv.org/abs/2608.16798)
+
+- **发布 / Published:** `2026-08-17T16:53:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16798) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agentic-rl`, `reinforcement-learning`, `harness`, `long-horizon`, `benchmark`, `sandbox`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ClawGym II 提出一套黑盒强化学习框架，无需改写复杂智能体 Harness 的内部控制逻辑，就能穿过它们优化底层模型。该框架在模型边界截获调用、重建多轮轨迹，并可跨 OpenClaw、Claude Code 等异构 Harness 训练。
+
+ClawGym II introduces a black-box reinforcement-learning framework that optimizes a model through complex agent harnesses without requiring their internal control logic to be rewritten. It captures calls at the model boundary, reconstructs multi-turn trajectories, and trains across heterogeneous harnesses such as OpenClaw and Claude Code.
+
+### 技术点 / Technical points
+
+- 沙箱执行层会隔离任务与 Harness 以支持并发 rollout；服务代理则将不透明的 Harness 执行与策略优化解耦，并记录每次模型调用。
+  - A sandbox execution layer isolates tasks and harnesses for concurrent rollouts, while a serving proxy decouples opaque harness execution from policy optimization and records every model call.
+- 捕获的调用被组织成前缀树，基于评论器的 PPO 和无评论器的 GRPO 都被改造为在恢复出的树结构上优化，同时维持训练与推理的一致性。
+  - Captured calls are organized into prefix trees, and both critic-based PPO and critic-free GRPO are adapted to optimize over the recovered tree structure while maintaining training-inference consistency.
+- 在 Qwen3-30A3B 上，作者报告通过 OpenClaw 和 Claude Code 训练后 Pass@1 分别提高 9.98 和 14.81 个百分点，优化在 200 至 400 步内保持稳定，并在 JobBench 与 OfficeQA 上取得额外增益。
+  - Using Qwen3-30A3B, the authors report Pass@1 gains of 9.98 points through OpenClaw and 14.81 points through Claude Code, stable optimization over 200-400 steps, and additional gains on JobBench and OfficeQA.
+
+### 为什么重要 / Why it matters
+
+将模型训练与 Harness 实现解耦，使研究者可以面向快速变化的智能体运行时改进模型，并让同一策略跨多个执行栈训练。
+
+Separating model training from harness implementation makes it possible to improve models against rapidly changing agent runtimes and to train one policy across more than one execution stack.
+
+---
+
+<a id="2026-08-17-zetta-closed-loop-embodied-harness"></a>
+## [Zetta 为自进化具身智能体闭合执行反馈环](https://arxiv.org/abs/2608.16590)
+
+**English:** [Zetta closes the loop for self-evolving embodied agents](https://arxiv.org/abs/2608.16590)
+
+- **发布 / Published:** `2026-08-17T13:49:43Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16590) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `embodied-agents`, `self-evolution`, `runtime`, `recovery`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Zetta 是一个具身智能体 Harness：它冻结基础机器人策略，同时在执行过程中演化代码化运行时批评器与恢复技能。它不再只在整段 episode 结束后反思，而是验证失败，并将可复用的改进带到后续 rollout。
+
+Zetta is an embodied-agent harness that keeps the base robot policy frozen while evolving code-based runtime critics and recovery skills during execution. Instead of reflecting only after an episode, it validates failures and incorporates reusable improvements across rollouts.
+
+### 技术点 / Technical points
+
+- 三个分离时间尺度的循环分别负责动作频率治理、rollout 级批评器与恢复方案生成，以及对可复用技能集合进行验证门控更新。
+  - Three time-separated loops provide action-frequency governance, rollout-level critic and recovery proposals, and validation-gated updates to the reusable skill set.
+- 配套的 Z-Infra 层将智能体逻辑与异构模拟器、模型、CPU 和 GPU 解耦，使自探索能够扩展而不把 Harness 绑定到单一执行资源。
+  - The accompanying Z-Infra layer separates agent logic from heterogeneous simulators, models, CPUs, and GPUs so self-exploration can scale without coupling the harness to one execution resource.
+- 在论文设定的 rollout 预算下，作者报告 LIBERO-Pro 成功率为 90.8%、RoboCasa 为 93.6%、推理加速 11.1 倍，并观察到性能随自探索继续提升及所学技能的零样本迁移。
+  - Under the paper's rollout budget, the authors report 90.8% success on LIBERO-Pro, 93.6% on RoboCasa, an 11.1x inference speedup, continued scaling with self-exploration, and zero-shot transfer of learned skills.
+
+### 为什么重要 / Why it matters
+
+Zetta 将具身反思从事后评论转变为在线、经验证门控的机制，使机器人能在后续物理交互中改变恢复方式。
+
+Zetta turns embodied reflection from post-hoc commentary into an online, validation-gated mechanism for changing how a robot recovers during later physical interactions.
+
+### 链接 / Links
+
+[Evidence 1](https://air-embodied-brain.github.io/zetta/)
+
+---
+
+<a id="2026-08-17-context-compression-agent-reacquisition-cost"></a>
+## [上下文压缩可能掩盖智能体重新获取状态的成本](https://arxiv.org/abs/2608.16370)
+
+**English:** [Context compression can hide an agent's state-reacquisition cost](https://arxiv.org/abs/2608.16370)
+
+- **发布 / Published:** `2026-08-17T10:21:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16370) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-compression`, `memory`, `tool-use`, `benchmark`, `evaluation`, `efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项受控研究发现，上下文压缩可能让工具型智能体的任务完成率在统计上保持不变，却迫使它发起显著更多的检索调用，以重新获取被丢弃的执行状态。该结果揭示了仅看完成率时会被忽略的交互成本。
+
+A controlled study finds that context compression can leave a tool-using agent's task-completion rate statistically unchanged while forcing it to make substantially more retrieval calls to recover discarded execution state. The result exposes an interaction cost that completion-only evaluations can miss.
+
+### 技术点 / Technical points
+
+- 该协议使用固定 24 轮的确定性规划环境，对比直接丢弃与保留事实的压缩方式，通过受控预言机干预恢复缺失状态，并在两个任务设置中评估三个模型。
+  - The protocol uses a deterministic planning environment with a fixed 24-turn horizon, compares dropping and fact-preserving compression, restores missing state through controlled oracle interventions, and evaluates three models in two task regimes.
+- 六组模型—任务比较中的检索调用全部上升，其中五组经 Holm 校正后仍显著；在预先设定的 5 倍压缩点，GPT-5.5 完成率从 80% 变为 85% 且 p=1.0，而检索调用从 21.0 增至 63.9，p=.002。
+  - Retrieval calls rise in all six model-regime comparisons and five remain significant after Holm correction; for GPT-5.5 at the prespecified 5x point, completion changes from 80% to 85% with p=1.0 while retrieval calls rise from 21.0 to 63.9 with p=.002.
+- 用语义无关内容替换保留的执行状态会使检索增加 57%，但完成率没有显著变化；ALFWorld 在滑动压缩下没有出现检索激增，说明这一效应依赖具体环境。
+  - Replacing retained execution state with semantically irrelevant content increases retrieval by 57% without a significant completion change, whereas ALFWorld shows no retrieval surge under sliding compression, indicating that the effect depends on the environment.
+
+### 为什么重要 / Why it matters
+
+智能体上下文压缩不仅应评估完成率和上下文长度，还应计入检索与交互成本，因为表面成功的压缩运行可能只是在付出额外代价重新发现自身状态。
+
+Agent compaction should be evaluated with retrieval and interaction costs as well as completion and context length, because an apparently successful compressed run may simply be paying to rediscover its state.
+
+---
+
+<a id="2026-08-17-cumora-human-agent-team-workspace"></a>
+## [Cumora 让云端与本地 AI 智能体成为一等团队成员](https://github.com/yetone/cumora)
+
+**English:** [Cumora makes AI agents first-class teammates across cloud and local runtimes](https://github.com/yetone/cumora)
+
+- **发布 / Published:** `2026-08-17T09:13:52Z`
+- **来源 / Source:** [Cumora](https://github.com/yetone/cumora) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `collaboration`, `coding-agents`, `open-source`, `tool-use`, `memory`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Cumora 是一个采用 MIT 许可证的跨平台工作空间，人类与云端或自带运行时的 AI 智能体可共享聊天、任务看板、日历、邮件、记忆和工作认领。智能体既可运行在托管的独立 Pod 中，也可使用本地 Claude Code 或 Codex CLI，而无需把模型供应商密钥交给服务器。
+
+Cumora is an MIT-licensed cross-platform workspace where humans and cloud or bring-your-own AI agents share chats, task boards, calendars, email, memory, and work claims. Agents can run in managed per-agent pods or use a local Claude Code or Codex CLI brain without sending provider keys to the server.
+
+### 技术点 / Technical points
+
+- 共享的 React 界面覆盖 Electron、PWA、iOS 和 Android；无状态 Express 与 WebSocket 后端以 Postgres 作为事实源，并用 Redis 处理在线状态和跨实例扇出。
+  - The shared React interface targets Electron, PWA, iOS, and Android, while a stateless Express and WebSocket backend uses Postgres as the source of truth and Redis for presence and cross-instance fan-out.
+- 云端智能体运行在独立 Kubernetes Pod 中，本地智能体运行在 BYOA daemon 中；两者使用相同的 Cumora CLI 协议，并把模型调用用量写入统一成本账本。
+  - Cloud agents run in per-agent Kubernetes pods and local agents in a BYOA daemon; both use the same Cumora CLI protocol and feed model-call usage into one cost ledger.
+- seen-cursor 新鲜度门会暂扣过时回复，并让智能体根据新消息重新判断；原子工作认领减少冲突，较小的分流模型则避免主模型处理低价值轮次。
+  - A seen-cursor freshness gate holds stale replies and asks the agent to reconsider against newer messages, while atomic work claims reduce collisions and a smaller triage model shields the main model from low-value turns.
+
+### 为什么重要 / Why it matters
+
+Cumora 将协作、持久化、运行时隔离和跨客户端交付整合成可检查的纵向智能体团队栈。采集时的 2,269 个 star 和 247 个 fork 显示其早期关注增长异常迅速，但这个新项目仍缺少独立运行验证。
+
+Cumora packages coordination, persistence, runtime isolation, and cross-client delivery into an inspectable vertical agent-team stack. Its 2,269 stars and 247 forks at collection show unusually fast early attention, although the new project lacks independent operational validation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/yetone/cumora) · [Evidence 2](https://github.com/yetone/cumora/blob/main/docs/COORDINATION.md) · [Evidence 3](https://github.com/yetone/cumora/blob/main/docs/BYOA.md)
+
+---
+
+<a id="2026-08-17-composkill-skill-chain-attacks"></a>
+## [CompoSkill 揭示逐技能安全扫描看不见的组合攻击](https://arxiv.org/abs/2608.16246)
+
+**English:** [CompoSkill exposes attacks hidden by per-skill safety scans](https://arxiv.org/abs/2608.16246)
+
+- **发布 / Published:** `2026-08-17T08:20:44Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16246) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-skills`, `security`, `skill-composition`, `benchmark`, `supply-chain-security`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+CompoSkill 表明，即使每项智能体技能都单独通过安全扫描，自主智能体把它们的输出、能力和副作用连接起来后，仍可能形成危险攻击链。该研究将技能市场安全从孤立包的属性重新定义为组合路径的属性。
+
+CompoSkill demonstrates that agent skills which each pass an individual safety scan can form a dangerous chain when an autonomous agent connects their outputs, capabilities, and side effects. It reframes marketplace safety as a path-level property of skill composition rather than a property of isolated packages.
+
+### 技术点 / Technical points
+
+- 白盒攻击者知道已安装技能池并注入明确的技能序列；黑盒攻击者则从角色画像出发，下载热门市场技能、构建技能组合图，并在不点名技能标识符的情况下搜索危险链。
+  - The white-box attacker knows the installed skill pool and injects explicit skill sequences, while the black-box attacker starts from a role profile, downloads popular marketplace skills, builds a Skill Composition Graph, and searches for risky chains without naming skill identifiers.
+- CompoSkill-Bench 包含 1,140 条长程工作流记录，覆盖 OpenClaw 与 Nanobot 上五类威胁和六种专业场景。
+  - CompoSkill-Bench contains 1,140 long-horizon workflow records covering five threat types and six professional scenarios on OpenClaw and Nanobot.
+- 作者报告白盒设置中的风险链形成率最高为 83.3%，黑盒设置最高为 80.6%；桥接技能能够提高成功率，但技能链超过三跳后攻击成功率开始衰减。
+  - The authors report risk-chain formation rates up to 83.3% in the white-box setting and 80.6% in the black-box setting; bridge skills can raise success, while attack success begins to decay beyond chains of three skills.
+
+### 为什么重要 / Why it matters
+
+逐包审批无法证明自主工作流整体安全，因此智能体市场和企业技能注册表需要面向组合的分析，并对完整能力路径实施运行时控制。
+
+Per-package approval cannot establish the safety of an autonomous workflow, so agent marketplaces and enterprise skill registries need composition-aware analysis and runtime controls over complete capability paths.
+
+---
+
 <a id="2026-08-15-dhunter-verifier-gated-pentesting"></a>
 ## [Dhunter 为自主渗透测试加入验证门禁](https://github.com/Dest1ny-Sec/dhunter)
 
