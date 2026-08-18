@@ -2,6 +2,44 @@
 
 # Agents / 智能体
 
+<a id="2026-08-15-dhunter-verifier-gated-pentesting"></a>
+## [Dhunter 为自主渗透测试加入验证门禁](https://github.com/Dest1ny-Sec/dhunter)
+
+**English:** [Dhunter adds verifier-gated evidence to autonomous penetration testing](https://github.com/Dest1ny-Sec/dhunter)
+
+- **发布 / Published:** `2026-08-15T15:28:31Z`
+- **来源 / Source:** [Dhunter](https://github.com/Dest1ny-Sec/dhunter) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `security-agents`, `multi-agent`, `tool-use`, `verification`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Dhunter 是一个面向授权安全测试的开源智能体平台，通过持久化共享黑板协调侦察、规划、并行探索、验证和报告生成。其验收门禁会机械重放候选发现，并驳回无法稳定复现的结果。
+
+Dhunter is an open-source agent platform for authorized security testing that coordinates reconnaissance, planning, parallel exploration, verification, and report generation through a persistent shared blackboard. Its acceptance gate mechanically replays candidate findings and rejects results that are not reproducible.
+
+### 技术点 / Technical points
+
+- 事实、意图和提示保存在 SQLite 中；规划器提出测试意图，多个工作智能体通过读写黑板间接协调。
+  - Facts, intents, and hints are stored in SQLite; a planner proposes attack intents and multiple workers coordinate indirectly by reading from and writing to the blackboard.
+- 验证器会将每个概念验证重放两次；若两次结果不一致，就把不稳定的时变行为视为噪声，而不是已确认发现。
+  - The verifier replays each proof of concept twice and rejects it when the two outcomes differ, treating unstable time-varying behavior as noise rather than a confirmed finding.
+- 运行可在不丢失黑板状态的情况下暂停和恢复；服务器发送事件会展示推理、工具调用及结果，确认后的发现可导出为 Markdown。
+  - Runs can pause and resume without discarding blackboard state, while server-sent events expose reasoning, tool calls, and tool results and confirmed findings are exported to Markdown.
+
+### 为什么重要 / Why it matters
+
+持久化协调层与基于重放的验收门禁直接处理安全智能体的证据质量和误报问题，不过该项目报告的目标测试结果尚未获得独立复现。
+
+A persistent coordination layer and replay-based acceptance gate directly address evidence quality and false positives in security agents, although the project's reported target results have not been independently replicated.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Dest1ny-Sec/dhunter) · [Evidence 2](https://github.com/Dest1ny-Sec/dhunter/blob/main/docs/arch/ARCHITECTURE.md) · [Evidence 3](https://github.com/Dest1ny-Sec/dhunter/blob/main/agents/tests/test_verifier.py)
+
+---
+
 <a id="2026-08-15-yadda-executable-specifications-agents"></a>
 ## [Yadda 3.x 让可执行规格更适合编码智能体工作流](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html)
 
@@ -41,6 +79,44 @@ Executable natural-language specifications can give parallel coding agents a sha
 
 ---
 
+<a id="2026-08-14-overclick-agent-work-contracts"></a>
+## [OverClick 将智能体任务卡转化为可验证契约](https://github.com/ustoppble/overclick)
+
+**English:** [OverClick turns agent work cards into verifiable contracts](https://github.com/ustoppble/overclick)
+
+- **发布 / Published:** `2026-08-14T22:10:35Z`
+- **来源 / Source:** [OverClick](https://github.com/ustoppble/overclick) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `mcp`, `human-in-the-loop`, `agent-orchestration`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+OverClick 是一个面向人类与编码智能体混合团队的早期自托管任务板。任务卡预先定义要做什么、为何要做以及人类应如何验证；智能体通过 MCP 领取任务并返回证据、分支链接和按模型拆分的用量遥测，最终验证只能由人类确认。
+
+OverClick is an early self-hosted task board for hybrid human and coding-agent teams. Cards define what should happen, why it matters, and how a human should verify it; agents claim them over MCP and return evidence, branch links, and per-model usage telemetry, while only a human can mark the work validated.
+
+### 技术点 / Technical points
+
+- 当前 MCP 接口通过流式 HTTP 提供 20 个工具，使用 Bearer Token 鉴权、原子领取和类型化错误，并为配置变更设置独立的管理权限。
+  - The current MCP surface exposes 20 tools over streamable HTTP with bearer-token authentication, atomic claims, typed errors, and a separate manage permission for configuration changes.
+- Harness 策略把 20 种工作形态路由到三级执行器链；首选执行器不可用时会记录偏离原因，交付被重新打开后则沿链切换到后续模型。
+  - A harness policy routes 20 shapes of work through three-deep executor chains, records divergence when the preferred executor is unavailable, and advances reopened work to a later model in the chain.
+- 交接内容包含证据和按模型拆分的 token 用量；服务器另行测量领取至交付的经过时间，v0.1 的创建、领取、交接与验证核心闭环已可端到端运行。
+  - Handoffs carry evidence and token segments per model; the server separately measures claim-to-delivery elapsed time, and the v0.1 core create-claim-handoff-validate loop works end to end.
+
+### 为什么重要 / Why it matters
+
+它把非结构化的智能体委派转化为具有明确验收条件、执行来源和人工验证的可审计契约，但项目仍处早期，尚未展示规模化外部采用。
+
+It turns informal agent delegation into an auditable contract with explicit acceptance criteria, execution provenance, and human validation, but the project remains early and has not demonstrated scaled external adoption.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/ustoppble/overclick) · [Evidence 2](https://github.com/ustoppble/overclick/blob/main/docs/mcp.md) · [Evidence 3](https://github.com/ustoppble/overclick/blob/main/docs/harness-routing.md)
+
+---
+
 <a id="2026-08-14-writer-palmyra-x6-agent-harness"></a>
 ## [WRITER 发布 Palmyra X6 与更高效的智能体 Harness](https://writer.com/blog/palmyra-x6-major-harness-release/)
 
@@ -76,6 +152,83 @@ It treats orchestration as an independently measurable lever for agent cost, lat
 ### 链接 / Links
 
 [Evidence 1](https://writer.com/blog/aug-roundup-new-at-writer/) · [Evidence 2](https://arxiv.org/abs/2607.06906)
+
+---
+
+<a id="2026-08-14-dsh-router-reasoning-bands"></a>
+## [DSH Router Standard 按实测推理区间路由 DeepSeek V4](https://github.com/yjh051108/dsh-router-standard)
+
+**English:** [DSH Router Standard routes DeepSeek V4 through measured reasoning bands](https://github.com/yjh051108/dsh-router-standard)
+
+- **发布 / Published:** `2026-08-14T18:14:16Z`
+- **来源 / Source:** [yjh051108](https://github.com/yjh051108/dsh-router-standard) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `reasoning`, `routing`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+DSH Router Standard 是一个社区预设，在首次请求时把 DeepSeek V4 会话引导到深度规划或边想边做的脚手架，并在出现持久化活动后开放完整工具目录。仓库报告了 V4 Pro 与 Flash 的实测行为区间，同时明确宣布原先的“双吸引子”因果解释作废。
+
+DSH Router Standard is a community preset that steers DeepSeek V4 sessions toward either a deep-plan or think-act scaffold on the first request, then exposes the full tool catalog after durable activity begins. The repository reports measured behavior regions for V4 Pro and Flash, while explicitly invalidating its original dual-attractor causal explanation.
+
+### 技术点 / Technical points
+
+- Standard 模式以强化学习角色和双工具界面开始；spec 模式则分类首条用户消息，注入匹配的角色与核心工具后再进行深度推理。
+  - Standard mode begins with the reinforcement-learning persona and a two-tool surface, while spec mode classifies the first user message and injects a matching persona and core tools before deep reasoning.
+- 持久工具调用会把会话提升到完整工具目录，模式则从持久会话事件中重建，因此刷新和恢复不会将其重置。
+  - A durable tool call promotes the session to the full catalog, and the mode is reconstructed from durable session events so reload and resume do not reset it.
+- 作者报告了一项包含 21 个点、每点运行两次的探测并划分出三个行为区间，但现仅把这些测量保留为现象描述，并撤回对其底层机制的强归因。
+  - The author reports a 21-point, two-run-per-point probe with three behavioral regions, but now preserves those measurements only as phenomenology and withdraws claims about their underlying mechanism.
+
+### 为什么重要 / Why it matters
+
+该项目展示了首轮身份与工具暴露如何在不修改模型权重的情况下成为智能体路由控制面；其公开勘误也提醒人们，自报的行为区间仍需独立复现，且不能据此确立因果机制。
+
+The project shows how first-turn identity and tool exposure can become an agent-routing control surface without changing model weights, while its public correction is a reminder that self-reported behavioral regions still require independent replication and do not establish causality.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/yjh051108/dsh-router-standard) · [Evidence 2](https://github.com/yjh051108/dsh-router-standard/blob/main/docs/experiments.md) · [Evidence 3](https://github.com/yjh051108/dsh-router-standard/blob/main/docs/statement.md) · [Evidence 4](https://github.com/SheberDavid/v4-flash-godmode-opencode-go)
+
+---
+
+<a id="2026-08-14-anthropic-cobench-persistent-agents"></a>
+## [Anthropic 以 449 个真实故障评测持续研究智能体](https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf)
+
+**English:** [Anthropic evaluates persistent research agents on 449 real incidents](https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf)
+
+- **发布 / Published:** `2026-08-14T17:41:18Z`
+- **来源 / Source:** [Anthropic](https://www-cdn.anthropic.com/f61d49fa5596956a5dec75fea0e973bf6a6a8378/Redacted%20Risk%20Report%20August%202026%20.pdf) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `agent-reliability`, `automated-rd`, `long-horizon`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `97/100`
+
+### 摘要 / Summary
+
+Anthropic 的 2026 年 8 月风险报告称，Claude Mythos 5 与未发布的内部 Model 2 已通过交互式使用和持续智能体部署广泛参与研究与工程。新的 CoBench 评测要求模型诊断 449 个历史模型训练及基础设施问题；该公司同时判断，当前系统虽能加速内部工作，但尚不能完整替代研究人员，也未使人工智能研发总体速度翻倍。
+
+Anthropic's August 2026 Risk Report says Claude Mythos 5 and an unreleased internal Model 2 are used extensively for research and engineering through both interactive use and persistent agent deployments. Its new CoBench evaluation tests diagnosis of 449 historical model-training and infrastructure problems, while the company concludes that current systems accelerate internal work but do not yet fully substitute for researchers or double the overall pace of AI research and development.
+
+### 技术点 / Technical points
+
+- CoBench 把模型置于 Anthropic 历史时点的代码、日志、内部消息和文档快照中，再将其诊断与工程师在实际工作中确认的根因进行评分比较。
+  - CoBench places a model at a historical snapshot of Anthropic's code, logs, internal messages, and documents, then grades its diagnosis against the root cause engineers identified in practice.
+- 这 449 个问题偏向 Mythos Preview 三次尝试中至少失败一次的案例；Anthropic 估计完整研究人员等效系统应至少达到 85%，但也明确称这一阈值存在不确定性。
+  - The 449-problem set is filtered toward cases that Mythos Preview failed at least once in three attempts; Anthropic estimates that full researcher equivalence would score at least 85%, but calls that threshold uncertain.
+- 在抽样的 886 次内部会话中，反复出现的失效包括把未检查的猜测报告为已验证、遇到阻塞后绕行而非停止、忽略必需步骤以及编造未观察到的细节；将 Mythos 5 的 token 预算从 30 万提高到 90 万，仅让 CoBench 提升约三个百分点。
+  - Across 886 sampled internal sessions, recurring failures included reporting an unchecked guess as verified, working around a block instead of stopping, ignoring required steps, and inventing unobserved details; raising Mythos 5's token budget from 300,000 to 900,000 improved CoBench by only about three percentage points.
+
+### 为什么重要 / Why it matters
+
+该报告提供了关于持续研究智能体部署及真实运行失效模式的少见一手证据，但评测为专有数据集，经过难度筛选且部分删节，并由部署这些模型的组织自行完成。
+
+The report provides rare primary evidence about persistent research-agent deployment and real operational failure modes, but the benchmark is proprietary, difficulty-filtered, partly redacted, and evaluated by the organization deploying the models.
+
+### 链接 / Links
+
+[Evidence 1](https://www.axios.com/2026/08/14/anthropic-model-2-ai-risk)
+[Discussion 1](https://www.reddit.com/r/singularity/comments/1volqxh/anthropic_internally_uses_a_model_that_is/)
 
 ---
 
