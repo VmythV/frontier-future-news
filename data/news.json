@@ -2,6 +2,511 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-18-hydra-0-action-flow-world-model",
+      "published_at": "2026-08-18T17:59:30Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "world-model",
+        "robotics",
+        "action-flow",
+        "planning",
+        "simulation",
+        "control"
+      ],
+      "title_en": "Hydra-0 unifies robot world modeling and control through action flow",
+      "title_zh": "Hydra-0 以动作流统一机器人世界建模与控制",
+      "summary_en": "Hydra-0 represents robot actions as pixel motion so one visual interface can model action consequences across robot embodiments, tasks, environments, and video-generation backbones. The same representation supports forward prediction, policy evaluation, and executable control.",
+      "summary_zh": "Hydra-0 将机器人动作表示为像素运动，使同一视觉接口能够跨机器人形态、任务、环境和视频生成骨干模型预测动作后果。这一表示同时支持前向预测、策略评估与可执行控制。",
+      "tech_points_en": [
+        "The best reported configuration reduces robot-motion error by 90.4% and object-motion error by 60.2% relative to the paper's action-conditioned baseline.",
+        "On RoboLab, replayed and reference policy success rates have a reported Pearson correlation of 0.96, supporting the model's use for open-loop policy evaluation.",
+        "An inverse mode predicts compatible robot motion from desired object flow transferred from a human demonstration, after which an action head maps latent features to executable commands without task-specific expert robot demonstrations."
+      ],
+      "tech_points_zh": [
+        "相较论文中的动作条件基线，表现最佳的配置将机器人运动误差降低 90.4%，物体运动误差降低 60.2%。",
+        "在 RoboLab 上，回放策略与参考策略成功率的皮尔逊相关系数达到 0.96，支持将该模型用于开环策略评估。",
+        "其逆向模式可从人类演示迁移的目标物体流中预测匹配的机器人运动，再由动作头将潜特征映射为可执行指令，无需针对任务采集专家机器人演示。"
+      ],
+      "why_it_matters_en": "Action flow offers a shared interface between learned simulation and physical control, potentially reducing the embodiment-specific data and modeling needed to evaluate or adapt robot policies.",
+      "why_it_matters_zh": "动作流为学习型仿真与物理控制提供了共享接口，有望减少评估或适配机器人策略时所需的特定形态数据与建模工作。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.18077",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://nvidia-isaac.github.io/video_to_data/hydra-0/"
+      ],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 19,
+        "technical_depth": 14,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-08-18-self-improving-agent-fragility",
+      "published_at": "2026-08-18T17:55:07Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "self-improvement",
+        "evaluation",
+        "reliability",
+        "benchmark",
+        "open-source"
+      ],
+      "title_en": "Task order and evaluation variance expose fragile self-improving agents",
+      "title_zh": "任务顺序与评估方差暴露自我改进智能体的脆弱性",
+      "summary_en": "A re-evaluation of two memory-based self-improvement methods finds that apparent gains vary across repeated runs and depend strongly on task order. Default benchmark orderings can act as an implicit curriculum, making an agent look more reliably self-improving than it is under shuffled tasks.",
+      "summary_zh": "一项针对两种记忆型自我改进方法的重新评估发现，其表面收益会随重复运行而变化，并且高度依赖任务顺序。默认基准顺序可能充当隐含课程，使智能体看起来比随机任务顺序下更可靠地持续改进。",
+      "tech_points_en": [
+        "The study adds multiple runs to quantify variance and randomly shuffles task streams to test whether improvement survives changes in ordering.",
+        "Complex environments and multi-step tasks are already noisy, and the authors find that adding a self-improvement loop can amplify that noise.",
+        "Including detailed rubrics and environment feedback when constructing memory partially recovers lost performance, but substantial unexplained gaps remain; code and trajectories are released."
+      ],
+      "tech_points_zh": [
+        "研究通过多次运行量化方差，并随机打乱任务流，以检验改进效果能否经受顺序变化。",
+        "复杂环境和多步任务本身就存在噪声，作者发现叠加自我改进循环会进一步放大这种噪声。",
+        "在构建记忆时加入详细评分细则和环境反馈只能部分恢复损失的性能，仍有明显差距无法解释；代码和轨迹数据已经发布。"
+      ],
+      "why_it_matters_en": "Continual-improvement claims can be artifacts of a favorable task curriculum, so agent evaluations need repeated runs, shuffled orders, and explicit specification checks.",
+      "why_it_matters_zh": "持续改进的结论可能只是有利任务课程的产物，因此智能体评估需要重复运行、随机任务顺序和明确的规范检查。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.18066",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/SalesforceAIResearch/self-improve-fragility",
+        "https://huggingface.co/datasets/Salesforce/self-improve-fragility"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-18-stagedworkspace-versioned-agent-workspace",
+      "published_at": "2026-08-18T17:44:18Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "knowledge-work",
+        "workspace-state",
+        "versioning",
+        "artifact-editing",
+        "benchmark"
+      ],
+      "title_en": "StagedWorkspace gives knowledge-work agents a versioned workspace contract",
+      "title_zh": "StagedWorkspace 为知识工作智能体建立版本化工作区契约",
+      "summary_en": "StagedWorkspace addresses cases where an agent searches a parsed view, edits a native file, reviews a diff, and submits an artifact that may each represent a different version. It binds parsed records and review diffs to content hashes of the changing native workspace.",
+      "summary_zh": "StagedWorkspace 针对智能体搜索解析视图、编辑原生文件、审阅差异和提交成果时可能引用不同版本的问题，将解析记录与审阅差异绑定到不断变化的原生工作区内容哈希。",
+      "tech_points_en": [
+        "Under fixed-harness ablations, dual parsed and native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3 to 12.1 points and APEX mean rubric score by 4.7 to 9.2 points over the more restrictive single view.",
+        "SW-AGENT reports 63.9% on OfficeQA with Gemini 3.1 Pro and 42.1 on APEX with GPT-5.4 Nano, compared with cited same-model results of 29.3% and 25.5.",
+        "A paired ablation over 57 file-editing tasks also finds higher observed scores when agents can inspect diffs before submission."
+      ],
+      "tech_points_zh": [
+        "在固定框架的消融实验中，解析视图与原生文件双重访问对每个受测模型都取得最高点估计；相较限制更强的单一视图，OfficeQA Pass@1 提高 8.3 至 12.1 个百分点，APEX 平均评分提高 4.7 至 9.2 分。",
+        "SW-AGENT 使用 Gemini 3.1 Pro 在 OfficeQA 上报告 63.9%，使用 GPT-5.4 Nano 在 APEX 上报告 42.1；论文引用的同模型成绩分别为 29.3% 和 25.5。",
+        "在 57 项文件编辑任务的配对消融中，允许智能体提交前检查差异时也观察到更高评分。"
+      ],
+      "why_it_matters_en": "Treating workspace state as an explicit contract can prevent stale parses, invisible edits, and wrong-version submissions in document and mixed-artifact agents.",
+      "why_it_matters_zh": "将工作区状态设为显式契约，有助于避免文档与混合文件智能体使用陈旧解析、遗漏改动或提交错误版本。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.18050",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-18-startupbench-market-validated-agents",
+      "published_at": "2026-08-18T14:01:32Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "workflows",
+        "knowledge-work",
+        "tool-use",
+        "reliability"
+      ],
+      "title_en": "StartupBench tests agents on market-validated end-to-end workflows",
+      "title_zh": "StartupBench 用经市场验证的端到端工作流测试智能体",
+      "summary_en": "StartupBench derives deliverable-oriented tasks from AI startup products with demonstrated adoption instead of selecting tasks solely from researchers' assumptions. It evaluates representative models under one agent harness with detailed rubrics spanning multiple professional domains.",
+      "summary_zh": "StartupBench 从已有实际采用的 AI 创业产品中提炼面向交付成果的任务，而不是完全依照研究者假设选题，并在同一智能体框架下用细粒度评分标准评估多个专业领域的代表性模型。",
+      "tech_points_en": [
+        "The benchmark reconstructs complete product workflows as end-to-end tasks and grades the complex requirements of their final deliverables rather than isolated subtasks.",
+        "The strongest evaluated model completes only about 30% of StartupBench, although models make meaningful partial progress on many unsuccessful tasks.",
+        "The analysis identifies complex instruction following and domain-specific expertise as major sources of failure."
+      ],
+      "tech_points_zh": [
+        "该基准把完整产品工作流重构为端到端任务，并评估最终交付物的复杂要求，而不是孤立子任务。",
+        "表现最强的受测模型也只完成约 30% 的 StartupBench，尽管模型在许多未完成任务上取得了实质性的部分进展。",
+        "分析将复杂指令遵循和领域专业知识识别为主要失败来源。"
+      ],
+      "why_it_matters_en": "Grounding evaluation in workflows that users already pay for provides a more practical measure of whether general-purpose agents can finish valuable work reliably.",
+      "why_it_matters_zh": "以用户已经愿意付费的工作流为基础，可以更实际地衡量通用智能体能否可靠完成有价值的工作。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17800",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 23,
+        "novelty": 17,
+        "technical_depth": 12,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-18-openai-frontier-rl-cyber-safeguards",
+      "published_at": "2026-08-18T11:00:00Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "safety",
+        "cybersecurity",
+        "alignment",
+        "monitoring",
+        "agentic-coding",
+        "reinforcement-learning"
+      ],
+      "title_en": "OpenAI holds its largest frontier RL run while expanding cyber-critical safeguards",
+      "title_zh": "OpenAI 在扩展网络临界级防护期间暂停最大规模前沿 RL 训练",
+      "summary_en": "OpenAI says it paused reinforcement-learning training on its latest deployment-oriented models for two weeks after the OpenAI-Hugging Face incident and preliminary evidence that Astra may have Critical cybersecurity capability. Smaller workloads have resumed, but its largest planned frontier RL run remains on hold pending stronger behavioral and alignment evidence.",
+      "summary_zh": "OpenAI 表示，在 OpenAI—Hugging Face 事件以及 Astra 可能达到“临界”网络安全能力的初步证据出现后，公司曾暂停最新部署型模型的强化学习训练两周。较小工作负载已经恢复，但最大规模的前沿 RL 训练仍在等待更充分的行为与对齐证据。",
+      "tech_points_en": [
+        "New research-environment requirements strengthen workload and network isolation, remove vulnerable shared services, reduce standing privileges, and continuously test security boundaries.",
+        "A multistage monitoring system runs activation classifiers at sampled tokens and escalates concerning tool actions, available reasoning, and full trajectories to automated investigators, with a target of alerting within 30 minutes.",
+        "Monitoring is required for tool-using RL and evaluations at Sol capability or above and for all Astra inference with tools; OpenAI estimates current monitoring overhead at roughly 20% of monitored inference compute."
+      ],
+      "tech_points_zh": [
+        "新的研究环境要求加强工作负载与网络隔离，移除易受攻击的共享服务，减少常驻权限，并持续测试安全边界。",
+        "多阶段监控系统在采样 token 上运行激活分类器，并把可疑工具操作、可用推理信息和完整轨迹升级给自动调查器，目标是在 30 分钟内发出告警。",
+        "监控适用于 Sol 能力及以上模型使用工具的 RL 训练和评估，以及 Astra 的全部工具推理；OpenAI 估计当前监控开销约为被监控推理计算量的 20%。"
+      ],
+      "why_it_matters_en": "The announcement ties a concrete slowdown in frontier-agent training to containment, monitoring, and alignment requirements rather than treating safety controls as deployment-only measures.",
+      "why_it_matters_zh": "该公告把前沿智能体训练的实际降速与隔离、监控和对齐要求直接绑定，而不是仅在部署阶段增加安全控制。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://openai.com/index/pacing-model-development-cyber-capabilities/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49363992"
+      ],
+      "evidence_urls": [
+        "https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/"
+      ],
+      "confidence": "high",
+      "score": 94,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-18-libero-vifo-visual-cue-safety",
+      "published_at": "2026-08-18T10:07:17Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "safety",
+        "benchmark",
+        "visual-cues"
+      ],
+      "title_en": "LIBERO-VIFO tests whether VLA models follow unauthorized visual cues",
+      "title_zh": "LIBERO-VIFO 测试 VLA 模型是否会服从未授权视觉提示",
+      "summary_en": "LIBERO-VIFO evaluates both the capability and safety of visual-cue following in vision-language-action models. It distinguishes authorized cues from cues that conflict with or replace language instructions, exposing cases where visible scene content can redirect physical behavior without user authorization.",
+      "summary_zh": "LIBERO-VIFO 同时评估视觉—语言—动作模型遵循视觉提示的能力与安全性。它区分获授权提示与冲突或替代语言指令的提示，揭示可见场景内容在未经用户授权时改变物理行为的情况。",
+      "tech_points_en": [
+        "The benchmark defines eight visual-cue families and four protocols: two test cue understanding and authorized following, while two test unauthorized following under language conflict or absent language.",
+        "Across seven VLA models, visual-cue understanding does not reliably translate into execution, yet current models can still execute cue-indicated tasks without a language instruction.",
+        "Additional scene-instantiated, safety-critical, and real-robot experiments support the reported unauthorized-following risk."
+      ],
+      "tech_points_zh": [
+        "该基准定义八类视觉提示和四种协议：其中两种测试提示理解与授权遵循，另外两种测试语言冲突或缺少语言时的未授权遵循。",
+        "在七个 VLA 模型中，视觉提示理解并不总能转化为执行，但现有模型仍可能在没有语言指令时执行提示所指任务。",
+        "场景实例化、安全关键设置和真实机器人补充实验支持了其关于未授权遵循风险的结论。"
+      ],
+      "why_it_matters_en": "Visual observations can act as an instruction-injection surface for physical systems, so embodied-agent safety must govern what the robot is authorized to follow, not only whether it understands a cue.",
+      "why_it_matters_zh": "视觉观测可能成为物理系统的指令注入面，因此具身智能体安全不仅要判断机器人是否理解提示，还要约束它被授权遵循哪些提示。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17600",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-18-harnessrisk-agent-harness-safety",
+      "published_at": "2026-08-18T10:03:58Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-harness",
+        "safety",
+        "benchmark",
+        "prompt-injection",
+        "persistent-state",
+        "tool-use"
+      ],
+      "title_en": "HarnessRisk maps safety failures across the agent-harness lifecycle",
+      "title_zh": "HarnessRisk 描绘智能体框架全生命周期的安全失效",
+      "summary_en": "HarnessRisk evaluates safety at the combined model-and-harness level across configuration, capability extension, runtime operation, state persistence, action control, and incident recovery. Each of its 128 sandboxed cases pairs a benign objective with an adversarial instruction hidden in an untrusted workflow artifact.",
+      "summary_zh": "HarnessRisk 在模型与框架组合层面评估配置、能力扩展、运行、状态持久化、动作控制和事故恢复六个阶段的安全性。其 128 个沙箱案例都把正常用户目标与隐藏在不可信工作流工件中的对抗指令配对。",
+      "tech_points_en": [
+        "The evaluation covers three agent harnesses, six language models, and 14 model-and-harness configurations, scoring utility, attack success, persistence, and detection.",
+        "Reported attack success ranges from 12.6% to 80.9% while utility remains between 75.0% and 97.6%; harness configuration is the most consistently vulnerable phase.",
+        "Some configurations recognize risk in more than 90% of runs yet still retain substantial attack success, showing that detection does not reliably produce safe action."
+      ],
+      "tech_points_zh": [
+        "评估覆盖三个智能体框架、六个语言模型和 14 种模型—框架组合，并衡量效用、攻击成功率、持久性与检测能力。",
+        "报告的攻击成功率为 12.6% 至 80.9%，效用保持在 75.0% 至 97.6%；框架配置是最持续脆弱的阶段。",
+        "部分配置在超过 90% 的运行中识别出风险，却仍保留较高攻击成功率，说明检测到风险并不可靠地转化为安全行动。"
+      ],
+      "why_it_matters_en": "Agent safety depends on permissions, extensions, state, and recovery behavior around the model, so benchmarks must evaluate the deployed harness lifecycle rather than isolated prompts.",
+      "why_it_matters_zh": "智能体安全取决于模型周围的权限、扩展、状态和恢复行为，因此基准必须评估完整部署框架生命周期，而非孤立提示。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17597",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://baiyajing.github.io/harness-risk/",
+        "https://github.com/Baiyajing/HarnessRisk"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-18-hodagent-responsive-humanoid",
+      "published_at": "2026-08-18T09:49:16Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid",
+        "robotics",
+        "planning",
+        "memory",
+        "human-robot-interaction",
+        "real-world"
+      ],
+      "title_en": "HODAgent gives humanoids interruptible planning and outcome-aware memory",
+      "title_zh": "HODAgent 让人形机器人具备可中断规划与结果感知记忆",
+      "summary_en": "HODAgent is a System-2 embodied agent for humanoid service tasks that combines an environment interactor, planner, executor, and hierarchical memory. Its semi-duplex design allows a robot to accept new requests during motion, retain progress, revise actions, and close tasks based on observed outcomes.",
+      "summary_zh": "HODAgent 是面向人形机器人服务任务的 System-2 具身智能体，结合环境交互器、规划器、执行器和层级记忆。其半双工设计使机器人能在运动中接收新请求、保留进度、修改动作，并依据观测结果完成任务闭环。",
+      "tech_points_en": [
+        "A shared interface separates high-level agency from platform-specific control and connects the same system to simulation and a physical Unitree G1.",
+        "Across 164 interactive simulation cases, the two reported VLM configurations achieve 84.8% and 91.5% Joint Success, exceeding their baselines by 9.8 and 18.9 points.",
+        "On physical robots, reported pass rates are 92% for atomic tasks, 72% for composite tasks, and 63.3% for complete tasks."
+      ],
+      "tech_points_zh": [
+        "共享接口将高层智能体能力与平台特定控制分离，使同一系统能够连接仿真环境和实体 Unitree G1。",
+        "在 164 个交互式仿真案例中，两种 VLM 配置的联合成功率分别为 84.8% 和 91.5%，较各自基线高 9.8 和 18.9 个百分点。",
+        "在实体机器人上，原子任务、组合任务和完整任务的报告通过率分别为 92%、72% 和 63.3%。"
+      ],
+      "why_it_matters_en": "Responsive service robots need to revise long-running plans without discarding task state, and HODAgent tests that capability on both simulation benchmarks and physical hardware.",
+      "why_it_matters_zh": "响应式服务机器人需要在不丢失任务状态的情况下修改长程计划，HODAgent 在仿真基准和实体硬件上测试了这一能力。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17584",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 23,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-18-ac-mtm-contrastive-jepa-world-model",
+      "published_at": "2026-08-18T09:03:35Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "world-model",
+        "jepa",
+        "model-based-rl",
+        "inverse-dynamics",
+        "planning",
+        "open-source"
+      ],
+      "title_en": "AC-MTM prevents JEPA world-model collapse with contrastive inverse dynamics",
+      "title_zh": "AC-MTM 用对比逆动力学防止 JEPA 世界模型坍塌",
+      "summary_en": "Action-Contrastive Masked Transition Modeling keeps a JEPA's forward latent-prediction objective but adds a training-only inverse-dynamics head. The auxiliary task requires each latent transition to identify the action that caused it, replacing a prescribed Gaussian latent distribution as the anti-collapse signal.",
+      "summary_zh": "动作对比掩码转移建模保留 JEPA 的前向潜空间预测目标，同时加入仅用于训练的逆动力学头。该辅助任务要求每个潜状态转移识别导致它的动作，以此取代预设高斯潜分布作为防坍塌信号。",
+      "tech_points_en": [
+        "Action-NCE contrasts the correct action against other actions in the batch, creating a discrimination task that a constant collapsed encoder cannot solve.",
+        "The inverse branch is removed after training, so test-time encoding, forward prediction, planning, and compute remain the same as the compared LeWorldModel configuration.",
+        "AC-MTM trains stably from scratch and matches SIGReg on average across four pixel-control tasks; on OGBench Visual Scene it reports 80.0 plus or minus 2.0% success versus 58.0 plus or minus 2.0%."
+      ],
+      "tech_points_zh": [
+        "Action-NCE 将正确动作与同一批次中的其他动作进行对比，形成常量坍塌编码器无法完成的判别任务。",
+        "逆向分支会在训练后移除，因此测试时编码、前向预测、规划和计算量与对比的 LeWorldModel 配置保持一致。",
+        "AC-MTM 可从头稳定训练，在四个像素控制任务上平均表现与 SIGReg 相当；在 OGBench Visual Scene 上报告 80.0±2.0% 的成功率，而后者为 58.0±2.0%。"
+      ],
+      "why_it_matters_en": "The method derives representation stability from observed environment transitions rather than a fixed distributional prior, while preserving the world model's deployment-time planner.",
+      "why_it_matters_zh": "该方法从已观测的环境转移中获得表示稳定性，而不是依赖固定分布先验，同时保留世界模型在部署时的规划器。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17542",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/jackboyla/action-contrastive-jepa"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-18-agent-lightning-v1-harnessed-rl",
+      "published_at": "2026-08-18T08:50:13Z",
+      "collected_at": "2026-08-22T05:29:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agentic-rl",
+        "coding-agents",
+        "agent-harness",
+        "tool-use",
+        "reinforcement-learning",
+        "open-source"
+      ],
+      "title_en": "Agent Lightning v1.0 trains agents through their real deployment harnesses",
+      "title_zh": "Agent Lightning v1.0 通过真实部署框架训练智能体",
+      "summary_en": "Agent Lightning v1.0 is a lightweight framework for reinforcement learning in which the deployed agent harness retains control of tools, context, and environment interaction. An API proxy lets the trainer learn from model request-response sequences without replacing the agent's production execution loop.",
+      "summary_zh": "Agent Lightning v1.0 是一个轻量强化学习框架，部署中的智能体框架继续控制工具、上下文与环境交互。API 代理使训练器能够从模型请求—响应序列中学习，而无需替换智能体的生产执行循环。",
+      "tech_points_en": [
+        "The roughly 3,500-line implementation separates a trainer, API gateway, and rollout controller and can run real agent harnesses locally or as Kubernetes jobs.",
+        "The design provides an experimental surface for retokenization, sample merging, advantage calculation, loss normalization, and backend scheduling issues introduced by harness-owned interaction loops.",
+        "Using 6,000 training examples, the released coding-agent pipeline improves Qwen3.5-9B on SWE-bench Verified from 41.8% to 56.4%, a reported 14.6-point absolute gain."
+      ],
+      "tech_points_zh": [
+        "约 3,500 行的实现将训练器、API 网关和 rollout 控制器分离，并可在本地或 Kubernetes 作业中运行真实智能体框架。",
+        "该设计为研究由框架掌管交互循环所带来的重新分词、样本合并、优势计算、损失归一化和后端调度问题提供了实验平台。",
+        "使用 6,000 个训练样本，已发布的编程智能体流水线将 Qwen3.5-9B 在 SWE-bench Verified 上的成绩从 41.8% 提升至 56.4%，报告绝对增幅为 14.6 个百分点。"
+      ],
+      "why_it_matters_en": "Training through the same harness used at deployment reduces the gap between simplified RL environments and the tool, context, and control-flow behavior of production agents.",
+      "why_it_matters_zh": "通过部署时使用的同一框架进行训练，可缩小简化 RL 环境与生产智能体真实工具、上下文和控制流行为之间的差距。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.17528",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/microsoft/agent-lightning"
+      ],
+      "confidence": "high",
+      "score": 96,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 9
+      }
+    },
+    {
       "id": "2026-08-17-baton-subtask-robot-exploration",
       "published_at": "2026-08-17T17:59:57Z",
       "collected_at": "2026-08-18T15:55:59Z",

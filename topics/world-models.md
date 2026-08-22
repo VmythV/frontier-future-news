@@ -2,6 +2,82 @@
 
 # World models / 世界模型
 
+<a id="2026-08-18-hydra-0-action-flow-world-model"></a>
+## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
+
+**English:** [Hydra-0 unifies robot world modeling and control through action flow](https://arxiv.org/abs/2608.18077)
+
+- **发布 / Published:** `2026-08-18T17:59:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18077) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `action-flow`, `planning`, `simulation`, `control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Hydra-0 将机器人动作表示为像素运动，使同一视觉接口能够跨机器人形态、任务、环境和视频生成骨干模型预测动作后果。这一表示同时支持前向预测、策略评估与可执行控制。
+
+Hydra-0 represents robot actions as pixel motion so one visual interface can model action consequences across robot embodiments, tasks, environments, and video-generation backbones. The same representation supports forward prediction, policy evaluation, and executable control.
+
+### 技术点 / Technical points
+
+- 相较论文中的动作条件基线，表现最佳的配置将机器人运动误差降低 90.4%，物体运动误差降低 60.2%。
+  - The best reported configuration reduces robot-motion error by 90.4% and object-motion error by 60.2% relative to the paper's action-conditioned baseline.
+- 在 RoboLab 上，回放策略与参考策略成功率的皮尔逊相关系数达到 0.96，支持将该模型用于开环策略评估。
+  - On RoboLab, replayed and reference policy success rates have a reported Pearson correlation of 0.96, supporting the model's use for open-loop policy evaluation.
+- 其逆向模式可从人类演示迁移的目标物体流中预测匹配的机器人运动，再由动作头将潜特征映射为可执行指令，无需针对任务采集专家机器人演示。
+  - An inverse mode predicts compatible robot motion from desired object flow transferred from a human demonstration, after which an action head maps latent features to executable commands without task-specific expert robot demonstrations.
+
+### 为什么重要 / Why it matters
+
+动作流为学习型仿真与物理控制提供了共享接口，有望减少评估或适配机器人策略时所需的特定形态数据与建模工作。
+
+Action flow offers a shared interface between learned simulation and physical control, potentially reducing the embodiment-specific data and modeling needed to evaluate or adapt robot policies.
+
+### 链接 / Links
+
+[Evidence 1](https://nvidia-isaac.github.io/video_to_data/hydra-0/)
+
+---
+
+<a id="2026-08-18-ac-mtm-contrastive-jepa-world-model"></a>
+## [AC-MTM 用对比逆动力学防止 JEPA 世界模型坍塌](https://arxiv.org/abs/2608.17542)
+
+**English:** [AC-MTM prevents JEPA world-model collapse with contrastive inverse dynamics](https://arxiv.org/abs/2608.17542)
+
+- **发布 / Published:** `2026-08-18T09:03:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17542) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `jepa`, `model-based-rl`, `inverse-dynamics`, `planning`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+动作对比掩码转移建模保留 JEPA 的前向潜空间预测目标，同时加入仅用于训练的逆动力学头。该辅助任务要求每个潜状态转移识别导致它的动作，以此取代预设高斯潜分布作为防坍塌信号。
+
+Action-Contrastive Masked Transition Modeling keeps a JEPA's forward latent-prediction objective but adds a training-only inverse-dynamics head. The auxiliary task requires each latent transition to identify the action that caused it, replacing a prescribed Gaussian latent distribution as the anti-collapse signal.
+
+### 技术点 / Technical points
+
+- Action-NCE 将正确动作与同一批次中的其他动作进行对比，形成常量坍塌编码器无法完成的判别任务。
+  - Action-NCE contrasts the correct action against other actions in the batch, creating a discrimination task that a constant collapsed encoder cannot solve.
+- 逆向分支会在训练后移除，因此测试时编码、前向预测、规划和计算量与对比的 LeWorldModel 配置保持一致。
+  - The inverse branch is removed after training, so test-time encoding, forward prediction, planning, and compute remain the same as the compared LeWorldModel configuration.
+- AC-MTM 可从头稳定训练，在四个像素控制任务上平均表现与 SIGReg 相当；在 OGBench Visual Scene 上报告 80.0±2.0% 的成功率，而后者为 58.0±2.0%。
+  - AC-MTM trains stably from scratch and matches SIGReg on average across four pixel-control tasks; on OGBench Visual Scene it reports 80.0 plus or minus 2.0% success versus 58.0 plus or minus 2.0%.
+
+### 为什么重要 / Why it matters
+
+该方法从已观测的环境转移中获得表示稳定性，而不是依赖固定分布先验，同时保留世界模型在部署时的规划器。
+
+The method derives representation stability from observed environment transitions rather than a fixed distributional prior, while preserving the world model's deployment-time planner.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/jackboyla/action-contrastive-jepa)
+
+---
+
 <a id="2026-08-17-tau0-vla-world-model-ttc"></a>
 ## [τ₀-VLA 用世界模型扩展机器人推理时规划](https://arxiv.org/abs/2608.16885)
 

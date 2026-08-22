@@ -2,6 +2,261 @@
 
 # Agents / 智能体
 
+<a id="2026-08-18-self-improving-agent-fragility"></a>
+## [任务顺序与评估方差暴露自我改进智能体的脆弱性](https://arxiv.org/abs/2608.18066)
+
+**English:** [Task order and evaluation variance expose fragile self-improving agents](https://arxiv.org/abs/2608.18066)
+
+- **发布 / Published:** `2026-08-18T17:55:07Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18066) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `self-improvement`, `evaluation`, `reliability`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项针对两种记忆型自我改进方法的重新评估发现，其表面收益会随重复运行而变化，并且高度依赖任务顺序。默认基准顺序可能充当隐含课程，使智能体看起来比随机任务顺序下更可靠地持续改进。
+
+A re-evaluation of two memory-based self-improvement methods finds that apparent gains vary across repeated runs and depend strongly on task order. Default benchmark orderings can act as an implicit curriculum, making an agent look more reliably self-improving than it is under shuffled tasks.
+
+### 技术点 / Technical points
+
+- 研究通过多次运行量化方差，并随机打乱任务流，以检验改进效果能否经受顺序变化。
+  - The study adds multiple runs to quantify variance and randomly shuffles task streams to test whether improvement survives changes in ordering.
+- 复杂环境和多步任务本身就存在噪声，作者发现叠加自我改进循环会进一步放大这种噪声。
+  - Complex environments and multi-step tasks are already noisy, and the authors find that adding a self-improvement loop can amplify that noise.
+- 在构建记忆时加入详细评分细则和环境反馈只能部分恢复损失的性能，仍有明显差距无法解释；代码和轨迹数据已经发布。
+  - Including detailed rubrics and environment feedback when constructing memory partially recovers lost performance, but substantial unexplained gaps remain; code and trajectories are released.
+
+### 为什么重要 / Why it matters
+
+持续改进的结论可能只是有利任务课程的产物，因此智能体评估需要重复运行、随机任务顺序和明确的规范检查。
+
+Continual-improvement claims can be artifacts of a favorable task curriculum, so agent evaluations need repeated runs, shuffled orders, and explicit specification checks.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/SalesforceAIResearch/self-improve-fragility) · [Evidence 2](https://huggingface.co/datasets/Salesforce/self-improve-fragility)
+
+---
+
+<a id="2026-08-18-stagedworkspace-versioned-agent-workspace"></a>
+## [StagedWorkspace 为知识工作智能体建立版本化工作区契约](https://arxiv.org/abs/2608.18050)
+
+**English:** [StagedWorkspace gives knowledge-work agents a versioned workspace contract](https://arxiv.org/abs/2608.18050)
+
+- **发布 / Published:** `2026-08-18T17:44:18Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18050) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `knowledge-work`, `workspace-state`, `versioning`, `artifact-editing`, `benchmark`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+StagedWorkspace 针对智能体搜索解析视图、编辑原生文件、审阅差异和提交成果时可能引用不同版本的问题，将解析记录与审阅差异绑定到不断变化的原生工作区内容哈希。
+
+StagedWorkspace addresses cases where an agent searches a parsed view, edits a native file, reviews a diff, and submits an artifact that may each represent a different version. It binds parsed records and review diffs to content hashes of the changing native workspace.
+
+### 技术点 / Technical points
+
+- 在固定框架的消融实验中，解析视图与原生文件双重访问对每个受测模型都取得最高点估计；相较限制更强的单一视图，OfficeQA Pass@1 提高 8.3 至 12.1 个百分点，APEX 平均评分提高 4.7 至 9.2 分。
+  - Under fixed-harness ablations, dual parsed and native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3 to 12.1 points and APEX mean rubric score by 4.7 to 9.2 points over the more restrictive single view.
+- SW-AGENT 使用 Gemini 3.1 Pro 在 OfficeQA 上报告 63.9%，使用 GPT-5.4 Nano 在 APEX 上报告 42.1；论文引用的同模型成绩分别为 29.3% 和 25.5。
+  - SW-AGENT reports 63.9% on OfficeQA with Gemini 3.1 Pro and 42.1 on APEX with GPT-5.4 Nano, compared with cited same-model results of 29.3% and 25.5.
+- 在 57 项文件编辑任务的配对消融中，允许智能体提交前检查差异时也观察到更高评分。
+  - A paired ablation over 57 file-editing tasks also finds higher observed scores when agents can inspect diffs before submission.
+
+### 为什么重要 / Why it matters
+
+将工作区状态设为显式契约，有助于避免文档与混合文件智能体使用陈旧解析、遗漏改动或提交错误版本。
+
+Treating workspace state as an explicit contract can prevent stale parses, invisible edits, and wrong-version submissions in document and mixed-artifact agents.
+
+---
+
+<a id="2026-08-18-startupbench-market-validated-agents"></a>
+## [StartupBench 用经市场验证的端到端工作流测试智能体](https://arxiv.org/abs/2608.17800)
+
+**English:** [StartupBench tests agents on market-validated end-to-end workflows](https://arxiv.org/abs/2608.17800)
+
+- **发布 / Published:** `2026-08-18T14:01:32Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17800) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `workflows`, `knowledge-work`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+StartupBench 从已有实际采用的 AI 创业产品中提炼面向交付成果的任务，而不是完全依照研究者假设选题，并在同一智能体框架下用细粒度评分标准评估多个专业领域的代表性模型。
+
+StartupBench derives deliverable-oriented tasks from AI startup products with demonstrated adoption instead of selecting tasks solely from researchers' assumptions. It evaluates representative models under one agent harness with detailed rubrics spanning multiple professional domains.
+
+### 技术点 / Technical points
+
+- 该基准把完整产品工作流重构为端到端任务，并评估最终交付物的复杂要求，而不是孤立子任务。
+  - The benchmark reconstructs complete product workflows as end-to-end tasks and grades the complex requirements of their final deliverables rather than isolated subtasks.
+- 表现最强的受测模型也只完成约 30% 的 StartupBench，尽管模型在许多未完成任务上取得了实质性的部分进展。
+  - The strongest evaluated model completes only about 30% of StartupBench, although models make meaningful partial progress on many unsuccessful tasks.
+- 分析将复杂指令遵循和领域专业知识识别为主要失败来源。
+  - The analysis identifies complex instruction following and domain-specific expertise as major sources of failure.
+
+### 为什么重要 / Why it matters
+
+以用户已经愿意付费的工作流为基础，可以更实际地衡量通用智能体能否可靠完成有价值的工作。
+
+Grounding evaluation in workflows that users already pay for provides a more practical measure of whether general-purpose agents can finish valuable work reliably.
+
+---
+
+<a id="2026-08-18-openai-frontier-rl-cyber-safeguards"></a>
+## [OpenAI 在扩展网络临界级防护期间暂停最大规模前沿 RL 训练](https://openai.com/index/pacing-model-development-cyber-capabilities/)
+
+**English:** [OpenAI holds its largest frontier RL run while expanding cyber-critical safeguards](https://openai.com/index/pacing-model-development-cyber-capabilities/)
+
+- **发布 / Published:** `2026-08-18T11:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/pacing-model-development-cyber-capabilities/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `cybersecurity`, `alignment`, `monitoring`, `agentic-coding`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+OpenAI 表示，在 OpenAI—Hugging Face 事件以及 Astra 可能达到“临界”网络安全能力的初步证据出现后，公司曾暂停最新部署型模型的强化学习训练两周。较小工作负载已经恢复，但最大规模的前沿 RL 训练仍在等待更充分的行为与对齐证据。
+
+OpenAI says it paused reinforcement-learning training on its latest deployment-oriented models for two weeks after the OpenAI-Hugging Face incident and preliminary evidence that Astra may have Critical cybersecurity capability. Smaller workloads have resumed, but its largest planned frontier RL run remains on hold pending stronger behavioral and alignment evidence.
+
+### 技术点 / Technical points
+
+- 新的研究环境要求加强工作负载与网络隔离，移除易受攻击的共享服务，减少常驻权限，并持续测试安全边界。
+  - New research-environment requirements strengthen workload and network isolation, remove vulnerable shared services, reduce standing privileges, and continuously test security boundaries.
+- 多阶段监控系统在采样 token 上运行激活分类器，并把可疑工具操作、可用推理信息和完整轨迹升级给自动调查器，目标是在 30 分钟内发出告警。
+  - A multistage monitoring system runs activation classifiers at sampled tokens and escalates concerning tool actions, available reasoning, and full trajectories to automated investigators, with a target of alerting within 30 minutes.
+- 监控适用于 Sol 能力及以上模型使用工具的 RL 训练和评估，以及 Astra 的全部工具推理；OpenAI 估计当前监控开销约为被监控推理计算量的 20%。
+  - Monitoring is required for tool-using RL and evaluations at Sol capability or above and for all Astra inference with tools; OpenAI estimates current monitoring overhead at roughly 20% of monitored inference compute.
+
+### 为什么重要 / Why it matters
+
+该公告把前沿智能体训练的实际降速与隔离、监控和对齐要求直接绑定，而不是仅在部署阶段增加安全控制。
+
+The announcement ties a concrete slowdown in frontier-agent training to containment, monitoring, and alignment requirements rather than treating safety controls as deployment-only measures.
+
+### 链接 / Links
+
+[Evidence 1](https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/)
+[Discussion 1](https://news.ycombinator.com/item?id=49363992)
+
+---
+
+<a id="2026-08-18-harnessrisk-agent-harness-safety"></a>
+## [HarnessRisk 描绘智能体框架全生命周期的安全失效](https://arxiv.org/abs/2608.17597)
+
+**English:** [HarnessRisk maps safety failures across the agent-harness lifecycle](https://arxiv.org/abs/2608.17597)
+
+- **发布 / Published:** `2026-08-18T10:03:58Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17597) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-harness`, `safety`, `benchmark`, `prompt-injection`, `persistent-state`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+HarnessRisk 在模型与框架组合层面评估配置、能力扩展、运行、状态持久化、动作控制和事故恢复六个阶段的安全性。其 128 个沙箱案例都把正常用户目标与隐藏在不可信工作流工件中的对抗指令配对。
+
+HarnessRisk evaluates safety at the combined model-and-harness level across configuration, capability extension, runtime operation, state persistence, action control, and incident recovery. Each of its 128 sandboxed cases pairs a benign objective with an adversarial instruction hidden in an untrusted workflow artifact.
+
+### 技术点 / Technical points
+
+- 评估覆盖三个智能体框架、六个语言模型和 14 种模型—框架组合，并衡量效用、攻击成功率、持久性与检测能力。
+  - The evaluation covers three agent harnesses, six language models, and 14 model-and-harness configurations, scoring utility, attack success, persistence, and detection.
+- 报告的攻击成功率为 12.6% 至 80.9%，效用保持在 75.0% 至 97.6%；框架配置是最持续脆弱的阶段。
+  - Reported attack success ranges from 12.6% to 80.9% while utility remains between 75.0% and 97.6%; harness configuration is the most consistently vulnerable phase.
+- 部分配置在超过 90% 的运行中识别出风险，却仍保留较高攻击成功率，说明检测到风险并不可靠地转化为安全行动。
+  - Some configurations recognize risk in more than 90% of runs yet still retain substantial attack success, showing that detection does not reliably produce safe action.
+
+### 为什么重要 / Why it matters
+
+智能体安全取决于模型周围的权限、扩展、状态和恢复行为，因此基准必须评估完整部署框架生命周期，而非孤立提示。
+
+Agent safety depends on permissions, extensions, state, and recovery behavior around the model, so benchmarks must evaluate the deployed harness lifecycle rather than isolated prompts.
+
+### 链接 / Links
+
+[Evidence 1](https://baiyajing.github.io/harness-risk/) · [Evidence 2](https://github.com/Baiyajing/HarnessRisk)
+
+---
+
+<a id="2026-08-18-hodagent-responsive-humanoid"></a>
+## [HODAgent 让人形机器人具备可中断规划与结果感知记忆](https://arxiv.org/abs/2608.17584)
+
+**English:** [HODAgent gives humanoids interruptible planning and outcome-aware memory](https://arxiv.org/abs/2608.17584)
+
+- **发布 / Published:** `2026-08-18T09:49:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17584) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `planning`, `memory`, `human-robot-interaction`, `real-world`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+HODAgent 是面向人形机器人服务任务的 System-2 具身智能体，结合环境交互器、规划器、执行器和层级记忆。其半双工设计使机器人能在运动中接收新请求、保留进度、修改动作，并依据观测结果完成任务闭环。
+
+HODAgent is a System-2 embodied agent for humanoid service tasks that combines an environment interactor, planner, executor, and hierarchical memory. Its semi-duplex design allows a robot to accept new requests during motion, retain progress, revise actions, and close tasks based on observed outcomes.
+
+### 技术点 / Technical points
+
+- 共享接口将高层智能体能力与平台特定控制分离，使同一系统能够连接仿真环境和实体 Unitree G1。
+  - A shared interface separates high-level agency from platform-specific control and connects the same system to simulation and a physical Unitree G1.
+- 在 164 个交互式仿真案例中，两种 VLM 配置的联合成功率分别为 84.8% 和 91.5%，较各自基线高 9.8 和 18.9 个百分点。
+  - Across 164 interactive simulation cases, the two reported VLM configurations achieve 84.8% and 91.5% Joint Success, exceeding their baselines by 9.8 and 18.9 points.
+- 在实体机器人上，原子任务、组合任务和完整任务的报告通过率分别为 92%、72% 和 63.3%。
+  - On physical robots, reported pass rates are 92% for atomic tasks, 72% for composite tasks, and 63.3% for complete tasks.
+
+### 为什么重要 / Why it matters
+
+响应式服务机器人需要在不丢失任务状态的情况下修改长程计划，HODAgent 在仿真基准和实体硬件上测试了这一能力。
+
+Responsive service robots need to revise long-running plans without discarding task state, and HODAgent tests that capability on both simulation benchmarks and physical hardware.
+
+---
+
+<a id="2026-08-18-agent-lightning-v1-harnessed-rl"></a>
+## [Agent Lightning v1.0 通过真实部署框架训练智能体](https://arxiv.org/abs/2608.17528)
+
+**English:** [Agent Lightning v1.0 trains agents through their real deployment harnesses](https://arxiv.org/abs/2608.17528)
+
+- **发布 / Published:** `2026-08-18T08:50:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17528) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agentic-rl`, `coding-agents`, `agent-harness`, `tool-use`, `reinforcement-learning`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
+
+### 摘要 / Summary
+
+Agent Lightning v1.0 是一个轻量强化学习框架，部署中的智能体框架继续控制工具、上下文与环境交互。API 代理使训练器能够从模型请求—响应序列中学习，而无需替换智能体的生产执行循环。
+
+Agent Lightning v1.0 is a lightweight framework for reinforcement learning in which the deployed agent harness retains control of tools, context, and environment interaction. An API proxy lets the trainer learn from model request-response sequences without replacing the agent's production execution loop.
+
+### 技术点 / Technical points
+
+- 约 3,500 行的实现将训练器、API 网关和 rollout 控制器分离，并可在本地或 Kubernetes 作业中运行真实智能体框架。
+  - The roughly 3,500-line implementation separates a trainer, API gateway, and rollout controller and can run real agent harnesses locally or as Kubernetes jobs.
+- 该设计为研究由框架掌管交互循环所带来的重新分词、样本合并、优势计算、损失归一化和后端调度问题提供了实验平台。
+  - The design provides an experimental surface for retokenization, sample merging, advantage calculation, loss normalization, and backend scheduling issues introduced by harness-owned interaction loops.
+- 使用 6,000 个训练样本，已发布的编程智能体流水线将 Qwen3.5-9B 在 SWE-bench Verified 上的成绩从 41.8% 提升至 56.4%，报告绝对增幅为 14.6 个百分点。
+  - Using 6,000 training examples, the released coding-agent pipeline improves Qwen3.5-9B on SWE-bench Verified from 41.8% to 56.4%, a reported 14.6-point absolute gain.
+
+### 为什么重要 / Why it matters
+
+通过部署时使用的同一框架进行训练，可缩小简化 RL 环境与生产智能体真实工具、上下文和控制流行为之间的差距。
+
+Training through the same harness used at deployment reduces the gap between simplified RL environments and the tool, context, and control-flow behavior of production agents.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/microsoft/agent-lightning)
+
+---
+
 <a id="2026-08-17-baton-subtask-robot-exploration"></a>
 ## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
 

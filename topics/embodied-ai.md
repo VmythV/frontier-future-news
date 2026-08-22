@@ -2,6 +2,112 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-18-hydra-0-action-flow-world-model"></a>
+## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
+
+**English:** [Hydra-0 unifies robot world modeling and control through action flow](https://arxiv.org/abs/2608.18077)
+
+- **发布 / Published:** `2026-08-18T17:59:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18077) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `action-flow`, `planning`, `simulation`, `control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Hydra-0 将机器人动作表示为像素运动，使同一视觉接口能够跨机器人形态、任务、环境和视频生成骨干模型预测动作后果。这一表示同时支持前向预测、策略评估与可执行控制。
+
+Hydra-0 represents robot actions as pixel motion so one visual interface can model action consequences across robot embodiments, tasks, environments, and video-generation backbones. The same representation supports forward prediction, policy evaluation, and executable control.
+
+### 技术点 / Technical points
+
+- 相较论文中的动作条件基线，表现最佳的配置将机器人运动误差降低 90.4%，物体运动误差降低 60.2%。
+  - The best reported configuration reduces robot-motion error by 90.4% and object-motion error by 60.2% relative to the paper's action-conditioned baseline.
+- 在 RoboLab 上，回放策略与参考策略成功率的皮尔逊相关系数达到 0.96，支持将该模型用于开环策略评估。
+  - On RoboLab, replayed and reference policy success rates have a reported Pearson correlation of 0.96, supporting the model's use for open-loop policy evaluation.
+- 其逆向模式可从人类演示迁移的目标物体流中预测匹配的机器人运动，再由动作头将潜特征映射为可执行指令，无需针对任务采集专家机器人演示。
+  - An inverse mode predicts compatible robot motion from desired object flow transferred from a human demonstration, after which an action head maps latent features to executable commands without task-specific expert robot demonstrations.
+
+### 为什么重要 / Why it matters
+
+动作流为学习型仿真与物理控制提供了共享接口，有望减少评估或适配机器人策略时所需的特定形态数据与建模工作。
+
+Action flow offers a shared interface between learned simulation and physical control, potentially reducing the embodiment-specific data and modeling needed to evaluate or adapt robot policies.
+
+### 链接 / Links
+
+[Evidence 1](https://nvidia-isaac.github.io/video_to_data/hydra-0/)
+
+---
+
+<a id="2026-08-18-libero-vifo-visual-cue-safety"></a>
+## [LIBERO-VIFO 测试 VLA 模型是否会服从未授权视觉提示](https://arxiv.org/abs/2608.17600)
+
+**English:** [LIBERO-VIFO tests whether VLA models follow unauthorized visual cues](https://arxiv.org/abs/2608.17600)
+
+- **发布 / Published:** `2026-08-18T10:07:17Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17600) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `safety`, `benchmark`, `visual-cues`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+LIBERO-VIFO 同时评估视觉—语言—动作模型遵循视觉提示的能力与安全性。它区分获授权提示与冲突或替代语言指令的提示，揭示可见场景内容在未经用户授权时改变物理行为的情况。
+
+LIBERO-VIFO evaluates both the capability and safety of visual-cue following in vision-language-action models. It distinguishes authorized cues from cues that conflict with or replace language instructions, exposing cases where visible scene content can redirect physical behavior without user authorization.
+
+### 技术点 / Technical points
+
+- 该基准定义八类视觉提示和四种协议：其中两种测试提示理解与授权遵循，另外两种测试语言冲突或缺少语言时的未授权遵循。
+  - The benchmark defines eight visual-cue families and four protocols: two test cue understanding and authorized following, while two test unauthorized following under language conflict or absent language.
+- 在七个 VLA 模型中，视觉提示理解并不总能转化为执行，但现有模型仍可能在没有语言指令时执行提示所指任务。
+  - Across seven VLA models, visual-cue understanding does not reliably translate into execution, yet current models can still execute cue-indicated tasks without a language instruction.
+- 场景实例化、安全关键设置和真实机器人补充实验支持了其关于未授权遵循风险的结论。
+  - Additional scene-instantiated, safety-critical, and real-robot experiments support the reported unauthorized-following risk.
+
+### 为什么重要 / Why it matters
+
+视觉观测可能成为物理系统的指令注入面，因此具身智能体安全不仅要判断机器人是否理解提示，还要约束它被授权遵循哪些提示。
+
+Visual observations can act as an instruction-injection surface for physical systems, so embodied-agent safety must govern what the robot is authorized to follow, not only whether it understands a cue.
+
+---
+
+<a id="2026-08-18-hodagent-responsive-humanoid"></a>
+## [HODAgent 让人形机器人具备可中断规划与结果感知记忆](https://arxiv.org/abs/2608.17584)
+
+**English:** [HODAgent gives humanoids interruptible planning and outcome-aware memory](https://arxiv.org/abs/2608.17584)
+
+- **发布 / Published:** `2026-08-18T09:49:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17584) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `planning`, `memory`, `human-robot-interaction`, `real-world`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+HODAgent 是面向人形机器人服务任务的 System-2 具身智能体，结合环境交互器、规划器、执行器和层级记忆。其半双工设计使机器人能在运动中接收新请求、保留进度、修改动作，并依据观测结果完成任务闭环。
+
+HODAgent is a System-2 embodied agent for humanoid service tasks that combines an environment interactor, planner, executor, and hierarchical memory. Its semi-duplex design allows a robot to accept new requests during motion, retain progress, revise actions, and close tasks based on observed outcomes.
+
+### 技术点 / Technical points
+
+- 共享接口将高层智能体能力与平台特定控制分离，使同一系统能够连接仿真环境和实体 Unitree G1。
+  - A shared interface separates high-level agency from platform-specific control and connects the same system to simulation and a physical Unitree G1.
+- 在 164 个交互式仿真案例中，两种 VLM 配置的联合成功率分别为 84.8% 和 91.5%，较各自基线高 9.8 和 18.9 个百分点。
+  - Across 164 interactive simulation cases, the two reported VLM configurations achieve 84.8% and 91.5% Joint Success, exceeding their baselines by 9.8 and 18.9 points.
+- 在实体机器人上，原子任务、组合任务和完整任务的报告通过率分别为 92%、72% 和 63.3%。
+  - On physical robots, reported pass rates are 92% for atomic tasks, 72% for composite tasks, and 63.3% for complete tasks.
+
+### 为什么重要 / Why it matters
+
+响应式服务机器人需要在不丢失任务状态的情况下修改长程计划，HODAgent 在仿真基准和实体硬件上测试了这一能力。
+
+Responsive service robots need to revise long-running plans without discarding task state, and HODAgent tests that capability on both simulation benchmarks and physical hardware.
+
+---
+
 <a id="2026-08-17-baton-subtask-robot-exploration"></a>
 ## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
 
