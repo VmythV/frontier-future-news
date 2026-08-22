@@ -2,6 +2,114 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-20-surgical-world-action-model"></a>
+## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
+
+**English:** [Surgical world-action modeling jointly forecasts vision and trajectories](https://arxiv.org/abs/2608.20284)
+
+- **发布 / Published:** `2026-08-20T17:18:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20284) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `surgical-robotics`, `video-prediction`, `trajectory-prediction`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+一项初步手术世界—动作模型根据历史视频和器械运动，联合预测未来视觉状态与器械轨迹。时空编码器连接独立的视觉与轨迹预测头，将预测动作与预期场景变化联系起来。
+
+A preliminary surgical world-action model jointly forecasts future visual states and instrument trajectories from historical video and tool motion. A temporal-spatial encoder feeds separate visual and trajectory heads, linking predicted actions to their anticipated scene evolution.
+
+### 技术点 / Technical points
+
+- 模型反复采用分块自回归滚动方式预测未来十五步，而不是一次性生成完整预测区间。
+  - The model repeatedly applies a chunked autoregressive rollout to forecast fifteen future steps rather than predicting the full horizon in one pass.
+- 相较一次性预测，首个预测分段的 PSNR 从 18.86 提升至 23.11 dB，平均位移误差从 45.77 降至 22.22 像素。
+  - For the first forecast segment, the reported PSNR rises from 18.86 to 23.11 dB and average displacement error falls from 45.77 to 22.22 pixels relative to one-shot prediction.
+- 随着预测区间延长，视觉质量逐步退化且轨迹误差持续累积，作者将其列为尚未解决的限制。
+  - Visual quality progressively degrades and trajectory errors accumulate at longer horizons, which the authors identify as an unresolved limitation.
+
+### 为什么重要 / Why it matters
+
+联合预测动作与场景，有望让手术规划系统更完整地建模器械运动如何改变术野，但当前证据仍处于初步阶段。
+
+Joint action-scene prediction could give surgical planning systems a more complete model of how instrument motion changes the operative field, although the present evidence is still preliminary.
+
+---
+
+<a id="2026-08-20-video2doortraversal-door-twins"></a>
+## [Video2DoorTraversal 从单段视频学习推门穿越](https://arxiv.org/abs/2608.20251)
+
+**English:** [Video2DoorTraversal learns door traversal from one video](https://arxiv.org/abs/2608.20251)
+
+- **发布 / Published:** `2026-08-20T16:46:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20251) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `mobile-manipulation`, `sim-to-real`, `simulation`, `loco-manipulation`, `onboard-inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Video2DoorTraversal 是面向轮腿式移动操作机器人的现实—仿真—现实系统。DoorTwin 从一段真实门的 RGB 视频中重建对齐的关节化仿真资产，再由仿真闭环智能体优化参数化穿越技能，并训练 ArticuACT 控制策略。
+
+Video2DoorTraversal is a real-to-sim-to-real system for wheel-legged mobile manipulators. From one RGB video of a real door, DoorTwin reconstructs an aligned articulated simulation asset, and a simulation-in-the-loop agent refines a parameterized traversal skill before training the ArticuACT control policy.
+
+### 技术点 / Technical points
+
+- ArticuACT 使用双深度输入和交互感知监督，预测相互协调的底盘、机械臂和夹爪指令。
+  - ArticuACT uses dual depth inputs and interaction-aware supervision to predict coordinated base, arm, and gripper commands.
+- 在感知与策略推理均由机载计算完成的情况下，系统在五扇真实门上的平均成功率为 96.57%，对结构相似未见门的零样本成功率为 80.95%。
+  - With perception and policy inference onboard, the system reports a 96.57% average success rate across five real doors and 80.95% zero-shot success on structurally similar unseen doors.
+- 接近、开门和穿越的完整序列平均约需 13 秒。
+  - The full approach, opening, and traversal sequence takes approximately 13 seconds on average.
+
+### 为什么重要 / Why it matters
+
+利用一段普通视频创建任务专用仿真环境，有望减少部署长时程移动操作技能所需的环境建模工作。
+
+Using one ordinary video to create a task-specific simulator could reduce the environment-modeling effort needed to deploy long-horizon mobile manipulation skills.
+
+### 链接 / Links
+
+[Evidence 1](https://video2doortraversal.github.io/)
+
+---
+
+<a id="2026-08-20-roman-flow-offline-robot-rl"></a>
+## [RoMAN-Flow 让自回归流适用于机器人离线强化学习](https://arxiv.org/abs/2608.20208)
+
+**English:** [RoMAN-Flow makes autoregressive flows practical for robotic offline RL](https://arxiv.org/abs/2608.20208)
+
+- **发布 / Published:** `2026-08-20T16:07:56Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20208) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `offline-reinforcement-learning`, `manipulation`, `normalizing-flow`, `policy-distillation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+RoMAN-Flow 将自回归归一化流策略用于机器人操作的离线强化学习，在保留精确动作似然的同时，解决顺序采样拖慢策略优化与部署的问题。
+
+RoMAN-Flow adapts autoregressive normalizing-flow policies to offline reinforcement learning for robotic manipulation. It retains exact action likelihoods while addressing the sequential sampling cost that otherwise slows both policy optimization and deployment.
+
+### 技术点 / Technical points
+
+- 策略优化采用无采样的优势加权似然目标，提高离线数据中高优势动作的似然。
+  - Policy optimization uses a sampling-free, advantage-weighted likelihood objective that increases the likelihood of high-advantage actions from the offline dataset.
+- 优化后的自回归策略被蒸馏为一步动作生成器；仿真基准和真实机器人平台实验显示，其性能具有竞争力且推理延迟显著降低。
+  - The optimized autoregressive policy is distilled into a one-step action generator; simulated benchmarks and real robot platforms show competitive performance with substantially lower inference latency.
+
+### 为什么重要 / Why it matters
+
+该设计把基于似然的离线策略改进，与物理机器人控制所需的低延迟动作生成结合起来。
+
+The design combines likelihood-based offline policy improvement with the low-latency action generation required for physical robot control.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/konnyaku28/RoMAN-Flow)
+
+---
+
 <a id="2026-08-18-hydra-0-action-flow-world-model"></a>
 ## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
 

@@ -2,6 +2,74 @@
 
 # World models / 世界模型
 
+<a id="2026-08-20-surgical-world-action-model"></a>
+## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
+
+**English:** [Surgical world-action modeling jointly forecasts vision and trajectories](https://arxiv.org/abs/2608.20284)
+
+- **发布 / Published:** `2026-08-20T17:18:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20284) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `surgical-robotics`, `video-prediction`, `trajectory-prediction`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+一项初步手术世界—动作模型根据历史视频和器械运动，联合预测未来视觉状态与器械轨迹。时空编码器连接独立的视觉与轨迹预测头，将预测动作与预期场景变化联系起来。
+
+A preliminary surgical world-action model jointly forecasts future visual states and instrument trajectories from historical video and tool motion. A temporal-spatial encoder feeds separate visual and trajectory heads, linking predicted actions to their anticipated scene evolution.
+
+### 技术点 / Technical points
+
+- 模型反复采用分块自回归滚动方式预测未来十五步，而不是一次性生成完整预测区间。
+  - The model repeatedly applies a chunked autoregressive rollout to forecast fifteen future steps rather than predicting the full horizon in one pass.
+- 相较一次性预测，首个预测分段的 PSNR 从 18.86 提升至 23.11 dB，平均位移误差从 45.77 降至 22.22 像素。
+  - For the first forecast segment, the reported PSNR rises from 18.86 to 23.11 dB and average displacement error falls from 45.77 to 22.22 pixels relative to one-shot prediction.
+- 随着预测区间延长，视觉质量逐步退化且轨迹误差持续累积，作者将其列为尚未解决的限制。
+  - Visual quality progressively degrades and trajectory errors accumulate at longer horizons, which the authors identify as an unresolved limitation.
+
+### 为什么重要 / Why it matters
+
+联合预测动作与场景，有望让手术规划系统更完整地建模器械运动如何改变术野，但当前证据仍处于初步阶段。
+
+Joint action-scene prediction could give surgical planning systems a more complete model of how instrument motion changes the operative field, although the present evidence is still preliminary.
+
+---
+
+<a id="2026-08-20-rmworld-uav-radio-world-model"></a>
+## [RMWorld 为多无人机控制构建任务感知无线电世界模型](https://arxiv.org/abs/2608.20126)
+
+**English:** [RMWorld builds task-aware radio world models for multi-UAV control](https://arxiv.org/abs/2608.20126)
+
+- **发布 / Published:** `2026-08-20T14:54:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20126) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `uav`, `radio-modeling`, `predictive-control`, `planning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+RMWorld 面向多无人机通信控制，使用由决策风险而非全局预测误差驱动校准的无线电世界模型。它优先测量可能改变业务链路决策的信道，并过滤可能受模型偏差污染的反事实轨迹。
+
+RMWorld targets multi-UAV communication control with a radio world model whose calibration is driven by decision risk rather than global prediction error. It prioritizes measurements that can change traffic-serving link decisions and filters counterfactual rollouts that may be corrupted by model bias.
+
+### 技术点 / Technical points
+
+- 方法使用贝叶斯残差校正有偏传播模型，并按链路标签对任务积分后验速率方差的降低幅度评估查询价值。
+  - A Bayesian residual corrects a biased propagation model, and link queries are valued by their reduction in task-integrated posterior rate variance.
+- 反事实分支通过任务门控的对数行列式目标选择，随后执行冲突投影和固定批次验证。
+  - Counterfactual branches are selected with a task-gated log-determinant objective followed by conflict projection and fixed-batch validation.
+- 论文在 100 次配对 3GPP 试验中报告 0.949 bit/s/Hz 的任务加权 RMSE，并在 30 次 DeepMIMO 重载试验中相较 Ensemble UCB 将中位积压降低 0.967，但多使用 37.5% 的离线轨迹。
+  - The paper reports 0.949 bit/s/Hz task-weighted RMSE over 100 paired 3GPP trials and a 0.967 reduction in median backlog versus Ensemble UCB over 30 severe-load DeepMIMO trials, using 37.5% more offline rollouts.
+
+### 为什么重要 / Why it matters
+
+该系统展示了世界模型如何围绕控制后果分配数据采集和滚动预算，而不是把所有预测误差视为同等重要。
+
+The system demonstrates how a world model can allocate data collection and rollout budgets around control consequences instead of treating all prediction errors as equally important.
+
+---
+
 <a id="2026-08-18-hydra-0-action-flow-world-model"></a>
 ## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
 

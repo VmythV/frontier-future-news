@@ -2,6 +2,214 @@
 
 # Agents / 智能体
 
+<a id="2026-08-20-task-model-induction-computer-traces"></a>
+## [任务模型归纳从计算机使用轨迹中提取可复用技能](https://arxiv.org/abs/2608.20319)
+
+**English:** [Task Model Induction derives reusable skills from computer-use traces](https://arxiv.org/abs/2608.20319)
+
+- **发布 / Published:** `2026-08-20T17:57:00Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20319) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `task-modeling`, `workflow-induction`, `skill-learning`, `auditability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+任务模型归纳方法从无约束的截图、鼠标和键盘轨迹中发现相互交错的潜在任务，并为每项任务同时构建层次化目标模型与程序控制流模型，将底层活动转化为符号化、可审计的知识。
+
+Task Model Induction discovers interleaved latent tasks in unconstrained screenshot, mouse, and keyboard traces. For each task, it constructs a hierarchical objective model together with a procedural control-flow model, turning low-level activity into symbolic and auditable knowledge.
+
+### 技术点 / Technical points
+
+- 在受控的人类与智能体轨迹上，该方法报告的任务分组与真值一致度为 0.974，并重建了 74.9% 的观察执行步骤。
+  - On controlled human and agent trajectories, the method reports 0.974 agreement with ground-truth task groupings and reconstructs 74.9% of observed execution steps.
+- 从归纳任务模型中生成的技能，使留出任务准确率相较最强工作流归纳基线提高 30.0%。
+  - Skills derived from the induced task models improve held-out task accuracy by 30.0% over the strongest workflow-induction baseline.
+
+### 为什么重要 / Why it matters
+
+把自然工作轨迹转化为显式任务结构，有望让计算机使用智能体学习可复用流程，同时为组织提供可检查的学习记录。
+
+Converting natural work traces into explicit task structures could help computer-use agents learn reusable procedures while giving organizations inspectable records of what was learned.
+
+---
+
+<a id="2026-08-20-ai4ai-bench-algorithm-design"></a>
+## [AI4AI-Bench 测试智能体设计训练算法的能力](https://arxiv.org/abs/2608.20318)
+
+**English:** [AI4AI-Bench tests agents on training-algorithm design](https://arxiv.org/abs/2608.20318)
+
+- **发布 / Published:** `2026-08-20T17:56:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20318) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `ai-for-ai`, `recursive-self-improvement`, `algorithm-design`, `agent-evaluation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+AI4AI-Bench 将训练算法设计与超参数调优及额外算力区分开来。智能体获得四小时和一张 B300，在十个冻结研究仓库之一中改写学习算法，随后由隐藏评测器从头训练并评分。
+
+AI4AI-Bench isolates training-algorithm design from hyperparameter tuning and extra compute. An agent receives four hours on one B300 to rewrite the learning algorithm in one of ten frozen research repositories, after which its code is retrained from scratch and scored by a hidden evaluator.
+
+### 技术点 / Technical points
+
+- 在六套系统的 29 种配置和全部十项任务上，报告的归一化平均分为 0.166，最佳系统达到 0.250；该量表中原仓库算法为 0.1，任务最优值为 1.0。
+  - Across 29 configurations of six systems on all ten tasks, the reported mean normalized score is 0.166 and the best system reaches 0.250 on a scale where the shipped algorithm scores 0.1 and the task optimum scores 1.0.
+- 提高推理投入后，实质改变模型学习方式的提交比例从 8% 升至 64%，平均分则从 0.094 升至 0.196。
+  - Increasing reasoning effort raises the share of submissions that materially change how the model learns from 8% to 64%, while the mean score rises from 0.094 to 0.196.
+- 基准仓库发布了任务套件、评测器和全部已评分提交，以支持可重复测量。
+  - The benchmark repository releases the task suite, evaluators, and scored submissions for repeatable measurement.
+
+### 为什么重要 / Why it matters
+
+该基准更严格地检验智能体能否改进生成模型的算法，而不只是调整既有训练配方。
+
+The benchmark provides a stricter test of whether agents can improve the algorithms that produce models, rather than merely tuning an existing training recipe.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Einsia/AI4AI-Bench)
+
+---
+
+<a id="2026-08-20-midtool-agentic-tool-use"></a>
+## [MidTool 为智能体工具使用合成中期训练数据](https://arxiv.org/abs/2608.20314)
+
+**English:** [MidTool synthesizes mid-training data for agentic tool use](https://arxiv.org/abs/2608.20314)
+
+- **发布 / Published:** `2026-08-20T17:53:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20314) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `mid-training`, `mcp`, `data-synthesis`, `reinforcement-learning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MidTool 提出一套语料构建流程，将网页、PDF 和代码数据与基于真实 API、MCP 技能及文档工作流生成的监督信号结合，重点训练工具能力识别、参数落地、多步调用和不完整信息恢复。
+
+MidTool proposes a corpus-construction pipeline that combines web, PDF, and code data with supervision synthesized from real APIs, MCP skills, and document-grounded workflows. It targets tool affordance recognition, argument grounding, multi-call workflows, and recovery from incomplete information.
+
+### 技术点 / Technical points
+
+- 作者先使用 MidTool-Mix 对 Qwen3-4B-Base 和 Qwen3-8B-Base 进行中期训练，再进行监督微调或强化学习。
+  - The authors mid-train Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix before applying supervised fine-tuning or reinforcement learning.
+- 论文报告两种后训练路径在 BFCL、tau2-Bench 和 MCP Universe 上均取得一致提升，但验证期间其链接的数据与模型集合无法公开访问。
+  - They report consistent downstream gains under both post-training methods on BFCL, tau2-Bench, and MCP Universe, though the linked data and model collection was not publicly accessible during verification.
+
+### 为什么重要 / Why it matters
+
+该工作把通用工具使用视为应在中期训练阶段塑造的能力，而不是完全依赖后续监督微调或强化学习。
+
+The work treats general tool use as a capability to shape during mid-training instead of relying entirely on later supervised or reinforcement-learning stages.
+
+---
+
+<a id="2026-08-20-phantom-gains-self-improvement-audit"></a>
+## [Phantom Gains 用实测空分布审计自我改进](https://arxiv.org/abs/2608.20290)
+
+**English:** [Phantom Gains audits self-improvement against a measured null](https://arxiv.org/abs/2608.20290)
+
+- **发布 / Published:** `2026-08-20T17:30:14Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20290) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `self-improvement`, `evaluation`, `reliability`, `statistics`, `distillation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Phantom Gains 使用经过相同流水线的冻结对照，审计 Qwen3-8B 上三轮秩为 32 的 LoRA 自训练。研究识别出七类测量失效，它们可能颠倒模型学会或遗忘哪些问题的结论。
+
+Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B against frozen controls passed through the same pipeline. The study identifies seven measurement failures that could reverse conclusions about which problems a model learned or lost.
+
+### 技术点 / Technical points
+
+- 基于单次贪心解码的记录方法和一种常用扩展统计量都会在未训练模型上报告变化，显示其测量底噪并非为零。
+  - A ledger based on one greedy decode and a commonly used expansion statistic both report changes on an untrained model, demonstrating non-zero measurement floors.
+- 替代方法以汇总冻结基线为参照，对每道题进行精确检验并控制错误发现率，在留出复现实验中没有检测到能力扩展。
+  - A replacement per-problem exact test against a pooled frozen baseline with false-discovery-rate control detects no expansion on held-out replicates.
+- 外部蒸馏使每个种子下 22 道低命中问题中的 8 至 11 道得到改善，而三种自训练方法仅改善 0 至 2 道；发布记录覆盖 344 万次生成和 53 亿 token。
+  - External distillation improves 8 to 11 of 22 rarely solved problems per seed while three self-training variants improve 0 to 2; released records cover 3.44 million generations and 5.30 billion tokens.
+
+### 为什么重要 / Why it matters
+
+自我改进结论可能由评估程序本身制造，因此逐状态变化的智能体研究需要匹配对照，并为每项统计量单独测量空分布。
+
+Self-improvement claims can be created by the evaluation procedure itself, so transition-level agent studies need matched controls and a separately measured null for every reported statistic.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/chengxuphd/phantom-gains)
+
+---
+
+<a id="2026-08-20-cross-task-agent-skill-transfer"></a>
+## [子任务级文本技能在智能体任务间迁移得更可靠](https://arxiv.org/abs/2608.20274)
+
+**English:** [Subtask-level text skills transfer more reliably across agent tasks](https://arxiv.org/abs/2608.20274)
+
+- **发布 / Published:** `2026-08-20T17:12:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20274) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `skill-learning`, `transfer-learning`, `reasoning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+一项受控研究比较了任务级与子任务级技能归纳，以及文本与代码两种技能表示。结果显示，记忆技能的形式和粒度会决定其复用在后续任务中帮助还是损害 LLM 智能体。
+
+A controlled study compares task-level with subtask-level skill induction and textual with code-based skill representations. It finds that the form and granularity of remembered skills determine whether reuse helps or harms an LLM agent on later tasks.
+
+### 技术点 / Technical points
+
+- 任务级技能大多使性能低于无记忆基线，而子任务级技能平均带来提升；文本技能的迁移效果也优于代码技能。
+  - Task-level skills mostly reduce performance below the no-memory baseline, while subtask-level skills improve it on average; textual skills also transfer better than code skills.
+- 论文提出的技能效用分数结合具体性与抽象性，并与迁移成功率相关；计算时只需技能和任务描述，无需执行新任务。
+  - A proposed skill-utility score combines specificity and abstractness, correlates with transfer success, and requires only skill and task descriptions rather than new task executions.
+
+### 为什么重要 / Why it matters
+
+一种低成本的可迁移记忆诊断方法，可以帮助智能体避免调用看似相关、却损害当前任务推理的经验。
+
+A cheap diagnostic for transferable memories could help agents avoid retrieving experience that appears relevant but degrades current-task reasoning.
+
+---
+
+<a id="2026-08-20-task-coevolve-adaptive-validation"></a>
+## [Task-CoEvolve 通过自适应任务选择减少智能体框架验证成本](https://arxiv.org/abs/2608.20169)
+
+**English:** [Task-CoEvolve cuts agent harness validation with adaptive task selection](https://arxiv.org/abs/2608.20169)
+
+- **发布 / Published:** `2026-08-20T15:24:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20169) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-evaluation`, `harness-optimization`, `benchmark`, `adaptive-sampling`, `terminal-bench`, `cost-efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Task-CoEvolve 随智能体框架变化而动态调整验证集，从而降低迭代优化 LLM 智能体框架的成本。它把评测集中在候选框架结果存在分歧的任务上，并按采样概率校正得分估计。
+
+Task-CoEvolve reduces the cost of iteratively optimizing an LLM agent harness by adapting the validation set as the harness changes. It concentrates evaluations on tasks where candidate harnesses disagree while correcting score estimates for their sampling probabilities.
+
+### 技术点 / Technical points
+
+- 方差加权采样聚焦于不断变化的智能体能力边界附近任务，按概率修正的估计则保持各轮得分可比。
+  - Variance-weighted sampling focuses on tasks near the evolving agent capability frontier, while probability-aware estimation keeps scores comparable across iterations.
+- 在在线文本分类和 Terminal-Bench 2.1 上，该方法报告达到完整验证集搜索的最终性能，同时减少 80% 的评测次数；公开项目页表示实现代码仍待发布。
+  - On online text classification and Terminal-Bench 2.1, the method reportedly matches the final performance of full-set search while reducing evaluation count by 80%; the public project page says implementation code is still forthcoming.
+
+### 为什么重要 / Why it matters
+
+评测可能占据自动化框架演化的大部分成本，因此自适应验证有望显著提升反复优化智能体系统的可行性。
+
+Evaluation can dominate the cost of automated harness evolution, so adaptive validation may make repeated agent-system optimization substantially more practical.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Agent4Science-UTokyo/Task-CoEvolve)
+
+---
+
 <a id="2026-08-18-self-improving-agent-fragility"></a>
 ## [任务顺序与评估方差暴露自我改进智能体的脆弱性](https://arxiv.org/abs/2608.18066)
 

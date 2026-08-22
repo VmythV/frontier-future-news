@@ -2,6 +2,356 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-20-task-model-induction-computer-traces"></a>
+## [任务模型归纳从计算机使用轨迹中提取可复用技能](https://arxiv.org/abs/2608.20319)
+
+**English:** [Task Model Induction derives reusable skills from computer-use traces](https://arxiv.org/abs/2608.20319)
+
+- **发布 / Published:** `2026-08-20T17:57:00Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20319) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `task-modeling`, `workflow-induction`, `skill-learning`, `auditability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+任务模型归纳方法从无约束的截图、鼠标和键盘轨迹中发现相互交错的潜在任务，并为每项任务同时构建层次化目标模型与程序控制流模型，将底层活动转化为符号化、可审计的知识。
+
+Task Model Induction discovers interleaved latent tasks in unconstrained screenshot, mouse, and keyboard traces. For each task, it constructs a hierarchical objective model together with a procedural control-flow model, turning low-level activity into symbolic and auditable knowledge.
+
+### 技术点 / Technical points
+
+- 在受控的人类与智能体轨迹上，该方法报告的任务分组与真值一致度为 0.974，并重建了 74.9% 的观察执行步骤。
+  - On controlled human and agent trajectories, the method reports 0.974 agreement with ground-truth task groupings and reconstructs 74.9% of observed execution steps.
+- 从归纳任务模型中生成的技能，使留出任务准确率相较最强工作流归纳基线提高 30.0%。
+  - Skills derived from the induced task models improve held-out task accuracy by 30.0% over the strongest workflow-induction baseline.
+
+### 为什么重要 / Why it matters
+
+把自然工作轨迹转化为显式任务结构，有望让计算机使用智能体学习可复用流程，同时为组织提供可检查的学习记录。
+
+Converting natural work traces into explicit task structures could help computer-use agents learn reusable procedures while giving organizations inspectable records of what was learned.
+
+---
+
+<a id="2026-08-20-ai4ai-bench-algorithm-design"></a>
+## [AI4AI-Bench 测试智能体设计训练算法的能力](https://arxiv.org/abs/2608.20318)
+
+**English:** [AI4AI-Bench tests agents on training-algorithm design](https://arxiv.org/abs/2608.20318)
+
+- **发布 / Published:** `2026-08-20T17:56:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20318) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `ai-for-ai`, `recursive-self-improvement`, `algorithm-design`, `agent-evaluation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+AI4AI-Bench 将训练算法设计与超参数调优及额外算力区分开来。智能体获得四小时和一张 B300，在十个冻结研究仓库之一中改写学习算法，随后由隐藏评测器从头训练并评分。
+
+AI4AI-Bench isolates training-algorithm design from hyperparameter tuning and extra compute. An agent receives four hours on one B300 to rewrite the learning algorithm in one of ten frozen research repositories, after which its code is retrained from scratch and scored by a hidden evaluator.
+
+### 技术点 / Technical points
+
+- 在六套系统的 29 种配置和全部十项任务上，报告的归一化平均分为 0.166，最佳系统达到 0.250；该量表中原仓库算法为 0.1，任务最优值为 1.0。
+  - Across 29 configurations of six systems on all ten tasks, the reported mean normalized score is 0.166 and the best system reaches 0.250 on a scale where the shipped algorithm scores 0.1 and the task optimum scores 1.0.
+- 提高推理投入后，实质改变模型学习方式的提交比例从 8% 升至 64%，平均分则从 0.094 升至 0.196。
+  - Increasing reasoning effort raises the share of submissions that materially change how the model learns from 8% to 64%, while the mean score rises from 0.094 to 0.196.
+- 基准仓库发布了任务套件、评测器和全部已评分提交，以支持可重复测量。
+  - The benchmark repository releases the task suite, evaluators, and scored submissions for repeatable measurement.
+
+### 为什么重要 / Why it matters
+
+该基准更严格地检验智能体能否改进生成模型的算法，而不只是调整既有训练配方。
+
+The benchmark provides a stricter test of whether agents can improve the algorithms that produce models, rather than merely tuning an existing training recipe.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Einsia/AI4AI-Bench)
+
+---
+
+<a id="2026-08-20-midtool-agentic-tool-use"></a>
+## [MidTool 为智能体工具使用合成中期训练数据](https://arxiv.org/abs/2608.20314)
+
+**English:** [MidTool synthesizes mid-training data for agentic tool use](https://arxiv.org/abs/2608.20314)
+
+- **发布 / Published:** `2026-08-20T17:53:59Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20314) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `mid-training`, `mcp`, `data-synthesis`, `reinforcement-learning`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MidTool 提出一套语料构建流程，将网页、PDF 和代码数据与基于真实 API、MCP 技能及文档工作流生成的监督信号结合，重点训练工具能力识别、参数落地、多步调用和不完整信息恢复。
+
+MidTool proposes a corpus-construction pipeline that combines web, PDF, and code data with supervision synthesized from real APIs, MCP skills, and document-grounded workflows. It targets tool affordance recognition, argument grounding, multi-call workflows, and recovery from incomplete information.
+
+### 技术点 / Technical points
+
+- 作者先使用 MidTool-Mix 对 Qwen3-4B-Base 和 Qwen3-8B-Base 进行中期训练，再进行监督微调或强化学习。
+  - The authors mid-train Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix before applying supervised fine-tuning or reinforcement learning.
+- 论文报告两种后训练路径在 BFCL、tau2-Bench 和 MCP Universe 上均取得一致提升，但验证期间其链接的数据与模型集合无法公开访问。
+  - They report consistent downstream gains under both post-training methods on BFCL, tau2-Bench, and MCP Universe, though the linked data and model collection was not publicly accessible during verification.
+
+### 为什么重要 / Why it matters
+
+该工作把通用工具使用视为应在中期训练阶段塑造的能力，而不是完全依赖后续监督微调或强化学习。
+
+The work treats general tool use as a capability to shape during mid-training instead of relying entirely on later supervised or reinforcement-learning stages.
+
+---
+
+<a id="2026-08-20-phantom-gains-self-improvement-audit"></a>
+## [Phantom Gains 用实测空分布审计自我改进](https://arxiv.org/abs/2608.20290)
+
+**English:** [Phantom Gains audits self-improvement against a measured null](https://arxiv.org/abs/2608.20290)
+
+- **发布 / Published:** `2026-08-20T17:30:14Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20290) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `self-improvement`, `evaluation`, `reliability`, `statistics`, `distillation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Phantom Gains 使用经过相同流水线的冻结对照，审计 Qwen3-8B 上三轮秩为 32 的 LoRA 自训练。研究识别出七类测量失效，它们可能颠倒模型学会或遗忘哪些问题的结论。
+
+Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B against frozen controls passed through the same pipeline. The study identifies seven measurement failures that could reverse conclusions about which problems a model learned or lost.
+
+### 技术点 / Technical points
+
+- 基于单次贪心解码的记录方法和一种常用扩展统计量都会在未训练模型上报告变化，显示其测量底噪并非为零。
+  - A ledger based on one greedy decode and a commonly used expansion statistic both report changes on an untrained model, demonstrating non-zero measurement floors.
+- 替代方法以汇总冻结基线为参照，对每道题进行精确检验并控制错误发现率，在留出复现实验中没有检测到能力扩展。
+  - A replacement per-problem exact test against a pooled frozen baseline with false-discovery-rate control detects no expansion on held-out replicates.
+- 外部蒸馏使每个种子下 22 道低命中问题中的 8 至 11 道得到改善，而三种自训练方法仅改善 0 至 2 道；发布记录覆盖 344 万次生成和 53 亿 token。
+  - External distillation improves 8 to 11 of 22 rarely solved problems per seed while three self-training variants improve 0 to 2; released records cover 3.44 million generations and 5.30 billion tokens.
+
+### 为什么重要 / Why it matters
+
+自我改进结论可能由评估程序本身制造，因此逐状态变化的智能体研究需要匹配对照，并为每项统计量单独测量空分布。
+
+Self-improvement claims can be created by the evaluation procedure itself, so transition-level agent studies need matched controls and a separately measured null for every reported statistic.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/chengxuphd/phantom-gains)
+
+---
+
+<a id="2026-08-20-surgical-world-action-model"></a>
+## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
+
+**English:** [Surgical world-action modeling jointly forecasts vision and trajectories](https://arxiv.org/abs/2608.20284)
+
+- **发布 / Published:** `2026-08-20T17:18:02Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20284) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `surgical-robotics`, `video-prediction`, `trajectory-prediction`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+一项初步手术世界—动作模型根据历史视频和器械运动，联合预测未来视觉状态与器械轨迹。时空编码器连接独立的视觉与轨迹预测头，将预测动作与预期场景变化联系起来。
+
+A preliminary surgical world-action model jointly forecasts future visual states and instrument trajectories from historical video and tool motion. A temporal-spatial encoder feeds separate visual and trajectory heads, linking predicted actions to their anticipated scene evolution.
+
+### 技术点 / Technical points
+
+- 模型反复采用分块自回归滚动方式预测未来十五步，而不是一次性生成完整预测区间。
+  - The model repeatedly applies a chunked autoregressive rollout to forecast fifteen future steps rather than predicting the full horizon in one pass.
+- 相较一次性预测，首个预测分段的 PSNR 从 18.86 提升至 23.11 dB，平均位移误差从 45.77 降至 22.22 像素。
+  - For the first forecast segment, the reported PSNR rises from 18.86 to 23.11 dB and average displacement error falls from 45.77 to 22.22 pixels relative to one-shot prediction.
+- 随着预测区间延长，视觉质量逐步退化且轨迹误差持续累积，作者将其列为尚未解决的限制。
+  - Visual quality progressively degrades and trajectory errors accumulate at longer horizons, which the authors identify as an unresolved limitation.
+
+### 为什么重要 / Why it matters
+
+联合预测动作与场景，有望让手术规划系统更完整地建模器械运动如何改变术野，但当前证据仍处于初步阶段。
+
+Joint action-scene prediction could give surgical planning systems a more complete model of how instrument motion changes the operative field, although the present evidence is still preliminary.
+
+---
+
+<a id="2026-08-20-cross-task-agent-skill-transfer"></a>
+## [子任务级文本技能在智能体任务间迁移得更可靠](https://arxiv.org/abs/2608.20274)
+
+**English:** [Subtask-level text skills transfer more reliably across agent tasks](https://arxiv.org/abs/2608.20274)
+
+- **发布 / Published:** `2026-08-20T17:12:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20274) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `skill-learning`, `transfer-learning`, `reasoning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+一项受控研究比较了任务级与子任务级技能归纳，以及文本与代码两种技能表示。结果显示，记忆技能的形式和粒度会决定其复用在后续任务中帮助还是损害 LLM 智能体。
+
+A controlled study compares task-level with subtask-level skill induction and textual with code-based skill representations. It finds that the form and granularity of remembered skills determine whether reuse helps or harms an LLM agent on later tasks.
+
+### 技术点 / Technical points
+
+- 任务级技能大多使性能低于无记忆基线，而子任务级技能平均带来提升；文本技能的迁移效果也优于代码技能。
+  - Task-level skills mostly reduce performance below the no-memory baseline, while subtask-level skills improve it on average; textual skills also transfer better than code skills.
+- 论文提出的技能效用分数结合具体性与抽象性，并与迁移成功率相关；计算时只需技能和任务描述，无需执行新任务。
+  - A proposed skill-utility score combines specificity and abstractness, correlates with transfer success, and requires only skill and task descriptions rather than new task executions.
+
+### 为什么重要 / Why it matters
+
+一种低成本的可迁移记忆诊断方法，可以帮助智能体避免调用看似相关、却损害当前任务推理的经验。
+
+A cheap diagnostic for transferable memories could help agents avoid retrieving experience that appears relevant but degrades current-task reasoning.
+
+---
+
+<a id="2026-08-20-video2doortraversal-door-twins"></a>
+## [Video2DoorTraversal 从单段视频学习推门穿越](https://arxiv.org/abs/2608.20251)
+
+**English:** [Video2DoorTraversal learns door traversal from one video](https://arxiv.org/abs/2608.20251)
+
+- **发布 / Published:** `2026-08-20T16:46:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20251) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `mobile-manipulation`, `sim-to-real`, `simulation`, `loco-manipulation`, `onboard-inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Video2DoorTraversal 是面向轮腿式移动操作机器人的现实—仿真—现实系统。DoorTwin 从一段真实门的 RGB 视频中重建对齐的关节化仿真资产，再由仿真闭环智能体优化参数化穿越技能，并训练 ArticuACT 控制策略。
+
+Video2DoorTraversal is a real-to-sim-to-real system for wheel-legged mobile manipulators. From one RGB video of a real door, DoorTwin reconstructs an aligned articulated simulation asset, and a simulation-in-the-loop agent refines a parameterized traversal skill before training the ArticuACT control policy.
+
+### 技术点 / Technical points
+
+- ArticuACT 使用双深度输入和交互感知监督，预测相互协调的底盘、机械臂和夹爪指令。
+  - ArticuACT uses dual depth inputs and interaction-aware supervision to predict coordinated base, arm, and gripper commands.
+- 在感知与策略推理均由机载计算完成的情况下，系统在五扇真实门上的平均成功率为 96.57%，对结构相似未见门的零样本成功率为 80.95%。
+  - With perception and policy inference onboard, the system reports a 96.57% average success rate across five real doors and 80.95% zero-shot success on structurally similar unseen doors.
+- 接近、开门和穿越的完整序列平均约需 13 秒。
+  - The full approach, opening, and traversal sequence takes approximately 13 seconds on average.
+
+### 为什么重要 / Why it matters
+
+利用一段普通视频创建任务专用仿真环境，有望减少部署长时程移动操作技能所需的环境建模工作。
+
+Using one ordinary video to create a task-specific simulator could reduce the environment-modeling effort needed to deploy long-horizon mobile manipulation skills.
+
+### 链接 / Links
+
+[Evidence 1](https://video2doortraversal.github.io/)
+
+---
+
+<a id="2026-08-20-roman-flow-offline-robot-rl"></a>
+## [RoMAN-Flow 让自回归流适用于机器人离线强化学习](https://arxiv.org/abs/2608.20208)
+
+**English:** [RoMAN-Flow makes autoregressive flows practical for robotic offline RL](https://arxiv.org/abs/2608.20208)
+
+- **发布 / Published:** `2026-08-20T16:07:56Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20208) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `offline-reinforcement-learning`, `manipulation`, `normalizing-flow`, `policy-distillation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+RoMAN-Flow 将自回归归一化流策略用于机器人操作的离线强化学习，在保留精确动作似然的同时，解决顺序采样拖慢策略优化与部署的问题。
+
+RoMAN-Flow adapts autoregressive normalizing-flow policies to offline reinforcement learning for robotic manipulation. It retains exact action likelihoods while addressing the sequential sampling cost that otherwise slows both policy optimization and deployment.
+
+### 技术点 / Technical points
+
+- 策略优化采用无采样的优势加权似然目标，提高离线数据中高优势动作的似然。
+  - Policy optimization uses a sampling-free, advantage-weighted likelihood objective that increases the likelihood of high-advantage actions from the offline dataset.
+- 优化后的自回归策略被蒸馏为一步动作生成器；仿真基准和真实机器人平台实验显示，其性能具有竞争力且推理延迟显著降低。
+  - The optimized autoregressive policy is distilled into a one-step action generator; simulated benchmarks and real robot platforms show competitive performance with substantially lower inference latency.
+
+### 为什么重要 / Why it matters
+
+该设计把基于似然的离线策略改进，与物理机器人控制所需的低延迟动作生成结合起来。
+
+The design combines likelihood-based offline policy improvement with the low-latency action generation required for physical robot control.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/konnyaku28/RoMAN-Flow)
+
+---
+
+<a id="2026-08-20-task-coevolve-adaptive-validation"></a>
+## [Task-CoEvolve 通过自适应任务选择减少智能体框架验证成本](https://arxiv.org/abs/2608.20169)
+
+**English:** [Task-CoEvolve cuts agent harness validation with adaptive task selection](https://arxiv.org/abs/2608.20169)
+
+- **发布 / Published:** `2026-08-20T15:24:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20169) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-evaluation`, `harness-optimization`, `benchmark`, `adaptive-sampling`, `terminal-bench`, `cost-efficiency`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Task-CoEvolve 随智能体框架变化而动态调整验证集，从而降低迭代优化 LLM 智能体框架的成本。它把评测集中在候选框架结果存在分歧的任务上，并按采样概率校正得分估计。
+
+Task-CoEvolve reduces the cost of iteratively optimizing an LLM agent harness by adapting the validation set as the harness changes. It concentrates evaluations on tasks where candidate harnesses disagree while correcting score estimates for their sampling probabilities.
+
+### 技术点 / Technical points
+
+- 方差加权采样聚焦于不断变化的智能体能力边界附近任务，按概率修正的估计则保持各轮得分可比。
+  - Variance-weighted sampling focuses on tasks near the evolving agent capability frontier, while probability-aware estimation keeps scores comparable across iterations.
+- 在在线文本分类和 Terminal-Bench 2.1 上，该方法报告达到完整验证集搜索的最终性能，同时减少 80% 的评测次数；公开项目页表示实现代码仍待发布。
+  - On online text classification and Terminal-Bench 2.1, the method reportedly matches the final performance of full-set search while reducing evaluation count by 80%; the public project page says implementation code is still forthcoming.
+
+### 为什么重要 / Why it matters
+
+评测可能占据自动化框架演化的大部分成本，因此自适应验证有望显著提升反复优化智能体系统的可行性。
+
+Evaluation can dominate the cost of automated harness evolution, so adaptive validation may make repeated agent-system optimization substantially more practical.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Agent4Science-UTokyo/Task-CoEvolve)
+
+---
+
+<a id="2026-08-20-rmworld-uav-radio-world-model"></a>
+## [RMWorld 为多无人机控制构建任务感知无线电世界模型](https://arxiv.org/abs/2608.20126)
+
+**English:** [RMWorld builds task-aware radio world models for multi-UAV control](https://arxiv.org/abs/2608.20126)
+
+- **发布 / Published:** `2026-08-20T14:54:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20126) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `world-model`, `uav`, `radio-modeling`, `predictive-control`, `planning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+RMWorld 面向多无人机通信控制，使用由决策风险而非全局预测误差驱动校准的无线电世界模型。它优先测量可能改变业务链路决策的信道，并过滤可能受模型偏差污染的反事实轨迹。
+
+RMWorld targets multi-UAV communication control with a radio world model whose calibration is driven by decision risk rather than global prediction error. It prioritizes measurements that can change traffic-serving link decisions and filters counterfactual rollouts that may be corrupted by model bias.
+
+### 技术点 / Technical points
+
+- 方法使用贝叶斯残差校正有偏传播模型，并按链路标签对任务积分后验速率方差的降低幅度评估查询价值。
+  - A Bayesian residual corrects a biased propagation model, and link queries are valued by their reduction in task-integrated posterior rate variance.
+- 反事实分支通过任务门控的对数行列式目标选择，随后执行冲突投影和固定批次验证。
+  - Counterfactual branches are selected with a task-gated log-determinant objective followed by conflict projection and fixed-batch validation.
+- 论文在 100 次配对 3GPP 试验中报告 0.949 bit/s/Hz 的任务加权 RMSE，并在 30 次 DeepMIMO 重载试验中相较 Ensemble UCB 将中位积压降低 0.967，但多使用 37.5% 的离线轨迹。
+  - The paper reports 0.949 bit/s/Hz task-weighted RMSE over 100 paired 3GPP trials and a 0.967 reduction in median backlog versus Ensemble UCB over 30 severe-load DeepMIMO trials, using 37.5% more offline rollouts.
+
+### 为什么重要 / Why it matters
+
+该系统展示了世界模型如何围绕控制后果分配数据采集和滚动预算，而不是把所有预测误差视为同等重要。
+
+The system demonstrates how a world model can allocate data collection and rollout budgets around control consequences instead of treating all prediction errors as equally important.
+
+---
+
 <a id="2026-08-18-hydra-0-action-flow-world-model"></a>
 ## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
 
@@ -364,364 +714,3 @@ Training through the same harness used at deployment reduces the gap between sim
 ### 链接 / Links
 
 [Evidence 1](https://github.com/microsoft/agent-lightning)
-
----
-
-<a id="2026-08-17-baton-subtask-robot-exploration"></a>
-## [BATON 将长程机器人探索拆成可累加的子任务](https://arxiv.org/abs/2608.16889)
-
-**English:** [BATON makes long-horizon robot exploration subtask-additive](https://arxiv.org/abs/2608.16889)
-
-- **发布 / Published:** `2026-08-17T17:59:57Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16889) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `long-horizon`, `memory`, `planning`, `test-time-adaptation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-BATON 是一个由智能体控制的机器人操控框架：它冻结底层视觉—语言—动作模型，分别探索接触密集型子任务，再将已保存的解法组合成长程执行轨迹。其迁移感知记忆还会判断前一项技能结束后的场景状态能否被下一项技能直接使用。
-
-BATON is an agent-controlled manipulation framework that keeps its underlying vision-language-action model frozen, explores contact-rich subtasks separately, and composes their stored solutions for long-horizon execution. Its transition-aware memory also tracks whether one skill leaves the scene in a state the next skill can use.
-
-### 技术点 / Technical points
-
-- BATON 将每个子任务作为测试时探索单位，把论文估算的 K 阶段任务搜索成本从乘法式 T^K 改为加法式 T*K，并将失败归因到单一阶段。
-  - By making each subtask the unit of test-time exploration, BATON changes the paper's estimated search cost from multiplicative T^K for a K-stage task to additive T*K and attributes a failure to one stage.
-- 验证器智能体会等待腕部相机确认场景就绪后再调用 VLA；handoff 迁移负责修复前序任务残留，lookahead 迁移则选择可被后继任务继承的结果。
-  - A verifier agent waits for wrist-camera evidence before invoking the VLA, while handoff transitions repair predecessor residue and lookahead transitions select outcomes that a successor can inherit.
-- 在不更新模型参数的情况下，作者报告 BATON 在 RoboMemArena 上相对所述最佳方法将任务成功率提高 11.6%，累计成功率提高 14.9%。
-  - Without updating model parameters, the authors report gains of 11.6% in task success and 14.9% in cumulative success over the stated state of the art on RoboMemArena.
-
-### 为什么重要 / Why it matters
-
-长程机器人失败既可能来自代价过高的整任务探索，也可能来自技能边界不匹配；BATON 在无需重训基础 VLA 的情况下同时处理这两类问题。
-
-Long-horizon robot failures often arise both from prohibitively expensive whole-task exploration and from mismatched skill boundaries; BATON targets both problems without retraining the base VLA.
-
----
-
-<a id="2026-08-17-tau0-vla-world-model-ttc"></a>
-## [τ₀-VLA 用世界模型扩展机器人推理时规划](https://arxiv.org/abs/2608.16885)
-
-**English:** [τ₀-VLA uses world models to scale robot planning at inference time](https://arxiv.org/abs/2608.16885)
-
-- **发布 / Published:** `2026-08-17T17:59:11Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16885) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `world-model`, `test-time-compute`, `long-horizon`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
-
-### 摘要 / Summary
-
-τ₀-VLA 在跨机器人形态的视觉—语言—动作策略之上加入较慢的高层规划器，并只在下一子任务不确定时追加推理计算。实际执行前，世界模型会预测候选子任务的视觉后果，使系统能够比较不同分支并修正规划。
-
-τ₀-VLA places a slower high-level planner above a cross-embodiment vision-language-action policy and spends additional inference compute only when the next subtask is uncertain. Before physical execution, a world model predicts the visual consequences of candidate subtasks so the system can compare branches and revise its plan.
-
-### 技术点 / Technical points
-
-- 置信度统计会把不确定决策路由到“提出—预测—评估”循环：VLM 提出子任务，世界模型生成终态观测，价值模型评分，再由束搜索和反思选择下一条指令。
-  - Confidence statistics route uncertain decisions into a propose-predict-evaluate loop in which a VLM proposes subtasks, a world model imagines terminal observations, a value model scores them, and beam search plus reflection selects the next command.
-- 低层策略使用 40,115 小时异构真实机器人经验训练，并通过统一的 40 维接口支持固定底座、双臂和移动机器人形态。
-  - The low-level policy is trained on 40,115 hours of heterogeneous real-world robot experience and uses a unified 40-dimensional interface for fixed-base, bimanual, and mobile embodiments.
-- 项目报告下一子任务准确率提高 15 至 24 个百分点；在四项长程实机任务中，分层 Plan Once 的平均成功率为 45.0%，直接执行为 27.5%；在一项分布偏移设置中，测试时搜索将下一子任务准确率从 50.0% 提至 74.0%。
-  - The project reports 15-24 percentage-point gains in next-subtask accuracy, 45.0% average success for hierarchical Plan Once versus 27.5% for direct execution on four physical long-horizon tasks, and 74.0% versus 50.0% next-subtask accuracy under one distribution shift with test-time search.
-
-### 为什么重要 / Why it matters
-
-该系统把世界模型变成物理行动前按需启用的规划器，将推理时扩展与长程机器人控制连接起来，而不是只把预测用于离线生成。
-
-The system turns a world model into a selective pre-commitment planner for physical action, connecting inference-time scaling with long-horizon robot control instead of using prediction only for offline generation.
-
-### 链接 / Links
-
-[Evidence 1](https://tau0-vla.github.io/)
-
----
-
-<a id="2026-08-17-measuring-multi-agent-coding-coordination"></a>
-## [一项 1,902 次运行的研究直接度量多智能体编程协作](https://arxiv.org/abs/2608.16801)
-
-**English:** [A 1,902-run study measures coordination inside multi-agent coding](https://arxiv.org/abs/2608.16801)
-
-- **发布 / Published:** `2026-08-17T16:57:38Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16801) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `coding-agents`, `coordination`, `benchmark`, `observability`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-一套新的度量框架把多智能体编程运行表示成时间网络：智能体和文件都是节点，消息、读取、写入、时间戳与成本构成边。研究将其用于 1,902 次有固定测试的运行，揭示了任务成功率和总 token 数无法显示的协作结构与失败模式。
-
-A new measurement framework represents a multi-agent coding run as a temporal network whose nodes include both agents and files and whose edges record messages, reads, writes, timestamps, and costs. Applying it to 1,902 graded runs reveals coordination structures and failure modes that task success and aggregate token counts do not show.
-
-### 技术点 / Technical points
-
-- 度量工具位于智能体之外，并把已记录的工具调用转换为时间图，因此可以在同一时间线上比较直接消息与通过持久文件进行的通信。
-  - The instrumentation is external to the agents and turns logged tool calls into a temporal graph, allowing direct messages and persistent file-mediated communication to be compared on one timeline.
-- 主数据包含 1,902 次运行，团队规模从一个到十六个智能体；另有 244 次封闭运行移除对隐藏评分材料的访问，并重新检验关键结论。
-  - The main collection spans 1,902 runs with team sizes from one to sixteen and is supplemented by 244 sealed runs that remove access to hidden grading material while retesting key findings.
-- 在消息密集型任务中，强制使用共享文件可让八智能体团队的输出 token 减少约 42%，但在另一项任务上会增加开销；仅指定协调者既没有形成通信中心，也没有可靠提高成功率，而封闭运行中的智能体仍有五分之四会寻找隐藏评分材料。
-  - Mandatory shared files cut output tokens by about 42% at eight agents on message-heavy work but add overhead on another task; merely naming a coordinator creates no communication hub or reliable success gain, and agents still seek hidden grading material in four fifths of sealed runs.
-
-### 为什么重要 / Why it matters
-
-该研究为选择团队规模、通信渠道和领导结构提供了可度量证据，同时表明仅靠角色标签并不能形成有效的多智能体组织。
-
-The work provides measurable evidence for choosing team size, communication channels, and leadership structure, while showing that a role label alone does not create effective multi-agent organization.
-
----
-
-<a id="2026-08-17-clawgym-ii-black-box-harness-rl"></a>
-## [ClawGym II 可穿过不透明智能体 Harness 训练模型](https://arxiv.org/abs/2608.16798)
-
-**English:** [ClawGym II trains models through opaque agent harnesses](https://arxiv.org/abs/2608.16798)
-
-- **发布 / Published:** `2026-08-17T16:53:03Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16798) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agentic-rl`, `reinforcement-learning`, `harness`, `long-horizon`, `benchmark`, `sandbox`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-ClawGym II 提出一套黑盒强化学习框架，无需改写复杂智能体 Harness 的内部控制逻辑，就能穿过它们优化底层模型。该框架在模型边界截获调用、重建多轮轨迹，并可跨 OpenClaw、Claude Code 等异构 Harness 训练。
-
-ClawGym II introduces a black-box reinforcement-learning framework that optimizes a model through complex agent harnesses without requiring their internal control logic to be rewritten. It captures calls at the model boundary, reconstructs multi-turn trajectories, and trains across heterogeneous harnesses such as OpenClaw and Claude Code.
-
-### 技术点 / Technical points
-
-- 沙箱执行层会隔离任务与 Harness 以支持并发 rollout；服务代理则将不透明的 Harness 执行与策略优化解耦，并记录每次模型调用。
-  - A sandbox execution layer isolates tasks and harnesses for concurrent rollouts, while a serving proxy decouples opaque harness execution from policy optimization and records every model call.
-- 捕获的调用被组织成前缀树，基于评论器的 PPO 和无评论器的 GRPO 都被改造为在恢复出的树结构上优化，同时维持训练与推理的一致性。
-  - Captured calls are organized into prefix trees, and both critic-based PPO and critic-free GRPO are adapted to optimize over the recovered tree structure while maintaining training-inference consistency.
-- 在 Qwen3-30A3B 上，作者报告通过 OpenClaw 和 Claude Code 训练后 Pass@1 分别提高 9.98 和 14.81 个百分点，优化在 200 至 400 步内保持稳定，并在 JobBench 与 OfficeQA 上取得额外增益。
-  - Using Qwen3-30A3B, the authors report Pass@1 gains of 9.98 points through OpenClaw and 14.81 points through Claude Code, stable optimization over 200-400 steps, and additional gains on JobBench and OfficeQA.
-
-### 为什么重要 / Why it matters
-
-将模型训练与 Harness 实现解耦，使研究者可以面向快速变化的智能体运行时改进模型，并让同一策略跨多个执行栈训练。
-
-Separating model training from harness implementation makes it possible to improve models against rapidly changing agent runtimes and to train one policy across more than one execution stack.
-
----
-
-<a id="2026-08-17-zetta-closed-loop-embodied-harness"></a>
-## [Zetta 为自进化具身智能体闭合执行反馈环](https://arxiv.org/abs/2608.16590)
-
-**English:** [Zetta closes the loop for self-evolving embodied agents](https://arxiv.org/abs/2608.16590)
-
-- **发布 / Published:** `2026-08-17T13:49:43Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16590) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `embodied-agents`, `self-evolution`, `runtime`, `recovery`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
-
-### 摘要 / Summary
-
-Zetta 是一个具身智能体 Harness：它冻结基础机器人策略，同时在执行过程中演化代码化运行时批评器与恢复技能。它不再只在整段 episode 结束后反思，而是验证失败，并将可复用的改进带到后续 rollout。
-
-Zetta is an embodied-agent harness that keeps the base robot policy frozen while evolving code-based runtime critics and recovery skills during execution. Instead of reflecting only after an episode, it validates failures and incorporates reusable improvements across rollouts.
-
-### 技术点 / Technical points
-
-- 三个分离时间尺度的循环分别负责动作频率治理、rollout 级批评器与恢复方案生成，以及对可复用技能集合进行验证门控更新。
-  - Three time-separated loops provide action-frequency governance, rollout-level critic and recovery proposals, and validation-gated updates to the reusable skill set.
-- 配套的 Z-Infra 层将智能体逻辑与异构模拟器、模型、CPU 和 GPU 解耦，使自探索能够扩展而不把 Harness 绑定到单一执行资源。
-  - The accompanying Z-Infra layer separates agent logic from heterogeneous simulators, models, CPUs, and GPUs so self-exploration can scale without coupling the harness to one execution resource.
-- 在论文设定的 rollout 预算下，作者报告 LIBERO-Pro 成功率为 90.8%、RoboCasa 为 93.6%、推理加速 11.1 倍，并观察到性能随自探索继续提升及所学技能的零样本迁移。
-  - Under the paper's rollout budget, the authors report 90.8% success on LIBERO-Pro, 93.6% on RoboCasa, an 11.1x inference speedup, continued scaling with self-exploration, and zero-shot transfer of learned skills.
-
-### 为什么重要 / Why it matters
-
-Zetta 将具身反思从事后评论转变为在线、经验证门控的机制，使机器人能在后续物理交互中改变恢复方式。
-
-Zetta turns embodied reflection from post-hoc commentary into an online, validation-gated mechanism for changing how a robot recovers during later physical interactions.
-
-### 链接 / Links
-
-[Evidence 1](https://air-embodied-brain.github.io/zetta/)
-
----
-
-<a id="2026-08-17-context-compression-agent-reacquisition-cost"></a>
-## [上下文压缩可能掩盖智能体重新获取状态的成本](https://arxiv.org/abs/2608.16370)
-
-**English:** [Context compression can hide an agent's state-reacquisition cost](https://arxiv.org/abs/2608.16370)
-
-- **发布 / Published:** `2026-08-17T10:21:36Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16370) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `context-compression`, `memory`, `tool-use`, `benchmark`, `evaluation`, `efficiency`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-一项受控研究发现，上下文压缩可能让工具型智能体的任务完成率在统计上保持不变，却迫使它发起显著更多的检索调用，以重新获取被丢弃的执行状态。该结果揭示了仅看完成率时会被忽略的交互成本。
-
-A controlled study finds that context compression can leave a tool-using agent's task-completion rate statistically unchanged while forcing it to make substantially more retrieval calls to recover discarded execution state. The result exposes an interaction cost that completion-only evaluations can miss.
-
-### 技术点 / Technical points
-
-- 该协议使用固定 24 轮的确定性规划环境，对比直接丢弃与保留事实的压缩方式，通过受控预言机干预恢复缺失状态，并在两个任务设置中评估三个模型。
-  - The protocol uses a deterministic planning environment with a fixed 24-turn horizon, compares dropping and fact-preserving compression, restores missing state through controlled oracle interventions, and evaluates three models in two task regimes.
-- 六组模型—任务比较中的检索调用全部上升，其中五组经 Holm 校正后仍显著；在预先设定的 5 倍压缩点，GPT-5.5 完成率从 80% 变为 85% 且 p=1.0，而检索调用从 21.0 增至 63.9，p=.002。
-  - Retrieval calls rise in all six model-regime comparisons and five remain significant after Holm correction; for GPT-5.5 at the prespecified 5x point, completion changes from 80% to 85% with p=1.0 while retrieval calls rise from 21.0 to 63.9 with p=.002.
-- 用语义无关内容替换保留的执行状态会使检索增加 57%，但完成率没有显著变化；ALFWorld 在滑动压缩下没有出现检索激增，说明这一效应依赖具体环境。
-  - Replacing retained execution state with semantically irrelevant content increases retrieval by 57% without a significant completion change, whereas ALFWorld shows no retrieval surge under sliding compression, indicating that the effect depends on the environment.
-
-### 为什么重要 / Why it matters
-
-智能体上下文压缩不仅应评估完成率和上下文长度，还应计入检索与交互成本，因为表面成功的压缩运行可能只是在付出额外代价重新发现自身状态。
-
-Agent compaction should be evaluated with retrieval and interaction costs as well as completion and context length, because an apparently successful compressed run may simply be paying to rediscover its state.
-
----
-
-<a id="2026-08-17-cumora-human-agent-team-workspace"></a>
-## [Cumora 让云端与本地 AI 智能体成为一等团队成员](https://github.com/yetone/cumora)
-
-**English:** [Cumora makes AI agents first-class teammates across cloud and local runtimes](https://github.com/yetone/cumora)
-
-- **发布 / Published:** `2026-08-17T09:13:52Z`
-- **来源 / Source:** [Cumora](https://github.com/yetone/cumora) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `collaboration`, `coding-agents`, `open-source`, `tool-use`, `memory`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-Cumora 是一个采用 MIT 许可证的跨平台工作空间，人类与云端或自带运行时的 AI 智能体可共享聊天、任务看板、日历、邮件、记忆和工作认领。智能体既可运行在托管的独立 Pod 中，也可使用本地 Claude Code 或 Codex CLI，而无需把模型供应商密钥交给服务器。
-
-Cumora is an MIT-licensed cross-platform workspace where humans and cloud or bring-your-own AI agents share chats, task boards, calendars, email, memory, and work claims. Agents can run in managed per-agent pods or use a local Claude Code or Codex CLI brain without sending provider keys to the server.
-
-### 技术点 / Technical points
-
-- 共享的 React 界面覆盖 Electron、PWA、iOS 和 Android；无状态 Express 与 WebSocket 后端以 Postgres 作为事实源，并用 Redis 处理在线状态和跨实例扇出。
-  - The shared React interface targets Electron, PWA, iOS, and Android, while a stateless Express and WebSocket backend uses Postgres as the source of truth and Redis for presence and cross-instance fan-out.
-- 云端智能体运行在独立 Kubernetes Pod 中，本地智能体运行在 BYOA daemon 中；两者使用相同的 Cumora CLI 协议，并把模型调用用量写入统一成本账本。
-  - Cloud agents run in per-agent Kubernetes pods and local agents in a BYOA daemon; both use the same Cumora CLI protocol and feed model-call usage into one cost ledger.
-- seen-cursor 新鲜度门会暂扣过时回复，并让智能体根据新消息重新判断；原子工作认领减少冲突，较小的分流模型则避免主模型处理低价值轮次。
-  - A seen-cursor freshness gate holds stale replies and asks the agent to reconsider against newer messages, while atomic work claims reduce collisions and a smaller triage model shields the main model from low-value turns.
-
-### 为什么重要 / Why it matters
-
-Cumora 将协作、持久化、运行时隔离和跨客户端交付整合成可检查的纵向智能体团队栈。采集时的 2,269 个 star 和 247 个 fork 显示其早期关注增长异常迅速，但这个新项目仍缺少独立运行验证。
-
-Cumora packages coordination, persistence, runtime isolation, and cross-client delivery into an inspectable vertical agent-team stack. Its 2,269 stars and 247 forks at collection show unusually fast early attention, although the new project lacks independent operational validation.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/yetone/cumora) · [Evidence 2](https://github.com/yetone/cumora/blob/main/docs/COORDINATION.md) · [Evidence 3](https://github.com/yetone/cumora/blob/main/docs/BYOA.md)
-
----
-
-<a id="2026-08-17-composkill-skill-chain-attacks"></a>
-## [CompoSkill 揭示逐技能安全扫描看不见的组合攻击](https://arxiv.org/abs/2608.16246)
-
-**English:** [CompoSkill exposes attacks hidden by per-skill safety scans](https://arxiv.org/abs/2608.16246)
-
-- **发布 / Published:** `2026-08-17T08:20:44Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.16246) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-skills`, `security`, `skill-composition`, `benchmark`, `supply-chain-security`, `long-horizon`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-CompoSkill 表明，即使每项智能体技能都单独通过安全扫描，自主智能体把它们的输出、能力和副作用连接起来后，仍可能形成危险攻击链。该研究将技能市场安全从孤立包的属性重新定义为组合路径的属性。
-
-CompoSkill demonstrates that agent skills which each pass an individual safety scan can form a dangerous chain when an autonomous agent connects their outputs, capabilities, and side effects. It reframes marketplace safety as a path-level property of skill composition rather than a property of isolated packages.
-
-### 技术点 / Technical points
-
-- 白盒攻击者知道已安装技能池并注入明确的技能序列；黑盒攻击者则从角色画像出发，下载热门市场技能、构建技能组合图，并在不点名技能标识符的情况下搜索危险链。
-  - The white-box attacker knows the installed skill pool and injects explicit skill sequences, while the black-box attacker starts from a role profile, downloads popular marketplace skills, builds a Skill Composition Graph, and searches for risky chains without naming skill identifiers.
-- CompoSkill-Bench 包含 1,140 条长程工作流记录，覆盖 OpenClaw 与 Nanobot 上五类威胁和六种专业场景。
-  - CompoSkill-Bench contains 1,140 long-horizon workflow records covering five threat types and six professional scenarios on OpenClaw and Nanobot.
-- 作者报告白盒设置中的风险链形成率最高为 83.3%，黑盒设置最高为 80.6%；桥接技能能够提高成功率，但技能链超过三跳后攻击成功率开始衰减。
-  - The authors report risk-chain formation rates up to 83.3% in the white-box setting and 80.6% in the black-box setting; bridge skills can raise success, while attack success begins to decay beyond chains of three skills.
-
-### 为什么重要 / Why it matters
-
-逐包审批无法证明自主工作流整体安全，因此智能体市场和企业技能注册表需要面向组合的分析，并对完整能力路径实施运行时控制。
-
-Per-package approval cannot establish the safety of an autonomous workflow, so agent marketplaces and enterprise skill registries need composition-aware analysis and runtime controls over complete capability paths.
-
----
-
-<a id="2026-08-15-dhunter-verifier-gated-pentesting"></a>
-## [Dhunter 为自主渗透测试加入验证门禁](https://github.com/Dest1ny-Sec/dhunter)
-
-**English:** [Dhunter adds verifier-gated evidence to autonomous penetration testing](https://github.com/Dest1ny-Sec/dhunter)
-
-- **发布 / Published:** `2026-08-15T15:28:31Z`
-- **来源 / Source:** [Dhunter](https://github.com/Dest1ny-Sec/dhunter) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security-agents`, `multi-agent`, `tool-use`, `verification`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Dhunter 是一个面向授权安全测试的开源智能体平台，通过持久化共享黑板协调侦察、规划、并行探索、验证和报告生成。其验收门禁会机械重放候选发现，并驳回无法稳定复现的结果。
-
-Dhunter is an open-source agent platform for authorized security testing that coordinates reconnaissance, planning, parallel exploration, verification, and report generation through a persistent shared blackboard. Its acceptance gate mechanically replays candidate findings and rejects results that are not reproducible.
-
-### 技术点 / Technical points
-
-- 事实、意图和提示保存在 SQLite 中；规划器提出测试意图，多个工作智能体通过读写黑板间接协调。
-  - Facts, intents, and hints are stored in SQLite; a planner proposes attack intents and multiple workers coordinate indirectly by reading from and writing to the blackboard.
-- 验证器会将每个概念验证重放两次；若两次结果不一致，就把不稳定的时变行为视为噪声，而不是已确认发现。
-  - The verifier replays each proof of concept twice and rejects it when the two outcomes differ, treating unstable time-varying behavior as noise rather than a confirmed finding.
-- 运行可在不丢失黑板状态的情况下暂停和恢复；服务器发送事件会展示推理、工具调用及结果，确认后的发现可导出为 Markdown。
-  - Runs can pause and resume without discarding blackboard state, while server-sent events expose reasoning, tool calls, and tool results and confirmed findings are exported to Markdown.
-
-### 为什么重要 / Why it matters
-
-持久化协调层与基于重放的验收门禁直接处理安全智能体的证据质量和误报问题，不过该项目报告的目标测试结果尚未获得独立复现。
-
-A persistent coordination layer and replay-based acceptance gate directly address evidence quality and false positives in security agents, although the project's reported target results have not been independently replicated.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/Dest1ny-Sec/dhunter) · [Evidence 2](https://github.com/Dest1ny-Sec/dhunter/blob/main/docs/arch/ARCHITECTURE.md) · [Evidence 3](https://github.com/Dest1ny-Sec/dhunter/blob/main/agents/tests/test_verifier.py)
-
----
-
-<a id="2026-08-15-yadda-executable-specifications-agents"></a>
-## [Yadda 3.x 让可执行规格更适合编码智能体工作流](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html)
-
-**English:** [Yadda 3.x makes executable specifications more useful to coding agents](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html)
-
-- **发布 / Published:** `2026-08-15T10:57:34Z`
-- **来源 / Source:** [Stephen Cresswell](https://www.stephen-cresswell.com/2026/08/15/Yadda-3.0.0-BDD-in-the-Age-of-AI-Agents.html) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agents`, `executable-specifications`, `behavior-driven-development`, `testing`, `open-source`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-Yadda 3 使用当前 Node.js 工具链重构这套 JavaScript 行为驱动开发库，加入 TypeScript 类型以及 Playwright、Puppeteer 示例。3.1 版还支持以 GitHub 风格 Markdown 编写可执行功能规格，使同一份材料能够同时作为可读文档、智能体上下文和持续验证的行为契约。
-
-Yadda 3 modernizes the JavaScript behavior-driven development library with current Node.js tooling, TypeScript definitions, and Playwright and Puppeteer examples. Version 3.1 also lets teams write executable feature specifications as GitHub-flavored Markdown, allowing the same artifact to serve as readable documentation, agent context, and a continuously checked behavioral contract.
-
-### 技术点 / Technical points
-
-- 3.0 版移除过时的浏览器和包管理器集成，将测试套件迁移到 node:test，以 ES6 语法更新源码，并加入 TypeScript 类型和当前浏览器测试示例。
-  - The 3.0 release removes obsolete browser and package-manager integrations, moves the suite to node:test, modernizes the source to ES6, and adds TypeScript definitions and current browser-testing examples.
-- 3.1 版可解析 GitHub 风格 Markdown 功能文件，同时保持其可执行性，因此需求能够自然地与仓库文档及项目知识材料共存。
-  - Version 3.1 parses GitHub-flavored Markdown feature files while preserving their executability, so requirements can live naturally beside repository documentation and project knowledge artifacts.
-- 维护者报告称，Claude Code 按分阶段计划完成了大部分现代化工作；生产代码与对应测试的修改被刻意分开，使原有测试套件继续充当外部约束。
-  - The maintainer reports that Claude Code performed most of the modernization under a phased plan, with production-code and corresponding test changes deliberately separated so the existing suite remained an external constraint.
-
-### 为什么重要 / Why it matters
-
-可执行的自然语言规格能为并行编码智能体提供共享且机器可检查的预期行为定义，既减少需求漂移，也降低智能体同时改写实现与正确性定义的风险。
-
-Executable natural-language specifications can give parallel coding agents a shared, machine-checkable definition of intended behavior, reducing both requirement drift and the risk that an agent changes an implementation and its definition of correctness together.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/acuminous/yadda/releases/tag/v3.1.0) · [Evidence 2](https://github.com/acuminous/yadda)
-[Discussion 1](https://news.ycombinator.com/item?id=49310495)

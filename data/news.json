@@ -2,6 +2,494 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-20-task-model-induction-computer-traces",
+      "published_at": "2026-08-20T17:57:00Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "task-modeling",
+        "workflow-induction",
+        "skill-learning",
+        "auditability"
+      ],
+      "title_en": "Task Model Induction derives reusable skills from computer-use traces",
+      "title_zh": "任务模型归纳从计算机使用轨迹中提取可复用技能",
+      "summary_en": "Task Model Induction discovers interleaved latent tasks in unconstrained screenshot, mouse, and keyboard traces. For each task, it constructs a hierarchical objective model together with a procedural control-flow model, turning low-level activity into symbolic and auditable knowledge.",
+      "summary_zh": "任务模型归纳方法从无约束的截图、鼠标和键盘轨迹中发现相互交错的潜在任务，并为每项任务同时构建层次化目标模型与程序控制流模型，将底层活动转化为符号化、可审计的知识。",
+      "tech_points_en": [
+        "On controlled human and agent trajectories, the method reports 0.974 agreement with ground-truth task groupings and reconstructs 74.9% of observed execution steps.",
+        "Skills derived from the induced task models improve held-out task accuracy by 30.0% over the strongest workflow-induction baseline."
+      ],
+      "tech_points_zh": [
+        "在受控的人类与智能体轨迹上，该方法报告的任务分组与真值一致度为 0.974，并重建了 74.9% 的观察执行步骤。",
+        "从归纳任务模型中生成的技能，使留出任务准确率相较最强工作流归纳基线提高 30.0%。"
+      ],
+      "why_it_matters_en": "Converting natural work traces into explicit task structures could help computer-use agents learn reusable procedures while giving organizations inspectable records of what was learned.",
+      "why_it_matters_zh": "把自然工作轨迹转化为显式任务结构，有望让计算机使用智能体学习可复用流程，同时为组织提供可检查的学习记录。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20319",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-ai4ai-bench-algorithm-design",
+      "published_at": "2026-08-20T17:56:59Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "ai-for-ai",
+        "recursive-self-improvement",
+        "algorithm-design",
+        "agent-evaluation",
+        "open-source"
+      ],
+      "title_en": "AI4AI-Bench tests agents on training-algorithm design",
+      "title_zh": "AI4AI-Bench 测试智能体设计训练算法的能力",
+      "summary_en": "AI4AI-Bench isolates training-algorithm design from hyperparameter tuning and extra compute. An agent receives four hours on one B300 to rewrite the learning algorithm in one of ten frozen research repositories, after which its code is retrained from scratch and scored by a hidden evaluator.",
+      "summary_zh": "AI4AI-Bench 将训练算法设计与超参数调优及额外算力区分开来。智能体获得四小时和一张 B300，在十个冻结研究仓库之一中改写学习算法，随后由隐藏评测器从头训练并评分。",
+      "tech_points_en": [
+        "Across 29 configurations of six systems on all ten tasks, the reported mean normalized score is 0.166 and the best system reaches 0.250 on a scale where the shipped algorithm scores 0.1 and the task optimum scores 1.0.",
+        "Increasing reasoning effort raises the share of submissions that materially change how the model learns from 8% to 64%, while the mean score rises from 0.094 to 0.196.",
+        "The benchmark repository releases the task suite, evaluators, and scored submissions for repeatable measurement."
+      ],
+      "tech_points_zh": [
+        "在六套系统的 29 种配置和全部十项任务上，报告的归一化平均分为 0.166，最佳系统达到 0.250；该量表中原仓库算法为 0.1，任务最优值为 1.0。",
+        "提高推理投入后，实质改变模型学习方式的提交比例从 8% 升至 64%，平均分则从 0.094 升至 0.196。",
+        "基准仓库发布了任务套件、评测器和全部已评分提交，以支持可重复测量。"
+      ],
+      "why_it_matters_en": "The benchmark provides a stricter test of whether agents can improve the algorithms that produce models, rather than merely tuning an existing training recipe.",
+      "why_it_matters_zh": "该基准更严格地检验智能体能否改进生成模型的算法，而不只是调整既有训练配方。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20318",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/Einsia/AI4AI-Bench"
+      ],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-20-midtool-agentic-tool-use",
+      "published_at": "2026-08-20T17:53:59Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "mid-training",
+        "mcp",
+        "data-synthesis",
+        "reinforcement-learning"
+      ],
+      "title_en": "MidTool synthesizes mid-training data for agentic tool use",
+      "title_zh": "MidTool 为智能体工具使用合成中期训练数据",
+      "summary_en": "MidTool proposes a corpus-construction pipeline that combines web, PDF, and code data with supervision synthesized from real APIs, MCP skills, and document-grounded workflows. It targets tool affordance recognition, argument grounding, multi-call workflows, and recovery from incomplete information.",
+      "summary_zh": "MidTool 提出一套语料构建流程，将网页、PDF 和代码数据与基于真实 API、MCP 技能及文档工作流生成的监督信号结合，重点训练工具能力识别、参数落地、多步调用和不完整信息恢复。",
+      "tech_points_en": [
+        "The authors mid-train Qwen3-4B-Base and Qwen3-8B-Base on MidTool-Mix before applying supervised fine-tuning or reinforcement learning.",
+        "They report consistent downstream gains under both post-training methods on BFCL, tau2-Bench, and MCP Universe, though the linked data and model collection was not publicly accessible during verification."
+      ],
+      "tech_points_zh": [
+        "作者先使用 MidTool-Mix 对 Qwen3-4B-Base 和 Qwen3-8B-Base 进行中期训练，再进行监督微调或强化学习。",
+        "论文报告两种后训练路径在 BFCL、tau2-Bench 和 MCP Universe 上均取得一致提升，但验证期间其链接的数据与模型集合无法公开访问。"
+      ],
+      "why_it_matters_en": "The work treats general tool use as a capability to shape during mid-training instead of relying entirely on later supervised or reinforcement-learning stages.",
+      "why_it_matters_zh": "该工作把通用工具使用视为应在中期训练阶段塑造的能力，而不是完全依赖后续监督微调或强化学习。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20314",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-phantom-gains-self-improvement-audit",
+      "published_at": "2026-08-20T17:30:14Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "self-improvement",
+        "evaluation",
+        "reliability",
+        "statistics",
+        "distillation",
+        "open-source"
+      ],
+      "title_en": "Phantom Gains audits self-improvement against a measured null",
+      "title_zh": "Phantom Gains 用实测空分布审计自我改进",
+      "summary_en": "Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B against frozen controls passed through the same pipeline. The study identifies seven measurement failures that could reverse conclusions about which problems a model learned or lost.",
+      "summary_zh": "Phantom Gains 使用经过相同流水线的冻结对照，审计 Qwen3-8B 上三轮秩为 32 的 LoRA 自训练。研究识别出七类测量失效，它们可能颠倒模型学会或遗忘哪些问题的结论。",
+      "tech_points_en": [
+        "A ledger based on one greedy decode and a commonly used expansion statistic both report changes on an untrained model, demonstrating non-zero measurement floors.",
+        "A replacement per-problem exact test against a pooled frozen baseline with false-discovery-rate control detects no expansion on held-out replicates.",
+        "External distillation improves 8 to 11 of 22 rarely solved problems per seed while three self-training variants improve 0 to 2; released records cover 3.44 million generations and 5.30 billion tokens."
+      ],
+      "tech_points_zh": [
+        "基于单次贪心解码的记录方法和一种常用扩展统计量都会在未训练模型上报告变化，显示其测量底噪并非为零。",
+        "替代方法以汇总冻结基线为参照，对每道题进行精确检验并控制错误发现率，在留出复现实验中没有检测到能力扩展。",
+        "外部蒸馏使每个种子下 22 道低命中问题中的 8 至 11 道得到改善，而三种自训练方法仅改善 0 至 2 道；发布记录覆盖 344 万次生成和 53 亿 token。"
+      ],
+      "why_it_matters_en": "Self-improvement claims can be created by the evaluation procedure itself, so transition-level agent studies need matched controls and a separately measured null for every reported statistic.",
+      "why_it_matters_zh": "自我改进结论可能由评估程序本身制造，因此逐状态变化的智能体研究需要匹配对照，并为每项统计量单独测量空分布。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20290",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/chengxuphd/phantom-gains"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-surgical-world-action-model",
+      "published_at": "2026-08-20T17:18:02Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "world-model",
+        "robotics",
+        "surgical-robotics",
+        "video-prediction",
+        "trajectory-prediction",
+        "planning"
+      ],
+      "title_en": "Surgical world-action modeling jointly forecasts vision and trajectories",
+      "title_zh": "手术世界—动作模型联合预测视觉状态与器械轨迹",
+      "summary_en": "A preliminary surgical world-action model jointly forecasts future visual states and instrument trajectories from historical video and tool motion. A temporal-spatial encoder feeds separate visual and trajectory heads, linking predicted actions to their anticipated scene evolution.",
+      "summary_zh": "一项初步手术世界—动作模型根据历史视频和器械运动，联合预测未来视觉状态与器械轨迹。时空编码器连接独立的视觉与轨迹预测头，将预测动作与预期场景变化联系起来。",
+      "tech_points_en": [
+        "The model repeatedly applies a chunked autoregressive rollout to forecast fifteen future steps rather than predicting the full horizon in one pass.",
+        "For the first forecast segment, the reported PSNR rises from 18.86 to 23.11 dB and average displacement error falls from 45.77 to 22.22 pixels relative to one-shot prediction.",
+        "Visual quality progressively degrades and trajectory errors accumulate at longer horizons, which the authors identify as an unresolved limitation."
+      ],
+      "tech_points_zh": [
+        "模型反复采用分块自回归滚动方式预测未来十五步，而不是一次性生成完整预测区间。",
+        "相较一次性预测，首个预测分段的 PSNR 从 18.86 提升至 23.11 dB，平均位移误差从 45.77 降至 22.22 像素。",
+        "随着预测区间延长，视觉质量逐步退化且轨迹误差持续累积，作者将其列为尚未解决的限制。"
+      ],
+      "why_it_matters_en": "Joint action-scene prediction could give surgical planning systems a more complete model of how instrument motion changes the operative field, although the present evidence is still preliminary.",
+      "why_it_matters_zh": "联合预测动作与场景，有望让手术规划系统更完整地建模器械运动如何改变术野，但当前证据仍处于初步阶段。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20284",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-cross-task-agent-skill-transfer",
+      "published_at": "2026-08-20T17:12:08Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "skill-learning",
+        "transfer-learning",
+        "reasoning",
+        "evaluation"
+      ],
+      "title_en": "Subtask-level text skills transfer more reliably across agent tasks",
+      "title_zh": "子任务级文本技能在智能体任务间迁移得更可靠",
+      "summary_en": "A controlled study compares task-level with subtask-level skill induction and textual with code-based skill representations. It finds that the form and granularity of remembered skills determine whether reuse helps or harms an LLM agent on later tasks.",
+      "summary_zh": "一项受控研究比较了任务级与子任务级技能归纳，以及文本与代码两种技能表示。结果显示，记忆技能的形式和粒度会决定其复用在后续任务中帮助还是损害 LLM 智能体。",
+      "tech_points_en": [
+        "Task-level skills mostly reduce performance below the no-memory baseline, while subtask-level skills improve it on average; textual skills also transfer better than code skills.",
+        "A proposed skill-utility score combines specificity and abstractness, correlates with transfer success, and requires only skill and task descriptions rather than new task executions."
+      ],
+      "tech_points_zh": [
+        "任务级技能大多使性能低于无记忆基线，而子任务级技能平均带来提升；文本技能的迁移效果也优于代码技能。",
+        "论文提出的技能效用分数结合具体性与抽象性，并与迁移成功率相关；计算时只需技能和任务描述，无需执行新任务。"
+      ],
+      "why_it_matters_en": "A cheap diagnostic for transferable memories could help agents avoid retrieving experience that appears relevant but degrades current-task reasoning.",
+      "why_it_matters_zh": "一种低成本的可迁移记忆诊断方法，可以帮助智能体避免调用看似相关、却损害当前任务推理的经验。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20274",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-video2doortraversal-door-twins",
+      "published_at": "2026-08-20T16:46:57Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "mobile-manipulation",
+        "sim-to-real",
+        "simulation",
+        "loco-manipulation",
+        "onboard-inference"
+      ],
+      "title_en": "Video2DoorTraversal learns door traversal from one video",
+      "title_zh": "Video2DoorTraversal 从单段视频学习推门穿越",
+      "summary_en": "Video2DoorTraversal is a real-to-sim-to-real system for wheel-legged mobile manipulators. From one RGB video of a real door, DoorTwin reconstructs an aligned articulated simulation asset, and a simulation-in-the-loop agent refines a parameterized traversal skill before training the ArticuACT control policy.",
+      "summary_zh": "Video2DoorTraversal 是面向轮腿式移动操作机器人的现实—仿真—现实系统。DoorTwin 从一段真实门的 RGB 视频中重建对齐的关节化仿真资产，再由仿真闭环智能体优化参数化穿越技能，并训练 ArticuACT 控制策略。",
+      "tech_points_en": [
+        "ArticuACT uses dual depth inputs and interaction-aware supervision to predict coordinated base, arm, and gripper commands.",
+        "With perception and policy inference onboard, the system reports a 96.57% average success rate across five real doors and 80.95% zero-shot success on structurally similar unseen doors.",
+        "The full approach, opening, and traversal sequence takes approximately 13 seconds on average."
+      ],
+      "tech_points_zh": [
+        "ArticuACT 使用双深度输入和交互感知监督，预测相互协调的底盘、机械臂和夹爪指令。",
+        "在感知与策略推理均由机载计算完成的情况下，系统在五扇真实门上的平均成功率为 96.57%，对结构相似未见门的零样本成功率为 80.95%。",
+        "接近、开门和穿越的完整序列平均约需 13 秒。"
+      ],
+      "why_it_matters_en": "Using one ordinary video to create a task-specific simulator could reduce the environment-modeling effort needed to deploy long-horizon mobile manipulation skills.",
+      "why_it_matters_zh": "利用一段普通视频创建任务专用仿真环境，有望减少部署长时程移动操作技能所需的环境建模工作。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20251",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://video2doortraversal.github.io/"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-roman-flow-offline-robot-rl",
+      "published_at": "2026-08-20T16:07:56Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "offline-reinforcement-learning",
+        "manipulation",
+        "normalizing-flow",
+        "policy-distillation",
+        "open-source"
+      ],
+      "title_en": "RoMAN-Flow makes autoregressive flows practical for robotic offline RL",
+      "title_zh": "RoMAN-Flow 让自回归流适用于机器人离线强化学习",
+      "summary_en": "RoMAN-Flow adapts autoregressive normalizing-flow policies to offline reinforcement learning for robotic manipulation. It retains exact action likelihoods while addressing the sequential sampling cost that otherwise slows both policy optimization and deployment.",
+      "summary_zh": "RoMAN-Flow 将自回归归一化流策略用于机器人操作的离线强化学习，在保留精确动作似然的同时，解决顺序采样拖慢策略优化与部署的问题。",
+      "tech_points_en": [
+        "Policy optimization uses a sampling-free, advantage-weighted likelihood objective that increases the likelihood of high-advantage actions from the offline dataset.",
+        "The optimized autoregressive policy is distilled into a one-step action generator; simulated benchmarks and real robot platforms show competitive performance with substantially lower inference latency."
+      ],
+      "tech_points_zh": [
+        "策略优化采用无采样的优势加权似然目标，提高离线数据中高优势动作的似然。",
+        "优化后的自回归策略被蒸馏为一步动作生成器；仿真基准和真实机器人平台实验显示，其性能具有竞争力且推理延迟显著降低。"
+      ],
+      "why_it_matters_en": "The design combines likelihood-based offline policy improvement with the low-latency action generation required for physical robot control.",
+      "why_it_matters_zh": "该设计把基于似然的离线策略改进，与物理机器人控制所需的低延迟动作生成结合起来。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20208",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/konnyaku28/RoMAN-Flow"
+      ],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-task-coevolve-adaptive-validation",
+      "published_at": "2026-08-20T15:24:54Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-evaluation",
+        "harness-optimization",
+        "benchmark",
+        "adaptive-sampling",
+        "terminal-bench",
+        "cost-efficiency"
+      ],
+      "title_en": "Task-CoEvolve cuts agent harness validation with adaptive task selection",
+      "title_zh": "Task-CoEvolve 通过自适应任务选择减少智能体框架验证成本",
+      "summary_en": "Task-CoEvolve reduces the cost of iteratively optimizing an LLM agent harness by adapting the validation set as the harness changes. It concentrates evaluations on tasks where candidate harnesses disagree while correcting score estimates for their sampling probabilities.",
+      "summary_zh": "Task-CoEvolve 随智能体框架变化而动态调整验证集，从而降低迭代优化 LLM 智能体框架的成本。它把评测集中在候选框架结果存在分歧的任务上，并按采样概率校正得分估计。",
+      "tech_points_en": [
+        "Variance-weighted sampling focuses on tasks near the evolving agent capability frontier, while probability-aware estimation keeps scores comparable across iterations.",
+        "On online text classification and Terminal-Bench 2.1, the method reportedly matches the final performance of full-set search while reducing evaluation count by 80%; the public project page says implementation code is still forthcoming."
+      ],
+      "tech_points_zh": [
+        "方差加权采样聚焦于不断变化的智能体能力边界附近任务，按概率修正的估计则保持各轮得分可比。",
+        "在在线文本分类和 Terminal-Bench 2.1 上，该方法报告达到完整验证集搜索的最终性能，同时减少 80% 的评测次数；公开项目页表示实现代码仍待发布。"
+      ],
+      "why_it_matters_en": "Evaluation can dominate the cost of automated harness evolution, so adaptive validation may make repeated agent-system optimization substantially more practical.",
+      "why_it_matters_zh": "评测可能占据自动化框架演化的大部分成本，因此自适应验证有望显著提升反复优化智能体系统的可行性。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20169",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/Agent4Science-UTokyo/Task-CoEvolve"
+      ],
+      "confidence": "medium",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 21,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-08-20-rmworld-uav-radio-world-model",
+      "published_at": "2026-08-20T14:54:09Z",
+      "collected_at": "2026-08-22T14:51:41Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "world-model",
+        "uav",
+        "radio-modeling",
+        "predictive-control",
+        "planning",
+        "simulation"
+      ],
+      "title_en": "RMWorld builds task-aware radio world models for multi-UAV control",
+      "title_zh": "RMWorld 为多无人机控制构建任务感知无线电世界模型",
+      "summary_en": "RMWorld targets multi-UAV communication control with a radio world model whose calibration is driven by decision risk rather than global prediction error. It prioritizes measurements that can change traffic-serving link decisions and filters counterfactual rollouts that may be corrupted by model bias.",
+      "summary_zh": "RMWorld 面向多无人机通信控制，使用由决策风险而非全局预测误差驱动校准的无线电世界模型。它优先测量可能改变业务链路决策的信道，并过滤可能受模型偏差污染的反事实轨迹。",
+      "tech_points_en": [
+        "A Bayesian residual corrects a biased propagation model, and link queries are valued by their reduction in task-integrated posterior rate variance.",
+        "Counterfactual branches are selected with a task-gated log-determinant objective followed by conflict projection and fixed-batch validation.",
+        "The paper reports 0.949 bit/s/Hz task-weighted RMSE over 100 paired 3GPP trials and a 0.967 reduction in median backlog versus Ensemble UCB over 30 severe-load DeepMIMO trials, using 37.5% more offline rollouts."
+      ],
+      "tech_points_zh": [
+        "方法使用贝叶斯残差校正有偏传播模型，并按链路标签对任务积分后验速率方差的降低幅度评估查询价值。",
+        "反事实分支通过任务门控的对数行列式目标选择，随后执行冲突投影和固定批次验证。",
+        "论文在 100 次配对 3GPP 试验中报告 0.949 bit/s/Hz 的任务加权 RMSE，并在 30 次 DeepMIMO 重载试验中相较 Ensemble UCB 将中位积压降低 0.967，但多使用 37.5% 的离线轨迹。"
+      ],
+      "why_it_matters_en": "The system demonstrates how a world model can allocate data collection and rollout budgets around control consequences instead of treating all prediction errors as equally important.",
+      "why_it_matters_zh": "该系统展示了世界模型如何围绕控制后果分配数据采集和滚动预算，而不是把所有预测误差视为同等重要。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2608.20126",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
       "id": "2026-08-18-hydra-0-action-flow-world-model",
       "published_at": "2026-08-18T17:59:30Z",
       "collected_at": "2026-08-22T05:29:21Z",
