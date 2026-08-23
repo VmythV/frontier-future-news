@@ -2,6 +2,267 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-22-tiangong-ultra-robot-sprint",
+      "published_at": "2026-08-22T16:16:14Z",
+      "collected_at": "2026-08-23T12:09:58Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid-robot",
+        "locomotion",
+        "motion-control",
+        "autonomous-navigation",
+        "robot-competition"
+      ],
+      "title_en": "Tiangong Ultra records a 9.39-second humanoid 100-meter sprint",
+      "title_zh": "天工 Ultra 人形机器人百米跑出 9.39 秒",
+      "summary_en": "Tiangong Ultra recorded 9.39 seconds in the large-humanoid 100-meter preliminary at the 2026 World Humanoid Robot Games in Beijing. The same X-Humanoid platform reached 2.88 meters in the standing high jump, while both results were reported under robot-specific competition conditions rather than human athletics rules.",
+      "summary_zh": "在北京举行的 2026 世界人形机器人运动会上，天工 Ultra 在大型人形机器人百米预赛中跑出 9.39 秒。同一具身智能平台还在原地跳高项目达到 2.88 米；两项成绩均来自机器人专用竞赛条件，并非按人类田径规则取得。",
+      "tech_points_en": [
+        "The 9.39-second result improved substantially on the 21.50-second winning time reported for the corresponding 2025 event.",
+        "X-Humanoid attributes the performance to lighter, more aerodynamic hardware and motion-control and navigation changes built on its Huisi Kaiwu platform.",
+        "The developer says localization and mapping let the robot maintain its lane at speed without following the painted track line."
+      ],
+      "tech_points_zh": [
+        "9.39 秒的成绩相较 2025 年对应赛事所报告的 21.50 秒夺冠成绩有大幅提升。",
+        "北京人形机器人创新中心将该表现归因于更轻、更符合空气动力学的硬件，以及基于慧思开物平台的运动控制和导航改进。",
+        "开发方称，定位与建图能力使机器人无需跟随赛道标线，也能在高速运动中保持在本跑道内。"
+      ],
+      "why_it_matters_en": "The results indicate rapid progress in high-speed balance, actuation, and closed-loop navigation for full-size humanoids, while remaining a narrow locomotion demonstration rather than evidence of general manipulation or real-world autonomy.",
+      "why_it_matters_zh": "这些成绩显示全尺寸人形机器人在高速平衡、驱动和闭环导航方面进展迅速，但它仍是狭义的运动能力展示，不能据此推断通用操作能力或真实环境自主性。",
+      "source": {
+        "name": "Associated Press",
+        "type": "media",
+        "url": "https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/robots/comments/1vvdf7b/humanoid_100m_sprint/"
+      ],
+      "evidence_urls": [
+        "https://www.thepaper.cn/newsDetail_forward_33833753",
+        "https://www.whrgoc.com/"
+      ],
+      "confidence": "medium",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 21,
+        "novelty": 18,
+        "technical_depth": 9,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-21-claude-mythos-5-security-scans",
+      "published_at": "2026-08-21T17:23:32Z",
+      "collected_at": "2026-08-23T12:09:58Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "cybersecurity",
+        "code-agent",
+        "vulnerability-scanning",
+        "human-in-the-loop",
+        "access-control"
+      ],
+      "title_en": "Claude Security deploys Mythos 5 through guarded vulnerability scans",
+      "title_zh": "Claude Security 通过受控漏洞扫描部署 Mythos 5",
+      "summary_en": "Anthropic has made Claude Mythos 5 available through Claude Security scans in public beta for Enterprise customers. Users receive structured vulnerability findings and suggested fixes without gaining unrestricted prompting access to the underlying cyber-capable model.",
+      "summary_zh": "Anthropic 已通过 Claude Security 扫描向 Enterprise 客户提供 Claude Mythos 5 的公开测试版能力。用户可获得结构化漏洞发现和修复建议，但不会获得对这一高网络能力模型的无限制提示访问。",
+      "tech_points_en": [
+        "A repository scan returns each finding with a CWE category, confidence and severity ratings, and a suggested fix.",
+        "Users can open a finding in Claude Code on the web to implement a fix with models already available to their organization, and every patch requires human review and approval.",
+        "Mythos 5 runs behind a task-specific output boundary; scans use standard token billing, while a new $35 million Defender Advantage Fund will provide credits for open-source security work."
+      ],
+      "tech_points_zh": [
+        "代码库扫描会为每项发现返回 CWE 分类、置信度与严重性评级，以及建议修复方案。",
+        "用户可在网页版 Claude Code 中打开相关发现，并使用组织已有模型实施修复；每个补丁都必须经过人工审查和批准。",
+        "Mythos 5 在面向特定任务的输出边界之后运行；扫描按标准 token 计费，新设立的 3500 万美元 Defender Advantage Fund 将为开源安全工作提供额度。"
+      ],
+      "why_it_matters_en": "The rollout demonstrates a concrete way to expose useful outputs from a highly capable cyber agent while limiting direct model access and retaining human control over code changes.",
+      "why_it_matters_zh": "这一部署展示了如何在限制模型直接访问、保留人工代码变更控制权的同时，向防御者开放高能力网络智能体的实用输出。",
+      "source": {
+        "name": "Claude by Anthropic",
+        "type": "primary",
+        "url": "https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/ClaudeAI/comments/1vuovcy/oh_mythos_5_is_no_longer_a_dangerous_model_and/"
+      ],
+      "evidence_urls": [
+        "https://x.com/claudeai/status/2090852314319880425",
+        "https://claude.com/product/claude-security"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 11,
+        "traction": 6
+      }
+    },
+    {
+      "id": "2026-08-21-strands-agents-sdk-runtime",
+      "published_at": "2026-08-21T15:52:44Z",
+      "collected_at": "2026-08-23T12:09:58Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-sdk",
+        "open-source",
+        "delegation",
+        "memory",
+        "mcp",
+        "cancellation"
+      ],
+      "title_en": "Strands Agents SDK expands delegation, memory, and cancellation controls",
+      "title_zh": "Strands Agents SDK 扩展委派、记忆与取消控制",
+      "summary_en": "Strands Agents released TypeScript 1.14.0 and Python 1.53.0 with production-oriented updates spanning context management, delegation, memory, protocol authentication, caching, and execution control. The paired releases advance the open-source harness incrementally rather than introducing a new agent architecture.",
+      "summary_zh": "Strands Agents 发布 TypeScript 1.14.0 和 Python 1.53.0，带来覆盖上下文管理、委派、记忆、协议认证、缓存和执行控制的生产化更新。这组配套版本是对开源智能体框架的渐进增强，并未引入新的智能体架构。",
+      "tech_points_en": [
+        "The Python changes include context-manager offloading strategies and agent-as-tool delegation.",
+        "The release notes add OAuth authentication for streamable-HTTP MCP clients, MCP tool annotations, and Anthropic prompt-caching controls.",
+        "TypeScript gains execution-scoped cancellation, a file-backed memory store, audio content blocks, per-call model selection, and multiple continuation inputs."
+      ],
+      "tech_points_zh": [
+        "Python 版本加入上下文管理器卸载策略和将智能体作为工具进行委派的能力。",
+        "版本说明还加入流式 HTTP MCP 客户端的 OAuth 认证、MCP 工具注解，以及 Anthropic 提示缓存控制。",
+        "TypeScript 新增执行范围取消、文件型记忆存储、音频内容块、逐调用模型选择和多个续接输入。"
+      ],
+      "why_it_matters_en": "The changes improve controllability and state management in a widely used open-source agent SDK, especially for nested agents and long-running tool workflows.",
+      "why_it_matters_zh": "这些改动增强了主流开源智能体 SDK 的可控性与状态管理，尤其适用于嵌套智能体和长时间工具工作流。",
+      "source": {
+        "name": "Strands Agents on GitHub",
+        "type": "primary",
+        "url": "https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.53.0"
+      ],
+      "confidence": "high",
+      "score": 76,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 10,
+        "technical_depth": 12,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-21-nvidia-avo-arc-agi-3",
+      "published_at": "2026-08-21T13:00:00Z",
+      "collected_at": "2026-08-23T12:09:58Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "long-horizon",
+        "agent-harness",
+        "persistent-memory",
+        "arc-agi-3",
+        "benchmark"
+      ],
+      "title_en": "NVIDIA AVO completes every ARC-AGI-3 public level",
+      "title_zh": "NVIDIA AVO 完成 ARC-AGI-3 全部公开关卡",
+      "summary_en": "NVIDIA reports that its Agentic Variation Operators system, paired with Claude Opus 5, achieved 100.00 RHAE on the ARC-AGI-3 public set. The system completed all 183 levels across 25 interactive environments, but NVIDIA did not report results on the semi-private or private sets.",
+      "summary_zh": "NVIDIA 报告称，其 Agentic Variation Operators 系统搭载 Claude Opus 5 后，在 ARC-AGI-3 公开集上取得 100.00 RHAE。该系统完成了 25 个交互环境中的全部 183 个关卡，但 NVIDIA 未报告半私有集或私有集结果。",
+      "tech_points_en": [
+        "AVO combines persistent memory, a supervisor, and tool-using agents to preserve state, coordinate work, and recover across long interaction horizons.",
+        "The run used 6,624 environment actions, compared with 7,542 reported for VISTA, although NVIDIA explicitly says the cross-system comparison is not a controlled ablation.",
+        "The agent received each 64-by-64 grid through a text representation rather than image input and operated through the benchmark's action interface."
+      ],
+      "tech_points_zh": [
+        "AVO 结合持久记忆、监督器和工具型智能体，以在长交互周期中保存状态、协调工作并从失败中恢复。",
+        "该次运行使用 6624 次环境动作，低于 VISTA 所报告的 7542 次；但 NVIDIA 明确说明，这一跨系统比较并非受控消融实验。",
+        "智能体通过文本表示接收每个 64×64 网格，而非直接使用图像输入，并通过基准的动作接口进行操作。"
+      ],
+      "why_it_matters_en": "The result supports the view that memory, supervision, and recovery mechanisms can unlock much stronger long-horizon behavior from a fixed frontier model, while the public-only evaluation and lack of independent reproduction limit broader claims.",
+      "why_it_matters_zh": "该结果支持这样一种判断：记忆、监督和恢复机制可以从固定前沿模型中释放更强的长时程行为；但仅评测公开集且缺少独立复现，限制了更广泛的结论。",
+      "source": {
+        "name": "NVIDIA Technical Blog",
+        "type": "primary",
+        "url": "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/LocalLLaMA/comments/1vuh7to/nvidia_avo_got_100_on_arcagi3_it_completed_all/",
+        "https://news.ycombinator.com/item?id=49388268"
+      ],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 91,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 22,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 7
+      }
+    },
+    {
+      "id": "2026-08-21-deepseek-v4-flash-vision-exp",
+      "published_at": "2026-08-21T09:17:38Z",
+      "collected_at": "2026-08-23T12:09:58Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multimodal-agent",
+        "vision-language-model",
+        "api",
+        "agent-harness",
+        "files-api"
+      ],
+      "title_en": "DeepSeek V4-Flash-Vision-Exp adds image input for agent workflows",
+      "title_zh": "DeepSeek V4-Flash-Vision-Exp 为智能体工作流加入图像输入",
+      "summary_en": "DeepSeek has released the experimental V4-Flash-Vision-Exp model through its API, adding image understanding to the V4-Flash line. DeepSeek says it retains V4-Flash-level text capabilities and substantially improves multimodal agent performance, but the comparison with Claude Opus 4.8 is vendor-reported and lacks detailed independent results.",
+      "summary_zh": "DeepSeek 已通过 API 发布实验性 V4-Flash-Vision-Exp 模型，为 V4-Flash 产品线加入图像理解。DeepSeek 称其保留了 V4-Flash 水平的文本能力，并显著提升多模态智能体表现；但与 Claude Opus 4.8 的比较来自厂商报告，且缺少详细的独立结果。",
+      "tech_points_en": [
+        "The model supports mixed text and image input through Chat Completions, Messages, and Responses, using Base64 data, external URLs, or the Files API.",
+        "Images are billed as input at V4-Flash pricing with a maximum of 384 tokens per image; the free Files API lets applications upload once and reuse a file identifier across requests.",
+        "DeepSeek Harness 0.1.1 adds out-of-the-box support for the model identifier deepseek-v4-flash-vision-exp."
+      ],
+      "tech_points_zh": [
+        "该模型通过 Chat Completions、Messages 和 Responses 接口支持文本与图像混合输入，图像可采用 Base64、外部 URL 或 Files API 提供。",
+        "图像按 V4-Flash 的输入价格计费，每张最多计 384 个 token；免费的 Files API 允许应用只上传一次，并在多个请求中复用文件标识符。",
+        "DeepSeek Harness 0.1.1 已为模型标识符 deepseek-v4-flash-vision-exp 提供开箱即用的支持。"
+      ],
+      "why_it_matters_en": "Adding low-cost image input to an agent-oriented model can broaden screenshot, document, chart, and interface workflows, although the experimental status and self-reported benchmark claims warrant production fallbacks and independent testing.",
+      "why_it_matters_zh": "为面向智能体的低成本模型加入图像输入，可扩展截图、文档、图表和界面工作流；但其实验状态及自报基准结论意味着生产环境仍需设置回退方案并进行独立测试。",
+      "source": {
+        "name": "DeepSeek API Docs",
+        "type": "primary",
+        "url": "https://api-docs.deepseek.com/news/news260821/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/DeepSeek/comments/1vubeo8/psa_vision_now_on_api/"
+      ],
+      "evidence_urls": [
+        "https://x.com/deepseek_ai/status/2090730032574631962",
+        "https://api-docs.deepseek.com/guides/vision/"
+      ],
+      "confidence": "medium",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 22,
+        "novelty": 17,
+        "technical_depth": 11,
+        "traction": 8
+      }
+    },
+    {
       "id": "2026-08-20-task-model-induction-computer-traces",
       "published_at": "2026-08-20T17:57:00Z",
       "collected_at": "2026-08-22T14:51:41Z",

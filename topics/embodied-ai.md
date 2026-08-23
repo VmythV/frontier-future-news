@@ -2,6 +2,45 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-22-tiangong-ultra-robot-sprint"></a>
+## [天工 Ultra 人形机器人百米跑出 9.39 秒](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
+
+**English:** [Tiangong Ultra records a 9.39-second humanoid 100-meter sprint](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
+
+- **发布 / Published:** `2026-08-22T16:16:14Z`
+- **来源 / Source:** [Associated Press](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2) · `media`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid-robot`, `locomotion`, `motion-control`, `autonomous-navigation`, `robot-competition`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+在北京举行的 2026 世界人形机器人运动会上，天工 Ultra 在大型人形机器人百米预赛中跑出 9.39 秒。同一具身智能平台还在原地跳高项目达到 2.88 米；两项成绩均来自机器人专用竞赛条件，并非按人类田径规则取得。
+
+Tiangong Ultra recorded 9.39 seconds in the large-humanoid 100-meter preliminary at the 2026 World Humanoid Robot Games in Beijing. The same X-Humanoid platform reached 2.88 meters in the standing high jump, while both results were reported under robot-specific competition conditions rather than human athletics rules.
+
+### 技术点 / Technical points
+
+- 9.39 秒的成绩相较 2025 年对应赛事所报告的 21.50 秒夺冠成绩有大幅提升。
+  - The 9.39-second result improved substantially on the 21.50-second winning time reported for the corresponding 2025 event.
+- 北京人形机器人创新中心将该表现归因于更轻、更符合空气动力学的硬件，以及基于慧思开物平台的运动控制和导航改进。
+  - X-Humanoid attributes the performance to lighter, more aerodynamic hardware and motion-control and navigation changes built on its Huisi Kaiwu platform.
+- 开发方称，定位与建图能力使机器人无需跟随赛道标线，也能在高速运动中保持在本跑道内。
+  - The developer says localization and mapping let the robot maintain its lane at speed without following the painted track line.
+
+### 为什么重要 / Why it matters
+
+这些成绩显示全尺寸人形机器人在高速平衡、驱动和闭环导航方面进展迅速，但它仍是狭义的运动能力展示，不能据此推断通用操作能力或真实环境自主性。
+
+The results indicate rapid progress in high-speed balance, actuation, and closed-loop navigation for full-size humanoids, while remaining a narrow locomotion demonstration rather than evidence of general manipulation or real-world autonomy.
+
+### 链接 / Links
+
+[Evidence 1](https://www.thepaper.cn/newsDetail_forward_33833753) · [Evidence 2](https://www.whrgoc.com/)
+[Discussion 1](https://www.reddit.com/r/robots/comments/1vvdf7b/humanoid_100m_sprint/)
+
+---
+
 <a id="2026-08-20-surgical-world-action-model"></a>
 ## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
 

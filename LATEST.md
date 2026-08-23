@@ -2,6 +2,199 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-22-tiangong-ultra-robot-sprint"></a>
+## [天工 Ultra 人形机器人百米跑出 9.39 秒](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
+
+**English:** [Tiangong Ultra records a 9.39-second humanoid 100-meter sprint](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
+
+- **发布 / Published:** `2026-08-22T16:16:14Z`
+- **来源 / Source:** [Associated Press](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2) · `media`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid-robot`, `locomotion`, `motion-control`, `autonomous-navigation`, `robot-competition`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+在北京举行的 2026 世界人形机器人运动会上，天工 Ultra 在大型人形机器人百米预赛中跑出 9.39 秒。同一具身智能平台还在原地跳高项目达到 2.88 米；两项成绩均来自机器人专用竞赛条件，并非按人类田径规则取得。
+
+Tiangong Ultra recorded 9.39 seconds in the large-humanoid 100-meter preliminary at the 2026 World Humanoid Robot Games in Beijing. The same X-Humanoid platform reached 2.88 meters in the standing high jump, while both results were reported under robot-specific competition conditions rather than human athletics rules.
+
+### 技术点 / Technical points
+
+- 9.39 秒的成绩相较 2025 年对应赛事所报告的 21.50 秒夺冠成绩有大幅提升。
+  - The 9.39-second result improved substantially on the 21.50-second winning time reported for the corresponding 2025 event.
+- 北京人形机器人创新中心将该表现归因于更轻、更符合空气动力学的硬件，以及基于慧思开物平台的运动控制和导航改进。
+  - X-Humanoid attributes the performance to lighter, more aerodynamic hardware and motion-control and navigation changes built on its Huisi Kaiwu platform.
+- 开发方称，定位与建图能力使机器人无需跟随赛道标线，也能在高速运动中保持在本跑道内。
+  - The developer says localization and mapping let the robot maintain its lane at speed without following the painted track line.
+
+### 为什么重要 / Why it matters
+
+这些成绩显示全尺寸人形机器人在高速平衡、驱动和闭环导航方面进展迅速，但它仍是狭义的运动能力展示，不能据此推断通用操作能力或真实环境自主性。
+
+The results indicate rapid progress in high-speed balance, actuation, and closed-loop navigation for full-size humanoids, while remaining a narrow locomotion demonstration rather than evidence of general manipulation or real-world autonomy.
+
+### 链接 / Links
+
+[Evidence 1](https://www.thepaper.cn/newsDetail_forward_33833753) · [Evidence 2](https://www.whrgoc.com/)
+[Discussion 1](https://www.reddit.com/r/robots/comments/1vvdf7b/humanoid_100m_sprint/)
+
+---
+
+<a id="2026-08-21-claude-mythos-5-security-scans"></a>
+## [Claude Security 通过受控漏洞扫描部署 Mythos 5](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
+
+**English:** [Claude Security deploys Mythos 5 through guarded vulnerability scans](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
+
+- **发布 / Published:** `2026-08-21T17:23:32Z`
+- **来源 / Source:** [Claude by Anthropic](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `cybersecurity`, `code-agent`, `vulnerability-scanning`, `human-in-the-loop`, `access-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Anthropic 已通过 Claude Security 扫描向 Enterprise 客户提供 Claude Mythos 5 的公开测试版能力。用户可获得结构化漏洞发现和修复建议，但不会获得对这一高网络能力模型的无限制提示访问。
+
+Anthropic has made Claude Mythos 5 available through Claude Security scans in public beta for Enterprise customers. Users receive structured vulnerability findings and suggested fixes without gaining unrestricted prompting access to the underlying cyber-capable model.
+
+### 技术点 / Technical points
+
+- 代码库扫描会为每项发现返回 CWE 分类、置信度与严重性评级，以及建议修复方案。
+  - A repository scan returns each finding with a CWE category, confidence and severity ratings, and a suggested fix.
+- 用户可在网页版 Claude Code 中打开相关发现，并使用组织已有模型实施修复；每个补丁都必须经过人工审查和批准。
+  - Users can open a finding in Claude Code on the web to implement a fix with models already available to their organization, and every patch requires human review and approval.
+- Mythos 5 在面向特定任务的输出边界之后运行；扫描按标准 token 计费，新设立的 3500 万美元 Defender Advantage Fund 将为开源安全工作提供额度。
+  - Mythos 5 runs behind a task-specific output boundary; scans use standard token billing, while a new $35 million Defender Advantage Fund will provide credits for open-source security work.
+
+### 为什么重要 / Why it matters
+
+这一部署展示了如何在限制模型直接访问、保留人工代码变更控制权的同时，向防御者开放高能力网络智能体的实用输出。
+
+The rollout demonstrates a concrete way to expose useful outputs from a highly capable cyber agent while limiting direct model access and retaining human control over code changes.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/claudeai/status/2090852314319880425) · [Evidence 2](https://claude.com/product/claude-security)
+[Discussion 1](https://www.reddit.com/r/ClaudeAI/comments/1vuovcy/oh_mythos_5_is_no_longer_a_dangerous_model_and/)
+
+---
+
+<a id="2026-08-21-strands-agents-sdk-runtime"></a>
+## [Strands Agents SDK 扩展委派、记忆与取消控制](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0)
+
+**English:** [Strands Agents SDK expands delegation, memory, and cancellation controls](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0)
+
+- **发布 / Published:** `2026-08-21T15:52:44Z`
+- **来源 / Source:** [Strands Agents on GitHub](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-sdk`, `open-source`, `delegation`, `memory`, `mcp`, `cancellation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Strands Agents 发布 TypeScript 1.14.0 和 Python 1.53.0，带来覆盖上下文管理、委派、记忆、协议认证、缓存和执行控制的生产化更新。这组配套版本是对开源智能体框架的渐进增强，并未引入新的智能体架构。
+
+Strands Agents released TypeScript 1.14.0 and Python 1.53.0 with production-oriented updates spanning context management, delegation, memory, protocol authentication, caching, and execution control. The paired releases advance the open-source harness incrementally rather than introducing a new agent architecture.
+
+### 技术点 / Technical points
+
+- Python 版本加入上下文管理器卸载策略和将智能体作为工具进行委派的能力。
+  - The Python changes include context-manager offloading strategies and agent-as-tool delegation.
+- 版本说明还加入流式 HTTP MCP 客户端的 OAuth 认证、MCP 工具注解，以及 Anthropic 提示缓存控制。
+  - The release notes add OAuth authentication for streamable-HTTP MCP clients, MCP tool annotations, and Anthropic prompt-caching controls.
+- TypeScript 新增执行范围取消、文件型记忆存储、音频内容块、逐调用模型选择和多个续接输入。
+  - TypeScript gains execution-scoped cancellation, a file-backed memory store, audio content blocks, per-call model selection, and multiple continuation inputs.
+
+### 为什么重要 / Why it matters
+
+这些改动增强了主流开源智能体 SDK 的可控性与状态管理，尤其适用于嵌套智能体和长时间工具工作流。
+
+The changes improve controllability and state management in a widely used open-source agent SDK, especially for nested agents and long-running tool workflows.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.53.0)
+
+---
+
+<a id="2026-08-21-nvidia-avo-arc-agi-3"></a>
+## [NVIDIA AVO 完成 ARC-AGI-3 全部公开关卡](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/)
+
+**English:** [NVIDIA AVO completes every ARC-AGI-3 public level](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/)
+
+- **发布 / Published:** `2026-08-21T13:00:00Z`
+- **来源 / Source:** [NVIDIA Technical Blog](https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `long-horizon`, `agent-harness`, `persistent-memory`, `arc-agi-3`, `benchmark`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+NVIDIA 报告称，其 Agentic Variation Operators 系统搭载 Claude Opus 5 后，在 ARC-AGI-3 公开集上取得 100.00 RHAE。该系统完成了 25 个交互环境中的全部 183 个关卡，但 NVIDIA 未报告半私有集或私有集结果。
+
+NVIDIA reports that its Agentic Variation Operators system, paired with Claude Opus 5, achieved 100.00 RHAE on the ARC-AGI-3 public set. The system completed all 183 levels across 25 interactive environments, but NVIDIA did not report results on the semi-private or private sets.
+
+### 技术点 / Technical points
+
+- AVO 结合持久记忆、监督器和工具型智能体，以在长交互周期中保存状态、协调工作并从失败中恢复。
+  - AVO combines persistent memory, a supervisor, and tool-using agents to preserve state, coordinate work, and recover across long interaction horizons.
+- 该次运行使用 6624 次环境动作，低于 VISTA 所报告的 7542 次；但 NVIDIA 明确说明，这一跨系统比较并非受控消融实验。
+  - The run used 6,624 environment actions, compared with 7,542 reported for VISTA, although NVIDIA explicitly says the cross-system comparison is not a controlled ablation.
+- 智能体通过文本表示接收每个 64×64 网格，而非直接使用图像输入，并通过基准的动作接口进行操作。
+  - The agent received each 64-by-64 grid through a text representation rather than image input and operated through the benchmark's action interface.
+
+### 为什么重要 / Why it matters
+
+该结果支持这样一种判断：记忆、监督和恢复机制可以从固定前沿模型中释放更强的长时程行为；但仅评测公开集且缺少独立复现，限制了更广泛的结论。
+
+The result supports the view that memory, supervision, and recovery mechanisms can unlock much stronger long-horizon behavior from a fixed frontier model, while the public-only evaluation and lack of independent reproduction limit broader claims.
+
+### 链接 / Links
+
+[Discussion 1](https://www.reddit.com/r/LocalLLaMA/comments/1vuh7to/nvidia_avo_got_100_on_arcagi3_it_completed_all/) · [Discussion 2](https://news.ycombinator.com/item?id=49388268)
+
+---
+
+<a id="2026-08-21-deepseek-v4-flash-vision-exp"></a>
+## [DeepSeek V4-Flash-Vision-Exp 为智能体工作流加入图像输入](https://api-docs.deepseek.com/news/news260821/)
+
+**English:** [DeepSeek V4-Flash-Vision-Exp adds image input for agent workflows](https://api-docs.deepseek.com/news/news260821/)
+
+- **发布 / Published:** `2026-08-21T09:17:38Z`
+- **来源 / Source:** [DeepSeek API Docs](https://api-docs.deepseek.com/news/news260821/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multimodal-agent`, `vision-language-model`, `api`, `agent-harness`, `files-api`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DeepSeek 已通过 API 发布实验性 V4-Flash-Vision-Exp 模型，为 V4-Flash 产品线加入图像理解。DeepSeek 称其保留了 V4-Flash 水平的文本能力，并显著提升多模态智能体表现；但与 Claude Opus 4.8 的比较来自厂商报告，且缺少详细的独立结果。
+
+DeepSeek has released the experimental V4-Flash-Vision-Exp model through its API, adding image understanding to the V4-Flash line. DeepSeek says it retains V4-Flash-level text capabilities and substantially improves multimodal agent performance, but the comparison with Claude Opus 4.8 is vendor-reported and lacks detailed independent results.
+
+### 技术点 / Technical points
+
+- 该模型通过 Chat Completions、Messages 和 Responses 接口支持文本与图像混合输入，图像可采用 Base64、外部 URL 或 Files API 提供。
+  - The model supports mixed text and image input through Chat Completions, Messages, and Responses, using Base64 data, external URLs, or the Files API.
+- 图像按 V4-Flash 的输入价格计费，每张最多计 384 个 token；免费的 Files API 允许应用只上传一次，并在多个请求中复用文件标识符。
+  - Images are billed as input at V4-Flash pricing with a maximum of 384 tokens per image; the free Files API lets applications upload once and reuse a file identifier across requests.
+- DeepSeek Harness 0.1.1 已为模型标识符 deepseek-v4-flash-vision-exp 提供开箱即用的支持。
+  - DeepSeek Harness 0.1.1 adds out-of-the-box support for the model identifier deepseek-v4-flash-vision-exp.
+
+### 为什么重要 / Why it matters
+
+为面向智能体的低成本模型加入图像输入，可扩展截图、文档、图表和界面工作流；但其实验状态及自报基准结论意味着生产环境仍需设置回退方案并进行独立测试。
+
+Adding low-cost image input to an agent-oriented model can broaden screenshot, document, chart, and interface workflows, although the experimental status and self-reported benchmark claims warrant production fallbacks and independent testing.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/deepseek_ai/status/2090730032574631962) · [Evidence 2](https://api-docs.deepseek.com/guides/vision/)
+[Discussion 1](https://www.reddit.com/r/DeepSeek/comments/1vubeo8/psa_vision_now_on_api/)
+
+---
+
 <a id="2026-08-20-task-model-induction-computer-traces"></a>
 ## [任务模型归纳从计算机使用轨迹中提取可复用技能](https://arxiv.org/abs/2608.20319)
 
@@ -532,185 +725,3 @@ The announcement ties a concrete slowdown in frontier-agent training to containm
 
 [Evidence 1](https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/)
 [Discussion 1](https://news.ycombinator.com/item?id=49363992)
-
----
-
-<a id="2026-08-18-libero-vifo-visual-cue-safety"></a>
-## [LIBERO-VIFO 测试 VLA 模型是否会服从未授权视觉提示](https://arxiv.org/abs/2608.17600)
-
-**English:** [LIBERO-VIFO tests whether VLA models follow unauthorized visual cues](https://arxiv.org/abs/2608.17600)
-
-- **发布 / Published:** `2026-08-18T10:07:17Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17600) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `safety`, `benchmark`, `visual-cues`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-LIBERO-VIFO 同时评估视觉—语言—动作模型遵循视觉提示的能力与安全性。它区分获授权提示与冲突或替代语言指令的提示，揭示可见场景内容在未经用户授权时改变物理行为的情况。
-
-LIBERO-VIFO evaluates both the capability and safety of visual-cue following in vision-language-action models. It distinguishes authorized cues from cues that conflict with or replace language instructions, exposing cases where visible scene content can redirect physical behavior without user authorization.
-
-### 技术点 / Technical points
-
-- 该基准定义八类视觉提示和四种协议：其中两种测试提示理解与授权遵循，另外两种测试语言冲突或缺少语言时的未授权遵循。
-  - The benchmark defines eight visual-cue families and four protocols: two test cue understanding and authorized following, while two test unauthorized following under language conflict or absent language.
-- 在七个 VLA 模型中，视觉提示理解并不总能转化为执行，但现有模型仍可能在没有语言指令时执行提示所指任务。
-  - Across seven VLA models, visual-cue understanding does not reliably translate into execution, yet current models can still execute cue-indicated tasks without a language instruction.
-- 场景实例化、安全关键设置和真实机器人补充实验支持了其关于未授权遵循风险的结论。
-  - Additional scene-instantiated, safety-critical, and real-robot experiments support the reported unauthorized-following risk.
-
-### 为什么重要 / Why it matters
-
-视觉观测可能成为物理系统的指令注入面，因此具身智能体安全不仅要判断机器人是否理解提示，还要约束它被授权遵循哪些提示。
-
-Visual observations can act as an instruction-injection surface for physical systems, so embodied-agent safety must govern what the robot is authorized to follow, not only whether it understands a cue.
-
----
-
-<a id="2026-08-18-harnessrisk-agent-harness-safety"></a>
-## [HarnessRisk 描绘智能体框架全生命周期的安全失效](https://arxiv.org/abs/2608.17597)
-
-**English:** [HarnessRisk maps safety failures across the agent-harness lifecycle](https://arxiv.org/abs/2608.17597)
-
-- **发布 / Published:** `2026-08-18T10:03:58Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17597) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-harness`, `safety`, `benchmark`, `prompt-injection`, `persistent-state`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-HarnessRisk 在模型与框架组合层面评估配置、能力扩展、运行、状态持久化、动作控制和事故恢复六个阶段的安全性。其 128 个沙箱案例都把正常用户目标与隐藏在不可信工作流工件中的对抗指令配对。
-
-HarnessRisk evaluates safety at the combined model-and-harness level across configuration, capability extension, runtime operation, state persistence, action control, and incident recovery. Each of its 128 sandboxed cases pairs a benign objective with an adversarial instruction hidden in an untrusted workflow artifact.
-
-### 技术点 / Technical points
-
-- 评估覆盖三个智能体框架、六个语言模型和 14 种模型—框架组合，并衡量效用、攻击成功率、持久性与检测能力。
-  - The evaluation covers three agent harnesses, six language models, and 14 model-and-harness configurations, scoring utility, attack success, persistence, and detection.
-- 报告的攻击成功率为 12.6% 至 80.9%，效用保持在 75.0% 至 97.6%；框架配置是最持续脆弱的阶段。
-  - Reported attack success ranges from 12.6% to 80.9% while utility remains between 75.0% and 97.6%; harness configuration is the most consistently vulnerable phase.
-- 部分配置在超过 90% 的运行中识别出风险，却仍保留较高攻击成功率，说明检测到风险并不可靠地转化为安全行动。
-  - Some configurations recognize risk in more than 90% of runs yet still retain substantial attack success, showing that detection does not reliably produce safe action.
-
-### 为什么重要 / Why it matters
-
-智能体安全取决于模型周围的权限、扩展、状态和恢复行为，因此基准必须评估完整部署框架生命周期，而非孤立提示。
-
-Agent safety depends on permissions, extensions, state, and recovery behavior around the model, so benchmarks must evaluate the deployed harness lifecycle rather than isolated prompts.
-
-### 链接 / Links
-
-[Evidence 1](https://baiyajing.github.io/harness-risk/) · [Evidence 2](https://github.com/Baiyajing/HarnessRisk)
-
----
-
-<a id="2026-08-18-hodagent-responsive-humanoid"></a>
-## [HODAgent 让人形机器人具备可中断规划与结果感知记忆](https://arxiv.org/abs/2608.17584)
-
-**English:** [HODAgent gives humanoids interruptible planning and outcome-aware memory](https://arxiv.org/abs/2608.17584)
-
-- **发布 / Published:** `2026-08-18T09:49:16Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17584) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `robotics`, `planning`, `memory`, `human-robot-interaction`, `real-world`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-HODAgent 是面向人形机器人服务任务的 System-2 具身智能体，结合环境交互器、规划器、执行器和层级记忆。其半双工设计使机器人能在运动中接收新请求、保留进度、修改动作，并依据观测结果完成任务闭环。
-
-HODAgent is a System-2 embodied agent for humanoid service tasks that combines an environment interactor, planner, executor, and hierarchical memory. Its semi-duplex design allows a robot to accept new requests during motion, retain progress, revise actions, and close tasks based on observed outcomes.
-
-### 技术点 / Technical points
-
-- 共享接口将高层智能体能力与平台特定控制分离，使同一系统能够连接仿真环境和实体 Unitree G1。
-  - A shared interface separates high-level agency from platform-specific control and connects the same system to simulation and a physical Unitree G1.
-- 在 164 个交互式仿真案例中，两种 VLM 配置的联合成功率分别为 84.8% 和 91.5%，较各自基线高 9.8 和 18.9 个百分点。
-  - Across 164 interactive simulation cases, the two reported VLM configurations achieve 84.8% and 91.5% Joint Success, exceeding their baselines by 9.8 and 18.9 points.
-- 在实体机器人上，原子任务、组合任务和完整任务的报告通过率分别为 92%、72% 和 63.3%。
-  - On physical robots, reported pass rates are 92% for atomic tasks, 72% for composite tasks, and 63.3% for complete tasks.
-
-### 为什么重要 / Why it matters
-
-响应式服务机器人需要在不丢失任务状态的情况下修改长程计划，HODAgent 在仿真基准和实体硬件上测试了这一能力。
-
-Responsive service robots need to revise long-running plans without discarding task state, and HODAgent tests that capability on both simulation benchmarks and physical hardware.
-
----
-
-<a id="2026-08-18-ac-mtm-contrastive-jepa-world-model"></a>
-## [AC-MTM 用对比逆动力学防止 JEPA 世界模型坍塌](https://arxiv.org/abs/2608.17542)
-
-**English:** [AC-MTM prevents JEPA world-model collapse with contrastive inverse dynamics](https://arxiv.org/abs/2608.17542)
-
-- **发布 / Published:** `2026-08-18T09:03:35Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17542) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `world-model`, `jepa`, `model-based-rl`, `inverse-dynamics`, `planning`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-动作对比掩码转移建模保留 JEPA 的前向潜空间预测目标，同时加入仅用于训练的逆动力学头。该辅助任务要求每个潜状态转移识别导致它的动作，以此取代预设高斯潜分布作为防坍塌信号。
-
-Action-Contrastive Masked Transition Modeling keeps a JEPA's forward latent-prediction objective but adds a training-only inverse-dynamics head. The auxiliary task requires each latent transition to identify the action that caused it, replacing a prescribed Gaussian latent distribution as the anti-collapse signal.
-
-### 技术点 / Technical points
-
-- Action-NCE 将正确动作与同一批次中的其他动作进行对比，形成常量坍塌编码器无法完成的判别任务。
-  - Action-NCE contrasts the correct action against other actions in the batch, creating a discrimination task that a constant collapsed encoder cannot solve.
-- 逆向分支会在训练后移除，因此测试时编码、前向预测、规划和计算量与对比的 LeWorldModel 配置保持一致。
-  - The inverse branch is removed after training, so test-time encoding, forward prediction, planning, and compute remain the same as the compared LeWorldModel configuration.
-- AC-MTM 可从头稳定训练，在四个像素控制任务上平均表现与 SIGReg 相当；在 OGBench Visual Scene 上报告 80.0±2.0% 的成功率，而后者为 58.0±2.0%。
-  - AC-MTM trains stably from scratch and matches SIGReg on average across four pixel-control tasks; on OGBench Visual Scene it reports 80.0 plus or minus 2.0% success versus 58.0 plus or minus 2.0%.
-
-### 为什么重要 / Why it matters
-
-该方法从已观测的环境转移中获得表示稳定性，而不是依赖固定分布先验，同时保留世界模型在部署时的规划器。
-
-The method derives representation stability from observed environment transitions rather than a fixed distributional prior, while preserving the world model's deployment-time planner.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/jackboyla/action-contrastive-jepa)
-
----
-
-<a id="2026-08-18-agent-lightning-v1-harnessed-rl"></a>
-## [Agent Lightning v1.0 通过真实部署框架训练智能体](https://arxiv.org/abs/2608.17528)
-
-**English:** [Agent Lightning v1.0 trains agents through their real deployment harnesses](https://arxiv.org/abs/2608.17528)
-
-- **发布 / Published:** `2026-08-18T08:50:13Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17528) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agentic-rl`, `coding-agents`, `agent-harness`, `tool-use`, `reinforcement-learning`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `96/100`
-
-### 摘要 / Summary
-
-Agent Lightning v1.0 是一个轻量强化学习框架，部署中的智能体框架继续控制工具、上下文与环境交互。API 代理使训练器能够从模型请求—响应序列中学习，而无需替换智能体的生产执行循环。
-
-Agent Lightning v1.0 is a lightweight framework for reinforcement learning in which the deployed agent harness retains control of tools, context, and environment interaction. An API proxy lets the trainer learn from model request-response sequences without replacing the agent's production execution loop.
-
-### 技术点 / Technical points
-
-- 约 3,500 行的实现将训练器、API 网关和 rollout 控制器分离，并可在本地或 Kubernetes 作业中运行真实智能体框架。
-  - The roughly 3,500-line implementation separates a trainer, API gateway, and rollout controller and can run real agent harnesses locally or as Kubernetes jobs.
-- 该设计为研究由框架掌管交互循环所带来的重新分词、样本合并、优势计算、损失归一化和后端调度问题提供了实验平台。
-  - The design provides an experimental surface for retokenization, sample merging, advantage calculation, loss normalization, and backend scheduling issues introduced by harness-owned interaction loops.
-- 使用 6,000 个训练样本，已发布的编程智能体流水线将 Qwen3.5-9B 在 SWE-bench Verified 上的成绩从 41.8% 提升至 56.4%，报告绝对增幅为 14.6 个百分点。
-  - Using 6,000 training examples, the released coding-agent pipeline improves Qwen3.5-9B on SWE-bench Verified from 41.8% to 56.4%, a reported 14.6-point absolute gain.
-
-### 为什么重要 / Why it matters
-
-通过部署时使用的同一框架进行训练，可缩小简化 RL 环境与生产智能体真实工具、上下文和控制流行为之间的差距。
-
-Training through the same harness used at deployment reduces the gap between simplified RL environments and the tool, context, and control-flow behavior of production agents.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/microsoft/agent-lightning)
