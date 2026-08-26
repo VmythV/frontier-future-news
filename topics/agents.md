@@ -2,6 +2,190 @@
 
 # Agents / 智能体
 
+<a id="2026-08-22-cline-durable-hub"></a>
+## [Cline Hub 增加无损升级与持久事件回放](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78)
+
+**English:** [Cline Hub adds lossless upgrades and durable event replay](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78)
+
+- **发布 / Published:** `2026-08-22T23:58:28Z`
+- **来源 / Source:** [Cline on GitHub](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `agent-runtime`, `durable-execution`, `event-replay`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Cline SDK 0.0.78 及其配套桌面端和 CLI 版本支持 Hub 在完成现有任务的同时排空并升级。持久任务会进入队列而非被丢弃，重连客户端可以回放遗漏事件，同时修复了能力推断错误导致部分自定义 OpenAI 兼容模型无法使用工具的问题。
+
+Cline SDK 0.0.78 and its companion desktop and CLI releases let a Hub drain and upgrade while active work finishes. Durable runs are queued instead of dropped, reconnecting clients can replay missed events, and a capability-inference bug that disabled tools for some custom OpenAI-compatible models has been fixed.
+
+### 技术点 / Technical points
+
+- 进入排空状态的 Hub 会拒绝新的变更操作，同时允许现有任务完成；升级中止时会自动解除排空状态。
+  - A draining Hub refuses new mutating work while allowing active work to finish; an aborted upgrade automatically lifts the drain.
+- 持久事件日志可在客户端重连后回放遗漏事件，并按事件 ID 去重，使会话能够跨越 Hub 重启继续存在。
+  - The durable event log replays missed events after reconnect and deduplicates events by ID, allowing sessions to survive a Hub restart.
+- Hub 承载和委派智能体运行的 Langfuse 跟踪现会携带会话与客户端身份，并将委派任务归入父会话。
+  - Langfuse traces now carry session and client identity for Hub-backed and delegated-agent runs, grouping delegated work under its parent session.
+
+### 为什么重要 / Why it matters
+
+这些改动提升了长时间编码智能体会话在维护或客户端暂时断开期间的可恢复性与可观测性。
+
+The changes improve the operational survivability and observability of long-running coding-agent sessions, especially during maintenance or temporary client disconnections.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/cline/cline/releases/tag/cli-v3.0.57) · [Evidence 2](https://github.com/cline/cline/releases/tag/desktop-v0.0.16)
+
+---
+
+<a id="2026-08-22-agent-deck-worktree-safety"></a>
+## [agent-deck 1.14 为工作树与 MCP 配置增加数据丢失防护](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0)
+
+**English:** [agent-deck 1.14 guards worktrees and MCP configuration against data loss](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0)
+
+- **发布 / Published:** `2026-08-22T16:55:33Z`
+- **来源 / Source:** [agent-deck on GitHub](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-orchestration`, `session-management`, `git-worktree`, `data-loss-prevention`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+agent-deck 1.14 加固了智能体会话管理器中的破坏性操作。工作树清理现在会保护未推送、有未提交改动、仍在使用或无法完成检查的工作树；此前读取失败或结果为空时，MCP 配置写入也会被拒绝；该版本还加入对 DeepSeek Harness 会话的一等支持。
+
+agent-deck 1.14 hardens destructive operations in its agent-session manager. Worktree cleanup now protects unpushed, dirty, active, and uninspectable worktrees, while MCP configuration writes are refused after a failed or empty prior read; the release also adds first-class DeepSeek Harness session support.
+
+### 技术点 / Technical points
+
+- 清理命令不会把受保护的工作树列为删除对象，--force 也无法绕过这些排除条件，并会在实际删除时重新验证状态。
+  - The cleanup command never proposes protected worktrees for removal, does not let --force override those exclusions, and re-verifies conditions at deletion time.
+- 现有 Claude 配置无法读取或解析为空时，MCP 目录写入会停止，从而关闭一条已有记录的数据丢失路径。
+  - MCP catalog writes stop when the existing Claude configuration cannot be read or parses as empty, closing a documented data-loss path.
+- 收件箱排空会拒绝无法解析或存在歧义的会话目标，同时帮助命令不会再意外触发变更操作。
+  - Inbox drain rejects unresolved or ambiguous session targets, and help invocations are prevented from triggering mutations.
+
+### 为什么重要 / Why it matters
+
+智能体编排工具会经常管理代码库和配置文件，因此在变更发生时执行不可绕过的检查，可以降低自动清理破坏用户工作的风险。
+
+Agent orchestration tools routinely manage repositories and configuration files, so non-bypassable checks at mutation time reduce the risk that an automated cleanup destroys user work.
+
+---
+
+<a id="2026-08-22-qwen-code-022"></a>
+## [Qwen Code 0.22 强化审查收敛与沙箱安全](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
+
+**English:** [Qwen Code 0.22 strengthens review convergence and sandbox safety](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
+
+- **发布 / Published:** `2026-08-22T14:58:36Z`
+- **来源 / Source:** [Qwen Code on GitHub](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `code-review`, `autofix`, `sandbox`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.22 会在审查循环无法收敛时给出明确原因，为代码审查设置专用子智能体类型，并让 Autofix 在方案超出增长预算时先审计而非立即停止。该版本还限制会话记录保留量、按摘要固定沙箱镜像、恢复会话续接后的人工提问，并公布了一次带失败项明细的厂商自测 SWE-bench Verified 结果。
+
+Qwen Code 0.22 adds explicit explanations when review loops do not converge, gives reviews a dedicated subagent type, and changes Autofix to audit an oversized approach instead of stopping immediately. The release also bounds transcript retention, pins sandbox images by digest, restores human questions after session resume, and reports a vendor-run SWE-bench Verified result with its failure accounting exposed.
+
+### 技术点 / Technical points
+
+- 审查观察结果增加机器可读的收敛代码，专用审查子智能体则被限制为只能使用六种工具。
+  - Review observations gain machine-readable convergence codes, while the dedicated review subagent is restricted to six tools.
+- 守护进程的会话记录保留量受到限制，以防渲染器内存耗尽；创建的 GitHub 拉取请求也会关联到可搜索的来源会话。
+  - Daemon transcript retention is bounded to prevent renderer out-of-memory failures, and created GitHub pull requests are linked back to searchable source sessions.
+- Autofix 会把沙箱镜像绑定到实际拉取的摘要，同时该版本加强了依赖与安全门禁。
+  - Autofix binds sandbox images to their pulled digests, and the release strengthens dependency and security gates.
+- 发布方报告的 SWE-bench Verified 运行完成全部 500 个案例：380 个解决、113 个未解决、5 个执行错误和 2 个基础设施失败；所列 77.08% 以 493 个有效评分结果为分母。
+  - The reported SWE-bench Verified run completed all 500 cases: 380 resolved, 113 unresolved, five execution errors, and two infrastructure failures; the stated 77.08% score uses 493 valid grader results.
+
+### 为什么重要 / Why it matters
+
+该版本同时提升代码审查、自主修复、会话恢复和可复现执行的可靠性，而明确披露评分分母也让其自报基准结果更易正确解读。
+
+The release improves coding-agent reliability across review, autonomous repair, session recovery, and reproducible execution, while the explicit denominator makes its self-reported benchmark easier to interpret.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/QwenLM/qwen-code/actions/runs/32580293448)
+
+---
+
+<a id="2026-08-21-microsoft-agent-framework-runtime"></a>
+## [Microsoft Agent Framework 增加持久检查点与长任务恢复](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
+
+**English:** [Microsoft Agent Framework adds durable checkpoints and long-run recovery](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
+
+- **发布 / Published:** `2026-08-21T23:08:41Z`
+- **来源 / Source:** [Microsoft Agent Framework on GitHub](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-sdk`, `workflow`, `checkpointing`, `long-running-agents`, `session-persistence`, `mcp`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework 发布 Python 1.15 与 .NET 1.19，带来一组协调一致的生产运行时更新。这些版本加入工作流检查点注册、持久审批与会话状态，以及面向长时间托管智能体的引导、重试和恢复机制。
+
+Microsoft Agent Framework released Python 1.15 and .NET 1.19 with coordinated production-runtime updates. The releases add workflow checkpoint registration, persistent approval and session state, and steering, retry, and recovery mechanisms for long-running hosted agents.
+
+### 技术点 / Technical points
+
+- Python 新增可选 A2UI 输出、一等的致命中间件信号，以及带 Cosmos 状态类型的进程级工作流检查点类型注册表。
+  - Python adds optional A2UI output, a first-class fatal middleware signal, and a process-wide workflow checkpoint type registry with Cosmos state types.
+- 审批状态可以持久保存，Foundry Hosted Agents 则获得面向韧性长任务工作流的引导、重试和恢复支持。
+  - Approval state is persisted, while Foundry Hosted Agents gain steering, retry, and recovery support for resilient long-running workflows.
+- .NET 新增会话持久化的聊天客户端路由、Azure Blob 会话存储、实验性智能体钩子，以及对 2026-07-28 MCP Tasks 扩展的支持。
+  - .NET adds session-persisted chat-client routing, Azure Blob session storage, experimental agent hooks, and support for the 2026-07-28 MCP Tasks extension.
+
+### 为什么重要 / Why it matters
+
+这些改动覆盖状态保存、故障恢复和运行中引导等关键要求，也是持久化生产智能体区别于短生命周期对话循环的重要能力。
+
+These changes address the state, recovery, and steering requirements that distinguish durable production agents from short-lived conversational loops.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.19.0)
+
+---
+
+<a id="2026-08-21-goose-147-agent-runtime"></a>
+## [Goose 1.47 重构智能体循环并收紧工具边界](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
+
+**English:** [Goose 1.47 refactors its agent loop and tightens tool boundaries](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
+
+- **发布 / Published:** `2026-08-21T18:14:59Z`
+- **来源 / Source:** [Goose on GitHub](https://github.com/aaif-goose/goose/releases/tag/v1.47.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `agent-runtime`, `multi-agent`, `oauth`, `tool-safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+Goose 1.47 引入通用的展开式智能体循环状态机，隔离并发子智能体的通知，并为流式 HTTP 扩展支持预注册 OAuth 客户端。该版本还收窄了多条文件读取路径，并强制使用安全的 OAuth 令牌传输。
+
+Goose 1.47 introduces a generic unrolled agent-loop state machine, isolates notifications from concurrent subagents, and supports preregistered OAuth clients for streamable HTTP extensions. The release also narrows several file-reading paths and enforces secure OAuth token transport.
+
+### 技术点 / Technical points
+
+- 新的 goose-agent crate 将展开式循环抽取为通用状态机，使智能体循环的状态转换更加显式。
+  - A new goose-agent crate extracts the unrolled loop into a generic state machine, making agent-loop transitions explicit.
+- 并发 summon 子智能体不再相互泄漏通知，失败的 ACP 移交也可以重试上下文。
+  - Concurrent summon subagents no longer leak notifications across one another, and failed ACP handoffs can retry their context.
+- 运行时限制 XLSX 范围、本地图像读取、桌面文件 IPC 和需要操作的流准入，同时避免跟随未跟踪的审查符号链接。
+  - The runtime bounds XLSX ranges, local image reads, desktop file IPC, and action-required stream admission, while avoiding untracked review symlinks.
+
+### 为什么重要 / Why it matters
+
+尽管属于渐进式更新，该版本仍增强了并发智能体的正确性，以及工具执行周围的文件系统与认证边界。
+
+Although incremental, the release strengthens concurrent-agent correctness and the filesystem and authentication boundaries surrounding tool execution.
+
+---
+
 <a id="2026-08-21-claude-mythos-5-security-scans"></a>
 ## [Claude Security 通过受控漏洞扫描部署 Mythos 5](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
 
@@ -76,6 +260,42 @@ The changes improve controllability and state management in a widely used open-s
 ### 链接 / Links
 
 [Evidence 1](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.53.0)
+
+---
+
+<a id="2026-08-21-google-adk-js-2"></a>
+## [Google ADK for JavaScript 2.0 引入图工作流引擎](https://github.com/google/adk-js/releases/tag/adk-v2.0.0)
+
+**English:** [Google ADK for JavaScript 2.0 adds a graph workflow engine](https://github.com/google/adk-js/releases/tag/adk-v2.0.0)
+
+- **发布 / Published:** `2026-08-21T14:40:00Z`
+- **来源 / Source:** [Google ADK for JavaScript on GitHub](https://github.com/google/adk-js/releases/tag/adk-v2.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-sdk`, `graph-workflow`, `human-in-the-loop`, `observability`, `open-source`, `typescript`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google ADK for JavaScript 2.0 围绕新的图执行引擎统一了智能体与工作流节点。该版本加入内置函数和工具节点、并行汇合、任务模式、节点作为工具、实时执行、跟踪与人工确认；图工作流仍处于实验阶段。变更日志标注为 8 月 20 日，而公开 GitHub release 于 8 月 21 日发布。
+
+Google ADK for JavaScript 2.0 unifies agents and workflow nodes around a new graph execution engine. It adds built-in function and tool nodes, parallel joins, task mode, node-as-tool composition, live execution, tracing, and human confirmation; graph workflows remain experimental. The changelog is dated August 20, while the public GitHub release was published on August 21.
+
+### 技术点 / Technical points
+
+- BaseAgent 现在继承 BaseNode，裸 Workflow 也可直接作为 Runner、App 和智能体加载器的根节点。
+  - BaseAgent now extends BaseNode, and a bare Workflow can be used as the root for Runner, App, and agent loading.
+- 图运行时包含 Function 与 Tool 节点、ParallelWorker 与 JoinNode、LLM 智能体节点、任务模式和节点作为工具的组合方式。
+  - The graph runtime includes Function and Tool nodes, ParallelWorker and JoinNode, LLM-agent-as-node, task mode, and node-as-tool composition.
+- FunctionTool 可以要求人工确认，并修复了将审批和凭据响应绑定到发起它们的确切请求的问题。
+  - FunctionTool can require human confirmation, with fixes binding approval and credential responses to the exact request that initiated them.
+- 工作流和节点执行新增 OpenTelemetry 跟踪，同时可选 peer dependencies 将安装依赖规模从 591 个包降至 172 个。
+  - Workflow and node execution gain OpenTelemetry tracing, while optional peer dependencies reduce the install footprint from 591 to 172 packages.
+
+### 为什么重要 / Why it matters
+
+TypeScript 团队由此获得比原有顺序、并行和循环智能体封装更显式、更易检查的编排运行时，并拥有更可靠的暂停、恢复与审批语义。
+
+TypeScript teams gain a more explicit and inspectable orchestration runtime than the earlier sequential, parallel, and loop-agent wrappers, together with stronger pause, resume, and approval semantics.
 
 ---
 

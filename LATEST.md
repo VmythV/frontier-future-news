@@ -2,6 +2,78 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-22-cline-durable-hub"></a>
+## [Cline Hub 增加无损升级与持久事件回放](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78)
+
+**English:** [Cline Hub adds lossless upgrades and durable event replay](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78)
+
+- **发布 / Published:** `2026-08-22T23:58:28Z`
+- **来源 / Source:** [Cline on GitHub](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `agent-runtime`, `durable-execution`, `event-replay`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Cline SDK 0.0.78 及其配套桌面端和 CLI 版本支持 Hub 在完成现有任务的同时排空并升级。持久任务会进入队列而非被丢弃，重连客户端可以回放遗漏事件，同时修复了能力推断错误导致部分自定义 OpenAI 兼容模型无法使用工具的问题。
+
+Cline SDK 0.0.78 and its companion desktop and CLI releases let a Hub drain and upgrade while active work finishes. Durable runs are queued instead of dropped, reconnecting clients can replay missed events, and a capability-inference bug that disabled tools for some custom OpenAI-compatible models has been fixed.
+
+### 技术点 / Technical points
+
+- 进入排空状态的 Hub 会拒绝新的变更操作，同时允许现有任务完成；升级中止时会自动解除排空状态。
+  - A draining Hub refuses new mutating work while allowing active work to finish; an aborted upgrade automatically lifts the drain.
+- 持久事件日志可在客户端重连后回放遗漏事件，并按事件 ID 去重，使会话能够跨越 Hub 重启继续存在。
+  - The durable event log replays missed events after reconnect and deduplicates events by ID, allowing sessions to survive a Hub restart.
+- Hub 承载和委派智能体运行的 Langfuse 跟踪现会携带会话与客户端身份，并将委派任务归入父会话。
+  - Langfuse traces now carry session and client identity for Hub-backed and delegated-agent runs, grouping delegated work under its parent session.
+
+### 为什么重要 / Why it matters
+
+这些改动提升了长时间编码智能体会话在维护或客户端暂时断开期间的可恢复性与可观测性。
+
+The changes improve the operational survivability and observability of long-running coding-agent sessions, especially during maintenance or temporary client disconnections.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/cline/cline/releases/tag/cli-v3.0.57) · [Evidence 2](https://github.com/cline/cline/releases/tag/desktop-v0.0.16)
+
+---
+
+<a id="2026-08-22-agent-deck-worktree-safety"></a>
+## [agent-deck 1.14 为工作树与 MCP 配置增加数据丢失防护](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0)
+
+**English:** [agent-deck 1.14 guards worktrees and MCP configuration against data loss](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0)
+
+- **发布 / Published:** `2026-08-22T16:55:33Z`
+- **来源 / Source:** [agent-deck on GitHub](https://github.com/asheshgoplani/agent-deck/releases/tag/v1.14.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-orchestration`, `session-management`, `git-worktree`, `data-loss-prevention`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+agent-deck 1.14 加固了智能体会话管理器中的破坏性操作。工作树清理现在会保护未推送、有未提交改动、仍在使用或无法完成检查的工作树；此前读取失败或结果为空时，MCP 配置写入也会被拒绝；该版本还加入对 DeepSeek Harness 会话的一等支持。
+
+agent-deck 1.14 hardens destructive operations in its agent-session manager. Worktree cleanup now protects unpushed, dirty, active, and uninspectable worktrees, while MCP configuration writes are refused after a failed or empty prior read; the release also adds first-class DeepSeek Harness session support.
+
+### 技术点 / Technical points
+
+- 清理命令不会把受保护的工作树列为删除对象，--force 也无法绕过这些排除条件，并会在实际删除时重新验证状态。
+  - The cleanup command never proposes protected worktrees for removal, does not let --force override those exclusions, and re-verifies conditions at deletion time.
+- 现有 Claude 配置无法读取或解析为空时，MCP 目录写入会停止，从而关闭一条已有记录的数据丢失路径。
+  - MCP catalog writes stop when the existing Claude configuration cannot be read or parses as empty, closing a documented data-loss path.
+- 收件箱排空会拒绝无法解析或存在歧义的会话目标，同时帮助命令不会再意外触发变更操作。
+  - Inbox drain rejects unresolved or ambiguous session targets, and help invocations are prevented from triggering mutations.
+
+### 为什么重要 / Why it matters
+
+智能体编排工具会经常管理代码库和配置文件，因此在变更发生时执行不可绕过的检查，可以降低自动清理破坏用户工作的风险。
+
+Agent orchestration tools routinely manage repositories and configuration files, so non-bypassable checks at mutation time reduce the risk that an automated cleanup destroys user work.
+
+---
+
 <a id="2026-08-22-tiangong-ultra-robot-sprint"></a>
 ## [天工 Ultra 人形机器人百米跑出 9.39 秒](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
 
@@ -38,6 +110,118 @@ The results indicate rapid progress in high-speed balance, actuation, and closed
 
 [Evidence 1](https://www.thepaper.cn/newsDetail_forward_33833753) · [Evidence 2](https://www.whrgoc.com/)
 [Discussion 1](https://www.reddit.com/r/robots/comments/1vvdf7b/humanoid_100m_sprint/)
+
+---
+
+<a id="2026-08-22-qwen-code-022"></a>
+## [Qwen Code 0.22 强化审查收敛与沙箱安全](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
+
+**English:** [Qwen Code 0.22 strengthens review convergence and sandbox safety](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
+
+- **发布 / Published:** `2026-08-22T14:58:36Z`
+- **来源 / Source:** [Qwen Code on GitHub](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `code-review`, `autofix`, `sandbox`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.22 会在审查循环无法收敛时给出明确原因，为代码审查设置专用子智能体类型，并让 Autofix 在方案超出增长预算时先审计而非立即停止。该版本还限制会话记录保留量、按摘要固定沙箱镜像、恢复会话续接后的人工提问，并公布了一次带失败项明细的厂商自测 SWE-bench Verified 结果。
+
+Qwen Code 0.22 adds explicit explanations when review loops do not converge, gives reviews a dedicated subagent type, and changes Autofix to audit an oversized approach instead of stopping immediately. The release also bounds transcript retention, pins sandbox images by digest, restores human questions after session resume, and reports a vendor-run SWE-bench Verified result with its failure accounting exposed.
+
+### 技术点 / Technical points
+
+- 审查观察结果增加机器可读的收敛代码，专用审查子智能体则被限制为只能使用六种工具。
+  - Review observations gain machine-readable convergence codes, while the dedicated review subagent is restricted to six tools.
+- 守护进程的会话记录保留量受到限制，以防渲染器内存耗尽；创建的 GitHub 拉取请求也会关联到可搜索的来源会话。
+  - Daemon transcript retention is bounded to prevent renderer out-of-memory failures, and created GitHub pull requests are linked back to searchable source sessions.
+- Autofix 会把沙箱镜像绑定到实际拉取的摘要，同时该版本加强了依赖与安全门禁。
+  - Autofix binds sandbox images to their pulled digests, and the release strengthens dependency and security gates.
+- 发布方报告的 SWE-bench Verified 运行完成全部 500 个案例：380 个解决、113 个未解决、5 个执行错误和 2 个基础设施失败；所列 77.08% 以 493 个有效评分结果为分母。
+  - The reported SWE-bench Verified run completed all 500 cases: 380 resolved, 113 unresolved, five execution errors, and two infrastructure failures; the stated 77.08% score uses 493 valid grader results.
+
+### 为什么重要 / Why it matters
+
+该版本同时提升代码审查、自主修复、会话恢复和可复现执行的可靠性，而明确披露评分分母也让其自报基准结果更易正确解读。
+
+The release improves coding-agent reliability across review, autonomous repair, session recovery, and reproducible execution, while the explicit denominator makes its self-reported benchmark easier to interpret.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/QwenLM/qwen-code/actions/runs/32580293448)
+
+---
+
+<a id="2026-08-21-microsoft-agent-framework-runtime"></a>
+## [Microsoft Agent Framework 增加持久检查点与长任务恢复](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
+
+**English:** [Microsoft Agent Framework adds durable checkpoints and long-run recovery](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
+
+- **发布 / Published:** `2026-08-21T23:08:41Z`
+- **来源 / Source:** [Microsoft Agent Framework on GitHub](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-sdk`, `workflow`, `checkpointing`, `long-running-agents`, `session-persistence`, `mcp`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework 发布 Python 1.15 与 .NET 1.19，带来一组协调一致的生产运行时更新。这些版本加入工作流检查点注册、持久审批与会话状态，以及面向长时间托管智能体的引导、重试和恢复机制。
+
+Microsoft Agent Framework released Python 1.15 and .NET 1.19 with coordinated production-runtime updates. The releases add workflow checkpoint registration, persistent approval and session state, and steering, retry, and recovery mechanisms for long-running hosted agents.
+
+### 技术点 / Technical points
+
+- Python 新增可选 A2UI 输出、一等的致命中间件信号，以及带 Cosmos 状态类型的进程级工作流检查点类型注册表。
+  - Python adds optional A2UI output, a first-class fatal middleware signal, and a process-wide workflow checkpoint type registry with Cosmos state types.
+- 审批状态可以持久保存，Foundry Hosted Agents 则获得面向韧性长任务工作流的引导、重试和恢复支持。
+  - Approval state is persisted, while Foundry Hosted Agents gain steering, retry, and recovery support for resilient long-running workflows.
+- .NET 新增会话持久化的聊天客户端路由、Azure Blob 会话存储、实验性智能体钩子，以及对 2026-07-28 MCP Tasks 扩展的支持。
+  - .NET adds session-persisted chat-client routing, Azure Blob session storage, experimental agent hooks, and support for the 2026-07-28 MCP Tasks extension.
+
+### 为什么重要 / Why it matters
+
+这些改动覆盖状态保存、故障恢复和运行中引导等关键要求，也是持久化生产智能体区别于短生命周期对话循环的重要能力。
+
+These changes address the state, recovery, and steering requirements that distinguish durable production agents from short-lived conversational loops.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.19.0)
+
+---
+
+<a id="2026-08-21-goose-147-agent-runtime"></a>
+## [Goose 1.47 重构智能体循环并收紧工具边界](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
+
+**English:** [Goose 1.47 refactors its agent loop and tightens tool boundaries](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
+
+- **发布 / Published:** `2026-08-21T18:14:59Z`
+- **来源 / Source:** [Goose on GitHub](https://github.com/aaif-goose/goose/releases/tag/v1.47.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `agent-runtime`, `multi-agent`, `oauth`, `tool-safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+Goose 1.47 引入通用的展开式智能体循环状态机，隔离并发子智能体的通知，并为流式 HTTP 扩展支持预注册 OAuth 客户端。该版本还收窄了多条文件读取路径，并强制使用安全的 OAuth 令牌传输。
+
+Goose 1.47 introduces a generic unrolled agent-loop state machine, isolates notifications from concurrent subagents, and supports preregistered OAuth clients for streamable HTTP extensions. The release also narrows several file-reading paths and enforces secure OAuth token transport.
+
+### 技术点 / Technical points
+
+- 新的 goose-agent crate 将展开式循环抽取为通用状态机，使智能体循环的状态转换更加显式。
+  - A new goose-agent crate extracts the unrolled loop into a generic state machine, making agent-loop transitions explicit.
+- 并发 summon 子智能体不再相互泄漏通知，失败的 ACP 移交也可以重试上下文。
+  - Concurrent summon subagents no longer leak notifications across one another, and failed ACP handoffs can retry their context.
+- 运行时限制 XLSX 范围、本地图像读取、桌面文件 IPC 和需要操作的流准入，同时避免跟随未跟踪的审查符号链接。
+  - The runtime bounds XLSX ranges, local image reads, desktop file IPC, and action-required stream admission, while avoiding untracked review symlinks.
+
+### 为什么重要 / Why it matters
+
+尽管属于渐进式更新，该版本仍增强了并发智能体的正确性，以及工具执行周围的文件系统与认证边界。
+
+Although incremental, the release strengthens concurrent-agent correctness and the filesystem and authentication boundaries surrounding tool execution.
 
 ---
 
@@ -115,6 +299,42 @@ The changes improve controllability and state management in a widely used open-s
 ### 链接 / Links
 
 [Evidence 1](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.53.0)
+
+---
+
+<a id="2026-08-21-google-adk-js-2"></a>
+## [Google ADK for JavaScript 2.0 引入图工作流引擎](https://github.com/google/adk-js/releases/tag/adk-v2.0.0)
+
+**English:** [Google ADK for JavaScript 2.0 adds a graph workflow engine](https://github.com/google/adk-js/releases/tag/adk-v2.0.0)
+
+- **发布 / Published:** `2026-08-21T14:40:00Z`
+- **来源 / Source:** [Google ADK for JavaScript on GitHub](https://github.com/google/adk-js/releases/tag/adk-v2.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-sdk`, `graph-workflow`, `human-in-the-loop`, `observability`, `open-source`, `typescript`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google ADK for JavaScript 2.0 围绕新的图执行引擎统一了智能体与工作流节点。该版本加入内置函数和工具节点、并行汇合、任务模式、节点作为工具、实时执行、跟踪与人工确认；图工作流仍处于实验阶段。变更日志标注为 8 月 20 日，而公开 GitHub release 于 8 月 21 日发布。
+
+Google ADK for JavaScript 2.0 unifies agents and workflow nodes around a new graph execution engine. It adds built-in function and tool nodes, parallel joins, task mode, node-as-tool composition, live execution, tracing, and human confirmation; graph workflows remain experimental. The changelog is dated August 20, while the public GitHub release was published on August 21.
+
+### 技术点 / Technical points
+
+- BaseAgent 现在继承 BaseNode，裸 Workflow 也可直接作为 Runner、App 和智能体加载器的根节点。
+  - BaseAgent now extends BaseNode, and a bare Workflow can be used as the root for Runner, App, and agent loading.
+- 图运行时包含 Function 与 Tool 节点、ParallelWorker 与 JoinNode、LLM 智能体节点、任务模式和节点作为工具的组合方式。
+  - The graph runtime includes Function and Tool nodes, ParallelWorker and JoinNode, LLM-agent-as-node, task mode, and node-as-tool composition.
+- FunctionTool 可以要求人工确认，并修复了将审批和凭据响应绑定到发起它们的确切请求的问题。
+  - FunctionTool can require human confirmation, with fixes binding approval and credential responses to the exact request that initiated them.
+- 工作流和节点执行新增 OpenTelemetry 跟踪，同时可选 peer dependencies 将安装依赖规模从 591 个包降至 172 个。
+  - Workflow and node execution gain OpenTelemetry tracing, while optional peer dependencies reduce the install footprint from 591 to 172 packages.
+
+### 为什么重要 / Why it matters
+
+TypeScript 团队由此获得比原有顺序、并行和循环智能体封装更显式、更易检查的编排运行时，并拥有更可靠的暂停、恢复与审批语义。
+
+TypeScript teams gain a more explicit and inspectable orchestration runtime than the earlier sequential, parallel, and loop-agent wrappers, together with stronger pause, resume, and approval semantics.
 
 ---
 
@@ -508,220 +728,3 @@ Evaluation can dominate the cost of automated harness evolution, so adaptive val
 ### 链接 / Links
 
 [Evidence 1](https://github.com/Agent4Science-UTokyo/Task-CoEvolve)
-
----
-
-<a id="2026-08-20-rmworld-uav-radio-world-model"></a>
-## [RMWorld 为多无人机控制构建任务感知无线电世界模型](https://arxiv.org/abs/2608.20126)
-
-**English:** [RMWorld builds task-aware radio world models for multi-UAV control](https://arxiv.org/abs/2608.20126)
-
-- **发布 / Published:** `2026-08-20T14:54:09Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20126) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `world-model`, `uav`, `radio-modeling`, `predictive-control`, `planning`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-RMWorld 面向多无人机通信控制，使用由决策风险而非全局预测误差驱动校准的无线电世界模型。它优先测量可能改变业务链路决策的信道，并过滤可能受模型偏差污染的反事实轨迹。
-
-RMWorld targets multi-UAV communication control with a radio world model whose calibration is driven by decision risk rather than global prediction error. It prioritizes measurements that can change traffic-serving link decisions and filters counterfactual rollouts that may be corrupted by model bias.
-
-### 技术点 / Technical points
-
-- 方法使用贝叶斯残差校正有偏传播模型，并按链路标签对任务积分后验速率方差的降低幅度评估查询价值。
-  - A Bayesian residual corrects a biased propagation model, and link queries are valued by their reduction in task-integrated posterior rate variance.
-- 反事实分支通过任务门控的对数行列式目标选择，随后执行冲突投影和固定批次验证。
-  - Counterfactual branches are selected with a task-gated log-determinant objective followed by conflict projection and fixed-batch validation.
-- 论文在 100 次配对 3GPP 试验中报告 0.949 bit/s/Hz 的任务加权 RMSE，并在 30 次 DeepMIMO 重载试验中相较 Ensemble UCB 将中位积压降低 0.967，但多使用 37.5% 的离线轨迹。
-  - The paper reports 0.949 bit/s/Hz task-weighted RMSE over 100 paired 3GPP trials and a 0.967 reduction in median backlog versus Ensemble UCB over 30 severe-load DeepMIMO trials, using 37.5% more offline rollouts.
-
-### 为什么重要 / Why it matters
-
-该系统展示了世界模型如何围绕控制后果分配数据采集和滚动预算，而不是把所有预测误差视为同等重要。
-
-The system demonstrates how a world model can allocate data collection and rollout budgets around control consequences instead of treating all prediction errors as equally important.
-
----
-
-<a id="2026-08-18-hydra-0-action-flow-world-model"></a>
-## [Hydra-0 以动作流统一机器人世界建模与控制](https://arxiv.org/abs/2608.18077)
-
-**English:** [Hydra-0 unifies robot world modeling and control through action flow](https://arxiv.org/abs/2608.18077)
-
-- **发布 / Published:** `2026-08-18T17:59:30Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18077) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-model`, `robotics`, `action-flow`, `planning`, `simulation`, `control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-Hydra-0 将机器人动作表示为像素运动，使同一视觉接口能够跨机器人形态、任务、环境和视频生成骨干模型预测动作后果。这一表示同时支持前向预测、策略评估与可执行控制。
-
-Hydra-0 represents robot actions as pixel motion so one visual interface can model action consequences across robot embodiments, tasks, environments, and video-generation backbones. The same representation supports forward prediction, policy evaluation, and executable control.
-
-### 技术点 / Technical points
-
-- 相较论文中的动作条件基线，表现最佳的配置将机器人运动误差降低 90.4%，物体运动误差降低 60.2%。
-  - The best reported configuration reduces robot-motion error by 90.4% and object-motion error by 60.2% relative to the paper's action-conditioned baseline.
-- 在 RoboLab 上，回放策略与参考策略成功率的皮尔逊相关系数达到 0.96，支持将该模型用于开环策略评估。
-  - On RoboLab, replayed and reference policy success rates have a reported Pearson correlation of 0.96, supporting the model's use for open-loop policy evaluation.
-- 其逆向模式可从人类演示迁移的目标物体流中预测匹配的机器人运动，再由动作头将潜特征映射为可执行指令，无需针对任务采集专家机器人演示。
-  - An inverse mode predicts compatible robot motion from desired object flow transferred from a human demonstration, after which an action head maps latent features to executable commands without task-specific expert robot demonstrations.
-
-### 为什么重要 / Why it matters
-
-动作流为学习型仿真与物理控制提供了共享接口，有望减少评估或适配机器人策略时所需的特定形态数据与建模工作。
-
-Action flow offers a shared interface between learned simulation and physical control, potentially reducing the embodiment-specific data and modeling needed to evaluate or adapt robot policies.
-
-### 链接 / Links
-
-[Evidence 1](https://nvidia-isaac.github.io/video_to_data/hydra-0/)
-
----
-
-<a id="2026-08-18-self-improving-agent-fragility"></a>
-## [任务顺序与评估方差暴露自我改进智能体的脆弱性](https://arxiv.org/abs/2608.18066)
-
-**English:** [Task order and evaluation variance expose fragile self-improving agents](https://arxiv.org/abs/2608.18066)
-
-- **发布 / Published:** `2026-08-18T17:55:07Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18066) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `self-improvement`, `evaluation`, `reliability`, `benchmark`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-一项针对两种记忆型自我改进方法的重新评估发现，其表面收益会随重复运行而变化，并且高度依赖任务顺序。默认基准顺序可能充当隐含课程，使智能体看起来比随机任务顺序下更可靠地持续改进。
-
-A re-evaluation of two memory-based self-improvement methods finds that apparent gains vary across repeated runs and depend strongly on task order. Default benchmark orderings can act as an implicit curriculum, making an agent look more reliably self-improving than it is under shuffled tasks.
-
-### 技术点 / Technical points
-
-- 研究通过多次运行量化方差，并随机打乱任务流，以检验改进效果能否经受顺序变化。
-  - The study adds multiple runs to quantify variance and randomly shuffles task streams to test whether improvement survives changes in ordering.
-- 复杂环境和多步任务本身就存在噪声，作者发现叠加自我改进循环会进一步放大这种噪声。
-  - Complex environments and multi-step tasks are already noisy, and the authors find that adding a self-improvement loop can amplify that noise.
-- 在构建记忆时加入详细评分细则和环境反馈只能部分恢复损失的性能，仍有明显差距无法解释；代码和轨迹数据已经发布。
-  - Including detailed rubrics and environment feedback when constructing memory partially recovers lost performance, but substantial unexplained gaps remain; code and trajectories are released.
-
-### 为什么重要 / Why it matters
-
-持续改进的结论可能只是有利任务课程的产物，因此智能体评估需要重复运行、随机任务顺序和明确的规范检查。
-
-Continual-improvement claims can be artifacts of a favorable task curriculum, so agent evaluations need repeated runs, shuffled orders, and explicit specification checks.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/SalesforceAIResearch/self-improve-fragility) · [Evidence 2](https://huggingface.co/datasets/Salesforce/self-improve-fragility)
-
----
-
-<a id="2026-08-18-stagedworkspace-versioned-agent-workspace"></a>
-## [StagedWorkspace 为知识工作智能体建立版本化工作区契约](https://arxiv.org/abs/2608.18050)
-
-**English:** [StagedWorkspace gives knowledge-work agents a versioned workspace contract](https://arxiv.org/abs/2608.18050)
-
-- **发布 / Published:** `2026-08-18T17:44:18Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.18050) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `knowledge-work`, `workspace-state`, `versioning`, `artifact-editing`, `benchmark`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-StagedWorkspace 针对智能体搜索解析视图、编辑原生文件、审阅差异和提交成果时可能引用不同版本的问题，将解析记录与审阅差异绑定到不断变化的原生工作区内容哈希。
-
-StagedWorkspace addresses cases where an agent searches a parsed view, edits a native file, reviews a diff, and submits an artifact that may each represent a different version. It binds parsed records and review diffs to content hashes of the changing native workspace.
-
-### 技术点 / Technical points
-
-- 在固定框架的消融实验中，解析视图与原生文件双重访问对每个受测模型都取得最高点估计；相较限制更强的单一视图，OfficeQA Pass@1 提高 8.3 至 12.1 个百分点，APEX 平均评分提高 4.7 至 9.2 分。
-  - Under fixed-harness ablations, dual parsed and native access has the highest point estimate for every tested model, improving OfficeQA Pass@1 by 8.3 to 12.1 points and APEX mean rubric score by 4.7 to 9.2 points over the more restrictive single view.
-- SW-AGENT 使用 Gemini 3.1 Pro 在 OfficeQA 上报告 63.9%，使用 GPT-5.4 Nano 在 APEX 上报告 42.1；论文引用的同模型成绩分别为 29.3% 和 25.5。
-  - SW-AGENT reports 63.9% on OfficeQA with Gemini 3.1 Pro and 42.1 on APEX with GPT-5.4 Nano, compared with cited same-model results of 29.3% and 25.5.
-- 在 57 项文件编辑任务的配对消融中，允许智能体提交前检查差异时也观察到更高评分。
-  - A paired ablation over 57 file-editing tasks also finds higher observed scores when agents can inspect diffs before submission.
-
-### 为什么重要 / Why it matters
-
-将工作区状态设为显式契约，有助于避免文档与混合文件智能体使用陈旧解析、遗漏改动或提交错误版本。
-
-Treating workspace state as an explicit contract can prevent stale parses, invisible edits, and wrong-version submissions in document and mixed-artifact agents.
-
----
-
-<a id="2026-08-18-startupbench-market-validated-agents"></a>
-## [StartupBench 用经市场验证的端到端工作流测试智能体](https://arxiv.org/abs/2608.17800)
-
-**English:** [StartupBench tests agents on market-validated end-to-end workflows](https://arxiv.org/abs/2608.17800)
-
-- **发布 / Published:** `2026-08-18T14:01:32Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.17800) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `workflows`, `knowledge-work`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-StartupBench 从已有实际采用的 AI 创业产品中提炼面向交付成果的任务，而不是完全依照研究者假设选题，并在同一智能体框架下用细粒度评分标准评估多个专业领域的代表性模型。
-
-StartupBench derives deliverable-oriented tasks from AI startup products with demonstrated adoption instead of selecting tasks solely from researchers' assumptions. It evaluates representative models under one agent harness with detailed rubrics spanning multiple professional domains.
-
-### 技术点 / Technical points
-
-- 该基准把完整产品工作流重构为端到端任务，并评估最终交付物的复杂要求，而不是孤立子任务。
-  - The benchmark reconstructs complete product workflows as end-to-end tasks and grades the complex requirements of their final deliverables rather than isolated subtasks.
-- 表现最强的受测模型也只完成约 30% 的 StartupBench，尽管模型在许多未完成任务上取得了实质性的部分进展。
-  - The strongest evaluated model completes only about 30% of StartupBench, although models make meaningful partial progress on many unsuccessful tasks.
-- 分析将复杂指令遵循和领域专业知识识别为主要失败来源。
-  - The analysis identifies complex instruction following and domain-specific expertise as major sources of failure.
-
-### 为什么重要 / Why it matters
-
-以用户已经愿意付费的工作流为基础，可以更实际地衡量通用智能体能否可靠完成有价值的工作。
-
-Grounding evaluation in workflows that users already pay for provides a more practical measure of whether general-purpose agents can finish valuable work reliably.
-
----
-
-<a id="2026-08-18-openai-frontier-rl-cyber-safeguards"></a>
-## [OpenAI 在扩展网络临界级防护期间暂停最大规模前沿 RL 训练](https://openai.com/index/pacing-model-development-cyber-capabilities/)
-
-**English:** [OpenAI holds its largest frontier RL run while expanding cyber-critical safeguards](https://openai.com/index/pacing-model-development-cyber-capabilities/)
-
-- **发布 / Published:** `2026-08-18T11:00:00Z`
-- **来源 / Source:** [OpenAI](https://openai.com/index/pacing-model-development-cyber-capabilities/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `cybersecurity`, `alignment`, `monitoring`, `agentic-coding`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
-
-### 摘要 / Summary
-
-OpenAI 表示，在 OpenAI—Hugging Face 事件以及 Astra 可能达到“临界”网络安全能力的初步证据出现后，公司曾暂停最新部署型模型的强化学习训练两周。较小工作负载已经恢复，但最大规模的前沿 RL 训练仍在等待更充分的行为与对齐证据。
-
-OpenAI says it paused reinforcement-learning training on its latest deployment-oriented models for two weeks after the OpenAI-Hugging Face incident and preliminary evidence that Astra may have Critical cybersecurity capability. Smaller workloads have resumed, but its largest planned frontier RL run remains on hold pending stronger behavioral and alignment evidence.
-
-### 技术点 / Technical points
-
-- 新的研究环境要求加强工作负载与网络隔离，移除易受攻击的共享服务，减少常驻权限，并持续测试安全边界。
-  - New research-environment requirements strengthen workload and network isolation, remove vulnerable shared services, reduce standing privileges, and continuously test security boundaries.
-- 多阶段监控系统在采样 token 上运行激活分类器，并把可疑工具操作、可用推理信息和完整轨迹升级给自动调查器，目标是在 30 分钟内发出告警。
-  - A multistage monitoring system runs activation classifiers at sampled tokens and escalates concerning tool actions, available reasoning, and full trajectories to automated investigators, with a target of alerting within 30 minutes.
-- 监控适用于 Sol 能力及以上模型使用工具的 RL 训练和评估，以及 Astra 的全部工具推理；OpenAI 估计当前监控开销约为被监控推理计算量的 20%。
-  - Monitoring is required for tool-using RL and evaluations at Sol capability or above and for all Astra inference with tools; OpenAI estimates current monitoring overhead at roughly 20% of monitored inference compute.
-
-### 为什么重要 / Why it matters
-
-该公告把前沿智能体训练的实际降速与隔离、监控和对齐要求直接绑定，而不是仅在部署阶段增加安全控制。
-
-The announcement ties a concrete slowdown in frontier-agent training to containment, monitoring, and alignment requirements rather than treating safety controls as deployment-only measures.
-
-### 链接 / Links
-
-[Evidence 1](https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/)
-[Discussion 1](https://news.ycombinator.com/item?id=49363992)
