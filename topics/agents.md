@@ -2,6 +2,161 @@
 
 # Agents / 智能体
 
+<a id="2026-08-30-podiom-durable-local-agent-workspace"></a>
+## [Podiom 发布面向 Claude Code 与 Codex 的持久本地工作区](https://github.com/Podiom/Podiom)
+
+**English:** [Podiom launches a durable local workspace for Claude Code and Codex](https://github.com/Podiom/Podiom)
+
+- **发布 / Published:** `2026-08-30T13:08:34Z`
+- **来源 / Source:** [Podiom on GitHub](https://github.com/Podiom/Podiom) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `coding-agent`, `session-management`, `durable-execution`, `multi-agent`, `scheduling`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+Podiom 公开发布了构建在原生 Claude Code 与 Codex CLI 之上的本地优先工作区。它集中保存具名智能体身份、规范会话历史、项目、定时任务、路线图任务与长期目标，同时保留各提供商自身的工具、Skill、认证和运行时行为。
+
+Podiom publicly launched a local-first workspace above the native Claude Code and Codex CLIs. It keeps named agent identities, canonical session history, projects, schedules, roadmap tasks, and long-lived goals together while retaining each provider's own tools, skills, authentication, and runtime behavior.
+
+### 技术点 / Technical points
+
+- 会话保留规范历史，在切换提供商或配置后可将其重放到新的底层 CLI 会话。
+  - Sessions retain a canonical history that can be replayed into a fresh backing CLI session after a provider or profile switch.
+- Goal 把一个结果交给牵头智能体，由其拆分路线图任务与定时任务，并记录进展、证据、指标变化、访问请求和需要人类完成的事项。
+  - A goal gives one lead agent an outcome to decompose into roadmap tasks and schedules while recording progress, evidence, metric changes, access requests, and human action items.
+- Goal 关联的规划、任务和定时运行会刻意采用完整权限且不逐操作询问；Podiom 明示这一权限姿态，并在 Goal 时间线上记录解析出的工具活动。
+  - Goal-linked planning, tasks, and schedules deliberately run with full access and no per-action prompt; Podiom discloses this posture and records parsed tool activity on the goal timeline.
+
+### 为什么重要 / Why it matters
+
+该项目把一次性编码智能体终端转变为可审查的长期工作区，同时明确揭示自主 Goal 执行带来的更高风险。
+
+The project turns disposable coding-agent terminals into a reviewable long-running workspace, while making the elevated risk of autonomous goal execution explicit.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Podiom/Podiom/blob/master/docs/security.md)
+[Discussion 1](https://news.ycombinator.com/item?id=49498323)
+
+---
+
+<a id="2026-08-30-agno-302-mcp-safety"></a>
+## [Agno 3.0.2 扩展 MCP 组件并加固智能体安全边界](https://github.com/agno-agi/agno/releases/tag/v3.0.2)
+
+**English:** [Agno 3.0.2 expands MCP components and agent safety boundaries](https://github.com/agno-agi/agno/releases/tag/v3.0.2)
+
+- **发布 / Published:** `2026-08-30T08:01:42Z`
+- **来源 / Source:** [Agno on GitHub](https://github.com/agno-agi/agno/releases/tag/v3.0.2) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `mcp`, `tool-use`, `workflow`, `security`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+Agno 3.0.2 可将 Agent、Team、Workflow、远程代理、工厂和 Toolkit 发布为具名 MCP 工具，并为暂停的确认流程保留继续与取消入口。该版本还封堵了 IPython shell 逃逸路径，加强凭证与审批卡片保护，并修复流式工作流失败被误报为成功的问题。
+
+Agno 3.0.2 can publish agents, teams, workflows, remote proxies, factories, and toolkits as named MCP tools while preserving continue and cancel controls for paused confirmation runs. The release also closes an IPython shell-escape path, protects credentials and approval cards, and fixes streaming workflow failures that were incorrectly reported as successful.
+
+### 技术点 / Technical points
+
+- MCPConfig 可把组件和 Toolkit 方法分别公开为具名工具，并包含暂停运行所需的继续与取消工具。
+  - MCPConfig can expose components and toolkit methods as separate named tools, including continuation and cancellation tools needed by paused runs.
+- ToolResult 会被渲染为 MCP 文本、图像、音频、嵌入资源或资源链接内容块，工具也可发布标题与行为注解。
+  - ToolResult values are rendered as MCP text, image, audio, embedded-resource, or resource-link content blocks, and tools can publish titles and behavior annotations.
+- 该版本会在禁用 shell 时同时移除 IPython 的延迟与已加载 bash magic，使 Git 个人访问令牌不落盘，转义模型生成的 Slack 审批参数，并让流式执行器错误进入正常的失败与重试流程。
+  - The release removes lazy and live IPython bash magics when shell access is disabled, keeps Git personal access tokens off disk, escapes model-produced Slack approval arguments, and routes streaming executor errors through normal failure and retry handling.
+
+### 为什么重要 / Why it matters
+
+该版本在提升 MCP 可组合性的同时，修复了智能体组件无人值守运行时影响尤为显著的权限与执行状态缺陷。
+
+The release improves MCP composability while repairing permission and execution-state failures that become consequential when agent components run unattended.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/agno-agi/agno/pull/9819) · [Evidence 2](https://github.com/agno-agi/agno/pull/9104) · [Evidence 3](https://github.com/agno-agi/agno/pull/9138)
+
+---
+
+<a id="2026-08-30-agentgate-signed-action-receipts"></a>
+## [AgentGate 发布带签名收据的 SaaS 委托操作网关](https://github.com/Clawdlinux/agentgate)
+
+**English:** [AgentGate launches delegated SaaS actions with signed receipts](https://github.com/Clawdlinux/agentgate)
+
+- **发布 / Published:** `2026-08-30T07:00:55Z`
+- **来源 / Source:** [AgentGate on GitHub](https://github.com/Clawdlinux/agentgate) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-governance`, `authorization`, `tool-use`, `security`, `audit`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+AgentGate 公开发布了一个网关，使智能体无需取得底层 OAuth token，即可代表用户调用 GitHub、Slack、Google Workspace 等 SaaS API。每次经过认证的操作尝试都会生成带签名、组成哈希链的收据，可由独立命令行验证器离线检查。
+
+AgentGate publicly launched a gateway through which agents can call GitHub, Slack, Google Workspace, and other SaaS APIs on a user's behalf without receiving the underlying OAuth tokens. Every authenticated action attempt creates a signed, hash-chained receipt that a separate command-line verifier can inspect offline.
+
+### 技术点 / Technical points
+
+- 智能体 API key 按服务和用户限定权限，OAuth 与 bearer token 则保存在代理后方采用 AES-256-GCM 加密的凭证库中。
+  - Agent API keys are scoped by service and user, while OAuth and bearer tokens remain in an AES-256-GCM encrypted vault behind the proxy.
+- 每次经过认证的尝试，包括被拒绝的尝试，都会在返回响应前向无间隙哈希链写入一条 Ed25519 签名收据。
+  - Each authenticated attempt, including a rejected one, commits an Ed25519-signed receipt into a gap-free hash chain before the response is returned.
+- 独立验证器无需联系网关即可读取本地 SQLite 账本和固定信任根；还可通过预期序号与头哈希检查完整性。
+  - The standalone verifier reads a local SQLite ledger and pinned trust root without contacting the gateway; an expected sequence and head hash can additionally test completeness.
+
+### 为什么重要 / Why it matters
+
+它展示了一种委托访问模式：智能体不持有用户长期凭证，审计方也不需要运行中网关的私钥，不过相关安全保证仍主要来自项目自身说明。
+
+It demonstrates a delegated-access pattern in which agents do not hold long-lived user credentials and auditors do not need the running gateway's private key, although the security guarantees remain project-reported.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Clawdlinux/agentgate/releases/tag/v0.1.3)
+[Discussion 1](https://news.ycombinator.com/item?id=49496333)
+
+---
+
+<a id="2026-08-29-fast-hands-external-reconciliation"></a>
+## [Fast Hands 0.6.8 协调不确定的外部副作用](https://github.com/tomaszteee/FastHands/releases/tag/v0.6.8)
+
+**English:** [Fast Hands 0.6.8 reconciles uncertain external side effects](https://github.com/tomaszteee/FastHands/releases/tag/v0.6.8)
+
+- **发布 / Published:** `2026-08-29T12:40:55Z`
+- **来源 / Source:** [Fast Hands on GitHub](https://github.com/tomaszteee/FastHands/releases/tag/v0.6.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `mcp`, `durable-execution`, `human-in-the-loop`, `computer-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Fast Hands 0.6.8 为其本地 MCP 执行层增加外部副作用协调协议。智能体可以为 shell 或 UI 工作流设置检查点，同时避免在崩溃或超时导致本地确认丢失后，自动重放可能已成功的发布、API 写入或其他远端变更。
+
+Fast Hands 0.6.8 adds an external-effect reconciliation protocol to its local MCP execution layer. An agent can checkpoint shell or UI workflows without automatically replaying a publish, API write, or other remote mutation that may have succeeded before a crash or timeout prevented local confirmation.
+
+### 技术点 / Technical points
+
+- 外部操作开始前，运行时会持久记录操作 ID、目标和 SHA-256 载荷指纹，并将结果标记为未知。
+  - Before an external action begins, the runtime durably records an operation ID, target, and SHA-256 payload fingerprint with an unknown outcome.
+- 未知结果会阻止恢复与修订，直到远端回读后由 fast_reconcile_external 将操作标记为已确认，或标记失败以进行受控重试。
+  - An unknown outcome blocks resume and revise until remote read-back lets fast_reconcile_external mark the operation confirmed or failed for a controlled retry.
+- 该协调状态与持久检查点、工作区漂移检测、操作员暂停、中断消息和紧急进程终止相结合。
+  - The reconciliation state integrates with durable checkpoints, workspace-drift detection, operator pause, interrupt messages, and emergency process termination.
+
+### 为什么重要 / Why it matters
+
+该协议处理了远端已提交但确认丢失的经典故障，避免可恢复智能体重复执行不可逆操作。
+
+The protocol addresses the classic committed-remotely-but-acknowledgment-lost failure that can make resumable agents duplicate irreversible actions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/tomaszteee/FastHands) · [Evidence 2](https://github.com/tomaszteee/FastHands/compare/v0.6.7...v0.6.8)
+[Discussion 1](https://www.reddit.com/r/LLMDevs/comments/1w0zv1v/i_built_a_local_execution_layer_for_ai_agents/)
+
+---
+
 <a id="2026-08-29-codex-cli-0151-governance"></a>
 ## [Codex CLI 0.151 强化 MCP 与沙箱治理](https://github.com/openai/codex/releases/tag/rust-v0.151.0)
 
@@ -77,6 +232,83 @@ The release turns recoverable agent operations into an extensible framework boun
 ### 链接 / Links
 
 [Evidence 1](https://github.com/pydantic/pydantic-ai/pull/6696) · [Evidence 2](https://github.com/pydantic/pydantic-ai/pull/6887) · [Evidence 3](https://github.com/pydantic/pydantic-ai/pull/7868) · [Evidence 4](https://github.com/pydantic/pydantic-ai/pull/1374)
+
+---
+
+<a id="2026-08-28-lemmalog-datalog-agent-memory"></a>
+## [Lemmalog 为智能体记忆引入可撤销的 Datalog 状态](https://pwning.systems/posts/llm-memory-program-analysis/)
+
+**English:** [Lemmalog brings retractable Datalog state to agent memory](https://pwning.systems/posts/llm-memory-program-analysis/)
+
+- **发布 / Published:** `2026-08-28T23:27:45Z`
+- **来源 / Source:** [pwning.systems](https://pwning.systems/posts/llm-memory-program-analysis/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `reasoning`, `datalog`, `mcp`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Lemmalog 将概率式抽取与确定性记忆维护分离：LLM 把代码、调试输出和自然语言观察转成结构化事实，Datalog 引擎则维护推导、撤销、时间有效性与来源追踪。8 月 28 日公开的项目包含 Rust 引擎、MCP 服务、智能体 Skill 和作者自行运行的记忆评测。
+
+Lemmalog separates probabilistic extraction from deterministic memory maintenance: an LLM converts code, debugger output, and natural-language observations into structured facts, while a Datalog engine maintains derivations, retractions, temporal validity, and provenance. The August 28 public release includes a Rust engine, an MCP server, an agent skill, and author-run memory evaluations.
+
+### 技术点 / Technical points
+
+- 该引擎支持增量求值、依赖感知撤销、时间事实、生成证明的 why 查询、聚合、实体消歧与混合检索。
+  - The engine supports incremental evaluation, dependency-aware retractions, temporal facts, proof-producing why queries, aggregation, entity reconciliation, and hybrid retrieval.
+- 其 MCP 接口允许智能体写入观察事实、安装带版本的规则、查询维护状态、检查来源、测试假设并持久化快照。
+  - Its MCP interface lets an agent observe facts, install versioned rules, query maintained state, inspect provenance, test hypotheticals, and persist snapshots.
+- 作者报告在 102 道 LongMemEval 问题上取得 0.463 ± 0.010 F1，每题上下文约 2700 tokens，并在 LoCoMo 上取得 0.533 ± 0.001 F1；这些结果尚未被独立复现。
+  - The author reports 0.463 ± 0.010 F1 on 102 LongMemEval questions with about 2,700 context tokens per question, plus 0.533 ± 0.001 F1 on LoCoMo; these results have not been independently replicated.
+
+### 为什么重要 / Why it matters
+
+它区分了检索相关历史与维护当前真值，使长期运行的智能体能够以可机械检查的方式使过期结论失效。
+
+It distinguishes retrieving relevant history from maintaining what is currently true, giving long-running agents a mechanically inspectable way to invalidate stale conclusions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/JordyZomer/lemmalog)
+[Discussion 1](https://news.ycombinator.com/item?id=49485416)
+
+---
+
+<a id="2026-08-28-conduct-agent-policy-control-plane"></a>
+## [Conduct 开源覆盖 LLM、Shell 与 MCP 操作的策略控制面](https://github.com/sseshachala/conductai)
+
+**English:** [Conduct opens a policy control plane for LLM, shell, and MCP actions](https://github.com/sseshachala/conductai)
+
+- **发布 / Published:** `2026-08-28T19:29:20Z`
+- **来源 / Source:** [Conduct on GitHub](https://github.com/sseshachala/conductai) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-governance`, `policy`, `mcp`, `tool-use`, `security`, `audit`, `open-source`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Conduct 公开展示了一个开源智能体治理控制面，可在 LLM 请求、shell 工具和 MCP 调用执行前统一应用阻止、警告、审计或注入策略。仓库包含 Guard 运行时、LLM 代理、CLI 钩子、合规包、Playbook 引擎和自托管部署文件。
+
+Conduct publicly showcased an open-source agent-governance control plane that applies the same block, warn, audit, or inject policy before LLM requests, shell tools, and MCP calls execute. Its repository includes the Guard runtime, an LLM proxy, a CLI hook, compliance packs, a playbook engine, and self-hosted deployment files.
+
+### 技术点 / Technical points
+
+- Guard 在三个关口评估策略：编码智能体 CLI 钩子、MCP 层和兼容 OpenAI 接口的模型代理。
+  - Guard evaluates policy at three choke points: coding-agent CLI hooks, the MCP layer, and an OpenAI-compatible provider proxy.
+- 生效的工作区策略会被签名并在执行前验证，决策追加到 SHA-256 哈希链，策略无效或不可用时默认拒绝执行。
+  - Active workspace policies are signed and verified before enforcement, decisions append to a SHA-256 hash chain, and invalid or unavailable policy defaults to fail closed.
+- 仓库随 FastAPI 控制面与 Next.js 管理界面提供 20 多个合规包和 22 个 YAML Playbook。
+  - The repository ships more than 20 compliance packs and 22 YAML playbooks alongside the FastAPI control plane and Next.js management interface.
+
+### 为什么重要 / Why it matters
+
+统一的执行前策略点比事后可观测性更直接地约束会产生真实副作用的智能体，不过其安全性质尚未经过独立审计。
+
+A common pre-execution policy point can constrain agents with real side effects more directly than post-hoc observability, although the security properties have not been independently audited.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49483173)
 
 ---
 

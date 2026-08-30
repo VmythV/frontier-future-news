@@ -2,6 +2,221 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-30-podiom-durable-local-agent-workspace",
+      "published_at": "2026-08-30T13:08:34Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-runtime",
+        "coding-agent",
+        "session-management",
+        "durable-execution",
+        "multi-agent",
+        "scheduling",
+        "open-source"
+      ],
+      "title_en": "Podiom launches a durable local workspace for Claude Code and Codex",
+      "title_zh": "Podiom 发布面向 Claude Code 与 Codex 的持久本地工作区",
+      "summary_en": "Podiom publicly launched a local-first workspace above the native Claude Code and Codex CLIs. It keeps named agent identities, canonical session history, projects, schedules, roadmap tasks, and long-lived goals together while retaining each provider's own tools, skills, authentication, and runtime behavior.",
+      "summary_zh": "Podiom 公开发布了构建在原生 Claude Code 与 Codex CLI 之上的本地优先工作区。它集中保存具名智能体身份、规范会话历史、项目、定时任务、路线图任务与长期目标，同时保留各提供商自身的工具、Skill、认证和运行时行为。",
+      "tech_points_en": [
+        "Sessions retain a canonical history that can be replayed into a fresh backing CLI session after a provider or profile switch.",
+        "A goal gives one lead agent an outcome to decompose into roadmap tasks and schedules while recording progress, evidence, metric changes, access requests, and human action items.",
+        "Goal-linked planning, tasks, and schedules deliberately run with full access and no per-action prompt; Podiom discloses this posture and records parsed tool activity on the goal timeline."
+      ],
+      "tech_points_zh": [
+        "会话保留规范历史，在切换提供商或配置后可将其重放到新的底层 CLI 会话。",
+        "Goal 把一个结果交给牵头智能体，由其拆分路线图任务与定时任务，并记录进展、证据、指标变化、访问请求和需要人类完成的事项。",
+        "Goal 关联的规划、任务和定时运行会刻意采用完整权限且不逐操作询问；Podiom 明示这一权限姿态，并在 Goal 时间线上记录解析出的工具活动。"
+      ],
+      "why_it_matters_en": "The project turns disposable coding-agent terminals into a reviewable long-running workspace, while making the elevated risk of autonomous goal execution explicit.",
+      "why_it_matters_zh": "该项目把一次性编码智能体终端转变为可审查的长期工作区，同时明确揭示自主 Goal 执行带来的更高风险。",
+      "source": {
+        "name": "Podiom on GitHub",
+        "type": "primary",
+        "url": "https://github.com/Podiom/Podiom",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49498323"
+      ],
+      "evidence_urls": [
+        "https://github.com/Podiom/Podiom/blob/master/docs/security.md"
+      ],
+      "confidence": "high",
+      "score": 75,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 21,
+        "novelty": 13,
+        "technical_depth": 12,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-08-30-agno-302-mcp-safety",
+      "published_at": "2026-08-30T08:01:42Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-framework",
+        "mcp",
+        "tool-use",
+        "workflow",
+        "security",
+        "open-source"
+      ],
+      "title_en": "Agno 3.0.2 expands MCP components and agent safety boundaries",
+      "title_zh": "Agno 3.0.2 扩展 MCP 组件并加固智能体安全边界",
+      "summary_en": "Agno 3.0.2 can publish agents, teams, workflows, remote proxies, factories, and toolkits as named MCP tools while preserving continue and cancel controls for paused confirmation runs. The release also closes an IPython shell-escape path, protects credentials and approval cards, and fixes streaming workflow failures that were incorrectly reported as successful.",
+      "summary_zh": "Agno 3.0.2 可将 Agent、Team、Workflow、远程代理、工厂和 Toolkit 发布为具名 MCP 工具，并为暂停的确认流程保留继续与取消入口。该版本还封堵了 IPython shell 逃逸路径，加强凭证与审批卡片保护，并修复流式工作流失败被误报为成功的问题。",
+      "tech_points_en": [
+        "MCPConfig can expose components and toolkit methods as separate named tools, including continuation and cancellation tools needed by paused runs.",
+        "ToolResult values are rendered as MCP text, image, audio, embedded-resource, or resource-link content blocks, and tools can publish titles and behavior annotations.",
+        "The release removes lazy and live IPython bash magics when shell access is disabled, keeps Git personal access tokens off disk, escapes model-produced Slack approval arguments, and routes streaming executor errors through normal failure and retry handling."
+      ],
+      "tech_points_zh": [
+        "MCPConfig 可把组件和 Toolkit 方法分别公开为具名工具，并包含暂停运行所需的继续与取消工具。",
+        "ToolResult 会被渲染为 MCP 文本、图像、音频、嵌入资源或资源链接内容块，工具也可发布标题与行为注解。",
+        "该版本会在禁用 shell 时同时移除 IPython 的延迟与已加载 bash magic，使 Git 个人访问令牌不落盘，转义模型生成的 Slack 审批参数，并让流式执行器错误进入正常的失败与重试流程。"
+      ],
+      "why_it_matters_en": "The release improves MCP composability while repairing permission and execution-state failures that become consequential when agent components run unattended.",
+      "why_it_matters_zh": "该版本在提升 MCP 可组合性的同时，修复了智能体组件无人值守运行时影响尤为显著的权限与执行状态缺陷。",
+      "source": {
+        "name": "Agno on GitHub",
+        "type": "primary",
+        "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.2",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/agno-agi/agno/pull/9819",
+        "https://github.com/agno-agi/agno/pull/9104",
+        "https://github.com/agno-agi/agno/pull/9138"
+      ],
+      "confidence": "high",
+      "score": 92,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 15,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-30-agentgate-signed-action-receipts",
+      "published_at": "2026-08-30T07:00:55Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-governance",
+        "authorization",
+        "tool-use",
+        "security",
+        "audit",
+        "open-source"
+      ],
+      "title_en": "AgentGate launches delegated SaaS actions with signed receipts",
+      "title_zh": "AgentGate 发布带签名收据的 SaaS 委托操作网关",
+      "summary_en": "AgentGate publicly launched a gateway through which agents can call GitHub, Slack, Google Workspace, and other SaaS APIs on a user's behalf without receiving the underlying OAuth tokens. Every authenticated action attempt creates a signed, hash-chained receipt that a separate command-line verifier can inspect offline.",
+      "summary_zh": "AgentGate 公开发布了一个网关，使智能体无需取得底层 OAuth token，即可代表用户调用 GitHub、Slack、Google Workspace 等 SaaS API。每次经过认证的操作尝试都会生成带签名、组成哈希链的收据，可由独立命令行验证器离线检查。",
+      "tech_points_en": [
+        "Agent API keys are scoped by service and user, while OAuth and bearer tokens remain in an AES-256-GCM encrypted vault behind the proxy.",
+        "Each authenticated attempt, including a rejected one, commits an Ed25519-signed receipt into a gap-free hash chain before the response is returned.",
+        "The standalone verifier reads a local SQLite ledger and pinned trust root without contacting the gateway; an expected sequence and head hash can additionally test completeness."
+      ],
+      "tech_points_zh": [
+        "智能体 API key 按服务和用户限定权限，OAuth 与 bearer token 则保存在代理后方采用 AES-256-GCM 加密的凭证库中。",
+        "每次经过认证的尝试，包括被拒绝的尝试，都会在返回响应前向无间隙哈希链写入一条 Ed25519 签名收据。",
+        "独立验证器无需联系网关即可读取本地 SQLite 账本和固定信任根；还可通过预期序号与头哈希检查完整性。"
+      ],
+      "why_it_matters_en": "It demonstrates a delegated-access pattern in which agents do not hold long-lived user credentials and auditors do not need the running gateway's private key, although the security guarantees remain project-reported.",
+      "why_it_matters_zh": "它展示了一种委托访问模式：智能体不持有用户长期凭证，审计方也不需要运行中网关的私钥，不过相关安全保证仍主要来自项目自身说明。",
+      "source": {
+        "name": "AgentGate on GitHub",
+        "type": "primary",
+        "url": "https://github.com/Clawdlinux/agentgate",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49496333"
+      ],
+      "evidence_urls": [
+        "https://github.com/Clawdlinux/agentgate/releases/tag/v0.1.3"
+      ],
+      "confidence": "medium",
+      "score": 73,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 21,
+        "novelty": 13,
+        "technical_depth": 11,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-08-29-fast-hands-external-reconciliation",
+      "published_at": "2026-08-29T12:40:55Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-runtime",
+        "mcp",
+        "durable-execution",
+        "human-in-the-loop",
+        "computer-use",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "Fast Hands 0.6.8 reconciles uncertain external side effects",
+      "title_zh": "Fast Hands 0.6.8 协调不确定的外部副作用",
+      "summary_en": "Fast Hands 0.6.8 adds an external-effect reconciliation protocol to its local MCP execution layer. An agent can checkpoint shell or UI workflows without automatically replaying a publish, API write, or other remote mutation that may have succeeded before a crash or timeout prevented local confirmation.",
+      "summary_zh": "Fast Hands 0.6.8 为其本地 MCP 执行层增加外部副作用协调协议。智能体可以为 shell 或 UI 工作流设置检查点，同时避免在崩溃或超时导致本地确认丢失后，自动重放可能已成功的发布、API 写入或其他远端变更。",
+      "tech_points_en": [
+        "Before an external action begins, the runtime durably records an operation ID, target, and SHA-256 payload fingerprint with an unknown outcome.",
+        "An unknown outcome blocks resume and revise until remote read-back lets fast_reconcile_external mark the operation confirmed or failed for a controlled retry.",
+        "The reconciliation state integrates with durable checkpoints, workspace-drift detection, operator pause, interrupt messages, and emergency process termination."
+      ],
+      "tech_points_zh": [
+        "外部操作开始前，运行时会持久记录操作 ID、目标和 SHA-256 载荷指纹，并将结果标记为未知。",
+        "未知结果会阻止恢复与修订，直到远端回读后由 fast_reconcile_external 将操作标记为已确认，或标记失败以进行受控重试。",
+        "该协调状态与持久检查点、工作区漂移检测、操作员暂停、中断消息和紧急进程终止相结合。"
+      ],
+      "why_it_matters_en": "The protocol addresses the classic committed-remotely-but-acknowledgment-lost failure that can make resumable agents duplicate irreversible actions.",
+      "why_it_matters_zh": "该协议处理了远端已提交但确认丢失的经典故障，避免可恢复智能体重复执行不可逆操作。",
+      "source": {
+        "name": "Fast Hands on GitHub",
+        "type": "primary",
+        "url": "https://github.com/tomaszteee/FastHands/releases/tag/v0.6.8",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/LLMDevs/comments/1w0zv1v/i_built_a_local_execution_layer_for_ai_agents/"
+      ],
+      "evidence_urls": [
+        "https://github.com/tomaszteee/FastHands",
+        "https://github.com/tomaszteee/FastHands/compare/v0.6.7...v0.6.8"
+      ],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 22,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
       "id": "2026-08-29-codex-cli-0151-governance",
       "published_at": "2026-08-29T09:55:39Z",
       "collected_at": "2026-08-30T02:55:52Z",
@@ -108,6 +323,111 @@
         "novelty": 11,
         "technical_depth": 11,
         "traction": 4
+      }
+    },
+    {
+      "id": "2026-08-28-lemmalog-datalog-agent-memory",
+      "published_at": "2026-08-28T23:27:45Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "reasoning",
+        "datalog",
+        "mcp",
+        "benchmark",
+        "open-source"
+      ],
+      "title_en": "Lemmalog brings retractable Datalog state to agent memory",
+      "title_zh": "Lemmalog 为智能体记忆引入可撤销的 Datalog 状态",
+      "summary_en": "Lemmalog separates probabilistic extraction from deterministic memory maintenance: an LLM converts code, debugger output, and natural-language observations into structured facts, while a Datalog engine maintains derivations, retractions, temporal validity, and provenance. The August 28 public release includes a Rust engine, an MCP server, an agent skill, and author-run memory evaluations.",
+      "summary_zh": "Lemmalog 将概率式抽取与确定性记忆维护分离：LLM 把代码、调试输出和自然语言观察转成结构化事实，Datalog 引擎则维护推导、撤销、时间有效性与来源追踪。8 月 28 日公开的项目包含 Rust 引擎、MCP 服务、智能体 Skill 和作者自行运行的记忆评测。",
+      "tech_points_en": [
+        "The engine supports incremental evaluation, dependency-aware retractions, temporal facts, proof-producing why queries, aggregation, entity reconciliation, and hybrid retrieval.",
+        "Its MCP interface lets an agent observe facts, install versioned rules, query maintained state, inspect provenance, test hypotheticals, and persist snapshots.",
+        "The author reports 0.463 ± 0.010 F1 on 102 LongMemEval questions with about 2,700 context tokens per question, plus 0.533 ± 0.001 F1 on LoCoMo; these results have not been independently replicated."
+      ],
+      "tech_points_zh": [
+        "该引擎支持增量求值、依赖感知撤销、时间事实、生成证明的 why 查询、聚合、实体消歧与混合检索。",
+        "其 MCP 接口允许智能体写入观察事实、安装带版本的规则、查询维护状态、检查来源、测试假设并持久化快照。",
+        "作者报告在 102 道 LongMemEval 问题上取得 0.463 ± 0.010 F1，每题上下文约 2700 tokens，并在 LoCoMo 上取得 0.533 ± 0.001 F1；这些结果尚未被独立复现。"
+      ],
+      "why_it_matters_en": "It distinguishes retrieving relevant history from maintaining what is currently true, giving long-running agents a mechanically inspectable way to invalidate stale conclusions.",
+      "why_it_matters_zh": "它区分了检索相关历史与维护当前真值，使长期运行的智能体能够以可机械检查的方式使过期结论失效。",
+      "source": {
+        "name": "pwning.systems",
+        "type": "primary",
+        "url": "https://pwning.systems/posts/llm-memory-program-analysis/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49485416"
+      ],
+      "evidence_urls": [
+        "https://github.com/JordyZomer/lemmalog"
+      ],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 7
+      }
+    },
+    {
+      "id": "2026-08-28-conduct-agent-policy-control-plane",
+      "published_at": "2026-08-28T19:29:20Z",
+      "collected_at": "2026-08-30T15:21:21Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-governance",
+        "policy",
+        "mcp",
+        "tool-use",
+        "security",
+        "audit",
+        "open-source"
+      ],
+      "title_en": "Conduct opens a policy control plane for LLM, shell, and MCP actions",
+      "title_zh": "Conduct 开源覆盖 LLM、Shell 与 MCP 操作的策略控制面",
+      "summary_en": "Conduct publicly showcased an open-source agent-governance control plane that applies the same block, warn, audit, or inject policy before LLM requests, shell tools, and MCP calls execute. Its repository includes the Guard runtime, an LLM proxy, a CLI hook, compliance packs, a playbook engine, and self-hosted deployment files.",
+      "summary_zh": "Conduct 公开展示了一个开源智能体治理控制面，可在 LLM 请求、shell 工具和 MCP 调用执行前统一应用阻止、警告、审计或注入策略。仓库包含 Guard 运行时、LLM 代理、CLI 钩子、合规包、Playbook 引擎和自托管部署文件。",
+      "tech_points_en": [
+        "Guard evaluates policy at three choke points: coding-agent CLI hooks, the MCP layer, and an OpenAI-compatible provider proxy.",
+        "Active workspace policies are signed and verified before enforcement, decisions append to a SHA-256 hash chain, and invalid or unavailable policy defaults to fail closed.",
+        "The repository ships more than 20 compliance packs and 22 YAML playbooks alongside the FastAPI control plane and Next.js management interface."
+      ],
+      "tech_points_zh": [
+        "Guard 在三个关口评估策略：编码智能体 CLI 钩子、MCP 层和兼容 OpenAI 接口的模型代理。",
+        "生效的工作区策略会被签名并在执行前验证，决策追加到 SHA-256 哈希链，策略无效或不可用时默认拒绝执行。",
+        "仓库随 FastAPI 控制面与 Next.js 管理界面提供 20 多个合规包和 22 个 YAML Playbook。"
+      ],
+      "why_it_matters_en": "A common pre-execution policy point can constrain agents with real side effects more directly than post-hoc observability, although the security properties have not been independently audited.",
+      "why_it_matters_zh": "统一的执行前策略点比事后可观测性更直接地约束会产生真实副作用的智能体，不过其安全性质尚未经过独立审计。",
+      "source": {
+        "name": "Conduct on GitHub",
+        "type": "primary",
+        "url": "https://github.com/sseshachala/conductai",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49483173"
+      ],
+      "evidence_urls": [],
+      "confidence": "medium",
+      "score": 78,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 20,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 2
       }
     },
     {
