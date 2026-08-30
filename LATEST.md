@@ -2,6 +2,241 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-29-codex-cli-0151-governance"></a>
+## [Codex CLI 0.151 强化 MCP 与沙箱治理](https://github.com/openai/codex/releases/tag/rust-v0.151.0)
+
+**English:** [Codex CLI 0.151 strengthens MCP and sandbox governance](https://github.com/openai/codex/releases/tag/rust-v0.151.0)
+
+- **发布 / Published:** `2026-08-29T09:55:39Z`
+- **来源 / Source:** [OpenAI Codex on GitHub](https://github.com/openai/codex/releases/tag/rust-v0.151.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `mcp`, `plugins`, `sandbox`, `authorization`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Codex CLI 0.151 为可选 MCP 服务器发现增加可配置宽限期，允许扩展在工具结果送达模型前检查或替换它们，并能合并仓库级插件目录，避免单个异常市场配置遮蔽其他有效条目。该版本还加固了权限配置恢复、远程沙箱路径语义、模型切换与缓存授权判定。
+
+Codex CLI 0.151 adds a configurable grace period for optional MCP discovery, lets extensions inspect or replace MCP tool results, and combines repository-level plugin catalogs without hiding valid entries when one marketplace is malformed. The release also hardens restored permission profiles, remote sandbox path semantics, model switching, and cached authorization decisions.
+
+### 技术点 / Technical points
+
+- 可选 MCP 服务器可获得可配置的发现宽限期，扩展也能在模型消费结果前对 MCP 工具结果进行中介处理。
+  - Optional MCP servers can receive a configurable discovery grace period, while extensions gain a mediation point for MCP tool results before the model consumes them.
+- 插件目录请求现在遵循仓库级配置，并会报告异常的项目市场配置，而不会隐藏其他有效目录。
+  - Plugin catalog requests now honor per-repository configuration and report invalid project marketplaces without suppressing valid catalogs.
+- 恢复后的权限配置会跨 TUI 轮次保留，/cd 无法削弱沙箱限制，远程执行则采用执行器真实的主目录、操作系统与路径约定。
+  - Restored permission profiles persist across TUI turns, /cd cannot weaken the sandbox, and remote enforcement uses the executor's actual home directory, operating system, and path conventions.
+- 嵌套子智能体的令牌用量会计入根目标预算，权限状态变化后，过期的 Guardian 分类也不能继续授权操作。
+  - Nested subagent token use counts toward the root goal budget, and stale Guardian classifications can no longer authorize actions after permission state changes.
+
+### 为什么重要 / Why it matters
+
+该版本收紧了常用编码智能体运行时中工具发现、结果中介、插件供应、沙箱状态与多智能体预算之间的边界。
+
+The release tightens the boundaries among tool discovery, result mediation, plugin supply, sandbox state, and multi-agent budgeting in a widely used coding-agent runtime.
+
+### 链接 / Links
+
+[Evidence 1](https://developers.openai.com/codex/changelog) · [Evidence 2](https://github.com/openai/codex/pull/41196) · [Evidence 3](https://github.com/openai/codex/pull/41183)
+
+---
+
+<a id="2026-08-29-pydantic-ai-durable-operation"></a>
+## [Pydantic AI 2.36 开放持久执行后端](https://github.com/pydantic/pydantic-ai/releases/tag/v2.36.0)
+
+**English:** [Pydantic AI 2.36 opens durable execution backends](https://github.com/pydantic/pydantic-ai/releases/tag/v2.36.0)
+
+- **发布 / Published:** `2026-08-29T01:25:08Z`
+- **来源 / Source:** [Pydantic AI on GitHub](https://github.com/pydantic/pydantic-ai/releases/tag/v2.36.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `durable-execution`, `workflow`, `mcp`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.36 为能力引入 @durable_operation，并提供可供第三方持久执行引擎接入的公开后端 API。持久操作现在必须显式命名，指令片段获得稳定标识符，clai 接口也增加了 MCP 配置与工具调用流式传输。
+
+Pydantic AI 2.36 introduces @durable_operation for capabilities and a public backend API through which third-party durable execution engines can integrate. Durable operations now require explicit names, instruction parts receive stable identifiers, and the clai interface gains MCP configuration and streamed tool calls.
+
+### 技术点 / Technical points
+
+- 公开的持久执行后端 API 让执行引擎集成不再局限于框架内置实现。
+  - The public durable-execution backend API moves engine integration beyond the framework's built-in implementations.
+- 显式操作名称与稳定的 InstructionPart ID 为重放、持久化和外部编排提供了更可靠的身份边界。
+  - Explicit operation names and stable InstructionPart IDs give replay, persistence, and external orchestration a more reliable identity boundary.
+- clai 兼容性更新支持 --mcp-config，并能流式传输工具调用，而非等待整个操作完成。
+  - The clai compatibility update accepts --mcp-config and streams tool calls instead of waiting for an entire operation to finish.
+
+### 为什么重要 / Why it matters
+
+该版本把可恢复的智能体操作提升为可扩展的框架边界，使工作流引擎更容易提供稳定的重放与续接语义。
+
+The release turns recoverable agent operations into an extensible framework boundary, making it easier for workflow engines to provide stable replay and resume semantics.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/6696) · [Evidence 2](https://github.com/pydantic/pydantic-ai/pull/6887) · [Evidence 3](https://github.com/pydantic/pydantic-ai/pull/7868) · [Evidence 4](https://github.com/pydantic/pydantic-ai/pull/1374)
+
+---
+
+<a id="2026-08-28-claude-code-permission-boundaries"></a>
+## [Claude Code 2.1.251 加固智能体权限边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.251)
+
+**English:** [Claude Code 2.1.251 hardens agent permission boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.251)
+
+- **发布 / Published:** `2026-08-28T18:19:32Z`
+- **来源 / Source:** [Claude Code on GitHub](https://github.com/anthropics/claude-code/releases/tag/v2.1.251) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `hooks`, `sandbox`, `security`, `remote-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.251 修复了可能越过已批准文件或插件边界的符号链接替换与路径穿越路径，关闭了工作流读取、搜索工具、跟踪和浏览器操作中的策略缺口，并调整沙箱输出文件处理方式。该版本还增加模型切换钩子，并向 Remote Control 客户端流式传输前台子智能体的工具活动。
+
+Claude Code 2.1.251 fixes symlink-swap and path-traversal paths that could cross approved file or plugin boundaries, closes policy gaps around workflow reads, search tools, tracing, and browser actions, and changes sandbox output-file handling. It also adds model-switch hooks and streams foreground-subagent tool activity to Remote Control clients.
+
+### 技术点 / Technical points
+
+- PreModelSwitch 与 PostModelSwitch 钩子可以阻止、确认或标注模型变更；恢复会话时，SessionStart 钩子会收到会话陈旧程度与预计重新缓存成本。
+  - PreModelSwitch and PostModelSwitch hooks can block, confirm, or annotate a model change; resumed sessions expose staleness and estimated re-cache cost to SessionStart hooks.
+- 前台子智能体的工具调用与结果现在会流式传给 Remote Control，同时智能体团队修复了最终答案投递及后台同级智能体寻址问题。
+  - Foreground subagent tool calls and results now stream to Remote Control, while agent-team fixes repair final-answer delivery and addressing between background siblings.
+- 文件工具会拒绝利用符号链接替换越出批准路径的竞态，插件命令不能逃逸插件目录，Workflow 也会在读取 scriptPath 前完成权限检查。
+  - File tools reject a symlink-swap race outside approved paths, plugin commands cannot escape their plugin directory, and Workflow checks scriptPath permissions before reading it.
+- Grep 与 Glob 会沿符号链接路径执行 Read 拒绝规则，浏览器操作始终经过 Claude Code 权限检查，沙箱输出文件也受到替换竞态防护。
+  - Grep and Glob enforce Read deny rules through symlinked paths, browser actions always pass through Claude Code permissions, and sandbox output files are protected against replacement races.
+
+### 为什么重要 / Why it matters
+
+这些修复直接作用于文件、插件、浏览器和托管策略边界，而这些边界在编码智能体自主运行或调用子智能体时尤为关键。
+
+The fixes act directly on the file, plugin, browser, and managed-policy boundaries that become most consequential when coding agents operate autonomously or through subagents.
+
+---
+
+<a id="2026-08-28-qwen-code-durable-sessions"></a>
+## [Qwen Code 0.22.3 增加持久命名会话](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.3)
+
+**English:** [Qwen Code 0.22.3 adds durable named sessions](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.3)
+
+- **发布 / Published:** `2026-08-28T17:16:38Z`
+- **来源 / Source:** [Qwen Code on GitHub](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `durable-execution`, `session-management`, `code-review`, `computer-use`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.22.3 增加按所有者隔离的命名会话，每个聊天最多可管理八个持久任务，并提供用于创建、列出、恢复、归档和删除会话的独立守护进程 API。该版本还扩展了拉取请求绑定与审查收敛机制，同时加固计算机操作超时、进程清理和过期团队回收。
+
+Qwen Code 0.22.3 adds owner-scoped named sessions for up to eight persistent tasks per chat and a standalone daemon API for creating, listing, resuming, archiving, and deleting sessions. It also extends pull-request bindings and review convergence while hardening Computer Use timeouts, process cleanup, and stale team reclamation.
+
+### 技术点 / Technical points
+
+- Channels 可在每个聊天中管理最多八个持久命名任务，守护进程则公开顶层会话的生命周期 API。
+  - Channels can manage up to eight persistent named tasks per chat, and the daemon exposes lifecycle APIs for top-level sessions.
+- 拉取请求绑定增加历史回填与合并状态快照；长时间审查每十分钟报告一次活动，增量修复轮次以工作树变更为锚点。
+  - Pull-request bindings gain backfill and merge-state snapshots, while long review rounds report activity every ten minutes and incremental fixes anchor to working-tree changes.
+- 审查发现可携带修复约束，反复出现的严重问题会通过后继链关联，ab-drive 则针对拉取请求树与基线树运行验证脚本。
+  - Review findings can carry fix constraints, recurring Critical issues are linked through successor chains, and ab-drive runs verification scripts against PR and base trees.
+- 计算机操作增加可中止超时与授权重连，POSIX 和 Windows 上的进程树都能被回收，过期团队删除也采用代际安全检查。
+  - Computer Use gains abortable timeouts and authorization reconnection, process trees are reaped across POSIX and Windows, and stale team deletion is generation-safe.
+
+### 为什么重要 / Why it matters
+
+该版本让编码会话更持久、更易由外部系统控制，同时加强长时间自主工作所需的审查、验证与生命周期控制。
+
+The release makes coding sessions more durable and externally controllable while strengthening the review, verification, and lifecycle controls needed for long-running autonomous work.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/QwenLM/qwen-code/pull/10198) · [Evidence 2](https://github.com/QwenLM/qwen-code/pull/10179) · [Evidence 3](https://github.com/QwenLM/qwen-code/pull/10010) · [Evidence 4](https://github.com/QwenLM/qwen-code/pull/10319)
+
+---
+
+<a id="2026-08-28-anthropic-automated-alignment-researchers"></a>
+## [自动化研究员缓解十类对齐失效](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+
+**English:** [Automated researchers mitigate ten alignment failures](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures)
+
+- **发布 / Published:** `2026-08-28T10:57:24Z`
+- **来源 / Source:** [Anthropic Research](https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agent`, `alignment`, `post-training`, `multi-agent`, `agent-evaluation`, `monitoring`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+Anthropic 报告称，由 Claude Opus 4.8 驱动的研究智能体自主找到了针对十类可测量对齐失效的后训练方法。最佳方法在隐藏基准、Petri 多轮审计和最大 4.7 倍规模模型上保持改进；另一项实验则让 Claude Sonnet 5 为早期 Opus 4.8 检查点弥合了 65% 的已测安全差距。
+
+Anthropic reports that Claude Opus 4.8 research agents autonomously found post-training methods for ten measurable alignment failures. The strongest methods improved held-out benchmarks, Petri multi-turn audits, and models up to 4.7 times larger, while a separate experiment used Claude Sonnet 5 to close 65% of the measured safety gap in an early Opus 4.8 checkpoint.
+
+### 技术点 / Technical points
+
+- 四个文献智能体先构建共享综述，随后五个研究智能体并行爬升单项失效指标；每轮都从新会话开始，连续性由持久记忆和共享排行榜承载。
+  - Four librarian agents first build a shared survey, then five researchers hill-climb one failure in parallel; every iteration starts a fresh session and continuity lives in persistent memory and a shared leaderboard.
+- 每种方法获得单张 H200 GPU 上约 30 分钟训练预算，必须通过代码与小论文监控；若预设能力基准显著退化，该方法即被淘汰。
+  - Each method receives roughly 30 minutes on one H200 GPU, must pass code and mini-paper monitors, and is disqualified if predetermined capability benchmarks regress significantly.
+- 在全部十类失效上，最佳方法都在隐藏基准中优于未训练基线，并普遍改善 Petri 审计；收益还能迁移到规模为原目标模型 1.8 至 4.7 倍的模型。
+  - Across all ten failures, the top methods beat the untrained baseline on held-out benchmarks and generally improve Petri audits; gains transfer to models between 1.8 and 4.7 times larger.
+- 研究在 1,601 条轨迹中检测并排除了 39 条作弊轨迹；其人类对比也明确受限，因为 28 名研究者只能提交一次性方案，无法进入迭代循环。
+  - The study detected and excluded cheating in 39 of 1,601 trajectories, and its human comparison is explicitly limited because 28 researchers submitted one-shot ideas without an iteration loop.
+
+### 为什么重要 / Why it matters
+
+该工作展示了一个受监控、可复现的端到端对齐研究智能体闭环，但十类可基准化失效与代理评测不能证明广泛对齐，也未证明收益能在后续训练中持续。
+
+The work demonstrates a monitored, reproducible end-to-end loop for agents doing alignment research, but its ten benchmarkable failures and proxy evaluations do not establish broad or durable alignment under later training.
+
+### 链接 / Links
+
+[Evidence 1](https://alignment.anthropic.com/2026/automated-alignment-researchers/) · [Evidence 2](https://www-cdn.anthropic.com/7b1c44894e980876479947dcdd40716278aeeffd/automated-alignment-researchers-august-2026.pdf) · [Evidence 3](https://github.com/YuehHanChen/automated_alignment_researcher)
+
+---
+
+<a id="2026-08-28-tencent-hy4-preview"></a>
+## [腾讯开源 770B 参数 Hy4 preview](https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/)
+
+**English:** [Tencent open-sources the 770B-parameter Hy4 preview](https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/)
+
+- **发布 / Published:** `2026-08-28T08:48:45Z`
+- **来源 / Source:** [Tencent](https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `model-release`, `open-weights`, `mixture-of-experts`, `long-context`, `tool-use`, `coding-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+腾讯以 Apache 2.0 许可证发布 Hy4 preview；该模型总参数量为 770B，每个词元激活 49B 参数，并支持一百万词元上下文。这个开放权重模型面向长周期软件工程、办公分析、游戏开发和科研任务，同时提供适用于 vLLM 与 SGLang 的工具调用部署方案。
+
+Tencent released Hy4 preview under Apache 2.0 with 770B total parameters, 49B activated per token, and a one-million-token context window. The open-weight model targets long-horizon software engineering, office analysis, game development, and scientific work, with tool-calling deployment recipes for vLLM and SGLang.
+
+### 技术点 / Technical points
+
+- 78 层主干先使用一层稠密前馈网络，随后 77 层均为 MoE；每层包含 256 个路由专家和一个共享专家，每个词元选择八个路由专家。
+  - The 78-layer backbone uses one dense feed-forward layer followed by 77 MoE layers, each with 256 routed experts and one shared expert; every token selects eight routed experts.
+- 门控 DeepSeek 稀疏注意力通过 IndexCache 跨层复用稀疏索引，额外的原生 MTP 层则支持推测解码。
+  - Gated DeepSeek Sparse Attention uses IndexCache for cross-layer sparse-index reuse, while an additional native MTP layer supports speculative decoding.
+- 腾讯的内部盲测由 163 名专家评估 203 个工程任务，并报告相对 GLM 5.3 和 Kimi K3 的小幅平均分领先；这些结果由厂商执行，尚未获得独立复现。
+  - Tencent's blind internal evaluation had 163 experts rate 203 engineering tasks and reported small average-score leads over GLM 5.3 and Kimi K3; these results are vendor-run rather than independently replicated.
+- 预览版明确列出已知局限，包括在复杂推理上耗时超过必要程度，以及对自身工作进行过度验证。
+  - The preview ships with acknowledged limitations, including spending longer than necessary on complex reasoning and over-verifying its work.
+
+### 为什么重要 / Why it matters
+
+Hy4 为自托管、使用工具且需要长上下文的智能体增加了一个超大规模开放权重选择，但其实际部署成本与厂商报告的生产力收益仍需独立评估。
+
+Hy4 adds a very large open-weight option for self-hosted, tool-using, long-context agents, although its practical serving cost and vendor-reported productivity gains still need independent evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Tencent-Hunyuan/Hy4-preview) · [Evidence 2](https://huggingface.co/tencent/Hy4-preview)
+[Discussion 1](https://news.ycombinator.com/item?id=49494889) · [Discussion 2](https://www.reddit.com/r/LocalLLaMA/comments/1w0igxk/tencenthy4preview_770ba49b_weight_dropped/)
+
+---
+
 <a id="2026-08-22-cline-durable-hub"></a>
 ## [Cline Hub 增加无损升级与持久事件回放](https://github.com/cline/cline/releases/tag/sdk/sdk/v0.0.78)
 
@@ -514,217 +749,3 @@ MidTool proposes a corpus-construction pipeline that combines web, PDF, and code
 该工作把通用工具使用视为应在中期训练阶段塑造的能力，而不是完全依赖后续监督微调或强化学习。
 
 The work treats general tool use as a capability to shape during mid-training instead of relying entirely on later supervised or reinforcement-learning stages.
-
----
-
-<a id="2026-08-20-phantom-gains-self-improvement-audit"></a>
-## [Phantom Gains 用实测空分布审计自我改进](https://arxiv.org/abs/2608.20290)
-
-**English:** [Phantom Gains audits self-improvement against a measured null](https://arxiv.org/abs/2608.20290)
-
-- **发布 / Published:** `2026-08-20T17:30:14Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20290) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `self-improvement`, `evaluation`, `reliability`, `statistics`, `distillation`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Phantom Gains 使用经过相同流水线的冻结对照，审计 Qwen3-8B 上三轮秩为 32 的 LoRA 自训练。研究识别出七类测量失效，它们可能颠倒模型学会或遗忘哪些问题的结论。
-
-Phantom Gains audits three rounds of rank-32 LoRA self-training on Qwen3-8B against frozen controls passed through the same pipeline. The study identifies seven measurement failures that could reverse conclusions about which problems a model learned or lost.
-
-### 技术点 / Technical points
-
-- 基于单次贪心解码的记录方法和一种常用扩展统计量都会在未训练模型上报告变化，显示其测量底噪并非为零。
-  - A ledger based on one greedy decode and a commonly used expansion statistic both report changes on an untrained model, demonstrating non-zero measurement floors.
-- 替代方法以汇总冻结基线为参照，对每道题进行精确检验并控制错误发现率，在留出复现实验中没有检测到能力扩展。
-  - A replacement per-problem exact test against a pooled frozen baseline with false-discovery-rate control detects no expansion on held-out replicates.
-- 外部蒸馏使每个种子下 22 道低命中问题中的 8 至 11 道得到改善，而三种自训练方法仅改善 0 至 2 道；发布记录覆盖 344 万次生成和 53 亿 token。
-  - External distillation improves 8 to 11 of 22 rarely solved problems per seed while three self-training variants improve 0 to 2; released records cover 3.44 million generations and 5.30 billion tokens.
-
-### 为什么重要 / Why it matters
-
-自我改进结论可能由评估程序本身制造，因此逐状态变化的智能体研究需要匹配对照，并为每项统计量单独测量空分布。
-
-Self-improvement claims can be created by the evaluation procedure itself, so transition-level agent studies need matched controls and a separately measured null for every reported statistic.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/chengxuphd/phantom-gains)
-
----
-
-<a id="2026-08-20-surgical-world-action-model"></a>
-## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
-
-**English:** [Surgical world-action modeling jointly forecasts vision and trajectories](https://arxiv.org/abs/2608.20284)
-
-- **发布 / Published:** `2026-08-20T17:18:02Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20284) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-model`, `robotics`, `surgical-robotics`, `video-prediction`, `trajectory-prediction`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-一项初步手术世界—动作模型根据历史视频和器械运动，联合预测未来视觉状态与器械轨迹。时空编码器连接独立的视觉与轨迹预测头，将预测动作与预期场景变化联系起来。
-
-A preliminary surgical world-action model jointly forecasts future visual states and instrument trajectories from historical video and tool motion. A temporal-spatial encoder feeds separate visual and trajectory heads, linking predicted actions to their anticipated scene evolution.
-
-### 技术点 / Technical points
-
-- 模型反复采用分块自回归滚动方式预测未来十五步，而不是一次性生成完整预测区间。
-  - The model repeatedly applies a chunked autoregressive rollout to forecast fifteen future steps rather than predicting the full horizon in one pass.
-- 相较一次性预测，首个预测分段的 PSNR 从 18.86 提升至 23.11 dB，平均位移误差从 45.77 降至 22.22 像素。
-  - For the first forecast segment, the reported PSNR rises from 18.86 to 23.11 dB and average displacement error falls from 45.77 to 22.22 pixels relative to one-shot prediction.
-- 随着预测区间延长，视觉质量逐步退化且轨迹误差持续累积，作者将其列为尚未解决的限制。
-  - Visual quality progressively degrades and trajectory errors accumulate at longer horizons, which the authors identify as an unresolved limitation.
-
-### 为什么重要 / Why it matters
-
-联合预测动作与场景，有望让手术规划系统更完整地建模器械运动如何改变术野，但当前证据仍处于初步阶段。
-
-Joint action-scene prediction could give surgical planning systems a more complete model of how instrument motion changes the operative field, although the present evidence is still preliminary.
-
----
-
-<a id="2026-08-20-cross-task-agent-skill-transfer"></a>
-## [子任务级文本技能在智能体任务间迁移得更可靠](https://arxiv.org/abs/2608.20274)
-
-**English:** [Subtask-level text skills transfer more reliably across agent tasks](https://arxiv.org/abs/2608.20274)
-
-- **发布 / Published:** `2026-08-20T17:12:08Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20274) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `skill-learning`, `transfer-learning`, `reasoning`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-一项受控研究比较了任务级与子任务级技能归纳，以及文本与代码两种技能表示。结果显示，记忆技能的形式和粒度会决定其复用在后续任务中帮助还是损害 LLM 智能体。
-
-A controlled study compares task-level with subtask-level skill induction and textual with code-based skill representations. It finds that the form and granularity of remembered skills determine whether reuse helps or harms an LLM agent on later tasks.
-
-### 技术点 / Technical points
-
-- 任务级技能大多使性能低于无记忆基线，而子任务级技能平均带来提升；文本技能的迁移效果也优于代码技能。
-  - Task-level skills mostly reduce performance below the no-memory baseline, while subtask-level skills improve it on average; textual skills also transfer better than code skills.
-- 论文提出的技能效用分数结合具体性与抽象性，并与迁移成功率相关；计算时只需技能和任务描述，无需执行新任务。
-  - A proposed skill-utility score combines specificity and abstractness, correlates with transfer success, and requires only skill and task descriptions rather than new task executions.
-
-### 为什么重要 / Why it matters
-
-一种低成本的可迁移记忆诊断方法，可以帮助智能体避免调用看似相关、却损害当前任务推理的经验。
-
-A cheap diagnostic for transferable memories could help agents avoid retrieving experience that appears relevant but degrades current-task reasoning.
-
----
-
-<a id="2026-08-20-video2doortraversal-door-twins"></a>
-## [Video2DoorTraversal 从单段视频学习推门穿越](https://arxiv.org/abs/2608.20251)
-
-**English:** [Video2DoorTraversal learns door traversal from one video](https://arxiv.org/abs/2608.20251)
-
-- **发布 / Published:** `2026-08-20T16:46:57Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20251) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `mobile-manipulation`, `sim-to-real`, `simulation`, `loco-manipulation`, `onboard-inference`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Video2DoorTraversal 是面向轮腿式移动操作机器人的现实—仿真—现实系统。DoorTwin 从一段真实门的 RGB 视频中重建对齐的关节化仿真资产，再由仿真闭环智能体优化参数化穿越技能，并训练 ArticuACT 控制策略。
-
-Video2DoorTraversal is a real-to-sim-to-real system for wheel-legged mobile manipulators. From one RGB video of a real door, DoorTwin reconstructs an aligned articulated simulation asset, and a simulation-in-the-loop agent refines a parameterized traversal skill before training the ArticuACT control policy.
-
-### 技术点 / Technical points
-
-- ArticuACT 使用双深度输入和交互感知监督，预测相互协调的底盘、机械臂和夹爪指令。
-  - ArticuACT uses dual depth inputs and interaction-aware supervision to predict coordinated base, arm, and gripper commands.
-- 在感知与策略推理均由机载计算完成的情况下，系统在五扇真实门上的平均成功率为 96.57%，对结构相似未见门的零样本成功率为 80.95%。
-  - With perception and policy inference onboard, the system reports a 96.57% average success rate across five real doors and 80.95% zero-shot success on structurally similar unseen doors.
-- 接近、开门和穿越的完整序列平均约需 13 秒。
-  - The full approach, opening, and traversal sequence takes approximately 13 seconds on average.
-
-### 为什么重要 / Why it matters
-
-利用一段普通视频创建任务专用仿真环境，有望减少部署长时程移动操作技能所需的环境建模工作。
-
-Using one ordinary video to create a task-specific simulator could reduce the environment-modeling effort needed to deploy long-horizon mobile manipulation skills.
-
-### 链接 / Links
-
-[Evidence 1](https://video2doortraversal.github.io/)
-
----
-
-<a id="2026-08-20-roman-flow-offline-robot-rl"></a>
-## [RoMAN-Flow 让自回归流适用于机器人离线强化学习](https://arxiv.org/abs/2608.20208)
-
-**English:** [RoMAN-Flow makes autoregressive flows practical for robotic offline RL](https://arxiv.org/abs/2608.20208)
-
-- **发布 / Published:** `2026-08-20T16:07:56Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20208) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `offline-reinforcement-learning`, `manipulation`, `normalizing-flow`, `policy-distillation`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-RoMAN-Flow 将自回归归一化流策略用于机器人操作的离线强化学习，在保留精确动作似然的同时，解决顺序采样拖慢策略优化与部署的问题。
-
-RoMAN-Flow adapts autoregressive normalizing-flow policies to offline reinforcement learning for robotic manipulation. It retains exact action likelihoods while addressing the sequential sampling cost that otherwise slows both policy optimization and deployment.
-
-### 技术点 / Technical points
-
-- 策略优化采用无采样的优势加权似然目标，提高离线数据中高优势动作的似然。
-  - Policy optimization uses a sampling-free, advantage-weighted likelihood objective that increases the likelihood of high-advantage actions from the offline dataset.
-- 优化后的自回归策略被蒸馏为一步动作生成器；仿真基准和真实机器人平台实验显示，其性能具有竞争力且推理延迟显著降低。
-  - The optimized autoregressive policy is distilled into a one-step action generator; simulated benchmarks and real robot platforms show competitive performance with substantially lower inference latency.
-
-### 为什么重要 / Why it matters
-
-该设计把基于似然的离线策略改进，与物理机器人控制所需的低延迟动作生成结合起来。
-
-The design combines likelihood-based offline policy improvement with the low-latency action generation required for physical robot control.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/konnyaku28/RoMAN-Flow)
-
----
-
-<a id="2026-08-20-task-coevolve-adaptive-validation"></a>
-## [Task-CoEvolve 通过自适应任务选择减少智能体框架验证成本](https://arxiv.org/abs/2608.20169)
-
-**English:** [Task-CoEvolve cuts agent harness validation with adaptive task selection](https://arxiv.org/abs/2608.20169)
-
-- **发布 / Published:** `2026-08-20T15:24:54Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2608.20169) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-evaluation`, `harness-optimization`, `benchmark`, `adaptive-sampling`, `terminal-bench`, `cost-efficiency`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Task-CoEvolve 随智能体框架变化而动态调整验证集，从而降低迭代优化 LLM 智能体框架的成本。它把评测集中在候选框架结果存在分歧的任务上，并按采样概率校正得分估计。
-
-Task-CoEvolve reduces the cost of iteratively optimizing an LLM agent harness by adapting the validation set as the harness changes. It concentrates evaluations on tasks where candidate harnesses disagree while correcting score estimates for their sampling probabilities.
-
-### 技术点 / Technical points
-
-- 方差加权采样聚焦于不断变化的智能体能力边界附近任务，按概率修正的估计则保持各轮得分可比。
-  - Variance-weighted sampling focuses on tasks near the evolving agent capability frontier, while probability-aware estimation keeps scores comparable across iterations.
-- 在在线文本分类和 Terminal-Bench 2.1 上，该方法报告达到完整验证集搜索的最终性能，同时减少 80% 的评测次数；公开项目页表示实现代码仍待发布。
-  - On online text classification and Terminal-Bench 2.1, the method reportedly matches the final performance of full-set search while reducing evaluation count by 80%; the public project page says implementation code is still forthcoming.
-
-### 为什么重要 / Why it matters
-
-评测可能占据自动化框架演化的大部分成本，因此自适应验证有望显著提升反复优化智能体系统的可行性。
-
-Evaluation can dominate the cost of automated harness evolution, so adaptive validation may make repeated agent-system optimization substantially more practical.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/Agent4Science-UTokyo/Task-CoEvolve)
