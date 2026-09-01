@@ -2,6 +2,271 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-08-31-adk-go-23-context-compaction",
+      "published_at": "2026-08-31T14:44:57Z",
+      "collected_at": "2026-09-01T15:30:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-framework",
+        "context-management",
+        "long-running-agents",
+        "a2a",
+        "human-in-the-loop",
+        "security",
+        "open-source"
+      ],
+      "title_en": "Google ADK-Go 2.3 adds context compaction and safer agent delegation",
+      "title_zh": "Google ADK-Go 2.3 增加上下文压缩并强化智能体委派安全",
+      "summary_en": "Google released ADK-Go 2.3 with context compaction for completed and mid-invocation agent runs. The release carries compaction state in session events, preserves durable facts across repeated summarization, and also tightens tool-confirmation provenance and Agent2Agent delegation handling.",
+      "summary_zh": "Google 发布 ADK-Go 2.3，为已完成及执行中的智能体调用加入上下文压缩。该版本通过会话事件携带压缩状态，在反复摘要时保留持久事实，并收紧工具确认来源与 Agent2Agent 委派处理。",
+      "tech_points_en": [
+        "Completed invocations can be summarized as conversations grow, while an invocation can also be compacted after its prompt crosses a configured threshold.",
+        "Compaction is reachable from every serving surface, and durable facts are carried forward when an existing summary is summarized again.",
+        "The runtime rejects confirmations resumed from non-agent-authored events or conflicting requests and refuses unsafe peer-supplied transferToAgent metadata in A2A flows."
+      ],
+      "tech_points_zh": [
+        "会话增长时可摘要已完成的调用；当单次调用的提示超过配置阈值后，也可在执行过程中进行压缩。",
+        "所有服务入口都能使用压缩，并在已有摘要被再次摘要时继续保留持久事实。",
+        "运行时会拒绝从非智能体事件或冲突请求恢复的确认，并拒绝 A2A 流程中由对端提供的不安全 transferToAgent 元数据。"
+      ],
+      "why_it_matters_en": "The release gives long-running Go agents a first-class way to control context growth while strengthening the trust boundaries around resumption, confirmation, and cross-agent delegation.",
+      "why_it_matters_zh": "该版本让长期运行的 Go 智能体能以原生机制控制上下文增长，同时加固恢复、确认与跨智能体委派的信任边界。",
+      "source": {
+        "name": "Google ADK-Go on GitHub",
+        "type": "primary",
+        "url": "https://github.com/google/adk-go/releases/tag/v2.3.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/google/adk-go"
+      ],
+      "confidence": "high",
+      "score": 91,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-31-agentminder-runtime-governance",
+      "published_at": "2026-08-31T13:00:00Z",
+      "collected_at": "2026-09-01T15:30:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-governance",
+        "authorization",
+        "identity",
+        "tool-use",
+        "observability",
+        "security",
+        "enterprise"
+      ],
+      "title_en": "Broadcom launches AgentMinder for runtime agent governance",
+      "title_zh": "Broadcom 发布智能体运行时治理系统 AgentMinder",
+      "summary_en": "Broadcom made AgentMinder generally available as a control layer that gives AI agents enterprise identities and authorizes actions against their declared mission, permitted intents, approved tools, resources, and current risk context before those actions reach enterprise systems.",
+      "summary_zh": "Broadcom 正式发布 AgentMinder，将 AI 智能体作为企业身份管理，并在操作到达企业系统前，依据其声明任务、允许意图、获批工具、资源与当前风险上下文进行授权。",
+      "tech_points_en": [
+        "A cloud-native gateway authenticates each tool call and uses a dynamic policy engine to route it only to an authorized backend.",
+        "An OpenTelemetry-based observability layer records agent sessions and actions for audit, anomaly detection, and chain-of-custody analysis.",
+        "AuthZEN integration reuses existing policy enforcement points, and the product can run alongside models on premises, in private clouds, or on public-cloud Kubernetes platforms."
+      ],
+      "tech_points_zh": [
+        "云原生网关对每次工具调用进行认证，并通过动态策略引擎仅将其路由到获授权的后端。",
+        "基于 OpenTelemetry 的可观测层记录智能体会话与操作，用于审计、异常检测和责任链分析。",
+        "AuthZEN 集成可复用现有策略执行点，产品能够与模型并行部署在本地、私有云或公有云 Kubernetes 平台。"
+      ],
+      "why_it_matters_en": "AgentMinder moves enterprise agent controls beyond model prompts and static permissions toward per-action runtime authorization and auditable execution, although its performance and scale claims remain vendor-reported.",
+      "why_it_matters_zh": "AgentMinder 将企业智能体控制从模型提示与静态权限推进到逐操作运行时授权和可审计执行，不过其性能与规模数据仍来自厂商自身。",
+      "source": {
+        "name": "Broadcom",
+        "type": "primary",
+        "url": "https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://www.broadcom.com/products/identity/agentminder"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 23,
+        "novelty": 15,
+        "technical_depth": 12,
+        "traction": 6
+      }
+    },
+    {
+      "id": "2026-08-31-memoryfields-agent-memory-format",
+      "published_at": "2026-08-31T00:00:00Z",
+      "collected_at": "2026-09-01T15:30:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "file-format",
+        "retrieval",
+        "semantic-search",
+        "open-source"
+      ],
+      "title_en": "Memoryfields proposes a portable file format for agent memory",
+      "title_zh": "Memoryfields 提出可移植的智能体记忆文件格式",
+      "summary_en": "Memoryfields proposes storing agent-written memories as short Markdown pages with optional YAML metadata and an optional SQLite vector index inside a portable archive. The format is independent of a particular agent harness, transport, or embedding model and is accompanied by a specification, command-line tool, and agent skill.",
+      "summary_zh": "Memoryfields 提议把智能体撰写的记忆保存为短篇 Markdown 页面，并在可移植归档中附带可选 YAML 元数据和可选 SQLite 向量索引。该格式不依赖特定智能体框架、传输方式或嵌入模型，并提供规范、命令行工具和智能体 Skill。",
+      "tech_points_en": [
+        "A canonical memoryfield archive is a zip file containing prose-first Markdown pages and, when desired, a local semantic-search index.",
+        "The design recommends a soft limit of about 8 KB per page and retrieves relevant pages through one semantic search followed by parallel reads instead of serial graph traversal.",
+        "The specification leaves embedding functions and storage transports interchangeable, while warning that imported memories must be treated as untrusted context."
+      ],
+      "tech_points_zh": [
+        "规范的 memoryfield 归档是一个 zip 文件，包含以散文为主的 Markdown 页面，并可按需附带本地语义搜索索引。",
+        "该设计建议每页采用约 8 KB 的软上限，并通过一次语义搜索加并行读取来获取相关页面，而不是串行遍历知识图。",
+        "规范允许替换嵌入函数和存储传输方式，同时警告必须把导入的记忆视为不可信上下文。"
+      ],
+      "why_it_matters_en": "The project offers an inspectable, versionable, and harness-independent memory layer that agents can manipulate with ordinary file tools, though its efficiency claims have not yet been validated by a public benchmark.",
+      "why_it_matters_zh": "该项目提供了可检查、可版本化且独立于智能体框架的记忆层，智能体可用普通文件工具操作它，但其效率主张尚未经过公开基准验证。",
+      "source": {
+        "name": "Cal Paterson",
+        "type": "primary",
+        "url": "https://calpaterson.com/memoryfields.html",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49508317"
+      ],
+      "evidence_urls": [
+        "https://github.com/calpaterson/memoryfield-spec",
+        "https://github.com/calpaterson/memoryfield-tool",
+        "https://github.com/calpaterson/memoryfield-skill"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-30-agno-303-304-knowledge-management",
+      "published_at": "2026-08-30T22:40:41Z",
+      "collected_at": "2026-09-01T15:30:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-framework",
+        "memory",
+        "knowledge-base",
+        "retrieval",
+        "tool-use",
+        "human-in-the-loop",
+        "security",
+        "open-source"
+      ],
+      "title_en": "Agno 3.0.3 and 3.0.4 add managed knowledge ingestion and safer write tools",
+      "title_zh": "Agno 3.0.3 与 3.0.4 增加可管理知识摄取并强化写操作安全",
+      "summary_en": "Agno 3.0.3 introduced page-level website and file-level folder ingestion with digest-based refresh, isolated failures, stale-entry pruning, and agent-facing knowledge-management tools. Version 3.0.4 followed by making local-path ingestion opt-in and preserving mandatory confirmation for content removal.",
+      "summary_zh": "Agno 3.0.3 加入网页逐页和目录逐文件摄取，并支持基于摘要的增量刷新、故障隔离、失效条目清理及面向智能体的知识管理工具。随后发布的 3.0.4 将本地路径摄取改为显式启用，并确保删除内容始终需要确认。",
+      "tech_points_en": [
+        "Website and folder ingests create parent records with one child per page or file, allowing individual refreshes, failure reporting, pruning, and cascade deletion.",
+        "Digest comparison skips unchanged reads and embeddings, while incomplete sitemap discovery suppresses destructive pruning beyond the configured page cap.",
+        "KnowledgeManagementTools separates read and write operations; ingest_path now defaults off, and caller-supplied confirmation lists can no longer remove the built-in gate on remove_content."
+      ],
+      "tech_points_zh": [
+        "网站和目录摄取会创建父记录，并为每个页面或文件建立子记录，从而支持单独刷新、故障报告、清理和级联删除。",
+        "摘要比较会跳过未变化内容的读取与嵌入；当站点地图发现不完整时，还会抑制对配置页数上限之外内容的破坏性清理。",
+        "KnowledgeManagementTools 分离读取与写入操作；ingest_path 现在默认关闭，调用方提供的确认列表也不能再移除 remove_content 的内置确认门。"
+      ],
+      "why_it_matters_en": "The releases turn agent knowledge ingestion into a traceable content lifecycle while tightening the local-file and destructive-action boundaries exposed to autonomous tools.",
+      "why_it_matters_zh": "这组版本把智能体知识摄取转变为可追踪的内容生命周期，同时收紧向自主工具开放的本地文件与破坏性操作边界。",
+      "source": {
+        "name": "Agno on GitHub",
+        "type": "primary",
+        "url": "https://github.com/agno-agi/agno/releases/tag/v3.0.4",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/agno-agi/agno/releases/tag/v3.0.3"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 13,
+        "technical_depth": 14,
+        "traction": 8
+      }
+    },
+    {
+      "id": "2026-08-30-hflow-024-robotics-data",
+      "published_at": "2026-08-30T21:10:13Z",
+      "collected_at": "2026-09-01T15:30:15Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "dataset",
+        "data-pipeline",
+        "provenance",
+        "benchmark",
+        "open-source"
+      ],
+      "title_en": "HFlow 0.2.4 expands open robotics-data pipelines",
+      "title_zh": "HFlow 0.2.4 扩展开源机器人数据流水线",
+      "summary_en": "HFlow 0.2.4 adds first-class LeRobot Dataset v3 import, model-evaluation evidence, a DuckDB catalog interface, and an EgoSuite hand-evaluation example to its open MCAP-based pipeline for robotics and physical-AI training data.",
+      "summary_zh": "HFlow 0.2.4 为其面向机器人与物理 AI 训练数据、基于 MCAP 的开源流水线加入 LeRobot Dataset v3 原生导入、模型评估证据、DuckDB 目录界面和 EgoSuite 手部评估示例。",
+      "tech_points_en": [
+        "The LeRobot importer resolves a floating branch such as main to an immutable source commit and records that revision in episode provenance.",
+        "HFlow combines MCAP episodes, versioned Python processing steps, generated Airflow 3 DAGs, a Parquet catalog, and DuckDB queries for reproducible curation.",
+        "Quality checks store reusable measurements rather than hardcoded policy decisions, and the release adds first-class evidence from model evaluations."
+      ],
+      "tech_points_zh": [
+        "LeRobot 导入器会把 main 等浮动分支解析为不可变的源提交，并在 episode 来源记录中保存该修订。",
+        "HFlow 结合 MCAP episode、带版本的 Python 处理步骤、生成的 Airflow 3 DAG、Parquet 目录和 DuckDB 查询，实现可复现筛选。",
+        "质量检查保存可复用的测量结果，而不是写死策略判定；该版本还增加来自模型评估的原生证据。"
+      ],
+      "why_it_matters_en": "The release targets synchronization, quality evidence, versioning, and provenance—the data-engineering failures that can quietly undermine embodied-AI training before model optimization begins.",
+      "why_it_matters_zh": "该版本直接处理同步、质量证据、版本与来源问题；这些数据工程缺陷可能在模型优化开始前就悄然削弱具身 AI 训练。",
+      "source": {
+        "name": "HFlow on GitHub",
+        "type": "primary",
+        "url": "https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49510632"
+      ],
+      "evidence_urls": [
+        "https://github.com/Hebbian-Robotics/hflow",
+        "https://github.com/Hebbian-Robotics/hflow/blob/main/docs/ARCHITECTURE.md"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 5
+      }
+    },
+    {
       "id": "2026-08-30-podiom-durable-local-agent-workspace",
       "published_at": "2026-08-30T13:08:34Z",
       "collected_at": "2026-08-30T15:21:21Z",

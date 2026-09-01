@@ -2,6 +2,159 @@
 
 # Agents / 智能体
 
+<a id="2026-08-31-adk-go-23-context-compaction"></a>
+## [Google ADK-Go 2.3 增加上下文压缩并强化智能体委派安全](https://github.com/google/adk-go/releases/tag/v2.3.0)
+
+**English:** [Google ADK-Go 2.3 adds context compaction and safer agent delegation](https://github.com/google/adk-go/releases/tag/v2.3.0)
+
+- **发布 / Published:** `2026-08-31T14:44:57Z`
+- **来源 / Source:** [Google ADK-Go on GitHub](https://github.com/google/adk-go/releases/tag/v2.3.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `context-management`, `long-running-agents`, `a2a`, `human-in-the-loop`, `security`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Google 发布 ADK-Go 2.3，为已完成及执行中的智能体调用加入上下文压缩。该版本通过会话事件携带压缩状态，在反复摘要时保留持久事实，并收紧工具确认来源与 Agent2Agent 委派处理。
+
+Google released ADK-Go 2.3 with context compaction for completed and mid-invocation agent runs. The release carries compaction state in session events, preserves durable facts across repeated summarization, and also tightens tool-confirmation provenance and Agent2Agent delegation handling.
+
+### 技术点 / Technical points
+
+- 会话增长时可摘要已完成的调用；当单次调用的提示超过配置阈值后，也可在执行过程中进行压缩。
+  - Completed invocations can be summarized as conversations grow, while an invocation can also be compacted after its prompt crosses a configured threshold.
+- 所有服务入口都能使用压缩，并在已有摘要被再次摘要时继续保留持久事实。
+  - Compaction is reachable from every serving surface, and durable facts are carried forward when an existing summary is summarized again.
+- 运行时会拒绝从非智能体事件或冲突请求恢复的确认，并拒绝 A2A 流程中由对端提供的不安全 transferToAgent 元数据。
+  - The runtime rejects confirmations resumed from non-agent-authored events or conflicting requests and refuses unsafe peer-supplied transferToAgent metadata in A2A flows.
+
+### 为什么重要 / Why it matters
+
+该版本让长期运行的 Go 智能体能以原生机制控制上下文增长，同时加固恢复、确认与跨智能体委派的信任边界。
+
+The release gives long-running Go agents a first-class way to control context growth while strengthening the trust boundaries around resumption, confirmation, and cross-agent delegation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/google/adk-go)
+
+---
+
+<a id="2026-08-31-agentminder-runtime-governance"></a>
+## [Broadcom 发布智能体运行时治理系统 AgentMinder](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html)
+
+**English:** [Broadcom launches AgentMinder for runtime agent governance](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html)
+
+- **发布 / Published:** `2026-08-31T13:00:00Z`
+- **来源 / Source:** [Broadcom](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-governance`, `authorization`, `identity`, `tool-use`, `observability`, `security`, `enterprise`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Broadcom 正式发布 AgentMinder，将 AI 智能体作为企业身份管理，并在操作到达企业系统前，依据其声明任务、允许意图、获批工具、资源与当前风险上下文进行授权。
+
+Broadcom made AgentMinder generally available as a control layer that gives AI agents enterprise identities and authorizes actions against their declared mission, permitted intents, approved tools, resources, and current risk context before those actions reach enterprise systems.
+
+### 技术点 / Technical points
+
+- 云原生网关对每次工具调用进行认证，并通过动态策略引擎仅将其路由到获授权的后端。
+  - A cloud-native gateway authenticates each tool call and uses a dynamic policy engine to route it only to an authorized backend.
+- 基于 OpenTelemetry 的可观测层记录智能体会话与操作，用于审计、异常检测和责任链分析。
+  - An OpenTelemetry-based observability layer records agent sessions and actions for audit, anomaly detection, and chain-of-custody analysis.
+- AuthZEN 集成可复用现有策略执行点，产品能够与模型并行部署在本地、私有云或公有云 Kubernetes 平台。
+  - AuthZEN integration reuses existing policy enforcement points, and the product can run alongside models on premises, in private clouds, or on public-cloud Kubernetes platforms.
+
+### 为什么重要 / Why it matters
+
+AgentMinder 将企业智能体控制从模型提示与静态权限推进到逐操作运行时授权和可审计执行，不过其性能与规模数据仍来自厂商自身。
+
+AgentMinder moves enterprise agent controls beyond model prompts and static permissions toward per-action runtime authorization and auditable execution, although its performance and scale claims remain vendor-reported.
+
+### 链接 / Links
+
+[Evidence 1](https://www.broadcom.com/products/identity/agentminder)
+
+---
+
+<a id="2026-08-31-memoryfields-agent-memory-format"></a>
+## [Memoryfields 提出可移植的智能体记忆文件格式](https://calpaterson.com/memoryfields.html)
+
+**English:** [Memoryfields proposes a portable file format for agent memory](https://calpaterson.com/memoryfields.html)
+
+- **发布 / Published:** `2026-08-31T00:00:00Z`
+- **来源 / Source:** [Cal Paterson](https://calpaterson.com/memoryfields.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `file-format`, `retrieval`, `semantic-search`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Memoryfields 提议把智能体撰写的记忆保存为短篇 Markdown 页面，并在可移植归档中附带可选 YAML 元数据和可选 SQLite 向量索引。该格式不依赖特定智能体框架、传输方式或嵌入模型，并提供规范、命令行工具和智能体 Skill。
+
+Memoryfields proposes storing agent-written memories as short Markdown pages with optional YAML metadata and an optional SQLite vector index inside a portable archive. The format is independent of a particular agent harness, transport, or embedding model and is accompanied by a specification, command-line tool, and agent skill.
+
+### 技术点 / Technical points
+
+- 规范的 memoryfield 归档是一个 zip 文件，包含以散文为主的 Markdown 页面，并可按需附带本地语义搜索索引。
+  - A canonical memoryfield archive is a zip file containing prose-first Markdown pages and, when desired, a local semantic-search index.
+- 该设计建议每页采用约 8 KB 的软上限，并通过一次语义搜索加并行读取来获取相关页面，而不是串行遍历知识图。
+  - The design recommends a soft limit of about 8 KB per page and retrieves relevant pages through one semantic search followed by parallel reads instead of serial graph traversal.
+- 规范允许替换嵌入函数和存储传输方式，同时警告必须把导入的记忆视为不可信上下文。
+  - The specification leaves embedding functions and storage transports interchangeable, while warning that imported memories must be treated as untrusted context.
+
+### 为什么重要 / Why it matters
+
+该项目提供了可检查、可版本化且独立于智能体框架的记忆层，智能体可用普通文件工具操作它，但其效率主张尚未经过公开基准验证。
+
+The project offers an inspectable, versionable, and harness-independent memory layer that agents can manipulate with ordinary file tools, though its efficiency claims have not yet been validated by a public benchmark.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/calpaterson/memoryfield-spec) · [Evidence 2](https://github.com/calpaterson/memoryfield-tool) · [Evidence 3](https://github.com/calpaterson/memoryfield-skill)
+[Discussion 1](https://news.ycombinator.com/item?id=49508317)
+
+---
+
+<a id="2026-08-30-agno-303-304-knowledge-management"></a>
+## [Agno 3.0.3 与 3.0.4 增加可管理知识摄取并强化写操作安全](https://github.com/agno-agi/agno/releases/tag/v3.0.4)
+
+**English:** [Agno 3.0.3 and 3.0.4 add managed knowledge ingestion and safer write tools](https://github.com/agno-agi/agno/releases/tag/v3.0.4)
+
+- **发布 / Published:** `2026-08-30T22:40:41Z`
+- **来源 / Source:** [Agno on GitHub](https://github.com/agno-agi/agno/releases/tag/v3.0.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `memory`, `knowledge-base`, `retrieval`, `tool-use`, `human-in-the-loop`, `security`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Agno 3.0.3 加入网页逐页和目录逐文件摄取，并支持基于摘要的增量刷新、故障隔离、失效条目清理及面向智能体的知识管理工具。随后发布的 3.0.4 将本地路径摄取改为显式启用，并确保删除内容始终需要确认。
+
+Agno 3.0.3 introduced page-level website and file-level folder ingestion with digest-based refresh, isolated failures, stale-entry pruning, and agent-facing knowledge-management tools. Version 3.0.4 followed by making local-path ingestion opt-in and preserving mandatory confirmation for content removal.
+
+### 技术点 / Technical points
+
+- 网站和目录摄取会创建父记录，并为每个页面或文件建立子记录，从而支持单独刷新、故障报告、清理和级联删除。
+  - Website and folder ingests create parent records with one child per page or file, allowing individual refreshes, failure reporting, pruning, and cascade deletion.
+- 摘要比较会跳过未变化内容的读取与嵌入；当站点地图发现不完整时，还会抑制对配置页数上限之外内容的破坏性清理。
+  - Digest comparison skips unchanged reads and embeddings, while incomplete sitemap discovery suppresses destructive pruning beyond the configured page cap.
+- KnowledgeManagementTools 分离读取与写入操作；ingest_path 现在默认关闭，调用方提供的确认列表也不能再移除 remove_content 的内置确认门。
+  - KnowledgeManagementTools separates read and write operations; ingest_path now defaults off, and caller-supplied confirmation lists can no longer remove the built-in gate on remove_content.
+
+### 为什么重要 / Why it matters
+
+这组版本把智能体知识摄取转变为可追踪的内容生命周期，同时收紧向自主工具开放的本地文件与破坏性操作边界。
+
+The releases turn agent knowledge ingestion into a traceable content lifecycle while tightening the local-file and destructive-action boundaries exposed to autonomous tools.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/agno-agi/agno/releases/tag/v3.0.3)
+
+---
+
 <a id="2026-08-30-podiom-durable-local-agent-workspace"></a>
 ## [Podiom 发布面向 Claude Code 与 Codex 的持久本地工作区](https://github.com/Podiom/Podiom)
 

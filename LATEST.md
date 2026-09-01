@@ -2,6 +2,198 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-08-31-adk-go-23-context-compaction"></a>
+## [Google ADK-Go 2.3 增加上下文压缩并强化智能体委派安全](https://github.com/google/adk-go/releases/tag/v2.3.0)
+
+**English:** [Google ADK-Go 2.3 adds context compaction and safer agent delegation](https://github.com/google/adk-go/releases/tag/v2.3.0)
+
+- **发布 / Published:** `2026-08-31T14:44:57Z`
+- **来源 / Source:** [Google ADK-Go on GitHub](https://github.com/google/adk-go/releases/tag/v2.3.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `context-management`, `long-running-agents`, `a2a`, `human-in-the-loop`, `security`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Google 发布 ADK-Go 2.3，为已完成及执行中的智能体调用加入上下文压缩。该版本通过会话事件携带压缩状态，在反复摘要时保留持久事实，并收紧工具确认来源与 Agent2Agent 委派处理。
+
+Google released ADK-Go 2.3 with context compaction for completed and mid-invocation agent runs. The release carries compaction state in session events, preserves durable facts across repeated summarization, and also tightens tool-confirmation provenance and Agent2Agent delegation handling.
+
+### 技术点 / Technical points
+
+- 会话增长时可摘要已完成的调用；当单次调用的提示超过配置阈值后，也可在执行过程中进行压缩。
+  - Completed invocations can be summarized as conversations grow, while an invocation can also be compacted after its prompt crosses a configured threshold.
+- 所有服务入口都能使用压缩，并在已有摘要被再次摘要时继续保留持久事实。
+  - Compaction is reachable from every serving surface, and durable facts are carried forward when an existing summary is summarized again.
+- 运行时会拒绝从非智能体事件或冲突请求恢复的确认，并拒绝 A2A 流程中由对端提供的不安全 transferToAgent 元数据。
+  - The runtime rejects confirmations resumed from non-agent-authored events or conflicting requests and refuses unsafe peer-supplied transferToAgent metadata in A2A flows.
+
+### 为什么重要 / Why it matters
+
+该版本让长期运行的 Go 智能体能以原生机制控制上下文增长，同时加固恢复、确认与跨智能体委派的信任边界。
+
+The release gives long-running Go agents a first-class way to control context growth while strengthening the trust boundaries around resumption, confirmation, and cross-agent delegation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/google/adk-go)
+
+---
+
+<a id="2026-08-31-agentminder-runtime-governance"></a>
+## [Broadcom 发布智能体运行时治理系统 AgentMinder](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html)
+
+**English:** [Broadcom launches AgentMinder for runtime agent governance](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html)
+
+- **发布 / Published:** `2026-08-31T13:00:00Z`
+- **来源 / Source:** [Broadcom](https://www.globenewswire.com/news-release/2026/08/31/3353342/19933/en/broadcom-unveils-agentminder-an-enterprise-solution-for-ai-agent-governance-and-runtime-control.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-governance`, `authorization`, `identity`, `tool-use`, `observability`, `security`, `enterprise`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Broadcom 正式发布 AgentMinder，将 AI 智能体作为企业身份管理，并在操作到达企业系统前，依据其声明任务、允许意图、获批工具、资源与当前风险上下文进行授权。
+
+Broadcom made AgentMinder generally available as a control layer that gives AI agents enterprise identities and authorizes actions against their declared mission, permitted intents, approved tools, resources, and current risk context before those actions reach enterprise systems.
+
+### 技术点 / Technical points
+
+- 云原生网关对每次工具调用进行认证，并通过动态策略引擎仅将其路由到获授权的后端。
+  - A cloud-native gateway authenticates each tool call and uses a dynamic policy engine to route it only to an authorized backend.
+- 基于 OpenTelemetry 的可观测层记录智能体会话与操作，用于审计、异常检测和责任链分析。
+  - An OpenTelemetry-based observability layer records agent sessions and actions for audit, anomaly detection, and chain-of-custody analysis.
+- AuthZEN 集成可复用现有策略执行点，产品能够与模型并行部署在本地、私有云或公有云 Kubernetes 平台。
+  - AuthZEN integration reuses existing policy enforcement points, and the product can run alongside models on premises, in private clouds, or on public-cloud Kubernetes platforms.
+
+### 为什么重要 / Why it matters
+
+AgentMinder 将企业智能体控制从模型提示与静态权限推进到逐操作运行时授权和可审计执行，不过其性能与规模数据仍来自厂商自身。
+
+AgentMinder moves enterprise agent controls beyond model prompts and static permissions toward per-action runtime authorization and auditable execution, although its performance and scale claims remain vendor-reported.
+
+### 链接 / Links
+
+[Evidence 1](https://www.broadcom.com/products/identity/agentminder)
+
+---
+
+<a id="2026-08-31-memoryfields-agent-memory-format"></a>
+## [Memoryfields 提出可移植的智能体记忆文件格式](https://calpaterson.com/memoryfields.html)
+
+**English:** [Memoryfields proposes a portable file format for agent memory](https://calpaterson.com/memoryfields.html)
+
+- **发布 / Published:** `2026-08-31T00:00:00Z`
+- **来源 / Source:** [Cal Paterson](https://calpaterson.com/memoryfields.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `file-format`, `retrieval`, `semantic-search`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Memoryfields 提议把智能体撰写的记忆保存为短篇 Markdown 页面，并在可移植归档中附带可选 YAML 元数据和可选 SQLite 向量索引。该格式不依赖特定智能体框架、传输方式或嵌入模型，并提供规范、命令行工具和智能体 Skill。
+
+Memoryfields proposes storing agent-written memories as short Markdown pages with optional YAML metadata and an optional SQLite vector index inside a portable archive. The format is independent of a particular agent harness, transport, or embedding model and is accompanied by a specification, command-line tool, and agent skill.
+
+### 技术点 / Technical points
+
+- 规范的 memoryfield 归档是一个 zip 文件，包含以散文为主的 Markdown 页面，并可按需附带本地语义搜索索引。
+  - A canonical memoryfield archive is a zip file containing prose-first Markdown pages and, when desired, a local semantic-search index.
+- 该设计建议每页采用约 8 KB 的软上限，并通过一次语义搜索加并行读取来获取相关页面，而不是串行遍历知识图。
+  - The design recommends a soft limit of about 8 KB per page and retrieves relevant pages through one semantic search followed by parallel reads instead of serial graph traversal.
+- 规范允许替换嵌入函数和存储传输方式，同时警告必须把导入的记忆视为不可信上下文。
+  - The specification leaves embedding functions and storage transports interchangeable, while warning that imported memories must be treated as untrusted context.
+
+### 为什么重要 / Why it matters
+
+该项目提供了可检查、可版本化且独立于智能体框架的记忆层，智能体可用普通文件工具操作它，但其效率主张尚未经过公开基准验证。
+
+The project offers an inspectable, versionable, and harness-independent memory layer that agents can manipulate with ordinary file tools, though its efficiency claims have not yet been validated by a public benchmark.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/calpaterson/memoryfield-spec) · [Evidence 2](https://github.com/calpaterson/memoryfield-tool) · [Evidence 3](https://github.com/calpaterson/memoryfield-skill)
+[Discussion 1](https://news.ycombinator.com/item?id=49508317)
+
+---
+
+<a id="2026-08-30-agno-303-304-knowledge-management"></a>
+## [Agno 3.0.3 与 3.0.4 增加可管理知识摄取并强化写操作安全](https://github.com/agno-agi/agno/releases/tag/v3.0.4)
+
+**English:** [Agno 3.0.3 and 3.0.4 add managed knowledge ingestion and safer write tools](https://github.com/agno-agi/agno/releases/tag/v3.0.4)
+
+- **发布 / Published:** `2026-08-30T22:40:41Z`
+- **来源 / Source:** [Agno on GitHub](https://github.com/agno-agi/agno/releases/tag/v3.0.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `memory`, `knowledge-base`, `retrieval`, `tool-use`, `human-in-the-loop`, `security`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Agno 3.0.3 加入网页逐页和目录逐文件摄取，并支持基于摘要的增量刷新、故障隔离、失效条目清理及面向智能体的知识管理工具。随后发布的 3.0.4 将本地路径摄取改为显式启用，并确保删除内容始终需要确认。
+
+Agno 3.0.3 introduced page-level website and file-level folder ingestion with digest-based refresh, isolated failures, stale-entry pruning, and agent-facing knowledge-management tools. Version 3.0.4 followed by making local-path ingestion opt-in and preserving mandatory confirmation for content removal.
+
+### 技术点 / Technical points
+
+- 网站和目录摄取会创建父记录，并为每个页面或文件建立子记录，从而支持单独刷新、故障报告、清理和级联删除。
+  - Website and folder ingests create parent records with one child per page or file, allowing individual refreshes, failure reporting, pruning, and cascade deletion.
+- 摘要比较会跳过未变化内容的读取与嵌入；当站点地图发现不完整时，还会抑制对配置页数上限之外内容的破坏性清理。
+  - Digest comparison skips unchanged reads and embeddings, while incomplete sitemap discovery suppresses destructive pruning beyond the configured page cap.
+- KnowledgeManagementTools 分离读取与写入操作；ingest_path 现在默认关闭，调用方提供的确认列表也不能再移除 remove_content 的内置确认门。
+  - KnowledgeManagementTools separates read and write operations; ingest_path now defaults off, and caller-supplied confirmation lists can no longer remove the built-in gate on remove_content.
+
+### 为什么重要 / Why it matters
+
+这组版本把智能体知识摄取转变为可追踪的内容生命周期，同时收紧向自主工具开放的本地文件与破坏性操作边界。
+
+The releases turn agent knowledge ingestion into a traceable content lifecycle while tightening the local-file and destructive-action boundaries exposed to autonomous tools.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/agno-agi/agno/releases/tag/v3.0.3)
+
+---
+
+<a id="2026-08-30-hflow-024-robotics-data"></a>
+## [HFlow 0.2.4 扩展开源机器人数据流水线](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4)
+
+**English:** [HFlow 0.2.4 expands open robotics-data pipelines](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4)
+
+- **发布 / Published:** `2026-08-30T21:10:13Z`
+- **来源 / Source:** [HFlow on GitHub](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dataset`, `data-pipeline`, `provenance`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+HFlow 0.2.4 为其面向机器人与物理 AI 训练数据、基于 MCAP 的开源流水线加入 LeRobot Dataset v3 原生导入、模型评估证据、DuckDB 目录界面和 EgoSuite 手部评估示例。
+
+HFlow 0.2.4 adds first-class LeRobot Dataset v3 import, model-evaluation evidence, a DuckDB catalog interface, and an EgoSuite hand-evaluation example to its open MCAP-based pipeline for robotics and physical-AI training data.
+
+### 技术点 / Technical points
+
+- LeRobot 导入器会把 main 等浮动分支解析为不可变的源提交，并在 episode 来源记录中保存该修订。
+  - The LeRobot importer resolves a floating branch such as main to an immutable source commit and records that revision in episode provenance.
+- HFlow 结合 MCAP episode、带版本的 Python 处理步骤、生成的 Airflow 3 DAG、Parquet 目录和 DuckDB 查询，实现可复现筛选。
+  - HFlow combines MCAP episodes, versioned Python processing steps, generated Airflow 3 DAGs, a Parquet catalog, and DuckDB queries for reproducible curation.
+- 质量检查保存可复用的测量结果，而不是写死策略判定；该版本还增加来自模型评估的原生证据。
+  - Quality checks store reusable measurements rather than hardcoded policy decisions, and the release adds first-class evidence from model evaluations.
+
+### 为什么重要 / Why it matters
+
+该版本直接处理同步、质量证据、版本与来源问题；这些数据工程缺陷可能在模型优化开始前就悄然削弱具身 AI 训练。
+
+The release targets synchronization, quality evidence, versioning, and provenance—the data-engineering failures that can quietly undermine embodied-AI training before model optimization begins.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Hebbian-Robotics/hflow) · [Evidence 2](https://github.com/Hebbian-Robotics/hflow/blob/main/docs/ARCHITECTURE.md)
+[Discussion 1](https://news.ycombinator.com/item?id=49510632)
+
+---
+
 <a id="2026-08-30-podiom-durable-local-agent-workspace"></a>
 ## [Podiom 发布面向 Claude Code 与 Codex 的持久本地工作区](https://github.com/Podiom/Podiom)
 
@@ -577,192 +769,3 @@ The results indicate rapid progress in high-speed balance, actuation, and closed
 
 [Evidence 1](https://www.thepaper.cn/newsDetail_forward_33833753) · [Evidence 2](https://www.whrgoc.com/)
 [Discussion 1](https://www.reddit.com/r/robots/comments/1vvdf7b/humanoid_100m_sprint/)
-
----
-
-<a id="2026-08-22-qwen-code-022"></a>
-## [Qwen Code 0.22 强化审查收敛与沙箱安全](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
-
-**English:** [Qwen Code 0.22 strengthens review convergence and sandbox safety](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0)
-
-- **发布 / Published:** `2026-08-22T14:58:36Z`
-- **来源 / Source:** [Qwen Code on GitHub](https://github.com/QwenLM/qwen-code/releases/tag/v0.22.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `code-agent`, `code-review`, `autofix`, `sandbox`, `benchmark`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Qwen Code 0.22 会在审查循环无法收敛时给出明确原因，为代码审查设置专用子智能体类型，并让 Autofix 在方案超出增长预算时先审计而非立即停止。该版本还限制会话记录保留量、按摘要固定沙箱镜像、恢复会话续接后的人工提问，并公布了一次带失败项明细的厂商自测 SWE-bench Verified 结果。
-
-Qwen Code 0.22 adds explicit explanations when review loops do not converge, gives reviews a dedicated subagent type, and changes Autofix to audit an oversized approach instead of stopping immediately. The release also bounds transcript retention, pins sandbox images by digest, restores human questions after session resume, and reports a vendor-run SWE-bench Verified result with its failure accounting exposed.
-
-### 技术点 / Technical points
-
-- 审查观察结果增加机器可读的收敛代码，专用审查子智能体则被限制为只能使用六种工具。
-  - Review observations gain machine-readable convergence codes, while the dedicated review subagent is restricted to six tools.
-- 守护进程的会话记录保留量受到限制，以防渲染器内存耗尽；创建的 GitHub 拉取请求也会关联到可搜索的来源会话。
-  - Daemon transcript retention is bounded to prevent renderer out-of-memory failures, and created GitHub pull requests are linked back to searchable source sessions.
-- Autofix 会把沙箱镜像绑定到实际拉取的摘要，同时该版本加强了依赖与安全门禁。
-  - Autofix binds sandbox images to their pulled digests, and the release strengthens dependency and security gates.
-- 发布方报告的 SWE-bench Verified 运行完成全部 500 个案例：380 个解决、113 个未解决、5 个执行错误和 2 个基础设施失败；所列 77.08% 以 493 个有效评分结果为分母。
-  - The reported SWE-bench Verified run completed all 500 cases: 380 resolved, 113 unresolved, five execution errors, and two infrastructure failures; the stated 77.08% score uses 493 valid grader results.
-
-### 为什么重要 / Why it matters
-
-该版本同时提升代码审查、自主修复、会话恢复和可复现执行的可靠性，而明确披露评分分母也让其自报基准结果更易正确解读。
-
-The release improves coding-agent reliability across review, autonomous repair, session recovery, and reproducible execution, while the explicit denominator makes its self-reported benchmark easier to interpret.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/QwenLM/qwen-code/actions/runs/32580293448)
-
----
-
-<a id="2026-08-21-microsoft-agent-framework-runtime"></a>
-## [Microsoft Agent Framework 增加持久检查点与长任务恢复](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
-
-**English:** [Microsoft Agent Framework adds durable checkpoints and long-run recovery](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0)
-
-- **发布 / Published:** `2026-08-21T23:08:41Z`
-- **来源 / Source:** [Microsoft Agent Framework on GitHub](https://github.com/microsoft/agent-framework/releases/tag/python-1.15.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-sdk`, `workflow`, `checkpointing`, `long-running-agents`, `session-persistence`, `mcp`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Microsoft Agent Framework 发布 Python 1.15 与 .NET 1.19，带来一组协调一致的生产运行时更新。这些版本加入工作流检查点注册、持久审批与会话状态，以及面向长时间托管智能体的引导、重试和恢复机制。
-
-Microsoft Agent Framework released Python 1.15 and .NET 1.19 with coordinated production-runtime updates. The releases add workflow checkpoint registration, persistent approval and session state, and steering, retry, and recovery mechanisms for long-running hosted agents.
-
-### 技术点 / Technical points
-
-- Python 新增可选 A2UI 输出、一等的致命中间件信号，以及带 Cosmos 状态类型的进程级工作流检查点类型注册表。
-  - Python adds optional A2UI output, a first-class fatal middleware signal, and a process-wide workflow checkpoint type registry with Cosmos state types.
-- 审批状态可以持久保存，Foundry Hosted Agents 则获得面向韧性长任务工作流的引导、重试和恢复支持。
-  - Approval state is persisted, while Foundry Hosted Agents gain steering, retry, and recovery support for resilient long-running workflows.
-- .NET 新增会话持久化的聊天客户端路由、Azure Blob 会话存储、实验性智能体钩子，以及对 2026-07-28 MCP Tasks 扩展的支持。
-  - .NET adds session-persisted chat-client routing, Azure Blob session storage, experimental agent hooks, and support for the 2026-07-28 MCP Tasks extension.
-
-### 为什么重要 / Why it matters
-
-这些改动覆盖状态保存、故障恢复和运行中引导等关键要求，也是持久化生产智能体区别于短生命周期对话循环的重要能力。
-
-These changes address the state, recovery, and steering requirements that distinguish durable production agents from short-lived conversational loops.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/microsoft/agent-framework/releases/tag/dotnet-1.19.0)
-
----
-
-<a id="2026-08-21-goose-147-agent-runtime"></a>
-## [Goose 1.47 重构智能体循环并收紧工具边界](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
-
-**English:** [Goose 1.47 refactors its agent loop and tightens tool boundaries](https://github.com/aaif-goose/goose/releases/tag/v1.47.0)
-
-- **发布 / Published:** `2026-08-21T18:14:59Z`
-- **来源 / Source:** [Goose on GitHub](https://github.com/aaif-goose/goose/releases/tag/v1.47.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `code-agent`, `agent-runtime`, `multi-agent`, `oauth`, `tool-safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
-
-### 摘要 / Summary
-
-Goose 1.47 引入通用的展开式智能体循环状态机，隔离并发子智能体的通知，并为流式 HTTP 扩展支持预注册 OAuth 客户端。该版本还收窄了多条文件读取路径，并强制使用安全的 OAuth 令牌传输。
-
-Goose 1.47 introduces a generic unrolled agent-loop state machine, isolates notifications from concurrent subagents, and supports preregistered OAuth clients for streamable HTTP extensions. The release also narrows several file-reading paths and enforces secure OAuth token transport.
-
-### 技术点 / Technical points
-
-- 新的 goose-agent crate 将展开式循环抽取为通用状态机，使智能体循环的状态转换更加显式。
-  - A new goose-agent crate extracts the unrolled loop into a generic state machine, making agent-loop transitions explicit.
-- 并发 summon 子智能体不再相互泄漏通知，失败的 ACP 移交也可以重试上下文。
-  - Concurrent summon subagents no longer leak notifications across one another, and failed ACP handoffs can retry their context.
-- 运行时限制 XLSX 范围、本地图像读取、桌面文件 IPC 和需要操作的流准入，同时避免跟随未跟踪的审查符号链接。
-  - The runtime bounds XLSX ranges, local image reads, desktop file IPC, and action-required stream admission, while avoiding untracked review symlinks.
-
-### 为什么重要 / Why it matters
-
-尽管属于渐进式更新，该版本仍增强了并发智能体的正确性，以及工具执行周围的文件系统与认证边界。
-
-Although incremental, the release strengthens concurrent-agent correctness and the filesystem and authentication boundaries surrounding tool execution.
-
----
-
-<a id="2026-08-21-claude-mythos-5-security-scans"></a>
-## [Claude Security 通过受控漏洞扫描部署 Mythos 5](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
-
-**English:** [Claude Security deploys Mythos 5 through guarded vulnerability scans](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders)
-
-- **发布 / Published:** `2026-08-21T17:23:32Z`
-- **来源 / Source:** [Claude by Anthropic](https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `cybersecurity`, `code-agent`, `vulnerability-scanning`, `human-in-the-loop`, `access-control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Anthropic 已通过 Claude Security 扫描向 Enterprise 客户提供 Claude Mythos 5 的公开测试版能力。用户可获得结构化漏洞发现和修复建议，但不会获得对这一高网络能力模型的无限制提示访问。
-
-Anthropic has made Claude Mythos 5 available through Claude Security scans in public beta for Enterprise customers. Users receive structured vulnerability findings and suggested fixes without gaining unrestricted prompting access to the underlying cyber-capable model.
-
-### 技术点 / Technical points
-
-- 代码库扫描会为每项发现返回 CWE 分类、置信度与严重性评级，以及建议修复方案。
-  - A repository scan returns each finding with a CWE category, confidence and severity ratings, and a suggested fix.
-- 用户可在网页版 Claude Code 中打开相关发现，并使用组织已有模型实施修复；每个补丁都必须经过人工审查和批准。
-  - Users can open a finding in Claude Code on the web to implement a fix with models already available to their organization, and every patch requires human review and approval.
-- Mythos 5 在面向特定任务的输出边界之后运行；扫描按标准 token 计费，新设立的 3500 万美元 Defender Advantage Fund 将为开源安全工作提供额度。
-  - Mythos 5 runs behind a task-specific output boundary; scans use standard token billing, while a new $35 million Defender Advantage Fund will provide credits for open-source security work.
-
-### 为什么重要 / Why it matters
-
-这一部署展示了如何在限制模型直接访问、保留人工代码变更控制权的同时，向防御者开放高能力网络智能体的实用输出。
-
-The rollout demonstrates a concrete way to expose useful outputs from a highly capable cyber agent while limiting direct model access and retaining human control over code changes.
-
-### 链接 / Links
-
-[Evidence 1](https://x.com/claudeai/status/2090852314319880425) · [Evidence 2](https://claude.com/product/claude-security)
-[Discussion 1](https://www.reddit.com/r/ClaudeAI/comments/1vuovcy/oh_mythos_5_is_no_longer_a_dangerous_model_and/)
-
----
-
-<a id="2026-08-21-strands-agents-sdk-runtime"></a>
-## [Strands Agents SDK 扩展委派、记忆与取消控制](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0)
-
-**English:** [Strands Agents SDK expands delegation, memory, and cancellation controls](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0)
-
-- **发布 / Published:** `2026-08-21T15:52:44Z`
-- **来源 / Source:** [Strands Agents on GitHub](https://github.com/strands-agents/harness-sdk/releases/tag/typescript/v1.14.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-sdk`, `open-source`, `delegation`, `memory`, `mcp`, `cancellation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Strands Agents 发布 TypeScript 1.14.0 和 Python 1.53.0，带来覆盖上下文管理、委派、记忆、协议认证、缓存和执行控制的生产化更新。这组配套版本是对开源智能体框架的渐进增强，并未引入新的智能体架构。
-
-Strands Agents released TypeScript 1.14.0 and Python 1.53.0 with production-oriented updates spanning context management, delegation, memory, protocol authentication, caching, and execution control. The paired releases advance the open-source harness incrementally rather than introducing a new agent architecture.
-
-### 技术点 / Technical points
-
-- Python 版本加入上下文管理器卸载策略和将智能体作为工具进行委派的能力。
-  - The Python changes include context-manager offloading strategies and agent-as-tool delegation.
-- 版本说明还加入流式 HTTP MCP 客户端的 OAuth 认证、MCP 工具注解，以及 Anthropic 提示缓存控制。
-  - The release notes add OAuth authentication for streamable-HTTP MCP clients, MCP tool annotations, and Anthropic prompt-caching controls.
-- TypeScript 新增执行范围取消、文件型记忆存储、音频内容块、逐调用模型选择和多个续接输入。
-  - TypeScript gains execution-scoped cancellation, a file-backed memory store, audio content blocks, per-call model selection, and multiple continuation inputs.
-
-### 为什么重要 / Why it matters
-
-这些改动增强了主流开源智能体 SDK 的可控性与状态管理，尤其适用于嵌套智能体和长时间工具工作流。
-
-The changes improve controllability and state management in a widely used open-source agent SDK, especially for nested agents and long-running tool workflows.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/strands-agents/harness-sdk/releases/tag/python/v1.53.0)

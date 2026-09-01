@@ -2,6 +2,45 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-08-30-hflow-024-robotics-data"></a>
+## [HFlow 0.2.4 扩展开源机器人数据流水线](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4)
+
+**English:** [HFlow 0.2.4 expands open robotics-data pipelines](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4)
+
+- **发布 / Published:** `2026-08-30T21:10:13Z`
+- **来源 / Source:** [HFlow on GitHub](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dataset`, `data-pipeline`, `provenance`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+HFlow 0.2.4 为其面向机器人与物理 AI 训练数据、基于 MCAP 的开源流水线加入 LeRobot Dataset v3 原生导入、模型评估证据、DuckDB 目录界面和 EgoSuite 手部评估示例。
+
+HFlow 0.2.4 adds first-class LeRobot Dataset v3 import, model-evaluation evidence, a DuckDB catalog interface, and an EgoSuite hand-evaluation example to its open MCAP-based pipeline for robotics and physical-AI training data.
+
+### 技术点 / Technical points
+
+- LeRobot 导入器会把 main 等浮动分支解析为不可变的源提交，并在 episode 来源记录中保存该修订。
+  - The LeRobot importer resolves a floating branch such as main to an immutable source commit and records that revision in episode provenance.
+- HFlow 结合 MCAP episode、带版本的 Python 处理步骤、生成的 Airflow 3 DAG、Parquet 目录和 DuckDB 查询，实现可复现筛选。
+  - HFlow combines MCAP episodes, versioned Python processing steps, generated Airflow 3 DAGs, a Parquet catalog, and DuckDB queries for reproducible curation.
+- 质量检查保存可复用的测量结果，而不是写死策略判定；该版本还增加来自模型评估的原生证据。
+  - Quality checks store reusable measurements rather than hardcoded policy decisions, and the release adds first-class evidence from model evaluations.
+
+### 为什么重要 / Why it matters
+
+该版本直接处理同步、质量证据、版本与来源问题；这些数据工程缺陷可能在模型优化开始前就悄然削弱具身 AI 训练。
+
+The release targets synchronization, quality evidence, versioning, and provenance—the data-engineering failures that can quietly undermine embodied-AI training before model optimization begins.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Hebbian-Robotics/hflow) · [Evidence 2](https://github.com/Hebbian-Robotics/hflow/blob/main/docs/ARCHITECTURE.md)
+[Discussion 1](https://news.ycombinator.com/item?id=49510632)
+
+---
+
 <a id="2026-08-22-tiangong-ultra-robot-sprint"></a>
 ## [天工 Ultra 人形机器人百米跑出 9.39 秒](https://apnews.com/article/86cb8e310843151a77057e4cb764b4e2)
 
