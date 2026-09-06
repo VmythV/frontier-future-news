@@ -2,6 +2,82 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-09-05-embodisteer-code-release"></a>
+## [EmbodiSteer 开源面向跨机器人部署的推理时关节空间引导](https://github.com/frankWang67/EmbodiSteer)
+
+**English:** [EmbodiSteer releases inference-time joint-space guidance for cross-robot deployment](https://github.com/frankWang67/EmbodiSteer)
+
+- **发布 / Published:** `2026-09-05T08:59:48Z`
+- **来源 / Source:** [EmbodiSteer](https://github.com/frankWang67/EmbodiSteer) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `manipulation`, `diffusion-policy`, `cross-embodiment`, `collision-avoidance`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+EmbodiSteer 开源了无需重新训练即可将冻结的本体无关笛卡尔扩散策略引导至不同机器人本体的代码。仓库创建于 9 月 5 日，并于 9 月 6 日在项目获 CoRL 2026 接收后宣布开源。
+
+EmbodiSteer released code for steering a frozen embodiment-agnostic Cartesian diffusion policy across different robot bodies without retraining. The repository was created on September 5 and announced the open-source release on September 6 alongside the project's CoRL 2026 acceptance.
+
+### 技术点 / Technical points
+
+- 该方法在去噪过程中通过正向运动学和阻尼雅可比将策略输出提升到目标机器人的关节空间，并可加入 cuRobo 全身有符号距离与控制屏障引导。
+  - During denoising, the method lifts policy outputs into the target robot's joint space using forward kinematics and a damped Jacobian, then optionally applies cuRobo whole-body signed-distance and control-barrier guidance.
+- 作者报告称，在九种仿真机器人上碰撞减少 46.1%、任务成功率提高 28.5%；在受约束场景中的 UR5 与 Franka 实机上，碰撞减少 90%、成功率提高 36.7%。
+  - The authors report 46.1% fewer collisions and 28.5% higher task success across nine simulated robots, plus 90% fewer collisions and 36.7% higher success on UR5 and Franka hardware in constrained scenarios.
+- 本次发布包含仿真与实体评测路径并固定外部依赖版本，但未包含检查点、训练数据及部分采用外部许可证的资产。
+  - The release contains simulation and physical evaluation paths with pinned external forks, but excludes checkpoints, training data, and some externally licensed assets.
+
+### 为什么重要 / Why it matters
+
+推理时本体适配有望降低针对每种机器人配置分别训练和维护操作策略的成本。
+
+Inference-time embodiment adaptation could reduce the cost of training and maintaining separate manipulation policies for every robot configuration.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/abs/2606.12965) · [Evidence 2](https://frankwang67.github.io/EmbodiSteer-Page/)
+
+---
+
+<a id="2026-09-04-robocurve-gpt-6-astra-robot-arms"></a>
+## [Robocurve 在实体机械臂上测试 GPT-6 Astra](https://openai.robocurve.org/gpt-6-astra/)
+
+**English:** [Robocurve tests GPT-6 Astra on physical robot arms](https://openai.robocurve.org/gpt-6-astra/)
+
+- **发布 / Published:** `2026-09-04T18:50:02Z`
+- **来源 / Source:** [Robocurve](https://openai.robocurve.org/gpt-6-astra/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `manipulation`, `benchmark`, `bimanual-manipulation`, `physical-ai`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+Robocurve 通过相同的 Inspect Robots 智能体策略，在 YAM 双臂硬件上评测 GPT-6 Astra、Fable 5.1 和 Fable 5。共 120 次实体测试显示，Astra 在碗具操作上表现突出，但精确拼图插入仍然困难。
+
+Robocurve evaluated GPT-6 Astra, Fable 5.1, and Fable 5 through the same Inspect Robots agent policy on YAM bimanual hardware. Across 120 physical trials, Astra performed strongly on bowl handling but continued to struggle with precise puzzle insertion.
+
+### 技术点 / Technical points
+
+- 每个模型在两项任务上各进行 20 次测试，并公开逐次测试的记录、视频、评分、耗时、估算成本及复现说明。
+  - Each model received 20 trials on each of two tasks, with per-trial transcripts, videos, scores, timing, estimated cost, and rerun instructions published for inspection.
+- Astra 在碗具任务中成功 19/20 次，而 Fable 5.1 与 Fable 5 分别为 8/20 和 1/20；在拼图任务中，Astra 与 Fable 5.1 均仅成功 2/20 次。
+  - Astra completed the bowl task in 19 of 20 trials, compared with 8 of 20 for Fable 5.1 and 1 of 20 for Fable 5; Astra and Fable 5.1 each completed only 2 of 20 puzzle trials.
+- 测试未采用交错顺序，Astra 与 Fable 模型使用的碗具装置不同，重置由人工完成，且人工评分者知晓每次测试所用模型。
+  - The runs were not interleaved, Astra used a different bowl rig from the Fable models, resets were manual, and the human grader knew which model produced each trial.
+
+### 为什么重要 / Why it matters
+
+该评测区分了通用视觉运动能力与接触密集型精细操作，说明简单实体操作上的强表现尚不能迁移到高精度插入任务。
+
+The evaluation separates broad visuomotor competence from contact-rich precision, showing that strong performance on simple physical manipulation does not yet transfer to tight insertion tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/robocurve/inspect-robots)
+
+---
+
 <a id="2026-08-30-hflow-024-robotics-data"></a>
 ## [HFlow 0.2.4 扩展开源机器人数据流水线](https://github.com/Hebbian-Robotics/hflow/releases/tag/v0.2.4)
 
