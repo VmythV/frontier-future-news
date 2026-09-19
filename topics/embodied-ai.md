@@ -2,6 +2,117 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-09-17-safeharness-robot-manipulation"></a>
+## [SafeHarness 让编码智能体生成的机器人控制器具备避障意识](https://arxiv.org/abs/2609.20822)
+
+**English:** [SafeHarness makes coding-agent robot controllers obstacle-aware](https://arxiv.org/abs/2609.20822)
+
+- **发布 / Published:** `2026-09-17T17:59:58Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.20822) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `coding-agents`, `robot-manipulation`, `safety`, `planning`, `collision-avoidance`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+SafeHarness 针对一种安全失效：编码智能体生成的机器人控制器会追求操作目标，却忽视不得触碰障碍物的明确限制。该方法分别为路径规划和接触执行加入障碍感知机制。
+
+SafeHarness addresses a failure mode in which coding agents generate robot controllers that pursue a manipulation goal while neglecting an explicit prohibition on touching an obstacle. It adds separate obstacle-aware mechanisms for route planning and contact execution.
+
+### 技术点 / Technical points
+
+- 障碍感知路径规划将物体表示为边界框，构建航路点路径，在执行前验证路线，并在所选路线不可行时重新规划。
+  - Obstacle-aware route planning represents objects as bounding boxes, constructs waypoint paths, verifies a route before execution, and replans when the selected route is infeasible.
+- 障碍感知接触执行会选择满足同一安全约束的接触位置，以覆盖操作中的接触密集阶段。
+  - Obstacle-aware contact execution selects a contact position that satisfies the same safety constraint during the contact-rich phase of manipulation.
+- 在作者评测中，SafeHarness 的任务成功率达到 71.9%，避碰率达到 87.5%，分别比所引用的既有最佳结果提高 6.5 和 27.0 个百分点。
+  - Across the authors' evaluation, SafeHarness reached 71.9% task success and 87.5% collision avoidance, improvements of 6.5 and 27.0 percentage points over the cited prior state of the art.
+
+### 为什么重要 / Why it matters
+
+结果表明，自然语言安全指令即使被模型识别，也可能在规划中失去优先级，因此物理智能体的约束需要显式运行时结构。
+
+The results show that a natural-language safety instruction may be recognized yet still lose priority during planning, so physical-agent constraints need explicit runtime structure.
+
+---
+
+<a id="2026-09-17-agile-wam"></a>
+## [Agile-WAM 将高速视触觉预测与机器人动作生成结合](https://arxiv.org/abs/2609.20761)
+
+**English:** [Agile-WAM combines fast visual-tactile prediction with robot action generation](https://arxiv.org/abs/2609.20761)
+
+- **发布 / Published:** `2026-09-17T17:43:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.20761) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robot-manipulation`, `tactile`, `world-action-model`, `flow-matching`, `real-time-control`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Agile-WAM 是一种紧凑的触觉世界动作模型，通过流匹配把视觉与触觉观察直接映射为动作块和未来多模态潜在状态。其多跨度目标对视觉进行更长距离预测，同时在下一帧跟踪快速变化的触觉信号。
+
+Agile-WAM is a compact tactile world action model that directly maps visual and tactile observations into action chunks and future multimodal latent states through flow matching. Its multi-horizon objective predicts vision farther ahead while tracking rapidly changing tactile signals at the next frame.
+
+### 技术点 / Technical points
+
+- 视觉与触觉观察被编码到共享潜在空间中，用于联合生成动作块和未来的模态专用潜变量。
+  - Visual and tactile observations are encoded into one shared latent that conditions joint generation of action chunks and future modality-specific latents.
+- 不同预测跨度反映了相邻视觉帧通常变化较慢，而触觉读数可能在接触瞬间突然改变。
+  - The different prediction horizons reflect that adjacent visual frames often change slowly while tactile readings may change abruptly at contact.
+- 在九项仿真和五项真实接触密集任务上，作者报告总体成功率相对最强基线提高 29.4%，推理延迟为 11.9 毫秒。
+  - Across nine simulated and five physical contact-rich tasks, the authors report a 29.4% relative gain in overall success over the strongest baseline with 11.9-millisecond inference latency.
+
+### 为什么重要 / Why it matters
+
+该设计无需依赖大型预训练生成骨干，使预测式世界动作建模更适合高频、接触密集型机器人操作。
+
+The design makes predictive world-action modeling practical for high-frequency contact-rich manipulation without depending on a large pretrained generative backbone.
+
+### 链接 / Links
+
+[Evidence 1](https://hanchuzhou.github.io/TARO_project_page/)
+
+---
+
+<a id="2026-09-17-helix-2-5-home-generalization"></a>
+## [Figure Helix 2.5 在 30 个陌生家庭环境中实现家务操作泛化](https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization)
+
+**English:** [Figure's Helix 2.5 generalizes household manipulation across 30 unseen homes](https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization)
+
+- **发布 / Published:** `2026-09-17T13:00:00Z`
+- **来源 / Source:** [Figure](https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid-robot`, `robot-manipulation`, `generalization`, `pretraining`, `household-robotics`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `93/100`
+
+### 摘要 / Summary
+
+Figure 在 30 个此前未见过的住宅中评估 Helix 2.5 整理房间、折叠毛巾和铺床的能力，未采集评测住宅数据，也未针对住宅或被操作物体进行适配。该公司将结果定位为人形机器人全身零样本泛化测试。
+
+Figure evaluated Helix 2.5 on tidying rooms, folding towels, and making beds across 30 previously unseen homes without collecting evaluation-home data or adapting to the homes or manipulated objects. The company presents the results as a test of zero-shot whole-body humanoid generalization.
+
+### 技术点 / Technical points
+
+- 每种行为在所有住宅中都使用同一个固定检查点，盲测只计算完整任务成功，而不计部分进展。
+  - Each behavior used one fixed checkpoint across all homes, and evaluation counted only full task completion under a blind protocol rather than partial progress.
+- 在任务专用数据、架构、训练和评测保持不变时，Index 人类行为预训练将作者报告的完整任务成功率从 9% 提升至 56%。
+  - Holding task-specific data, architecture, training, and evaluation fixed, Index human-behavior pretraining increased author-reported full-task success from 9% to 56%.
+- 研究在八倍预训练数据范围内评估四个模型并拟合出缩放关系，但评测协议、环境与结果尚未得到独立复现。
+  - A four-model sweep over an eightfold pretraining-data range produced a fitted scaling relationship, but the evaluation protocol, environments, and results have not been independently reproduced.
+
+### 为什么重要 / Why it matters
+
+该评测把人形机器人泛化从单一受控场地扩展到多住宅环境，并联合检验长程移动、刚性与柔性物体操作、双手协调和主动感知。
+
+The evaluation moves humanoid generalization beyond one controlled site and tests long-horizon locomotion, rigid and deformable manipulation, bimanual coordination, and active perception together.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/Figure_robot/status/2100657350952779925)
+[Discussion 1](https://news.ycombinator.com/item?id=49745512) · [Discussion 2](https://www.reddit.com/r/accelerate/comments/1wj3rgm/dr_singularity_on_x_figure_just_took_a_big_step/)
+
+---
+
 <a id="2026-09-05-embodisteer-code-release"></a>
 ## [EmbodiSteer 开源面向跨机器人部署的推理时关节空间引导](https://github.com/frankWang67/EmbodiSteer)
 

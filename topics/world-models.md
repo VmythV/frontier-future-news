@@ -2,6 +2,120 @@
 
 # World models / 世界模型
 
+<a id="2026-09-17-jepa-anything"></a>
+## [JEPA-Anything 用统一预测因子分解覆盖七类世界](https://arxiv.org/abs/2609.20800)
+
+**English:** [JEPA-Anything applies one predictive factorization principle across seven domains](https://arxiv.org/abs/2609.20800)
+
+- **发布 / Published:** `2026-09-17T17:55:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.20800) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `jepa`, `predictive-learning`, `representation-learning`, `multidomain`, `scientific-discovery`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `92/100`
+
+### 摘要 / Summary
+
+JEPA-Anything 提出正交预测因子分解，将潜在预测目标拆成互补因子，通过专用路径学习后再由统一预测架构重新组合。研究将同一原理应用于视觉、生物、临床轨迹、控制、分子动力学、物理场和天气七个领域。
+
+JEPA-Anything introduces Orthogonal Predictive Factorization, which decomposes latent prediction targets into complementary factors, learns them through dedicated pathways, and recombines them in one predictive design. The study applies the same principle across vision, biology, clinical trajectories, control, molecular dynamics, physical fields, and weather.
+
+### 技术点 / Technical points
+
+- 实验包括十项匹配动力学任务、超过 1000 个临床事件的预测，以及四个系统上的 100 步分子轨迹展开。
+  - Experiments include ten matched dynamics tasks, forecasting of more than 1,000 clinical events, and 100-step molecular rollouts across four systems.
+- 作者报告该方法在全部十项动力学任务上优于匹配的 JEPA 基线，在 Interventional Pong 上将单次干预测误差降低 34.8%，并在四个分子系统中取得最低的单步与 100 步误差。
+  - The authors report improvements over matched JEPA baselines on all ten dynamics tasks, a 34.8% reduction in single-intervention prediction error on Interventional Pong, and the lowest compared one-step and 100-step molecular errors in all four systems.
+- 代码库提供可复用核心与结构示例，但不包含研究数据集或已训练权重，并明确说明该示例不能复现基准性能。
+  - The repository provides a reusable core and a structural example, but it does not include the study's datasets or trained weights and explicitly states that the example does not reproduce benchmark performance.
+
+### 为什么重要 / Why it matters
+
+这项工作检验世界建模能否成为跨领域的通用预测原理，而不是一组任务专用架构，同时明确了当前可复现性的边界。
+
+The work tests whether world modeling can be a domain-general predictive principle rather than a collection of task-specific architectures, while making the current reproducibility boundary explicit.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Gen-Verse/JEPA-Anything) · [Evidence 2](https://phai-labs.com/en/news/jepa-anything/)
+
+---
+
+<a id="2026-09-17-agile-wam"></a>
+## [Agile-WAM 将高速视触觉预测与机器人动作生成结合](https://arxiv.org/abs/2609.20761)
+
+**English:** [Agile-WAM combines fast visual-tactile prediction with robot action generation](https://arxiv.org/abs/2609.20761)
+
+- **发布 / Published:** `2026-09-17T17:43:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.20761) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robot-manipulation`, `tactile`, `world-action-model`, `flow-matching`, `real-time-control`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Agile-WAM 是一种紧凑的触觉世界动作模型，通过流匹配把视觉与触觉观察直接映射为动作块和未来多模态潜在状态。其多跨度目标对视觉进行更长距离预测，同时在下一帧跟踪快速变化的触觉信号。
+
+Agile-WAM is a compact tactile world action model that directly maps visual and tactile observations into action chunks and future multimodal latent states through flow matching. Its multi-horizon objective predicts vision farther ahead while tracking rapidly changing tactile signals at the next frame.
+
+### 技术点 / Technical points
+
+- 视觉与触觉观察被编码到共享潜在空间中，用于联合生成动作块和未来的模态专用潜变量。
+  - Visual and tactile observations are encoded into one shared latent that conditions joint generation of action chunks and future modality-specific latents.
+- 不同预测跨度反映了相邻视觉帧通常变化较慢，而触觉读数可能在接触瞬间突然改变。
+  - The different prediction horizons reflect that adjacent visual frames often change slowly while tactile readings may change abruptly at contact.
+- 在九项仿真和五项真实接触密集任务上，作者报告总体成功率相对最强基线提高 29.4%，推理延迟为 11.9 毫秒。
+  - Across nine simulated and five physical contact-rich tasks, the authors report a 29.4% relative gain in overall success over the strongest baseline with 11.9-millisecond inference latency.
+
+### 为什么重要 / Why it matters
+
+该设计无需依赖大型预训练生成骨干，使预测式世界动作建模更适合高频、接触密集型机器人操作。
+
+The design makes predictive world-action modeling practical for high-frequency contact-rich manipulation without depending on a large pretrained generative backbone.
+
+### 链接 / Links
+
+[Evidence 1](https://hanchuzhou.github.io/TARO_project_page/)
+
+---
+
+<a id="2026-09-17-astronex-world-1-0"></a>
+## [Astronex-World 1.0 发布可实时控制的 5B 世界模型](https://arxiv.org/abs/2609.20034)
+
+**English:** [Astronex-World 1.0 releases a real-time controllable 5B world model](https://arxiv.org/abs/2609.20034)
+
+- **发布 / Published:** `2026-09-17T10:38:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.20034) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `video-world-model`, `interactive-generation`, `real-time`, `camera-control`, `open-weights`, `embodied-ai`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `91/100`
+
+### 摘要 / Summary
+
+Astronex-World 1.0 是开放的 5B 视频世界模型系列，可从文本或初始观察预测未来视觉状态，并接收相机轨迹、连续动作、具身标识和定时文本事件。它包含基于 Wan2.2-TI2V-5B 构建的双向版本与持续因果版本。
+
+Astronex-World 1.0 is an open 5B video world-model family that predicts future visual states from text or an initial observation while accepting camera trajectories, continuous actions, embodiment identifiers, and timed text events. It includes bidirectional and persistent causal variants built on Wan2.2-TI2V-5B.
+
+### 技术点 / Technical points
+
+- 因果模型采用块因果注意力与跨块 KV 缓存，通过 PRoPE 注入相机几何信息，并用 64 维动作流调制每一层 Transformer。
+  - The causal model uses block-causal attention and cross-block KV caching, with camera geometry injected through PRoPE and a 64-dimensional action stream modulating every Transformer layer.
+- 作者报告，在两张 L20 GPU 上完成五阶段训练后，因果模型可在一张 NVIDIA L20 48 GB GPU 上以每秒 24 帧生成 832x480 视频。
+  - The authors report 832x480 generation at 24 frames per second on one NVIDIA L20 48 GB GPU after a five-stage training pipeline run on two L20 GPUs.
+- 独立 WBench 仓库记录该版本的 Full 得分为 70.0、Navi 得分为 73.5；发布的接口为后续具身智能或自动驾驶训练预留了动作输入与输出。
+  - The independent WBench repository lists the release at 70.0 on Full and 73.5 on Navi; the released interfaces reserve action input and output for later embodied-intelligence or autonomous-driving post-training.
+
+### 为什么重要 / Why it matters
+
+该版本把开放权重、可控制的持续展开和较低硬件要求结合起来，降低了交互式世界模型实验的门槛。
+
+The release combines open weights, controllable persistent rollout, and modest hardware requirements, lowering the barrier to experiments with interactive world models.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Astronex-Robotics/Astronex-World) · [Evidence 2](https://world.astronex.com.cn) · [Evidence 3](https://huggingface.co/Astronex-Lab/Astronex-World) · [Evidence 4](https://github.com/meituan-longcat/WBench)
+
+---
+
 <a id="2026-08-20-surgical-world-action-model"></a>
 ## [手术世界—动作模型联合预测视觉状态与器械轨迹](https://arxiv.org/abs/2608.20284)
 
