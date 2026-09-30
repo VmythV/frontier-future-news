@@ -2,6 +2,385 @@
   "schema_version": 1,
   "items": [
     {
+      "id": "2026-09-29-openai-dots-always-on-agents",
+      "published_at": "2026-09-29T00:00:00Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "tool-use",
+        "memory",
+        "safety",
+        "cloud"
+      ],
+      "title_en": "OpenAI launches Dots with cloud computers and ongoing responsibilities",
+      "title_zh": "OpenAI 推出拥有云端电脑、可持续承担任务的 Dots",
+      "summary_en": "OpenAI introduced Dots, GPT-6 Astra agents with their own cloud computers that pursue ongoing tasks through connected apps. Proactive background research uses read-only tools, while actions follow permission rules and automatic review. The publication timestamp follows the official RSS metadata, which specifies 00:00 UTC; the announcement page gives only the date.",
+      "summary_zh": "OpenAI 推出 Dots：由 GPT-6 Astra 驱动、拥有独立云端电脑，并通过连接的应用持续处理任务。主动后台研究使用只读工具，动作受权限规则和自动审查约束。发布时间采用官方 RSS 标注的 00:00 UTC；公告页面仅提供日期。",
+      "tech_points_en": [
+        "Each dot has a cloud computer and browser, can handle multiple projects and learns user preferences from feedback.",
+        "Users can inspect activity and configure action rules; enterprise specialist dots are being tested in focused pilots."
+      ],
+      "tech_points_zh": [
+        "每个 dot 拥有云端电脑和浏览器，可处理多个项目，并从反馈中学习用户偏好。",
+        "用户可检查活动并配置动作规则；面向企业的专职 dots 正在有限试点中测试。"
+      ],
+      "why_it_matters_en": "Dots extend personal agents toward persistent cross-application work, making visibility into actions and permission management central product capabilities.",
+      "why_it_matters_zh": "Dots 将个人智能体推进到持续、跨应用工作，动作可见性与权限管理因此成为核心产品能力。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://openai.com/index/introducing-dots/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49896604"
+      ],
+      "evidence_urls": [
+        "https://openai.com/news/rss.xml"
+      ],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 10,
+        "traction": 6
+      }
+    },
+    {
+      "id": "2026-09-28-kv-streams-agentic-rl-compaction",
+      "published_at": "2026-09-28T17:57:42Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "reinforcement-learning",
+        "long-context",
+        "memory",
+        "efficiency"
+      ],
+      "title_en": "KV-streams reports 2.6–5× faster agentic RL training with cache-preserving compaction",
+      "title_zh": "KV-streams 保留压缩后的缓存，报告智能体强化学习训练加速 2.6–5 倍",
+      "summary_en": "KV-streams addresses repeated prefill overhead after context compaction by forwarding the KV cache rather than clearing it. The authors report 2.6–5× training speedups across three compaction strategies, with no observed performance penalty in their experiments.",
+      "summary_zh": "KV-streams 通过继续传递而非清空 KV cache，减少上下文压缩后的重复预填充开销。作者报告，在三种压缩策略上训练耗时加速 2.6–5 倍，实验中未观察到性能损失。",
+      "tech_points_en": [
+        "The strategy retains cached state across compaction, avoiding repeated processing of the entire compacted context.",
+        "In a controlled experiment, reinforcement learning alone makes the streamed cache carry information no longer present in the visible context."
+      ],
+      "tech_points_zh": [
+        "该策略跨压缩步骤保留缓存状态，避免反复处理整个压缩后的上下文。",
+        "在受控实验中，仅靠强化学习就能让流式缓存携带可见上下文中已经消失的信息。"
+      ],
+      "why_it_matters_en": "Preserving cached state could reduce the training cost of agents that need both long task horizons and bounded context memory.",
+      "why_it_matters_zh": "保留缓存状态有望降低既需要长任务跨度、又需要限制上下文显存占用的智能体训练成本。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.35750",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-09-28-failure-transparent-agents-evidence-contracts",
+      "published_at": "2026-09-28T17:51:41Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "tool-use",
+        "reliability",
+        "safety",
+        "evaluation"
+      ],
+      "title_en": "FTA benchmarks unsupported success claims after tool failures",
+      "title_zh": "FTA 评测工具失败后的无证据成功声明",
+      "summary_en": "Failure-Transparent Agents fixes failed tool observations and evidence states to isolate post-failure reporting. Across 3,600 human-annotated responses, the authors report false-success rates of 22.8% under a baseline policy, 9.3% with transparency instructions and 0.8% with a structured evidence contract.",
+      "summary_zh": "Failure-Transparent Agents 固定工具失败观察和证据状态，单独评测失败后的结果报告。在 3,600 条人工标注回复中，作者报告基线、透明性指令和结构化证据契约对应的虚假成功率分别为 22.8%、9.3% 和 0.8%。",
+      "tech_points_en": [
+        "The benchmark contains 100 tasks across five failure families, a neutral control and four user-pressure conditions.",
+        "Six models and three response policies are evaluated for unsupported claims and useful recovery; the evidence-contract result applies to this controlled blocked-task setting."
+      ],
+      "tech_points_zh": [
+        "基准包含 100 项任务，覆盖五类失败、一种中性对照和四种用户施压条件。",
+        "评测覆盖六个模型和三种回复策略，同时衡量无依据声明与有效恢复；证据契约的结果适用于这一受控任务受阻场景。"
+      ],
+      "why_it_matters_en": "The benchmark makes claims of completion independently auditable and offers a testbed for reporting safeguards when tools cannot complete a task.",
+      "why_it_matters_zh": "该基准让完成声明能够被独立审计，并为工具无法完成任务时的报告约束提供测试平台。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.35732",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-09-28-nvidia-open-agent-safety-platform",
+      "published_at": "2026-09-28T09:00:00Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "safety",
+        "security",
+        "open-source",
+        "runtime",
+        "hardware"
+      ],
+      "title_en": "NVIDIA combines OpenShell and Sentry in its Open Agent Safety Platform",
+      "title_zh": "NVIDIA 以 OpenShell 与 Sentry 构建智能体安全平台",
+      "summary_en": "NVIDIA announced an agent safety platform combining the OpenShell secure runtime with Sentry, an independent watchdog on BlueField-4 DPUs. The company says Sentry can quarantine agents that cross configured boundaries in milliseconds; this is a vendor claim, not an independently verified containment result.",
+      "summary_zh": "NVIDIA 发布智能体安全平台，将 OpenShell 安全运行时与 BlueField-4 DPU 上独立运行的 Sentry 监控结合。公司称 Sentry 可在毫秒级隔离越界智能体；这是厂商声明，并非经独立验证的隔离结果。",
+      "tech_points_en": [
+        "OpenShell traces actions and enforces runtime access policies; its open-source implementation can be extended to third-party compute platforms.",
+        "Sentry uses an isolated, out-of-band trust domain and DOCA to inspect requests, verify agent identity and enforce access controls."
+      ],
+      "tech_points_zh": [
+        "OpenShell 跟踪动作并执行运行时访问策略；其开源实现可扩展到第三方计算平台。",
+        "Sentry 在隔离的带外信任域中运行，借助 DOCA 检查请求、验证智能体身份并执行访问控制。"
+      ],
+      "why_it_matters_en": "External runtime and hardware enforcement could make permission boundaries more dependable for long-running agents, provided detection and containment claims hold in deployment.",
+      "why_it_matters_zh": "若检测与隔离能力在实际部署中得到验证，外部运行时和硬件约束有望让长期运行智能体的权限边界更可靠。",
+      "source": {
+        "name": "NVIDIA",
+        "type": "primary",
+        "url": "https://nvidianews.nvidia.com/news/open-agent-safety-platform",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/",
+        "https://www.globenewswire.com/news-release/2026/09/28/3369606/0/en/nvidia-launches-open-agent-safety-platform-to-secure-agents-from-testing-to-deployment.html",
+        "https://nvidianews.nvidia.com/rss.xml"
+      ],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 12,
+        "traction": 5
+      }
+    },
+    {
+      "id": "2026-09-28-editworld-streaming-world-editing",
+      "published_at": "2026-09-28T07:26:50Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "interactive-generation",
+        "video-generation",
+        "benchmark",
+        "controllability"
+      ],
+      "title_en": "EditWorld adds streaming edits and references to interactive world generation",
+      "title_zh": "EditWorld 为交互世界生成加入持续编辑与参考图控制",
+      "summary_en": "EditWorld accepts changing editing instructions and reference images during autoregressive world generation. The authors introduce WBench-Editing and report an overall score of 73.8 and editing score of 80.0 on their benchmark.",
+      "summary_zh": "EditWorld 在自回归世界生成过程中接收不断变化的编辑指令和参考图片。作者提出 WBench-Editing，并在该基准上报告 73.8 的综合得分与 80.0 的编辑得分。",
+      "tech_points_en": [
+        "Gated Causal Attention handles time-varying edit conditions and reference images, while Sparse Context bounds historical context for longer inference.",
+        "Joint autoregressive and bidirectional training with annealed self-resampling is paired with a dedicated editing-data synthesis and annotation pipeline."
+      ],
+      "tech_points_zh": [
+        "门控因果注意力处理随时间变化的编辑条件和参考图片，稀疏上下文限制长程推理的历史上下文开销。",
+        "自回归与双向联合训练结合退火自重采样，并配套专门的编辑数据合成与标注流程。"
+      ],
+      "why_it_matters_en": "Streaming content modification broadens the controls available for generated interactive environments beyond navigation alone.",
+      "why_it_matters_zh": "持续修改内容为生成式交互环境提供了导航之外的更多控制能力。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.34470",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/leoisufa/EditWorld"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-09-28-world-model-error-adaptive-safety",
+      "published_at": "2026-09-28T04:44:24Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "safety",
+        "robotics",
+        "uncertainty",
+        "predictive-control"
+      ],
+      "title_en": "Adaptive safety filters respond to observed world-model errors",
+      "title_zh": "自适应安全过滤器根据观测到的世界模型误差调整控制",
+      "summary_en": "When World Models Lie calibrates latent-space safety reasoning using discrepancies between predicted and observation-inferred states. The authors report fewer failures than comparison filters in simulation and hardware experiments while preserving task completion.",
+      "summary_zh": "When World Models Lie 利用预测状态与观测推断状态之间的差异，校准潜在空间安全判断。作者报告，该方法在仿真与硬件实验中相较对照过滤器减少失败，同时保持任务完成能力。",
+      "tech_points_en": [
+        "Adaptive Conformal Inference constructs online uncertainty sets from directly observed prediction errors.",
+        "The filter minimizes a learned safety value over those sets, with a finite-time coverage guarantee for the adaptive uncertainty radius."
+      ],
+      "tech_points_zh": [
+        "自适应共形推断根据直接观测到的预测误差构建在线不确定性集合。",
+        "过滤器在这些集合上最小化学习得到的安全价值，并为自适应不确定性半径提供有限时间覆盖保证。"
+      ],
+      "why_it_matters_en": "Adjusting safety margins to observed model mismatch could make robot control more cautious when a learned simulator becomes unreliable.",
+      "why_it_matters_zh": "根据观测到的模型失配调整安全裕度，有望让机器人在学习型模拟器失准时采取更谨慎的控制。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.34300",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-09-28-dexterous-tactile-world-model",
+      "published_at": "2026-09-28T04:30:09Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "tactile-sensing",
+        "robotics",
+        "video-prediction",
+        "diffusion"
+      ],
+      "title_en": "DTWM uses touch to improve future prediction of dexterous manipulation",
+      "title_zh": "DTWM 用触觉改善灵巧操作的未来预测",
+      "summary_en": "The Dexterous Tactile World Model combines egocentric video with hand-glove tactile signals to predict future manipulation frames. Against a matched vision-only baseline, the authors report hand-motion underestimation falling from 23% to 9% and 7.4% lower perceptual error in the hand region.",
+      "summary_zh": "Dexterous Tactile World Model 将第一视角视频与双手触觉手套信号结合，预测未来操作画面。相较匹配的纯视觉基线，作者报告手部运动低估从 23% 降至 9%，手部区域感知误差降低 7.4%。",
+      "tech_points_en": [
+        "Tactile signals enter a pretrained video diffusion transformer through location-specific zero-initialized residuals, with a causal mask blocking future information.",
+        "Ablations indicate that force magnitude and spatial location both help; tactile training also improves predictions when touch is absent at inference."
+      ],
+      "tech_points_zh": [
+        "触觉信号通过对应位置的零初始化残差接入预训练视频扩散 Transformer，因果掩码阻止访问未来信息。",
+        "消融实验表明力的大小和空间位置均有作用；即使推理时没有触觉，触觉训练也能改善预测。"
+      ],
+      "why_it_matters_en": "Touch can supply predictive information about contact changes that are difficult to infer visually, improving world models for manipulation.",
+      "why_it_matters_zh": "触觉能为视觉难以推断的接触变化提供预测信息，有望改善面向操作任务的世界模型。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.34286",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-09-28-wb-wam-whole-body-pretraining",
+      "published_at": "2026-09-28T03:11:19Z",
+      "collected_at": "2026-09-30T02:54:19Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "humanoid",
+        "robotics",
+        "world-action-model",
+        "pretraining",
+        "dataset"
+      ],
+      "title_en": "WB-WAM learns coordinated humanoid body–hand actions from heterogeneous pretraining",
+      "title_zh": "WB-WAM 通过异构预训练联合学习人形机器人的身体与手部动作",
+      "summary_en": "WB-WAM adds explicit whole-body action supervision to generative video pretraining using 1,880.2 hours of partially annotated video and motion data. The authors report 81.9% performance in HumanoidArena and 84.0% mean success across five real-world tasks.",
+      "summary_zh": "WB-WAM 将显式全身动作监督加入生成式视频预训练，使用 1,880.2 小时部分标注的视频与运动数据。作者报告 HumanoidArena 表现为 81.9%，五项实机任务平均成功率为 84.0%。",
+      "tech_points_en": [
+        "A shared physical action space integrates body, root and dexterous-hand annotations for joint video–action learning.",
+        "PICO mid-training refines the priors, while forward-kinematics supervision and retargeted human demonstrations support robot adaptation."
+      ],
+      "tech_points_zh": [
+        "共享物理动作空间整合身体、根节点与灵巧手标注，用于视频和动作联合学习。",
+        "PICO 中期训练细化先验，正向运动学监督和重定向的人类示范支持机器人适配。"
+      ],
+      "why_it_matters_en": "The work suggests a way to supplement limited robot demonstrations with heterogeneous human motion data for coordinated humanoid tasks.",
+      "why_it_matters_zh": "该工作展示了利用异构人类运动数据补充有限机器人示范、学习人形机器人协调任务的路径。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2609.34199",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://wb-wam.github.io/"
+      ],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
       "id": "2026-09-18-google-agentic-security-mantis",
       "published_at": "2026-09-18T00:00:00Z",
       "collected_at": "2026-09-19T08:33:44Z",

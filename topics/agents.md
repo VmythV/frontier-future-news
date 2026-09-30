@@ -2,6 +2,143 @@
 
 # Agents / 智能体
 
+<a id="2026-09-29-openai-dots-always-on-agents"></a>
+## [OpenAI 推出拥有云端电脑、可持续承担任务的 Dots](https://openai.com/index/introducing-dots/)
+
+**English:** [OpenAI launches Dots with cloud computers and ongoing responsibilities](https://openai.com/index/introducing-dots/)
+
+- **发布 / Published:** `2026-09-29T00:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-dots/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `tool-use`, `memory`, `safety`, `cloud`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+OpenAI 推出 Dots：由 GPT-6 Astra 驱动、拥有独立云端电脑，并通过连接的应用持续处理任务。主动后台研究使用只读工具，动作受权限规则和自动审查约束。发布时间采用官方 RSS 标注的 00:00 UTC；公告页面仅提供日期。
+
+OpenAI introduced Dots, GPT-6 Astra agents with their own cloud computers that pursue ongoing tasks through connected apps. Proactive background research uses read-only tools, while actions follow permission rules and automatic review. The publication timestamp follows the official RSS metadata, which specifies 00:00 UTC; the announcement page gives only the date.
+
+### 技术点 / Technical points
+
+- 每个 dot 拥有云端电脑和浏览器，可处理多个项目，并从反馈中学习用户偏好。
+  - Each dot has a cloud computer and browser, can handle multiple projects and learns user preferences from feedback.
+- 用户可检查活动并配置动作规则；面向企业的专职 dots 正在有限试点中测试。
+  - Users can inspect activity and configure action rules; enterprise specialist dots are being tested in focused pilots.
+
+### 为什么重要 / Why it matters
+
+Dots 将个人智能体推进到持续、跨应用工作，动作可见性与权限管理因此成为核心产品能力。
+
+Dots extend personal agents toward persistent cross-application work, making visibility into actions and permission management central product capabilities.
+
+### 链接 / Links
+
+[Evidence 1](https://openai.com/news/rss.xml)
+[Discussion 1](https://news.ycombinator.com/item?id=49896604)
+
+---
+
+<a id="2026-09-28-kv-streams-agentic-rl-compaction"></a>
+## [KV-streams 保留压缩后的缓存，报告智能体强化学习训练加速 2.6–5 倍](https://arxiv.org/abs/2609.35750)
+
+**English:** [KV-streams reports 2.6–5× faster agentic RL training with cache-preserving compaction](https://arxiv.org/abs/2609.35750)
+
+- **发布 / Published:** `2026-09-28T17:57:42Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.35750) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `long-context`, `memory`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+KV-streams 通过继续传递而非清空 KV cache，减少上下文压缩后的重复预填充开销。作者报告，在三种压缩策略上训练耗时加速 2.6–5 倍，实验中未观察到性能损失。
+
+KV-streams addresses repeated prefill overhead after context compaction by forwarding the KV cache rather than clearing it. The authors report 2.6–5× training speedups across three compaction strategies, with no observed performance penalty in their experiments.
+
+### 技术点 / Technical points
+
+- 该策略跨压缩步骤保留缓存状态，避免反复处理整个压缩后的上下文。
+  - The strategy retains cached state across compaction, avoiding repeated processing of the entire compacted context.
+- 在受控实验中，仅靠强化学习就能让流式缓存携带可见上下文中已经消失的信息。
+  - In a controlled experiment, reinforcement learning alone makes the streamed cache carry information no longer present in the visible context.
+
+### 为什么重要 / Why it matters
+
+保留缓存状态有望降低既需要长任务跨度、又需要限制上下文显存占用的智能体训练成本。
+
+Preserving cached state could reduce the training cost of agents that need both long task horizons and bounded context memory.
+
+---
+
+<a id="2026-09-28-failure-transparent-agents-evidence-contracts"></a>
+## [FTA 评测工具失败后的无证据成功声明](https://arxiv.org/abs/2609.35732)
+
+**English:** [FTA benchmarks unsupported success claims after tool failures](https://arxiv.org/abs/2609.35732)
+
+- **发布 / Published:** `2026-09-28T17:51:41Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.35732) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `reliability`, `safety`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Failure-Transparent Agents 固定工具失败观察和证据状态，单独评测失败后的结果报告。在 3,600 条人工标注回复中，作者报告基线、透明性指令和结构化证据契约对应的虚假成功率分别为 22.8%、9.3% 和 0.8%。
+
+Failure-Transparent Agents fixes failed tool observations and evidence states to isolate post-failure reporting. Across 3,600 human-annotated responses, the authors report false-success rates of 22.8% under a baseline policy, 9.3% with transparency instructions and 0.8% with a structured evidence contract.
+
+### 技术点 / Technical points
+
+- 基准包含 100 项任务，覆盖五类失败、一种中性对照和四种用户施压条件。
+  - The benchmark contains 100 tasks across five failure families, a neutral control and four user-pressure conditions.
+- 评测覆盖六个模型和三种回复策略，同时衡量无依据声明与有效恢复；证据契约的结果适用于这一受控任务受阻场景。
+  - Six models and three response policies are evaluated for unsupported claims and useful recovery; the evidence-contract result applies to this controlled blocked-task setting.
+
+### 为什么重要 / Why it matters
+
+该基准让完成声明能够被独立审计，并为工具无法完成任务时的报告约束提供测试平台。
+
+The benchmark makes claims of completion independently auditable and offers a testbed for reporting safeguards when tools cannot complete a task.
+
+---
+
+<a id="2026-09-28-nvidia-open-agent-safety-platform"></a>
+## [NVIDIA 以 OpenShell 与 Sentry 构建智能体安全平台](https://nvidianews.nvidia.com/news/open-agent-safety-platform)
+
+**English:** [NVIDIA combines OpenShell and Sentry in its Open Agent Safety Platform](https://nvidianews.nvidia.com/news/open-agent-safety-platform)
+
+- **发布 / Published:** `2026-09-28T09:00:00Z`
+- **来源 / Source:** [NVIDIA](https://nvidianews.nvidia.com/news/open-agent-safety-platform) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `security`, `open-source`, `runtime`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+NVIDIA 发布智能体安全平台，将 OpenShell 安全运行时与 BlueField-4 DPU 上独立运行的 Sentry 监控结合。公司称 Sentry 可在毫秒级隔离越界智能体；这是厂商声明，并非经独立验证的隔离结果。
+
+NVIDIA announced an agent safety platform combining the OpenShell secure runtime with Sentry, an independent watchdog on BlueField-4 DPUs. The company says Sentry can quarantine agents that cross configured boundaries in milliseconds; this is a vendor claim, not an independently verified containment result.
+
+### 技术点 / Technical points
+
+- OpenShell 跟踪动作并执行运行时访问策略；其开源实现可扩展到第三方计算平台。
+  - OpenShell traces actions and enforces runtime access policies; its open-source implementation can be extended to third-party compute platforms.
+- Sentry 在隔离的带外信任域中运行，借助 DOCA 检查请求、验证智能体身份并执行访问控制。
+  - Sentry uses an isolated, out-of-band trust domain and DOCA to inspect requests, verify agent identity and enforce access controls.
+
+### 为什么重要 / Why it matters
+
+若检测与隔离能力在实际部署中得到验证，外部运行时和硬件约束有望让长期运行智能体的权限边界更可靠。
+
+External runtime and hardware enforcement could make permission boundaries more dependable for long-running agents, provided detection and containment claims hold in deployment.
+
+### 链接 / Links
+
+[Evidence 1](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) · [Evidence 2](https://www.globenewswire.com/news-release/2026/09/28/3369606/0/en/nvidia-launches-open-agent-safety-platform-to-secure-agents-from-testing-to-deployment.html) · [Evidence 3](https://nvidianews.nvidia.com/rss.xml)
+
+---
+
 <a id="2026-09-18-google-agentic-security-mantis"></a>
 ## [Google 披露生产级智能体漏洞发现流水线与 Mantis](https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure)
 

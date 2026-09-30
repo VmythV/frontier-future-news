@@ -2,6 +2,106 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-09-28-world-model-error-adaptive-safety"></a>
+## [自适应安全过滤器根据观测到的世界模型误差调整控制](https://arxiv.org/abs/2609.34300)
+
+**English:** [Adaptive safety filters respond to observed world-model errors](https://arxiv.org/abs/2609.34300)
+
+- **发布 / Published:** `2026-09-28T04:44:24Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34300) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `safety`, `robotics`, `uncertainty`, `predictive-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+When World Models Lie 利用预测状态与观测推断状态之间的差异，校准潜在空间安全判断。作者报告，该方法在仿真与硬件实验中相较对照过滤器减少失败，同时保持任务完成能力。
+
+When World Models Lie calibrates latent-space safety reasoning using discrepancies between predicted and observation-inferred states. The authors report fewer failures than comparison filters in simulation and hardware experiments while preserving task completion.
+
+### 技术点 / Technical points
+
+- 自适应共形推断根据直接观测到的预测误差构建在线不确定性集合。
+  - Adaptive Conformal Inference constructs online uncertainty sets from directly observed prediction errors.
+- 过滤器在这些集合上最小化学习得到的安全价值，并为自适应不确定性半径提供有限时间覆盖保证。
+  - The filter minimizes a learned safety value over those sets, with a finite-time coverage guarantee for the adaptive uncertainty radius.
+
+### 为什么重要 / Why it matters
+
+根据观测到的模型失配调整安全裕度，有望让机器人在学习型模拟器失准时采取更谨慎的控制。
+
+Adjusting safety margins to observed model mismatch could make robot control more cautious when a learned simulator becomes unreliable.
+
+---
+
+<a id="2026-09-28-dexterous-tactile-world-model"></a>
+## [DTWM 用触觉改善灵巧操作的未来预测](https://arxiv.org/abs/2609.34286)
+
+**English:** [DTWM uses touch to improve future prediction of dexterous manipulation](https://arxiv.org/abs/2609.34286)
+
+- **发布 / Published:** `2026-09-28T04:30:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34286) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `tactile-sensing`, `robotics`, `video-prediction`, `diffusion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Dexterous Tactile World Model 将第一视角视频与双手触觉手套信号结合，预测未来操作画面。相较匹配的纯视觉基线，作者报告手部运动低估从 23% 降至 9%，手部区域感知误差降低 7.4%。
+
+The Dexterous Tactile World Model combines egocentric video with hand-glove tactile signals to predict future manipulation frames. Against a matched vision-only baseline, the authors report hand-motion underestimation falling from 23% to 9% and 7.4% lower perceptual error in the hand region.
+
+### 技术点 / Technical points
+
+- 触觉信号通过对应位置的零初始化残差接入预训练视频扩散 Transformer，因果掩码阻止访问未来信息。
+  - Tactile signals enter a pretrained video diffusion transformer through location-specific zero-initialized residuals, with a causal mask blocking future information.
+- 消融实验表明力的大小和空间位置均有作用；即使推理时没有触觉，触觉训练也能改善预测。
+  - Ablations indicate that force magnitude and spatial location both help; tactile training also improves predictions when touch is absent at inference.
+
+### 为什么重要 / Why it matters
+
+触觉能为视觉难以推断的接触变化提供预测信息，有望改善面向操作任务的世界模型。
+
+Touch can supply predictive information about contact changes that are difficult to infer visually, improving world models for manipulation.
+
+---
+
+<a id="2026-09-28-wb-wam-whole-body-pretraining"></a>
+## [WB-WAM 通过异构预训练联合学习人形机器人的身体与手部动作](https://arxiv.org/abs/2609.34199)
+
+**English:** [WB-WAM learns coordinated humanoid body–hand actions from heterogeneous pretraining](https://arxiv.org/abs/2609.34199)
+
+- **发布 / Published:** `2026-09-28T03:11:19Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34199) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `humanoid`, `robotics`, `world-action-model`, `pretraining`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WB-WAM 将显式全身动作监督加入生成式视频预训练，使用 1,880.2 小时部分标注的视频与运动数据。作者报告 HumanoidArena 表现为 81.9%，五项实机任务平均成功率为 84.0%。
+
+WB-WAM adds explicit whole-body action supervision to generative video pretraining using 1,880.2 hours of partially annotated video and motion data. The authors report 81.9% performance in HumanoidArena and 84.0% mean success across five real-world tasks.
+
+### 技术点 / Technical points
+
+- 共享物理动作空间整合身体、根节点与灵巧手标注，用于视频和动作联合学习。
+  - A shared physical action space integrates body, root and dexterous-hand annotations for joint video–action learning.
+- PICO 中期训练细化先验，正向运动学监督和重定向的人类示范支持机器人适配。
+  - PICO mid-training refines the priors, while forward-kinematics supervision and retargeted human demonstrations support robot adaptation.
+
+### 为什么重要 / Why it matters
+
+该工作展示了利用异构人类运动数据补充有限机器人示范、学习人形机器人协调任务的路径。
+
+The work suggests a way to supplement limited robot demonstrations with heterogeneous human motion data for coordinated humanoid tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://wb-wam.github.io/)
+
+---
+
 <a id="2026-09-17-safeharness-robot-manipulation"></a>
 ## [SafeHarness 让编码智能体生成的机器人控制器具备避障意识](https://arxiv.org/abs/2609.20822)
 
