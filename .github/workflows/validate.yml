@@ -23,3 +23,6 @@ jobs:
 
       - name: Run tool tests
         run: python3 -m unittest discover -s tests
+
+      - name: Check website interactions
+        run: node --test tests/test_site.mjs

@@ -1,0 +1,54 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "data/news.json"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+      - name: Validate archive
+        run: |
+          python3 .agents/skills/curate-frontier-news/scripts/validate_news.py --strict
+          python3 .agents/skills/curate-frontier-news/scripts/rebuild_index.py --check
+          python3 -m unittest discover -s tests
+          node --test tests/test_site.mjs
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Assemble static site
+        run: |
+          mkdir -p _site/data
+          cp site/index.html site/styles.css site/app.js site/news-view.mjs site/favicon.svg _site/
+          cp data/news.json _site/data/news.json
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -16,6 +16,7 @@ Adjacent ideas such as spatial intelligence, multimodality, robotics hardware, b
 
 ## Read the news / 阅读新闻
 
+- [Online reading room / 在线阅读](https://vmythv.github.io/frontier-future-news/)
 - [Latest news / 最新新闻](LATEST.md)
 - [News archive / 新闻归档](news/index.md)
 - [Agents / 智能体](topics/agents.md)
@@ -98,6 +99,7 @@ python3 -m unittest discover -s tests
 ├── data/news.jsonl                       # generated agent-friendly feed
 ├── news/                                 # generated date archive
 ├── schema/news.schema.json               # public JSON Schema
+├── site/                                # GitHub Pages reading room
 ├── topics/                               # generated topic views
 ├── LATEST.md                             # generated latest view
 └── tests/                                # deterministic tool tests
@@ -130,6 +132,21 @@ git remote add origin https://github.com/OWNER/frontier-future-news.git
 git push -u origin main
 ```
 
-The validation workflow runs on pushes and pull requests. A static GitHub Pages site can be added later without changing the canonical news format.
+The validation workflow runs on pushes and pull requests. The online reading room is published through `.github/workflows/pages.yml` using GitHub Pages. It reads the same canonical database and supports Chinese/English, category filters, bilingual search, score sorting, and expandable technical details. Pushes to `main` that change the website or news data automatically deploy a new version after validation.
 
-推送和拉取请求会自动运行校验。后续可以在不改变新闻数据格式的前提下增加 GitHub Pages 静态站点。
+推送和拉取请求会自动运行校验。在线阅读页面通过 `.github/workflows/pages.yml` 发布到 GitHub Pages，直接使用同一份正式新闻数据库，支持中英文切换、分类筛选、双语搜索、评分排序与技术详情展开。推送到 `main` 的网页或新闻数据更新会在校验后自动发布。
+
+For a new fork, enable **Settings → Pages → Source → GitHub Actions**, then run the **Deploy GitHub Pages** workflow. Update the repository links in `site/index.html` and the online URL above for your own account.
+
+新建 fork 时，在 **Settings → Pages → Source** 选择 **GitHub Actions**，然后运行 **Deploy GitHub Pages** 工作流。请将 `site/index.html` 中的仓库链接及上方在线地址改为自己的账号。
+
+Preview locally without installing dependencies:
+
+```bash
+mkdir -p _site/data
+cp site/index.html site/styles.css site/app.js site/news-view.mjs site/favicon.svg _site/
+cp data/news.json _site/data/news.json
+python3 -m http.server 8765 --directory _site
+```
+
+Open `http://localhost:8765`. Run `node --test tests/test_site.mjs` to check filtering, sorting, and link handling.

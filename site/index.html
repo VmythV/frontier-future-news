@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f6f5f0" />
+    <meta
+      name="description"
+      content="一份有据可查的前沿 AI 新闻档案。聚焦智能体、具身智能与世界模型，提供中英双语摘要、一手来源与技术要点。"
+    />
+    <title>Frontier Future — 前沿 AI 新闻</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#archive" data-i18n="skip">跳转到新闻</a>
+    <div class="shell">
+      <header class="masthead">
+        <a class="brand" href="./" aria-label="Frontier Future home">
+          <svg
+            width="31"
+            height="31"
+            viewBox="0 0 32 32"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path
+              d="M5 27V5h22M5 16h15M16 27V16"
+              stroke="currentColor"
+              stroke-width="2.5"
+            />
+            <circle cx="26" cy="26" r="3" fill="currentColor" />
+          </svg>
+          <span>FRONTIER<span class="brand-light"> FUTURE</span></span>
+        </a>
+        <nav class="top-nav" aria-label="Main navigation">
+          <a href="#archive" data-i18n="archiveNav">新闻档案</a>
+          <a
+            href="https://github.com/VmythV/frontier-future-news"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
+          <button
+            id="language-toggle"
+            type="button"
+            aria-label="Switch to English"
+          >
+            EN <span aria-hidden="true">↔</span>
+          </button>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="live-dot" aria-hidden="true"></span> THE FRONTIER, IN
+              FOCUS
+            </p>
+            <h1 id="hero-title" data-i18n="heroTitle">
+              看见<span>下一步。</span>
+            </h1>
+            <p class="hero-description" data-i18n="heroDescription">
+              追踪智能体、具身智能与世界模型的进展。<br />从一手证据出发，读懂正在发生的未来。
+            </p>
+            <a class="hero-link" href="#archive"
+              ><span data-i18n="explore">阅读新闻档案</span>
+              <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="hero-note">
+            <div class="note-header">
+              <span class="eyebrow">LATEST DISPATCH</span
+              ><span id="featured-date" class="mono">—</span>
+            </div>
+            <a id="featured-link" class="featured-link" href="#archive"
+              ><span id="featured-title" data-i18n="loading">正在加载新闻…</span
+              ><span class="featured-arrow" aria-hidden="true">↗</span></a
+            >
+            <p id="featured-summary" class="featured-summary"></p>
+            <div class="note-footer">
+              <span class="small-dot" aria-hidden="true"></span
+              ><span data-i18n="evidenceFirst">证据优先 · 双语呈现</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="topic-strip" aria-label="Focus areas">
+          <button type="button" data-category="agents">
+            <span class="topic-number">01</span
+            ><span
+              ><span class="topic-name" data-i18n="agents">智能体</span
+              ><span class="topic-caption">AGENTS</span></span
+            ><span class="topic-symbol" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" data-category="embodied-ai">
+            <span class="topic-number">02</span
+            ><span
+              ><span class="topic-name" data-i18n="embodied-ai">具身智能</span
+              ><span class="topic-caption">EMBODIED AI</span></span
+            ><span class="topic-symbol" aria-hidden="true">↗</span>
+          </button>
+          <button type="button" data-category="world-models">
+            <span class="topic-number">03</span
+            ><span
+              ><span class="topic-name" data-i18n="world-models">世界模型</span
+              ><span class="topic-caption">WORLD MODELS</span></span
+            ><span class="topic-symbol" aria-hidden="true">↗</span>
+          </button>
+        </section>
+
+        <section id="archive" class="archive" aria-labelledby="archive-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">THE READING ROOM</p>
+              <h2 id="archive-title" data-i18n="archiveTitle">前沿观察</h2>
+            </div>
+            <p id="archive-total" class="archive-total"></p>
+          </div>
+          <div class="archive-layout">
+            <div class="news-column">
+              <div class="filters">
+                <div
+                  class="category-filters"
+                  role="group"
+                  aria-label="Category filter"
+                >
+                  <button
+                    type="button"
+                    data-category="all"
+                    aria-pressed="true"
+                    data-i18n="all"
+                  >
+                    全部
+                  </button>
+                  <button
+                    type="button"
+                    data-category="agents"
+                    aria-pressed="false"
+                    data-i18n="agents"
+                  >
+                    智能体
+                  </button>
+                  <button
+                    type="button"
+                    data-category="embodied-ai"
+                    aria-pressed="false"
+                    data-i18n="embodied-ai"
+                  >
+                    具身智能
+                  </button>
+                  <button
+                    type="button"
+                    data-category="world-models"
+                    aria-pressed="false"
+                    data-i18n="world-models"
+                  >
+                    世界模型
+                  </button>
+                </div>
+                <div class="search-row">
+                  <label class="search-box"
+                    ><svg
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <circle
+                        cx="10.5"
+                        cy="10.5"
+                        r="6.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      />
+                      <path
+                        d="m16 16 4 4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      /></svg
+                    ><span class="sr-only" data-i18n="searchLabel"
+                      >搜索新闻</span
+                    ><input
+                      id="search"
+                      type="search"
+                      placeholder="搜索标题、技术或项目…"
+                      autocomplete="off"
+                  /></label>
+                  <label class="sr-only" for="sort" data-i18n="sortLabel"
+                    >排序方式</label
+                  ><select id="sort">
+                    <option value="latest" data-i18n="latest">最新发布</option>
+                    <option value="score" data-i18n="scoreSort">
+                      评分优先
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <p
+                id="results-status"
+                class="results-status"
+                role="status"
+                aria-live="polite"
+              ></p>
+              <div id="news-list" aria-busy="true"></div>
+              <div id="empty-state" class="empty-state" hidden>
+                <p id="empty-message"></p>
+                <button id="reset-filters" type="button" data-i18n="reset">
+                  清除筛选
+                </button>
+              </div>
+              <div id="error-state" class="empty-state" hidden>
+                <p data-i18n="loadError">新闻暂时未能加载，请稍后重试。</p>
+                <button id="retry" type="button" data-i18n="retry">
+                  重新加载
+                </button>
+              </div>
+              <button id="load-more" class="load-more" type="button" hidden>
+                <span data-i18n="loadMore">继续阅读</span
+                ><span aria-hidden="true">↓</span>
+              </button>
+              <noscript
+                ><p class="empty-state">
+                  请启用 JavaScript 浏览新闻，或前往
+                  <a
+                    href="https://github.com/VmythV/frontier-future-news/blob/main/LATEST.md"
+                    >GitHub 阅读最新新闻</a
+                  >。
+                </p></noscript
+              >
+            </div>
+            <aside class="sidebar" aria-label="About this archive">
+              <div class="about-note">
+                <p class="eyebrow">A SIGNAL, NOT THE NOISE</p>
+                <h3 data-i18n="aboutTitle">信息很多，<br />值得关注的更少。</h3>
+                <p data-i18n="aboutDescription">
+                  精选有技术实质的进展。每条新闻保留原始来源、技术要点和评分，方便你继续追问。
+                </p>
+                <div class="about-rule"></div>
+                <div class="stat">
+                  <span id="stat-total">—</span
+                  ><span data-i18n="statLabel">条已核验新闻</span>
+                </div>
+                <div class="stat-foot">
+                  <span data-i18n="updated">最近收录</span
+                  ><time id="updated-date">—</time>
+                </div>
+              </div>
+              <div class="reading-note">
+                <h3 data-i18n="readingTitle">关于这份档案</h3>
+                <p data-i18n="readingDescription">
+                  评分衡量主题相关性、证据、创新、技术深度与关注度。它是编辑判断，不是模型排行榜。
+                </p>
+                <a
+                  href="./data/news.json"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="openData">开放数据</span>
+                  <span aria-hidden="true">↗</span></a
+                >
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <a class="footer-brand" href="./">FRONTIER FUTURE</a>
+        <p data-i18n="footerNote">保持好奇，也保持求证。</p>
+        <a
+          href="https://github.com/VmythV/frontier-future-news"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-i18n="viewRepository"
+          >在 GitHub 上查看 ↗</a
+        >
+      </footer>
+    </div>
+  </body>
+</html>
