@@ -2,6 +2,114 @@
 
 # World models / 世界模型
 
+<a id="2026-09-29-stochastic-world-model-verification"></a>
+## [随机世界模型支持视觉反馈控制系统验证](https://arxiv.org/abs/2609.38120)
+
+**English:** [Stochastic world models support verification of vision-based feedback control](https://arxiv.org/abs/2609.38120)
+
+- **发布 / Published:** `2026-09-29T17:50:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38120) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `safety`, `verification`, `simulation`, `control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+作者将具有物理含义潜变量的随机世界模型训练为便于分析的感知替代模型，并结合反例搜索、自适应细化和符号分析。在 RGB 紧急制动基准上，该流程可判定超过 80% 的状态空间；这是基准验证结果，并非部署安全保证。
+
+The authors train a stochastic world model with physically grounded latent variables as a tractable perception surrogate, then combine falsification, adaptive refinement and symbolic analysis. On an RGB emergency-braking benchmark, their procedure resolves over 80% of the state space; this is a benchmark verification result rather than a deployment safety guarantee.
+
+### 技术点 / Technical points
+
+- 该世界模型对留出图像的重建，比参数量最高达其 130 倍的 GAN 替代模型更准确。
+  - The world model reproduces held-out frames more faithfully than GAN surrogates with up to 130 times as many parameters.
+- 在基于 GAN 的基准上，该流程判定了全部状态空间，包括对比验证器无法判定的 38%。
+  - On the GAN-based benchmark, the procedure resolves the entire state space, including the 38% left unresolved by the compared verifier.
+
+### 为什么重要 / Why it matters
+
+便于分析的学习式观测模型，有望将形式化分析扩展到依赖复杂图像采取动作的控制器。
+
+Tractable learned observation models could extend formal analysis to controllers that act on complex images.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2609.38120v1)
+
+---
+
+<a id="2026-09-29-worldline-robot-visual-simulator"></a>
+## [WorldLine 用图像空间动作接口学习跨机器人共享动力学](https://arxiv.org/abs/2609.38059)
+
+**English:** [WorldLine learns shared robot dynamics with an image-space action interface](https://arxiv.org/abs/2609.38059)
+
+- **发布 / Published:** `2026-09-29T17:26:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38059) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `planning`, `video-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WorldLine 将操作动力学预训练与跨机器人本体的动作映射分开，使用超过一万小时无动作标注的机器人视频，以及超过两千小时动作轨迹。作者报告，在未使用 RoboTwin 训练或适配的情况下，任务成功率相对直接执行策略最高提升 21.4 个百分点。
+
+WorldLine separates manipulation dynamics pretraining from action grounding across robot embodiments. It uses over 10,000 hours of action-free robot video and over 2,000 hours of action trajectories; the authors report up to a 21.4-point task-success gain over direct policy execution without RoboTwin training or adaptation.
+
+### 技术点 / Technical points
+
+- 图像空间动作表示为十余种机器人本体提供共享控制接口。
+  - An image-space action representation provides a shared control interface for more than ten embodiments.
+- 多视角、失败轨迹增强训练及针对机器人的少步蒸馏支持对动作敏感的因果推演；在 RoboTwin 和 AgiBot 上，成功预测的平均准确率为 74%。
+  - Multi-view, failure-enriched training and robot-focused few-step distillation support action-sensitive causal rollouts; success prediction averages 74% on RoboTwin and AgiBot.
+
+### 为什么重要 / Why it matters
+
+共享视觉模拟器有望在昂贵的实体试验之前支持机器人策略评估与规划。
+
+A shared visual simulator could support robot policy evaluation and planning before costly physical trials.
+
+### 链接 / Links
+
+[Evidence 1](https://zhengsh123.github.io/WorldLine/)
+
+---
+
+<a id="2026-09-29-anisowm-jepa-planning"></a>
+## [AnisoWM 调整潜在表征几何，改善 JEPA 世界模型规划](https://arxiv.org/abs/2609.37441)
+
+**English:** [AnisoWM adjusts latent geometry to improve JEPA world-model planning](https://arxiv.org/abs/2609.37441)
+
+- **发布 / Published:** `2026-09-29T13:00:37Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.37441) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `simulation`, `planning`, `jepa`, `representation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+AnisoWM 将各向同性高斯正则化目标替换为可学习的对角协方差，并约束其迹和各向异性程度。作者报告，在保持预测器和欧氏距离规划器不变的情况下，该方法在四个视觉控制环境上均比 LeWorldModel 规划成功率更高。
+
+AnisoWM replaces an isotropic Gaussian regularization target with a learnable diagonal covariance constrained by fixed trace and bounded anisotropy. The authors report improved planning success over LeWorldModel in all four visual-control environments while keeping the predictor and Euclidean planner unchanged.
+
+### 技术点 / Technical points
+
+- 学到的正则化目标仅用于训练，训练结束后被丢弃。
+  - The learned regularization target is used only in training and discarded afterward.
+- 采用相同设置、对三个训练种子取平均的实验报告：Two-Room 为 93% 对 87%，OGBench-Cube 为 79% 对 74%。
+  - Matched experiments report 93% versus 87% on Two-Room and 79% versus 74% on OGBench-Cube, averaged over three training seeds.
+
+### 为什么重要 / Why it matters
+
+该研究说明，准确的潜在预测本身未必能产生适合规划、正确排序动作的代价函数。
+
+The work shows why accurate latent prediction alone may not produce costs that rank actions well for planning.
+
+### 链接 / Links
+
+[Evidence 1](https://rkdrn79.github.io/AnisoWM-page/)
+
+---
+
 <a id="2026-09-28-editworld-streaming-world-editing"></a>
 ## [EditWorld 为交互世界生成加入持续编辑与参考图控制](https://arxiv.org/abs/2609.34470)
 

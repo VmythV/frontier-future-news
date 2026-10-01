@@ -2,6 +2,170 @@
 
 # Agents / 智能体
 
+<a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
+## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
+
+**English:** [Skill-space shooting turns autonomous robot corrections into policy learning](https://arxiv.org/abs/2609.38178)
+
+- **发布 / Published:** `2026-09-29T17:59:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38178) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `manipulation`, `self-improvement`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Skill-space shooting 利用基础模型指导，搜索能够修正机器人策略失败的可复用短行为。成功试验被转为纠错监督；作者在实体机器人上展示了多轮自主策略改进，以及技能跨任务复用。
+
+Skill-space shooting uses foundation-model guidance to search reusable short behaviors that correct robot policy failures. Successful trials become corrective supervision; the authors demonstrate repeated autonomous policy improvement on physical robots and reuse of skills across tasks.
+
+### 技术点 / Technical points
+
+- 可复用技能提供能被策略学习的纠错数据，而不只是通过外部帮助完成失败任务。
+  - Reusable skills supply learnable corrections rather than merely completing a failed task through external assistance.
+- 项目的纯策略评估视频区分了学到的改进与在线修复帮助。
+  - The project’s policy-only evaluation videos distinguish learned improvements from online repair assistance.
+
+### 为什么重要 / Why it matters
+
+复用纠错行为有望减少为每类任务失败分别提供人工示范的需求。
+
+Reusing corrective behaviors could reduce the need to demonstrate a separate fix for every task failure.
+
+### 链接 / Links
+
+[Evidence 1](https://skill-space-shooting.github.io/)
+
+---
+
+<a id="2026-09-29-agentic-meta-reasoning"></a>
+## [智能体元推理通过结构化控制改善长程任务执行](https://arxiv.org/abs/2609.38147)
+
+**English:** [Agentic meta-reasoning improves long-horizon execution through structured control](https://arxiv.org/abs/2609.38147)
+
+- **发布 / Published:** `2026-09-29T17:57:25Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38147) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `planning`, `memory`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+该推理时控制器负责选择工作、分配剩余预算并从持久记忆提取上下文，由工作智能体执行任务。作者报告，搭配 GPT-5.5 时 ProgramBench 得分为 71.5%，Codex 为 58.0%；在较小预算下，控制器开销可能降低性能。
+
+An inference-time controller selects work, allocates the remaining budget and retrieves context from persistent memory while workers execute tasks. The authors report 71.5% on ProgramBench with GPT-5.5 versus 58.0% for Codex; controller overhead can reduce performance at small budgets.
+
+### 技术点 / Technical points
+
+- 控制器在决策之间保留精简状态，并复用之前产出的结果。
+  - The controller keeps a compact account between decisions and reuses earlier artifacts.
+- 在另外测试的推理与证明基准上，三个前沿模型相对直接控制的平均提升为 3.6–4.2 个百分点。
+  - Across three frontier models, gains over direct control average 3.6–4.2 points on the other tested reasoning and proof benchmarks.
+
+### 为什么重要 / Why it matters
+
+结果提示，将控制决策显式化，有望让额外推理计算在长任务中更有效。
+
+The results suggest that explicit control decisions can make additional inference compute more useful on long tasks.
+
+---
+
+<a id="2026-09-29-meta-skills-agent-harness"></a>
+## [Meta-Skill 将执行反馈转化为可复用的智能体运行环境设计](https://arxiv.org/abs/2609.38143)
+
+**English:** [Meta-Skill turns execution feedback into reusable agent harness design](https://arxiv.org/abs/2609.38143)
+
+- **发布 / Published:** `2026-09-29T17:55:56Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38143) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `benchmark`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Meta-Skill 让 Builder 从 Target 智能体在开发集上的执行反馈中提炼支持原则，再冻结技能库用于未见任务。在两个模型权重均固定时，作者报告在 Harness-Bench 和 NewtonBench 上，相比无技能辅助的运行环境构建，宏平均表现提高 8.95 个百分点。
+
+Meta-Skill has a Builder derive support principles from a Target agent’s development-set feedback, then freezes the skill bank for unseen tasks. With both models’ weights fixed, the authors report an 8.95-point macro-average gain over harness construction without skills across Harness-Bench and NewtonBench.
+
+### 技术点 / Technical points
+
+- 元技能描述何时需要支持，以及应提供哪些资源。
+  - Meta-skills describe when support is needed and which resources to supply.
+- 把技能转成可执行支持后，宏平均表现比直接向 Target 提供同一技能库高 12.02 个百分点。
+  - Constructed executable support outperforms giving the same skill bank directly to the Target by 12.02 points in macro-average performance.
+
+### 为什么重要 / Why it matters
+
+该方法提供了在模型权重固定的情况下，通过执行环境迁移智能体经验的路径。
+
+This offers a way to transfer agent experience through execution environments while keeping model weights fixed.
+
+---
+
+<a id="2026-09-29-planning-routing-execution-gap"></a>
+## [Planning-as-Routing 将计划选择与智能体忠实执行分开评测](https://arxiv.org/abs/2609.38108)
+
+**English:** [Planning-as-Routing separates plan selection from faithful agent execution](https://arxiv.org/abs/2609.38108)
+
+- **发布 / Published:** `2026-09-29T17:47:18Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38108) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `planning`, `benchmark`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+该研究将四种已声明的规划模式路由到确定性的专用执行器。在四个基准和三个大语言模型上，作者发现通用 Plan+ReAct 经常丢失声明的计划结构；约束执行模式可提高成功率，但模型仍难以稳定选出最佳模式。
+
+The study routes four declared planning modes to deterministic, pattern-specific executors. Across four benchmarks and three LLMs, the authors find that generic Plan+ReAct often loses the declared structure; enforcing execution patterns improves success, while choosing the best mode remains unreliable.
+
+### 技术点 / Technical points
+
+- 在三个基准上，通用 Plan+ReAct 仅有 22–45% 的轨迹保留声明的结构。
+  - Only 22–45% of generic Plan+ReAct trajectories preserve declared structure across three benchmarks.
+- 使用专用执行器后，报告的成功率在 ALFWorld 上从 0.48 升至 0.92，在 SWE-bench Verified 上从 0.36 升至 0.44。
+  - Reported success rises from 0.48 to 0.92 on ALFWorld and from 0.36 to 0.44 on SWE-bench Verified with pattern-specific executors.
+
+### 为什么重要 / Why it matters
+
+将选择错误与执行错误分开，有助于让智能体规划评测更准确地定位问题。
+
+Separating selection errors from execution errors can make agent planning evaluations more diagnostic.
+
+---
+
+<a id="2026-09-29-risk-averse-character-training"></a>
+## [角色训练在智能体评测中引入资源风险厌恶偏好](https://arxiv.org/abs/2609.38093)
+
+**English:** [Character training instills resource risk aversion in agent evaluations](https://arxiv.org/abs/2609.38093)
+
+- **发布 / Published:** `2026-09-29T17:42:54Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38093) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `alignment`, `distillation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+作者通过对描述资源恒定绝对风险厌恶的行为章程进行 on-policy 蒸馏，训练智能体风险偏好。模型训练时未接触基准的决策格式，但表现可与直接在该格式上训练的基线竞争；四个模型中有两个的分布外泛化更好。
+
+The authors use on-policy distillation of a constitution specifying constant absolute risk aversion over resources. Models remain competitive with baselines trained on the benchmark’s decision format, despite never seeing it during training; out-of-distribution generalization improves for two of four models.
+
+### 技术点 / Technical points
+
+- 行为章程编码了智能体对资源的 CARA 风险偏好。
+  - The constitution encodes CARA preferences over an agent’s resources.
+- 模型选择和 token 预算显著影响学到的偏好；这些评测并未证明可阻止现实中的灾难性行为。
+  - Model choice and token budget strongly affect the learned disposition; the evaluations do not establish prevention of real-world catastrophic behavior.
+
+### 为什么重要 / Why it matters
+
+该研究提供了超越单一决策格式训练、实证研究广泛风险偏好的方法。
+
+This provides an empirical route for studying broad risk preferences beyond training on a single decision format.
+
+---
+
 <a id="2026-09-29-openai-dots-always-on-agents"></a>
 ## [OpenAI 推出拥有云端电脑、可持续承担任务的 Dots](https://openai.com/index/introducing-dots/)
 

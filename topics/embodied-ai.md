@@ -2,6 +2,142 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
+## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
+
+**English:** [Skill-space shooting turns autonomous robot corrections into policy learning](https://arxiv.org/abs/2609.38178)
+
+- **发布 / Published:** `2026-09-29T17:59:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38178) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `manipulation`, `self-improvement`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Skill-space shooting 利用基础模型指导，搜索能够修正机器人策略失败的可复用短行为。成功试验被转为纠错监督；作者在实体机器人上展示了多轮自主策略改进，以及技能跨任务复用。
+
+Skill-space shooting uses foundation-model guidance to search reusable short behaviors that correct robot policy failures. Successful trials become corrective supervision; the authors demonstrate repeated autonomous policy improvement on physical robots and reuse of skills across tasks.
+
+### 技术点 / Technical points
+
+- 可复用技能提供能被策略学习的纠错数据，而不只是通过外部帮助完成失败任务。
+  - Reusable skills supply learnable corrections rather than merely completing a failed task through external assistance.
+- 项目的纯策略评估视频区分了学到的改进与在线修复帮助。
+  - The project’s policy-only evaluation videos distinguish learned improvements from online repair assistance.
+
+### 为什么重要 / Why it matters
+
+复用纠错行为有望减少为每类任务失败分别提供人工示范的需求。
+
+Reusing corrective behaviors could reduce the need to demonstrate a separate fix for every task failure.
+
+### 链接 / Links
+
+[Evidence 1](https://skill-space-shooting.github.io/)
+
+---
+
+<a id="2026-09-29-rho-adaptable-vla"></a>
+## [Rho 推出适配三种双臂本体的开放权重 VLA 模型](https://arxiv.org/abs/2609.38164)
+
+**English:** [Rho introduces adaptable open-weights VLA models for three dual-arm embodiments](https://arxiv.org/abs/2609.38164)
+
+- **发布 / Published:** `2026-09-29T17:59:28Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38164) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `manipulation`, `open-weights`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Rho 面向 YAM Box、UR AI Trainer 和 FR3 Duo 的少数据任务适配。报告通过仿真与实体机器人实验分析动作专家设计和本体中期训练，并展示在冻结流匹配动作专家的情况下，用小型潜在策略进行在线纠错。
+
+Rho targets data-light adaptation for YAM Box, UR AI Trainer and FR3 Duo. The report presents simulation and physical-robot ablations of action-expert design and embodiment midtraining, plus online correction through a small latent policy while the flow-matching action expert stays frozen.
+
+### 技术点 / Technical points
+
+- 作者发布基础模型及各本体专用检查点。
+  - The authors release a base model and embodiment-specific checkpoints.
+- 只需少至 15 个纠正后的回合，即可让选择噪声输入的潜在策略适应接近离线微调分布边缘的情境。
+  - As few as 15 corrected episodes adapt the latent noise-selection policy to situations near the edge of the offline finetuning distribution.
+
+### 为什么重要 / Why it matters
+
+该方法把跨本体训练准备与轻量适配结合起来，为实用双臂操作提供路线。
+
+The approach combines cross-embodiment preparation with lightweight adaptation for practical bimanual manipulation.
+
+---
+
+<a id="2026-09-29-worldline-robot-visual-simulator"></a>
+## [WorldLine 用图像空间动作接口学习跨机器人共享动力学](https://arxiv.org/abs/2609.38059)
+
+**English:** [WorldLine learns shared robot dynamics with an image-space action interface](https://arxiv.org/abs/2609.38059)
+
+- **发布 / Published:** `2026-09-29T17:26:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38059) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `planning`, `video-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+WorldLine 将操作动力学预训练与跨机器人本体的动作映射分开，使用超过一万小时无动作标注的机器人视频，以及超过两千小时动作轨迹。作者报告，在未使用 RoboTwin 训练或适配的情况下，任务成功率相对直接执行策略最高提升 21.4 个百分点。
+
+WorldLine separates manipulation dynamics pretraining from action grounding across robot embodiments. It uses over 10,000 hours of action-free robot video and over 2,000 hours of action trajectories; the authors report up to a 21.4-point task-success gain over direct policy execution without RoboTwin training or adaptation.
+
+### 技术点 / Technical points
+
+- 图像空间动作表示为十余种机器人本体提供共享控制接口。
+  - An image-space action representation provides a shared control interface for more than ten embodiments.
+- 多视角、失败轨迹增强训练及针对机器人的少步蒸馏支持对动作敏感的因果推演；在 RoboTwin 和 AgiBot 上，成功预测的平均准确率为 74%。
+  - Multi-view, failure-enriched training and robot-focused few-step distillation support action-sensitive causal rollouts; success prediction averages 74% on RoboTwin and AgiBot.
+
+### 为什么重要 / Why it matters
+
+共享视觉模拟器有望在昂贵的实体试验之前支持机器人策略评估与规划。
+
+A shared visual simulator could support robot policy evaluation and planning before costly physical trials.
+
+### 链接 / Links
+
+[Evidence 1](https://zhengsh123.github.io/WorldLine/)
+
+---
+
+<a id="2026-09-29-vla-acceleration-benchmark-audit"></a>
+## [评测审计发现 22 个可能扭曲 VLA 加速方法排名的缺陷](https://arxiv.org/abs/2609.37771)
+
+**English:** [An audit finds 22 bugs that can distort VLA acceleration rankings](https://arxiv.org/abs/2609.37771)
+
+- **发布 / Published:** `2026-09-29T15:12:55Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.37771) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `reliability`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+研究审计了 RoboTwin、LIBERO-Plus、VLABench 等七个操作基准，发现 22 个实现缺陷及四项设计局限。作者展示，修正成功判定和仿真设置，可消除看似由加速带来的收益，甚至反转方法排名。
+
+An audit of seven manipulation benchmarks, including RoboTwin, LIBERO-Plus and VLABench, identifies 22 implementation bugs and four design limitations. The authors show that fixing success checks and simulation settings can remove apparent acceleration gains or reverse method rankings.
+
+### 技术点 / Technical points
+
+- 审计将缺陷归为任务一致性、初始化和可复现性三类。
+  - The audit groups bugs into task consistency, initialization and reproducibility.
+- 修订评测包括更严格的成功判定、修正物体质量及考虑动作平滑性的评分；一个任务上的基线从落后 21 个百分点变为领先五个。
+  - Revised evaluation includes stricter success checks, corrected object masses and a motion-aware score; on one task a baseline moves from 21 points behind to five points ahead.
+
+### 为什么重要 / Why it matters
+
+只有保证基准可靠，才能判断更快的 VLA 推理是否真正改善机器人行为。
+
+Benchmark integrity is necessary to determine whether faster VLA inference actually improves robot behavior.
+
+---
+
 <a id="2026-09-28-world-model-error-adaptive-safety"></a>
 ## [自适应安全过滤器根据观测到的世界模型误差调整控制](https://arxiv.org/abs/2609.34300)
 
