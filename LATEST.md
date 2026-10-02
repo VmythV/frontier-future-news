@@ -2,6 +2,326 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-09-30-gemini-4-argon-long-horizon-agents"></a>
+## [Google 发布面向长程智能体工作流的 Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+
+**English:** [Google announces Gemini 4 Argon for long-horizon agent workflows](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+
+- **发布 / Published:** `2026-09-30T20:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `tool-use`, `coding`, `benchmark`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+Google 公布 Gemini 4 Argon，通过扩大输出预算支持持续推理、多步骤软件开发和企业工作流。首批访问面向 Fairwind 项目的可信网络防御机构，更广泛开放仍在规划中。Google 报告其 DeepSWE v1.1 得分为 77.9%，AutomationBench 为 51.3%，并介绍了用于内存优化和代码迁移的内部智能体部署。
+
+Google announced Gemini 4 Argon with an expanded output budget for sustained reasoning and multi-step software and enterprise work. Access initially goes to trusted cyber defenders through Fairwind; broader availability remains planned. Google reports 77.9% on DeepSWE v1.1 and 51.3% on AutomationBench, alongside internal agent deployments for memory optimization and code migration.
+
+### 技术点 / Technical points
+
+- 输出上限从 64K 提升至一百万 token。
+  - The output limit increases from 64K to one million tokens.
+- Google 报告已部署的智能体优化释放了超过 300 TiB 的数据中心内存。
+  - Google reports deployed agent-driven optimizations freeing over 300 TiB of data-center memory.
+
+### 为什么重要 / Why it matters
+
+更长的推理轨迹和具体内部部署使其成为有实质意义的智能体发布，但分阶段访问限制了即时可用范围。
+
+Longer reasoning trajectories and concrete internal deployments make this a consequential agent release, while phased access limits immediate availability.
+
+---
+
+<a id="2026-09-30-ego4wam-human-data-scaling"></a>
+## [Ego4WAM 分析第一视角人类数据如何促进机器人学习](https://arxiv.org/abs/2609.40341)
+
+**English:** [Ego4WAM isolates what makes egocentric human data useful for robot learning](https://arxiv.org/abs/2609.40341)
+
+- **发布 / Published:** `2026-09-30T17:58:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40341) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `vla`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Ego4WAM 在固定世界动作模型骨干的条件下研究人类数据扩展，分别分析对齐程度、时长、任务多样性、监督信号和训练使用方式。作者发现，对齐的人类示范可改善分布外泛化并减少目标机器人数据需求，仅视频监督也可为后续视频动作训练打下基础。
+
+Ego4WAM studies human-data scaling with a fixed world-action model backbone, separating alignment, duration, task diversity, supervision and training usage. The authors find that aligned demonstrations improve out-of-distribution generalization and reduce target robot-data needs, while video-only supervision can support later video-action training.
+
+### 技术点 / Technical points
+
+- 闭环评测覆盖真实机器人和 RoboDojo。
+  - Closed-loop evaluations cover real robots and RoboDojo.
+- 数据时长与任务多样性对下游能力的影响不同。
+  - Duration and task diversity have different effects on downstream capabilities.
+
+### 为什么重要 / Why it matters
+
+该研究为机器人数据采集提供了比单纯增加时长更具体的依据。
+
+The study gives robot-data collection a more specific basis than scaling hours alone.
+
+---
+
+<a id="2026-09-30-dynaharness-robot-execution-governance"></a>
+## [DynaHarness 管理机器人执行并验证能力修订](https://arxiv.org/abs/2609.40306)
+
+**English:** [DynaHarness governs robot execution and validates capability revisions](https://arxiv.org/abs/2609.40306)
+
+- **发布 / Published:** `2026-09-30T17:52:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40306) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `planning`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+DynaHarness 通过共享执行契约连接较慢的语义推理与较快的物理执行。系统监控指令、拒绝未解析动作并请求重新规划，再通过失败归因指导能力修订，使用回归检查决定是否接纳。作者报告其在 800 个新采样 LIBERO-Pro 初始状态上的成功率为 75.2%，冻结策略为 17.5%。
+
+DynaHarness couples slower semantic reasoning with faster physical execution through a shared contract. It monitors commands, rejects unresolved actions and requests replanning, then attributes failures to guide capability revisions admitted through regression checks. The authors report 75.2% success on 800 new LIBERO-Pro initial states, versus 17.5% for the frozen policy.
+
+### 技术点 / Technical points
+
+- 执行契约记录分析技能、恢复技能和冻结 VLA 的执行证据。
+  - The execution contract records evidence across analytic skills, recovery skills and a frozen VLA.
+- 在相同能力库下，动态执行达到 74.0%，常规单步重规划为 63.9%。
+  - With the same capability library, dynamic execution reaches 74.0%, compared with 63.9% for nominal one-step replanning.
+
+### 为什么重要 / Why it matters
+
+执行管理为在既有策略基础上改善长程机器人行为提供了一条路径。
+
+Execution governance offers a way to improve long-horizon robot behavior around an existing policy.
+
+---
+
+<a id="2026-09-30-pivotopd-agent-error-recovery"></a>
+## [PivotOPD 训练智能体预防关键错误并从错误中恢复](https://arxiv.org/abs/2609.40285)
+
+**English:** [PivotOPD trains agents to prevent and recover from pivotal mistakes](https://arxiv.org/abs/2609.40285)
+
+- **发布 / Published:** `2026-09-30T17:48:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40285) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `training`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+PivotOPD 将预防性蒸馏与恢复性蒸馏结合，用于训练多轮智能体。教师在关键错误处提供更优动作，并在后续若干轮给出恢复动作。作者报告该方法在 ALFWorld、WebShop 和搜索问答上取得提升，并迁移到采用 Nemotron-3.5 学生模型的软件工程任务。
+
+PivotOPD combines preventive and recovery distillation for multi-turn agents. A teacher supplies a better action at a pivotal error and recovery actions over subsequent turns. The authors report gains across ALFWorld, WebShop and search QA, with transfer to software engineering using a Nemotron-3.5 student.
+
+### 技术点 / Technical points
+
+- 预防监督采用反向 KL，恢复监督采用正向 KL。
+  - Preventive supervision uses reverse KL; recovery supervision uses forward KL.
+- 作者报告 Nemotron-3.5 学生模型在 SWE-Bench Verified 的解决率提升了 3.2 个百分点。
+  - The authors report a 3.2 percentage-point improvement in SWE-Bench Verified resolve rate for the Nemotron-3.5 student.
+
+### 为什么重要 / Why it matters
+
+显式恢复训练针对长程智能体轨迹中不断累积、导致执行脆弱的错误。
+
+Explicit recovery training addresses compounding errors that make long agent trajectories fragile.
+
+---
+
+<a id="2026-09-30-social-wm-realizable-navigation"></a>
+## [Social-WM 预测动作可实现性以改善机器人导航安全](https://arxiv.org/abs/2609.40177)
+
+**English:** [Social-WM predicts action realizability for safer robot navigation](https://arxiv.org/abs/2609.40177)
+
+- **发布 / Published:** `2026-09-30T17:03:21Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40177) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `navigation`, `safety`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Social-WM 从第一视角 RGB 视频学习动作条件潜在动力学，并估计候选导航动作能否实际实现。系统将名义动作与可实现动作之间的差异作为执行前安全信号。作者报告其在 Social-HM3D 上的成功率为 63.77%，与人碰撞指标为 21.67%，并展示向 Social-MP3D 的零样本迁移。
+
+Social-WM learns action-conditioned latent dynamics from egocentric RGB video and estimates whether proposed navigation actions can actually be realized. It uses the gap between nominal and realizable actions as a pre-execution safety signal. The authors report 63.77% success and 21.67% human collisions on Social-HM3D, with zero-shot transfer to Social-MP3D.
+
+### 技术点 / Technical points
+
+- 逆动力学依据实际实现的动作训练，而非名义指令。
+  - Inverse dynamics is trained against realized actions rather than nominal commands.
+- 与目标无关的模型支持位置和图像目标，无需显式行人跟踪或在线强化学习。
+  - Goal-independent models support position and image goals without explicit pedestrian tracking or online RL.
+
+### 为什么重要 / Why it matters
+
+在想象轨迹中检查动作可行性，将世界模型规划与社会导航安全联系起来。
+
+Checking action feasibility inside imagined rollouts connects world-model planning to social-navigation safety.
+
+---
+
+<a id="2026-09-30-tacex-tactile-curiosity"></a>
+## [TacEx 引导机器人探索有信息价值的物理接触](https://arxiv.org/abs/2609.40134)
+
+**English:** [TacEx directs robot exploration toward informative physical contact](https://arxiv.org/abs/2609.40134)
+
+- **发布 / Published:** `2026-09-30T16:49:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40134) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile`, `reinforcement-learning`, `vla`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+TacEx 按感知模态分解模型不确定性，将内在好奇心导向触觉。该框架在探索阶段无需任务奖励或专家示范，采集富含接触的交互经验。论文将这些经验用于离线抓取放置学习和 VLA 后训练，并报告下游操作表现提升。
+
+TacEx separates model uncertainty by sensory modality and directs intrinsic curiosity toward touch. The framework collects contact-rich experience without task rewards or expert demonstrations during exploration. The paper uses this experience for offline pick-and-place learning and VLA post-training, reporting improvements in downstream manipulation.
+
+### 技术点 / Technical points
+
+- 触觉不确定性引导探索，减少无关的自由空间运动。
+  - Tactile uncertainty guides exploration away from irrelevant free-space motion.
+- 采集的数据支持下游离线策略学习，无需额外环境交互。
+  - The collected dataset supports downstream offline policy learning without extra environment interaction.
+
+### 为什么重要 / Why it matters
+
+以触觉为依据的探索将经验集中于接触动力学，有望提高操作训练效率。
+
+Touch-grounded exploration may make manipulation training more efficient by concentrating experience on contact dynamics.
+
+---
+
+<a id="2026-09-30-agent-error-dataset-repair-training"></a>
+## [Agent Error Dataset 将失败轨迹转化为诊断和恢复训练数据](https://arxiv.org/abs/2609.40111)
+
+**English:** [Agent Error Dataset turns failed rollouts into diagnosis and recovery training](https://arxiv.org/abs/2609.40111)
+
+- **发布 / Published:** `2026-09-30T16:40:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40111) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `training`, `benchmark`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Agent Error Dataset 收录来自 9,961 项任务的 50,228 对错误与诊断数据，覆盖 33 个环境、19 类执行框架和 23 个策略模型。其 AET 流程保留轨迹、提出修正并依据证据核查。作者报告，在配对重放实验中，验证器通过率从 18.4% 提升至 51.1%。
+
+The Agent Error Dataset contains 50,228 error-diagnosis pairs from 9,961 tasks spanning 33 environments, 19 harness families and 23 policy models. Its AET pipeline retains traces, proposes corrections and checks them against evidence. In matched replay experiments, the authors report verifier pass rates rising from 18.4% to 51.1%.
+
+### 技术点 / Technical points
+
+- 配对重放从同一检查点比较建议修正与原动作重试。
+  - Matched replay compares a proposed correction with an original-action retry from the same checkpoint.
+- 数据分别用于诊断和执行者恢复训练，仅在环境支持时进行重放。
+  - Separate training views target diagnosis and actor recovery; replay is used only where supported.
+
+### 为什么重要 / Why it matters
+
+关联执行证据的失败数据有助于比单一最终任务奖励更精确地训练智能体纠错。
+
+Evidence-linked failure data can support more precise agent repair than final task rewards alone.
+
+---
+
+<a id="2026-09-30-osworld-science-scientific-software"></a>
+## [OSWorld-Science 评测智能体操作科学软件的能力](https://arxiv.org/abs/2609.39903)
+
+**English:** [OSWorld-Science evaluates computer-use agents on scientific software](https://arxiv.org/abs/2609.39903)
+
+- **发布 / Published:** `2026-09-30T15:03:05Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39903) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `science`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OSWorld-Science 提出 146 项科学软件任务及面向计算机操作智能体的评测环境。论文比较了 12 个 VLM，覆盖分子设计、病理分析、统计计算和物理仿真等工作流。评估器检查应用状态与输出产物，并对未完整完成的结果给予部分分数。
+
+OSWorld-Science introduces 146 scientific software tasks and an evaluation environment for computer-using agents. The paper compares 12 VLMs across workflows including molecular design, pathology analysis, statistics and physical simulation. Evaluators check application state and produced artifacts, with partial credit for incomplete results.
+
+### 技术点 / Technical points
+
+- 任务评估器检查分子结构、分割掩码、图表及数值输出。
+  - Task evaluators inspect molecular structures, segmentation masks, plots and numerical outputs.
+- 统一执行框架支持模型适配、交互控制与轨迹记录。
+  - A common harness supports model adapters, interaction control and trajectory logging.
+
+### 为什么重要 / Why it matters
+
+可验证的科学产物将 GUI 智能体评测扩展到具有实质结果的专业工作流。
+
+Verifiable scientific artifacts extend GUI-agent evaluation to specialist workflows with meaningful outcomes.
+
+---
+
+<a id="2026-09-30-splinewam-adaptive-action-horizons"></a>
+## [SplineWAM 自适应调整动作时域以减少世界动作模型调用](https://arxiv.org/abs/2609.39873)
+
+**English:** [SplineWAM adapts action horizons to reduce world-action model calls](https://arxiv.org/abs/2609.39873)
+
+- **发布 / Published:** `2026-09-30T14:51:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `inference`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SplineWAM 使用三次 B 样条编码机器人轨迹，使固定参数预算可表示不同动作时长和分辨率。方法将视频监督对齐到拟合节点，并在异步执行中维持动作连续性。作者报告其在 LIBERO-Plus 和 RoboCasa 上提高了成功率，同时减少策略调用。
+
+SplineWAM encodes robot trajectories with cubic B-splines so a fixed parameter budget can represent different action durations and resolutions. It aligns video supervision to fitted knots and maintains action continuity during asynchronous execution. The authors report higher success and fewer policy calls on LIBERO-Plus and RoboCasa.
+
+### 技术点 / Technical points
+
+- JP-RTC 通过解码器修正参数，在解码后的可执行动作上约束连续性。
+  - JP-RTC enforces continuity on decoded executable actions through decoder-based parameter correction.
+- 作者报告两个基准的成功率分别提升 8.2 和 4.4 个百分点，策略调用分别减少 22% 和 26%。
+  - Reported success gains are 8.2 and 4.4 percentage points, with policy calls reduced by 22% and 26%, respectively.
+
+### 为什么重要 / Why it matters
+
+自适应动作时序有望减少推理需求，并为困难的接触运动保留更高控制分辨率。
+
+Adaptive action timing may reduce inference demand while reserving more control resolution for difficult contact motion.
+
+---
+
+<a id="2026-09-30-world-model-cellular-automata-dynamics"></a>
+## [元胞自动机测试揭示像素准确率掩盖的世界模型失效](https://arxiv.org/abs/2609.39604)
+
+**English:** [Cellular-automata tests expose world-model failures hidden by pixel accuracy](https://arxiv.org/abs/2609.39604)
+
+- **发布 / Published:** `2026-09-30T12:24:41Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39604) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `dynamics`, `simulation`, `temporal-consistency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项新研究用元胞自动机检验世界模型能否学习精确动力学。作者表明，高像素准确率可能伴随较差的完整轨迹准确率，并将失效归因于空间局部性、时间局部性和时间稳定性。调整信息流可改善多项受控实验，而无需替换模型骨干。
+
+A new study uses cellular automata to test whether world models learn exact dynamics. The authors show that high pixel accuracy can coexist with poor complete-rollout accuracy, and attribute failures to spatial locality, temporal locality and temporal stability. Information-flow changes improve several controlled experiments without replacing the model backbone.
+
+### 技术点 / Technical points
+
+- 论文中的 CNN 单元预测准确率为 96.3%，但完整轨迹成功率仅为 18.9%。
+  - The reported CNN predicts 96.3% of cells correctly but completes only 18.9% of rollouts.
+- 二维旋转位置编码、前一帧邻域信息和因果冻结分别针对不同失效模式。
+  - Two-dimensional rotary positions, previous-frame neighborhoods and causal freezing address distinct failure modes.
+
+### 为什么重要 / Why it matters
+
+结果提示应在完整轨迹上评估动力学保真度，而不仅考察局部预测准确率。
+
+The results motivate evaluating dynamical fidelity over entire trajectories, beyond local prediction accuracy.
+
+---
+
 <a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
 ## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
 
@@ -335,353 +655,3 @@ The work shows why accurate latent prediction alone may not produce costs that r
 ### 链接 / Links
 
 [Evidence 1](https://rkdrn79.github.io/AnisoWM-page/)
-
----
-
-<a id="2026-09-29-openai-dots-always-on-agents"></a>
-## [OpenAI 推出拥有云端电脑、可持续承担任务的 Dots](https://openai.com/index/introducing-dots/)
-
-**English:** [OpenAI launches Dots with cloud computers and ongoing responsibilities](https://openai.com/index/introducing-dots/)
-
-- **发布 / Published:** `2026-09-29T00:00:00Z`
-- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-dots/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `tool-use`, `memory`, `safety`, `cloud`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-OpenAI 推出 Dots：由 GPT-6 Astra 驱动、拥有独立云端电脑，并通过连接的应用持续处理任务。主动后台研究使用只读工具，动作受权限规则和自动审查约束。发布时间采用官方 RSS 标注的 00:00 UTC；公告页面仅提供日期。
-
-OpenAI introduced Dots, GPT-6 Astra agents with their own cloud computers that pursue ongoing tasks through connected apps. Proactive background research uses read-only tools, while actions follow permission rules and automatic review. The publication timestamp follows the official RSS metadata, which specifies 00:00 UTC; the announcement page gives only the date.
-
-### 技术点 / Technical points
-
-- 每个 dot 拥有云端电脑和浏览器，可处理多个项目，并从反馈中学习用户偏好。
-  - Each dot has a cloud computer and browser, can handle multiple projects and learns user preferences from feedback.
-- 用户可检查活动并配置动作规则；面向企业的专职 dots 正在有限试点中测试。
-  - Users can inspect activity and configure action rules; enterprise specialist dots are being tested in focused pilots.
-
-### 为什么重要 / Why it matters
-
-Dots 将个人智能体推进到持续、跨应用工作，动作可见性与权限管理因此成为核心产品能力。
-
-Dots extend personal agents toward persistent cross-application work, making visibility into actions and permission management central product capabilities.
-
-### 链接 / Links
-
-[Evidence 1](https://openai.com/news/rss.xml)
-[Discussion 1](https://news.ycombinator.com/item?id=49896604)
-
----
-
-<a id="2026-09-28-kv-streams-agentic-rl-compaction"></a>
-## [KV-streams 保留压缩后的缓存，报告智能体强化学习训练加速 2.6–5 倍](https://arxiv.org/abs/2609.35750)
-
-**English:** [KV-streams reports 2.6–5× faster agentic RL training with cache-preserving compaction](https://arxiv.org/abs/2609.35750)
-
-- **发布 / Published:** `2026-09-28T17:57:42Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.35750) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reinforcement-learning`, `long-context`, `memory`, `efficiency`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-KV-streams 通过继续传递而非清空 KV cache，减少上下文压缩后的重复预填充开销。作者报告，在三种压缩策略上训练耗时加速 2.6–5 倍，实验中未观察到性能损失。
-
-KV-streams addresses repeated prefill overhead after context compaction by forwarding the KV cache rather than clearing it. The authors report 2.6–5× training speedups across three compaction strategies, with no observed performance penalty in their experiments.
-
-### 技术点 / Technical points
-
-- 该策略跨压缩步骤保留缓存状态，避免反复处理整个压缩后的上下文。
-  - The strategy retains cached state across compaction, avoiding repeated processing of the entire compacted context.
-- 在受控实验中，仅靠强化学习就能让流式缓存携带可见上下文中已经消失的信息。
-  - In a controlled experiment, reinforcement learning alone makes the streamed cache carry information no longer present in the visible context.
-
-### 为什么重要 / Why it matters
-
-保留缓存状态有望降低既需要长任务跨度、又需要限制上下文显存占用的智能体训练成本。
-
-Preserving cached state could reduce the training cost of agents that need both long task horizons and bounded context memory.
-
----
-
-<a id="2026-09-28-failure-transparent-agents-evidence-contracts"></a>
-## [FTA 评测工具失败后的无证据成功声明](https://arxiv.org/abs/2609.35732)
-
-**English:** [FTA benchmarks unsupported success claims after tool failures](https://arxiv.org/abs/2609.35732)
-
-- **发布 / Published:** `2026-09-28T17:51:41Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.35732) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `tool-use`, `reliability`, `safety`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Failure-Transparent Agents 固定工具失败观察和证据状态，单独评测失败后的结果报告。在 3,600 条人工标注回复中，作者报告基线、透明性指令和结构化证据契约对应的虚假成功率分别为 22.8%、9.3% 和 0.8%。
-
-Failure-Transparent Agents fixes failed tool observations and evidence states to isolate post-failure reporting. Across 3,600 human-annotated responses, the authors report false-success rates of 22.8% under a baseline policy, 9.3% with transparency instructions and 0.8% with a structured evidence contract.
-
-### 技术点 / Technical points
-
-- 基准包含 100 项任务，覆盖五类失败、一种中性对照和四种用户施压条件。
-  - The benchmark contains 100 tasks across five failure families, a neutral control and four user-pressure conditions.
-- 评测覆盖六个模型和三种回复策略，同时衡量无依据声明与有效恢复；证据契约的结果适用于这一受控任务受阻场景。
-  - Six models and three response policies are evaluated for unsupported claims and useful recovery; the evidence-contract result applies to this controlled blocked-task setting.
-
-### 为什么重要 / Why it matters
-
-该基准让完成声明能够被独立审计，并为工具无法完成任务时的报告约束提供测试平台。
-
-The benchmark makes claims of completion independently auditable and offers a testbed for reporting safeguards when tools cannot complete a task.
-
----
-
-<a id="2026-09-28-nvidia-open-agent-safety-platform"></a>
-## [NVIDIA 以 OpenShell 与 Sentry 构建智能体安全平台](https://nvidianews.nvidia.com/news/open-agent-safety-platform)
-
-**English:** [NVIDIA combines OpenShell and Sentry in its Open Agent Safety Platform](https://nvidianews.nvidia.com/news/open-agent-safety-platform)
-
-- **发布 / Published:** `2026-09-28T09:00:00Z`
-- **来源 / Source:** [NVIDIA](https://nvidianews.nvidia.com/news/open-agent-safety-platform) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `security`, `open-source`, `runtime`, `hardware`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-NVIDIA 发布智能体安全平台，将 OpenShell 安全运行时与 BlueField-4 DPU 上独立运行的 Sentry 监控结合。公司称 Sentry 可在毫秒级隔离越界智能体；这是厂商声明，并非经独立验证的隔离结果。
-
-NVIDIA announced an agent safety platform combining the OpenShell secure runtime with Sentry, an independent watchdog on BlueField-4 DPUs. The company says Sentry can quarantine agents that cross configured boundaries in milliseconds; this is a vendor claim, not an independently verified containment result.
-
-### 技术点 / Technical points
-
-- OpenShell 跟踪动作并执行运行时访问策略；其开源实现可扩展到第三方计算平台。
-  - OpenShell traces actions and enforces runtime access policies; its open-source implementation can be extended to third-party compute platforms.
-- Sentry 在隔离的带外信任域中运行，借助 DOCA 检查请求、验证智能体身份并执行访问控制。
-  - Sentry uses an isolated, out-of-band trust domain and DOCA to inspect requests, verify agent identity and enforce access controls.
-
-### 为什么重要 / Why it matters
-
-若检测与隔离能力在实际部署中得到验证，外部运行时和硬件约束有望让长期运行智能体的权限边界更可靠。
-
-External runtime and hardware enforcement could make permission boundaries more dependable for long-running agents, provided detection and containment claims hold in deployment.
-
-### 链接 / Links
-
-[Evidence 1](https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/) · [Evidence 2](https://www.globenewswire.com/news-release/2026/09/28/3369606/0/en/nvidia-launches-open-agent-safety-platform-to-secure-agents-from-testing-to-deployment.html) · [Evidence 3](https://nvidianews.nvidia.com/rss.xml)
-
----
-
-<a id="2026-09-28-editworld-streaming-world-editing"></a>
-## [EditWorld 为交互世界生成加入持续编辑与参考图控制](https://arxiv.org/abs/2609.34470)
-
-**English:** [EditWorld adds streaming edits and references to interactive world generation](https://arxiv.org/abs/2609.34470)
-
-- **发布 / Published:** `2026-09-28T07:26:50Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34470) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `interactive-generation`, `video-generation`, `benchmark`, `controllability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-EditWorld 在自回归世界生成过程中接收不断变化的编辑指令和参考图片。作者提出 WBench-Editing，并在该基准上报告 73.8 的综合得分与 80.0 的编辑得分。
-
-EditWorld accepts changing editing instructions and reference images during autoregressive world generation. The authors introduce WBench-Editing and report an overall score of 73.8 and editing score of 80.0 on their benchmark.
-
-### 技术点 / Technical points
-
-- 门控因果注意力处理随时间变化的编辑条件和参考图片，稀疏上下文限制长程推理的历史上下文开销。
-  - Gated Causal Attention handles time-varying edit conditions and reference images, while Sparse Context bounds historical context for longer inference.
-- 自回归与双向联合训练结合退火自重采样，并配套专门的编辑数据合成与标注流程。
-  - Joint autoregressive and bidirectional training with annealed self-resampling is paired with a dedicated editing-data synthesis and annotation pipeline.
-
-### 为什么重要 / Why it matters
-
-持续修改内容为生成式交互环境提供了导航之外的更多控制能力。
-
-Streaming content modification broadens the controls available for generated interactive environments beyond navigation alone.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/leoisufa/EditWorld)
-
----
-
-<a id="2026-09-28-world-model-error-adaptive-safety"></a>
-## [自适应安全过滤器根据观测到的世界模型误差调整控制](https://arxiv.org/abs/2609.34300)
-
-**English:** [Adaptive safety filters respond to observed world-model errors](https://arxiv.org/abs/2609.34300)
-
-- **发布 / Published:** `2026-09-28T04:44:24Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34300) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `safety`, `robotics`, `uncertainty`, `predictive-control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-When World Models Lie 利用预测状态与观测推断状态之间的差异，校准潜在空间安全判断。作者报告，该方法在仿真与硬件实验中相较对照过滤器减少失败，同时保持任务完成能力。
-
-When World Models Lie calibrates latent-space safety reasoning using discrepancies between predicted and observation-inferred states. The authors report fewer failures than comparison filters in simulation and hardware experiments while preserving task completion.
-
-### 技术点 / Technical points
-
-- 自适应共形推断根据直接观测到的预测误差构建在线不确定性集合。
-  - Adaptive Conformal Inference constructs online uncertainty sets from directly observed prediction errors.
-- 过滤器在这些集合上最小化学习得到的安全价值，并为自适应不确定性半径提供有限时间覆盖保证。
-  - The filter minimizes a learned safety value over those sets, with a finite-time coverage guarantee for the adaptive uncertainty radius.
-
-### 为什么重要 / Why it matters
-
-根据观测到的模型失配调整安全裕度，有望让机器人在学习型模拟器失准时采取更谨慎的控制。
-
-Adjusting safety margins to observed model mismatch could make robot control more cautious when a learned simulator becomes unreliable.
-
----
-
-<a id="2026-09-28-dexterous-tactile-world-model"></a>
-## [DTWM 用触觉改善灵巧操作的未来预测](https://arxiv.org/abs/2609.34286)
-
-**English:** [DTWM uses touch to improve future prediction of dexterous manipulation](https://arxiv.org/abs/2609.34286)
-
-- **发布 / Published:** `2026-09-28T04:30:09Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34286) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `tactile-sensing`, `robotics`, `video-prediction`, `diffusion`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Dexterous Tactile World Model 将第一视角视频与双手触觉手套信号结合，预测未来操作画面。相较匹配的纯视觉基线，作者报告手部运动低估从 23% 降至 9%，手部区域感知误差降低 7.4%。
-
-The Dexterous Tactile World Model combines egocentric video with hand-glove tactile signals to predict future manipulation frames. Against a matched vision-only baseline, the authors report hand-motion underestimation falling from 23% to 9% and 7.4% lower perceptual error in the hand region.
-
-### 技术点 / Technical points
-
-- 触觉信号通过对应位置的零初始化残差接入预训练视频扩散 Transformer，因果掩码阻止访问未来信息。
-  - Tactile signals enter a pretrained video diffusion transformer through location-specific zero-initialized residuals, with a causal mask blocking future information.
-- 消融实验表明力的大小和空间位置均有作用；即使推理时没有触觉，触觉训练也能改善预测。
-  - Ablations indicate that force magnitude and spatial location both help; tactile training also improves predictions when touch is absent at inference.
-
-### 为什么重要 / Why it matters
-
-触觉能为视觉难以推断的接触变化提供预测信息，有望改善面向操作任务的世界模型。
-
-Touch can supply predictive information about contact changes that are difficult to infer visually, improving world models for manipulation.
-
----
-
-<a id="2026-09-28-wb-wam-whole-body-pretraining"></a>
-## [WB-WAM 通过异构预训练联合学习人形机器人的身体与手部动作](https://arxiv.org/abs/2609.34199)
-
-**English:** [WB-WAM learns coordinated humanoid body–hand actions from heterogeneous pretraining](https://arxiv.org/abs/2609.34199)
-
-- **发布 / Published:** `2026-09-28T03:11:19Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.34199) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `humanoid`, `robotics`, `world-action-model`, `pretraining`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-WB-WAM 将显式全身动作监督加入生成式视频预训练，使用 1,880.2 小时部分标注的视频与运动数据。作者报告 HumanoidArena 表现为 81.9%，五项实机任务平均成功率为 84.0%。
-
-WB-WAM adds explicit whole-body action supervision to generative video pretraining using 1,880.2 hours of partially annotated video and motion data. The authors report 81.9% performance in HumanoidArena and 84.0% mean success across five real-world tasks.
-
-### 技术点 / Technical points
-
-- 共享物理动作空间整合身体、根节点与灵巧手标注，用于视频和动作联合学习。
-  - A shared physical action space integrates body, root and dexterous-hand annotations for joint video–action learning.
-- PICO 中期训练细化先验，正向运动学监督和重定向的人类示范支持机器人适配。
-  - PICO mid-training refines the priors, while forward-kinematics supervision and retargeted human demonstrations support robot adaptation.
-
-### 为什么重要 / Why it matters
-
-该工作展示了利用异构人类运动数据补充有限机器人示范、学习人形机器人协调任务的路径。
-
-The work suggests a way to supplement limited robot demonstrations with heterogeneous human motion data for coordinated humanoid tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://wb-wam.github.io/)
-
----
-
-<a id="2026-09-18-google-agentic-security-mantis"></a>
-## [Google 披露生产级智能体漏洞发现流水线与 Mantis](https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure)
-
-**English:** [Google discloses its production agentic vulnerability pipeline and Mantis](https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure)
-
-- **发布 / Published:** `2026-09-18T00:00:00Z`
-- **来源 / Source:** [Google Cloud](https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `security`, `vulnerability-detection`, `coding-agents`, `multi-agent`, `code-review`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
-
-### 摘要 / Summary
-
-Google 表示，其智能体安全流水线会持续审查数亿行代码中的每次提交，并结合快速扫描、专用分诊、夜间分析和补丁生成。该公司称，这套已部署系统每月可阻止数百个漏洞。
-
-Google says its agentic security pipeline continuously reviews every code check-in across hundreds of millions of lines, combining a fast scanner, specialized triage, nightly analysis, and patch generation. The company reports that the deployed system prevents hundreds of vulnerabilities each month.
-
-### 技术点 / Technical points
-
-- 快速扫描会结合实时代码元数据和依赖调用图补充发现；专用分诊智能体据报可在一分钟内达到超过 92% 的精确率，部分部署的误报率低至 3%。
-  - The quick scan enriches findings with live code metadata and dependency call graphs, while a specialized triage agent reportedly exceeds 92% precision in under one minute and reaches false-positive rates as low as 3% in some deployments.
-- 夜间提交后层会执行更深入的分析，漏洞修复智能体则利用扫描器提供的证据生成补丁，交由人工评审。
-  - A nightly post-submit layer performs deeper analysis, and a bug-fixing agent uses the scanner's proof to propose patches for human review.
-- 开源 Mantis 仓库把这套方法封装为模块化安全技能，但 Google 将其定位为演示而非受支持的生产产品，并要求在受限环境中由专家复核。
-  - The open Mantis repository packages the approach as modular security skills, but Google labels it a demonstration rather than a supported production product and calls for expert verification in restricted environments.
-
-### 为什么重要 / Why it matters
-
-这项披露提供了安全智能体贯穿软件开发生命周期的罕见生产规模证据，同时说明人工复核与沙箱边界仍不可缺少。
-
-The disclosure provides rare production-scale evidence for security agents embedded throughout the software-development lifecycle while documenting the human and sandbox boundaries that remain necessary.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/google/mantis)
-
----
-
-<a id="2026-09-17-anthropic-ai-rd-measurements"></a>
-## [Anthropic 衡量 AI 主导研发与 3 万个并发智能体的监督](https://www.anthropic.com/institute/measuring-pace-of-ai-development)
-
-**English:** [Anthropic measures AI-led R&D and oversight of 30,000 concurrent agents](https://www.anthropic.com/institute/measuring-pace-of-ai-development)
-
-- **发布 / Published:** `2026-09-17T20:32:14Z`
-- **来源 / Source:** [Anthropic](https://www.anthropic.com/institute/measuring-pace-of-ai-development) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `ai-rd`, `automation`, `agent-monitoring`, `oversight`, `evaluation`, `safety`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `95/100`
-
-### 摘要 / Summary
-
-Anthropic 的 2026 年 8 月快照显示，Claude 在 26% 的受测 AI 研发任务中发挥主导作用，并在超过 90% 的任务中至少参与协作，但尚无任何受测任务子集达到完全自主。其使用最广的内部平台同时运行约 3 万个智能体。
-
-Anthropic's August 2026 snapshot says Claude led 26% of measured AI research and development work and collaborated or led in more than 90%, while no measured subset was fully autonomous. Its most-used internal platform ran roughly 30,000 agents concurrently.
-
-### 技术点 / Technical points
-
-- 研发自动化指数基于每周员工调查抽样得到的约 1.5 万项任务，并整理成包含 542 个节点和 378 个叶节点的任务树。
-  - The R&D Automation Index was built from about 15,000 tasks sampled from weekly staff surveys and organized into a 542-node task tree with 378 leaves.
-- 该平台上的全部动作都会经过在线监控；在 8 月超过十亿次决策中，约 0.002% 被拦截，离线监控链每周还会标记约 10 万份轨迹并逐级缩小人工复核范围。
-  - All actions on the platform pass an online monitor; across more than one billion August decisions, about 0.002% were blocked, while an offline monitor chain flags roughly 100,000 transcripts per week for progressively narrower review.
-- 这些测量仅覆盖特定平台和较短时间快照，许多任务、安全和工作负载标签由公司自行报告或借助 Claude 分类，尚未接受独立审计。
-  - The measurements cover selected platforms and short snapshots, and many task, safety, and workload labels are self-reported or Claude-assisted rather than independently audited.
-
-### 为什么重要 / Why it matters
-
-该报告把 AI 驱动的 AI 研发和大规模智能体监督转化为可操作的量化指标，为其他前沿实验室与外部评估者提供可质疑、可比较的框架。
-
-The report turns AI-driven AI development and large-scale agent oversight into operational quantities that other frontier labs and external evaluators can challenge and compare.
-
-### 链接 / Links
-
-[Evidence 1](https://x.com/AnthropicAI/status/2100684274114699295) · [Evidence 2](https://siliconangle.com/2026/09/17/anthropic-details-practical-metrics-to-help-monitor-the-speed-of-ai-development/)
-[Discussion 1](https://www.reddit.com/r/ClaudeAI/comments/1wjus8c/claude_itself_is_now_leading_26_of_the_work/)

@@ -2,6 +2,166 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-09-30-ego4wam-human-data-scaling"></a>
+## [Ego4WAM 分析第一视角人类数据如何促进机器人学习](https://arxiv.org/abs/2609.40341)
+
+**English:** [Ego4WAM isolates what makes egocentric human data useful for robot learning](https://arxiv.org/abs/2609.40341)
+
+- **发布 / Published:** `2026-09-30T17:58:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40341) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `vla`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Ego4WAM 在固定世界动作模型骨干的条件下研究人类数据扩展，分别分析对齐程度、时长、任务多样性、监督信号和训练使用方式。作者发现，对齐的人类示范可改善分布外泛化并减少目标机器人数据需求，仅视频监督也可为后续视频动作训练打下基础。
+
+Ego4WAM studies human-data scaling with a fixed world-action model backbone, separating alignment, duration, task diversity, supervision and training usage. The authors find that aligned demonstrations improve out-of-distribution generalization and reduce target robot-data needs, while video-only supervision can support later video-action training.
+
+### 技术点 / Technical points
+
+- 闭环评测覆盖真实机器人和 RoboDojo。
+  - Closed-loop evaluations cover real robots and RoboDojo.
+- 数据时长与任务多样性对下游能力的影响不同。
+  - Duration and task diversity have different effects on downstream capabilities.
+
+### 为什么重要 / Why it matters
+
+该研究为机器人数据采集提供了比单纯增加时长更具体的依据。
+
+The study gives robot-data collection a more specific basis than scaling hours alone.
+
+---
+
+<a id="2026-09-30-dynaharness-robot-execution-governance"></a>
+## [DynaHarness 管理机器人执行并验证能力修订](https://arxiv.org/abs/2609.40306)
+
+**English:** [DynaHarness governs robot execution and validates capability revisions](https://arxiv.org/abs/2609.40306)
+
+- **发布 / Published:** `2026-09-30T17:52:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40306) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `planning`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+DynaHarness 通过共享执行契约连接较慢的语义推理与较快的物理执行。系统监控指令、拒绝未解析动作并请求重新规划，再通过失败归因指导能力修订，使用回归检查决定是否接纳。作者报告其在 800 个新采样 LIBERO-Pro 初始状态上的成功率为 75.2%，冻结策略为 17.5%。
+
+DynaHarness couples slower semantic reasoning with faster physical execution through a shared contract. It monitors commands, rejects unresolved actions and requests replanning, then attributes failures to guide capability revisions admitted through regression checks. The authors report 75.2% success on 800 new LIBERO-Pro initial states, versus 17.5% for the frozen policy.
+
+### 技术点 / Technical points
+
+- 执行契约记录分析技能、恢复技能和冻结 VLA 的执行证据。
+  - The execution contract records evidence across analytic skills, recovery skills and a frozen VLA.
+- 在相同能力库下，动态执行达到 74.0%，常规单步重规划为 63.9%。
+  - With the same capability library, dynamic execution reaches 74.0%, compared with 63.9% for nominal one-step replanning.
+
+### 为什么重要 / Why it matters
+
+执行管理为在既有策略基础上改善长程机器人行为提供了一条路径。
+
+Execution governance offers a way to improve long-horizon robot behavior around an existing policy.
+
+---
+
+<a id="2026-09-30-social-wm-realizable-navigation"></a>
+## [Social-WM 预测动作可实现性以改善机器人导航安全](https://arxiv.org/abs/2609.40177)
+
+**English:** [Social-WM predicts action realizability for safer robot navigation](https://arxiv.org/abs/2609.40177)
+
+- **发布 / Published:** `2026-09-30T17:03:21Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40177) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `navigation`, `safety`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Social-WM 从第一视角 RGB 视频学习动作条件潜在动力学，并估计候选导航动作能否实际实现。系统将名义动作与可实现动作之间的差异作为执行前安全信号。作者报告其在 Social-HM3D 上的成功率为 63.77%，与人碰撞指标为 21.67%，并展示向 Social-MP3D 的零样本迁移。
+
+Social-WM learns action-conditioned latent dynamics from egocentric RGB video and estimates whether proposed navigation actions can actually be realized. It uses the gap between nominal and realizable actions as a pre-execution safety signal. The authors report 63.77% success and 21.67% human collisions on Social-HM3D, with zero-shot transfer to Social-MP3D.
+
+### 技术点 / Technical points
+
+- 逆动力学依据实际实现的动作训练，而非名义指令。
+  - Inverse dynamics is trained against realized actions rather than nominal commands.
+- 与目标无关的模型支持位置和图像目标，无需显式行人跟踪或在线强化学习。
+  - Goal-independent models support position and image goals without explicit pedestrian tracking or online RL.
+
+### 为什么重要 / Why it matters
+
+在想象轨迹中检查动作可行性，将世界模型规划与社会导航安全联系起来。
+
+Checking action feasibility inside imagined rollouts connects world-model planning to social-navigation safety.
+
+---
+
+<a id="2026-09-30-tacex-tactile-curiosity"></a>
+## [TacEx 引导机器人探索有信息价值的物理接触](https://arxiv.org/abs/2609.40134)
+
+**English:** [TacEx directs robot exploration toward informative physical contact](https://arxiv.org/abs/2609.40134)
+
+- **发布 / Published:** `2026-09-30T16:49:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40134) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile`, `reinforcement-learning`, `vla`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+TacEx 按感知模态分解模型不确定性，将内在好奇心导向触觉。该框架在探索阶段无需任务奖励或专家示范，采集富含接触的交互经验。论文将这些经验用于离线抓取放置学习和 VLA 后训练，并报告下游操作表现提升。
+
+TacEx separates model uncertainty by sensory modality and directs intrinsic curiosity toward touch. The framework collects contact-rich experience without task rewards or expert demonstrations during exploration. The paper uses this experience for offline pick-and-place learning and VLA post-training, reporting improvements in downstream manipulation.
+
+### 技术点 / Technical points
+
+- 触觉不确定性引导探索，减少无关的自由空间运动。
+  - Tactile uncertainty guides exploration away from irrelevant free-space motion.
+- 采集的数据支持下游离线策略学习，无需额外环境交互。
+  - The collected dataset supports downstream offline policy learning without extra environment interaction.
+
+### 为什么重要 / Why it matters
+
+以触觉为依据的探索将经验集中于接触动力学，有望提高操作训练效率。
+
+Touch-grounded exploration may make manipulation training more efficient by concentrating experience on contact dynamics.
+
+---
+
+<a id="2026-09-30-splinewam-adaptive-action-horizons"></a>
+## [SplineWAM 自适应调整动作时域以减少世界动作模型调用](https://arxiv.org/abs/2609.39873)
+
+**English:** [SplineWAM adapts action horizons to reduce world-action model calls](https://arxiv.org/abs/2609.39873)
+
+- **发布 / Published:** `2026-09-30T14:51:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `inference`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SplineWAM 使用三次 B 样条编码机器人轨迹，使固定参数预算可表示不同动作时长和分辨率。方法将视频监督对齐到拟合节点，并在异步执行中维持动作连续性。作者报告其在 LIBERO-Plus 和 RoboCasa 上提高了成功率，同时减少策略调用。
+
+SplineWAM encodes robot trajectories with cubic B-splines so a fixed parameter budget can represent different action durations and resolutions. It aligns video supervision to fitted knots and maintains action continuity during asynchronous execution. The authors report higher success and fewer policy calls on LIBERO-Plus and RoboCasa.
+
+### 技术点 / Technical points
+
+- JP-RTC 通过解码器修正参数，在解码后的可执行动作上约束连续性。
+  - JP-RTC enforces continuity on decoded executable actions through decoder-based parameter correction.
+- 作者报告两个基准的成功率分别提升 8.2 和 4.4 个百分点，策略调用分别减少 22% 和 26%。
+  - Reported success gains are 8.2 and 4.4 percentage points, with policy calls reduced by 22% and 26%, respectively.
+
+### 为什么重要 / Why it matters
+
+自适应动作时序有望减少推理需求，并为困难的接触运动保留更高控制分辨率。
+
+Adaptive action timing may reduce inference demand while reserving more control resolution for difficult contact motion.
+
+---
+
 <a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
 ## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
 

@@ -2,6 +2,166 @@
 
 # Agents / 智能体
 
+<a id="2026-09-30-gemini-4-argon-long-horizon-agents"></a>
+## [Google 发布面向长程智能体工作流的 Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+
+**English:** [Google announces Gemini 4 Argon for long-horizon agent workflows](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
+
+- **发布 / Published:** `2026-09-30T20:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `tool-use`, `coding`, `benchmark`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `94/100`
+
+### 摘要 / Summary
+
+Google 公布 Gemini 4 Argon，通过扩大输出预算支持持续推理、多步骤软件开发和企业工作流。首批访问面向 Fairwind 项目的可信网络防御机构，更广泛开放仍在规划中。Google 报告其 DeepSWE v1.1 得分为 77.9%，AutomationBench 为 51.3%，并介绍了用于内存优化和代码迁移的内部智能体部署。
+
+Google announced Gemini 4 Argon with an expanded output budget for sustained reasoning and multi-step software and enterprise work. Access initially goes to trusted cyber defenders through Fairwind; broader availability remains planned. Google reports 77.9% on DeepSWE v1.1 and 51.3% on AutomationBench, alongside internal agent deployments for memory optimization and code migration.
+
+### 技术点 / Technical points
+
+- 输出上限从 64K 提升至一百万 token。
+  - The output limit increases from 64K to one million tokens.
+- Google 报告已部署的智能体优化释放了超过 300 TiB 的数据中心内存。
+  - Google reports deployed agent-driven optimizations freeing over 300 TiB of data-center memory.
+
+### 为什么重要 / Why it matters
+
+更长的推理轨迹和具体内部部署使其成为有实质意义的智能体发布，但分阶段访问限制了即时可用范围。
+
+Longer reasoning trajectories and concrete internal deployments make this a consequential agent release, while phased access limits immediate availability.
+
+---
+
+<a id="2026-09-30-dynaharness-robot-execution-governance"></a>
+## [DynaHarness 管理机器人执行并验证能力修订](https://arxiv.org/abs/2609.40306)
+
+**English:** [DynaHarness governs robot execution and validates capability revisions](https://arxiv.org/abs/2609.40306)
+
+- **发布 / Published:** `2026-09-30T17:52:09Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40306) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `planning`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+DynaHarness 通过共享执行契约连接较慢的语义推理与较快的物理执行。系统监控指令、拒绝未解析动作并请求重新规划，再通过失败归因指导能力修订，使用回归检查决定是否接纳。作者报告其在 800 个新采样 LIBERO-Pro 初始状态上的成功率为 75.2%，冻结策略为 17.5%。
+
+DynaHarness couples slower semantic reasoning with faster physical execution through a shared contract. It monitors commands, rejects unresolved actions and requests replanning, then attributes failures to guide capability revisions admitted through regression checks. The authors report 75.2% success on 800 new LIBERO-Pro initial states, versus 17.5% for the frozen policy.
+
+### 技术点 / Technical points
+
+- 执行契约记录分析技能、恢复技能和冻结 VLA 的执行证据。
+  - The execution contract records evidence across analytic skills, recovery skills and a frozen VLA.
+- 在相同能力库下，动态执行达到 74.0%，常规单步重规划为 63.9%。
+  - With the same capability library, dynamic execution reaches 74.0%, compared with 63.9% for nominal one-step replanning.
+
+### 为什么重要 / Why it matters
+
+执行管理为在既有策略基础上改善长程机器人行为提供了一条路径。
+
+Execution governance offers a way to improve long-horizon robot behavior around an existing policy.
+
+---
+
+<a id="2026-09-30-pivotopd-agent-error-recovery"></a>
+## [PivotOPD 训练智能体预防关键错误并从错误中恢复](https://arxiv.org/abs/2609.40285)
+
+**English:** [PivotOPD trains agents to prevent and recover from pivotal mistakes](https://arxiv.org/abs/2609.40285)
+
+- **发布 / Published:** `2026-09-30T17:48:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40285) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `training`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+PivotOPD 将预防性蒸馏与恢复性蒸馏结合，用于训练多轮智能体。教师在关键错误处提供更优动作，并在后续若干轮给出恢复动作。作者报告该方法在 ALFWorld、WebShop 和搜索问答上取得提升，并迁移到采用 Nemotron-3.5 学生模型的软件工程任务。
+
+PivotOPD combines preventive and recovery distillation for multi-turn agents. A teacher supplies a better action at a pivotal error and recovery actions over subsequent turns. The authors report gains across ALFWorld, WebShop and search QA, with transfer to software engineering using a Nemotron-3.5 student.
+
+### 技术点 / Technical points
+
+- 预防监督采用反向 KL，恢复监督采用正向 KL。
+  - Preventive supervision uses reverse KL; recovery supervision uses forward KL.
+- 作者报告 Nemotron-3.5 学生模型在 SWE-Bench Verified 的解决率提升了 3.2 个百分点。
+  - The authors report a 3.2 percentage-point improvement in SWE-Bench Verified resolve rate for the Nemotron-3.5 student.
+
+### 为什么重要 / Why it matters
+
+显式恢复训练针对长程智能体轨迹中不断累积、导致执行脆弱的错误。
+
+Explicit recovery training addresses compounding errors that make long agent trajectories fragile.
+
+---
+
+<a id="2026-09-30-agent-error-dataset-repair-training"></a>
+## [Agent Error Dataset 将失败轨迹转化为诊断和恢复训练数据](https://arxiv.org/abs/2609.40111)
+
+**English:** [Agent Error Dataset turns failed rollouts into diagnosis and recovery training](https://arxiv.org/abs/2609.40111)
+
+- **发布 / Published:** `2026-09-30T16:40:22Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40111) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `training`, `benchmark`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Agent Error Dataset 收录来自 9,961 项任务的 50,228 对错误与诊断数据，覆盖 33 个环境、19 类执行框架和 23 个策略模型。其 AET 流程保留轨迹、提出修正并依据证据核查。作者报告，在配对重放实验中，验证器通过率从 18.4% 提升至 51.1%。
+
+The Agent Error Dataset contains 50,228 error-diagnosis pairs from 9,961 tasks spanning 33 environments, 19 harness families and 23 policy models. Its AET pipeline retains traces, proposes corrections and checks them against evidence. In matched replay experiments, the authors report verifier pass rates rising from 18.4% to 51.1%.
+
+### 技术点 / Technical points
+
+- 配对重放从同一检查点比较建议修正与原动作重试。
+  - Matched replay compares a proposed correction with an original-action retry from the same checkpoint.
+- 数据分别用于诊断和执行者恢复训练，仅在环境支持时进行重放。
+  - Separate training views target diagnosis and actor recovery; replay is used only where supported.
+
+### 为什么重要 / Why it matters
+
+关联执行证据的失败数据有助于比单一最终任务奖励更精确地训练智能体纠错。
+
+Evidence-linked failure data can support more precise agent repair than final task rewards alone.
+
+---
+
+<a id="2026-09-30-osworld-science-scientific-software"></a>
+## [OSWorld-Science 评测智能体操作科学软件的能力](https://arxiv.org/abs/2609.39903)
+
+**English:** [OSWorld-Science evaluates computer-use agents on scientific software](https://arxiv.org/abs/2609.39903)
+
+- **发布 / Published:** `2026-09-30T15:03:05Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39903) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `science`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OSWorld-Science 提出 146 项科学软件任务及面向计算机操作智能体的评测环境。论文比较了 12 个 VLM，覆盖分子设计、病理分析、统计计算和物理仿真等工作流。评估器检查应用状态与输出产物，并对未完整完成的结果给予部分分数。
+
+OSWorld-Science introduces 146 scientific software tasks and an evaluation environment for computer-using agents. The paper compares 12 VLMs across workflows including molecular design, pathology analysis, statistics and physical simulation. Evaluators check application state and produced artifacts, with partial credit for incomplete results.
+
+### 技术点 / Technical points
+
+- 任务评估器检查分子结构、分割掩码、图表及数值输出。
+  - Task evaluators inspect molecular structures, segmentation masks, plots and numerical outputs.
+- 统一执行框架支持模型适配、交互控制与轨迹记录。
+  - A common harness supports model adapters, interaction control and trajectory logging.
+
+### 为什么重要 / Why it matters
+
+可验证的科学产物将 GUI 智能体评测扩展到具有实质结果的专业工作流。
+
+Verifiable scientific artifacts extend GUI-agent evaluation to specialist workflows with meaningful outcomes.
+
+---
+
 <a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
 ## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
 

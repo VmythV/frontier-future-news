@@ -2,6 +2,134 @@
 
 # World models / 世界模型
 
+<a id="2026-09-30-ego4wam-human-data-scaling"></a>
+## [Ego4WAM 分析第一视角人类数据如何促进机器人学习](https://arxiv.org/abs/2609.40341)
+
+**English:** [Ego4WAM isolates what makes egocentric human data useful for robot learning](https://arxiv.org/abs/2609.40341)
+
+- **发布 / Published:** `2026-09-30T17:58:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40341) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `vla`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Ego4WAM 在固定世界动作模型骨干的条件下研究人类数据扩展，分别分析对齐程度、时长、任务多样性、监督信号和训练使用方式。作者发现，对齐的人类示范可改善分布外泛化并减少目标机器人数据需求，仅视频监督也可为后续视频动作训练打下基础。
+
+Ego4WAM studies human-data scaling with a fixed world-action model backbone, separating alignment, duration, task diversity, supervision and training usage. The authors find that aligned demonstrations improve out-of-distribution generalization and reduce target robot-data needs, while video-only supervision can support later video-action training.
+
+### 技术点 / Technical points
+
+- 闭环评测覆盖真实机器人和 RoboDojo。
+  - Closed-loop evaluations cover real robots and RoboDojo.
+- 数据时长与任务多样性对下游能力的影响不同。
+  - Duration and task diversity have different effects on downstream capabilities.
+
+### 为什么重要 / Why it matters
+
+该研究为机器人数据采集提供了比单纯增加时长更具体的依据。
+
+The study gives robot-data collection a more specific basis than scaling hours alone.
+
+---
+
+<a id="2026-09-30-social-wm-realizable-navigation"></a>
+## [Social-WM 预测动作可实现性以改善机器人导航安全](https://arxiv.org/abs/2609.40177)
+
+**English:** [Social-WM predicts action realizability for safer robot navigation](https://arxiv.org/abs/2609.40177)
+
+- **发布 / Published:** `2026-09-30T17:03:21Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40177) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `navigation`, `safety`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Social-WM 从第一视角 RGB 视频学习动作条件潜在动力学，并估计候选导航动作能否实际实现。系统将名义动作与可实现动作之间的差异作为执行前安全信号。作者报告其在 Social-HM3D 上的成功率为 63.77%，与人碰撞指标为 21.67%，并展示向 Social-MP3D 的零样本迁移。
+
+Social-WM learns action-conditioned latent dynamics from egocentric RGB video and estimates whether proposed navigation actions can actually be realized. It uses the gap between nominal and realizable actions as a pre-execution safety signal. The authors report 63.77% success and 21.67% human collisions on Social-HM3D, with zero-shot transfer to Social-MP3D.
+
+### 技术点 / Technical points
+
+- 逆动力学依据实际实现的动作训练，而非名义指令。
+  - Inverse dynamics is trained against realized actions rather than nominal commands.
+- 与目标无关的模型支持位置和图像目标，无需显式行人跟踪或在线强化学习。
+  - Goal-independent models support position and image goals without explicit pedestrian tracking or online RL.
+
+### 为什么重要 / Why it matters
+
+在想象轨迹中检查动作可行性，将世界模型规划与社会导航安全联系起来。
+
+Checking action feasibility inside imagined rollouts connects world-model planning to social-navigation safety.
+
+---
+
+<a id="2026-09-30-splinewam-adaptive-action-horizons"></a>
+## [SplineWAM 自适应调整动作时域以减少世界动作模型调用](https://arxiv.org/abs/2609.39873)
+
+**English:** [SplineWAM adapts action horizons to reduce world-action model calls](https://arxiv.org/abs/2609.39873)
+
+- **发布 / Published:** `2026-09-30T14:51:03Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `inference`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SplineWAM 使用三次 B 样条编码机器人轨迹，使固定参数预算可表示不同动作时长和分辨率。方法将视频监督对齐到拟合节点，并在异步执行中维持动作连续性。作者报告其在 LIBERO-Plus 和 RoboCasa 上提高了成功率，同时减少策略调用。
+
+SplineWAM encodes robot trajectories with cubic B-splines so a fixed parameter budget can represent different action durations and resolutions. It aligns video supervision to fitted knots and maintains action continuity during asynchronous execution. The authors report higher success and fewer policy calls on LIBERO-Plus and RoboCasa.
+
+### 技术点 / Technical points
+
+- JP-RTC 通过解码器修正参数，在解码后的可执行动作上约束连续性。
+  - JP-RTC enforces continuity on decoded executable actions through decoder-based parameter correction.
+- 作者报告两个基准的成功率分别提升 8.2 和 4.4 个百分点，策略调用分别减少 22% 和 26%。
+  - Reported success gains are 8.2 and 4.4 percentage points, with policy calls reduced by 22% and 26%, respectively.
+
+### 为什么重要 / Why it matters
+
+自适应动作时序有望减少推理需求，并为困难的接触运动保留更高控制分辨率。
+
+Adaptive action timing may reduce inference demand while reserving more control resolution for difficult contact motion.
+
+---
+
+<a id="2026-09-30-world-model-cellular-automata-dynamics"></a>
+## [元胞自动机测试揭示像素准确率掩盖的世界模型失效](https://arxiv.org/abs/2609.39604)
+
+**English:** [Cellular-automata tests expose world-model failures hidden by pixel accuracy](https://arxiv.org/abs/2609.39604)
+
+- **发布 / Published:** `2026-09-30T12:24:41Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39604) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `dynamics`, `simulation`, `temporal-consistency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一项新研究用元胞自动机检验世界模型能否学习精确动力学。作者表明，高像素准确率可能伴随较差的完整轨迹准确率，并将失效归因于空间局部性、时间局部性和时间稳定性。调整信息流可改善多项受控实验，而无需替换模型骨干。
+
+A new study uses cellular automata to test whether world models learn exact dynamics. The authors show that high pixel accuracy can coexist with poor complete-rollout accuracy, and attribute failures to spatial locality, temporal locality and temporal stability. Information-flow changes improve several controlled experiments without replacing the model backbone.
+
+### 技术点 / Technical points
+
+- 论文中的 CNN 单元预测准确率为 96.3%，但完整轨迹成功率仅为 18.9%。
+  - The reported CNN predicts 96.3% of cells correctly but completes only 18.9% of rollouts.
+- 二维旋转位置编码、前一帧邻域信息和因果冻结分别针对不同失效模式。
+  - Two-dimensional rotary positions, previous-frame neighborhoods and causal freezing address distinct failure modes.
+
+### 为什么重要 / Why it matters
+
+结果提示应在完整轨迹上评估动力学保真度，而不仅考察局部预测准确率。
+
+The results motivate evaluating dynamical fidelity over entire trajectories, beyond local prediction accuracy.
+
+---
+
 <a id="2026-09-29-stochastic-world-model-verification"></a>
 ## [随机世界模型支持视觉反馈控制系统验证](https://arxiv.org/abs/2609.38120)
 
