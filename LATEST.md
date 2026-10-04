@@ -2,6 +2,286 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-03-openclaw-2026-9-8-runtime-recovery"></a>
+## [OpenClaw 2026.9.8 修复后台任务轮次并加强运行时恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
+
+**English:** [OpenClaw 2026.9.8 repairs background turns and hardens runtime recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
+
+- **发布 / Published:** `2026-10-03T03:21:47Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `agent-runtime`, `memory`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.9.8 是可靠性修复版本，处理 Anthropic 后台命令轮次卡住、Gateway 共享状态保护及大型代理集群恢复的边界问题。版本在修复中保留插件配置，并避免 Codex 会话发现耗尽 Gateway 堆内存。本摘要依据发布标签中保存的更新日志。
+
+OpenClaw 2026.9.8 is a reliability hotfix that prevents stuck Anthropic background-command turns, protects shared Gateway state, and bounds large-fleet recovery. It preserves plugin configuration during repair and avoids Gateway heap exhaustion during Codex session discovery. This summary follows the changelog preserved in the release tag.
+
+### 技术点 / Technical points
+
+- Anthropic 轮次在后台 Bash 完成后正常结束，避免后续消息被静默跳过。
+  - Anthropic turns finish after background Bash completion so later messages are not silently skipped.
+- 容器 Gateway 启动强制单一所有者；恢复保留插件设置，并拒绝不安全的 Windows 数据库结构迁移。
+  - Container Gateway startup enforces a single owner; recovery preserves plugin settings and refuses unsafe Windows schema transitions.
+- Codex 会话发现共享已捕获的集群配置，排队的 Telegram 预览在编辑前重新检查写入权限归属。
+  - Codex session discovery shares captured fleet configuration, while queued Telegram previews recheck writer authority before edits.
+
+### 为什么重要 / Why it matters
+
+这些修复针对跨大量持久会话运行的无人值守代理，改善任务连续性和状态所有权管理。
+
+These fixes target continuity and state ownership in unattended agents operating across many persistent sessions.
+
+### 链接 / Links
+
+[Evidence 1](https://raw.githubusercontent.com/openclaw/openclaw/v2026.9.8/CHANGELOG/2026.9.8.md)
+
+---
+
+<a id="2026-10-03-pydantic-ai-253-254-runtime-reliability"></a>
+## [Pydantic AI 2.53–2.54 修复并发槽泄漏并完善持久代理故障处理](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0)
+
+**English:** [Pydantic AI 2.53–2.54 repair concurrency leaks and durable-agent failure handling](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0)
+
+- **发布 / Published:** `2026-10-03T03:21:28Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `concurrency`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.53.0 修复流式模型请求可能保留并发槽、阻塞共享限流器的问题。后续 2.54.0 收紧持久执行引擎所有权和后台工具异常处理，保留 Temporal 错误类型，并支持重连断开的实时模型会话。本条采用较晚版本的 GitHub 发布时间。
+
+Pydantic AI 2.53.0 patches streamed model requests that could retain concurrency slots and block a shared limiter. The following 2.54.0 release tightens durable-execution ownership and background-tool exception handling, preserves Temporal error types, and reconnects dropped live-model sessions. This record uses the later GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 2.53.0 修复支持跨任务释放并发槽；代理级 max_concurrency 和非流式请求不受该问题影响。
+  - The 2.53.0 fix allows slot release across tasks; agent-level max_concurrency and non-streaming requests are unaffected.
+- 2.54.0 在绑定前拒绝第二个持久执行引擎，BackgroundTools 遇到意外异常时终止运行。
+  - Version 2.54.0 rejects a second durable engine before binding and ends runs on unexpected BackgroundTools exceptions.
+- Temporal 模型错误保留原始类型，断开的实时会话可通过分叉保存状态或回放历史重连。
+  - Temporal model errors retain their original type, and dropped live sessions reconnect by forking stored state or replaying history.
+
+### 为什么重要 / Why it matters
+
+这些修复有助于降低并发、持久执行及实时代理停滞或掩盖故障的风险。
+
+These fixes make concurrent, durable, and realtime agents less likely to stall or obscure failures.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/releases/tag/v2.53.0) · [Evidence 2](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-6fqq-452j-qhrp)
+
+---
+
+<a id="2026-10-02-goose-153-wasm-agent-loop"></a>
+## [Goose 1.53 支持 WebAssembly 代理循环并加强 MCP 重定向防护](https://github.com/aaif-goose/goose/releases/tag/v1.53.0)
+
+**English:** [Goose 1.53 runs its GDK agent loop on WebAssembly and hardens MCP redirects](https://github.com/aaif-goose/goose/releases/tag/v1.53.0)
+
+- **发布 / Published:** `2026-10-02T18:44:11Z`
+- **来源 / Source:** [Goose / Agentic AI Foundation](https://github.com/aaif-goose/goose/releases/tag/v1.53.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Goose 1.53.0 为 GDK 代理循环增加 wasm32 支持，并提供精简的 ACP 专用二进制。运行时修复覆盖会话上下文保留、工具边界压缩，以及 MCP streamable-HTTP 重定向的 SSRF 防护，同时改善工具结果图像和被截断的 Bedrock 响应处理。
+
+Goose 1.53.0 adds wasm32 support for the GDK agent loop and a lean ACP-only binary. Runtime fixes preserve session context, compact at tool boundaries, and guard MCP streamable-HTTP redirects against SSRF. The release also improves delivery of tool-result images and truncated Bedrock responses.
+
+### 技术点 / Technical points
+
+- GDK 代理循环可运行于 wasm32，另有精简的 ACP 专用构建。
+  - The GDK agent loop can run on wasm32, alongside a separate lean ACP-only build.
+- 展开式代理循环在工具边界自动压缩，并在回复生命周期中保留上下文。
+  - The unrolled agent loop auto-compacts at tool boundaries and preserves context across the reply lifecycle.
+- MCP 重定向处理增加 SSRF 防护；Bedrock 截断会被报告，待处理的工具调用会被输出。
+  - MCP redirect handling guards against SSRF; Bedrock truncation is reported and pending tool calls are flushed.
+
+### 为什么重要 / Why it matters
+
+可移植执行和更完整的流式处理扩展了部署选择，并减少代理运行时中不易察觉的故障。
+
+Portable execution and better stream handling expand deployment options while reducing hidden agent-runtime failures.
+
+---
+
+<a id="2026-10-02-microsoft-agent-framework-120-isolated-hosting"></a>
+## [Microsoft Agent Framework 1.20 增加隔离式持久托管和计算机操作支持](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0)
+
+**English:** [Microsoft Agent Framework 1.20 adds isolated durable hosting and computer use](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0)
+
+- **发布 / Published:** `2026-10-02T14:40:44Z`
+- **来源 / Source:** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `computer-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.20.0 将 Foundry 托管重构为按请求创建代理、保留沙箱隔离会话的架构。版本增加原生工作流托管和 Responses 客户端的计算机操作支持，并收紧审批处理和会话级文件访问。托管重构包含不兼容变更。
+
+Microsoft Agent Framework Python 1.20.0 redesigns Foundry hosting around request-scoped agent factories and persistent sandbox-isolated sessions. It adds native workflow hosting and computer-use support in Responses clients, alongside stricter approval handling and session-scoped file access. The hosting redesign includes breaking changes.
+
+### 技术点 / Technical points
+
+- Foundry 托管支持持久化 Invocations 运行、可配置的 Responses 历史及后台执行。
+  - Foundry hosting supports durable Invocations runs, configurable Responses history, and background execution.
+- 本地审批必须依托会话；审批绑定或代理工具审批无法解析时拒绝执行。
+  - Local approvals require session backing; unresolved approval bindings and agent-tool approvals fail closed.
+- 响应流控制、缓冲及会话级文件隔离与原生计算机操作支持配套提供。
+  - Response-stream gates, buffering, and session-scoped file isolation complement native computer-use support.
+
+### 为什么重要 / Why it matters
+
+这些改动为托管代理的状态、文件、审批和长时间任务建立更清晰的边界。
+
+The changes give hosted agents clearer boundaries for state, files, approvals, and long-running work.
+
+---
+
+<a id="2026-10-02-agno-311-cancellable-knowledge-workflows"></a>
+## [Agno 3.1.1 增加可取消的知识同步和原生工作流进度事件](https://github.com/agno-agi/agno/releases/tag/v3.1.1)
+
+**English:** [Agno 3.1.1 adds cancellable knowledge sync and native workflow progress](https://github.com/agno-agi/agno/releases/tag/v3.1.1)
+
+- **发布 / Published:** `2026-10-02T12:38:20Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `knowledge-management`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+Agno 3.1.1 通过 AgentOS 流式接口提供带类型的知识同步进度、最终报告和工作流步骤进度事件，取消请求也能传递到同步任务。版本还修复了可能导致同步不完整、已删除页面仍可搜索的发现问题。
+
+Agno 3.1.1 exposes typed knowledge-sync progress, terminal reports, and workflow step-progress events through AgentOS streaming. Cancellation now reaches the synchronization work. The release also repairs discovery failures that could leave deleted pages searchable after an incomplete sync.
+
+### 技术点 / Technical points
+
+- Knowledge.stream_sync_pages() 及其异步版本先输出 PageSyncProgress 快照，再输出 SyncReport。
+  - Knowledge.stream_sync_pages() and its async counterpart yield PageSyncProgress snapshots followed by a SyncReport.
+- StepProgressEvent 在 REST/SSE 和 AgentOS 客户端中保留既有工作流运行及步骤标识。
+  - StepProgressEvent preserves the existing workflow run and step identifiers across REST/SSE and the AgentOS client.
+- 同步报告列出失败路径，临时抓取错误有受限重试，Mintlify 发现支持嵌套索引和重定向别名。
+  - Failed paths are reported, transient fetches use bounded retries, and Mintlify discovery handles nested indexes and redirect aliases.
+
+### 为什么重要 / Why it matters
+
+可见进度、有效取消和正确清理有助于管理依赖大规模知识库的代理，并保持检索内容更新。
+
+Visible progress, effective cancellation, and correct pruning help keep agents backed by large knowledge collections manageable and current.
+
+---
+
+<a id="2026-10-02-servicenow-autosynthdata-agent-curriculum"></a>
+## [AutoSynthData 将企业代理失败转化为经过验证的训练任务](https://huggingface.co/blog/ServiceNow-AI/autosynthdata)
+
+**English:** [AutoSynthData converts enterprise-agent failures into verified training tasks](https://huggingface.co/blog/ServiceNow-AI/autosynthdata)
+
+- **发布 / Published:** `2026-10-02T04:01:31.290Z`
+- **来源 / Source:** [ServiceNow CoreAI](https://huggingface.co/blog/ServiceNow-AI/autosynthdata) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `agent-training`, `evaluation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ServiceNow CoreAI 介绍 AutoSynthData：诊断代理能力缺口，再生成包含参考轨迹和验证器的可执行企业任务。团队在 EnterpriseOps Gym 上报告了监督微调收益，强化学习仍是计划中的扩展。
+
+ServiceNow CoreAI describes AutoSynthData, a pipeline that diagnoses agent capability gaps and generates executable enterprise tasks with reference trajectories and verifiers. Its EnterpriseOps Gym experiments report improved supervised fine-tuning results; reinforcement learning remains a proposed extension.
+
+### 技术点 / Technical points
+
+- 能力卡指导任务生成，而不暴露原始评测提示、实体、轨迹或验证器细节。
+  - Capability cards guide generation without exposing the original evaluation prompts, entities, trajectories, or verifier details.
+- 正向回放验证预期解法，负向检查测试错误结果，随后进行有限次修复和批次覆盖审查。
+  - Positive replay checks intended solutions; negative checks test incorrect outcomes, followed by bounded repair and batch coverage review.
+- 团队报告的 ITSM 实验中，合成数据监督微调将平均 Pass@1 从 18.77% 提高至 27.18%。
+  - In the reported ITSM experiment, synthetic SFT raises mean Pass@1 from 18.77% to 27.18%.
+
+### 为什么重要 / Why it matters
+
+基于执行的质量门槛为针对环境中的具体能力短板训练代理、同时审查任务有效性提供了实践方法。
+
+Execution-based quality gates offer a concrete way to train agents on environment-specific weaknesses while auditing task validity.
+
+---
+
+<a id="2026-10-02-openai-agents-sdk-023-runtime-boundaries"></a>
+## [OpenAI Agents SDK 0.23 加强审批、嵌套代理状态和流式资源边界](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0)
+
+**English:** [OpenAI Agents SDK 0.23 tightens approvals, nested-agent state, and streaming limits](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0)
+
+- **发布 / Published:** `2026-10-02T01:08:23Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Python Agents SDK 0.23.0 将函数工具审批限定到所属代理，隔离跨运行的嵌套代理状态，并限制流式回调积压。版本还提供 MCP 列表页数上限和加密历史扫描预算。时间采用 GitHub 发布记录，更新日志标题标注 10 月 1 日。
+
+The Python Agents SDK 0.23.0 scopes function-tool approvals to their owning agent, isolates nested-agent state across runs, and bounds streaming callback backlogs. It also adds configurable MCP listing limits and encrypted-history scan budgets. The timestamp is GitHub publication, following an October 1 changelog heading.
+
+### 技术点 / Technical points
+
+- 嵌套代理工具保留经防护检查的最终输出，并依据其自身代理恢复状态。
+  - Nested-agent tools retain guarded final outputs and restore state against their own agent.
+- 工具审批遵循代理所有权边界，静默丢弃的关键字参数会被拒绝。
+  - Tool approvals are scoped by agent ownership, and silently discarded keyword arguments are rejected.
+- MCP 分页及加密历史扫描可设置上限；Docker 删除保护需显式启用。
+  - MCP pagination and encrypted-history scans have configurable bounds; Docker removal protection is opt-in.
+
+### 为什么重要 / Why it matters
+
+明确的所有权与资源上限有助于减少委派代理在流式输出和会话恢复中的故障。
+
+Explicit ownership and resource bounds reduce failure modes in delegated agents that stream results and restore sessions.
+
+---
+
+<a id="2026-10-02-google-adk-211-workflow-control"></a>
+## [Google ADK 2.11 增加工作流取消、工具确认和本地记忆](https://github.com/google/adk-python/releases/tag/v2.11.0)
+
+**English:** [Google ADK 2.11 adds cancellable workflows, tool confirmation, and local memory](https://github.com/google/adk-python/releases/tag/v2.11.0)
+
+- **发布 / Published:** `2026-10-02T00:44:26Z`
+- **来源 / Source:** [Google ADK](https://github.com/google/adk-python/releases/tag/v2.11.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `memory`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Google ADK 2.11.0 增加运行取消、工作流工具审批暂停、受预算限制的跨模型咨询及 SQLite 记忆服务。时间采用 GitHub 发布记录；更新日志标题标注的是 10 月 1 日。
+
+Google ADK 2.11.0 adds graceful run cancellation, approval pauses for workflow tools, budgeted consultation of another model, and SQLite-backed memory. The timestamp follows GitHub release publication; the changelog heading is dated October 1.
+
+### 技术点 / Technical points
+
+- 取消信号可传递至运行器、工作流和节点；SSE 客户端断开时取消对应运行。
+  - An abort signal reaches runners, workflows, and nodes; an SSE client disconnect cancels its run.
+- 工作流工具节点通过 RequestInput 请求确认，ModelConsultTool 按轮次和会话限制咨询预算。
+  - Workflow tool nodes request confirmation through RequestInput, while ModelConsultTool limits consultation per turn and session.
+- sqlite:// URI 可选择本地持久记忆；MCP SDK 2.x 支持需显式启用。
+  - A sqlite:// URI selects local persistent memory; MCP SDK 2.x support is opt-in.
+
+### 为什么重要 / Why it matters
+
+这些控制机制让长时间工作流更易中断和监督，并为后续运行保留持久上下文。
+
+These controls make long-running workflows easier to interrupt, supervise, and resume with persistent context.
+
+---
+
 <a id="2026-09-30-gemini-4-argon-long-horizon-agents"></a>
 ## [Google 发布面向长程智能体工作流的 Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
 
@@ -387,271 +667,3 @@ Rho targets data-light adaptation for YAM Box, UR AI Trainer and FR3 Duo. The re
 该方法把跨本体训练准备与轻量适配结合起来，为实用双臂操作提供路线。
 
 The approach combines cross-embodiment preparation with lightweight adaptation for practical bimanual manipulation.
-
----
-
-<a id="2026-09-29-agentic-meta-reasoning"></a>
-## [智能体元推理通过结构化控制改善长程任务执行](https://arxiv.org/abs/2609.38147)
-
-**English:** [Agentic meta-reasoning improves long-horizon execution through structured control](https://arxiv.org/abs/2609.38147)
-
-- **发布 / Published:** `2026-09-29T17:57:25Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38147) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reasoning`, `planning`, `memory`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-该推理时控制器负责选择工作、分配剩余预算并从持久记忆提取上下文，由工作智能体执行任务。作者报告，搭配 GPT-5.5 时 ProgramBench 得分为 71.5%，Codex 为 58.0%；在较小预算下，控制器开销可能降低性能。
-
-An inference-time controller selects work, allocates the remaining budget and retrieves context from persistent memory while workers execute tasks. The authors report 71.5% on ProgramBench with GPT-5.5 versus 58.0% for Codex; controller overhead can reduce performance at small budgets.
-
-### 技术点 / Technical points
-
-- 控制器在决策之间保留精简状态，并复用之前产出的结果。
-  - The controller keeps a compact account between decisions and reuses earlier artifacts.
-- 在另外测试的推理与证明基准上，三个前沿模型相对直接控制的平均提升为 3.6–4.2 个百分点。
-  - Across three frontier models, gains over direct control average 3.6–4.2 points on the other tested reasoning and proof benchmarks.
-
-### 为什么重要 / Why it matters
-
-结果提示，将控制决策显式化，有望让额外推理计算在长任务中更有效。
-
-The results suggest that explicit control decisions can make additional inference compute more useful on long tasks.
-
----
-
-<a id="2026-09-29-meta-skills-agent-harness"></a>
-## [Meta-Skill 将执行反馈转化为可复用的智能体运行环境设计](https://arxiv.org/abs/2609.38143)
-
-**English:** [Meta-Skill turns execution feedback into reusable agent harness design](https://arxiv.org/abs/2609.38143)
-
-- **发布 / Published:** `2026-09-29T17:55:56Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38143) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `memory`, `benchmark`, `self-improvement`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Meta-Skill 让 Builder 从 Target 智能体在开发集上的执行反馈中提炼支持原则，再冻结技能库用于未见任务。在两个模型权重均固定时，作者报告在 Harness-Bench 和 NewtonBench 上，相比无技能辅助的运行环境构建，宏平均表现提高 8.95 个百分点。
-
-Meta-Skill has a Builder derive support principles from a Target agent’s development-set feedback, then freezes the skill bank for unseen tasks. With both models’ weights fixed, the authors report an 8.95-point macro-average gain over harness construction without skills across Harness-Bench and NewtonBench.
-
-### 技术点 / Technical points
-
-- 元技能描述何时需要支持，以及应提供哪些资源。
-  - Meta-skills describe when support is needed and which resources to supply.
-- 把技能转成可执行支持后，宏平均表现比直接向 Target 提供同一技能库高 12.02 个百分点。
-  - Constructed executable support outperforms giving the same skill bank directly to the Target by 12.02 points in macro-average performance.
-
-### 为什么重要 / Why it matters
-
-该方法提供了在模型权重固定的情况下，通过执行环境迁移智能体经验的路径。
-
-This offers a way to transfer agent experience through execution environments while keeping model weights fixed.
-
----
-
-<a id="2026-09-29-stochastic-world-model-verification"></a>
-## [随机世界模型支持视觉反馈控制系统验证](https://arxiv.org/abs/2609.38120)
-
-**English:** [Stochastic world models support verification of vision-based feedback control](https://arxiv.org/abs/2609.38120)
-
-- **发布 / Published:** `2026-09-29T17:50:40Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38120) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `safety`, `verification`, `simulation`, `control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-作者将具有物理含义潜变量的随机世界模型训练为便于分析的感知替代模型，并结合反例搜索、自适应细化和符号分析。在 RGB 紧急制动基准上，该流程可判定超过 80% 的状态空间；这是基准验证结果，并非部署安全保证。
-
-The authors train a stochastic world model with physically grounded latent variables as a tractable perception surrogate, then combine falsification, adaptive refinement and symbolic analysis. On an RGB emergency-braking benchmark, their procedure resolves over 80% of the state space; this is a benchmark verification result rather than a deployment safety guarantee.
-
-### 技术点 / Technical points
-
-- 该世界模型对留出图像的重建，比参数量最高达其 130 倍的 GAN 替代模型更准确。
-  - The world model reproduces held-out frames more faithfully than GAN surrogates with up to 130 times as many parameters.
-- 在基于 GAN 的基准上，该流程判定了全部状态空间，包括对比验证器无法判定的 38%。
-  - On the GAN-based benchmark, the procedure resolves the entire state space, including the 38% left unresolved by the compared verifier.
-
-### 为什么重要 / Why it matters
-
-便于分析的学习式观测模型，有望将形式化分析扩展到依赖复杂图像采取动作的控制器。
-
-Tractable learned observation models could extend formal analysis to controllers that act on complex images.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/html/2609.38120v1)
-
----
-
-<a id="2026-09-29-planning-routing-execution-gap"></a>
-## [Planning-as-Routing 将计划选择与智能体忠实执行分开评测](https://arxiv.org/abs/2609.38108)
-
-**English:** [Planning-as-Routing separates plan selection from faithful agent execution](https://arxiv.org/abs/2609.38108)
-
-- **发布 / Published:** `2026-09-29T17:47:18Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38108) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `planning`, `benchmark`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-该研究将四种已声明的规划模式路由到确定性的专用执行器。在四个基准和三个大语言模型上，作者发现通用 Plan+ReAct 经常丢失声明的计划结构；约束执行模式可提高成功率，但模型仍难以稳定选出最佳模式。
-
-The study routes four declared planning modes to deterministic, pattern-specific executors. Across four benchmarks and three LLMs, the authors find that generic Plan+ReAct often loses the declared structure; enforcing execution patterns improves success, while choosing the best mode remains unreliable.
-
-### 技术点 / Technical points
-
-- 在三个基准上，通用 Plan+ReAct 仅有 22–45% 的轨迹保留声明的结构。
-  - Only 22–45% of generic Plan+ReAct trajectories preserve declared structure across three benchmarks.
-- 使用专用执行器后，报告的成功率在 ALFWorld 上从 0.48 升至 0.92，在 SWE-bench Verified 上从 0.36 升至 0.44。
-  - Reported success rises from 0.48 to 0.92 on ALFWorld and from 0.36 to 0.44 on SWE-bench Verified with pattern-specific executors.
-
-### 为什么重要 / Why it matters
-
-将选择错误与执行错误分开，有助于让智能体规划评测更准确地定位问题。
-
-Separating selection errors from execution errors can make agent planning evaluations more diagnostic.
-
----
-
-<a id="2026-09-29-risk-averse-character-training"></a>
-## [角色训练在智能体评测中引入资源风险厌恶偏好](https://arxiv.org/abs/2609.38093)
-
-**English:** [Character training instills resource risk aversion in agent evaluations](https://arxiv.org/abs/2609.38093)
-
-- **发布 / Published:** `2026-09-29T17:42:54Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38093) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `alignment`, `distillation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-作者通过对描述资源恒定绝对风险厌恶的行为章程进行 on-policy 蒸馏，训练智能体风险偏好。模型训练时未接触基准的决策格式，但表现可与直接在该格式上训练的基线竞争；四个模型中有两个的分布外泛化更好。
-
-The authors use on-policy distillation of a constitution specifying constant absolute risk aversion over resources. Models remain competitive with baselines trained on the benchmark’s decision format, despite never seeing it during training; out-of-distribution generalization improves for two of four models.
-
-### 技术点 / Technical points
-
-- 行为章程编码了智能体对资源的 CARA 风险偏好。
-  - The constitution encodes CARA preferences over an agent’s resources.
-- 模型选择和 token 预算显著影响学到的偏好；这些评测并未证明可阻止现实中的灾难性行为。
-  - Model choice and token budget strongly affect the learned disposition; the evaluations do not establish prevention of real-world catastrophic behavior.
-
-### 为什么重要 / Why it matters
-
-该研究提供了超越单一决策格式训练、实证研究广泛风险偏好的方法。
-
-This provides an empirical route for studying broad risk preferences beyond training on a single decision format.
-
----
-
-<a id="2026-09-29-worldline-robot-visual-simulator"></a>
-## [WorldLine 用图像空间动作接口学习跨机器人共享动力学](https://arxiv.org/abs/2609.38059)
-
-**English:** [WorldLine learns shared robot dynamics with an image-space action interface](https://arxiv.org/abs/2609.38059)
-
-- **发布 / Published:** `2026-09-29T17:26:22Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38059) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `planning`, `video-generation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-WorldLine 将操作动力学预训练与跨机器人本体的动作映射分开，使用超过一万小时无动作标注的机器人视频，以及超过两千小时动作轨迹。作者报告，在未使用 RoboTwin 训练或适配的情况下，任务成功率相对直接执行策略最高提升 21.4 个百分点。
-
-WorldLine separates manipulation dynamics pretraining from action grounding across robot embodiments. It uses over 10,000 hours of action-free robot video and over 2,000 hours of action trajectories; the authors report up to a 21.4-point task-success gain over direct policy execution without RoboTwin training or adaptation.
-
-### 技术点 / Technical points
-
-- 图像空间动作表示为十余种机器人本体提供共享控制接口。
-  - An image-space action representation provides a shared control interface for more than ten embodiments.
-- 多视角、失败轨迹增强训练及针对机器人的少步蒸馏支持对动作敏感的因果推演；在 RoboTwin 和 AgiBot 上，成功预测的平均准确率为 74%。
-  - Multi-view, failure-enriched training and robot-focused few-step distillation support action-sensitive causal rollouts; success prediction averages 74% on RoboTwin and AgiBot.
-
-### 为什么重要 / Why it matters
-
-共享视觉模拟器有望在昂贵的实体试验之前支持机器人策略评估与规划。
-
-A shared visual simulator could support robot policy evaluation and planning before costly physical trials.
-
-### 链接 / Links
-
-[Evidence 1](https://zhengsh123.github.io/WorldLine/)
-
----
-
-<a id="2026-09-29-vla-acceleration-benchmark-audit"></a>
-## [评测审计发现 22 个可能扭曲 VLA 加速方法排名的缺陷](https://arxiv.org/abs/2609.37771)
-
-**English:** [An audit finds 22 bugs that can distort VLA acceleration rankings](https://arxiv.org/abs/2609.37771)
-
-- **发布 / Published:** `2026-09-29T15:12:55Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.37771) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `reliability`, `efficiency`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-研究审计了 RoboTwin、LIBERO-Plus、VLABench 等七个操作基准，发现 22 个实现缺陷及四项设计局限。作者展示，修正成功判定和仿真设置，可消除看似由加速带来的收益，甚至反转方法排名。
-
-An audit of seven manipulation benchmarks, including RoboTwin, LIBERO-Plus and VLABench, identifies 22 implementation bugs and four design limitations. The authors show that fixing success checks and simulation settings can remove apparent acceleration gains or reverse method rankings.
-
-### 技术点 / Technical points
-
-- 审计将缺陷归为任务一致性、初始化和可复现性三类。
-  - The audit groups bugs into task consistency, initialization and reproducibility.
-- 修订评测包括更严格的成功判定、修正物体质量及考虑动作平滑性的评分；一个任务上的基线从落后 21 个百分点变为领先五个。
-  - Revised evaluation includes stricter success checks, corrected object masses and a motion-aware score; on one task a baseline moves from 21 points behind to five points ahead.
-
-### 为什么重要 / Why it matters
-
-只有保证基准可靠，才能判断更快的 VLA 推理是否真正改善机器人行为。
-
-Benchmark integrity is necessary to determine whether faster VLA inference actually improves robot behavior.
-
----
-
-<a id="2026-09-29-anisowm-jepa-planning"></a>
-## [AnisoWM 调整潜在表征几何，改善 JEPA 世界模型规划](https://arxiv.org/abs/2609.37441)
-
-**English:** [AnisoWM adjusts latent geometry to improve JEPA world-model planning](https://arxiv.org/abs/2609.37441)
-
-- **发布 / Published:** `2026-09-29T13:00:37Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.37441) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `simulation`, `planning`, `jepa`, `representation-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-AnisoWM 将各向同性高斯正则化目标替换为可学习的对角协方差，并约束其迹和各向异性程度。作者报告，在保持预测器和欧氏距离规划器不变的情况下，该方法在四个视觉控制环境上均比 LeWorldModel 规划成功率更高。
-
-AnisoWM replaces an isotropic Gaussian regularization target with a learnable diagonal covariance constrained by fixed trace and bounded anisotropy. The authors report improved planning success over LeWorldModel in all four visual-control environments while keeping the predictor and Euclidean planner unchanged.
-
-### 技术点 / Technical points
-
-- 学到的正则化目标仅用于训练，训练结束后被丢弃。
-  - The learned regularization target is used only in training and discarded afterward.
-- 采用相同设置、对三个训练种子取平均的实验报告：Two-Room 为 93% 对 87%，OGBench-Cube 为 79% 对 74%。
-  - Matched experiments report 93% versus 87% on Two-Room and 79% versus 74% on OGBench-Cube, averaged over three training seeds.
-
-### 为什么重要 / Why it matters
-
-该研究说明，准确的潜在预测本身未必能产生适合规划、正确排序动作的代价函数。
-
-The work shows why accurate latent prediction alone may not produce costs that rank actions well for planning.
-
-### 链接 / Links
-
-[Evidence 1](https://rkdrn79.github.io/AnisoWM-page/)

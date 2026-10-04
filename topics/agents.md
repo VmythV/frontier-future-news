@@ -2,6 +2,286 @@
 
 # Agents / 智能体
 
+<a id="2026-10-03-openclaw-2026-9-8-runtime-recovery"></a>
+## [OpenClaw 2026.9.8 修复后台任务轮次并加强运行时恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
+
+**English:** [OpenClaw 2026.9.8 repairs background turns and hardens runtime recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
+
+- **发布 / Published:** `2026-10-03T03:21:47Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `agent-runtime`, `memory`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.9.8 是可靠性修复版本，处理 Anthropic 后台命令轮次卡住、Gateway 共享状态保护及大型代理集群恢复的边界问题。版本在修复中保留插件配置，并避免 Codex 会话发现耗尽 Gateway 堆内存。本摘要依据发布标签中保存的更新日志。
+
+OpenClaw 2026.9.8 is a reliability hotfix that prevents stuck Anthropic background-command turns, protects shared Gateway state, and bounds large-fleet recovery. It preserves plugin configuration during repair and avoids Gateway heap exhaustion during Codex session discovery. This summary follows the changelog preserved in the release tag.
+
+### 技术点 / Technical points
+
+- Anthropic 轮次在后台 Bash 完成后正常结束，避免后续消息被静默跳过。
+  - Anthropic turns finish after background Bash completion so later messages are not silently skipped.
+- 容器 Gateway 启动强制单一所有者；恢复保留插件设置，并拒绝不安全的 Windows 数据库结构迁移。
+  - Container Gateway startup enforces a single owner; recovery preserves plugin settings and refuses unsafe Windows schema transitions.
+- Codex 会话发现共享已捕获的集群配置，排队的 Telegram 预览在编辑前重新检查写入权限归属。
+  - Codex session discovery shares captured fleet configuration, while queued Telegram previews recheck writer authority before edits.
+
+### 为什么重要 / Why it matters
+
+这些修复针对跨大量持久会话运行的无人值守代理，改善任务连续性和状态所有权管理。
+
+These fixes target continuity and state ownership in unattended agents operating across many persistent sessions.
+
+### 链接 / Links
+
+[Evidence 1](https://raw.githubusercontent.com/openclaw/openclaw/v2026.9.8/CHANGELOG/2026.9.8.md)
+
+---
+
+<a id="2026-10-03-pydantic-ai-253-254-runtime-reliability"></a>
+## [Pydantic AI 2.53–2.54 修复并发槽泄漏并完善持久代理故障处理](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0)
+
+**English:** [Pydantic AI 2.53–2.54 repair concurrency leaks and durable-agent failure handling](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0)
+
+- **发布 / Published:** `2026-10-03T03:21:28Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.54.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `concurrency`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.53.0 修复流式模型请求可能保留并发槽、阻塞共享限流器的问题。后续 2.54.0 收紧持久执行引擎所有权和后台工具异常处理，保留 Temporal 错误类型，并支持重连断开的实时模型会话。本条采用较晚版本的 GitHub 发布时间。
+
+Pydantic AI 2.53.0 patches streamed model requests that could retain concurrency slots and block a shared limiter. The following 2.54.0 release tightens durable-execution ownership and background-tool exception handling, preserves Temporal error types, and reconnects dropped live-model sessions. This record uses the later GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 2.53.0 修复支持跨任务释放并发槽；代理级 max_concurrency 和非流式请求不受该问题影响。
+  - The 2.53.0 fix allows slot release across tasks; agent-level max_concurrency and non-streaming requests are unaffected.
+- 2.54.0 在绑定前拒绝第二个持久执行引擎，BackgroundTools 遇到意外异常时终止运行。
+  - Version 2.54.0 rejects a second durable engine before binding and ends runs on unexpected BackgroundTools exceptions.
+- Temporal 模型错误保留原始类型，断开的实时会话可通过分叉保存状态或回放历史重连。
+  - Temporal model errors retain their original type, and dropped live sessions reconnect by forking stored state or replaying history.
+
+### 为什么重要 / Why it matters
+
+这些修复有助于降低并发、持久执行及实时代理停滞或掩盖故障的风险。
+
+These fixes make concurrent, durable, and realtime agents less likely to stall or obscure failures.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/releases/tag/v2.53.0) · [Evidence 2](https://github.com/pydantic/pydantic-ai/security/advisories/GHSA-6fqq-452j-qhrp)
+
+---
+
+<a id="2026-10-02-goose-153-wasm-agent-loop"></a>
+## [Goose 1.53 支持 WebAssembly 代理循环并加强 MCP 重定向防护](https://github.com/aaif-goose/goose/releases/tag/v1.53.0)
+
+**English:** [Goose 1.53 runs its GDK agent loop on WebAssembly and hardens MCP redirects](https://github.com/aaif-goose/goose/releases/tag/v1.53.0)
+
+- **发布 / Published:** `2026-10-02T18:44:11Z`
+- **来源 / Source:** [Goose / Agentic AI Foundation](https://github.com/aaif-goose/goose/releases/tag/v1.53.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Goose 1.53.0 为 GDK 代理循环增加 wasm32 支持，并提供精简的 ACP 专用二进制。运行时修复覆盖会话上下文保留、工具边界压缩，以及 MCP streamable-HTTP 重定向的 SSRF 防护，同时改善工具结果图像和被截断的 Bedrock 响应处理。
+
+Goose 1.53.0 adds wasm32 support for the GDK agent loop and a lean ACP-only binary. Runtime fixes preserve session context, compact at tool boundaries, and guard MCP streamable-HTTP redirects against SSRF. The release also improves delivery of tool-result images and truncated Bedrock responses.
+
+### 技术点 / Technical points
+
+- GDK 代理循环可运行于 wasm32，另有精简的 ACP 专用构建。
+  - The GDK agent loop can run on wasm32, alongside a separate lean ACP-only build.
+- 展开式代理循环在工具边界自动压缩，并在回复生命周期中保留上下文。
+  - The unrolled agent loop auto-compacts at tool boundaries and preserves context across the reply lifecycle.
+- MCP 重定向处理增加 SSRF 防护；Bedrock 截断会被报告，待处理的工具调用会被输出。
+  - MCP redirect handling guards against SSRF; Bedrock truncation is reported and pending tool calls are flushed.
+
+### 为什么重要 / Why it matters
+
+可移植执行和更完整的流式处理扩展了部署选择，并减少代理运行时中不易察觉的故障。
+
+Portable execution and better stream handling expand deployment options while reducing hidden agent-runtime failures.
+
+---
+
+<a id="2026-10-02-microsoft-agent-framework-120-isolated-hosting"></a>
+## [Microsoft Agent Framework 1.20 增加隔离式持久托管和计算机操作支持](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0)
+
+**English:** [Microsoft Agent Framework 1.20 adds isolated durable hosting and computer use](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0)
+
+- **发布 / Published:** `2026-10-02T14:40:44Z`
+- **来源 / Source:** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework/releases/tag/python-1.20.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `computer-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.20.0 将 Foundry 托管重构为按请求创建代理、保留沙箱隔离会话的架构。版本增加原生工作流托管和 Responses 客户端的计算机操作支持，并收紧审批处理和会话级文件访问。托管重构包含不兼容变更。
+
+Microsoft Agent Framework Python 1.20.0 redesigns Foundry hosting around request-scoped agent factories and persistent sandbox-isolated sessions. It adds native workflow hosting and computer-use support in Responses clients, alongside stricter approval handling and session-scoped file access. The hosting redesign includes breaking changes.
+
+### 技术点 / Technical points
+
+- Foundry 托管支持持久化 Invocations 运行、可配置的 Responses 历史及后台执行。
+  - Foundry hosting supports durable Invocations runs, configurable Responses history, and background execution.
+- 本地审批必须依托会话；审批绑定或代理工具审批无法解析时拒绝执行。
+  - Local approvals require session backing; unresolved approval bindings and agent-tool approvals fail closed.
+- 响应流控制、缓冲及会话级文件隔离与原生计算机操作支持配套提供。
+  - Response-stream gates, buffering, and session-scoped file isolation complement native computer-use support.
+
+### 为什么重要 / Why it matters
+
+这些改动为托管代理的状态、文件、审批和长时间任务建立更清晰的边界。
+
+The changes give hosted agents clearer boundaries for state, files, approvals, and long-running work.
+
+---
+
+<a id="2026-10-02-agno-311-cancellable-knowledge-workflows"></a>
+## [Agno 3.1.1 增加可取消的知识同步和原生工作流进度事件](https://github.com/agno-agi/agno/releases/tag/v3.1.1)
+
+**English:** [Agno 3.1.1 adds cancellable knowledge sync and native workflow progress](https://github.com/agno-agi/agno/releases/tag/v3.1.1)
+
+- **发布 / Published:** `2026-10-02T12:38:20Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `knowledge-management`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+Agno 3.1.1 通过 AgentOS 流式接口提供带类型的知识同步进度、最终报告和工作流步骤进度事件，取消请求也能传递到同步任务。版本还修复了可能导致同步不完整、已删除页面仍可搜索的发现问题。
+
+Agno 3.1.1 exposes typed knowledge-sync progress, terminal reports, and workflow step-progress events through AgentOS streaming. Cancellation now reaches the synchronization work. The release also repairs discovery failures that could leave deleted pages searchable after an incomplete sync.
+
+### 技术点 / Technical points
+
+- Knowledge.stream_sync_pages() 及其异步版本先输出 PageSyncProgress 快照，再输出 SyncReport。
+  - Knowledge.stream_sync_pages() and its async counterpart yield PageSyncProgress snapshots followed by a SyncReport.
+- StepProgressEvent 在 REST/SSE 和 AgentOS 客户端中保留既有工作流运行及步骤标识。
+  - StepProgressEvent preserves the existing workflow run and step identifiers across REST/SSE and the AgentOS client.
+- 同步报告列出失败路径，临时抓取错误有受限重试，Mintlify 发现支持嵌套索引和重定向别名。
+  - Failed paths are reported, transient fetches use bounded retries, and Mintlify discovery handles nested indexes and redirect aliases.
+
+### 为什么重要 / Why it matters
+
+可见进度、有效取消和正确清理有助于管理依赖大规模知识库的代理，并保持检索内容更新。
+
+Visible progress, effective cancellation, and correct pruning help keep agents backed by large knowledge collections manageable and current.
+
+---
+
+<a id="2026-10-02-servicenow-autosynthdata-agent-curriculum"></a>
+## [AutoSynthData 将企业代理失败转化为经过验证的训练任务](https://huggingface.co/blog/ServiceNow-AI/autosynthdata)
+
+**English:** [AutoSynthData converts enterprise-agent failures into verified training tasks](https://huggingface.co/blog/ServiceNow-AI/autosynthdata)
+
+- **发布 / Published:** `2026-10-02T04:01:31.290Z`
+- **来源 / Source:** [ServiceNow CoreAI](https://huggingface.co/blog/ServiceNow-AI/autosynthdata) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `agent-training`, `evaluation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ServiceNow CoreAI 介绍 AutoSynthData：诊断代理能力缺口，再生成包含参考轨迹和验证器的可执行企业任务。团队在 EnterpriseOps Gym 上报告了监督微调收益，强化学习仍是计划中的扩展。
+
+ServiceNow CoreAI describes AutoSynthData, a pipeline that diagnoses agent capability gaps and generates executable enterprise tasks with reference trajectories and verifiers. Its EnterpriseOps Gym experiments report improved supervised fine-tuning results; reinforcement learning remains a proposed extension.
+
+### 技术点 / Technical points
+
+- 能力卡指导任务生成，而不暴露原始评测提示、实体、轨迹或验证器细节。
+  - Capability cards guide generation without exposing the original evaluation prompts, entities, trajectories, or verifier details.
+- 正向回放验证预期解法，负向检查测试错误结果，随后进行有限次修复和批次覆盖审查。
+  - Positive replay checks intended solutions; negative checks test incorrect outcomes, followed by bounded repair and batch coverage review.
+- 团队报告的 ITSM 实验中，合成数据监督微调将平均 Pass@1 从 18.77% 提高至 27.18%。
+  - In the reported ITSM experiment, synthetic SFT raises mean Pass@1 from 18.77% to 27.18%.
+
+### 为什么重要 / Why it matters
+
+基于执行的质量门槛为针对环境中的具体能力短板训练代理、同时审查任务有效性提供了实践方法。
+
+Execution-based quality gates offer a concrete way to train agents on environment-specific weaknesses while auditing task validity.
+
+---
+
+<a id="2026-10-02-openai-agents-sdk-023-runtime-boundaries"></a>
+## [OpenAI Agents SDK 0.23 加强审批、嵌套代理状态和流式资源边界](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0)
+
+**English:** [OpenAI Agents SDK 0.23 tightens approvals, nested-agent state, and streaming limits](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0)
+
+- **发布 / Published:** `2026-10-02T01:08:23Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.23.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Python Agents SDK 0.23.0 将函数工具审批限定到所属代理，隔离跨运行的嵌套代理状态，并限制流式回调积压。版本还提供 MCP 列表页数上限和加密历史扫描预算。时间采用 GitHub 发布记录，更新日志标题标注 10 月 1 日。
+
+The Python Agents SDK 0.23.0 scopes function-tool approvals to their owning agent, isolates nested-agent state across runs, and bounds streaming callback backlogs. It also adds configurable MCP listing limits and encrypted-history scan budgets. The timestamp is GitHub publication, following an October 1 changelog heading.
+
+### 技术点 / Technical points
+
+- 嵌套代理工具保留经防护检查的最终输出，并依据其自身代理恢复状态。
+  - Nested-agent tools retain guarded final outputs and restore state against their own agent.
+- 工具审批遵循代理所有权边界，静默丢弃的关键字参数会被拒绝。
+  - Tool approvals are scoped by agent ownership, and silently discarded keyword arguments are rejected.
+- MCP 分页及加密历史扫描可设置上限；Docker 删除保护需显式启用。
+  - MCP pagination and encrypted-history scans have configurable bounds; Docker removal protection is opt-in.
+
+### 为什么重要 / Why it matters
+
+明确的所有权与资源上限有助于减少委派代理在流式输出和会话恢复中的故障。
+
+Explicit ownership and resource bounds reduce failure modes in delegated agents that stream results and restore sessions.
+
+---
+
+<a id="2026-10-02-google-adk-211-workflow-control"></a>
+## [Google ADK 2.11 增加工作流取消、工具确认和本地记忆](https://github.com/google/adk-python/releases/tag/v2.11.0)
+
+**English:** [Google ADK 2.11 adds cancellable workflows, tool confirmation, and local memory](https://github.com/google/adk-python/releases/tag/v2.11.0)
+
+- **发布 / Published:** `2026-10-02T00:44:26Z`
+- **来源 / Source:** [Google ADK](https://github.com/google/adk-python/releases/tag/v2.11.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `workflow`, `memory`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Google ADK 2.11.0 增加运行取消、工作流工具审批暂停、受预算限制的跨模型咨询及 SQLite 记忆服务。时间采用 GitHub 发布记录；更新日志标题标注的是 10 月 1 日。
+
+Google ADK 2.11.0 adds graceful run cancellation, approval pauses for workflow tools, budgeted consultation of another model, and SQLite-backed memory. The timestamp follows GitHub release publication; the changelog heading is dated October 1.
+
+### 技术点 / Technical points
+
+- 取消信号可传递至运行器、工作流和节点；SSE 客户端断开时取消对应运行。
+  - An abort signal reaches runners, workflows, and nodes; an SSE client disconnect cancels its run.
+- 工作流工具节点通过 RequestInput 请求确认，ModelConsultTool 按轮次和会话限制咨询预算。
+  - Workflow tool nodes request confirmation through RequestInput, while ModelConsultTool limits consultation per turn and session.
+- sqlite:// URI 可选择本地持久记忆；MCP SDK 2.x 支持需显式启用。
+  - A sqlite:// URI selects local persistent memory; MCP SDK 2.x support is opt-in.
+
+### 为什么重要 / Why it matters
+
+这些控制机制让长时间工作流更易中断和监督，并为后续运行保留持久上下文。
+
+These controls make long-running workflows easier to interrupt, supervise, and resume with persistent context.
+
+---
+
 <a id="2026-09-30-gemini-4-argon-long-horizon-agents"></a>
 ## [Google 发布面向长程智能体工作流的 Gemini 4 Argon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/)
 
