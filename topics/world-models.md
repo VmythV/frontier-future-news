@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-06-depthworld-droid-3d-world-model"></a>
+## [DepthWorld 为机器人世界建模加入经校准的三维监督](https://arxiv.org/abs/2610.08780)
+
+**English:** [DepthWorld adds calibrated 3D supervision to robot world modeling](https://arxiv.org/abs/2610.08780)
+
+- **发布 / Published:** `2026-10-06T17:59:00Z`
+- **来源 / Source:** [arXiv — DepthWorld](https://arxiv.org/abs/2610.08780) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `spatial-intelligence`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DepthWorld 提出 DROID-3D，为机器人操作数据补充度量深度和修正后的相机外参。其世界模型基于 Stable Video Diffusion 联合预测多视角 RGB 与深度，并保留预训练 VAE，以改善仅预测 RGB 的展开轨迹中的几何不一致。
+
+DepthWorld introduces DROID-3D, a calibrated robot manipulation dataset with metric depth and corrected camera extrinsics. Its world model jointly predicts multi-view RGB and depth from Stable Video Diffusion while retaining the pretrained VAE, addressing geometric inconsistencies in RGB-only rollouts.
+
+### 技术点 / Technical points
+
+- 校准结合学习得到的双目深度与联合因子图，跨回合共享机器人运动学参数；90% 回合的外部相机重投影误差低于 0.7 像素。
+  - Calibration combines learned stereo depth with a joint factor graph that shares robot kinematic parameters across episodes; 90% of episodes achieve external-camera reprojection error below 0.7 pixels.
+- 空间潜变量平铺支持 RGB 与深度联合预测；在相同训练预算下，深度监督使 RGB PSNR 比其他条件相同的纯 RGB 基线提高 1.48 dB。
+  - Spatial latent tiling supports joint RGB-depth prediction; depth supervision improves RGB PSNR by 1.48 dB over an otherwise identical RGB-only baseline at equal training budget.
+
+### 为什么重要 / Why it matters
+
+度量深度与经校准的多视角几何，有望为策略评估和规划提供更扎实的物理依据。
+
+Metric depth and calibrated multi-view geometry could support more physically grounded policy evaluation and planning than visually plausible RGB predictions alone.
+
+---
+
+<a id="2026-10-06-ppwm-parallel-world-model-planning"></a>
+## [PPWM 并行预测因果轨迹以加速世界模型规划](https://arxiv.org/abs/2610.08627)
+
+**English:** [PPWM predicts causal trajectories in parallel for faster world-model planning](https://arxiv.org/abs/2610.08627)
+
+- **发布 / Published:** `2026-10-06T16:26:34Z`
+- **来源 / Source:** [arXiv — PPWM](https://arxiv.org/abs/2610.08627) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `planning`, `predictive-control`, `simulation`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Parallel Predictive World Models 在保留未来表征之间因果交互的同时，并行预测有限时域内的整条轨迹。作者在四项视觉控制任务中报告，相比受测替代方法，长时域预测误差更低、仿真成功率更高，CEM 规划平均速度超过自回归 LeWM 基线的三倍。
+
+Parallel Predictive World Models predicts an entire finite-horizon trajectory in parallel while preserving causal interactions between future representations. In four visual-control tasks, the authors report lower long-horizon prediction error and higher simulator success than the evaluated alternatives, with average CEM planning speed more than three times the autoregressive LeWM baseline.
+
+### 技术点 / Technical points
+
+- 每个预测时域以对应的因果动作前缀为条件，未来表征在解码前相互交互。
+  - Each prediction horizon is conditioned on its causal action prefix, with future representations interacting before decoding.
+- 架构移除了已解码状态的递归反馈路径，使用交叉熵方法在仿真中评估规划。
+  - The architecture removes recursive feedback of decoded states; planning is evaluated with the Cross-Entropy Method in simulation.
+
+### 为什么重要 / Why it matters
+
+并行轨迹预测有望同时减少规划的串行延迟，以及将解码状态反复输入世界模型带来的误差。
+
+Parallel trajectory prediction may reduce both sequential planning latency and errors introduced by feeding decoded states back into a world model.
+
+---
+
+<a id="2026-10-06-autodidactwam-video-action-distillation"></a>
+## [AutodidactWAM 从生成视频恢复机器人动作以进行自蒸馏](https://arxiv.org/abs/2610.08119)
+
+**English:** [AutodidactWAM recovers robot actions from generated video for self-distillation](https://arxiv.org/abs/2610.08119)
+
+- **发布 / Published:** `2026-10-06T10:39:42Z`
+- **来源 / Source:** [arXiv — AutodidactWAM](https://arxiv.org/abs/2610.08119) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `humanoid`, `world-action-model`, `self-distillation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+作者在配备 BrainCo 手的 Unitree G1 上发现，适配后的 Cosmos 3 能生成看似合理的视频，但其原生动作常常偏离目标。AutodidactWAM 从这些视频估计手部姿态，再通过逆运动学构造动作目标，用于后续训练。
+
+On a Unitree G1 with BrainCo hands, the authors find that an adapted Cosmos 3 model generates plausible video while its native actions often miss their targets. AutodidactWAM estimates hand poses from that video and uses inverse kinematics to construct action targets for further training.
+
+### 技术点 / Technical points
+
+- 在报告的真实机器人试验中，恢复动作的抓取放置成功率约为 42%，原生动作约为 7%。
+  - Recovered actions reach approximately 42% pick-and-place success versus 7% for native actions in the reported real-robot trials.
+- DPO+SFT+DTW 联合目标在训练物体和留出物体上的完整任务成功率分别为 20% 和 30%；单独 Flow-DPO 虽有完美验证偏好准确率，实际成功率仍为 0%。
+  - A combined DPO+SFT+DTW objective yields 20% full-task success on the training object and 30% on a held-out object; plain Flow-DPO yields 0% despite perfect validation preference accuracy.
+
+### 为什么重要 / Why it matters
+
+研究区分了视觉合理性与可执行控制，并表明偏好准确率本身可能误导机器人训练评估。
+
+The result separates visual plausibility from executable control and shows why preference accuracy alone can be a misleading robot-training metric.
+
+---
+
 <a id="2026-09-30-ego4wam-human-data-scaling"></a>
 ## [Ego4WAM 分析第一视角人类数据如何促进机器人学习](https://arxiv.org/abs/2609.40341)
 

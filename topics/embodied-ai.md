@@ -2,6 +2,166 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-06-qf3-filtered-flow-robot-rl"></a>
+## [QF3 加速流策略强化学习并将人形机器人技能迁移到硬件](https://arxiv.org/abs/2610.08789)
+
+**English:** [QF3 accelerates flow-policy RL and transfers humanoid skills to hardware](https://arxiv.org/abs/2610.08789)
+
+- **发布 / Published:** `2026-10-06T17:59:34Z`
+- **来源 / Source:** [arXiv — QF3](https://arxiv.org/abs/2610.08789) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `reinforcement-learning`, `sim-to-real`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+QF3 利用离策略强化学习与经过筛选的评论家梯度训练流策略。作者报告，人形机器人行走和动作跟踪训练的实际耗时比 FPO++ 加速十倍，并将学习到的行走策略无需额外适配地迁移到硬件。
+
+QF3 trains flow policies with off-policy reinforcement learning and filtered critic gradients. The authors report training humanoid locomotion and motion tracking ten times faster in wall-clock time than FPO++, then transferring learned locomotion policies to hardware without additional adaptation.
+
+### 技术点 / Technical points
+
+- 更新结合流匹配与通过单步输出预测反传的评论家动作梯度，并仅保留接近回放动作的维度。
+  - The update combines flow matching with a critic action gradient propagated through a one-step output prediction, restricted to action dimensions near the replay action.
+- 研究还在 ABC-Sim 和 Robomimic 上微调预训练操作策略，同时覆盖从零学习和示范学习后的改进。
+  - The study also fine-tunes pretrained manipulation policies on ABC-Sim and Robomimic, covering both learning from scratch and refinement after demonstrations.
+
+### 为什么重要 / Why it matters
+
+面向行走与操作的统一流策略训练方法，有望让基于交互的策略改进更适用于多种机器人任务。
+
+A common flow-policy training method for locomotion and manipulation could make interaction-based improvement more practical across robot tasks.
+
+---
+
+<a id="2026-10-06-pears-tactile-policy-adaptation"></a>
+## [PEARS 结合触觉失败推理与冻结策略引导](https://arxiv.org/abs/2610.08784)
+
+**English:** [PEARS combines tactile failure reasoning with frozen-policy steering](https://arxiv.org/abs/2610.08784)
+
+- **发布 / Published:** `2026-10-06T17:59:03Z`
+- **来源 / Source:** [arXiv — PEARS](https://arxiv.org/abs/2610.08784) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `reinforcement-learning`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PEARS 将基于视觉结果和触觉历史的物理推理，与引导冻结策略的强化学习结合，用于适配预训练机器人策略。作者报告，真实白板擦除和移液管吸液任务的成功率分别为 95% 和 90%。
+
+PEARS adapts pretrained robot policies by combining physics-guided reasoning over visual outcomes and tactile history with reinforcement learning that steers a frozen policy. The authors report real-world success rates of 95% for whiteboard erasing and 90% for pipette liquid aspiration.
+
+### 技术点 / Technical points
+
+- VLM 诊断失败并更新接触力边界，再由高频力位混合控制器执行约束。
+  - A VLM diagnoses failures and updates contact-force bounds, enforced by a high-frequency hybrid force-position controller.
+- 触觉条件引导调整潜在噪声而不改变基础模型权重；仿真成功率比各任务最强基线提高 12.4 至 37.4 个百分点。
+  - Tactile-conditioned steering adjusts latent noise without changing base-model weights; simulation gains range from 12.4 to 37.4 percentage points over the strongest per-task baselines.
+
+### 为什么重要 / Why it matters
+
+该方法把语义层面的失败诊断与具体力约束、策略适配连接起来，有望减少昂贵的真实机器人试验。
+
+The method ties semantic failure diagnosis to concrete force constraints and policy adaptation, potentially reducing expensive real-robot trials.
+
+---
+
+<a id="2026-10-06-depthworld-droid-3d-world-model"></a>
+## [DepthWorld 为机器人世界建模加入经校准的三维监督](https://arxiv.org/abs/2610.08780)
+
+**English:** [DepthWorld adds calibrated 3D supervision to robot world modeling](https://arxiv.org/abs/2610.08780)
+
+- **发布 / Published:** `2026-10-06T17:59:00Z`
+- **来源 / Source:** [arXiv — DepthWorld](https://arxiv.org/abs/2610.08780) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `spatial-intelligence`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DepthWorld 提出 DROID-3D，为机器人操作数据补充度量深度和修正后的相机外参。其世界模型基于 Stable Video Diffusion 联合预测多视角 RGB 与深度，并保留预训练 VAE，以改善仅预测 RGB 的展开轨迹中的几何不一致。
+
+DepthWorld introduces DROID-3D, a calibrated robot manipulation dataset with metric depth and corrected camera extrinsics. Its world model jointly predicts multi-view RGB and depth from Stable Video Diffusion while retaining the pretrained VAE, addressing geometric inconsistencies in RGB-only rollouts.
+
+### 技术点 / Technical points
+
+- 校准结合学习得到的双目深度与联合因子图，跨回合共享机器人运动学参数；90% 回合的外部相机重投影误差低于 0.7 像素。
+  - Calibration combines learned stereo depth with a joint factor graph that shares robot kinematic parameters across episodes; 90% of episodes achieve external-camera reprojection error below 0.7 pixels.
+- 空间潜变量平铺支持 RGB 与深度联合预测；在相同训练预算下，深度监督使 RGB PSNR 比其他条件相同的纯 RGB 基线提高 1.48 dB。
+  - Spatial latent tiling supports joint RGB-depth prediction; depth supervision improves RGB PSNR by 1.48 dB over an otherwise identical RGB-only baseline at equal training budget.
+
+### 为什么重要 / Why it matters
+
+度量深度与经校准的多视角几何，有望为策略评估和规划提供更扎实的物理依据。
+
+Metric depth and calibrated multi-view geometry could support more physically grounded policy evaluation and planning than visually plausible RGB predictions alone.
+
+---
+
+<a id="2026-10-06-egolap-human-robot-language-actions"></a>
+## [EgoLAP 通过共享语言动作迁移人类运动意图](https://arxiv.org/abs/2610.08726)
+
+**English:** [EgoLAP transfers human motion intent through shared language actions](https://arxiv.org/abs/2610.08726)
+
+- **发布 / Published:** `2026-10-06T17:30:33Z`
+- **来源 / Source:** [arXiv — EgoLAP](https://arxiv.org/abs/2610.08726) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `reasoning`, `pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+EgoLAP 利用运动意图的共享语言表征，在人类和机器人轨迹上预训练视觉语言动作模型。它将时间抽象后的语言动作与几何、物理和物体可供性推理配对，以跨越人类动作与机器人控制之间的差异。
+
+EgoLAP pretrains vision-language-action models on human and robot trajectories using a shared language representation of motion intent. Rather than directly copying human control trajectories, it pairs temporally abstract language actions with reasoning about geometry, physics and object affordances.
+
+### 技术点 / Technical points
+
+- 基于语言的动作思维链为不同具身形态提供共享监督。
+  - A language-based action chain-of-thought provides shared supervision across different embodiments.
+- 作者报告，真实任务平均进度为 80.1%，性能达到其他动作表征的 2.3 倍；这里的指标是任务进度，并非完整任务成功率。
+  - The authors report 80.1% mean real-world task progress and a 2.3× performance gain over alternative action representations; task progress is the reported metric, rather than full-task success.
+
+### 为什么重要 / Why it matters
+
+编码可迁移的运动意图，有望让第一视角人类数据更适用于机器人预训练，同时保留两者底层动作的差异。
+
+Encoding transferable motion intent could make egocentric human data more useful for robot pretraining without treating human and robot actions as interchangeable.
+
+---
+
+<a id="2026-10-06-autodidactwam-video-action-distillation"></a>
+## [AutodidactWAM 从生成视频恢复机器人动作以进行自蒸馏](https://arxiv.org/abs/2610.08119)
+
+**English:** [AutodidactWAM recovers robot actions from generated video for self-distillation](https://arxiv.org/abs/2610.08119)
+
+- **发布 / Published:** `2026-10-06T10:39:42Z`
+- **来源 / Source:** [arXiv — AutodidactWAM](https://arxiv.org/abs/2610.08119) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `humanoid`, `world-action-model`, `self-distillation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+作者在配备 BrainCo 手的 Unitree G1 上发现，适配后的 Cosmos 3 能生成看似合理的视频，但其原生动作常常偏离目标。AutodidactWAM 从这些视频估计手部姿态，再通过逆运动学构造动作目标，用于后续训练。
+
+On a Unitree G1 with BrainCo hands, the authors find that an adapted Cosmos 3 model generates plausible video while its native actions often miss their targets. AutodidactWAM estimates hand poses from that video and uses inverse kinematics to construct action targets for further training.
+
+### 技术点 / Technical points
+
+- 在报告的真实机器人试验中，恢复动作的抓取放置成功率约为 42%，原生动作约为 7%。
+  - Recovered actions reach approximately 42% pick-and-place success versus 7% for native actions in the reported real-robot trials.
+- DPO+SFT+DTW 联合目标在训练物体和留出物体上的完整任务成功率分别为 20% 和 30%；单独 Flow-DPO 虽有完美验证偏好准确率，实际成功率仍为 0%。
+  - A combined DPO+SFT+DTW objective yields 20% full-task success on the training object and 30% on a held-out object; plain Flow-DPO yields 0% despite perfect validation preference accuracy.
+
+### 为什么重要 / Why it matters
+
+研究区分了视觉合理性与可执行控制，并表明偏好准确率本身可能误导机器人训练评估。
+
+The result separates visual plausibility from executable control and shows why preference accuracy alone can be a misleading robot-training metric.
+
+---
+
 <a id="2026-09-30-ego4wam-human-data-scaling"></a>
 ## [Ego4WAM 分析第一视角人类数据如何促进机器人学习](https://arxiv.org/abs/2609.40341)
 

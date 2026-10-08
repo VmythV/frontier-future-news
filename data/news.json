@@ -11994,6 +11994,461 @@
         "technical_depth": 13,
         "traction": 2
       }
+    },
+    {
+      "id": "2026-10-06-checkerbench-static-analysis-agents",
+      "published_at": "2026-10-06T00:42:45Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding",
+        "tool-use",
+        "security"
+      ],
+      "title_en": "CheckerBench tests coding agents on reusable static-analysis checker development",
+      "title_zh": "CheckerBench 测试编程智能体开发可复用静态分析检查器的能力",
+      "summary_en": "CheckerBench evaluates whether agents can turn defect descriptions into working static-analysis checkers through repository inspection, compilation and iterative feedback. Its 300 tasks cover real vulnerabilities across five language ecosystems; the authors report a best mean Pass@1 of 45.33% across the evaluated configurations.",
+      "summary_zh": "CheckerBench 评估智能体能否通过检查仓库、编译和迭代反馈，将缺陷描述转化为可运行的静态分析检查器。300 项任务覆盖五个语言生态中的真实漏洞；作者报告，受测配置中的最佳平均 Pass@1 为 45.33%。",
+      "tech_points_en": [
+        "Tasks derive from 297 CVEs, 167 repositories and 85 CWEs, with vulnerable and fixed revisions plus pinned environments.",
+        "CheckerLab independently rebuilds submissions and measures diagnostic contrast, patch localization, false positives and tool use; evaluation covers 21 configurations with three repeats each."
+      ],
+      "tech_points_zh": [
+        "任务来自 297 个 CVE、167 个仓库和 85 类 CWE，提供漏洞版本、修复版本及固定环境。",
+        "CheckerLab 独立重建提交，衡量诊断差异、补丁定位、误报和工具使用；评估覆盖 21 种配置，每种重复三次。"
+      ],
+      "why_it_matters_en": "This evaluates a longer engineering workflow in which an agent must produce reusable analysis logic and demonstrate that it distinguishes faulty from repaired code.",
+      "why_it_matters_zh": "该评测覆盖较长的工程流程，要求智能体产出可复用的分析逻辑，并证明其能区分缺陷代码与修复代码。",
+      "source": {
+        "name": "arXiv — CheckerBench",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.07557",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-servelearnbench-evolving-agent-environments",
+      "published_at": "2026-10-06T05:39:42Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "memory",
+        "continual-learning",
+        "evaluation"
+      ],
+      "title_en": "ServeLearnBench evaluates agent learning as hidden environment policies change",
+      "title_zh": "ServeLearnBench 评估隐藏环境规则变化时智能体的持续学习",
+      "summary_en": "ServeLearnBench introduces streaming tasks whose hidden environment knowledge changes over time. Across retail support, banking and sales pitches, the study finds that solving tasks well does not ensure effective learning from experience, and adaptation can harm behavior that was already correct.",
+      "summary_zh": "ServeLearnBench 引入隐藏环境知识随时间变化的流式任务。在零售支持、银行和销售话术场景中，研究发现，任务能力强并不意味着能有效从经验中学习，持续适应还可能损害原本正确的行为。",
+      "tech_points_en": [
+        "The benchmark contains 7,718 tasks across 53 environment windows, requiring agents to infer and revise latent rules from interaction feedback.",
+        "Five learning harnesses and six models form 28 evaluated pairs and 252 learning runs; the authors identify adaptation cost and insufficient exploration as limitations."
+      ],
+      "tech_points_zh": [
+        "基准包含 53 个环境窗口中的 7,718 项任务，要求智能体根据交互反馈推断并修正规则。",
+        "五种学习框架与六个模型组成 28 个受测组合，共进行 252 次学习实验；作者指出适应成本和探索不足等局限。"
+      ],
+      "why_it_matters_en": "Changing hidden rules provide a more demanding test of persistent agent memory than static tasks with all instructions supplied upfront.",
+      "why_it_matters_zh": "变化的隐藏规则为持续运行智能体的记忆能力提供了更严苛的检验，超出了预先给出全部指令的静态任务。",
+      "source": {
+        "name": "arXiv — ServeLearnBench",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.07792",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=49999871"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-autodidactwam-video-action-distillation",
+      "published_at": "2026-10-06T10:39:42Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "humanoid",
+        "world-action-model",
+        "self-distillation"
+      ],
+      "title_en": "AutodidactWAM recovers robot actions from generated video for self-distillation",
+      "title_zh": "AutodidactWAM 从生成视频恢复机器人动作以进行自蒸馏",
+      "summary_en": "On a Unitree G1 with BrainCo hands, the authors find that an adapted Cosmos 3 model generates plausible video while its native actions often miss their targets. AutodidactWAM estimates hand poses from that video and uses inverse kinematics to construct action targets for further training.",
+      "summary_zh": "作者在配备 BrainCo 手的 Unitree G1 上发现，适配后的 Cosmos 3 能生成看似合理的视频，但其原生动作常常偏离目标。AutodidactWAM 从这些视频估计手部姿态，再通过逆运动学构造动作目标，用于后续训练。",
+      "tech_points_en": [
+        "Recovered actions reach approximately 42% pick-and-place success versus 7% for native actions in the reported real-robot trials.",
+        "A combined DPO+SFT+DTW objective yields 20% full-task success on the training object and 30% on a held-out object; plain Flow-DPO yields 0% despite perfect validation preference accuracy."
+      ],
+      "tech_points_zh": [
+        "在报告的真实机器人试验中，恢复动作的抓取放置成功率约为 42%，原生动作约为 7%。",
+        "DPO+SFT+DTW 联合目标在训练物体和留出物体上的完整任务成功率分别为 20% 和 30%；单独 Flow-DPO 虽有完美验证偏好准确率，实际成功率仍为 0%。"
+      ],
+      "why_it_matters_en": "The result separates visual plausibility from executable control and shows why preference accuracy alone can be a misleading robot-training metric.",
+      "why_it_matters_zh": "研究区分了视觉合理性与可执行控制，并表明偏好准确率本身可能误导机器人训练评估。",
+      "source": {
+        "name": "arXiv — AutodidactWAM",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08119",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-ppwm-parallel-world-model-planning",
+      "published_at": "2026-10-06T16:26:34Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "planning",
+        "predictive-control",
+        "simulation",
+        "efficiency"
+      ],
+      "title_en": "PPWM predicts causal trajectories in parallel for faster world-model planning",
+      "title_zh": "PPWM 并行预测因果轨迹以加速世界模型规划",
+      "summary_en": "Parallel Predictive World Models predicts an entire finite-horizon trajectory in parallel while preserving causal interactions between future representations. In four visual-control tasks, the authors report lower long-horizon prediction error and higher simulator success than the evaluated alternatives, with average CEM planning speed more than three times the autoregressive LeWM baseline.",
+      "summary_zh": "Parallel Predictive World Models 在保留未来表征之间因果交互的同时，并行预测有限时域内的整条轨迹。作者在四项视觉控制任务中报告，相比受测替代方法，长时域预测误差更低、仿真成功率更高，CEM 规划平均速度超过自回归 LeWM 基线的三倍。",
+      "tech_points_en": [
+        "Each prediction horizon is conditioned on its causal action prefix, with future representations interacting before decoding.",
+        "The architecture removes recursive feedback of decoded states; planning is evaluated with the Cross-Entropy Method in simulation."
+      ],
+      "tech_points_zh": [
+        "每个预测时域以对应的因果动作前缀为条件，未来表征在解码前相互交互。",
+        "架构移除了已解码状态的递归反馈路径，使用交叉熵方法在仿真中评估规划。"
+      ],
+      "why_it_matters_en": "Parallel trajectory prediction may reduce both sequential planning latency and errors introduced by feeding decoded states back into a world model.",
+      "why_it_matters_zh": "并行轨迹预测有望同时减少规划的串行延迟，以及将解码状态反复输入世界模型带来的误差。",
+      "source": {
+        "name": "arXiv — PPWM",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08627",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-squidagent-cost-aware-parallel-coordination",
+      "published_at": "2026-10-06T16:35:28Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "planning",
+        "efficiency",
+        "coding"
+      ],
+      "title_en": "SquidAgent schedules parallel work using token costs and shared context",
+      "title_zh": "SquidAgent 利用 token 成本与共享上下文调度并行工作",
+      "summary_en": "SquidAgent decides when parallel agent execution is worthwhile by accounting for the critical path, context reconstruction and output reconciliation. It predicts costs in output tokens, forks workers from the orchestrator session and supplies shared conventions before execution. The authors report 2.6× mean wall-time speedup over Claude Code in their evaluation.",
+      "summary_zh": "SquidAgent 综合关键路径、上下文重建与输出协调成本，判断何时值得并行执行智能体任务。它以输出 token 预测成本，从协调者会话派生工作者，并在执行前提供共享约定。作者在其评估中报告，相比 Claude Code，平均耗时加速 2.6 倍。",
+      "tech_points_en": [
+        "A deterministic scheduler parallelizes a layer only when predicted parallel cost, including coordination overhead, is below serial cost.",
+        "Reported mean throughput improves 2.2× over Claude Code and 2.0× over the strongest evaluated multi-agent baseline."
+      ],
+      "tech_points_zh": [
+        "确定性调度器仅在包含协调开销的预测并行成本低于串行成本时，并行执行该层任务。",
+        "报告的平均吞吐量比 Claude Code 提高 2.2 倍，比受测最强多智能体基线提高 2.0 倍。"
+      ],
+      "why_it_matters_en": "The work makes context inheritance and coordination overhead explicit when optimizing multi-agent execution speed.",
+      "why_it_matters_zh": "该研究在优化多智能体执行速度时，显式考虑了上下文继承和协调开销。",
+      "source": {
+        "name": "arXiv — SquidAgent",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08647",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-egolap-human-robot-language-actions",
+      "published_at": "2026-10-06T17:30:33Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "robotics",
+        "reasoning",
+        "pretraining"
+      ],
+      "title_en": "EgoLAP transfers human motion intent through shared language actions",
+      "title_zh": "EgoLAP 通过共享语言动作迁移人类运动意图",
+      "summary_en": "EgoLAP pretrains vision-language-action models on human and robot trajectories using a shared language representation of motion intent. Rather than directly copying human control trajectories, it pairs temporally abstract language actions with reasoning about geometry, physics and object affordances.",
+      "summary_zh": "EgoLAP 利用运动意图的共享语言表征，在人类和机器人轨迹上预训练视觉语言动作模型。它将时间抽象后的语言动作与几何、物理和物体可供性推理配对，以跨越人类动作与机器人控制之间的差异。",
+      "tech_points_en": [
+        "A language-based action chain-of-thought provides shared supervision across different embodiments.",
+        "The authors report 80.1% mean real-world task progress and a 2.3× performance gain over alternative action representations; task progress is the reported metric, rather than full-task success."
+      ],
+      "tech_points_zh": [
+        "基于语言的动作思维链为不同具身形态提供共享监督。",
+        "作者报告，真实任务平均进度为 80.1%，性能达到其他动作表征的 2.3 倍；这里的指标是任务进度，并非完整任务成功率。"
+      ],
+      "why_it_matters_en": "Encoding transferable motion intent could make egocentric human data more useful for robot pretraining without treating human and robot actions as interchangeable.",
+      "why_it_matters_zh": "编码可迁移的运动意图，有望让第一视角人类数据更适用于机器人预训练，同时保留两者底层动作的差异。",
+      "source": {
+        "name": "arXiv — EgoLAP",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08726",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-bottled-agent-reusable-artifacts",
+      "published_at": "2026-10-06T17:57:19Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding",
+        "efficiency",
+        "evaluation"
+      ],
+      "title_en": "BOTTLED tests whether agents build economical reusable task solutions",
+      "title_zh": "BOTTLED 测试智能体能否构建经济的可复用任务方案",
+      "summary_en": "BOTTLED gives agents an unlabeled workload and fixed resource budgets, then lets them build reusable programs or small models. Across ten models and three tasks, strong zero-shot performance often fails to translate into effective reusable solutions: 48 of 60 runs fall below the lower confidence bound of their model’s zero-shot score.",
+      "summary_zh": "BOTTLED 向智能体提供未标注工作负载和固定资源预算，允许其构建可复用程序或小模型。在十个模型、三项任务上，较强的零样本表现常未转化为有效的可复用方案：60 次运行中有 48 次低于对应模型零样本得分的置信区间下界。",
+      "tech_points_en": [
+        "Agents choose their method under time, compute and LLM API budgets; 31 of 60 runs underperform the stronger of two token-budget-matched distillation baselines.",
+        "On query-product relevance classification, Opus 5 retains about 82% of its zero-shot macro-F1 at roughly 657× lower reported cost; this is a task-specific result."
+      ],
+      "tech_points_zh": [
+        "智能体在时间、计算和 LLM API 预算内自行选择方法；60 次运行中有 31 次不及两个同 token 预算蒸馏基线中的较强者。",
+        "在查询与商品相关性分类上，Opus 5 保留约 82% 的零样本 macro-F1，报告成本约降低 657 倍；该结果限定于这一任务。"
+      ],
+      "why_it_matters_en": "This distinguishes answering individual queries from engineering an efficient solution that can amortize its cost across a large workload.",
+      "why_it_matters_zh": "该评测区分了回答单次查询的能力与构建高效方案、在大规模工作负载中摊销成本的工程能力。",
+      "source": {
+        "name": "arXiv — BOTTLED",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08775",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-depthworld-droid-3d-world-model",
+      "published_at": "2026-10-06T17:59:00Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "dataset",
+        "spatial-intelligence",
+        "simulation"
+      ],
+      "title_en": "DepthWorld adds calibrated 3D supervision to robot world modeling",
+      "title_zh": "DepthWorld 为机器人世界建模加入经校准的三维监督",
+      "summary_en": "DepthWorld introduces DROID-3D, a calibrated robot manipulation dataset with metric depth and corrected camera extrinsics. Its world model jointly predicts multi-view RGB and depth from Stable Video Diffusion while retaining the pretrained VAE, addressing geometric inconsistencies in RGB-only rollouts.",
+      "summary_zh": "DepthWorld 提出 DROID-3D，为机器人操作数据补充度量深度和修正后的相机外参。其世界模型基于 Stable Video Diffusion 联合预测多视角 RGB 与深度，并保留预训练 VAE，以改善仅预测 RGB 的展开轨迹中的几何不一致。",
+      "tech_points_en": [
+        "Calibration combines learned stereo depth with a joint factor graph that shares robot kinematic parameters across episodes; 90% of episodes achieve external-camera reprojection error below 0.7 pixels.",
+        "Spatial latent tiling supports joint RGB-depth prediction; depth supervision improves RGB PSNR by 1.48 dB over an otherwise identical RGB-only baseline at equal training budget."
+      ],
+      "tech_points_zh": [
+        "校准结合学习得到的双目深度与联合因子图，跨回合共享机器人运动学参数；90% 回合的外部相机重投影误差低于 0.7 像素。",
+        "空间潜变量平铺支持 RGB 与深度联合预测；在相同训练预算下，深度监督使 RGB PSNR 比其他条件相同的纯 RGB 基线提高 1.48 dB。"
+      ],
+      "why_it_matters_en": "Metric depth and calibrated multi-view geometry could support more physically grounded policy evaluation and planning than visually plausible RGB predictions alone.",
+      "why_it_matters_zh": "度量深度与经校准的多视角几何，有望为策略评估和规划提供更扎实的物理依据。",
+      "source": {
+        "name": "arXiv — DepthWorld",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08780",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-pears-tactile-policy-adaptation",
+      "published_at": "2026-10-06T17:59:03Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "tactile-sensing",
+        "reinforcement-learning",
+        "adaptation"
+      ],
+      "title_en": "PEARS combines tactile failure reasoning with frozen-policy steering",
+      "title_zh": "PEARS 结合触觉失败推理与冻结策略引导",
+      "summary_en": "PEARS adapts pretrained robot policies by combining physics-guided reasoning over visual outcomes and tactile history with reinforcement learning that steers a frozen policy. The authors report real-world success rates of 95% for whiteboard erasing and 90% for pipette liquid aspiration.",
+      "summary_zh": "PEARS 将基于视觉结果和触觉历史的物理推理，与引导冻结策略的强化学习结合，用于适配预训练机器人策略。作者报告，真实白板擦除和移液管吸液任务的成功率分别为 95% 和 90%。",
+      "tech_points_en": [
+        "A VLM diagnoses failures and updates contact-force bounds, enforced by a high-frequency hybrid force-position controller.",
+        "Tactile-conditioned steering adjusts latent noise without changing base-model weights; simulation gains range from 12.4 to 37.4 percentage points over the strongest per-task baselines."
+      ],
+      "tech_points_zh": [
+        "VLM 诊断失败并更新接触力边界，再由高频力位混合控制器执行约束。",
+        "触觉条件引导调整潜在噪声而不改变基础模型权重；仿真成功率比各任务最强基线提高 12.4 至 37.4 个百分点。"
+      ],
+      "why_it_matters_en": "The method ties semantic failure diagnosis to concrete force constraints and policy adaptation, potentially reducing expensive real-robot trials.",
+      "why_it_matters_zh": "该方法把语义层面的失败诊断与具体力约束、策略适配连接起来，有望减少昂贵的真实机器人试验。",
+      "source": {
+        "name": "arXiv — PEARS",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08784",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-06-qf3-filtered-flow-robot-rl",
+      "published_at": "2026-10-06T17:59:34Z",
+      "collected_at": "2026-10-08T00:03:56Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "humanoid",
+        "reinforcement-learning",
+        "sim-to-real",
+        "efficiency"
+      ],
+      "title_en": "QF3 accelerates flow-policy RL and transfers humanoid skills to hardware",
+      "title_zh": "QF3 加速流策略强化学习并将人形机器人技能迁移到硬件",
+      "summary_en": "QF3 trains flow policies with off-policy reinforcement learning and filtered critic gradients. The authors report training humanoid locomotion and motion tracking ten times faster in wall-clock time than FPO++, then transferring learned locomotion policies to hardware without additional adaptation.",
+      "summary_zh": "QF3 利用离策略强化学习与经过筛选的评论家梯度训练流策略。作者报告，人形机器人行走和动作跟踪训练的实际耗时比 FPO++ 加速十倍，并将学习到的行走策略无需额外适配地迁移到硬件。",
+      "tech_points_en": [
+        "The update combines flow matching with a critic action gradient propagated through a one-step output prediction, restricted to action dimensions near the replay action.",
+        "The study also fine-tunes pretrained manipulation policies on ABC-Sim and Robomimic, covering both learning from scratch and refinement after demonstrations."
+      ],
+      "tech_points_zh": [
+        "更新结合流匹配与通过单步输出预测反传的评论家动作梯度，并仅保留接近回放动作的维度。",
+        "研究还在 ABC-Sim 和 Robomimic 上微调预训练操作策略，同时覆盖从零学习和示范学习后的改进。"
+      ],
+      "why_it_matters_en": "A common flow-policy training method for locomotion and manipulation could make interaction-based improvement more practical across robot tasks.",
+      "why_it_matters_zh": "面向行走与操作的统一流策略训练方法，有望让基于交互的策略改进更适用于多种机器人任务。",
+      "source": {
+        "name": "arXiv — QF3",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.08789",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
     }
   ]
 }

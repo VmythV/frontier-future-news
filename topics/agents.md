@@ -2,6 +2,138 @@
 
 # Agents / 智能体
 
+<a id="2026-10-06-bottled-agent-reusable-artifacts"></a>
+## [BOTTLED 测试智能体能否构建经济的可复用任务方案](https://arxiv.org/abs/2610.08775)
+
+**English:** [BOTTLED tests whether agents build economical reusable task solutions](https://arxiv.org/abs/2610.08775)
+
+- **发布 / Published:** `2026-10-06T17:57:19Z`
+- **来源 / Source:** [arXiv — BOTTLED](https://arxiv.org/abs/2610.08775) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding`, `efficiency`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+BOTTLED 向智能体提供未标注工作负载和固定资源预算，允许其构建可复用程序或小模型。在十个模型、三项任务上，较强的零样本表现常未转化为有效的可复用方案：60 次运行中有 48 次低于对应模型零样本得分的置信区间下界。
+
+BOTTLED gives agents an unlabeled workload and fixed resource budgets, then lets them build reusable programs or small models. Across ten models and three tasks, strong zero-shot performance often fails to translate into effective reusable solutions: 48 of 60 runs fall below the lower confidence bound of their model’s zero-shot score.
+
+### 技术点 / Technical points
+
+- 智能体在时间、计算和 LLM API 预算内自行选择方法；60 次运行中有 31 次不及两个同 token 预算蒸馏基线中的较强者。
+  - Agents choose their method under time, compute and LLM API budgets; 31 of 60 runs underperform the stronger of two token-budget-matched distillation baselines.
+- 在查询与商品相关性分类上，Opus 5 保留约 82% 的零样本 macro-F1，报告成本约降低 657 倍；该结果限定于这一任务。
+  - On query-product relevance classification, Opus 5 retains about 82% of its zero-shot macro-F1 at roughly 657× lower reported cost; this is a task-specific result.
+
+### 为什么重要 / Why it matters
+
+该评测区分了回答单次查询的能力与构建高效方案、在大规模工作负载中摊销成本的工程能力。
+
+This distinguishes answering individual queries from engineering an efficient solution that can amortize its cost across a large workload.
+
+---
+
+<a id="2026-10-06-squidagent-cost-aware-parallel-coordination"></a>
+## [SquidAgent 利用 token 成本与共享上下文调度并行工作](https://arxiv.org/abs/2610.08647)
+
+**English:** [SquidAgent schedules parallel work using token costs and shared context](https://arxiv.org/abs/2610.08647)
+
+- **发布 / Published:** `2026-10-06T16:35:28Z`
+- **来源 / Source:** [arXiv — SquidAgent](https://arxiv.org/abs/2610.08647) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `planning`, `efficiency`, `coding`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+SquidAgent 综合关键路径、上下文重建与输出协调成本，判断何时值得并行执行智能体任务。它以输出 token 预测成本，从协调者会话派生工作者，并在执行前提供共享约定。作者在其评估中报告，相比 Claude Code，平均耗时加速 2.6 倍。
+
+SquidAgent decides when parallel agent execution is worthwhile by accounting for the critical path, context reconstruction and output reconciliation. It predicts costs in output tokens, forks workers from the orchestrator session and supplies shared conventions before execution. The authors report 2.6× mean wall-time speedup over Claude Code in their evaluation.
+
+### 技术点 / Technical points
+
+- 确定性调度器仅在包含协调开销的预测并行成本低于串行成本时，并行执行该层任务。
+  - A deterministic scheduler parallelizes a layer only when predicted parallel cost, including coordination overhead, is below serial cost.
+- 报告的平均吞吐量比 Claude Code 提高 2.2 倍，比受测最强多智能体基线提高 2.0 倍。
+  - Reported mean throughput improves 2.2× over Claude Code and 2.0× over the strongest evaluated multi-agent baseline.
+
+### 为什么重要 / Why it matters
+
+该研究在优化多智能体执行速度时，显式考虑了上下文继承和协调开销。
+
+The work makes context inheritance and coordination overhead explicit when optimizing multi-agent execution speed.
+
+---
+
+<a id="2026-10-06-servelearnbench-evolving-agent-environments"></a>
+## [ServeLearnBench 评估隐藏环境规则变化时智能体的持续学习](https://arxiv.org/abs/2610.07792)
+
+**English:** [ServeLearnBench evaluates agent learning as hidden environment policies change](https://arxiv.org/abs/2610.07792)
+
+- **发布 / Published:** `2026-10-06T05:39:42Z`
+- **来源 / Source:** [arXiv — ServeLearnBench](https://arxiv.org/abs/2610.07792) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `memory`, `continual-learning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ServeLearnBench 引入隐藏环境知识随时间变化的流式任务。在零售支持、银行和销售话术场景中，研究发现，任务能力强并不意味着能有效从经验中学习，持续适应还可能损害原本正确的行为。
+
+ServeLearnBench introduces streaming tasks whose hidden environment knowledge changes over time. Across retail support, banking and sales pitches, the study finds that solving tasks well does not ensure effective learning from experience, and adaptation can harm behavior that was already correct.
+
+### 技术点 / Technical points
+
+- 基准包含 53 个环境窗口中的 7,718 项任务，要求智能体根据交互反馈推断并修正规则。
+  - The benchmark contains 7,718 tasks across 53 environment windows, requiring agents to infer and revise latent rules from interaction feedback.
+- 五种学习框架与六个模型组成 28 个受测组合，共进行 252 次学习实验；作者指出适应成本和探索不足等局限。
+  - Five learning harnesses and six models form 28 evaluated pairs and 252 learning runs; the authors identify adaptation cost and insufficient exploration as limitations.
+
+### 为什么重要 / Why it matters
+
+变化的隐藏规则为持续运行智能体的记忆能力提供了更严苛的检验，超出了预先给出全部指令的静态任务。
+
+Changing hidden rules provide a more demanding test of persistent agent memory than static tasks with all instructions supplied upfront.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49999871)
+
+---
+
+<a id="2026-10-06-checkerbench-static-analysis-agents"></a>
+## [CheckerBench 测试编程智能体开发可复用静态分析检查器的能力](https://arxiv.org/abs/2610.07557)
+
+**English:** [CheckerBench tests coding agents on reusable static-analysis checker development](https://arxiv.org/abs/2610.07557)
+
+- **发布 / Published:** `2026-10-06T00:42:45Z`
+- **来源 / Source:** [arXiv — CheckerBench](https://arxiv.org/abs/2610.07557) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding`, `tool-use`, `security`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+CheckerBench 评估智能体能否通过检查仓库、编译和迭代反馈，将缺陷描述转化为可运行的静态分析检查器。300 项任务覆盖五个语言生态中的真实漏洞；作者报告，受测配置中的最佳平均 Pass@1 为 45.33%。
+
+CheckerBench evaluates whether agents can turn defect descriptions into working static-analysis checkers through repository inspection, compilation and iterative feedback. Its 300 tasks cover real vulnerabilities across five language ecosystems; the authors report a best mean Pass@1 of 45.33% across the evaluated configurations.
+
+### 技术点 / Technical points
+
+- 任务来自 297 个 CVE、167 个仓库和 85 类 CWE，提供漏洞版本、修复版本及固定环境。
+  - Tasks derive from 297 CVEs, 167 repositories and 85 CWEs, with vulnerable and fixed revisions plus pinned environments.
+- CheckerLab 独立重建提交，衡量诊断差异、补丁定位、误报和工具使用；评估覆盖 21 种配置，每种重复三次。
+  - CheckerLab independently rebuilds submissions and measures diagnostic contrast, patch localization, false positives and tool use; evaluation covers 21 configurations with three repeats each.
+
+### 为什么重要 / Why it matters
+
+该评测覆盖较长的工程流程，要求智能体产出可复用的分析逻辑，并证明其能区分缺陷代码与修复代码。
+
+This evaluates a longer engineering workflow in which an agent must produce reusable analysis logic and demonstrate that it distinguishes faulty from repaired code.
+
+---
+
 <a id="2026-10-03-openclaw-2026-9-8-runtime-recovery"></a>
 ## [OpenClaw 2026.9.8 修复后台任务轮次并加强运行时恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
 

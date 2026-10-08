@@ -2,6 +2,330 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-06-qf3-filtered-flow-robot-rl"></a>
+## [QF3 加速流策略强化学习并将人形机器人技能迁移到硬件](https://arxiv.org/abs/2610.08789)
+
+**English:** [QF3 accelerates flow-policy RL and transfers humanoid skills to hardware](https://arxiv.org/abs/2610.08789)
+
+- **发布 / Published:** `2026-10-06T17:59:34Z`
+- **来源 / Source:** [arXiv — QF3](https://arxiv.org/abs/2610.08789) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `reinforcement-learning`, `sim-to-real`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+QF3 利用离策略强化学习与经过筛选的评论家梯度训练流策略。作者报告，人形机器人行走和动作跟踪训练的实际耗时比 FPO++ 加速十倍，并将学习到的行走策略无需额外适配地迁移到硬件。
+
+QF3 trains flow policies with off-policy reinforcement learning and filtered critic gradients. The authors report training humanoid locomotion and motion tracking ten times faster in wall-clock time than FPO++, then transferring learned locomotion policies to hardware without additional adaptation.
+
+### 技术点 / Technical points
+
+- 更新结合流匹配与通过单步输出预测反传的评论家动作梯度，并仅保留接近回放动作的维度。
+  - The update combines flow matching with a critic action gradient propagated through a one-step output prediction, restricted to action dimensions near the replay action.
+- 研究还在 ABC-Sim 和 Robomimic 上微调预训练操作策略，同时覆盖从零学习和示范学习后的改进。
+  - The study also fine-tunes pretrained manipulation policies on ABC-Sim and Robomimic, covering both learning from scratch and refinement after demonstrations.
+
+### 为什么重要 / Why it matters
+
+面向行走与操作的统一流策略训练方法，有望让基于交互的策略改进更适用于多种机器人任务。
+
+A common flow-policy training method for locomotion and manipulation could make interaction-based improvement more practical across robot tasks.
+
+---
+
+<a id="2026-10-06-pears-tactile-policy-adaptation"></a>
+## [PEARS 结合触觉失败推理与冻结策略引导](https://arxiv.org/abs/2610.08784)
+
+**English:** [PEARS combines tactile failure reasoning with frozen-policy steering](https://arxiv.org/abs/2610.08784)
+
+- **发布 / Published:** `2026-10-06T17:59:03Z`
+- **来源 / Source:** [arXiv — PEARS](https://arxiv.org/abs/2610.08784) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `reinforcement-learning`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PEARS 将基于视觉结果和触觉历史的物理推理，与引导冻结策略的强化学习结合，用于适配预训练机器人策略。作者报告，真实白板擦除和移液管吸液任务的成功率分别为 95% 和 90%。
+
+PEARS adapts pretrained robot policies by combining physics-guided reasoning over visual outcomes and tactile history with reinforcement learning that steers a frozen policy. The authors report real-world success rates of 95% for whiteboard erasing and 90% for pipette liquid aspiration.
+
+### 技术点 / Technical points
+
+- VLM 诊断失败并更新接触力边界，再由高频力位混合控制器执行约束。
+  - A VLM diagnoses failures and updates contact-force bounds, enforced by a high-frequency hybrid force-position controller.
+- 触觉条件引导调整潜在噪声而不改变基础模型权重；仿真成功率比各任务最强基线提高 12.4 至 37.4 个百分点。
+  - Tactile-conditioned steering adjusts latent noise without changing base-model weights; simulation gains range from 12.4 to 37.4 percentage points over the strongest per-task baselines.
+
+### 为什么重要 / Why it matters
+
+该方法把语义层面的失败诊断与具体力约束、策略适配连接起来，有望减少昂贵的真实机器人试验。
+
+The method ties semantic failure diagnosis to concrete force constraints and policy adaptation, potentially reducing expensive real-robot trials.
+
+---
+
+<a id="2026-10-06-depthworld-droid-3d-world-model"></a>
+## [DepthWorld 为机器人世界建模加入经校准的三维监督](https://arxiv.org/abs/2610.08780)
+
+**English:** [DepthWorld adds calibrated 3D supervision to robot world modeling](https://arxiv.org/abs/2610.08780)
+
+- **发布 / Published:** `2026-10-06T17:59:00Z`
+- **来源 / Source:** [arXiv — DepthWorld](https://arxiv.org/abs/2610.08780) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `dataset`, `spatial-intelligence`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DepthWorld 提出 DROID-3D，为机器人操作数据补充度量深度和修正后的相机外参。其世界模型基于 Stable Video Diffusion 联合预测多视角 RGB 与深度，并保留预训练 VAE，以改善仅预测 RGB 的展开轨迹中的几何不一致。
+
+DepthWorld introduces DROID-3D, a calibrated robot manipulation dataset with metric depth and corrected camera extrinsics. Its world model jointly predicts multi-view RGB and depth from Stable Video Diffusion while retaining the pretrained VAE, addressing geometric inconsistencies in RGB-only rollouts.
+
+### 技术点 / Technical points
+
+- 校准结合学习得到的双目深度与联合因子图，跨回合共享机器人运动学参数；90% 回合的外部相机重投影误差低于 0.7 像素。
+  - Calibration combines learned stereo depth with a joint factor graph that shares robot kinematic parameters across episodes; 90% of episodes achieve external-camera reprojection error below 0.7 pixels.
+- 空间潜变量平铺支持 RGB 与深度联合预测；在相同训练预算下，深度监督使 RGB PSNR 比其他条件相同的纯 RGB 基线提高 1.48 dB。
+  - Spatial latent tiling supports joint RGB-depth prediction; depth supervision improves RGB PSNR by 1.48 dB over an otherwise identical RGB-only baseline at equal training budget.
+
+### 为什么重要 / Why it matters
+
+度量深度与经校准的多视角几何，有望为策略评估和规划提供更扎实的物理依据。
+
+Metric depth and calibrated multi-view geometry could support more physically grounded policy evaluation and planning than visually plausible RGB predictions alone.
+
+---
+
+<a id="2026-10-06-bottled-agent-reusable-artifacts"></a>
+## [BOTTLED 测试智能体能否构建经济的可复用任务方案](https://arxiv.org/abs/2610.08775)
+
+**English:** [BOTTLED tests whether agents build economical reusable task solutions](https://arxiv.org/abs/2610.08775)
+
+- **发布 / Published:** `2026-10-06T17:57:19Z`
+- **来源 / Source:** [arXiv — BOTTLED](https://arxiv.org/abs/2610.08775) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding`, `efficiency`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+BOTTLED 向智能体提供未标注工作负载和固定资源预算，允许其构建可复用程序或小模型。在十个模型、三项任务上，较强的零样本表现常未转化为有效的可复用方案：60 次运行中有 48 次低于对应模型零样本得分的置信区间下界。
+
+BOTTLED gives agents an unlabeled workload and fixed resource budgets, then lets them build reusable programs or small models. Across ten models and three tasks, strong zero-shot performance often fails to translate into effective reusable solutions: 48 of 60 runs fall below the lower confidence bound of their model’s zero-shot score.
+
+### 技术点 / Technical points
+
+- 智能体在时间、计算和 LLM API 预算内自行选择方法；60 次运行中有 31 次不及两个同 token 预算蒸馏基线中的较强者。
+  - Agents choose their method under time, compute and LLM API budgets; 31 of 60 runs underperform the stronger of two token-budget-matched distillation baselines.
+- 在查询与商品相关性分类上，Opus 5 保留约 82% 的零样本 macro-F1，报告成本约降低 657 倍；该结果限定于这一任务。
+  - On query-product relevance classification, Opus 5 retains about 82% of its zero-shot macro-F1 at roughly 657× lower reported cost; this is a task-specific result.
+
+### 为什么重要 / Why it matters
+
+该评测区分了回答单次查询的能力与构建高效方案、在大规模工作负载中摊销成本的工程能力。
+
+This distinguishes answering individual queries from engineering an efficient solution that can amortize its cost across a large workload.
+
+---
+
+<a id="2026-10-06-egolap-human-robot-language-actions"></a>
+## [EgoLAP 通过共享语言动作迁移人类运动意图](https://arxiv.org/abs/2610.08726)
+
+**English:** [EgoLAP transfers human motion intent through shared language actions](https://arxiv.org/abs/2610.08726)
+
+- **发布 / Published:** `2026-10-06T17:30:33Z`
+- **来源 / Source:** [arXiv — EgoLAP](https://arxiv.org/abs/2610.08726) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `reasoning`, `pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+EgoLAP 利用运动意图的共享语言表征，在人类和机器人轨迹上预训练视觉语言动作模型。它将时间抽象后的语言动作与几何、物理和物体可供性推理配对，以跨越人类动作与机器人控制之间的差异。
+
+EgoLAP pretrains vision-language-action models on human and robot trajectories using a shared language representation of motion intent. Rather than directly copying human control trajectories, it pairs temporally abstract language actions with reasoning about geometry, physics and object affordances.
+
+### 技术点 / Technical points
+
+- 基于语言的动作思维链为不同具身形态提供共享监督。
+  - A language-based action chain-of-thought provides shared supervision across different embodiments.
+- 作者报告，真实任务平均进度为 80.1%，性能达到其他动作表征的 2.3 倍；这里的指标是任务进度，并非完整任务成功率。
+  - The authors report 80.1% mean real-world task progress and a 2.3× performance gain over alternative action representations; task progress is the reported metric, rather than full-task success.
+
+### 为什么重要 / Why it matters
+
+编码可迁移的运动意图，有望让第一视角人类数据更适用于机器人预训练，同时保留两者底层动作的差异。
+
+Encoding transferable motion intent could make egocentric human data more useful for robot pretraining without treating human and robot actions as interchangeable.
+
+---
+
+<a id="2026-10-06-squidagent-cost-aware-parallel-coordination"></a>
+## [SquidAgent 利用 token 成本与共享上下文调度并行工作](https://arxiv.org/abs/2610.08647)
+
+**English:** [SquidAgent schedules parallel work using token costs and shared context](https://arxiv.org/abs/2610.08647)
+
+- **发布 / Published:** `2026-10-06T16:35:28Z`
+- **来源 / Source:** [arXiv — SquidAgent](https://arxiv.org/abs/2610.08647) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `planning`, `efficiency`, `coding`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+SquidAgent 综合关键路径、上下文重建与输出协调成本，判断何时值得并行执行智能体任务。它以输出 token 预测成本，从协调者会话派生工作者，并在执行前提供共享约定。作者在其评估中报告，相比 Claude Code，平均耗时加速 2.6 倍。
+
+SquidAgent decides when parallel agent execution is worthwhile by accounting for the critical path, context reconstruction and output reconciliation. It predicts costs in output tokens, forks workers from the orchestrator session and supplies shared conventions before execution. The authors report 2.6× mean wall-time speedup over Claude Code in their evaluation.
+
+### 技术点 / Technical points
+
+- 确定性调度器仅在包含协调开销的预测并行成本低于串行成本时，并行执行该层任务。
+  - A deterministic scheduler parallelizes a layer only when predicted parallel cost, including coordination overhead, is below serial cost.
+- 报告的平均吞吐量比 Claude Code 提高 2.2 倍，比受测最强多智能体基线提高 2.0 倍。
+  - Reported mean throughput improves 2.2× over Claude Code and 2.0× over the strongest evaluated multi-agent baseline.
+
+### 为什么重要 / Why it matters
+
+该研究在优化多智能体执行速度时，显式考虑了上下文继承和协调开销。
+
+The work makes context inheritance and coordination overhead explicit when optimizing multi-agent execution speed.
+
+---
+
+<a id="2026-10-06-ppwm-parallel-world-model-planning"></a>
+## [PPWM 并行预测因果轨迹以加速世界模型规划](https://arxiv.org/abs/2610.08627)
+
+**English:** [PPWM predicts causal trajectories in parallel for faster world-model planning](https://arxiv.org/abs/2610.08627)
+
+- **发布 / Published:** `2026-10-06T16:26:34Z`
+- **来源 / Source:** [arXiv — PPWM](https://arxiv.org/abs/2610.08627) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `planning`, `predictive-control`, `simulation`, `efficiency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Parallel Predictive World Models 在保留未来表征之间因果交互的同时，并行预测有限时域内的整条轨迹。作者在四项视觉控制任务中报告，相比受测替代方法，长时域预测误差更低、仿真成功率更高，CEM 规划平均速度超过自回归 LeWM 基线的三倍。
+
+Parallel Predictive World Models predicts an entire finite-horizon trajectory in parallel while preserving causal interactions between future representations. In four visual-control tasks, the authors report lower long-horizon prediction error and higher simulator success than the evaluated alternatives, with average CEM planning speed more than three times the autoregressive LeWM baseline.
+
+### 技术点 / Technical points
+
+- 每个预测时域以对应的因果动作前缀为条件，未来表征在解码前相互交互。
+  - Each prediction horizon is conditioned on its causal action prefix, with future representations interacting before decoding.
+- 架构移除了已解码状态的递归反馈路径，使用交叉熵方法在仿真中评估规划。
+  - The architecture removes recursive feedback of decoded states; planning is evaluated with the Cross-Entropy Method in simulation.
+
+### 为什么重要 / Why it matters
+
+并行轨迹预测有望同时减少规划的串行延迟，以及将解码状态反复输入世界模型带来的误差。
+
+Parallel trajectory prediction may reduce both sequential planning latency and errors introduced by feeding decoded states back into a world model.
+
+---
+
+<a id="2026-10-06-autodidactwam-video-action-distillation"></a>
+## [AutodidactWAM 从生成视频恢复机器人动作以进行自蒸馏](https://arxiv.org/abs/2610.08119)
+
+**English:** [AutodidactWAM recovers robot actions from generated video for self-distillation](https://arxiv.org/abs/2610.08119)
+
+- **发布 / Published:** `2026-10-06T10:39:42Z`
+- **来源 / Source:** [arXiv — AutodidactWAM](https://arxiv.org/abs/2610.08119) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `humanoid`, `world-action-model`, `self-distillation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+作者在配备 BrainCo 手的 Unitree G1 上发现，适配后的 Cosmos 3 能生成看似合理的视频，但其原生动作常常偏离目标。AutodidactWAM 从这些视频估计手部姿态，再通过逆运动学构造动作目标，用于后续训练。
+
+On a Unitree G1 with BrainCo hands, the authors find that an adapted Cosmos 3 model generates plausible video while its native actions often miss their targets. AutodidactWAM estimates hand poses from that video and uses inverse kinematics to construct action targets for further training.
+
+### 技术点 / Technical points
+
+- 在报告的真实机器人试验中，恢复动作的抓取放置成功率约为 42%，原生动作约为 7%。
+  - Recovered actions reach approximately 42% pick-and-place success versus 7% for native actions in the reported real-robot trials.
+- DPO+SFT+DTW 联合目标在训练物体和留出物体上的完整任务成功率分别为 20% 和 30%；单独 Flow-DPO 虽有完美验证偏好准确率，实际成功率仍为 0%。
+  - A combined DPO+SFT+DTW objective yields 20% full-task success on the training object and 30% on a held-out object; plain Flow-DPO yields 0% despite perfect validation preference accuracy.
+
+### 为什么重要 / Why it matters
+
+研究区分了视觉合理性与可执行控制，并表明偏好准确率本身可能误导机器人训练评估。
+
+The result separates visual plausibility from executable control and shows why preference accuracy alone can be a misleading robot-training metric.
+
+---
+
+<a id="2026-10-06-servelearnbench-evolving-agent-environments"></a>
+## [ServeLearnBench 评估隐藏环境规则变化时智能体的持续学习](https://arxiv.org/abs/2610.07792)
+
+**English:** [ServeLearnBench evaluates agent learning as hidden environment policies change](https://arxiv.org/abs/2610.07792)
+
+- **发布 / Published:** `2026-10-06T05:39:42Z`
+- **来源 / Source:** [arXiv — ServeLearnBench](https://arxiv.org/abs/2610.07792) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `memory`, `continual-learning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ServeLearnBench 引入隐藏环境知识随时间变化的流式任务。在零售支持、银行和销售话术场景中，研究发现，任务能力强并不意味着能有效从经验中学习，持续适应还可能损害原本正确的行为。
+
+ServeLearnBench introduces streaming tasks whose hidden environment knowledge changes over time. Across retail support, banking and sales pitches, the study finds that solving tasks well does not ensure effective learning from experience, and adaptation can harm behavior that was already correct.
+
+### 技术点 / Technical points
+
+- 基准包含 53 个环境窗口中的 7,718 项任务，要求智能体根据交互反馈推断并修正规则。
+  - The benchmark contains 7,718 tasks across 53 environment windows, requiring agents to infer and revise latent rules from interaction feedback.
+- 五种学习框架与六个模型组成 28 个受测组合，共进行 252 次学习实验；作者指出适应成本和探索不足等局限。
+  - Five learning harnesses and six models form 28 evaluated pairs and 252 learning runs; the authors identify adaptation cost and insufficient exploration as limitations.
+
+### 为什么重要 / Why it matters
+
+变化的隐藏规则为持续运行智能体的记忆能力提供了更严苛的检验，超出了预先给出全部指令的静态任务。
+
+Changing hidden rules provide a more demanding test of persistent agent memory than static tasks with all instructions supplied upfront.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=49999871)
+
+---
+
+<a id="2026-10-06-checkerbench-static-analysis-agents"></a>
+## [CheckerBench 测试编程智能体开发可复用静态分析检查器的能力](https://arxiv.org/abs/2610.07557)
+
+**English:** [CheckerBench tests coding agents on reusable static-analysis checker development](https://arxiv.org/abs/2610.07557)
+
+- **发布 / Published:** `2026-10-06T00:42:45Z`
+- **来源 / Source:** [arXiv — CheckerBench](https://arxiv.org/abs/2610.07557) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding`, `tool-use`, `security`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+CheckerBench 评估智能体能否通过检查仓库、编译和迭代反馈，将缺陷描述转化为可运行的静态分析检查器。300 项任务覆盖五个语言生态中的真实漏洞；作者报告，受测配置中的最佳平均 Pass@1 为 45.33%。
+
+CheckerBench evaluates whether agents can turn defect descriptions into working static-analysis checkers through repository inspection, compilation and iterative feedback. Its 300 tasks cover real vulnerabilities across five language ecosystems; the authors report a best mean Pass@1 of 45.33% across the evaluated configurations.
+
+### 技术点 / Technical points
+
+- 任务来自 297 个 CVE、167 个仓库和 85 类 CWE，提供漏洞版本、修复版本及固定环境。
+  - Tasks derive from 297 CVEs, 167 repositories and 85 CWEs, with vulnerable and fixed revisions plus pinned environments.
+- CheckerLab 独立重建提交，衡量诊断差异、补丁定位、误报和工具使用；评估覆盖 21 种配置，每种重复三次。
+  - CheckerLab independently rebuilds submissions and measures diagnostic contrast, patch localization, false positives and tool use; evaluation covers 21 configurations with three repeats each.
+
+### 为什么重要 / Why it matters
+
+该评测覆盖较长的工程流程，要求智能体产出可复用的分析逻辑，并证明其能区分缺陷代码与修复代码。
+
+This evaluates a longer engineering workflow in which an agent must produce reusable analysis logic and demonstrate that it distinguishes faulty from repaired code.
+
+---
+
 <a id="2026-10-03-openclaw-2026-9-8-runtime-recovery"></a>
 ## [OpenClaw 2026.9.8 修复后台任务轮次并加强运行时恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.9.8)
 
@@ -343,327 +667,3 @@ Ego4WAM studies human-data scaling with a fixed world-action model backbone, sep
 该研究为机器人数据采集提供了比单纯增加时长更具体的依据。
 
 The study gives robot-data collection a more specific basis than scaling hours alone.
-
----
-
-<a id="2026-09-30-dynaharness-robot-execution-governance"></a>
-## [DynaHarness 管理机器人执行并验证能力修订](https://arxiv.org/abs/2609.40306)
-
-**English:** [DynaHarness governs robot execution and validates capability revisions](https://arxiv.org/abs/2609.40306)
-
-- **发布 / Published:** `2026-09-30T17:52:09Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40306) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `planning`, `safety`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-DynaHarness 通过共享执行契约连接较慢的语义推理与较快的物理执行。系统监控指令、拒绝未解析动作并请求重新规划，再通过失败归因指导能力修订，使用回归检查决定是否接纳。作者报告其在 800 个新采样 LIBERO-Pro 初始状态上的成功率为 75.2%，冻结策略为 17.5%。
-
-DynaHarness couples slower semantic reasoning with faster physical execution through a shared contract. It monitors commands, rejects unresolved actions and requests replanning, then attributes failures to guide capability revisions admitted through regression checks. The authors report 75.2% success on 800 new LIBERO-Pro initial states, versus 17.5% for the frozen policy.
-
-### 技术点 / Technical points
-
-- 执行契约记录分析技能、恢复技能和冻结 VLA 的执行证据。
-  - The execution contract records evidence across analytic skills, recovery skills and a frozen VLA.
-- 在相同能力库下，动态执行达到 74.0%，常规单步重规划为 63.9%。
-  - With the same capability library, dynamic execution reaches 74.0%, compared with 63.9% for nominal one-step replanning.
-
-### 为什么重要 / Why it matters
-
-执行管理为在既有策略基础上改善长程机器人行为提供了一条路径。
-
-Execution governance offers a way to improve long-horizon robot behavior around an existing policy.
-
----
-
-<a id="2026-09-30-pivotopd-agent-error-recovery"></a>
-## [PivotOPD 训练智能体预防关键错误并从错误中恢复](https://arxiv.org/abs/2609.40285)
-
-**English:** [PivotOPD trains agents to prevent and recover from pivotal mistakes](https://arxiv.org/abs/2609.40285)
-
-- **发布 / Published:** `2026-09-30T17:48:11Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40285) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reasoning`, `training`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-PivotOPD 将预防性蒸馏与恢复性蒸馏结合，用于训练多轮智能体。教师在关键错误处提供更优动作，并在后续若干轮给出恢复动作。作者报告该方法在 ALFWorld、WebShop 和搜索问答上取得提升，并迁移到采用 Nemotron-3.5 学生模型的软件工程任务。
-
-PivotOPD combines preventive and recovery distillation for multi-turn agents. A teacher supplies a better action at a pivotal error and recovery actions over subsequent turns. The authors report gains across ALFWorld, WebShop and search QA, with transfer to software engineering using a Nemotron-3.5 student.
-
-### 技术点 / Technical points
-
-- 预防监督采用反向 KL，恢复监督采用正向 KL。
-  - Preventive supervision uses reverse KL; recovery supervision uses forward KL.
-- 作者报告 Nemotron-3.5 学生模型在 SWE-Bench Verified 的解决率提升了 3.2 个百分点。
-  - The authors report a 3.2 percentage-point improvement in SWE-Bench Verified resolve rate for the Nemotron-3.5 student.
-
-### 为什么重要 / Why it matters
-
-显式恢复训练针对长程智能体轨迹中不断累积、导致执行脆弱的错误。
-
-Explicit recovery training addresses compounding errors that make long agent trajectories fragile.
-
----
-
-<a id="2026-09-30-social-wm-realizable-navigation"></a>
-## [Social-WM 预测动作可实现性以改善机器人导航安全](https://arxiv.org/abs/2609.40177)
-
-**English:** [Social-WM predicts action realizability for safer robot navigation](https://arxiv.org/abs/2609.40177)
-
-- **发布 / Published:** `2026-09-30T17:03:21Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40177) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `navigation`, `safety`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Social-WM 从第一视角 RGB 视频学习动作条件潜在动力学，并估计候选导航动作能否实际实现。系统将名义动作与可实现动作之间的差异作为执行前安全信号。作者报告其在 Social-HM3D 上的成功率为 63.77%，与人碰撞指标为 21.67%，并展示向 Social-MP3D 的零样本迁移。
-
-Social-WM learns action-conditioned latent dynamics from egocentric RGB video and estimates whether proposed navigation actions can actually be realized. It uses the gap between nominal and realizable actions as a pre-execution safety signal. The authors report 63.77% success and 21.67% human collisions on Social-HM3D, with zero-shot transfer to Social-MP3D.
-
-### 技术点 / Technical points
-
-- 逆动力学依据实际实现的动作训练，而非名义指令。
-  - Inverse dynamics is trained against realized actions rather than nominal commands.
-- 与目标无关的模型支持位置和图像目标，无需显式行人跟踪或在线强化学习。
-  - Goal-independent models support position and image goals without explicit pedestrian tracking or online RL.
-
-### 为什么重要 / Why it matters
-
-在想象轨迹中检查动作可行性，将世界模型规划与社会导航安全联系起来。
-
-Checking action feasibility inside imagined rollouts connects world-model planning to social-navigation safety.
-
----
-
-<a id="2026-09-30-tacex-tactile-curiosity"></a>
-## [TacEx 引导机器人探索有信息价值的物理接触](https://arxiv.org/abs/2609.40134)
-
-**English:** [TacEx directs robot exploration toward informative physical contact](https://arxiv.org/abs/2609.40134)
-
-- **发布 / Published:** `2026-09-30T16:49:40Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40134) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tactile`, `reinforcement-learning`, `vla`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-TacEx 按感知模态分解模型不确定性，将内在好奇心导向触觉。该框架在探索阶段无需任务奖励或专家示范，采集富含接触的交互经验。论文将这些经验用于离线抓取放置学习和 VLA 后训练，并报告下游操作表现提升。
-
-TacEx separates model uncertainty by sensory modality and directs intrinsic curiosity toward touch. The framework collects contact-rich experience without task rewards or expert demonstrations during exploration. The paper uses this experience for offline pick-and-place learning and VLA post-training, reporting improvements in downstream manipulation.
-
-### 技术点 / Technical points
-
-- 触觉不确定性引导探索，减少无关的自由空间运动。
-  - Tactile uncertainty guides exploration away from irrelevant free-space motion.
-- 采集的数据支持下游离线策略学习，无需额外环境交互。
-  - The collected dataset supports downstream offline policy learning without extra environment interaction.
-
-### 为什么重要 / Why it matters
-
-以触觉为依据的探索将经验集中于接触动力学，有望提高操作训练效率。
-
-Touch-grounded exploration may make manipulation training more efficient by concentrating experience on contact dynamics.
-
----
-
-<a id="2026-09-30-agent-error-dataset-repair-training"></a>
-## [Agent Error Dataset 将失败轨迹转化为诊断和恢复训练数据](https://arxiv.org/abs/2609.40111)
-
-**English:** [Agent Error Dataset turns failed rollouts into diagnosis and recovery training](https://arxiv.org/abs/2609.40111)
-
-- **发布 / Published:** `2026-09-30T16:40:22Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.40111) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `dataset`, `training`, `benchmark`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Agent Error Dataset 收录来自 9,961 项任务的 50,228 对错误与诊断数据，覆盖 33 个环境、19 类执行框架和 23 个策略模型。其 AET 流程保留轨迹、提出修正并依据证据核查。作者报告，在配对重放实验中，验证器通过率从 18.4% 提升至 51.1%。
-
-The Agent Error Dataset contains 50,228 error-diagnosis pairs from 9,961 tasks spanning 33 environments, 19 harness families and 23 policy models. Its AET pipeline retains traces, proposes corrections and checks them against evidence. In matched replay experiments, the authors report verifier pass rates rising from 18.4% to 51.1%.
-
-### 技术点 / Technical points
-
-- 配对重放从同一检查点比较建议修正与原动作重试。
-  - Matched replay compares a proposed correction with an original-action retry from the same checkpoint.
-- 数据分别用于诊断和执行者恢复训练，仅在环境支持时进行重放。
-  - Separate training views target diagnosis and actor recovery; replay is used only where supported.
-
-### 为什么重要 / Why it matters
-
-关联执行证据的失败数据有助于比单一最终任务奖励更精确地训练智能体纠错。
-
-Evidence-linked failure data can support more precise agent repair than final task rewards alone.
-
----
-
-<a id="2026-09-30-osworld-science-scientific-software"></a>
-## [OSWorld-Science 评测智能体操作科学软件的能力](https://arxiv.org/abs/2609.39903)
-
-**English:** [OSWorld-Science evaluates computer-use agents on scientific software](https://arxiv.org/abs/2609.39903)
-
-- **发布 / Published:** `2026-09-30T15:03:05Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39903) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `benchmark`, `science`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-OSWorld-Science 提出 146 项科学软件任务及面向计算机操作智能体的评测环境。论文比较了 12 个 VLM，覆盖分子设计、病理分析、统计计算和物理仿真等工作流。评估器检查应用状态与输出产物，并对未完整完成的结果给予部分分数。
-
-OSWorld-Science introduces 146 scientific software tasks and an evaluation environment for computer-using agents. The paper compares 12 VLMs across workflows including molecular design, pathology analysis, statistics and physical simulation. Evaluators check application state and produced artifacts, with partial credit for incomplete results.
-
-### 技术点 / Technical points
-
-- 任务评估器检查分子结构、分割掩码、图表及数值输出。
-  - Task evaluators inspect molecular structures, segmentation masks, plots and numerical outputs.
-- 统一执行框架支持模型适配、交互控制与轨迹记录。
-  - A common harness supports model adapters, interaction control and trajectory logging.
-
-### 为什么重要 / Why it matters
-
-可验证的科学产物将 GUI 智能体评测扩展到具有实质结果的专业工作流。
-
-Verifiable scientific artifacts extend GUI-agent evaluation to specialist workflows with meaningful outcomes.
-
----
-
-<a id="2026-09-30-splinewam-adaptive-action-horizons"></a>
-## [SplineWAM 自适应调整动作时域以减少世界动作模型调用](https://arxiv.org/abs/2609.39873)
-
-**English:** [SplineWAM adapts action horizons to reduce world-action model calls](https://arxiv.org/abs/2609.39873)
-
-- **发布 / Published:** `2026-09-30T14:51:03Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39873) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `inference`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-SplineWAM 使用三次 B 样条编码机器人轨迹，使固定参数预算可表示不同动作时长和分辨率。方法将视频监督对齐到拟合节点，并在异步执行中维持动作连续性。作者报告其在 LIBERO-Plus 和 RoboCasa 上提高了成功率，同时减少策略调用。
-
-SplineWAM encodes robot trajectories with cubic B-splines so a fixed parameter budget can represent different action durations and resolutions. It aligns video supervision to fitted knots and maintains action continuity during asynchronous execution. The authors report higher success and fewer policy calls on LIBERO-Plus and RoboCasa.
-
-### 技术点 / Technical points
-
-- JP-RTC 通过解码器修正参数，在解码后的可执行动作上约束连续性。
-  - JP-RTC enforces continuity on decoded executable actions through decoder-based parameter correction.
-- 作者报告两个基准的成功率分别提升 8.2 和 4.4 个百分点，策略调用分别减少 22% 和 26%。
-  - Reported success gains are 8.2 and 4.4 percentage points, with policy calls reduced by 22% and 26%, respectively.
-
-### 为什么重要 / Why it matters
-
-自适应动作时序有望减少推理需求，并为困难的接触运动保留更高控制分辨率。
-
-Adaptive action timing may reduce inference demand while reserving more control resolution for difficult contact motion.
-
----
-
-<a id="2026-09-30-world-model-cellular-automata-dynamics"></a>
-## [元胞自动机测试揭示像素准确率掩盖的世界模型失效](https://arxiv.org/abs/2609.39604)
-
-**English:** [Cellular-automata tests expose world-model failures hidden by pixel accuracy](https://arxiv.org/abs/2609.39604)
-
-- **发布 / Published:** `2026-09-30T12:24:41Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.39604) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `dynamics`, `simulation`, `temporal-consistency`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-一项新研究用元胞自动机检验世界模型能否学习精确动力学。作者表明，高像素准确率可能伴随较差的完整轨迹准确率，并将失效归因于空间局部性、时间局部性和时间稳定性。调整信息流可改善多项受控实验，而无需替换模型骨干。
-
-A new study uses cellular automata to test whether world models learn exact dynamics. The authors show that high pixel accuracy can coexist with poor complete-rollout accuracy, and attribute failures to spatial locality, temporal locality and temporal stability. Information-flow changes improve several controlled experiments without replacing the model backbone.
-
-### 技术点 / Technical points
-
-- 论文中的 CNN 单元预测准确率为 96.3%，但完整轨迹成功率仅为 18.9%。
-  - The reported CNN predicts 96.3% of cells correctly but completes only 18.9% of rollouts.
-- 二维旋转位置编码、前一帧邻域信息和因果冻结分别针对不同失效模式。
-  - Two-dimensional rotary positions, previous-frame neighborhoods and causal freezing address distinct failure modes.
-
-### 为什么重要 / Why it matters
-
-结果提示应在完整轨迹上评估动力学保真度，而不仅考察局部预测准确率。
-
-The results motivate evaluating dynamical fidelity over entire trajectories, beyond local prediction accuracy.
-
----
-
-<a id="2026-09-29-skill-space-shooting-robot-improvement"></a>
-## [Skill-space shooting 将机器人自主纠错转化为策略学习](https://arxiv.org/abs/2609.38178)
-
-**English:** [Skill-space shooting turns autonomous robot corrections into policy learning](https://arxiv.org/abs/2609.38178)
-
-- **发布 / Published:** `2026-09-29T17:59:55Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38178) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
-- **标签 / Tags:** `robotics`, `manipulation`, `self-improvement`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Skill-space shooting 利用基础模型指导，搜索能够修正机器人策略失败的可复用短行为。成功试验被转为纠错监督；作者在实体机器人上展示了多轮自主策略改进，以及技能跨任务复用。
-
-Skill-space shooting uses foundation-model guidance to search reusable short behaviors that correct robot policy failures. Successful trials become corrective supervision; the authors demonstrate repeated autonomous policy improvement on physical robots and reuse of skills across tasks.
-
-### 技术点 / Technical points
-
-- 可复用技能提供能被策略学习的纠错数据，而不只是通过外部帮助完成失败任务。
-  - Reusable skills supply learnable corrections rather than merely completing a failed task through external assistance.
-- 项目的纯策略评估视频区分了学到的改进与在线修复帮助。
-  - The project’s policy-only evaluation videos distinguish learned improvements from online repair assistance.
-
-### 为什么重要 / Why it matters
-
-复用纠错行为有望减少为每类任务失败分别提供人工示范的需求。
-
-Reusing corrective behaviors could reduce the need to demonstrate a separate fix for every task failure.
-
-### 链接 / Links
-
-[Evidence 1](https://skill-space-shooting.github.io/)
-
----
-
-<a id="2026-09-29-rho-adaptable-vla"></a>
-## [Rho 推出适配三种双臂本体的开放权重 VLA 模型](https://arxiv.org/abs/2609.38164)
-
-**English:** [Rho introduces adaptable open-weights VLA models for three dual-arm embodiments](https://arxiv.org/abs/2609.38164)
-
-- **发布 / Published:** `2026-09-29T17:59:28Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2609.38164) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `manipulation`, `open-weights`, `adaptation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Rho 面向 YAM Box、UR AI Trainer 和 FR3 Duo 的少数据任务适配。报告通过仿真与实体机器人实验分析动作专家设计和本体中期训练，并展示在冻结流匹配动作专家的情况下，用小型潜在策略进行在线纠错。
-
-Rho targets data-light adaptation for YAM Box, UR AI Trainer and FR3 Duo. The report presents simulation and physical-robot ablations of action-expert design and embodiment midtraining, plus online correction through a small latent policy while the flow-matching action expert stays frozen.
-
-### 技术点 / Technical points
-
-- 作者发布基础模型及各本体专用检查点。
-  - The authors release a base model and embodiment-specific checkpoints.
-- 只需少至 15 个纠正后的回合，即可让选择噪声输入的潜在策略适应接近离线微调分布边缘的情境。
-  - As few as 15 corrected episodes adapt the latent noise-selection policy to situations near the edge of the offline finetuning distribution.
-
-### 为什么重要 / Why it matters
-
-该方法把跨本体训练准备与轻量适配结合起来，为实用双臂操作提供路线。
-
-The approach combines cross-embodiment preparation with lightweight adaptation for practical bimanual manipulation.
