@@ -2,6 +2,198 @@
 
 # Agents / 智能体
 
+<a id="2026-10-08-gemini-agent-persistent-enterprise-work"></a>
+## [Google 宣布面向企业工作的持久运行 Gemini agent](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
+
+**English:** [Google announces a persistent Gemini agent for enterprise work](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
+
+- **发布 / Published:** `2026-10-08T19:00:11Z`
+- **来源 / Source:** [Google Cloud](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `memory`, `tool-use`, `long-horizon`, `enterprise`, `sandbox`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google Cloud 宣布统一的 Gemini agent，可规划工作、使用企业工具并跨应用协调子智能体。公司描述了持续数小时或数天的云端执行，以及不同访问渠道之间共享的上下文和记忆。
+
+Google Cloud announced a unified Gemini agent that plans work, uses enterprise tools, and coordinates subagents across applications. The company describes cloud execution lasting hours or days with shared context and memory across access channels.
+
+### 技术点 / Technical points
+
+- 架构包含会话、语义、程序性和情景记忆，以及共享的工具和技能注册表。
+  - The architecture includes session, semantic, procedural, and episodic memory, plus shared registries for tools and skills.
+- 协作智能体拥有专属身份和存储；沙箱、Agent Gateway 策略及动作审计轨迹用于治理执行。
+  - Coworker agents receive dedicated identities and storage; sandboxing, Agent Gateway policies, and action audit trails govern execution.
+
+### 为什么重要 / Why it matters
+
+持久执行和明确的身份有望支持企业治理范围内更长的委托工作流程。
+
+Persistent execution and explicit identities could support longer delegated workflows within enterprise controls.
+
+---
+
+<a id="2026-10-07-sciexam-enso-scientific-agent-evaluation"></a>
+## [SciExam for ENSO 通过科学模型隐藏测试评测智能体](https://arxiv.org/abs/2610.10513)
+
+**English:** [SciExam for ENSO evaluates agents by hidden tests of scientific models](https://arxiv.org/abs/2610.10513)
+
+- **发布 / Published:** `2026-10-07T17:52:52Z`
+- **来源 / Source:** [arXiv — SciExam for ENSO](https://arxiv.org/abs/2610.10513) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `scientific-discovery`, `evaluation`, `model-building`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+SciExam for ENSO 要求智能体在六小时预算内，根据观测建立随机气候模型。隐藏评分器测试统计特征、潜在状态恢复和留出时段预测；十二套智能体系统中有六套在这些测试下超过已发表的参考模型。
+
+SciExam for ENSO asks agents to build stochastic climate models from observations under a six-hour budget. Hidden graders test statistics, latent-state recovery, and held-out forecasting. Six of twelve agent systems outperform a published reference model under these tests.
+
+### 技术点 / Technical points
+
+- 智能体先建立诊断方法，并在模型开发前冻结；后续反馈限于这组诊断。
+  - Agents first create diagnostics that are frozen before model development, limiting feedback to that diagnostic set.
+- 评估衡量模型的实证有效性，而非匹配已知答案或仅依赖语言模型评审。
+  - Evaluation measures empirical model validity rather than matching a known answer or relying solely on a language-model reviewer.
+
+### 为什么重要 / Why it matters
+
+隐藏的科学测试为评估开放式研究智能体提供了更具体的方法。
+
+Hidden scientific tests provide a more concrete way to assess open-ended research agents.
+
+---
+
+<a id="2026-10-07-embodiedrsi-hypothesis-guided-learning"></a>
+## [EmbodiedRSI 选择机器人实验以改进代码和技能](https://arxiv.org/abs/2610.10498)
+
+**English:** [EmbodiedRSI selects robot experiments to improve code and skills](https://arxiv.org/abs/2610.10498)
+
+- **发布 / Published:** `2026-10-07T17:48:02Z`
+- **来源 / Source:** [arXiv — EmbodiedRSI](https://arxiv.org/abs/2610.10498) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `active-learning`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+EmbodiedRSI 是一种智能体执行框架，通过选择物理实验区分竞争假设，并围绕机器人基础模型修订代码和技能。论文报告其在 RoboCasa365 和 LIBERO-Pro 上具有更强的适应表现，并实现了到真实硬件的零样本迁移。
+
+EmbodiedRSI is an agent harness that chooses physical experiments to distinguish competing hypotheses and revise code and skills around a robot foundation model. The paper reports stronger adaptation on RoboCasa365 and LIBERO-Pro, plus zero-shot transfer to real hardware.
+
+### 技术点 / Technical points
+
+- 快慢双系统架构结合假设图、基于信息价值的实验选择和分层记忆。
+  - A fast-slow architecture combines a hypothesis graph, value-of-information experiment selection, and hierarchical memory.
+- 报告的 RoboCasa365 总体成功率为 77.0%，Composite-Unseen 为 71.3%；后者的最佳基线为 40.1%。
+  - Reported RoboCasa365 success is 77.0% overall and 71.3% on Composite-Unseen; the latter compares with 40.1% for the best baseline.
+
+### 为什么重要 / Why it matters
+
+当物理试验成本较高时，有针对性的实验有望降低机器人适应新情境的代价。
+
+Targeted experiments could make robot adaptation more economical when physical trials are expensive.
+
+---
+
+<a id="2026-10-07-robotworld-physical-agent-benchmark"></a>
+## [RobotWorld 用 84 项物理控制任务评测多模态智能体](https://arxiv.org/abs/2610.10409)
+
+**English:** [RobotWorld tests multimodal agents on 84 physical-control tasks](https://arxiv.org/abs/2610.10409)
+
+- **发布 / Published:** `2026-10-07T16:55:24Z`
+- **来源 / Source:** [arXiv — RobotWorld](https://arxiv.org/abs/2610.10409) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `tool-use`, `simulation`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+RobotWorld 是一项仿真基准，测试通用智能体能否将指令与观测转化为机器人执行。分析发现，即使智能体构建了复杂的感知和控制流程，仍会在跟踪物体状态、纠正无效动作及识别未完成任务方面失败。
+
+RobotWorld is a simulation benchmark testing whether general-purpose agents can turn instructions and observations into robot execution. Its analysis exposes failures in tracking object state, correcting ineffective actions, and recognizing incomplete tasks despite sophisticated perception and control workflows.
+
+### 技术点 / Technical points
+
+- 84 项任务覆盖操作、移动操作、行走、驾驶和飞行控制。
+  - The 84 tasks cover manipulation, mobile manipulation, locomotion, driving, and aerial control.
+- 明确的交互预算与可执行成功检查，将任务结果和执行轨迹结合起来。
+  - Explicit interaction budgets and executable success checks pair task results with execution traces.
+
+### 为什么重要 / Why it matters
+
+该基准帮助区分构建工具流程的能力与可靠完成物理任务的能力。
+
+The benchmark separates tool-building ability from reliable physical task completion.
+
+---
+
+<a id="2026-10-07-skillsandbox-dynamic-skill-verification"></a>
+## [SkillSandbox 在新合成的情境中验证智能体技能复用能力](https://arxiv.org/abs/2610.10088)
+
+**English:** [SkillSandbox tests reusable agent skills in newly synthesized scenarios](https://arxiv.org/abs/2610.10088)
+
+- **发布 / Published:** `2026-10-07T13:48:58Z`
+- **来源 / Source:** [arXiv — SkillSandbox](https://arxiv.org/abs/2610.10088) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `evaluation`, `memory`, `self-improvement`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+SkillSandbox 在将经验提炼出的技能纳入智能体技能库前，验证其对新任务是否仍有用。它为每项技能构建可执行情境，并比较使用与不使用该指导时的执行结果。
+
+SkillSandbox verifies whether an experience-derived skill remains useful on new tasks before admitting it to an agent's library. It builds executable scenarios tailored to each skill and compares executions with and without that guidance.
+
+### 技术点 / Technical points
+
+- 提议模块保留与技能相关的条件，同时改变原任务特有细节；构建模块生成情境。
+  - A Proposer preserves skill-relevant conditions while varying source-specific details; a Builder constructs the scenario.
+- 验证模块判断可执行性、效用和效率；实验覆盖 ALFWorld、WebShop 和三种模型。
+  - A Verifier judges executability, utility, and efficiency; experiments span ALFWorld, WebShop, and three models.
+
+### 为什么重要 / Why it matters
+
+存储技能前测试迁移效果，有望减少持续演化智能体中的错误流程和仅适用于单一任务的记忆。
+
+Testing transfer before storing skills could reduce incorrect procedures and task-specific memories in evolving agents.
+
+---
+
+<a id="2026-10-07-agenttime-runtime-control-benchmark"></a>
+## [AgentTime 评测智能体能否估计并遵循运行时长预算](https://arxiv.org/abs/2610.09944)
+
+**English:** [AgentTime measures whether agents can estimate and follow runtime budgets](https://arxiv.org/abs/2610.09944)
+
+- **发布 / Published:** `2026-10-07T12:26:24Z`
+- **来源 / Source:** [arXiv — AgentTime](https://arxiv.org/abs/2610.09944) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `long-horizon`, `reliability`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+AgentTime 在原生智能体执行框架中测试时长指令遵循、运行时间预测和事后耗时估计。结果区分了匹配指定时长与持续有效工作：部分运行在看似完成任务后通过休眠填满剩余时间。
+
+AgentTime tests duration following, runtime prediction, and retrospective time estimates in native agent harnesses. Its results distinguish matching a requested duration from continuing useful work, showing that some runs fill remaining time by sleeping after apparent completion.
+
+### 技术点 / Technical points
+
+- 基准包含来自 18 个来源的 222 项任务，涵盖编码、计算机使用、智能体工作和自动化研究。
+  - The benchmark contains 222 tasks from 18 sources covering coding, computer use, agentic work, and automated research.
+- 在 158 次可分类、经审阅的 Astra 运行中，14 次在看似完成任务后明确进入休眠。
+  - Among 158 reviewed Astra runs with classifiable transcripts, 14 explicitly slept after appearing to finish.
+
+### 为什么重要 / Why it matters
+
+智能体长时间自主工作时，需要将实际耗时控制与任务成功分别评估。
+
+Wall-clock control needs separate evaluation from task success when agents work autonomously for long periods.
+
+---
+
 <a id="2026-10-06-bottled-agent-reusable-artifacts"></a>
 ## [BOTTLED 测试智能体能否构建经济的可复用任务方案](https://arxiv.org/abs/2610.08775)
 

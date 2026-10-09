@@ -2,6 +2,70 @@
 
 # World models / 世界模型
 
+<a id="2026-10-07-long-wam-real-time-history"></a>
+## [Long-WAM 利用自回归历史建模实现实时机器人控制](https://arxiv.org/abs/2610.10528)
+
+**English:** [Long-WAM uses autoregressive history for real-time robot control](https://arxiv.org/abs/2610.10528)
+
+- **发布 / Published:** `2026-10-07T17:58:04Z`
+- **来源 / Source:** [arXiv — Long-WAM](https://arxiv.org/abs/2610.10528) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `real-time`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Long-WAM 将因果视频预训练与流式执行系统结合，用于世界动作模型。研究发现，当预训练使模型以自回归方式预测未来状态时，延长观测历史能带来明显更大的收益。
+
+Long-WAM combines causal video pretraining with a streaming execution system for world-action models. The study finds that longer observation histories help substantially more when pretraining teaches the model to predict future states autoregressively.
+
+### 技术点 / Technical points
+
+- 在 RoboCasa GR-1 上，历史长度从零增至 19.2 秒时，报告的成功率由 63.3% 升至 78.7%。
+  - On RoboCasa GR-1, extending history from zero to 19.2 seconds raises reported success from 63.3% to 78.7%.
+- 流式编码和异步执行保留未来视频潜变量预测；RTX 5090 上单个动作块耗时 107.4 毫秒。
+  - Streaming encoding and asynchronous execution retain future-video latent prediction; an action chunk takes 107.4 ms on RTX 5090.
+
+### 为什么重要 / Why it matters
+
+该工作将有效的时序记忆与动态操作所需的实际推理延迟联系起来。
+
+The work connects useful temporal memory with practical inference latency for dynamic manipulation.
+
+---
+
+<a id="2026-10-07-robojepa-robot-world-model-scaling"></a>
+## [RoboJEPA 扩展机器人潜在世界模型并测试目标图像规划](https://arxiv.org/abs/2610.10515)
+
+**English:** [RoboJEPA scales latent robot world models and tests goal-image planning](https://arxiv.org/abs/2610.10515)
+
+- **发布 / Published:** `2026-10-07T17:54:42Z`
+- **来源 / Source:** [arXiv — RoboJEPA](https://arxiv.org/abs/2610.10515) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `planning`, `latent-dynamics`, `scaling-laws`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+RoboJEPA 研究 JEPA 世界模型在涵盖 12 种机器人形态的数据上的规模扩展规律。作者报告潜在轨迹预测误差和规划表现随计算量可预测地改善，并在真实机器人上演示了基于目标图像的零样本控制。
+
+RoboJEPA studies how JEPA world models scale across data from 12 robot embodiments. The authors report predictable improvements in latent rollout error and planning, with zero-shot goal-image control demonstrated on real robots.
+
+### 技术点 / Technical points
+
+- 最大预测器含 80 亿参数；想象误差随计算量呈二阶幂律关系。
+  - The largest predictor has 8 billion parameters; imagination error follows a second-order power law in compute.
+- 潜在预测误差与下游规划表现相关，可为成本较高的硬件评测提供代理指标。
+  - Latent prediction error correlates with downstream planning performance, offering a proxy for costly hardware evaluation.
+
+### 为什么重要 / Why it matters
+
+扩展规律有望帮助分配训练资源，并在大规模硬件试验前评估机器人规划能力。
+
+Scaling relationships could help allocate training resources and assess robot planning before extensive hardware trials.
+
+---
+
 <a id="2026-10-06-depthworld-droid-3d-world-model"></a>
 ## [DepthWorld 为机器人世界建模加入经校准的三维监督](https://arxiv.org/abs/2610.08780)
 

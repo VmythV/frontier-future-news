@@ -12449,6 +12449,463 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-07-robojepa-robot-world-model-scaling",
+      "published_at": "2026-10-07T17:54:42Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "planning",
+        "latent-dynamics",
+        "scaling-laws"
+      ],
+      "title_en": "RoboJEPA scales latent robot world models and tests goal-image planning",
+      "title_zh": "RoboJEPA 扩展机器人潜在世界模型并测试目标图像规划",
+      "summary_en": "RoboJEPA studies how JEPA world models scale across data from 12 robot embodiments. The authors report predictable improvements in latent rollout error and planning, with zero-shot goal-image control demonstrated on real robots.",
+      "summary_zh": "RoboJEPA 研究 JEPA 世界模型在涵盖 12 种机器人形态的数据上的规模扩展规律。作者报告潜在轨迹预测误差和规划表现随计算量可预测地改善，并在真实机器人上演示了基于目标图像的零样本控制。",
+      "tech_points_en": [
+        "The largest predictor has 8 billion parameters; imagination error follows a second-order power law in compute.",
+        "Latent prediction error correlates with downstream planning performance, offering a proxy for costly hardware evaluation."
+      ],
+      "tech_points_zh": [
+        "最大预测器含 80 亿参数；想象误差随计算量呈二阶幂律关系。",
+        "潜在预测误差与下游规划表现相关，可为成本较高的硬件评测提供代理指标。"
+      ],
+      "why_it_matters_en": "Scaling relationships could help allocate training resources and assess robot planning before extensive hardware trials.",
+      "why_it_matters_zh": "扩展规律有望帮助分配训练资源，并在大规模硬件试验前评估机器人规划能力。",
+      "source": {
+        "name": "arXiv — RoboJEPA",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10515",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 19,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-long-wam-real-time-history",
+      "published_at": "2026-10-07T17:58:04Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "memory",
+        "real-time",
+        "video-prediction"
+      ],
+      "title_en": "Long-WAM uses autoregressive history for real-time robot control",
+      "title_zh": "Long-WAM 利用自回归历史建模实现实时机器人控制",
+      "summary_en": "Long-WAM combines causal video pretraining with a streaming execution system for world-action models. The study finds that longer observation histories help substantially more when pretraining teaches the model to predict future states autoregressively.",
+      "summary_zh": "Long-WAM 将因果视频预训练与流式执行系统结合，用于世界动作模型。研究发现，当预训练使模型以自回归方式预测未来状态时，延长观测历史能带来明显更大的收益。",
+      "tech_points_en": [
+        "On RoboCasa GR-1, extending history from zero to 19.2 seconds raises reported success from 63.3% to 78.7%.",
+        "Streaming encoding and asynchronous execution retain future-video latent prediction; an action chunk takes 107.4 ms on RTX 5090."
+      ],
+      "tech_points_zh": [
+        "在 RoboCasa GR-1 上，历史长度从零增至 19.2 秒时，报告的成功率由 63.3% 升至 78.7%。",
+        "流式编码和异步执行保留未来视频潜变量预测；RTX 5090 上单个动作块耗时 107.4 毫秒。"
+      ],
+      "why_it_matters_en": "The work connects useful temporal memory with practical inference latency for dynamic manipulation.",
+      "why_it_matters_zh": "该工作将有效的时序记忆与动态操作所需的实际推理延迟联系起来。",
+      "source": {
+        "name": "arXiv — Long-WAM",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10528",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-robotworld-physical-agent-benchmark",
+      "published_at": "2026-10-07T16:55:24Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "benchmark",
+        "tool-use",
+        "simulation",
+        "reliability"
+      ],
+      "title_en": "RobotWorld tests multimodal agents on 84 physical-control tasks",
+      "title_zh": "RobotWorld 用 84 项物理控制任务评测多模态智能体",
+      "summary_en": "RobotWorld is a simulation benchmark testing whether general-purpose agents can turn instructions and observations into robot execution. Its analysis exposes failures in tracking object state, correcting ineffective actions, and recognizing incomplete tasks despite sophisticated perception and control workflows.",
+      "summary_zh": "RobotWorld 是一项仿真基准，测试通用智能体能否将指令与观测转化为机器人执行。分析发现，即使智能体构建了复杂的感知和控制流程，仍会在跟踪物体状态、纠正无效动作及识别未完成任务方面失败。",
+      "tech_points_en": [
+        "The 84 tasks cover manipulation, mobile manipulation, locomotion, driving, and aerial control.",
+        "Explicit interaction budgets and executable success checks pair task results with execution traces."
+      ],
+      "tech_points_zh": [
+        "84 项任务覆盖操作、移动操作、行走、驾驶和飞行控制。",
+        "明确的交互预算与可执行成功检查，将任务结果和执行轨迹结合起来。"
+      ],
+      "why_it_matters_en": "The benchmark separates tool-building ability from reliable physical task completion.",
+      "why_it_matters_zh": "该基准帮助区分构建工具流程的能力与可靠完成物理任务的能力。",
+      "source": {
+        "name": "arXiv — RobotWorld",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10409",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-humble-human-motion-locomotion",
+      "published_at": "2026-10-07T17:45:17Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "humanoid",
+        "reinforcement-learning",
+        "motion-tracking"
+      ],
+      "title_en": "HuMBLE combines human motion priors with steerable humanoid locomotion",
+      "title_zh": "HuMBLE 将人类运动先验与可转向的人形机器人行走结合",
+      "summary_en": "HuMBLE learns a compact locomotion prior from human movement, then expands its command range through multi-task reinforcement learning. The authors demonstrate controllable, humanlike walking on Boston Dynamics Atlas R1, Atlas D1, and Unitree G1 in real-world settings.",
+      "summary_zh": "HuMBLE 从人类运动中学习紧凑的行走先验，再通过多任务强化学习扩展其指令范围。作者在真实环境中的 Boston Dynamics Atlas R1、Atlas D1 和 Unitree G1 上演示了可控制、接近人类步态的行走。",
+      "tech_points_en": [
+        "A reference-conditioned RL teacher is distilled into a policy using proprioception and planar torso-velocity commands.",
+        "Fine-tuning combines arbitrary command tracking with a human-reference task that regularizes movement style."
+      ],
+      "tech_points_zh": [
+        "以参考动作为条件的强化学习教师被蒸馏为仅使用本体感知和躯干平面速度指令的策略。",
+        "微调同时使用任意指令跟踪任务和人类参考动作任务，后者约束运动风格。"
+      ],
+      "why_it_matters_en": "A reusable locomotion layer could preserve natural movement while supporting broader commands and hierarchical control.",
+      "why_it_matters_zh": "可复用的行走控制层有望在保留自然动作的同时支持更广的指令范围和分层控制。",
+      "source": {
+        "name": "arXiv — HuMBLE",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10489",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-embodiedrsi-hypothesis-guided-learning",
+      "published_at": "2026-10-07T17:48:02Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "memory",
+        "active-learning",
+        "self-improvement"
+      ],
+      "title_en": "EmbodiedRSI selects robot experiments to improve code and skills",
+      "title_zh": "EmbodiedRSI 选择机器人实验以改进代码和技能",
+      "summary_en": "EmbodiedRSI is an agent harness that chooses physical experiments to distinguish competing hypotheses and revise code and skills around a robot foundation model. The paper reports stronger adaptation on RoboCasa365 and LIBERO-Pro, plus zero-shot transfer to real hardware.",
+      "summary_zh": "EmbodiedRSI 是一种智能体执行框架，通过选择物理实验区分竞争假设，并围绕机器人基础模型修订代码和技能。论文报告其在 RoboCasa365 和 LIBERO-Pro 上具有更强的适应表现，并实现了到真实硬件的零样本迁移。",
+      "tech_points_en": [
+        "A fast-slow architecture combines a hypothesis graph, value-of-information experiment selection, and hierarchical memory.",
+        "Reported RoboCasa365 success is 77.0% overall and 71.3% on Composite-Unseen; the latter compares with 40.1% for the best baseline."
+      ],
+      "tech_points_zh": [
+        "快慢双系统架构结合假设图、基于信息价值的实验选择和分层记忆。",
+        "报告的 RoboCasa365 总体成功率为 77.0%，Composite-Unseen 为 71.3%；后者的最佳基线为 40.1%。"
+      ],
+      "why_it_matters_en": "Targeted experiments could make robot adaptation more economical when physical trials are expensive.",
+      "why_it_matters_zh": "当物理试验成本较高时，有针对性的实验有望降低机器人适应新情境的代价。",
+      "source": {
+        "name": "arXiv — EmbodiedRSI",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10498",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-agenttime-runtime-control-benchmark",
+      "published_at": "2026-10-07T12:26:24Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "long-horizon",
+        "reliability",
+        "evaluation"
+      ],
+      "title_en": "AgentTime measures whether agents can estimate and follow runtime budgets",
+      "title_zh": "AgentTime 评测智能体能否估计并遵循运行时长预算",
+      "summary_en": "AgentTime tests duration following, runtime prediction, and retrospective time estimates in native agent harnesses. Its results distinguish matching a requested duration from continuing useful work, showing that some runs fill remaining time by sleeping after apparent completion.",
+      "summary_zh": "AgentTime 在原生智能体执行框架中测试时长指令遵循、运行时间预测和事后耗时估计。结果区分了匹配指定时长与持续有效工作：部分运行在看似完成任务后通过休眠填满剩余时间。",
+      "tech_points_en": [
+        "The benchmark contains 222 tasks from 18 sources covering coding, computer use, agentic work, and automated research.",
+        "Among 158 reviewed Astra runs with classifiable transcripts, 14 explicitly slept after appearing to finish."
+      ],
+      "tech_points_zh": [
+        "基准包含来自 18 个来源的 222 项任务，涵盖编码、计算机使用、智能体工作和自动化研究。",
+        "在 158 次可分类、经审阅的 Astra 运行中，14 次在看似完成任务后明确进入休眠。"
+      ],
+      "why_it_matters_en": "Wall-clock control needs separate evaluation from task success when agents work autonomously for long periods.",
+      "why_it_matters_zh": "智能体长时间自主工作时，需要将实际耗时控制与任务成功分别评估。",
+      "source": {
+        "name": "arXiv — AgentTime",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.09944",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-skillsandbox-dynamic-skill-verification",
+      "published_at": "2026-10-07T13:48:58Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "evaluation",
+        "memory",
+        "self-improvement",
+        "simulation"
+      ],
+      "title_en": "SkillSandbox tests reusable agent skills in newly synthesized scenarios",
+      "title_zh": "SkillSandbox 在新合成的情境中验证智能体技能复用能力",
+      "summary_en": "SkillSandbox verifies whether an experience-derived skill remains useful on new tasks before admitting it to an agent's library. It builds executable scenarios tailored to each skill and compares executions with and without that guidance.",
+      "summary_zh": "SkillSandbox 在将经验提炼出的技能纳入智能体技能库前，验证其对新任务是否仍有用。它为每项技能构建可执行情境，并比较使用与不使用该指导时的执行结果。",
+      "tech_points_en": [
+        "A Proposer preserves skill-relevant conditions while varying source-specific details; a Builder constructs the scenario.",
+        "A Verifier judges executability, utility, and efficiency; experiments span ALFWorld, WebShop, and three models."
+      ],
+      "tech_points_zh": [
+        "提议模块保留与技能相关的条件，同时改变原任务特有细节；构建模块生成情境。",
+        "验证模块判断可执行性、效用和效率；实验覆盖 ALFWorld、WebShop 和三种模型。"
+      ],
+      "why_it_matters_en": "Testing transfer before storing skills could reduce incorrect procedures and task-specific memories in evolving agents.",
+      "why_it_matters_zh": "存储技能前测试迁移效果，有望减少持续演化智能体中的错误流程和仅适用于单一任务的记忆。",
+      "source": {
+        "name": "arXiv — SkillSandbox",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10088",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-roboprompt-sparse-human-steering",
+      "published_at": "2026-10-07T17:58:53Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "shared-autonomy",
+        "imitation-learning",
+        "policy-steering"
+      ],
+      "title_en": "RoboPrompt steers robot policies with sparse human guidance",
+      "title_zh": "RoboPrompt 用稀疏人类指导引导机器人策略",
+      "summary_en": "RoboPrompt converts drawn paths, target points, and coarse direction commands into action drafts refined by a robot policy. It steers diffusion and flow-based action generation without changing the base architecture or fine-tuning it specifically for steerability.",
+      "summary_zh": "RoboPrompt 将绘制路径、目标点和粗略方向指令转化为动作草稿，再由机器人策略细化。它引导基于扩散和流的动作生成，无需改变基础架构或专门为可引导性微调。",
+      "tech_points_en": [
+        "The method controls generation in noise space and is tested with Diffusion Policy, pi0.5, and FastWAM.",
+        "Steered rollouts supply DAgger updates; the study reports improved success and fewer human interventions after two to three rounds."
+      ],
+      "tech_points_zh": [
+        "该方法在噪声空间控制生成过程，并在 Diffusion Policy、pi0.5 和 FastWAM 上测试。",
+        "引导后的轨迹用于 DAgger 更新；研究报告两至三轮迭代后成功率提高、人类干预次数减少。"
+      ],
+      "why_it_matters_en": "Sparse corrections could make shared autonomy easier to use across existing robot policies.",
+      "why_it_matters_zh": "稀疏纠正有望让现有多种机器人策略更易采用共享自主控制。",
+      "source": {
+        "name": "arXiv — RoboPrompt",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10534",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-07-sciexam-enso-scientific-agent-evaluation",
+      "published_at": "2026-10-07T17:52:52Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "scientific-discovery",
+        "evaluation",
+        "model-building"
+      ],
+      "title_en": "SciExam for ENSO evaluates agents by hidden tests of scientific models",
+      "title_zh": "SciExam for ENSO 通过科学模型隐藏测试评测智能体",
+      "summary_en": "SciExam for ENSO asks agents to build stochastic climate models from observations under a six-hour budget. Hidden graders test statistics, latent-state recovery, and held-out forecasting. Six of twelve agent systems outperform a published reference model under these tests.",
+      "summary_zh": "SciExam for ENSO 要求智能体在六小时预算内，根据观测建立随机气候模型。隐藏评分器测试统计特征、潜在状态恢复和留出时段预测；十二套智能体系统中有六套在这些测试下超过已发表的参考模型。",
+      "tech_points_en": [
+        "Agents first create diagnostics that are frozen before model development, limiting feedback to that diagnostic set.",
+        "Evaluation measures empirical model validity rather than matching a known answer or relying solely on a language-model reviewer."
+      ],
+      "tech_points_zh": [
+        "智能体先建立诊断方法，并在模型开发前冻结；后续反馈限于这组诊断。",
+        "评估衡量模型的实证有效性，而非匹配已知答案或仅依赖语言模型评审。"
+      ],
+      "why_it_matters_en": "Hidden scientific tests provide a more concrete way to assess open-ended research agents.",
+      "why_it_matters_zh": "隐藏的科学测试为评估开放式研究智能体提供了更具体的方法。",
+      "source": {
+        "name": "arXiv — SciExam for ENSO",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.10513",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-08-gemini-agent-persistent-enterprise-work",
+      "published_at": "2026-10-08T19:00:11Z",
+      "collected_at": "2026-10-09T00:02:54Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "memory",
+        "tool-use",
+        "long-horizon",
+        "enterprise",
+        "sandbox"
+      ],
+      "title_en": "Google announces a persistent Gemini agent for enterprise work",
+      "title_zh": "Google 宣布面向企业工作的持久运行 Gemini agent",
+      "summary_en": "Google Cloud announced a unified Gemini agent that plans work, uses enterprise tools, and coordinates subagents across applications. The company describes cloud execution lasting hours or days with shared context and memory across access channels.",
+      "summary_zh": "Google Cloud 宣布统一的 Gemini agent，可规划工作、使用企业工具并跨应用协调子智能体。公司描述了持续数小时或数天的云端执行，以及不同访问渠道之间共享的上下文和记忆。",
+      "tech_points_en": [
+        "The architecture includes session, semantic, procedural, and episodic memory, plus shared registries for tools and skills.",
+        "Coworker agents receive dedicated identities and storage; sandboxing, Agent Gateway policies, and action audit trails govern execution."
+      ],
+      "tech_points_zh": [
+        "架构包含会话、语义、程序性和情景记忆，以及共享的工具和技能注册表。",
+        "协作智能体拥有专属身份和存储；沙箱、Agent Gateway 策略及动作审计轨迹用于治理执行。"
+      ],
+      "why_it_matters_en": "Persistent execution and explicit identities could support longer delegated workflows within enterprise controls.",
+      "why_it_matters_zh": "持久执行和明确的身份有望支持企业治理范围内更长的委托工作流程。",
+      "source": {
+        "name": "Google Cloud",
+        "type": "primary",
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }
