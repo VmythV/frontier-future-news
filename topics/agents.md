@@ -34,6 +34,142 @@ Persistent execution and explicit identities could support longer delegated work
 
 ---
 
+<a id="2026-10-08-brickbench-agentic-design"></a>
+## [BrickBench 评估编程智能体能否设计可搭建的 LEGO 结构](https://arxiv.org/abs/2610.12452)
+
+**English:** [BrickBench evaluates whether coding agents can design buildable LEGO assemblies](https://arxiv.org/abs/2610.12452)
+
+- **发布 / Published:** `2026-10-08T17:58:56Z`
+- **来源 / Source:** [arXiv / BrickBench](https://arxiv.org/abs/2610.12452) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `reasoning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+BrickBench 提出由文本描述驱动的 LEGO 设计任务，要求智能体同时满足语义目标与物理搭建约束。论文提供用于构造、检查和验证设计的 BrickAgent 环境，并报告领先智能体能满足许多可验证要求，但设计表现仍落后于人类。
+
+BrickBench introduces text-conditioned LEGO design tasks that require agents to satisfy semantic goals and physical assembly constraints. The paper provides BrickAgent for constructing, inspecting and validating designs, and reports that leading agents meet many checkable requirements but still trail human designs.
+
+### 技术点 / Technical points
+
+- 三个评测设置改变结构规模和可用零件，评分覆盖有效性、语义匹配与设计质量。
+  - Three evaluation settings vary assembly scale and available parts; scoring covers validity, alignment and design.
+- 智能体需从离散零件库中选择部件，同时推理局部连接和整体结构。
+  - Agents select discrete parts while reasoning about both local connections and global structure.
+
+### 为什么重要 / Why it matters
+
+可搭建性约束为智能体设计推理提供了具体检验，补充仅看图像或代码是否合理的评测。
+
+Buildability constraints offer a concrete test of agent design reasoning beyond producing plausible images or code.
+
+---
+
+<a id="2026-10-08-ontrack-streaming-agent-monitoring"></a>
+## [OnTrack 通过流式依赖比较监控智能体执行轨迹](https://arxiv.org/abs/2610.12375)
+
+**English:** [OnTrack monitors agent trajectories with streaming dependency comparisons](https://arxiv.org/abs/2610.12375)
+
+- **发布 / Published:** `2026-10-08T17:32:08Z`
+- **来源 / Source:** [arXiv / OnTrack](https://arxiv.org/abs/2610.12375) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `benchmark`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+OnTrack 将智能体步骤及其依赖与成功参考轨迹比较，在执行过程中识别偏离。在作者的 SWE-bench 轨迹评测中，中止策略节省了约 18% 原本用于失败运行的计算；六次被中止的运行中有五次最终属于失败运行。
+
+OnTrack compares agent steps and dependencies with successful reference runs to detect deviations during execution. In the authors' SWE-bench trajectory evaluation, its abort policy saved about 18% of compute otherwise spent on failing runs; five of six aborted runs were failures.
+
+### 技术点 / Technical points
+
+- 监控每步耗时约一毫秒；检测能力取决于是否可获取参考轨迹和工具定义。
+  - Monitoring takes about one millisecond per step; detection capabilities depend on access to reference runs and tool schemas.
+- 利用前八步进行失败排序，相比内容相似度方法，AUROC 提高 0.057。
+  - Using the first eight steps, failure ranking improved AUROC by 0.057 over content-similarity approaches.
+
+### 为什么重要 / Why it matters
+
+低延迟监控有望支持更早的运行干预，但论文报告的中止样本较少。
+
+Low-latency monitoring could support earlier intervention, although the reported abort sample is small.
+
+---
+
+<a id="2026-10-08-option-channel-agent-guardrail-attacks"></a>
+## [选项通道攻击揭示决策模型智能体护栏的错误放行风险](https://arxiv.org/abs/2610.12292)
+
+**English:** [Option-channel attacks expose fail-open behavior in decision-model agent guardrails](https://arxiv.org/abs/2610.12292)
+
+- **发布 / Published:** `2026-10-08T16:46:43Z`
+- **来源 / Source:** [arXiv / One Word Opens the Gate](https://arxiv.org/abs/2610.12292) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `benchmark`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+一项针对七个开放权重决策模型的研究发现，允许或阻止操作的护栏可被无关日志文本或误导性选项名称改变判断。在所测试的合成工具调用策略中，重命名放行选项使四个读取选项标签的模型错误放行率升至 93%—100%。
+
+A study of seven open-weight decision models finds that allow/block guardrails can be redirected through irrelevant log text or misleading option names. On the tested synthetic tool-call policies, relabeling the permissive option drove fail-open rates to 93–100% in four models that consume option labels.
+
+### 技术点 / Technical points
+
+- 评测分别统计违规操作被错误允许和合规操作被错误阻止。
+  - The evaluation separates prohibited actions incorrectly allowed from permitted actions incorrectly blocked.
+- 类型化解析结合确定性规则在六项合成策略上达到 100% 准确率；该结果仅适用于该测试集。
+  - Typed parsing plus deterministic rules achieved 100% accuracy on the six synthetic policies; this result is specific to that suite.
+
+### 为什么重要 / Why it matters
+
+这些结果提示，在用学习式分类器授权智能体操作前，应测试每个可被攻击者控制的输入通道。
+
+The results motivate testing every attacker-controlled input channel before using learned classifiers to authorize agent actions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ArminAzizi98/option-channel-attack)
+
+---
+
+<a id="2026-10-08-hippocam-intent-structured-memory"></a>
+## [Hippocam 围绕嵌套意图整合智能体经验](https://arxiv.org/abs/2610.12124)
+
+**English:** [Hippocam consolidates agent experience around nested intents](https://arxiv.org/abs/2610.12124)
+
+- **发布 / Published:** `2026-10-08T15:16:56Z`
+- **来源 / Source:** [arXiv / Use and Disuse](https://arxiv.org/abs/2610.12124) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `reasoning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Hippocam 围绕嵌套任务意图组织工作上下文和长期记忆，整合已完成任务的经验，同时保留可回溯的原始交互。论文评测经验积累、跨领域迁移和长交互记忆，研究通过记忆更新而非模型参数更新实现学习。
+
+Hippocam organizes working context and long-term memory around nested task intents. Completed work is consolidated while original interactions remain recoverable. The paper evaluates experience accumulation, cross-domain transfer and long-interaction memory, describing learning through memory updates rather than model parameter changes.
+
+### 技术点 / Technical points
+
+- 递归前缀整合逐步抽象长期未使用的旧经验；分层检索可恢复更细的原始信息。
+  - Recursive prefix consolidation progressively abstracts older unused experience; hierarchical recall can recover finer details.
+- 在论文评测中，Hippocam 的 ALFWorld 成功率为 97.8%，与 ACE 并列；ScienceWorld 任务进度则低于 ACE。
+  - In the reported evaluation, Hippocam achieved 97.8% ALFWorld success, tying ACE, while its ScienceWorld progress was below ACE.
+
+### 为什么重要 / Why it matters
+
+该架构为保留可复用经验、限制活跃上下文增长提供了可检验的方法。
+
+The architecture offers a testable way to retain reusable experience while limiting active context growth.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2610.12124v1)
+
+---
+
 <a id="2026-10-07-sciexam-enso-scientific-agent-evaluation"></a>
 ## [SciExam for ENSO 通过科学模型隐藏测试评测智能体](https://arxiv.org/abs/2610.10513)
 

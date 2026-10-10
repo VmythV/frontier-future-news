@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-08-dreamtrue-counterfactual-robot-world-model"></a>
+## [DreamTrue 通过反事实后训练改善机器人世界模型的动作忠实度](https://arxiv.org/abs/2610.12468)
+
+**English:** [DreamTrue uses counterfactual post-training for action-faithful robot prediction](https://arxiv.org/abs/2610.12468)
+
+- **发布 / Published:** `2026-10-08T17:59:51Z`
+- **来源 / Source:** [arXiv / DreamTrue](https://arxiv.org/abs/2610.12468) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DreamTrue 针对多视角、跨本体机器人世界模型中的校准误差及交互数据偏向成功的问题，结合图像空间动作条件、几何校准和反事实后训练。论文报告在 AgiBot 上，人类评估的交互缺陷率从 48.12% 降至 6.25%。
+
+DreamTrue addresses calibration errors and success-biased robot interaction data in a multi-view, cross-embodiment world model. It combines image-space action conditioning, geometric calibration and counterfactual post-training. The paper reports a reduction in human-assessed interaction defects from 48.12% to 6.25% on AgiBot.
+
+### 技术点 / Technical points
+
+- 修改动作轨迹，为更多动作及接触配置生成预测。
+  - Modified action trajectories generate predictions across additional actions and contact configurations.
+- 利用人类标注的机器人、物体和交互缺陷训练奖励模型，指导强化学习后训练。
+  - A reward model trained on human-labeled robot, object and interaction defects guides reinforcement-learning post-training.
+
+### 为什么重要 / Why it matters
+
+能表达失败交互的预测有望改善机器人世界模型对备选动作的评估。
+
+Predictions that represent failed interactions could improve how robot world models evaluate alternative actions.
+
+---
+
+<a id="2026-10-08-lewam-jepa-diffusion-mpc"></a>
+## [LeWAM 将 JEPA 世界动作建模与扩散引导规划结合](https://arxiv.org/abs/2610.12407)
+
+**English:** [LeWAM combines JEPA world-action modeling with diffusion-steered planning](https://arxiv.org/abs/2610.12407)
+
+- **发布 / Published:** `2026-10-08T17:46:03Z`
+- **来源 / Source:** [arXiv / LeWAM](https://arxiv.org/abs/2610.12407) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+LeWAM 在无需解码器的 JEPA 潜在空间中联合训练前向、反向、逆向动力学与策略预测。作者报告状态表示对齐得到改善，闭环动作表现与匹配规模的流匹配策略相当，同时保留预测世界模型。
+
+LeWAM jointly trains forward, backward and inverse dynamics plus policy prediction in a decoder-free JEPA latent space. The authors report improved state alignment and closed-loop action performance comparable to a matched flow-matching policy, while retaining a predictive world model.
+
+### 技术点 / Technical points
+
+- 双向 Transformer 在四种预测模式间共享表示。
+  - A bidirectional transformer shares the representation across four prediction modes.
+- 模型预测控制搜索策略头的噪声空间而非原始动作，以减少利用动力学模型误差的情况。
+  - Model predictive control searches the policy head's noise space rather than raw actions to reduce exploitation of dynamics-model errors.
+
+### 为什么重要 / Why it matters
+
+结合实用的潜在动力学表示与受约束动作搜索，有望提升学习式世界模型的规划可靠性。
+
+Combining useful latent dynamics with constrained action search could make learned world models more reliable for planning.
+
+---
+
+<a id="2026-10-08-litenwm-latent-navigation-world-model"></a>
+## [LiteNWM 在潜在空间评估导航未来以支持机器人规划](https://arxiv.org/abs/2610.12368)
+
+**English:** [LiteNWM evaluates navigation futures in latent space for robot planning](https://arxiv.org/abs/2610.12368)
+
+- **发布 / Published:** `2026-10-08T17:29:04Z`
+- **来源 / Source:** [arXiv / LiteNWM](https://arxiv.org/abs/2610.12368) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+LiteNWM 在候选轨迹间共享视觉编码，预测多个时间跨度下由动作条件化的未来表示，再由学习式评分器选择轨迹。作者报告，在其未见室内外真机测试中，相较 NoMaD，导航成功率从 43.3% 提升至 83.3%。
+
+LiteNWM shares visual encoding across candidate trajectories and predicts their action-conditioned future representations at multiple horizons. A learned scorer selects trajectories. The authors report navigation success rising from 43.3% to 83.3% relative to NoMaD in their unseen indoor and outdoor real-robot tests.
+
+### 技术点 / Technical points
+
+- 在 RECON、SCAND 和 SACSoN 离线测试中，相较 NoMaD+NWM-XL，宏平均轨迹误差降低 17.56%。
+  - Offline tests on RECON, SCAND and SACSoN report 17.56% lower macro-averaged trajectory error than NoMaD+NWM-XL.
+- 论文报告的端到端 128 倍加速在 RTX 5090 上测得；评估器也无需针对候选生成器重新训练即可迁移至 MBRA。
+  - The reported 128-fold end-to-end speedup was measured on an RTX 5090; the evaluator also transferred to MBRA without proposer-specific retraining.
+
+### 为什么重要 / Why it matters
+
+潜在未来评分有望降低评估多个导航动作的成本；解读速度结果时需考虑所用硬件。
+
+Latent future scoring could reduce the cost of considering multiple navigation actions; hardware-specific speed results need contextual interpretation.
+
+---
+
 <a id="2026-10-07-long-wam-real-time-history"></a>
 ## [Long-WAM 利用自回归历史建模实现实时机器人控制](https://arxiv.org/abs/2610.10528)
 

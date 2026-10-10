@@ -2,6 +2,206 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-08-dex-one2many-single-video-manipulation"></a>
+## [Dex-One2Many 从一段人类视频学习可泛化的灵巧操作](https://arxiv.org/abs/2610.12470)
+
+**English:** [Dex-One2Many learns generalizable dexterous manipulation from one human video](https://arxiv.org/abs/2610.12470)
+
+- **发布 / Published:** `2026-10-08T17:59:58Z`
+- **来源 / Source:** [arXiv / Dex-One2Many](https://arxiv.org/abs/2610.12470) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Dex-One2Many 将一段人类示范视频转化为连续场景图，用于指导仿真中的强化学习。训练后的策略可零样本迁移至真实多指机械手，并在五项操作与工具使用任务上评测，包括示范中未出现的配置。
+
+Dex-One2Many converts one human demonstration video into sequential scene graphs that guide reinforcement learning in simulation. The resulting policies transfer zero-shot to real multi-fingered hands and are evaluated on five manipulation and tool-use tasks, including configurations absent from the demonstration.
+
+### 技术点 / Technical points
+
+- 场景关系约束多样化初始状态采样，并为各任务阶段提供密集奖励。
+  - Scene relations constrain diverse reset-state sampling and provide dense rewards for individual task stages.
+- 关系约束允许不同物体位姿和抓握方式，无需精确模仿录制动作；项目页显示代码尚待发布。
+  - Relational constraints permit different object poses and grasps without requiring exact imitation of the recorded motion; the project lists code as coming soon.
+
+### 为什么重要 / Why it matters
+
+复用少量人类示范有望降低灵巧操作任务对机器人数据的需求。
+
+Reusing sparse human demonstrations could reduce the robot-data burden for dexterous tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://dex-one2many.github.io/)
+
+---
+
+<a id="2026-10-08-dreamtrue-counterfactual-robot-world-model"></a>
+## [DreamTrue 通过反事实后训练改善机器人世界模型的动作忠实度](https://arxiv.org/abs/2610.12468)
+
+**English:** [DreamTrue uses counterfactual post-training for action-faithful robot prediction](https://arxiv.org/abs/2610.12468)
+
+- **发布 / Published:** `2026-10-08T17:59:51Z`
+- **来源 / Source:** [arXiv / DreamTrue](https://arxiv.org/abs/2610.12468) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DreamTrue 针对多视角、跨本体机器人世界模型中的校准误差及交互数据偏向成功的问题，结合图像空间动作条件、几何校准和反事实后训练。论文报告在 AgiBot 上，人类评估的交互缺陷率从 48.12% 降至 6.25%。
+
+DreamTrue addresses calibration errors and success-biased robot interaction data in a multi-view, cross-embodiment world model. It combines image-space action conditioning, geometric calibration and counterfactual post-training. The paper reports a reduction in human-assessed interaction defects from 48.12% to 6.25% on AgiBot.
+
+### 技术点 / Technical points
+
+- 修改动作轨迹，为更多动作及接触配置生成预测。
+  - Modified action trajectories generate predictions across additional actions and contact configurations.
+- 利用人类标注的机器人、物体和交互缺陷训练奖励模型，指导强化学习后训练。
+  - A reward model trained on human-labeled robot, object and interaction defects guides reinforcement-learning post-training.
+
+### 为什么重要 / Why it matters
+
+能表达失败交互的预测有望改善机器人世界模型对备选动作的评估。
+
+Predictions that represent failed interactions could improve how robot world models evaluate alternative actions.
+
+---
+
+<a id="2026-10-08-viola-human-data-humanoid-control"></a>
+## [VioLA 通过共享运动潜变量连接人类数据与人形机器人控制](https://arxiv.org/abs/2610.12435)
+
+**English:** [VioLA shares motion latents between human data and humanoid control](https://arxiv.org/abs/2610.12435)
+
+- **发布 / Published:** `2026-10-08T17:57:27Z`
+- **来源 / Source:** [arXiv / VioLA](https://arxiv.org/abs/2610.12435) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `vla`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+VioLA 预测由预训练控制器执行的身体与手部运动潜变量，使人类和机器人示范共享动作表示。作者使用 1.406 亿帧训练数据，其中 93.2% 来自人类，并报告无需任务专门微调的真实机器人零样本移动与操作结果。
+
+VioLA predicts body and hand motion latents executed by pretrained controllers, allowing human and robot demonstrations to share an action representation. The authors train on 140.6 million frames, 93.2% human, and report zero-shot real-robot locomotion and manipulation without task-specific fine-tuning.
+
+### 技术点 / Technical points
+
+- 运动编码器将人类和机器人轨迹映射至共同的身体与手部潜在空间。
+  - Motion encoders map human and robot trajectories into common body and hand latent spaces.
+- 论文在所评测任务上报告 100% 移动和 88.6% 操作成功率，测试了三种策略骨干，并表示将发布代码和检查点。
+  - The paper reports 100% locomotion and 88.6% manipulation success in its evaluated tasks, tests three policy backbones, and says code and checkpoints will be released.
+
+### 为什么重要 / Why it matters
+
+共享运动表示有望让大规模人类运动数据更有效地用于机器人全身策略。
+
+A shared motion representation could make large human-motion datasets more useful for whole-body robot policies.
+
+---
+
+<a id="2026-10-08-lewam-jepa-diffusion-mpc"></a>
+## [LeWAM 将 JEPA 世界动作建模与扩散引导规划结合](https://arxiv.org/abs/2610.12407)
+
+**English:** [LeWAM combines JEPA world-action modeling with diffusion-steered planning](https://arxiv.org/abs/2610.12407)
+
+- **发布 / Published:** `2026-10-08T17:46:03Z`
+- **来源 / Source:** [arXiv / LeWAM](https://arxiv.org/abs/2610.12407) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+LeWAM 在无需解码器的 JEPA 潜在空间中联合训练前向、反向、逆向动力学与策略预测。作者报告状态表示对齐得到改善，闭环动作表现与匹配规模的流匹配策略相当，同时保留预测世界模型。
+
+LeWAM jointly trains forward, backward and inverse dynamics plus policy prediction in a decoder-free JEPA latent space. The authors report improved state alignment and closed-loop action performance comparable to a matched flow-matching policy, while retaining a predictive world model.
+
+### 技术点 / Technical points
+
+- 双向 Transformer 在四种预测模式间共享表示。
+  - A bidirectional transformer shares the representation across four prediction modes.
+- 模型预测控制搜索策略头的噪声空间而非原始动作，以减少利用动力学模型误差的情况。
+  - Model predictive control searches the policy head's noise space rather than raw actions to reduce exploitation of dynamics-model errors.
+
+### 为什么重要 / Why it matters
+
+结合实用的潜在动力学表示与受约束动作搜索，有望提升学习式世界模型的规划可靠性。
+
+Combining useful latent dynamics with constrained action search could make learned world models more reliable for planning.
+
+---
+
+<a id="2026-10-08-arc-action-grounded-robot-reasoning"></a>
+## [ARC 为现有机器人基础模型引入动作落地推理](https://arxiv.org/abs/2610.12386)
+
+**English:** [ARC adds action-grounded reasoning to existing robot foundation models](https://arxiv.org/abs/2610.12386)
+
+- **发布 / Published:** `2026-10-08T17:38:04Z`
+- **来源 / Source:** [arXiv / ARC](https://arxiv.org/abs/2610.12386) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `reasoning`, `vla`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+ARC 为机器人示范配上推理，解释下一步动作为何适合当前场景以及预期产生何种效果。其自动标注流程利用现有 DROID 数据构建 ARC-Trace-DROID。作者适配 π0.5 和 Cosmos3-Nano-Policy，并报告仿真基准及真机测试中的提升。
+
+ARC pairs robot demonstrations with reasoning about why the next action fits the scene and what it should cause. Its automatic labeling pipeline builds ARC-Trace-DROID from existing DROID data. The authors adapt π0.5 and Cosmos3-Nano-Policy and report gains in simulated benchmarks and real-robot tests.
+
+### 技术点 / Technical points
+
+- 该方法结合动作落地推理轨迹、自动标注，以及针对具体模型调整的微调和推理。
+  - The recipe combines action-grounded traces, automatic labeling and model-specific fine-tuning and inference.
+- 项目报告在 RoboLab-Reasoning-50 上最多提升 50 个百分点，无需额外机器人示范；代码、模型与数据集均标记为待发布。
+  - The project reports up to 50 percentage-point gains on RoboLab-Reasoning-50, using no additional robot demonstrations; code, models and dataset are marked coming soon.
+
+### 为什么重要 / Why it matters
+
+推理标注有望在无需采集新示范语料的情况下改善现有机器人策略。
+
+Reasoning annotations could improve existing robot policies without collecting another demonstration corpus.
+
+### 链接 / Links
+
+[Evidence 1](https://arc-robot-reasoning.github.io/)
+
+---
+
+<a id="2026-10-08-litenwm-latent-navigation-world-model"></a>
+## [LiteNWM 在潜在空间评估导航未来以支持机器人规划](https://arxiv.org/abs/2610.12368)
+
+**English:** [LiteNWM evaluates navigation futures in latent space for robot planning](https://arxiv.org/abs/2610.12368)
+
+- **发布 / Published:** `2026-10-08T17:29:04Z`
+- **来源 / Source:** [arXiv / LiteNWM](https://arxiv.org/abs/2610.12368) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+LiteNWM 在候选轨迹间共享视觉编码，预测多个时间跨度下由动作条件化的未来表示，再由学习式评分器选择轨迹。作者报告，在其未见室内外真机测试中，相较 NoMaD，导航成功率从 43.3% 提升至 83.3%。
+
+LiteNWM shares visual encoding across candidate trajectories and predicts their action-conditioned future representations at multiple horizons. A learned scorer selects trajectories. The authors report navigation success rising from 43.3% to 83.3% relative to NoMaD in their unseen indoor and outdoor real-robot tests.
+
+### 技术点 / Technical points
+
+- 在 RECON、SCAND 和 SACSoN 离线测试中，相较 NoMaD+NWM-XL，宏平均轨迹误差降低 17.56%。
+  - Offline tests on RECON, SCAND and SACSoN report 17.56% lower macro-averaged trajectory error than NoMaD+NWM-XL.
+- 论文报告的端到端 128 倍加速在 RTX 5090 上测得；评估器也无需针对候选生成器重新训练即可迁移至 MBRA。
+  - The reported 128-fold end-to-end speedup was measured on an RTX 5090; the evaluator also transferred to MBRA without proposer-specific retraining.
+
+### 为什么重要 / Why it matters
+
+潜在未来评分有望降低评估多个导航动作的成本；解读速度结果时需考虑所用硬件。
+
+Latent future scoring could reduce the cost of considering multiple navigation actions; hardware-specific speed results need contextual interpretation.
+
+---
+
 <a id="2026-10-07-roboprompt-sparse-human-steering"></a>
 ## [RoboPrompt 用稀疏人类指导引导机器人策略](https://arxiv.org/abs/2610.10534)
 
