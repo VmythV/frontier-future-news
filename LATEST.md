@@ -2,6 +2,170 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-10-openclaw-2026101-durable-runtime-recovery"></a>
+## [OpenClaw 2026.10.1 保留运行时状态并改善智能体恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
+
+**English:** [OpenClaw 2026.10.1 preserves runtime state and improves agent recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
+
+- **发布 / Published:** `2026-10-10T23:54:03Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `memory`, `multi-agent`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+OpenClaw 让 Code Mode 存储值跨执行单元、回复及 Gateway 重启保留，加入支持激活和恢复的不可变安装代次，并修复中断数据库工作进程、升级迁移与子智能体结果交付。
+
+OpenClaw preserves Code Mode stored values across cells, replies and Gateway restarts. It adds immutable installation generations with activation and recovery support, and repairs interrupted database workers, update migrations and subagent-result delivery.
+
+### 技术点 / Technical points
+
+- 插件可使用隔离状态及入站队列，特权能力保留原有信任要求。
+  - Plugins can use isolated state and ingress queues while privileged capabilities retain their trust requirements.
+- 被拒绝的缓存 ChatGPT 工具续接可恢复而不重跑已结束工具；保存记忆的回合不再重新获得无关执行工具。
+  - Rejected cached ChatGPT tool continuations recover without rerunning finished tools; memory-saving turns no longer regain unrelated execution tools.
+
+### 为什么重要 / Why it matters
+
+对跨重启和委派会话运行的智能体而言，状态连续性与稳健恢复具有实际价值。
+
+State continuity and safer recovery matter for agents that operate across restarts and delegated sessions.
+
+---
+
+<a id="2026-10-09-prime-agent-010-rust-rewrite"></a>
+## [Prime Agent 0.10 发布由逾 2,000 个智能体参与开发的 Rust 重写版](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
+
+**English:** [Prime Agent 0.10 ships a Rust rewrite developed with over 2,000 agents](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
+
+- **发布 / Published:** `2026-10-09T21:28:57Z`
+- **来源 / Source:** [Prime Intellect](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `multi-agent`, `benchmark`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Prime Intellect 发布 Rust 版 Prime Agent 0.10。团队报告，重写过程使用逾 2,000 个智能体、10,000 个沙箱及 2,000 亿 token，并以差分检查比较界面、运行框架和协议行为。发布时间采用 GitHub 正式发布时刻。
+
+Prime Intellect shipped Prime Agent 0.10 in Rust. The team reports using over 2,000 agents, 10,000 sandboxes and 200 billion tokens for the rewrite. Differential checks compared interface, harness and protocol behavior. The timestamp identifies the formal GitHub release.
+
+### 技术点 / Technical points
+
+- 会话在独立工作进程中运行并持久化到磁盘；重写版还加入原生 Windows 测试版支持。
+  - Sessions run in separate worker processes and persist on disk; the rewrite also adds native Windows support in beta.
+- 自定义运行时测试报告，相较 TypeScript，可输入延迟约降低至十三分之一、启动后内存减少逾 80%；测量不含推理。
+  - The custom runtime benchmark reports roughly 13× faster time to type and over 80% lower startup memory than TypeScript; measurements exclude inference.
+
+### 为什么重要 / Why it matters
+
+这次发布提供了智能体辅助软件迁移的具体案例，并给出明确的验证方法与运行时测量。
+
+The release supplies a concrete example of agent-assisted software migration with explicit verification and runtime measurements.
+
+### 链接 / Links
+
+[Evidence 1](https://www.primeintellect.ai/blog/prime-agent-rust)
+
+---
+
+<a id="2026-10-09-claude-code-21296-permission-boundaries"></a>
+## [Claude Code 2.1.296 修复无人值守 MCP 与权限边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.296)
+
+**English:** [Claude Code 2.1.296 repairs headless MCP and permission boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.296)
+
+- **发布 / Published:** `2026-10-09T19:28:59Z`
+- **来源 / Source:** [Anthropic / Claude Code](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `tool-use`, `memory`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Claude Code 修复无人值守会话在切换目录或重载插件后启动已禁用 MCP 服务的问题，并纠正部分 shell 变量命令被自动批准，以及云会话对已保存浏览器权限漏做检查的情况。
+
+Claude Code fixes headless sessions starting disabled MCP servers after directory changes or plugin reloads. It also corrects automatic approval of some shell-variable commands and cloud sessions bypassing checks on saved browser permissions.
+
+### 技术点 / Technical points
+
+- 子智能体可独立于主会话设置更早的自动压缩窗口。
+  - Subagents can set an earlier auto-compaction window independently of the main conversation.
+- 托管拒绝钩子按预期结束回合；共享记录和调试日志的敏感值遮蔽覆盖更多格式。
+  - Managed denying hooks now end the turn as intended; shared-transcript and debug-log secret redaction covers additional value patterns.
+
+### 为什么重要 / Why it matters
+
+这些修复加强无人值守编码智能体的策略执行，并改善委派任务的上下文控制。
+
+These fixes strengthen policy enforcement for unattended coding agents and improve context control for delegated work.
+
+---
+
+<a id="2026-10-09-pydantic-ai-255-durable-conversations"></a>
+## [Pydantic AI 2.55 新增可存储会话并加强持久执行](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0)
+
+**English:** [Pydantic AI 2.55 adds stored conversations and strengthens durable execution](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0)
+
+- **发布 / Published:** `2026-10-09T19:20:25Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `memory`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 引入 Conversation，在多次运行间传递并存储上下文。持久执行保留运行标识，并记录规划、记忆及运行框架工具操作，使恢复过程避免重复写入；此次发布还新增统一的提示缓存配置。
+
+Pydantic AI introduces Conversation for carrying and storing context between runs. Durable execution preserves run identifiers and records planning, memory and harness tool operations so recovery avoids repeated writes. The release also adds unified prompt caching.
+
+### 技术点 / Technical points
+
+- 恢复委派子智能体时会收尾被中断的工具调用；输入防护阻断时取消流式模型请求。
+  - Resuming a delegated subagent closes interrupted tool calls; blocking input guardrails cancel streamed model requests.
+- 回退尝试记录耗时、错误和用量，被拒绝响应计入预算；最低要求 Python 3.11。
+  - Fallback attempts expose timing, errors and usage; rejected responses count toward budgets. Python 3.11 or newer is required.
+
+### 为什么重要 / Why it matters
+
+这些改动让持续智能体流程更易恢复，并使重试成本更易核算。
+
+The changes make persistent agent workflows easier to recover and their retries easier to account for.
+
+---
+
+<a id="2026-10-09-nanoclaw-202610-safe-updates"></a>
+## [NanoClaw 2026.10.0 引入发布通道并修复智能体运行时回滚](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0)
+
+**English:** [NanoClaw 2026.10.0 introduces release channels and safer agent-runtime rollback](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0)
+
+- **发布 / Published:** `2026-10-09T11:26:13Z`
+- **来源 / Source:** [NanoClaw](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `safety`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+NanoClaw 默认更新来源改为正式发布版本，修复可能删除数据的回滚路径，并要求 OneCLI 网关使用 1.42.0 以堵住其凭据注入绕过漏洞。Iron Proxy 新增对无密钥本地模型的受限访问。
+
+NanoClaw now updates from published releases by default. It repairs rollback paths that could delete data and requires OneCLI 1.42.0 to close a credential-injection bypass in that gateway. Iron Proxy adds constrained access to keyless local models.
+
+### 技术点 / Technical points
+
+- stable、beta 和 edge 通道记录所选通道及具体版本。
+  - Stable, beta and edge channels record the selected channel and exact release.
+- 回滚在恢复数据前停止活动智能体容器；本地模型访问限定于所选端口和推理路由。
+  - Rollback stops active agent containers before restoring data; local-model access is limited to the selected port and inference routes.
+
+### 为什么重要 / Why it matters
+
+更稳健的升级恢复与受限模型访问有助于降低持续运行智能体的运维风险。
+
+Safer upgrade recovery and bounded model access address operational risks in continuously running agents.
+
+---
+
 <a id="2026-10-08-gemini-agent-persistent-enterprise-work"></a>
 ## [Google 宣布面向企业工作的持久运行 Gemini agent](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
 
@@ -495,163 +659,3 @@ SciExam for ENSO asks agents to build stochastic climate models from observation
 隐藏的科学测试为评估开放式研究智能体提供了更具体的方法。
 
 Hidden scientific tests provide a more concrete way to assess open-ended research agents.
-
----
-
-<a id="2026-10-07-embodiedrsi-hypothesis-guided-learning"></a>
-## [EmbodiedRSI 选择机器人实验以改进代码和技能](https://arxiv.org/abs/2610.10498)
-
-**English:** [EmbodiedRSI selects robot experiments to improve code and skills](https://arxiv.org/abs/2610.10498)
-
-- **发布 / Published:** `2026-10-07T17:48:02Z`
-- **来源 / Source:** [arXiv — EmbodiedRSI](https://arxiv.org/abs/2610.10498) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `memory`, `active-learning`, `self-improvement`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-EmbodiedRSI 是一种智能体执行框架，通过选择物理实验区分竞争假设，并围绕机器人基础模型修订代码和技能。论文报告其在 RoboCasa365 和 LIBERO-Pro 上具有更强的适应表现，并实现了到真实硬件的零样本迁移。
-
-EmbodiedRSI is an agent harness that chooses physical experiments to distinguish competing hypotheses and revise code and skills around a robot foundation model. The paper reports stronger adaptation on RoboCasa365 and LIBERO-Pro, plus zero-shot transfer to real hardware.
-
-### 技术点 / Technical points
-
-- 快慢双系统架构结合假设图、基于信息价值的实验选择和分层记忆。
-  - A fast-slow architecture combines a hypothesis graph, value-of-information experiment selection, and hierarchical memory.
-- 报告的 RoboCasa365 总体成功率为 77.0%，Composite-Unseen 为 71.3%；后者的最佳基线为 40.1%。
-  - Reported RoboCasa365 success is 77.0% overall and 71.3% on Composite-Unseen; the latter compares with 40.1% for the best baseline.
-
-### 为什么重要 / Why it matters
-
-当物理试验成本较高时，有针对性的实验有望降低机器人适应新情境的代价。
-
-Targeted experiments could make robot adaptation more economical when physical trials are expensive.
-
----
-
-<a id="2026-10-07-humble-human-motion-locomotion"></a>
-## [HuMBLE 将人类运动先验与可转向的人形机器人行走结合](https://arxiv.org/abs/2610.10489)
-
-**English:** [HuMBLE combines human motion priors with steerable humanoid locomotion](https://arxiv.org/abs/2610.10489)
-
-- **发布 / Published:** `2026-10-07T17:45:17Z`
-- **来源 / Source:** [arXiv — HuMBLE](https://arxiv.org/abs/2610.10489) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `humanoid`, `reinforcement-learning`, `motion-tracking`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-HuMBLE 从人类运动中学习紧凑的行走先验，再通过多任务强化学习扩展其指令范围。作者在真实环境中的 Boston Dynamics Atlas R1、Atlas D1 和 Unitree G1 上演示了可控制、接近人类步态的行走。
-
-HuMBLE learns a compact locomotion prior from human movement, then expands its command range through multi-task reinforcement learning. The authors demonstrate controllable, humanlike walking on Boston Dynamics Atlas R1, Atlas D1, and Unitree G1 in real-world settings.
-
-### 技术点 / Technical points
-
-- 以参考动作为条件的强化学习教师被蒸馏为仅使用本体感知和躯干平面速度指令的策略。
-  - A reference-conditioned RL teacher is distilled into a policy using proprioception and planar torso-velocity commands.
-- 微调同时使用任意指令跟踪任务和人类参考动作任务，后者约束运动风格。
-  - Fine-tuning combines arbitrary command tracking with a human-reference task that regularizes movement style.
-
-### 为什么重要 / Why it matters
-
-可复用的行走控制层有望在保留自然动作的同时支持更广的指令范围和分层控制。
-
-A reusable locomotion layer could preserve natural movement while supporting broader commands and hierarchical control.
-
----
-
-<a id="2026-10-07-robotworld-physical-agent-benchmark"></a>
-## [RobotWorld 用 84 项物理控制任务评测多模态智能体](https://arxiv.org/abs/2610.10409)
-
-**English:** [RobotWorld tests multimodal agents on 84 physical-control tasks](https://arxiv.org/abs/2610.10409)
-
-- **发布 / Published:** `2026-10-07T16:55:24Z`
-- **来源 / Source:** [arXiv — RobotWorld](https://arxiv.org/abs/2610.10409) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `benchmark`, `tool-use`, `simulation`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-RobotWorld 是一项仿真基准，测试通用智能体能否将指令与观测转化为机器人执行。分析发现，即使智能体构建了复杂的感知和控制流程，仍会在跟踪物体状态、纠正无效动作及识别未完成任务方面失败。
-
-RobotWorld is a simulation benchmark testing whether general-purpose agents can turn instructions and observations into robot execution. Its analysis exposes failures in tracking object state, correcting ineffective actions, and recognizing incomplete tasks despite sophisticated perception and control workflows.
-
-### 技术点 / Technical points
-
-- 84 项任务覆盖操作、移动操作、行走、驾驶和飞行控制。
-  - The 84 tasks cover manipulation, mobile manipulation, locomotion, driving, and aerial control.
-- 明确的交互预算与可执行成功检查，将任务结果和执行轨迹结合起来。
-  - Explicit interaction budgets and executable success checks pair task results with execution traces.
-
-### 为什么重要 / Why it matters
-
-该基准帮助区分构建工具流程的能力与可靠完成物理任务的能力。
-
-The benchmark separates tool-building ability from reliable physical task completion.
-
----
-
-<a id="2026-10-07-skillsandbox-dynamic-skill-verification"></a>
-## [SkillSandbox 在新合成的情境中验证智能体技能复用能力](https://arxiv.org/abs/2610.10088)
-
-**English:** [SkillSandbox tests reusable agent skills in newly synthesized scenarios](https://arxiv.org/abs/2610.10088)
-
-- **发布 / Published:** `2026-10-07T13:48:58Z`
-- **来源 / Source:** [arXiv — SkillSandbox](https://arxiv.org/abs/2610.10088) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `evaluation`, `memory`, `self-improvement`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-SkillSandbox 在将经验提炼出的技能纳入智能体技能库前，验证其对新任务是否仍有用。它为每项技能构建可执行情境，并比较使用与不使用该指导时的执行结果。
-
-SkillSandbox verifies whether an experience-derived skill remains useful on new tasks before admitting it to an agent's library. It builds executable scenarios tailored to each skill and compares executions with and without that guidance.
-
-### 技术点 / Technical points
-
-- 提议模块保留与技能相关的条件，同时改变原任务特有细节；构建模块生成情境。
-  - A Proposer preserves skill-relevant conditions while varying source-specific details; a Builder constructs the scenario.
-- 验证模块判断可执行性、效用和效率；实验覆盖 ALFWorld、WebShop 和三种模型。
-  - A Verifier judges executability, utility, and efficiency; experiments span ALFWorld, WebShop, and three models.
-
-### 为什么重要 / Why it matters
-
-存储技能前测试迁移效果，有望减少持续演化智能体中的错误流程和仅适用于单一任务的记忆。
-
-Testing transfer before storing skills could reduce incorrect procedures and task-specific memories in evolving agents.
-
----
-
-<a id="2026-10-07-agenttime-runtime-control-benchmark"></a>
-## [AgentTime 评测智能体能否估计并遵循运行时长预算](https://arxiv.org/abs/2610.09944)
-
-**English:** [AgentTime measures whether agents can estimate and follow runtime budgets](https://arxiv.org/abs/2610.09944)
-
-- **发布 / Published:** `2026-10-07T12:26:24Z`
-- **来源 / Source:** [arXiv — AgentTime](https://arxiv.org/abs/2610.09944) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `long-horizon`, `reliability`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-AgentTime 在原生智能体执行框架中测试时长指令遵循、运行时间预测和事后耗时估计。结果区分了匹配指定时长与持续有效工作：部分运行在看似完成任务后通过休眠填满剩余时间。
-
-AgentTime tests duration following, runtime prediction, and retrospective time estimates in native agent harnesses. Its results distinguish matching a requested duration from continuing useful work, showing that some runs fill remaining time by sleeping after apparent completion.
-
-### 技术点 / Technical points
-
-- 基准包含来自 18 个来源的 222 项任务，涵盖编码、计算机使用、智能体工作和自动化研究。
-  - The benchmark contains 222 tasks from 18 sources covering coding, computer use, agentic work, and automated research.
-- 在 158 次可分类、经审阅的 Astra 运行中，14 次在看似完成任务后明确进入休眠。
-  - Among 158 reviewed Astra runs with classifiable transcripts, 14 explicitly slept after appearing to finish.
-
-### 为什么重要 / Why it matters
-
-智能体长时间自主工作时，需要将实际耗时控制与任务成功分别评估。
-
-Wall-clock control needs separate evaluation from task success when agents work autonomously for long periods.
