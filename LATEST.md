@@ -34,6 +34,79 @@ State continuity and safer recovery matter for agents that operate across restar
 
 ---
 
+<a id="2026-10-10-talorys-personal-agent-release"></a>
+## [Talorys 发布具备持久记忆和定时任务的个人智能体](https://github.com/rociiu/talorys)
+
+**English:** [Talorys releases a personal agent with durable memory and scheduled routines](https://github.com/rociiu/talorys)
+
+- **发布 / Published:** `2026-10-10T09:57:15.731Z`
+- **来源 / Source:** [Roc Yu / Talorys](https://github.com/rociiu/talorys) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `tool-use`, `open-source`, `scheduled-tasks`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Talorys 发布 create-talorys 0.1.0 安装包，将单用户智能体部署到用户自己的 Cloudflare 账户。开源系统结合工具调用对话、持久记忆、任务管理和定时流程。发布时间取自 npm 注册表中 0.1.0 的发布记录，功能核验使用该版本 gitHead 对应的源码快照。
+
+Talorys published create-talorys 0.1.0, an installer for a single-user agent running in the owner’s Cloudflare account. The open-source system combines tool-calling chat, persistent memory, task management and scheduled routines. Publication time is the npm registry timestamp for 0.1.0; the source snapshot is pinned to that package’s gitHead.
+
+### 技术点 / Technical points
+
+- Cloudflare Agents SDK 的 Durable Object 通过 SQLite 保存对话、记忆和任务，并使用 alarms 执行周期计划。
+  - A Cloudflare Agents SDK Durable Object stores conversations, memories and tasks in SQLite and uses alarms for recurring schedules.
+- Cloudflare Pages 经 service binding 将请求转发至私有 Worker，Workers AI 提供流式推理与工具调用。
+  - Cloudflare Pages forwards requests through a service binding to a private Worker; Workers AI supplies streaming inference and tool calling.
+
+### 为什么重要 / Why it matters
+
+可检查的实现为持久个人智能体提供了具体架构：状态和计划任务均运行在用户掌控的云账户内。
+
+The inspectable implementation offers a concrete pattern for persistent personal agents whose state and schedules live in a user-controlled cloud account.
+
+### 链接 / Links
+
+[Evidence 1](https://registry.npmjs.org/create-talorys) · [Evidence 2](https://github.com/rociiu/talorys/blob/5fd1fc6ebfde6ee38cca27e1d405406c2f7ef77b/README.md)
+[Discussion 1](https://news.ycombinator.com/item?id=50031614)
+
+---
+
+<a id="2026-10-10-vpp2-video-checkpoints-release"></a>
+## [VPP2 开放 Stage-1 和 Stage-2 机器人视频预测权重](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
+
+**English:** [VPP2 opens Stage-1 and Stage-2 robot video prediction checkpoints](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
+
+- **发布 / Published:** `2026-10-10T04:09:03Z`
+- **来源 / Source:** [VPP2 team / Robotera](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `video-prediction`, `world-action-model`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+VPP2 团队公开了生成 49 帧的 Stage-1 和生成 17 帧的 Stage-2 视频权重，并提供独立推理指南，让研究者能够使用其机器人世界动作模型的视频预测模块。本条记录对应 10 月 10 日的权重开放公告，发布时间取自官方公告提交，不将此前论文或基准结果作为新事件。
+
+The VPP2 team announced public 49-frame Stage-1 and 17-frame Stage-2 video checkpoints, with a standalone inference guide. The release exposes the video prediction component of its robot world-action model. This record covers the October 10 checkpoint announcement, rather than the earlier paper or benchmark results; its timestamp comes from the official announcement commit.
+
+### 技术点 / Technical points
+
+- 预测以初始图像和文本指令为输入；Stage-1 面向事件级视频，Stage-2 使用固定时间跨度。
+  - Prediction takes an initial image and a text instruction; Stage-1 models event-level video and Stage-2 uses a fixed time horizon.
+- 仓库提供输入准备、单图及批量推理流程，并另列机器人策略训练指南。
+  - The repository supplies input preparation and single-image or batch inference workflows, alongside separate robot-policy training guides.
+
+### 为什么重要 / Why it matters
+
+公开的视频权重让研究者能够先检查和适配机器人预测表征，再将其与动作策略结合。
+
+Accessible video checkpoints let researchers inspect and adapt predictive robot representations before coupling them to action policies.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/roboterax/video-prediction-policy-2) · [Evidence 2](https://huggingface.co/Haodong082399/VPP2) · [Evidence 3](https://github.com/roboterax/video-prediction-policy-2/blob/main/docs/video_prediction.md)
+
+---
+
 <a id="2026-10-09-prime-agent-010-rust-rewrite"></a>
 ## [Prime Agent 0.10 发布由逾 2,000 个智能体参与开发的 Rust 重写版](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
 
@@ -595,67 +668,3 @@ Long-WAM combines causal video pretraining with a streaming execution system for
 该工作将有效的时序记忆与动态操作所需的实际推理延迟联系起来。
 
 The work connects useful temporal memory with practical inference latency for dynamic manipulation.
-
----
-
-<a id="2026-10-07-robojepa-robot-world-model-scaling"></a>
-## [RoboJEPA 扩展机器人潜在世界模型并测试目标图像规划](https://arxiv.org/abs/2610.10515)
-
-**English:** [RoboJEPA scales latent robot world models and tests goal-image planning](https://arxiv.org/abs/2610.10515)
-
-- **发布 / Published:** `2026-10-07T17:54:42Z`
-- **来源 / Source:** [arXiv — RoboJEPA](https://arxiv.org/abs/2610.10515) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `planning`, `latent-dynamics`, `scaling-laws`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-RoboJEPA 研究 JEPA 世界模型在涵盖 12 种机器人形态的数据上的规模扩展规律。作者报告潜在轨迹预测误差和规划表现随计算量可预测地改善，并在真实机器人上演示了基于目标图像的零样本控制。
-
-RoboJEPA studies how JEPA world models scale across data from 12 robot embodiments. The authors report predictable improvements in latent rollout error and planning, with zero-shot goal-image control demonstrated on real robots.
-
-### 技术点 / Technical points
-
-- 最大预测器含 80 亿参数；想象误差随计算量呈二阶幂律关系。
-  - The largest predictor has 8 billion parameters; imagination error follows a second-order power law in compute.
-- 潜在预测误差与下游规划表现相关，可为成本较高的硬件评测提供代理指标。
-  - Latent prediction error correlates with downstream planning performance, offering a proxy for costly hardware evaluation.
-
-### 为什么重要 / Why it matters
-
-扩展规律有望帮助分配训练资源，并在大规模硬件试验前评估机器人规划能力。
-
-Scaling relationships could help allocate training resources and assess robot planning before extensive hardware trials.
-
----
-
-<a id="2026-10-07-sciexam-enso-scientific-agent-evaluation"></a>
-## [SciExam for ENSO 通过科学模型隐藏测试评测智能体](https://arxiv.org/abs/2610.10513)
-
-**English:** [SciExam for ENSO evaluates agents by hidden tests of scientific models](https://arxiv.org/abs/2610.10513)
-
-- **发布 / Published:** `2026-10-07T17:52:52Z`
-- **来源 / Source:** [arXiv — SciExam for ENSO](https://arxiv.org/abs/2610.10513) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `scientific-discovery`, `evaluation`, `model-building`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-SciExam for ENSO 要求智能体在六小时预算内，根据观测建立随机气候模型。隐藏评分器测试统计特征、潜在状态恢复和留出时段预测；十二套智能体系统中有六套在这些测试下超过已发表的参考模型。
-
-SciExam for ENSO asks agents to build stochastic climate models from observations under a six-hour budget. Hidden graders test statistics, latent-state recovery, and held-out forecasting. Six of twelve agent systems outperform a published reference model under these tests.
-
-### 技术点 / Technical points
-
-- 智能体先建立诊断方法，并在模型开发前冻结；后续反馈限于这组诊断。
-  - Agents first create diagnostics that are frozen before model development, limiting feedback to that diagnostic set.
-- 评估衡量模型的实证有效性，而非匹配已知答案或仅依赖语言模型评审。
-  - Evaluation measures empirical model validity rather than matching a known answer or relying solely on a language-model reviewer.
-
-### 为什么重要 / Why it matters
-
-隐藏的科学测试为评估开放式研究智能体提供了更具体的方法。
-
-Hidden scientific tests provide a more concrete way to assess open-ended research agents.

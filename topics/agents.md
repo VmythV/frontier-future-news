@@ -34,6 +34,43 @@ State continuity and safer recovery matter for agents that operate across restar
 
 ---
 
+<a id="2026-10-10-talorys-personal-agent-release"></a>
+## [Talorys 发布具备持久记忆和定时任务的个人智能体](https://github.com/rociiu/talorys)
+
+**English:** [Talorys releases a personal agent with durable memory and scheduled routines](https://github.com/rociiu/talorys)
+
+- **发布 / Published:** `2026-10-10T09:57:15.731Z`
+- **来源 / Source:** [Roc Yu / Talorys](https://github.com/rociiu/talorys) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `tool-use`, `open-source`, `scheduled-tasks`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Talorys 发布 create-talorys 0.1.0 安装包，将单用户智能体部署到用户自己的 Cloudflare 账户。开源系统结合工具调用对话、持久记忆、任务管理和定时流程。发布时间取自 npm 注册表中 0.1.0 的发布记录，功能核验使用该版本 gitHead 对应的源码快照。
+
+Talorys published create-talorys 0.1.0, an installer for a single-user agent running in the owner’s Cloudflare account. The open-source system combines tool-calling chat, persistent memory, task management and scheduled routines. Publication time is the npm registry timestamp for 0.1.0; the source snapshot is pinned to that package’s gitHead.
+
+### 技术点 / Technical points
+
+- Cloudflare Agents SDK 的 Durable Object 通过 SQLite 保存对话、记忆和任务，并使用 alarms 执行周期计划。
+  - A Cloudflare Agents SDK Durable Object stores conversations, memories and tasks in SQLite and uses alarms for recurring schedules.
+- Cloudflare Pages 经 service binding 将请求转发至私有 Worker，Workers AI 提供流式推理与工具调用。
+  - Cloudflare Pages forwards requests through a service binding to a private Worker; Workers AI supplies streaming inference and tool calling.
+
+### 为什么重要 / Why it matters
+
+可检查的实现为持久个人智能体提供了具体架构：状态和计划任务均运行在用户掌控的云账户内。
+
+The inspectable implementation offers a concrete pattern for persistent personal agents whose state and schedules live in a user-controlled cloud account.
+
+### 链接 / Links
+
+[Evidence 1](https://registry.npmjs.org/create-talorys) · [Evidence 2](https://github.com/rociiu/talorys/blob/5fd1fc6ebfde6ee38cca27e1d405406c2f7ef77b/README.md)
+[Discussion 1](https://news.ycombinator.com/item?id=50031614)
+
+---
+
 <a id="2026-10-09-prime-agent-010-rust-rewrite"></a>
 ## [Prime Agent 0.10 发布由逾 2,000 个智能体参与开发的 Rust 重写版](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
 

@@ -2,6 +2,42 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-10-vpp2-video-checkpoints-release"></a>
+## [VPP2 开放 Stage-1 和 Stage-2 机器人视频预测权重](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
+
+**English:** [VPP2 opens Stage-1 and Stage-2 robot video prediction checkpoints](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
+
+- **发布 / Published:** `2026-10-10T04:09:03Z`
+- **来源 / Source:** [VPP2 team / Robotera](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `video-prediction`, `world-action-model`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+VPP2 团队公开了生成 49 帧的 Stage-1 和生成 17 帧的 Stage-2 视频权重，并提供独立推理指南，让研究者能够使用其机器人世界动作模型的视频预测模块。本条记录对应 10 月 10 日的权重开放公告，发布时间取自官方公告提交，不将此前论文或基准结果作为新事件。
+
+The VPP2 team announced public 49-frame Stage-1 and 17-frame Stage-2 video checkpoints, with a standalone inference guide. The release exposes the video prediction component of its robot world-action model. This record covers the October 10 checkpoint announcement, rather than the earlier paper or benchmark results; its timestamp comes from the official announcement commit.
+
+### 技术点 / Technical points
+
+- 预测以初始图像和文本指令为输入；Stage-1 面向事件级视频，Stage-2 使用固定时间跨度。
+  - Prediction takes an initial image and a text instruction; Stage-1 models event-level video and Stage-2 uses a fixed time horizon.
+- 仓库提供输入准备、单图及批量推理流程，并另列机器人策略训练指南。
+  - The repository supplies input preparation and single-image or batch inference workflows, alongside separate robot-policy training guides.
+
+### 为什么重要 / Why it matters
+
+公开的视频权重让研究者能够先检查和适配机器人预测表征，再将其与动作策略结合。
+
+Accessible video checkpoints let researchers inspect and adapt predictive robot representations before coupling them to action policies.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/roboterax/video-prediction-policy-2) · [Evidence 2](https://huggingface.co/Haodong082399/VPP2) · [Evidence 3](https://github.com/roboterax/video-prediction-policy-2/blob/main/docs/video_prediction.md)
+
+---
+
 <a id="2026-10-08-dex-one2many-single-video-manipulation"></a>
 ## [Dex-One2Many 从一段人类视频学习可泛化的灵巧操作](https://arxiv.org/abs/2610.12470)
 
