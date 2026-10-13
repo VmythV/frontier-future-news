@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-10-12-helixbench-spatial-audio-release"></a>
+## [HelixBench 开放含 1,015 个样本的交互式音视频世界模型评测包](https://huggingface.co/datasets/NoizAI/Helixbench)
+
+**English:** [HelixBench opens a 1,015-sample evaluation package for interactive audio-visual world models](https://huggingface.co/datasets/NoizAI/Helixbench)
+
+- **发布 / Published:** `2026-10-12T11:01:23Z`
+- **来源 / Source:** [Noiz AI / HelixWorld](https://huggingface.co/datasets/NoizAI/Helixbench) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `dataset`, `spatial-audio`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Noiz AI 宣布公开 HelixBench，用于检验生成声场能否跟随视角变化。冻结的评测包提供 1,015 个样本的首帧、音视频提示词、评测代码和参考特征。本条记录对应 10 月 12 日的基准开放公告，时间取自官方仓库提交；HelixWorld 预览模型和论文均已在此前发布。
+
+Noiz AI announced the public HelixBench release for testing sound under changing viewpoints. The frozen package provides first frames, audio-visual prompts, evaluation code and reference features for 1,015 samples. This record covers the October 12 benchmark announcement, timed by its official repository commit; the HelixWorld preview and paper were released earlier.
+
+### 技术点 / Technical points
+
+- 六项独立指标覆盖音频保真度、同步、语义对齐和空间一致性；评测包不合成为单一总分。
+  - Six separate metrics cover audio fidelity, synchronization, semantic alignment and spatial consistency; the package does not produce a combined score.
+- 空间评测使用固定的 150 个视角样本；生成输入公开首帧与音视频描述，打包的参考特征支持在没有参考视频的情况下计算 KL 和 FAD。
+  - Spatial evaluation uses a fixed 150-sample perspective cohort; generation inputs expose first frames and audio-visual captions, while packaged reference features support KL and FAD without reference videos.
+
+### 为什么重要 / Why it matters
+
+公开协议让随相机变化的声音能够与视觉生成一同被评测，补充演示视频之外的验证手段。
+
+A public protocol makes camera-grounded sound testable alongside visual generation, rather than relying on demonstrations alone.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/NoizAI/HelixWorld/commit/d8da2defbd553f910d3db9e58bf30f909ba14ab2) · [Evidence 2](https://noiz.ai/lp/blog/meet-helix-world)
+
+---
+
 <a id="2026-10-10-vpp2-video-checkpoints-release"></a>
 ## [VPP2 开放 Stage-1 和 Stage-2 机器人视频预测权重](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
 

@@ -13684,6 +13684,240 @@
         "technical_depth": 10,
         "traction": 6
       }
+    },
+    {
+      "id": "2026-10-11-gh-aw-0918-session-evaluation",
+      "published_at": "2026-10-11T22:33:56Z",
+      "collected_at": "2026-10-13T00:04:45Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "evaluation",
+        "memory",
+        "safety"
+      ],
+      "title_en": "GitHub Agentic Workflows 0.91.8 unifies session traces and hardens evaluation sandboxes",
+      "title_zh": "GitHub Agentic Workflows 0.91.8 统一会话轨迹并加固评测沙箱",
+      "summary_en": "GitHub released Agentic Workflows 0.91.8 with shared session timelines across agent engines, a code-read-precision trajectory grader and declarative memory validation. The release also closes a custom-grader sandbox escape and improves model-routing diagnostics. Publication time is the GitHub release timestamp.",
+      "summary_zh": "GitHub 发布 Agentic Workflows 0.91.8，为多种智能体引擎提供统一会话时间线、code-read-precision 轨迹评测器和声明式记忆校验。该版本同时修复自定义评测器的沙箱逃逸问题，并改善模型路由诊断。发布时间取自 GitHub 正式发布记录。",
+      "tech_points_en": [
+        "Normalized session traces retain native evidence and accounting across engines including Copilot, Codex, Claude and Gemini.",
+        "Memory can be checked against a JSON Schema; model mismatches are surfaced, and red-team findings must carry evidence."
+      ],
+      "tech_points_zh": [
+        "统一会话轨迹保留各引擎的原生证据和用量记录，覆盖 Copilot、Codex、Claude 和 Gemini 等引擎。",
+        "记忆可通过 JSON Schema 校验；系统显式报告模型不匹配，并要求红队发现附带证据。"
+      ],
+      "why_it_matters_en": "Comparable execution traces and stronger evaluation boundaries can make automated repository agents easier to audit.",
+      "why_it_matters_zh": "可比较的执行轨迹与更严格的评测边界，有助于审计自动化仓库智能体。",
+      "source": {
+        "name": "GitHub / Agentic Workflows",
+        "type": "primary",
+        "url": "https://github.com/github/gh-aw/releases/tag/v0.91.8",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 13,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-10-12-helixbench-spatial-audio-release",
+      "published_at": "2026-10-12T11:01:23Z",
+      "collected_at": "2026-10-13T00:04:45Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "dataset",
+        "spatial-audio",
+        "open-source"
+      ],
+      "title_en": "HelixBench opens a 1,015-sample evaluation package for interactive audio-visual world models",
+      "title_zh": "HelixBench 开放含 1,015 个样本的交互式音视频世界模型评测包",
+      "summary_en": "Noiz AI announced the public HelixBench release for testing sound under changing viewpoints. The frozen package provides first frames, audio-visual prompts, evaluation code and reference features for 1,015 samples. This record covers the October 12 benchmark announcement, timed by its official repository commit; the HelixWorld preview and paper were released earlier.",
+      "summary_zh": "Noiz AI 宣布公开 HelixBench，用于检验生成声场能否跟随视角变化。冻结的评测包提供 1,015 个样本的首帧、音视频提示词、评测代码和参考特征。本条记录对应 10 月 12 日的基准开放公告，时间取自官方仓库提交；HelixWorld 预览模型和论文均已在此前发布。",
+      "tech_points_en": [
+        "Six separate metrics cover audio fidelity, synchronization, semantic alignment and spatial consistency; the package does not produce a combined score.",
+        "Spatial evaluation uses a fixed 150-sample perspective cohort; generation inputs expose first frames and audio-visual captions, while packaged reference features support KL and FAD without reference videos."
+      ],
+      "tech_points_zh": [
+        "六项独立指标覆盖音频保真度、同步、语义对齐和空间一致性；评测包不合成为单一总分。",
+        "空间评测使用固定的 150 个视角样本；生成输入公开首帧与音视频描述，打包的参考特征支持在没有参考视频的情况下计算 KL 和 FAD。"
+      ],
+      "why_it_matters_en": "A public protocol makes camera-grounded sound testable alongside visual generation, rather than relying on demonstrations alone.",
+      "why_it_matters_zh": "公开协议让随相机变化的声音能够与视觉生成一同被评测，补充演示视频之外的验证手段。",
+      "source": {
+        "name": "Noiz AI / HelixWorld",
+        "type": "primary",
+        "url": "https://huggingface.co/datasets/NoizAI/Helixbench",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/NoizAI/HelixWorld/commit/d8da2defbd553f910d3db9e58bf30f909ba14ab2",
+        "https://noiz.ai/lp/blog/meet-helix-world"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-10-12-agno-313-durable-external-agents",
+      "published_at": "2026-10-12T11:22:21Z",
+      "collected_at": "2026-10-13T00:04:45Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "agent-runtime",
+        "checkpoint",
+        "reliability"
+      ],
+      "title_en": "Agno 3.1.3 adds durable sessions and checkpoint replay for external agents",
+      "title_zh": "Agno 3.1.3 为外部智能体增加持久会话与检查点回放",
+      "summary_en": "Agno 3.1.3 expands its ClaudeAgent and CodexAgent runtime adapters with background execution, cancellation, retries and stored events. Claude sessions can resume from database-backed transcripts on another replica, and tool-result checkpoints support branching continuations. Publication time is the tagged GitHub release timestamp.",
+      "summary_zh": "Agno 3.1.3 为 ClaudeAgent 和 CodexAgent 运行时适配器扩展后台执行、取消、重试与事件保存能力。Claude 会话可从数据库保存的对话轨迹在另一副本上恢复，工具结果检查点支持分支续跑。发布时间取自 GitHub 标签版本的发布记录。",
+      "tech_points_en": [
+        "Supported PostgreSQL and SQLite backends mirror Claude transcript lines into agno_transcripts, with history-seeded fallback if an SDK session cannot resume.",
+        "Claude checkpoint continuations create sibling runs; retryable failures preserve the run identity, while limits and permanent errors are excluded from retries.",
+        "Claude and Codex background runs share durable-queue IDs, resumable indexed SSE streams and cancellation endpoints."
+      ],
+      "tech_points_zh": [
+        "支持的 PostgreSQL 与 SQLite 后端将 Claude 对话逐行保存至 agno_transcripts；SDK 会话无法恢复时，以已有历史初始化新会话。",
+        "Claude 检查点续跑创建同级新运行；可重试失败保留运行标识，额度限制与永久错误不触发重试。",
+        "Claude 与 Codex 后台运行共用持久队列标识、可恢复的带索引 SSE 事件流和取消接口。"
+      ],
+      "why_it_matters_en": "Durable state and explicit replay can reduce the gap between a local coding-agent session and a recoverable service deployment.",
+      "why_it_matters_zh": "持久状态与显式回放有助于将本地编程智能体会话转化为可恢复的服务部署。",
+      "source": {
+        "name": "Agno",
+        "type": "primary",
+        "url": "https://github.com/agno-agi/agno/releases/tag/v3.1.3",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-10-12-digitalocean-agent-data-services-preview",
+      "published_at": "2026-10-12T13:08:00.018Z",
+      "collected_at": "2026-10-13T00:04:45Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-memory",
+        "observability",
+        "evaluation",
+        "multimodal"
+      ],
+      "title_en": "DigitalOcean previews a managed data catalog for agent context and execution traces",
+      "title_zh": "DigitalOcean 预览统一管理智能体上下文与执行轨迹的数据目录",
+      "summary_en": "DigitalOcean introduced Agent Data Services in private preview, combining multimodal ingestion, structured records, vectors and agent traces in a governed catalog. The accompanying announcement places Insights, Signals and Evaluations & Simulations in public preview. Automated workflow improvement remains planned, with human approvals still part of the current loop. Time comes from the official data-service blog metadata.",
+      "summary_zh": "DigitalOcean 推出私有预览版 Agent Data Services，将多模态摄取、结构化记录、向量和智能体轨迹汇入受治理的数据目录。同期公告将 Insights、Signals 和 Evaluations & Simulations 列为公开预览。工作流自动改进仍属后续计划，当前闭环保留人工审批。时间取自官方数据服务博客元数据。",
+      "tech_points_en": [
+        "Managed Data Flows process and index incoming data; the catalog exposes SQL and API queries with source lineage and scoped access.",
+        "Stored turns, tool calls and session history feed observability and evaluation; Signals flags problematic sessions, while simulations test proposed changes."
+      ],
+      "tech_points_zh": [
+        "托管 Data Flows 处理并索引新数据；目录通过 SQL 与 API 提供查询，并保留来源沿袭和访问范围控制。",
+        "保存的轮次、工具调用与会话历史支持观测和评测；Signals 筛出问题会话，仿真用于测试拟议修改。"
+      ],
+      "why_it_matters_en": "Putting grounding data and execution evidence in one service can simplify the feedback needed to improve agent reliability.",
+      "why_it_matters_zh": "将知识依据与执行证据放入同一服务，有助于简化提升智能体可靠性所需的反馈流程。",
+      "source": {
+        "name": "DigitalOcean",
+        "type": "primary",
+        "url": "https://www.digitalocean.com/blog/introducing-agent-data-services",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Agent-Learning-and-Data-Services-for-Recursively-Self-Improving-AI-Agents/default.aspx"
+      ],
+      "confidence": "high",
+      "score": 77,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 13,
+        "technical_depth": 11,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-10-12-meta-muse-wonder-memory-focus",
+      "published_at": "2026-10-12T17:08:05Z",
+      "collected_at": "2026-10-13T00:04:45Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "long-horizon",
+        "coding-agent",
+        "evaluation"
+      ],
+      "title_en": "Meta releases Muse Wonder with cross-conversation memory and sustained agent execution",
+      "title_zh": "Meta 发布结合跨对话记忆与持续任务执行的 Muse Wonder",
+      "summary_en": "Meta launched Muse Wonder and Muse Wonder Full for personal and professional agent tasks. Its Active Memory retrieves relevant context across conversations, while Active Focus is designed to sustain work, recover from blockers and request clarification. Muse Wonder is available through the Meta Model API and Muse Code; Wonder Full is available to Muse Code subscribers. Time comes from the official newsroom announcement metadata.",
+      "summary_zh": "Meta 发布面向个人与专业智能体任务的 Muse Wonder 和 Muse Wonder Full。Active Memory 从跨对话历史中检索相关上下文，Active Focus 旨在持续推进工作、处理阻碍并按需澄清。Muse Wonder 已通过 Meta Model API 和 Muse Code 提供，Wonder Full 面向 Muse Code 订阅者开放。时间取自官方新闻室公告元数据。",
+      "tech_points_en": [
+        "Meta evaluates sustained focus with FocusBench and long-running software work with SWE-Marathon; reported performance is the vendor’s own evaluation.",
+        "The models were trained on varied long-running tasks that combine requirement tracking, code changes, testing and revision."
+      ],
+      "tech_points_zh": [
+        "Meta 使用 FocusBench 评测持续专注能力，并以 SWE-Marathon 评测长时间软件项目工作；公布的表现属于厂商自身评测。",
+        "模型训练覆盖多样的长时间任务，将需求跟踪、代码修改、测试和迭代结合。"
+      ],
+      "why_it_matters_en": "Memory retrieval and sustained execution address two practical obstacles to agents completing work across many interactions.",
+      "why_it_matters_zh": "记忆检索与持续执行针对智能体跨多次交互完成工作时的两项实际障碍。",
+      "source": {
+        "name": "Meta",
+        "type": "primary",
+        "url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://research.meta.ai/blog/muse-wonder"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 11,
+        "traction": 3
+      }
     }
   ]
 }

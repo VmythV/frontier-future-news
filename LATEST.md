@@ -2,6 +2,180 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-12-meta-muse-wonder-memory-focus"></a>
+## [Meta 发布结合跨对话记忆与持续任务执行的 Muse Wonder](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
+
+**English:** [Meta releases Muse Wonder with cross-conversation memory and sustained agent execution](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
+
+- **发布 / Published:** `2026-10-12T17:08:05Z`
+- **来源 / Source:** [Meta](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `long-horizon`, `coding-agent`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Meta 发布面向个人与专业智能体任务的 Muse Wonder 和 Muse Wonder Full。Active Memory 从跨对话历史中检索相关上下文，Active Focus 旨在持续推进工作、处理阻碍并按需澄清。Muse Wonder 已通过 Meta Model API 和 Muse Code 提供，Wonder Full 面向 Muse Code 订阅者开放。时间取自官方新闻室公告元数据。
+
+Meta launched Muse Wonder and Muse Wonder Full for personal and professional agent tasks. Its Active Memory retrieves relevant context across conversations, while Active Focus is designed to sustain work, recover from blockers and request clarification. Muse Wonder is available through the Meta Model API and Muse Code; Wonder Full is available to Muse Code subscribers. Time comes from the official newsroom announcement metadata.
+
+### 技术点 / Technical points
+
+- Meta 使用 FocusBench 评测持续专注能力，并以 SWE-Marathon 评测长时间软件项目工作；公布的表现属于厂商自身评测。
+  - Meta evaluates sustained focus with FocusBench and long-running software work with SWE-Marathon; reported performance is the vendor’s own evaluation.
+- 模型训练覆盖多样的长时间任务，将需求跟踪、代码修改、测试和迭代结合。
+  - The models were trained on varied long-running tasks that combine requirement tracking, code changes, testing and revision.
+
+### 为什么重要 / Why it matters
+
+记忆检索与持续执行针对智能体跨多次交互完成工作时的两项实际障碍。
+
+Memory retrieval and sustained execution address two practical obstacles to agents completing work across many interactions.
+
+### 链接 / Links
+
+[Evidence 1](https://research.meta.ai/blog/muse-wonder)
+
+---
+
+<a id="2026-10-12-digitalocean-agent-data-services-preview"></a>
+## [DigitalOcean 预览统一管理智能体上下文与执行轨迹的数据目录](https://www.digitalocean.com/blog/introducing-agent-data-services)
+
+**English:** [DigitalOcean previews a managed data catalog for agent context and execution traces](https://www.digitalocean.com/blog/introducing-agent-data-services)
+
+- **发布 / Published:** `2026-10-12T13:08:00.018Z`
+- **来源 / Source:** [DigitalOcean](https://www.digitalocean.com/blog/introducing-agent-data-services) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-memory`, `observability`, `evaluation`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+DigitalOcean 推出私有预览版 Agent Data Services，将多模态摄取、结构化记录、向量和智能体轨迹汇入受治理的数据目录。同期公告将 Insights、Signals 和 Evaluations & Simulations 列为公开预览。工作流自动改进仍属后续计划，当前闭环保留人工审批。时间取自官方数据服务博客元数据。
+
+DigitalOcean introduced Agent Data Services in private preview, combining multimodal ingestion, structured records, vectors and agent traces in a governed catalog. The accompanying announcement places Insights, Signals and Evaluations & Simulations in public preview. Automated workflow improvement remains planned, with human approvals still part of the current loop. Time comes from the official data-service blog metadata.
+
+### 技术点 / Technical points
+
+- 托管 Data Flows 处理并索引新数据；目录通过 SQL 与 API 提供查询，并保留来源沿袭和访问范围控制。
+  - Managed Data Flows process and index incoming data; the catalog exposes SQL and API queries with source lineage and scoped access.
+- 保存的轮次、工具调用与会话历史支持观测和评测；Signals 筛出问题会话，仿真用于测试拟议修改。
+  - Stored turns, tool calls and session history feed observability and evaluation; Signals flags problematic sessions, while simulations test proposed changes.
+
+### 为什么重要 / Why it matters
+
+将知识依据与执行证据放入同一服务，有助于简化提升智能体可靠性所需的反馈流程。
+
+Putting grounding data and execution evidence in one service can simplify the feedback needed to improve agent reliability.
+
+### 链接 / Links
+
+[Evidence 1](https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Agent-Learning-and-Data-Services-for-Recursively-Self-Improving-AI-Agents/default.aspx)
+
+---
+
+<a id="2026-10-12-agno-313-durable-external-agents"></a>
+## [Agno 3.1.3 为外部智能体增加持久会话与检查点回放](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
+
+**English:** [Agno 3.1.3 adds durable sessions and checkpoint replay for external agents](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
+
+- **发布 / Published:** `2026-10-12T11:22:21Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `checkpoint`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Agno 3.1.3 为 ClaudeAgent 和 CodexAgent 运行时适配器扩展后台执行、取消、重试与事件保存能力。Claude 会话可从数据库保存的对话轨迹在另一副本上恢复，工具结果检查点支持分支续跑。发布时间取自 GitHub 标签版本的发布记录。
+
+Agno 3.1.3 expands its ClaudeAgent and CodexAgent runtime adapters with background execution, cancellation, retries and stored events. Claude sessions can resume from database-backed transcripts on another replica, and tool-result checkpoints support branching continuations. Publication time is the tagged GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 支持的 PostgreSQL 与 SQLite 后端将 Claude 对话逐行保存至 agno_transcripts；SDK 会话无法恢复时，以已有历史初始化新会话。
+  - Supported PostgreSQL and SQLite backends mirror Claude transcript lines into agno_transcripts, with history-seeded fallback if an SDK session cannot resume.
+- Claude 检查点续跑创建同级新运行；可重试失败保留运行标识，额度限制与永久错误不触发重试。
+  - Claude checkpoint continuations create sibling runs; retryable failures preserve the run identity, while limits and permanent errors are excluded from retries.
+- Claude 与 Codex 后台运行共用持久队列标识、可恢复的带索引 SSE 事件流和取消接口。
+  - Claude and Codex background runs share durable-queue IDs, resumable indexed SSE streams and cancellation endpoints.
+
+### 为什么重要 / Why it matters
+
+持久状态与显式回放有助于将本地编程智能体会话转化为可恢复的服务部署。
+
+Durable state and explicit replay can reduce the gap between a local coding-agent session and a recoverable service deployment.
+
+---
+
+<a id="2026-10-12-helixbench-spatial-audio-release"></a>
+## [HelixBench 开放含 1,015 个样本的交互式音视频世界模型评测包](https://huggingface.co/datasets/NoizAI/Helixbench)
+
+**English:** [HelixBench opens a 1,015-sample evaluation package for interactive audio-visual world models](https://huggingface.co/datasets/NoizAI/Helixbench)
+
+- **发布 / Published:** `2026-10-12T11:01:23Z`
+- **来源 / Source:** [Noiz AI / HelixWorld](https://huggingface.co/datasets/NoizAI/Helixbench) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `dataset`, `spatial-audio`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Noiz AI 宣布公开 HelixBench，用于检验生成声场能否跟随视角变化。冻结的评测包提供 1,015 个样本的首帧、音视频提示词、评测代码和参考特征。本条记录对应 10 月 12 日的基准开放公告，时间取自官方仓库提交；HelixWorld 预览模型和论文均已在此前发布。
+
+Noiz AI announced the public HelixBench release for testing sound under changing viewpoints. The frozen package provides first frames, audio-visual prompts, evaluation code and reference features for 1,015 samples. This record covers the October 12 benchmark announcement, timed by its official repository commit; the HelixWorld preview and paper were released earlier.
+
+### 技术点 / Technical points
+
+- 六项独立指标覆盖音频保真度、同步、语义对齐和空间一致性；评测包不合成为单一总分。
+  - Six separate metrics cover audio fidelity, synchronization, semantic alignment and spatial consistency; the package does not produce a combined score.
+- 空间评测使用固定的 150 个视角样本；生成输入公开首帧与音视频描述，打包的参考特征支持在没有参考视频的情况下计算 KL 和 FAD。
+  - Spatial evaluation uses a fixed 150-sample perspective cohort; generation inputs expose first frames and audio-visual captions, while packaged reference features support KL and FAD without reference videos.
+
+### 为什么重要 / Why it matters
+
+公开协议让随相机变化的声音能够与视觉生成一同被评测，补充演示视频之外的验证手段。
+
+A public protocol makes camera-grounded sound testable alongside visual generation, rather than relying on demonstrations alone.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/NoizAI/HelixWorld/commit/d8da2defbd553f910d3db9e58bf30f909ba14ab2) · [Evidence 2](https://noiz.ai/lp/blog/meet-helix-world)
+
+---
+
+<a id="2026-10-11-gh-aw-0918-session-evaluation"></a>
+## [GitHub Agentic Workflows 0.91.8 统一会话轨迹并加固评测沙箱](https://github.com/github/gh-aw/releases/tag/v0.91.8)
+
+**English:** [GitHub Agentic Workflows 0.91.8 unifies session traces and hardens evaluation sandboxes](https://github.com/github/gh-aw/releases/tag/v0.91.8)
+
+- **发布 / Published:** `2026-10-11T22:33:56Z`
+- **来源 / Source:** [GitHub / Agentic Workflows](https://github.com/github/gh-aw/releases/tag/v0.91.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `evaluation`, `memory`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+GitHub 发布 Agentic Workflows 0.91.8，为多种智能体引擎提供统一会话时间线、code-read-precision 轨迹评测器和声明式记忆校验。该版本同时修复自定义评测器的沙箱逃逸问题，并改善模型路由诊断。发布时间取自 GitHub 正式发布记录。
+
+GitHub released Agentic Workflows 0.91.8 with shared session timelines across agent engines, a code-read-precision trajectory grader and declarative memory validation. The release also closes a custom-grader sandbox escape and improves model-routing diagnostics. Publication time is the GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 统一会话轨迹保留各引擎的原生证据和用量记录，覆盖 Copilot、Codex、Claude 和 Gemini 等引擎。
+  - Normalized session traces retain native evidence and accounting across engines including Copilot, Codex, Claude and Gemini.
+- 记忆可通过 JSON Schema 校验；系统显式报告模型不匹配，并要求红队发现附带证据。
+  - Memory can be checked against a JSON Schema; model mismatches are surfaced, and red-team findings must carry evidence.
+
+### 为什么重要 / Why it matters
+
+可比较的执行轨迹与更严格的评测边界，有助于审计自动化仓库智能体。
+
+Comparable execution traces and stronger evaluation boundaries can make automated repository agents easier to audit.
+
+---
+
 <a id="2026-10-10-openclaw-2026101-durable-runtime-recovery"></a>
 ## [OpenClaw 2026.10.1 保留运行时状态并改善智能体恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
 
@@ -500,171 +674,3 @@ OnTrack compares agent steps and dependencies with successful reference runs to 
 低延迟监控有望支持更早的运行干预，但论文报告的中止样本较少。
 
 Low-latency monitoring could support earlier intervention, although the reported abort sample is small.
-
----
-
-<a id="2026-10-08-litenwm-latent-navigation-world-model"></a>
-## [LiteNWM 在潜在空间评估导航未来以支持机器人规划](https://arxiv.org/abs/2610.12368)
-
-**English:** [LiteNWM evaluates navigation futures in latent space for robot planning](https://arxiv.org/abs/2610.12368)
-
-- **发布 / Published:** `2026-10-08T17:29:04Z`
-- **来源 / Source:** [arXiv / LiteNWM](https://arxiv.org/abs/2610.12368) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-LiteNWM 在候选轨迹间共享视觉编码，预测多个时间跨度下由动作条件化的未来表示，再由学习式评分器选择轨迹。作者报告，在其未见室内外真机测试中，相较 NoMaD，导航成功率从 43.3% 提升至 83.3%。
-
-LiteNWM shares visual encoding across candidate trajectories and predicts their action-conditioned future representations at multiple horizons. A learned scorer selects trajectories. The authors report navigation success rising from 43.3% to 83.3% relative to NoMaD in their unseen indoor and outdoor real-robot tests.
-
-### 技术点 / Technical points
-
-- 在 RECON、SCAND 和 SACSoN 离线测试中，相较 NoMaD+NWM-XL，宏平均轨迹误差降低 17.56%。
-  - Offline tests on RECON, SCAND and SACSoN report 17.56% lower macro-averaged trajectory error than NoMaD+NWM-XL.
-- 论文报告的端到端 128 倍加速在 RTX 5090 上测得；评估器也无需针对候选生成器重新训练即可迁移至 MBRA。
-  - The reported 128-fold end-to-end speedup was measured on an RTX 5090; the evaluator also transferred to MBRA without proposer-specific retraining.
-
-### 为什么重要 / Why it matters
-
-潜在未来评分有望降低评估多个导航动作的成本；解读速度结果时需考虑所用硬件。
-
-Latent future scoring could reduce the cost of considering multiple navigation actions; hardware-specific speed results need contextual interpretation.
-
----
-
-<a id="2026-10-08-option-channel-agent-guardrail-attacks"></a>
-## [选项通道攻击揭示决策模型智能体护栏的错误放行风险](https://arxiv.org/abs/2610.12292)
-
-**English:** [Option-channel attacks expose fail-open behavior in decision-model agent guardrails](https://arxiv.org/abs/2610.12292)
-
-- **发布 / Published:** `2026-10-08T16:46:43Z`
-- **来源 / Source:** [arXiv / One Word Opens the Gate](https://arxiv.org/abs/2610.12292) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `benchmark`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-一项针对七个开放权重决策模型的研究发现，允许或阻止操作的护栏可被无关日志文本或误导性选项名称改变判断。在所测试的合成工具调用策略中，重命名放行选项使四个读取选项标签的模型错误放行率升至 93%—100%。
-
-A study of seven open-weight decision models finds that allow/block guardrails can be redirected through irrelevant log text or misleading option names. On the tested synthetic tool-call policies, relabeling the permissive option drove fail-open rates to 93–100% in four models that consume option labels.
-
-### 技术点 / Technical points
-
-- 评测分别统计违规操作被错误允许和合规操作被错误阻止。
-  - The evaluation separates prohibited actions incorrectly allowed from permitted actions incorrectly blocked.
-- 类型化解析结合确定性规则在六项合成策略上达到 100% 准确率；该结果仅适用于该测试集。
-  - Typed parsing plus deterministic rules achieved 100% accuracy on the six synthetic policies; this result is specific to that suite.
-
-### 为什么重要 / Why it matters
-
-这些结果提示，在用学习式分类器授权智能体操作前，应测试每个可被攻击者控制的输入通道。
-
-The results motivate testing every attacker-controlled input channel before using learned classifiers to authorize agent actions.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/ArminAzizi98/option-channel-attack)
-
----
-
-<a id="2026-10-08-hippocam-intent-structured-memory"></a>
-## [Hippocam 围绕嵌套意图整合智能体经验](https://arxiv.org/abs/2610.12124)
-
-**English:** [Hippocam consolidates agent experience around nested intents](https://arxiv.org/abs/2610.12124)
-
-- **发布 / Published:** `2026-10-08T15:16:56Z`
-- **来源 / Source:** [arXiv / Use and Disuse](https://arxiv.org/abs/2610.12124) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `reasoning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Hippocam 围绕嵌套任务意图组织工作上下文和长期记忆，整合已完成任务的经验，同时保留可回溯的原始交互。论文评测经验积累、跨领域迁移和长交互记忆，研究通过记忆更新而非模型参数更新实现学习。
-
-Hippocam organizes working context and long-term memory around nested task intents. Completed work is consolidated while original interactions remain recoverable. The paper evaluates experience accumulation, cross-domain transfer and long-interaction memory, describing learning through memory updates rather than model parameter changes.
-
-### 技术点 / Technical points
-
-- 递归前缀整合逐步抽象长期未使用的旧经验；分层检索可恢复更细的原始信息。
-  - Recursive prefix consolidation progressively abstracts older unused experience; hierarchical recall can recover finer details.
-- 在论文评测中，Hippocam 的 ALFWorld 成功率为 97.8%，与 ACE 并列；ScienceWorld 任务进度则低于 ACE。
-  - In the reported evaluation, Hippocam achieved 97.8% ALFWorld success, tying ACE, while its ScienceWorld progress was below ACE.
-
-### 为什么重要 / Why it matters
-
-该架构为保留可复用经验、限制活跃上下文增长提供了可检验的方法。
-
-The architecture offers a testable way to retain reusable experience while limiting active context growth.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/html/2610.12124v1)
-
----
-
-<a id="2026-10-07-roboprompt-sparse-human-steering"></a>
-## [RoboPrompt 用稀疏人类指导引导机器人策略](https://arxiv.org/abs/2610.10534)
-
-**English:** [RoboPrompt steers robot policies with sparse human guidance](https://arxiv.org/abs/2610.10534)
-
-- **发布 / Published:** `2026-10-07T17:58:53Z`
-- **来源 / Source:** [arXiv — RoboPrompt](https://arxiv.org/abs/2610.10534) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `shared-autonomy`, `imitation-learning`, `policy-steering`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-RoboPrompt 将绘制路径、目标点和粗略方向指令转化为动作草稿，再由机器人策略细化。它引导基于扩散和流的动作生成，无需改变基础架构或专门为可引导性微调。
-
-RoboPrompt converts drawn paths, target points, and coarse direction commands into action drafts refined by a robot policy. It steers diffusion and flow-based action generation without changing the base architecture or fine-tuning it specifically for steerability.
-
-### 技术点 / Technical points
-
-- 该方法在噪声空间控制生成过程，并在 Diffusion Policy、pi0.5 和 FastWAM 上测试。
-  - The method controls generation in noise space and is tested with Diffusion Policy, pi0.5, and FastWAM.
-- 引导后的轨迹用于 DAgger 更新；研究报告两至三轮迭代后成功率提高、人类干预次数减少。
-  - Steered rollouts supply DAgger updates; the study reports improved success and fewer human interventions after two to three rounds.
-
-### 为什么重要 / Why it matters
-
-稀疏纠正有望让现有多种机器人策略更易采用共享自主控制。
-
-Sparse corrections could make shared autonomy easier to use across existing robot policies.
-
----
-
-<a id="2026-10-07-long-wam-real-time-history"></a>
-## [Long-WAM 利用自回归历史建模实现实时机器人控制](https://arxiv.org/abs/2610.10528)
-
-**English:** [Long-WAM uses autoregressive history for real-time robot control](https://arxiv.org/abs/2610.10528)
-
-- **发布 / Published:** `2026-10-07T17:58:04Z`
-- **来源 / Source:** [arXiv — Long-WAM](https://arxiv.org/abs/2610.10528) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `memory`, `real-time`, `video-prediction`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Long-WAM 将因果视频预训练与流式执行系统结合，用于世界动作模型。研究发现，当预训练使模型以自回归方式预测未来状态时，延长观测历史能带来明显更大的收益。
-
-Long-WAM combines causal video pretraining with a streaming execution system for world-action models. The study finds that longer observation histories help substantially more when pretraining teaches the model to predict future states autoregressively.
-
-### 技术点 / Technical points
-
-- 在 RoboCasa GR-1 上，历史长度从零增至 19.2 秒时，报告的成功率由 63.3% 升至 78.7%。
-  - On RoboCasa GR-1, extending history from zero to 19.2 seconds raises reported success from 63.3% to 78.7%.
-- 流式编码和异步执行保留未来视频潜变量预测；RTX 5090 上单个动作块耗时 107.4 毫秒。
-  - Streaming encoding and asynchronous execution retain future-video latent prediction; an action chunk takes 107.4 ms on RTX 5090.
-
-### 为什么重要 / Why it matters
-
-该工作将有效的时序记忆与动态操作所需的实际推理延迟联系起来。
-
-The work connects useful temporal memory with practical inference latency for dynamic manipulation.

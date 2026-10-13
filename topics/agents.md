@@ -2,6 +2,144 @@
 
 # Agents / 智能体
 
+<a id="2026-10-12-meta-muse-wonder-memory-focus"></a>
+## [Meta 发布结合跨对话记忆与持续任务执行的 Muse Wonder](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
+
+**English:** [Meta releases Muse Wonder with cross-conversation memory and sustained agent execution](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
+
+- **发布 / Published:** `2026-10-12T17:08:05Z`
+- **来源 / Source:** [Meta](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `long-horizon`, `coding-agent`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Meta 发布面向个人与专业智能体任务的 Muse Wonder 和 Muse Wonder Full。Active Memory 从跨对话历史中检索相关上下文，Active Focus 旨在持续推进工作、处理阻碍并按需澄清。Muse Wonder 已通过 Meta Model API 和 Muse Code 提供，Wonder Full 面向 Muse Code 订阅者开放。时间取自官方新闻室公告元数据。
+
+Meta launched Muse Wonder and Muse Wonder Full for personal and professional agent tasks. Its Active Memory retrieves relevant context across conversations, while Active Focus is designed to sustain work, recover from blockers and request clarification. Muse Wonder is available through the Meta Model API and Muse Code; Wonder Full is available to Muse Code subscribers. Time comes from the official newsroom announcement metadata.
+
+### 技术点 / Technical points
+
+- Meta 使用 FocusBench 评测持续专注能力，并以 SWE-Marathon 评测长时间软件项目工作；公布的表现属于厂商自身评测。
+  - Meta evaluates sustained focus with FocusBench and long-running software work with SWE-Marathon; reported performance is the vendor’s own evaluation.
+- 模型训练覆盖多样的长时间任务，将需求跟踪、代码修改、测试和迭代结合。
+  - The models were trained on varied long-running tasks that combine requirement tracking, code changes, testing and revision.
+
+### 为什么重要 / Why it matters
+
+记忆检索与持续执行针对智能体跨多次交互完成工作时的两项实际障碍。
+
+Memory retrieval and sustained execution address two practical obstacles to agents completing work across many interactions.
+
+### 链接 / Links
+
+[Evidence 1](https://research.meta.ai/blog/muse-wonder)
+
+---
+
+<a id="2026-10-12-digitalocean-agent-data-services-preview"></a>
+## [DigitalOcean 预览统一管理智能体上下文与执行轨迹的数据目录](https://www.digitalocean.com/blog/introducing-agent-data-services)
+
+**English:** [DigitalOcean previews a managed data catalog for agent context and execution traces](https://www.digitalocean.com/blog/introducing-agent-data-services)
+
+- **发布 / Published:** `2026-10-12T13:08:00.018Z`
+- **来源 / Source:** [DigitalOcean](https://www.digitalocean.com/blog/introducing-agent-data-services) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-memory`, `observability`, `evaluation`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+DigitalOcean 推出私有预览版 Agent Data Services，将多模态摄取、结构化记录、向量和智能体轨迹汇入受治理的数据目录。同期公告将 Insights、Signals 和 Evaluations & Simulations 列为公开预览。工作流自动改进仍属后续计划，当前闭环保留人工审批。时间取自官方数据服务博客元数据。
+
+DigitalOcean introduced Agent Data Services in private preview, combining multimodal ingestion, structured records, vectors and agent traces in a governed catalog. The accompanying announcement places Insights, Signals and Evaluations & Simulations in public preview. Automated workflow improvement remains planned, with human approvals still part of the current loop. Time comes from the official data-service blog metadata.
+
+### 技术点 / Technical points
+
+- 托管 Data Flows 处理并索引新数据；目录通过 SQL 与 API 提供查询，并保留来源沿袭和访问范围控制。
+  - Managed Data Flows process and index incoming data; the catalog exposes SQL and API queries with source lineage and scoped access.
+- 保存的轮次、工具调用与会话历史支持观测和评测；Signals 筛出问题会话，仿真用于测试拟议修改。
+  - Stored turns, tool calls and session history feed observability and evaluation; Signals flags problematic sessions, while simulations test proposed changes.
+
+### 为什么重要 / Why it matters
+
+将知识依据与执行证据放入同一服务，有助于简化提升智能体可靠性所需的反馈流程。
+
+Putting grounding data and execution evidence in one service can simplify the feedback needed to improve agent reliability.
+
+### 链接 / Links
+
+[Evidence 1](https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Agent-Learning-and-Data-Services-for-Recursively-Self-Improving-AI-Agents/default.aspx)
+
+---
+
+<a id="2026-10-12-agno-313-durable-external-agents"></a>
+## [Agno 3.1.3 为外部智能体增加持久会话与检查点回放](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
+
+**English:** [Agno 3.1.3 adds durable sessions and checkpoint replay for external agents](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
+
+- **发布 / Published:** `2026-10-12T11:22:21Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `checkpoint`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Agno 3.1.3 为 ClaudeAgent 和 CodexAgent 运行时适配器扩展后台执行、取消、重试与事件保存能力。Claude 会话可从数据库保存的对话轨迹在另一副本上恢复，工具结果检查点支持分支续跑。发布时间取自 GitHub 标签版本的发布记录。
+
+Agno 3.1.3 expands its ClaudeAgent and CodexAgent runtime adapters with background execution, cancellation, retries and stored events. Claude sessions can resume from database-backed transcripts on another replica, and tool-result checkpoints support branching continuations. Publication time is the tagged GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 支持的 PostgreSQL 与 SQLite 后端将 Claude 对话逐行保存至 agno_transcripts；SDK 会话无法恢复时，以已有历史初始化新会话。
+  - Supported PostgreSQL and SQLite backends mirror Claude transcript lines into agno_transcripts, with history-seeded fallback if an SDK session cannot resume.
+- Claude 检查点续跑创建同级新运行；可重试失败保留运行标识，额度限制与永久错误不触发重试。
+  - Claude checkpoint continuations create sibling runs; retryable failures preserve the run identity, while limits and permanent errors are excluded from retries.
+- Claude 与 Codex 后台运行共用持久队列标识、可恢复的带索引 SSE 事件流和取消接口。
+  - Claude and Codex background runs share durable-queue IDs, resumable indexed SSE streams and cancellation endpoints.
+
+### 为什么重要 / Why it matters
+
+持久状态与显式回放有助于将本地编程智能体会话转化为可恢复的服务部署。
+
+Durable state and explicit replay can reduce the gap between a local coding-agent session and a recoverable service deployment.
+
+---
+
+<a id="2026-10-11-gh-aw-0918-session-evaluation"></a>
+## [GitHub Agentic Workflows 0.91.8 统一会话轨迹并加固评测沙箱](https://github.com/github/gh-aw/releases/tag/v0.91.8)
+
+**English:** [GitHub Agentic Workflows 0.91.8 unifies session traces and hardens evaluation sandboxes](https://github.com/github/gh-aw/releases/tag/v0.91.8)
+
+- **发布 / Published:** `2026-10-11T22:33:56Z`
+- **来源 / Source:** [GitHub / Agentic Workflows](https://github.com/github/gh-aw/releases/tag/v0.91.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `evaluation`, `memory`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+GitHub 发布 Agentic Workflows 0.91.8，为多种智能体引擎提供统一会话时间线、code-read-precision 轨迹评测器和声明式记忆校验。该版本同时修复自定义评测器的沙箱逃逸问题，并改善模型路由诊断。发布时间取自 GitHub 正式发布记录。
+
+GitHub released Agentic Workflows 0.91.8 with shared session timelines across agent engines, a code-read-precision trajectory grader and declarative memory validation. The release also closes a custom-grader sandbox escape and improves model-routing diagnostics. Publication time is the GitHub release timestamp.
+
+### 技术点 / Technical points
+
+- 统一会话轨迹保留各引擎的原生证据和用量记录，覆盖 Copilot、Codex、Claude 和 Gemini 等引擎。
+  - Normalized session traces retain native evidence and accounting across engines including Copilot, Codex, Claude and Gemini.
+- 记忆可通过 JSON Schema 校验；系统显式报告模型不匹配，并要求红队发现附带证据。
+  - Memory can be checked against a JSON Schema; model mismatches are surfaced, and red-team findings must carry evidence.
+
+### 为什么重要 / Why it matters
+
+可比较的执行轨迹与更严格的评测边界，有助于审计自动化仓库智能体。
+
+Comparable execution traces and stronger evaluation boundaries can make automated repository agents easier to audit.
+
+---
+
 <a id="2026-10-10-openclaw-2026101-durable-runtime-recovery"></a>
 ## [OpenClaw 2026.10.1 保留运行时状态并改善智能体恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
 
