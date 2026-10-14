@@ -2,6 +2,114 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-13-pydantic-ai-256-durability-microvm"></a>
+## [Pydantic AI 2.56 新增持久执行后端与本地 microVM 工作空间](https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0)
+
+**English:** [Pydantic AI 2.56 adds durable execution backends and a local microVM workspace](https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0)
+
+- **发布 / Published:** `2026-10-13T23:35:15Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `open-source`, `durable-execution`, `sandbox`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.56.0 新增 PGTaskDurability、Render Workflows 集成，以及在本地 smolvm microVM 中运行执行框架能力的 SmolSandbox；同时调整 BrowserUse 默认行为，改进技能库组合与工具调用处理。
+
+Pydantic AI 2.56.0 adds PGTaskDurability, Render Workflows integration and SmolSandbox for running harness capabilities in a local smolvm microVM. The release also changes BrowserUse defaults and improves skill-library composition and tool-call handling.
+
+### 技术点 / Technical points
+
+- BrowserUse 默认使用宿主模型，浏览器使用遥测改为主动选择启用。
+  - BrowserUse runs on the host model by default, with browser-use telemetry requiring opt-in.
+- Skills 支持叠加项目与个人技能库；parallel_ordered_events 下收集的 CodeMode 调用可并发执行。
+  - Skills can layer project and personal libraries; CodeMode calls gathered under parallel_ordered_events now execute concurrently.
+
+### 为什么重要 / Why it matters
+
+更多持久执行后端与隔离的本地工作空间，扩展了开发者部署和恢复工具使用型智能体的选择。
+
+More durability backends and an isolated local workspace expand how developers deploy and recover tool-using agents.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.56.0)
+
+---
+
+<a id="2026-10-13-openclaw-2026103-state-preserving-recovery"></a>
+## [OpenClaw 2026.10.3 保留修复期间的状态并恢复中断的智能体轮次](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
+
+**English:** [OpenClaw 2026.10.3 preserves repair state and resumes interrupted agent turns](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
+
+- **发布 / Published:** `2026-10-13T13:49:25Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `open-source`, `safety`, `durable-execution`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.10.3 修复更新阻塞，以及修复流程可能丢失已保存登录信息或改写异常记忆文件的问题；同时改善原生上下文压缩、ChatGPT 回复中断和 Codex 线程准备失败后的对话续接。
+
+OpenClaw 2026.10.3 fixes blocked updates and repairs that could discard saved sign-ins or alter malformed memory files. It also improves conversation continuation after native compaction, interrupted ChatGPT replies and failed Codex thread preparation.
+
+### 技术点 / Technical points
+
+- 旧认证数据无法读取时，Doctor 保留 OAuth 配置，并保持包含无效 UTF-8 的记忆文件原样。
+  - Doctor preserves OAuth profiles when legacy authentication data is unreadable and keeps malformed UTF-8 memory files unchanged.
+- 原生压缩后的下一轮等待历史重建完成；中断的 ChatGPT 回复可在现有重试限制内从已保存对话继续。
+  - The next turn waits for history rebuilt after native compaction; interrupted ChatGPT replies can resume from saved conversations within existing retry limits.
+
+### 为什么重要 / Why it matters
+
+在修复期间保留记忆和对话状态，可减少持续运行智能体遭受的可避免中断。
+
+Preserving memory and conversation state during repair reduces avoidable disruption to persistent agent execution.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.3)
+
+---
+
+<a id="2026-10-12-langgraph-1215-checkpoint-replay"></a>
+## [LangGraph 1.2.15 修复智能体运行的检查点隔离与增量重放](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15)
+
+**English:** [LangGraph 1.2.15 fixes checkpoint isolation and delta replay for agent runs](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15)
+
+- **发布 / Published:** `2026-10-12T22:38:26Z`
+- **来源 / Source:** [LangChain / LangGraph](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `tool-use`, `open-source`, `durable-execution`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+LangGraph 1.2.15 修复智能体状态写入在检查点、分叉和恢复运行中的保存与重放方式，同时修正中断传递和无效工具恢复值的处理，解决持久工作流可能恢复错误状态的多种路径。
+
+LangGraph 1.2.15 repairs how agent state writes are saved and replayed across checkpoints, forks and resumed runs. It also fixes interrupt propagation and invalid tool-resume handling, addressing several ways durable workflows could recover the wrong state.
+
+### 技术点 / Technical points
+
+- 缓存节点会保存写入；检查点更新保留自身输入写入，运行输入仅从对应检查点读取。
+  - Cached nodes now save their writes; checkpoint updates retain their own input writes, and run inputs are read only from their corresponding checkpoints.
+- 恢复后的退出模式按实时顺序重放增量写入；ToolNode 不再吞掉无效恢复值。
+  - Resumed exit-mode delta writes replay in live order; ToolNode no longer swallows invalid resume values.
+
+### 为什么重要 / Why it matters
+
+正确的检查点边界和重放顺序，为长时间智能体工作流中的可靠恢复与人工介入提供支持。
+
+Correct checkpoint boundaries and replay order support reliable recovery and human intervention in long-running agent workflows.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.15)
+
+---
+
 <a id="2026-10-12-meta-muse-wonder-memory-focus"></a>
 ## [Meta 发布结合跨对话记忆与持续任务执行的 Muse Wonder](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
 
@@ -71,6 +179,43 @@ Putting grounding data and execution evidence in one service can simplify the fe
 ### 链接 / Links
 
 [Evidence 1](https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Agent-Learning-and-Data-Services-for-Recursively-Self-Improving-AI-Agents/default.aspx)
+
+---
+
+<a id="2026-10-12-brokenml-access-regime-benchmark"></a>
+## [BrokenML 发布 46 项修复任务，比较智能体在三种访问权限下的表现](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0)
+
+**English:** [BrokenML releases 46 repair tasks to test agents at three access levels](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0)
+
+- **发布 / Published:** `2026-10-12T12:53:39Z`
+- **来源 / Source:** [Alex Zhebrak / BrokenML](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `open-source`, `ml-infrastructure`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+BrokenML 0.1.0 开放故障训练与推理服务任务、在全新集群上运行的验证器，以及九种模型的评测结果。它比较智能体仅访问文件、额外读取实时日志、或访问运行中集群时，诊断并修复分布式机器学习任务的能力。
+
+BrokenML 0.1.0 releases broken training and serving jobs, a fresh-cluster verifier and results for nine models. It evaluates whether agents can diagnose and repair distributed ML workloads with files alone, added live logs or access to the running cluster.
+
+### 技术点 / Technical points
+
+- 测试集包含 46 项任务，覆盖双节点 Slurm/PyTorch 训练和 llama.cpp 推理服务；验证器使用新数据重新运行任务。
+  - The test split has 46 tasks spanning two-node Slurm/PyTorch training and llama.cpp serving; verification reruns jobs with fresh data.
+- 已发布评测使用 CPU 和 Gloo，每个任务与权限组合仅运行一次；独立 GPU 子集尚未验证。
+  - Published runs use CPUs and Gloo, one run per task and access regime; the separate GPU split remains unvalidated.
+
+### 为什么重要 / Why it matters
+
+区分访问权限有助于检验修复智能体的进步究竟来自推理能力，还是更多运行现场信息。
+
+Separating access levels helps test whether repair agents benefit from better reasoning or simply more operational visibility.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/zhebrak/brokenml/releases/tags/v0.1.0) · [Evidence 2](https://raw.githubusercontent.com/zhebrak/brokenml/9e12de33f539ec062b871570f04a681fa0eb54bd/README.md)
+[Discussion 1](https://www.reddit.com/r/LocalLLaMA/comments/1x41pqt/brokenml_can_agents_fix_broken_ml_jobs/)
 
 ---
 
@@ -542,135 +687,3 @@ BrickBench introduces text-conditioned LEGO design tasks that require agents to 
 可搭建性约束为智能体设计推理提供了具体检验，补充仅看图像或代码是否合理的评测。
 
 Buildability constraints offer a concrete test of agent design reasoning beyond producing plausible images or code.
-
----
-
-<a id="2026-10-08-viola-human-data-humanoid-control"></a>
-## [VioLA 通过共享运动潜变量连接人类数据与人形机器人控制](https://arxiv.org/abs/2610.12435)
-
-**English:** [VioLA shares motion latents between human data and humanoid control](https://arxiv.org/abs/2610.12435)
-
-- **发布 / Published:** `2026-10-08T17:57:27Z`
-- **来源 / Source:** [arXiv / VioLA](https://arxiv.org/abs/2610.12435) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `humanoid`, `vla`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-VioLA 预测由预训练控制器执行的身体与手部运动潜变量，使人类和机器人示范共享动作表示。作者使用 1.406 亿帧训练数据，其中 93.2% 来自人类，并报告无需任务专门微调的真实机器人零样本移动与操作结果。
-
-VioLA predicts body and hand motion latents executed by pretrained controllers, allowing human and robot demonstrations to share an action representation. The authors train on 140.6 million frames, 93.2% human, and report zero-shot real-robot locomotion and manipulation without task-specific fine-tuning.
-
-### 技术点 / Technical points
-
-- 运动编码器将人类和机器人轨迹映射至共同的身体与手部潜在空间。
-  - Motion encoders map human and robot trajectories into common body and hand latent spaces.
-- 论文在所评测任务上报告 100% 移动和 88.6% 操作成功率，测试了三种策略骨干，并表示将发布代码和检查点。
-  - The paper reports 100% locomotion and 88.6% manipulation success in its evaluated tasks, tests three policy backbones, and says code and checkpoints will be released.
-
-### 为什么重要 / Why it matters
-
-共享运动表示有望让大规模人类运动数据更有效地用于机器人全身策略。
-
-A shared motion representation could make large human-motion datasets more useful for whole-body robot policies.
-
----
-
-<a id="2026-10-08-lewam-jepa-diffusion-mpc"></a>
-## [LeWAM 将 JEPA 世界动作建模与扩散引导规划结合](https://arxiv.org/abs/2610.12407)
-
-**English:** [LeWAM combines JEPA world-action modeling with diffusion-steered planning](https://arxiv.org/abs/2610.12407)
-
-- **发布 / Published:** `2026-10-08T17:46:03Z`
-- **来源 / Source:** [arXiv / LeWAM](https://arxiv.org/abs/2610.12407) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-LeWAM 在无需解码器的 JEPA 潜在空间中联合训练前向、反向、逆向动力学与策略预测。作者报告状态表示对齐得到改善，闭环动作表现与匹配规模的流匹配策略相当，同时保留预测世界模型。
-
-LeWAM jointly trains forward, backward and inverse dynamics plus policy prediction in a decoder-free JEPA latent space. The authors report improved state alignment and closed-loop action performance comparable to a matched flow-matching policy, while retaining a predictive world model.
-
-### 技术点 / Technical points
-
-- 双向 Transformer 在四种预测模式间共享表示。
-  - A bidirectional transformer shares the representation across four prediction modes.
-- 模型预测控制搜索策略头的噪声空间而非原始动作，以减少利用动力学模型误差的情况。
-  - Model predictive control searches the policy head's noise space rather than raw actions to reduce exploitation of dynamics-model errors.
-
-### 为什么重要 / Why it matters
-
-结合实用的潜在动力学表示与受约束动作搜索，有望提升学习式世界模型的规划可靠性。
-
-Combining useful latent dynamics with constrained action search could make learned world models more reliable for planning.
-
----
-
-<a id="2026-10-08-arc-action-grounded-robot-reasoning"></a>
-## [ARC 为现有机器人基础模型引入动作落地推理](https://arxiv.org/abs/2610.12386)
-
-**English:** [ARC adds action-grounded reasoning to existing robot foundation models](https://arxiv.org/abs/2610.12386)
-
-- **发布 / Published:** `2026-10-08T17:38:04Z`
-- **来源 / Source:** [arXiv / ARC](https://arxiv.org/abs/2610.12386) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `reasoning`, `vla`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-ARC 为机器人示范配上推理，解释下一步动作为何适合当前场景以及预期产生何种效果。其自动标注流程利用现有 DROID 数据构建 ARC-Trace-DROID。作者适配 π0.5 和 Cosmos3-Nano-Policy，并报告仿真基准及真机测试中的提升。
-
-ARC pairs robot demonstrations with reasoning about why the next action fits the scene and what it should cause. Its automatic labeling pipeline builds ARC-Trace-DROID from existing DROID data. The authors adapt π0.5 and Cosmos3-Nano-Policy and report gains in simulated benchmarks and real-robot tests.
-
-### 技术点 / Technical points
-
-- 该方法结合动作落地推理轨迹、自动标注，以及针对具体模型调整的微调和推理。
-  - The recipe combines action-grounded traces, automatic labeling and model-specific fine-tuning and inference.
-- 项目报告在 RoboLab-Reasoning-50 上最多提升 50 个百分点，无需额外机器人示范；代码、模型与数据集均标记为待发布。
-  - The project reports up to 50 percentage-point gains on RoboLab-Reasoning-50, using no additional robot demonstrations; code, models and dataset are marked coming soon.
-
-### 为什么重要 / Why it matters
-
-推理标注有望在无需采集新示范语料的情况下改善现有机器人策略。
-
-Reasoning annotations could improve existing robot policies without collecting another demonstration corpus.
-
-### 链接 / Links
-
-[Evidence 1](https://arc-robot-reasoning.github.io/)
-
----
-
-<a id="2026-10-08-ontrack-streaming-agent-monitoring"></a>
-## [OnTrack 通过流式依赖比较监控智能体执行轨迹](https://arxiv.org/abs/2610.12375)
-
-**English:** [OnTrack monitors agent trajectories with streaming dependency comparisons](https://arxiv.org/abs/2610.12375)
-
-- **发布 / Published:** `2026-10-08T17:32:08Z`
-- **来源 / Source:** [arXiv / OnTrack](https://arxiv.org/abs/2610.12375) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `benchmark`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-OnTrack 将智能体步骤及其依赖与成功参考轨迹比较，在执行过程中识别偏离。在作者的 SWE-bench 轨迹评测中，中止策略节省了约 18% 原本用于失败运行的计算；六次被中止的运行中有五次最终属于失败运行。
-
-OnTrack compares agent steps and dependencies with successful reference runs to detect deviations during execution. In the authors' SWE-bench trajectory evaluation, its abort policy saved about 18% of compute otherwise spent on failing runs; five of six aborted runs were failures.
-
-### 技术点 / Technical points
-
-- 监控每步耗时约一毫秒；检测能力取决于是否可获取参考轨迹和工具定义。
-  - Monitoring takes about one millisecond per step; detection capabilities depend on access to reference runs and tool schemas.
-- 利用前八步进行失败排序，相比内容相似度方法，AUROC 提高 0.057。
-  - Using the first eight steps, failure ranking improved AUROC by 0.057 over content-similarity approaches.
-
-### 为什么重要 / Why it matters
-
-低延迟监控有望支持更早的运行干预，但论文报告的中止样本较少。
-
-Low-latency monitoring could support earlier intervention, although the reported abort sample is small.

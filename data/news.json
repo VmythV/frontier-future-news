@@ -13918,6 +13918,197 @@
         "technical_depth": 11,
         "traction": 3
       }
+    },
+    {
+      "id": "2026-10-12-brokenml-access-regime-benchmark",
+      "published_at": "2026-10-12T12:53:39Z",
+      "collected_at": "2026-10-14T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "tool-use",
+        "open-source",
+        "ml-infrastructure"
+      ],
+      "title_en": "BrokenML releases 46 repair tasks to test agents at three access levels",
+      "title_zh": "BrokenML 发布 46 项修复任务，比较智能体在三种访问权限下的表现",
+      "summary_en": "BrokenML 0.1.0 releases broken training and serving jobs, a fresh-cluster verifier and results for nine models. It evaluates whether agents can diagnose and repair distributed ML workloads with files alone, added live logs or access to the running cluster.",
+      "summary_zh": "BrokenML 0.1.0 开放故障训练与推理服务任务、在全新集群上运行的验证器，以及九种模型的评测结果。它比较智能体仅访问文件、额外读取实时日志、或访问运行中集群时，诊断并修复分布式机器学习任务的能力。",
+      "tech_points_en": [
+        "The test split has 46 tasks spanning two-node Slurm/PyTorch training and llama.cpp serving; verification reruns jobs with fresh data.",
+        "Published runs use CPUs and Gloo, one run per task and access regime; the separate GPU split remains unvalidated."
+      ],
+      "tech_points_zh": [
+        "测试集包含 46 项任务，覆盖双节点 Slurm/PyTorch 训练和 llama.cpp 推理服务；验证器使用新数据重新运行任务。",
+        "已发布评测使用 CPU 和 Gloo，每个任务与权限组合仅运行一次；独立 GPU 子集尚未验证。"
+      ],
+      "why_it_matters_en": "Separating access levels helps test whether repair agents benefit from better reasoning or simply more operational visibility.",
+      "why_it_matters_zh": "区分访问权限有助于检验修复智能体的进步究竟来自推理能力，还是更多运行现场信息。",
+      "source": {
+        "name": "Alex Zhebrak / BrokenML",
+        "type": "primary",
+        "url": "https://github.com/zhebrak/brokenml/releases/tag/v0.1.0",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/LocalLLaMA/comments/1x41pqt/brokenml_can_agents_fix_broken_ml_jobs/"
+      ],
+      "evidence_urls": [
+        "https://api.github.com/repos/zhebrak/brokenml/releases/tags/v0.1.0",
+        "https://raw.githubusercontent.com/zhebrak/brokenml/9e12de33f539ec062b871570f04a681fa0eb54bd/README.md"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-10-12-langgraph-1215-checkpoint-replay",
+      "published_at": "2026-10-12T22:38:26Z",
+      "collected_at": "2026-10-14T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "tool-use",
+        "open-source",
+        "durable-execution"
+      ],
+      "title_en": "LangGraph 1.2.15 fixes checkpoint isolation and delta replay for agent runs",
+      "title_zh": "LangGraph 1.2.15 修复智能体运行的检查点隔离与增量重放",
+      "summary_en": "LangGraph 1.2.15 repairs how agent state writes are saved and replayed across checkpoints, forks and resumed runs. It also fixes interrupt propagation and invalid tool-resume handling, addressing several ways durable workflows could recover the wrong state.",
+      "summary_zh": "LangGraph 1.2.15 修复智能体状态写入在检查点、分叉和恢复运行中的保存与重放方式，同时修正中断传递和无效工具恢复值的处理，解决持久工作流可能恢复错误状态的多种路径。",
+      "tech_points_en": [
+        "Cached nodes now save their writes; checkpoint updates retain their own input writes, and run inputs are read only from their corresponding checkpoints.",
+        "Resumed exit-mode delta writes replay in live order; ToolNode no longer swallows invalid resume values."
+      ],
+      "tech_points_zh": [
+        "缓存节点会保存写入；检查点更新保留自身输入写入，运行输入仅从对应检查点读取。",
+        "恢复后的退出模式按实时顺序重放增量写入；ToolNode 不再吞掉无效恢复值。"
+      ],
+      "why_it_matters_en": "Correct checkpoint boundaries and replay order support reliable recovery and human intervention in long-running agent workflows.",
+      "why_it_matters_zh": "正确的检查点边界和重放顺序，为长时间智能体工作流中的可靠恢复与人工介入提供支持。",
+      "source": {
+        "name": "LangChain / LangGraph",
+        "type": "primary",
+        "url": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.15",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.15"
+      ],
+      "confidence": "high",
+      "score": 75,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 11,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-openclaw-2026103-state-preserving-recovery",
+      "published_at": "2026-10-13T13:49:25Z",
+      "collected_at": "2026-10-14T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "open-source",
+        "safety",
+        "durable-execution"
+      ],
+      "title_en": "OpenClaw 2026.10.3 preserves repair state and resumes interrupted agent turns",
+      "title_zh": "OpenClaw 2026.10.3 保留修复期间的状态并恢复中断的智能体轮次",
+      "summary_en": "OpenClaw 2026.10.3 fixes blocked updates and repairs that could discard saved sign-ins or alter malformed memory files. It also improves conversation continuation after native compaction, interrupted ChatGPT replies and failed Codex thread preparation.",
+      "summary_zh": "OpenClaw 2026.10.3 修复更新阻塞，以及修复流程可能丢失已保存登录信息或改写异常记忆文件的问题；同时改善原生上下文压缩、ChatGPT 回复中断和 Codex 线程准备失败后的对话续接。",
+      "tech_points_en": [
+        "Doctor preserves OAuth profiles when legacy authentication data is unreadable and keeps malformed UTF-8 memory files unchanged.",
+        "The next turn waits for history rebuilt after native compaction; interrupted ChatGPT replies can resume from saved conversations within existing retry limits."
+      ],
+      "tech_points_zh": [
+        "旧认证数据无法读取时，Doctor 保留 OAuth 配置，并保持包含无效 UTF-8 的记忆文件原样。",
+        "原生压缩后的下一轮等待历史重建完成；中断的 ChatGPT 回复可在现有重试限制内从已保存对话继续。"
+      ],
+      "why_it_matters_en": "Preserving memory and conversation state during repair reduces avoidable disruption to persistent agent execution.",
+      "why_it_matters_zh": "在修复期间保留记忆和对话状态，可减少持续运行智能体遭受的可避免中断。",
+      "source": {
+        "name": "OpenClaw",
+        "type": "primary",
+        "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.3",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.3"
+      ],
+      "confidence": "high",
+      "score": 73,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 10,
+        "technical_depth": 11,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-pydantic-ai-256-durability-microvm",
+      "published_at": "2026-10-13T23:35:15Z",
+      "collected_at": "2026-10-14T00:03:56Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "open-source",
+        "durable-execution",
+        "sandbox"
+      ],
+      "title_en": "Pydantic AI 2.56 adds durable execution backends and a local microVM workspace",
+      "title_zh": "Pydantic AI 2.56 新增持久执行后端与本地 microVM 工作空间",
+      "summary_en": "Pydantic AI 2.56.0 adds PGTaskDurability, Render Workflows integration and SmolSandbox for running harness capabilities in a local smolvm microVM. The release also changes BrowserUse defaults and improves skill-library composition and tool-call handling.",
+      "summary_zh": "Pydantic AI 2.56.0 新增 PGTaskDurability、Render Workflows 集成，以及在本地 smolvm microVM 中运行执行框架能力的 SmolSandbox；同时调整 BrowserUse 默认行为，改进技能库组合与工具调用处理。",
+      "tech_points_en": [
+        "BrowserUse runs on the host model by default, with browser-use telemetry requiring opt-in.",
+        "Skills can layer project and personal libraries; CodeMode calls gathered under parallel_ordered_events now execute concurrently."
+      ],
+      "tech_points_zh": [
+        "BrowserUse 默认使用宿主模型，浏览器使用遥测改为主动选择启用。",
+        "Skills 支持叠加项目与个人技能库；parallel_ordered_events 下收集的 CodeMode 调用可并发执行。"
+      ],
+      "why_it_matters_en": "More durability backends and an isolated local workspace expand how developers deploy and recover tool-using agents.",
+      "why_it_matters_zh": "更多持久执行后端与隔离的本地工作空间，扩展了开发者部署和恢复工具使用型智能体的选择。",
+      "source": {
+        "name": "Pydantic AI",
+        "type": "primary",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.56.0"
+      ],
+      "confidence": "high",
+      "score": 79,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }
