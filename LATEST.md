@@ -38,6 +38,326 @@ More durability backends and an isolated local workspace expand how developers d
 
 ---
 
+<a id="2026-10-13-chunkact-agentic-robot-action-chunks"></a>
+## [ChunkAct 通过编译动作块减少机器人智能体的推理调用](https://arxiv.org/abs/2610.18874)
+
+**English:** [ChunkAct reduces robot-agent reasoning calls by executing compiled action chunks](https://arxiv.org/abs/2610.18874)
+
+- **发布 / Published:** `2026-10-13T17:59:57Z`
+- **来源 / Source:** [arXiv — ChunkAct authors](https://arxiv.org/abs/2610.18874) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+ChunkAct 将记忆中的机器人操作流程编译为可自主执行的动作块，执行失败时再交回规划器。预印本报告在 LIBERO-Pro 上成功率提高 5 个百分点，LLM 调用次数减少至原来的约 1/2.9。
+
+ChunkAct compiles remembered robot routines into autonomous action chunks, returning to the planner when execution fails. The preprint reports a five-point success gain on LIBERO-Pro with 2.9× fewer LLM calls.
+
+### 技术点 / Technical points
+
+- 动作块串联感知、运动和 VLA 操作原语。
+  - Chunks chain perception, motion and VLA primitives.
+- 离线编译使测试时无需查询操作记忆。
+  - Offline compilation removes runtime memory lookup.
+
+### 为什么重要 / Why it matters
+
+它提供了一种把昂贵推理集中于机器人控制决策的方法。
+
+It offers a concrete way to reserve expensive reasoning for decisions in robot control.
+
+---
+
+<a id="2026-10-13-loopwam-deployment-rollout-improvement"></a>
+## [LoopWAM 利用不同质量的部署轨迹改进机器人策略](https://arxiv.org/abs/2610.18873)
+
+**English:** [LoopWAM improves robot policies using mixed-quality deployment rollouts](https://arxiv.org/abs/2610.18873)
+
+- **发布 / Published:** `2026-10-13T17:59:56Z`
+- **来源 / Source:** [arXiv — LoopWAM authors](https://arxiv.org/abs/2610.18873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `world-action-model`, `continual-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+LoopWAM 从成功、次优和失败的机器人轨迹中联合学习未来视频与动作。作者报告，经过三轮部署与训练，RoboChallenge Table30-V2 的成功率从 23.67% 提升至 43.33%。
+
+LoopWAM jointly learns future video and actions from successful, suboptimal and failed robot rollouts. The authors report that three deployment-and-training rounds raise RoboChallenge Table30-V2 success from 23.67% to 43.33%.
+
+### 技术点 / Technical points
+
+- 质量感知监督保留视频信息，同时调节动作模仿。
+  - Quality-aware supervision retains videos while regulating action imitation.
+- 视频与动作 token 在去噪过程中交换信息。
+  - Video and action tokens exchange information during denoising.
+
+### 为什么重要 / Why it matters
+
+从失败轨迹中学习物理后果，有望提高部署数据的利用价值。
+
+Learning physical consequences from failed rollouts could make deployment data more useful.
+
+---
+
+<a id="2026-10-13-axis-bench-quality-aware-vla-pretraining"></a>
+## [AXIS-Bench 在相同示范数据上比较质量感知 VLA 预训练](https://arxiv.org/abs/2610.18869)
+
+**English:** [AXIS-Bench compares quality-aware VLA pretraining on shared demonstrations](https://arxiv.org/abs/2610.18869)
+
+- **发布 / Published:** `2026-10-13T17:59:52Z`
+- **来源 / Source:** [arXiv — AXIS-Bench authors](https://arxiv.org/abs/2610.18869) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `benchmark`, `dataset`, `robot-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+AXIS-Bench 使用 5,000 条非最优人类示范和 24 个目标任务，比较加权、筛选与条件化预训练。预印本发现质量条件化的效果取决于模型，并报告仿真预训练后真实机器人成功率从 9.6% 提高至 31.7%。
+
+AXIS-Bench compares weighting, filtering and conditioning with 5,000 imperfect human demonstrations and 24 target tasks. The preprint finds that quality-conditioning choices depend on the model and reports real-world success rising from 9.6% to 31.7% after simulation pretraining.
+
+### 技术点 / Technical points
+
+- 同一 VLA 内的比较匹配数据与训练预算。
+  - Within each VLA, comparisons match data and training budgets.
+- 记录的物体和接触状态支持重新计算质量标签。
+  - Recorded object and contact states support recomputing quality labels.
+
+### 为什么重要 / Why it matters
+
+受控比较有助于区分示范质量信号的贡献与额外训练资源的影响。
+
+Controlled comparisons help distinguish useful demonstration-quality signals from extra training resources.
+
+---
+
+<a id="2026-10-13-tev-gym-dense-progress-rewards"></a>
+## [Tev-Gym 为可验证的长程智能体任务提供密集进度奖励](https://arxiv.org/abs/2610.18868)
+
+**English:** [Tev-Gym builds verifiable long-horizon agent tasks with dense progress rewards](https://arxiv.org/abs/2610.18868)
+
+- **发布 / Published:** `2026-10-13T17:59:51Z`
+- **来源 / Source:** [arXiv — Tev-Gym authors](https://arxiv.org/abs/2610.18868) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `reinforcement-learning`, `long-horizon`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Tev 提出覆盖七个领域的 1,170 个已验证环境，并用基于进度的奖励塑形训练 Tev-27B。预印本报告了 ALE 计算与数学任务上的提升，以及向 Terminal-Bench 子集的迁移。
+
+Tev introduces 1,170 verified environments across seven domains and trains Tev-27B using progress-based reward shaping. The preprint reports gains on ALE computing and math tasks and transfer to Terminal-Bench subsets.
+
+### 技术点 / Technical points
+
+- 隐藏任务规格定义每一步之后的预期状态。
+  - Hidden task specifications define expected states after each step.
+- 进度势奖励塑形将任务进度转化为逐步反馈。
+  - Progress-potential reward shaping turns progress into per-step feedback.
+
+### 为什么重要 / Why it matters
+
+可验证的中间反馈有助于解决长程智能体训练中的奖励稀疏问题。
+
+Verifiable intermediate feedback addresses sparse rewards in long-running agent training.
+
+---
+
+<a id="2026-10-13-hybridagents-latent-text-reasoning"></a>
+## [HybridAgents 在潜在推理与文本工具交互之间切换](https://arxiv.org/abs/2610.18861)
+
+**English:** [HybridAgents switches between latent reasoning and text-based tool interaction](https://arxiv.org/abs/2610.18861)
+
+- **发布 / Published:** `2026-10-13T17:59:31Z`
+- **来源 / Source:** [arXiv — HybridAgents authors](https://arxiv.org/abs/2610.18861) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `tool-use`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+HybridAgents 通过 HybridLink 和连续工作记忆结合潜在推理与文本交互。作者在三种模型规模、十一个基准上报告，性能改善的同时 token 用量减少 35.5%–54.7%。
+
+HybridAgents combines latent reasoning with text interaction through HybridLink and continuous working memory. Across three model scales and eleven benchmarks, the authors report token reductions of 35.5%–54.7% alongside improved performance.
+
+### 技术点 / Technical points
+
+- HybridSFT 训练主干模型与 HybridLink 的协同。
+  - HybridSFT trains coordination between the backbone and HybridLink.
+- HybridRL 学习何时进行潜在推理、何时通过文本采取行动。
+  - HybridRL learns when to reason latently and when to act through text.
+
+### 为什么重要 / Why it matters
+
+该设计将高效内部推理与智能体的外部工具接口连接起来。
+
+The design connects efficient internal reasoning with an agent's external tool interface.
+
+---
+
+<a id="2026-10-13-libero-rig-hardware-robustness"></a>
+## [LIBERO-RIG 单独评测机器人硬件与设置变化下的 VLA 失效](https://arxiv.org/abs/2610.18843)
+
+**English:** [LIBERO-RIG isolates robot hardware and setup failures in VLA evaluation](https://arxiv.org/abs/2610.18843)
+
+- **发布 / Published:** `2026-10-13T17:57:18Z`
+- **来源 / Source:** [arXiv — LIBERO-RIG authors](https://arxiv.org/abs/2610.18843) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `benchmark`, `hardware`, `robustness`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+LIBERO-RIG 固定 LIBERO 任务，仅改变机器人硬件与设置。作者测试九种 VLA 模型，报告汇总成功率在最高扰动强度下从 93.2% 降至 50.9%。
+
+LIBERO-RIG varies robot hardware and setup while keeping LIBERO tasks fixed. Testing nine VLA models, the authors report pooled success falling from 93.2% to 50.9% at the highest perturbation severity.
+
+### 技术点 / Technical points
+
+- 十一个扰动轴覆盖传感、标定与控制。
+  - Eleven perturbation axes cover sensing, calibration and control.
+- 固定的回合参数清单使硬件扰动可复现。
+  - Fixed episode manifests make hardware perturbations reproducible.
+
+### 为什么重要 / Why it matters
+
+它可测量仅靠视觉鲁棒性训练容易遗漏的部署脆弱性。
+
+It measures deployment fragility that visual-only robustness training can miss.
+
+---
+
+<a id="2026-10-13-worldoracle-real-execution-benchmark"></a>
+## [WorldOracle 将世界模型预测与配对的真实机器人执行对照](https://arxiv.org/abs/2610.18826)
+
+**English:** [WorldOracle tests world-model predictions against paired real robot executions](https://arxiv.org/abs/2610.18826)
+
+- **发布 / Published:** `2026-10-13T17:52:55Z`
+- **来源 / Source:** [arXiv — WorldOracle authors](https://arxiv.org/abs/2610.18826) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WorldOracle 在相同初始观测和低层动作下，将预测轨迹与真实执行对照。预印本评测七种动作条件世界模型；数据集、评测代码和排行榜仍为计划发布。
+
+WorldOracle compares predicted rollouts with real executions given identical starting observations and low-level actions. The preprint evaluates seven action-conditioned world models; dataset, evaluation-code and leaderboard releases are planned.
+
+### 技术点 / Technical points
+
+- 四个维度检验物理状态、空间对齐、交互保真度与多视角一致性。
+  - Four dimensions examine physical state, spatial alignment, interaction fidelity and multi-view coherence.
+- 长回合包含成功和失败的执行轨迹。
+  - Long episodes include successful and failed executions.
+
+### 为什么重要 / Why it matters
+
+配对的物理结果能提供比视频观感更直接的检验。
+
+Matched physical outcomes provide a stronger test than video plausibility alone.
+
+---
+
+<a id="2026-10-13-self-evolving-agent-harness-validation"></a>
+## [Self-Evolving Agent Harness 形式化持久修订与独立验证](https://arxiv.org/abs/2610.18813)
+
+**English:** [Self-Evolving Agent Harness formalizes persistent revisions and independent validation](https://arxiv.org/abs/2610.18813)
+
+- **发布 / Published:** `2026-10-13T17:48:49Z`
+- **来源 / Source:** [arXiv — Self-Evolving Agent Harness authors](https://arxiv.org/abs/2610.18813) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `self-improvement`, `evaluation`, `memory`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+该预印本形式化了在模型权重固定时，依据反馈修改提示、记忆、工作流与可执行组件的过程。其理论分析在明确假设下给出泛化与保留界，并提出使用新鲜独立验证数据的修订准入规则。
+
+This preprint formalizes feedback-driven changes to prompts, memory, workflows and executable components while model weights stay fixed. Its theoretical analysis gives conditional generalization and retention bounds, plus an admission rule based on fresh independent validation data.
+
+### 技术点 / Technical points
+
+- 更新目标与修订提议、准入机制分开定义。
+  - Update targets are separated from proposal and admission mechanisms.
+- 保留保证依赖历史任务的回归预算。
+  - Retention guarantees depend on historical regression budgets.
+
+### 为什么重要 / Why it matters
+
+它为智能体运行框架的持久变更提供了明确的验证条件。
+
+It provides explicit validation conditions for persistent agent scaffolding changes.
+
+---
+
+<a id="2026-10-13-carryon-object-oriented-agent-context"></a>
+## [CarryOn 用可复用任务对象组织长程智能体上下文](https://arxiv.org/abs/2610.18784)
+
+**English:** [CarryOn organizes long-horizon agent context around reusable task objects](https://arxiv.org/abs/2610.18784)
+
+- **发布 / Published:** `2026-10-13T17:35:27Z`
+- **来源 / Source:** [arXiv — CarryOn authors](https://arxiv.org/abs/2610.18784) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `computer-use`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+CarryOn 维护与证据关联的任务对象，无需反复从完整交互历史中重建进度。作者报告，在任务表现改善的同时，OSWorld 2.0 和 BrowseComp-Plus 的总 token 用量分别减少 51.9% 和 22.9%。
+
+CarryOn maintains task objects linked to evidence instead of repeatedly rebuilding progress from full interaction histories. The authors report total token reductions of 51.9% on OSWorld 2.0 and 22.9% on BrowseComp-Plus, with improved task performance.
+
+### 技术点 / Technical points
+
+- 上下文结合续接载体、执行状态和近期交互。
+  - Context combines continuation carriers, execution state and recent interactions.
+- 更新时依据证据与环境检查修订受影响记录。
+  - Updates revise affected records against evidence and environment checks.
+
+### 为什么重要 / Why it matters
+
+持久任务状态为高效续接长程任务提供了另一种基础。
+
+Persistent task state offers an alternative basis for efficient long-horizon continuation.
+
+---
+
+<a id="2026-10-13-uniwam-shared-world-action-experts"></a>
+## [UniW(A)M 在世界预测与机器人动作生成之间共享专家](https://arxiv.org/abs/2610.18697)
+
+**English:** [UniW(A)M shares experts between world prediction and robot action generation](https://arxiv.org/abs/2610.18697)
+
+- **发布 / Published:** `2026-10-13T16:47:16Z`
+- **来源 / Source:** [arXiv — UniW(A)M authors](https://arxiv.org/abs/2610.18697) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `mixture-of-experts`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+UniW(A)M 在扩散 Transformer 中结合共享动力学专家与专门能力专家。预印本报告，三个真实操作任务的平均成功率为 88.3%，最强对比基线为 76.7%。
+
+UniW(A)M uses diffusion Transformers with shared dynamics experts and specialized capability experts. The preprint reports 88.3% average success on three real-world manipulation tasks versus 76.7% for its strongest comparison baseline.
+
+### 技术点 / Technical points
+
+- 联合训练连接动作条件预测与多种动作接口。
+  - Joint training connects action-conditioned prediction with multiple action interfaces.
+- PAIR 在主干冻结时为每个执行块选择接口。
+  - PAIR selects interfaces per execution chunk while freezing the backbone.
+
+### 为什么重要 / Why it matters
+
+共享学到的动力学有望缩小机器人预测与控制之间的分隔。
+
+Sharing learned dynamics could reduce separation between robot prediction and control.
+
+---
+
 <a id="2026-10-13-openclaw-2026103-state-preserving-recovery"></a>
 ## [OpenClaw 2026.10.3 保留修复期间的状态并恢复中断的智能体轮次](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
 
@@ -350,340 +670,3 @@ OpenClaw preserves Code Mode stored values across cells, replies and Gateway res
 对跨重启和委派会话运行的智能体而言，状态连续性与稳健恢复具有实际价值。
 
 State continuity and safer recovery matter for agents that operate across restarts and delegated sessions.
-
----
-
-<a id="2026-10-10-talorys-personal-agent-release"></a>
-## [Talorys 发布具备持久记忆和定时任务的个人智能体](https://github.com/rociiu/talorys)
-
-**English:** [Talorys releases a personal agent with durable memory and scheduled routines](https://github.com/rociiu/talorys)
-
-- **发布 / Published:** `2026-10-10T09:57:15.731Z`
-- **来源 / Source:** [Roc Yu / Talorys](https://github.com/rociiu/talorys) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `tool-use`, `open-source`, `scheduled-tasks`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Talorys 发布 create-talorys 0.1.0 安装包，将单用户智能体部署到用户自己的 Cloudflare 账户。开源系统结合工具调用对话、持久记忆、任务管理和定时流程。发布时间取自 npm 注册表中 0.1.0 的发布记录，功能核验使用该版本 gitHead 对应的源码快照。
-
-Talorys published create-talorys 0.1.0, an installer for a single-user agent running in the owner’s Cloudflare account. The open-source system combines tool-calling chat, persistent memory, task management and scheduled routines. Publication time is the npm registry timestamp for 0.1.0; the source snapshot is pinned to that package’s gitHead.
-
-### 技术点 / Technical points
-
-- Cloudflare Agents SDK 的 Durable Object 通过 SQLite 保存对话、记忆和任务，并使用 alarms 执行周期计划。
-  - A Cloudflare Agents SDK Durable Object stores conversations, memories and tasks in SQLite and uses alarms for recurring schedules.
-- Cloudflare Pages 经 service binding 将请求转发至私有 Worker，Workers AI 提供流式推理与工具调用。
-  - Cloudflare Pages forwards requests through a service binding to a private Worker; Workers AI supplies streaming inference and tool calling.
-
-### 为什么重要 / Why it matters
-
-可检查的实现为持久个人智能体提供了具体架构：状态和计划任务均运行在用户掌控的云账户内。
-
-The inspectable implementation offers a concrete pattern for persistent personal agents whose state and schedules live in a user-controlled cloud account.
-
-### 链接 / Links
-
-[Evidence 1](https://registry.npmjs.org/create-talorys) · [Evidence 2](https://github.com/rociiu/talorys/blob/5fd1fc6ebfde6ee38cca27e1d405406c2f7ef77b/README.md)
-[Discussion 1](https://news.ycombinator.com/item?id=50031614)
-
----
-
-<a id="2026-10-10-vpp2-video-checkpoints-release"></a>
-## [VPP2 开放 Stage-1 和 Stage-2 机器人视频预测权重](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
-
-**English:** [VPP2 opens Stage-1 and Stage-2 robot video prediction checkpoints](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
-
-- **发布 / Published:** `2026-10-10T04:09:03Z`
-- **来源 / Source:** [VPP2 team / Robotera](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `video-prediction`, `world-action-model`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-VPP2 团队公开了生成 49 帧的 Stage-1 和生成 17 帧的 Stage-2 视频权重，并提供独立推理指南，让研究者能够使用其机器人世界动作模型的视频预测模块。本条记录对应 10 月 10 日的权重开放公告，发布时间取自官方公告提交，不将此前论文或基准结果作为新事件。
-
-The VPP2 team announced public 49-frame Stage-1 and 17-frame Stage-2 video checkpoints, with a standalone inference guide. The release exposes the video prediction component of its robot world-action model. This record covers the October 10 checkpoint announcement, rather than the earlier paper or benchmark results; its timestamp comes from the official announcement commit.
-
-### 技术点 / Technical points
-
-- 预测以初始图像和文本指令为输入；Stage-1 面向事件级视频，Stage-2 使用固定时间跨度。
-  - Prediction takes an initial image and a text instruction; Stage-1 models event-level video and Stage-2 uses a fixed time horizon.
-- 仓库提供输入准备、单图及批量推理流程，并另列机器人策略训练指南。
-  - The repository supplies input preparation and single-image or batch inference workflows, alongside separate robot-policy training guides.
-
-### 为什么重要 / Why it matters
-
-公开的视频权重让研究者能够先检查和适配机器人预测表征，再将其与动作策略结合。
-
-Accessible video checkpoints let researchers inspect and adapt predictive robot representations before coupling them to action policies.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/roboterax/video-prediction-policy-2) · [Evidence 2](https://huggingface.co/Haodong082399/VPP2) · [Evidence 3](https://github.com/roboterax/video-prediction-policy-2/blob/main/docs/video_prediction.md)
-
----
-
-<a id="2026-10-09-prime-agent-010-rust-rewrite"></a>
-## [Prime Agent 0.10 发布由逾 2,000 个智能体参与开发的 Rust 重写版](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
-
-**English:** [Prime Agent 0.10 ships a Rust rewrite developed with over 2,000 agents](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0)
-
-- **发布 / Published:** `2026-10-09T21:28:57Z`
-- **来源 / Source:** [Prime Intellect](https://github.com/PrimeIntellect-ai/prime-agent/releases/tag/v0.10.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `multi-agent`, `benchmark`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Prime Intellect 发布 Rust 版 Prime Agent 0.10。团队报告，重写过程使用逾 2,000 个智能体、10,000 个沙箱及 2,000 亿 token，并以差分检查比较界面、运行框架和协议行为。发布时间采用 GitHub 正式发布时刻。
-
-Prime Intellect shipped Prime Agent 0.10 in Rust. The team reports using over 2,000 agents, 10,000 sandboxes and 200 billion tokens for the rewrite. Differential checks compared interface, harness and protocol behavior. The timestamp identifies the formal GitHub release.
-
-### 技术点 / Technical points
-
-- 会话在独立工作进程中运行并持久化到磁盘；重写版还加入原生 Windows 测试版支持。
-  - Sessions run in separate worker processes and persist on disk; the rewrite also adds native Windows support in beta.
-- 自定义运行时测试报告，相较 TypeScript，可输入延迟约降低至十三分之一、启动后内存减少逾 80%；测量不含推理。
-  - The custom runtime benchmark reports roughly 13× faster time to type and over 80% lower startup memory than TypeScript; measurements exclude inference.
-
-### 为什么重要 / Why it matters
-
-这次发布提供了智能体辅助软件迁移的具体案例，并给出明确的验证方法与运行时测量。
-
-The release supplies a concrete example of agent-assisted software migration with explicit verification and runtime measurements.
-
-### 链接 / Links
-
-[Evidence 1](https://www.primeintellect.ai/blog/prime-agent-rust)
-
----
-
-<a id="2026-10-09-claude-code-21296-permission-boundaries"></a>
-## [Claude Code 2.1.296 修复无人值守 MCP 与权限边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.296)
-
-**English:** [Claude Code 2.1.296 repairs headless MCP and permission boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.296)
-
-- **发布 / Published:** `2026-10-09T19:28:59Z`
-- **来源 / Source:** [Anthropic / Claude Code](https://github.com/anthropics/claude-code/releases/tag/v2.1.296) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `tool-use`, `memory`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-Claude Code 修复无人值守会话在切换目录或重载插件后启动已禁用 MCP 服务的问题，并纠正部分 shell 变量命令被自动批准，以及云会话对已保存浏览器权限漏做检查的情况。
-
-Claude Code fixes headless sessions starting disabled MCP servers after directory changes or plugin reloads. It also corrects automatic approval of some shell-variable commands and cloud sessions bypassing checks on saved browser permissions.
-
-### 技术点 / Technical points
-
-- 子智能体可独立于主会话设置更早的自动压缩窗口。
-  - Subagents can set an earlier auto-compaction window independently of the main conversation.
-- 托管拒绝钩子按预期结束回合；共享记录和调试日志的敏感值遮蔽覆盖更多格式。
-  - Managed denying hooks now end the turn as intended; shared-transcript and debug-log secret redaction covers additional value patterns.
-
-### 为什么重要 / Why it matters
-
-这些修复加强无人值守编码智能体的策略执行，并改善委派任务的上下文控制。
-
-These fixes strengthen policy enforcement for unattended coding agents and improve context control for delegated work.
-
----
-
-<a id="2026-10-09-pydantic-ai-255-durable-conversations"></a>
-## [Pydantic AI 2.55 新增可存储会话并加强持久执行](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0)
-
-**English:** [Pydantic AI 2.55 adds stored conversations and strengthens durable execution](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0)
-
-- **发布 / Published:** `2026-10-09T19:20:25Z`
-- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.55.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `memory`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Pydantic AI 引入 Conversation，在多次运行间传递并存储上下文。持久执行保留运行标识，并记录规划、记忆及运行框架工具操作，使恢复过程避免重复写入；此次发布还新增统一的提示缓存配置。
-
-Pydantic AI introduces Conversation for carrying and storing context between runs. Durable execution preserves run identifiers and records planning, memory and harness tool operations so recovery avoids repeated writes. The release also adds unified prompt caching.
-
-### 技术点 / Technical points
-
-- 恢复委派子智能体时会收尾被中断的工具调用；输入防护阻断时取消流式模型请求。
-  - Resuming a delegated subagent closes interrupted tool calls; blocking input guardrails cancel streamed model requests.
-- 回退尝试记录耗时、错误和用量，被拒绝响应计入预算；最低要求 Python 3.11。
-  - Fallback attempts expose timing, errors and usage; rejected responses count toward budgets. Python 3.11 or newer is required.
-
-### 为什么重要 / Why it matters
-
-这些改动让持续智能体流程更易恢复，并使重试成本更易核算。
-
-The changes make persistent agent workflows easier to recover and their retries easier to account for.
-
----
-
-<a id="2026-10-09-nanoclaw-202610-safe-updates"></a>
-## [NanoClaw 2026.10.0 引入发布通道并修复智能体运行时回滚](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0)
-
-**English:** [NanoClaw 2026.10.0 introduces release channels and safer agent-runtime rollback](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0)
-
-- **发布 / Published:** `2026-10-09T11:26:13Z`
-- **来源 / Source:** [NanoClaw](https://github.com/nanocoai/nanoclaw/releases/tag/v2026.10.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `safety`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-NanoClaw 默认更新来源改为正式发布版本，修复可能删除数据的回滚路径，并要求 OneCLI 网关使用 1.42.0 以堵住其凭据注入绕过漏洞。Iron Proxy 新增对无密钥本地模型的受限访问。
-
-NanoClaw now updates from published releases by default. It repairs rollback paths that could delete data and requires OneCLI 1.42.0 to close a credential-injection bypass in that gateway. Iron Proxy adds constrained access to keyless local models.
-
-### 技术点 / Technical points
-
-- stable、beta 和 edge 通道记录所选通道及具体版本。
-  - Stable, beta and edge channels record the selected channel and exact release.
-- 回滚在恢复数据前停止活动智能体容器；本地模型访问限定于所选端口和推理路由。
-  - Rollback stops active agent containers before restoring data; local-model access is limited to the selected port and inference routes.
-
-### 为什么重要 / Why it matters
-
-更稳健的升级恢复与受限模型访问有助于降低持续运行智能体的运维风险。
-
-Safer upgrade recovery and bounded model access address operational risks in continuously running agents.
-
----
-
-<a id="2026-10-08-gemini-agent-persistent-enterprise-work"></a>
-## [Google 宣布面向企业工作的持久运行 Gemini agent](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
-
-**English:** [Google announces a persistent Gemini agent for enterprise work](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026)
-
-- **发布 / Published:** `2026-10-08T19:00:11Z`
-- **来源 / Source:** [Google Cloud](https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `memory`, `tool-use`, `long-horizon`, `enterprise`, `sandbox`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Google Cloud 宣布统一的 Gemini agent，可规划工作、使用企业工具并跨应用协调子智能体。公司描述了持续数小时或数天的云端执行，以及不同访问渠道之间共享的上下文和记忆。
-
-Google Cloud announced a unified Gemini agent that plans work, uses enterprise tools, and coordinates subagents across applications. The company describes cloud execution lasting hours or days with shared context and memory across access channels.
-
-### 技术点 / Technical points
-
-- 架构包含会话、语义、程序性和情景记忆，以及共享的工具和技能注册表。
-  - The architecture includes session, semantic, procedural, and episodic memory, plus shared registries for tools and skills.
-- 协作智能体拥有专属身份和存储；沙箱、Agent Gateway 策略及动作审计轨迹用于治理执行。
-  - Coworker agents receive dedicated identities and storage; sandboxing, Agent Gateway policies, and action audit trails govern execution.
-
-### 为什么重要 / Why it matters
-
-持久执行和明确的身份有望支持企业治理范围内更长的委托工作流程。
-
-Persistent execution and explicit identities could support longer delegated workflows within enterprise controls.
-
----
-
-<a id="2026-10-08-dex-one2many-single-video-manipulation"></a>
-## [Dex-One2Many 从一段人类视频学习可泛化的灵巧操作](https://arxiv.org/abs/2610.12470)
-
-**English:** [Dex-One2Many learns generalizable dexterous manipulation from one human video](https://arxiv.org/abs/2610.12470)
-
-- **发布 / Published:** `2026-10-08T17:59:58Z`
-- **来源 / Source:** [arXiv / Dex-One2Many](https://arxiv.org/abs/2610.12470) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Dex-One2Many 将一段人类示范视频转化为连续场景图，用于指导仿真中的强化学习。训练后的策略可零样本迁移至真实多指机械手，并在五项操作与工具使用任务上评测，包括示范中未出现的配置。
-
-Dex-One2Many converts one human demonstration video into sequential scene graphs that guide reinforcement learning in simulation. The resulting policies transfer zero-shot to real multi-fingered hands and are evaluated on five manipulation and tool-use tasks, including configurations absent from the demonstration.
-
-### 技术点 / Technical points
-
-- 场景关系约束多样化初始状态采样，并为各任务阶段提供密集奖励。
-  - Scene relations constrain diverse reset-state sampling and provide dense rewards for individual task stages.
-- 关系约束允许不同物体位姿和抓握方式，无需精确模仿录制动作；项目页显示代码尚待发布。
-  - Relational constraints permit different object poses and grasps without requiring exact imitation of the recorded motion; the project lists code as coming soon.
-
-### 为什么重要 / Why it matters
-
-复用少量人类示范有望降低灵巧操作任务对机器人数据的需求。
-
-Reusing sparse human demonstrations could reduce the robot-data burden for dexterous tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://dex-one2many.github.io/)
-
----
-
-<a id="2026-10-08-dreamtrue-counterfactual-robot-world-model"></a>
-## [DreamTrue 通过反事实后训练改善机器人世界模型的动作忠实度](https://arxiv.org/abs/2610.12468)
-
-**English:** [DreamTrue uses counterfactual post-training for action-faithful robot prediction](https://arxiv.org/abs/2610.12468)
-
-- **发布 / Published:** `2026-10-08T17:59:51Z`
-- **来源 / Source:** [arXiv / DreamTrue](https://arxiv.org/abs/2610.12468) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-DreamTrue 针对多视角、跨本体机器人世界模型中的校准误差及交互数据偏向成功的问题，结合图像空间动作条件、几何校准和反事实后训练。论文报告在 AgiBot 上，人类评估的交互缺陷率从 48.12% 降至 6.25%。
-
-DreamTrue addresses calibration errors and success-biased robot interaction data in a multi-view, cross-embodiment world model. It combines image-space action conditioning, geometric calibration and counterfactual post-training. The paper reports a reduction in human-assessed interaction defects from 48.12% to 6.25% on AgiBot.
-
-### 技术点 / Technical points
-
-- 修改动作轨迹，为更多动作及接触配置生成预测。
-  - Modified action trajectories generate predictions across additional actions and contact configurations.
-- 利用人类标注的机器人、物体和交互缺陷训练奖励模型，指导强化学习后训练。
-  - A reward model trained on human-labeled robot, object and interaction defects guides reinforcement-learning post-training.
-
-### 为什么重要 / Why it matters
-
-能表达失败交互的预测有望改善机器人世界模型对备选动作的评估。
-
-Predictions that represent failed interactions could improve how robot world models evaluate alternative actions.
-
----
-
-<a id="2026-10-08-brickbench-agentic-design"></a>
-## [BrickBench 评估编程智能体能否设计可搭建的 LEGO 结构](https://arxiv.org/abs/2610.12452)
-
-**English:** [BrickBench evaluates whether coding agents can design buildable LEGO assemblies](https://arxiv.org/abs/2610.12452)
-
-- **发布 / Published:** `2026-10-08T17:58:56Z`
-- **来源 / Source:** [arXiv / BrickBench](https://arxiv.org/abs/2610.12452) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `reasoning`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-BrickBench 提出由文本描述驱动的 LEGO 设计任务，要求智能体同时满足语义目标与物理搭建约束。论文提供用于构造、检查和验证设计的 BrickAgent 环境，并报告领先智能体能满足许多可验证要求，但设计表现仍落后于人类。
-
-BrickBench introduces text-conditioned LEGO design tasks that require agents to satisfy semantic goals and physical assembly constraints. The paper provides BrickAgent for constructing, inspecting and validating designs, and reports that leading agents meet many checkable requirements but still trail human designs.
-
-### 技术点 / Technical points
-
-- 三个评测设置改变结构规模和可用零件，评分覆盖有效性、语义匹配与设计质量。
-  - Three evaluation settings vary assembly scale and available parts; scoring covers validity, alignment and design.
-- 智能体需从离散零件库中选择部件，同时推理局部连接和整体结构。
-  - Agents select discrete parts while reasoning about both local connections and global structure.
-
-### 为什么重要 / Why it matters
-
-可搭建性约束为智能体设计推理提供了具体检验，补充仅看图像或代码是否合理的评测。
-
-Buildability constraints offer a concrete test of agent design reasoning beyond producing plausible images or code.

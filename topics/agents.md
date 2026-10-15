@@ -38,6 +38,166 @@ More durability backends and an isolated local workspace expand how developers d
 
 ---
 
+<a id="2026-10-13-chunkact-agentic-robot-action-chunks"></a>
+## [ChunkAct 通过编译动作块减少机器人智能体的推理调用](https://arxiv.org/abs/2610.18874)
+
+**English:** [ChunkAct reduces robot-agent reasoning calls by executing compiled action chunks](https://arxiv.org/abs/2610.18874)
+
+- **发布 / Published:** `2026-10-13T17:59:57Z`
+- **来源 / Source:** [arXiv — ChunkAct authors](https://arxiv.org/abs/2610.18874) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+ChunkAct 将记忆中的机器人操作流程编译为可自主执行的动作块，执行失败时再交回规划器。预印本报告在 LIBERO-Pro 上成功率提高 5 个百分点，LLM 调用次数减少至原来的约 1/2.9。
+
+ChunkAct compiles remembered robot routines into autonomous action chunks, returning to the planner when execution fails. The preprint reports a five-point success gain on LIBERO-Pro with 2.9× fewer LLM calls.
+
+### 技术点 / Technical points
+
+- 动作块串联感知、运动和 VLA 操作原语。
+  - Chunks chain perception, motion and VLA primitives.
+- 离线编译使测试时无需查询操作记忆。
+  - Offline compilation removes runtime memory lookup.
+
+### 为什么重要 / Why it matters
+
+它提供了一种把昂贵推理集中于机器人控制决策的方法。
+
+It offers a concrete way to reserve expensive reasoning for decisions in robot control.
+
+---
+
+<a id="2026-10-13-tev-gym-dense-progress-rewards"></a>
+## [Tev-Gym 为可验证的长程智能体任务提供密集进度奖励](https://arxiv.org/abs/2610.18868)
+
+**English:** [Tev-Gym builds verifiable long-horizon agent tasks with dense progress rewards](https://arxiv.org/abs/2610.18868)
+
+- **发布 / Published:** `2026-10-13T17:59:51Z`
+- **来源 / Source:** [arXiv — Tev-Gym authors](https://arxiv.org/abs/2610.18868) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `dataset`, `reinforcement-learning`, `long-horizon`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Tev 提出覆盖七个领域的 1,170 个已验证环境，并用基于进度的奖励塑形训练 Tev-27B。预印本报告了 ALE 计算与数学任务上的提升，以及向 Terminal-Bench 子集的迁移。
+
+Tev introduces 1,170 verified environments across seven domains and trains Tev-27B using progress-based reward shaping. The preprint reports gains on ALE computing and math tasks and transfer to Terminal-Bench subsets.
+
+### 技术点 / Technical points
+
+- 隐藏任务规格定义每一步之后的预期状态。
+  - Hidden task specifications define expected states after each step.
+- 进度势奖励塑形将任务进度转化为逐步反馈。
+  - Progress-potential reward shaping turns progress into per-step feedback.
+
+### 为什么重要 / Why it matters
+
+可验证的中间反馈有助于解决长程智能体训练中的奖励稀疏问题。
+
+Verifiable intermediate feedback addresses sparse rewards in long-running agent training.
+
+---
+
+<a id="2026-10-13-hybridagents-latent-text-reasoning"></a>
+## [HybridAgents 在潜在推理与文本工具交互之间切换](https://arxiv.org/abs/2610.18861)
+
+**English:** [HybridAgents switches between latent reasoning and text-based tool interaction](https://arxiv.org/abs/2610.18861)
+
+- **发布 / Published:** `2026-10-13T17:59:31Z`
+- **来源 / Source:** [arXiv — HybridAgents authors](https://arxiv.org/abs/2610.18861) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `tool-use`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+HybridAgents 通过 HybridLink 和连续工作记忆结合潜在推理与文本交互。作者在三种模型规模、十一个基准上报告，性能改善的同时 token 用量减少 35.5%–54.7%。
+
+HybridAgents combines latent reasoning with text interaction through HybridLink and continuous working memory. Across three model scales and eleven benchmarks, the authors report token reductions of 35.5%–54.7% alongside improved performance.
+
+### 技术点 / Technical points
+
+- HybridSFT 训练主干模型与 HybridLink 的协同。
+  - HybridSFT trains coordination between the backbone and HybridLink.
+- HybridRL 学习何时进行潜在推理、何时通过文本采取行动。
+  - HybridRL learns when to reason latently and when to act through text.
+
+### 为什么重要 / Why it matters
+
+该设计将高效内部推理与智能体的外部工具接口连接起来。
+
+The design connects efficient internal reasoning with an agent's external tool interface.
+
+---
+
+<a id="2026-10-13-self-evolving-agent-harness-validation"></a>
+## [Self-Evolving Agent Harness 形式化持久修订与独立验证](https://arxiv.org/abs/2610.18813)
+
+**English:** [Self-Evolving Agent Harness formalizes persistent revisions and independent validation](https://arxiv.org/abs/2610.18813)
+
+- **发布 / Published:** `2026-10-13T17:48:49Z`
+- **来源 / Source:** [arXiv — Self-Evolving Agent Harness authors](https://arxiv.org/abs/2610.18813) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `self-improvement`, `evaluation`, `memory`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+该预印本形式化了在模型权重固定时，依据反馈修改提示、记忆、工作流与可执行组件的过程。其理论分析在明确假设下给出泛化与保留界，并提出使用新鲜独立验证数据的修订准入规则。
+
+This preprint formalizes feedback-driven changes to prompts, memory, workflows and executable components while model weights stay fixed. Its theoretical analysis gives conditional generalization and retention bounds, plus an admission rule based on fresh independent validation data.
+
+### 技术点 / Technical points
+
+- 更新目标与修订提议、准入机制分开定义。
+  - Update targets are separated from proposal and admission mechanisms.
+- 保留保证依赖历史任务的回归预算。
+  - Retention guarantees depend on historical regression budgets.
+
+### 为什么重要 / Why it matters
+
+它为智能体运行框架的持久变更提供了明确的验证条件。
+
+It provides explicit validation conditions for persistent agent scaffolding changes.
+
+---
+
+<a id="2026-10-13-carryon-object-oriented-agent-context"></a>
+## [CarryOn 用可复用任务对象组织长程智能体上下文](https://arxiv.org/abs/2610.18784)
+
+**English:** [CarryOn organizes long-horizon agent context around reusable task objects](https://arxiv.org/abs/2610.18784)
+
+- **发布 / Published:** `2026-10-13T17:35:27Z`
+- **来源 / Source:** [arXiv — CarryOn authors](https://arxiv.org/abs/2610.18784) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `computer-use`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+CarryOn 维护与证据关联的任务对象，无需反复从完整交互历史中重建进度。作者报告，在任务表现改善的同时，OSWorld 2.0 和 BrowseComp-Plus 的总 token 用量分别减少 51.9% 和 22.9%。
+
+CarryOn maintains task objects linked to evidence instead of repeatedly rebuilding progress from full interaction histories. The authors report total token reductions of 51.9% on OSWorld 2.0 and 22.9% on BrowseComp-Plus, with improved task performance.
+
+### 技术点 / Technical points
+
+- 上下文结合续接载体、执行状态和近期交互。
+  - Context combines continuation carriers, execution state and recent interactions.
+- 更新时依据证据与环境检查修订受影响记录。
+  - Updates revise affected records against evidence and environment checks.
+
+### 为什么重要 / Why it matters
+
+持久任务状态为高效续接长程任务提供了另一种基础。
+
+Persistent task state offers an alternative basis for efficient long-horizon continuation.
+
+---
+
 <a id="2026-10-13-openclaw-2026103-state-preserving-recovery"></a>
 ## [OpenClaw 2026.10.3 保留修复期间的状态并恢复中断的智能体轮次](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
 

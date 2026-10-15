@@ -2,6 +2,198 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-13-chunkact-agentic-robot-action-chunks"></a>
+## [ChunkAct 通过编译动作块减少机器人智能体的推理调用](https://arxiv.org/abs/2610.18874)
+
+**English:** [ChunkAct reduces robot-agent reasoning calls by executing compiled action chunks](https://arxiv.org/abs/2610.18874)
+
+- **发布 / Published:** `2026-10-13T17:59:57Z`
+- **来源 / Source:** [arXiv — ChunkAct authors](https://arxiv.org/abs/2610.18874) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+ChunkAct 将记忆中的机器人操作流程编译为可自主执行的动作块，执行失败时再交回规划器。预印本报告在 LIBERO-Pro 上成功率提高 5 个百分点，LLM 调用次数减少至原来的约 1/2.9。
+
+ChunkAct compiles remembered robot routines into autonomous action chunks, returning to the planner when execution fails. The preprint reports a five-point success gain on LIBERO-Pro with 2.9× fewer LLM calls.
+
+### 技术点 / Technical points
+
+- 动作块串联感知、运动和 VLA 操作原语。
+  - Chunks chain perception, motion and VLA primitives.
+- 离线编译使测试时无需查询操作记忆。
+  - Offline compilation removes runtime memory lookup.
+
+### 为什么重要 / Why it matters
+
+它提供了一种把昂贵推理集中于机器人控制决策的方法。
+
+It offers a concrete way to reserve expensive reasoning for decisions in robot control.
+
+---
+
+<a id="2026-10-13-loopwam-deployment-rollout-improvement"></a>
+## [LoopWAM 利用不同质量的部署轨迹改进机器人策略](https://arxiv.org/abs/2610.18873)
+
+**English:** [LoopWAM improves robot policies using mixed-quality deployment rollouts](https://arxiv.org/abs/2610.18873)
+
+- **发布 / Published:** `2026-10-13T17:59:56Z`
+- **来源 / Source:** [arXiv — LoopWAM authors](https://arxiv.org/abs/2610.18873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `world-action-model`, `continual-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+LoopWAM 从成功、次优和失败的机器人轨迹中联合学习未来视频与动作。作者报告，经过三轮部署与训练，RoboChallenge Table30-V2 的成功率从 23.67% 提升至 43.33%。
+
+LoopWAM jointly learns future video and actions from successful, suboptimal and failed robot rollouts. The authors report that three deployment-and-training rounds raise RoboChallenge Table30-V2 success from 23.67% to 43.33%.
+
+### 技术点 / Technical points
+
+- 质量感知监督保留视频信息，同时调节动作模仿。
+  - Quality-aware supervision retains videos while regulating action imitation.
+- 视频与动作 token 在去噪过程中交换信息。
+  - Video and action tokens exchange information during denoising.
+
+### 为什么重要 / Why it matters
+
+从失败轨迹中学习物理后果，有望提高部署数据的利用价值。
+
+Learning physical consequences from failed rollouts could make deployment data more useful.
+
+---
+
+<a id="2026-10-13-axis-bench-quality-aware-vla-pretraining"></a>
+## [AXIS-Bench 在相同示范数据上比较质量感知 VLA 预训练](https://arxiv.org/abs/2610.18869)
+
+**English:** [AXIS-Bench compares quality-aware VLA pretraining on shared demonstrations](https://arxiv.org/abs/2610.18869)
+
+- **发布 / Published:** `2026-10-13T17:59:52Z`
+- **来源 / Source:** [arXiv — AXIS-Bench authors](https://arxiv.org/abs/2610.18869) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `benchmark`, `dataset`, `robot-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+AXIS-Bench 使用 5,000 条非最优人类示范和 24 个目标任务，比较加权、筛选与条件化预训练。预印本发现质量条件化的效果取决于模型，并报告仿真预训练后真实机器人成功率从 9.6% 提高至 31.7%。
+
+AXIS-Bench compares weighting, filtering and conditioning with 5,000 imperfect human demonstrations and 24 target tasks. The preprint finds that quality-conditioning choices depend on the model and reports real-world success rising from 9.6% to 31.7% after simulation pretraining.
+
+### 技术点 / Technical points
+
+- 同一 VLA 内的比较匹配数据与训练预算。
+  - Within each VLA, comparisons match data and training budgets.
+- 记录的物体和接触状态支持重新计算质量标签。
+  - Recorded object and contact states support recomputing quality labels.
+
+### 为什么重要 / Why it matters
+
+受控比较有助于区分示范质量信号的贡献与额外训练资源的影响。
+
+Controlled comparisons help distinguish useful demonstration-quality signals from extra training resources.
+
+---
+
+<a id="2026-10-13-libero-rig-hardware-robustness"></a>
+## [LIBERO-RIG 单独评测机器人硬件与设置变化下的 VLA 失效](https://arxiv.org/abs/2610.18843)
+
+**English:** [LIBERO-RIG isolates robot hardware and setup failures in VLA evaluation](https://arxiv.org/abs/2610.18843)
+
+- **发布 / Published:** `2026-10-13T17:57:18Z`
+- **来源 / Source:** [arXiv — LIBERO-RIG authors](https://arxiv.org/abs/2610.18843) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `benchmark`, `hardware`, `robustness`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+LIBERO-RIG 固定 LIBERO 任务，仅改变机器人硬件与设置。作者测试九种 VLA 模型，报告汇总成功率在最高扰动强度下从 93.2% 降至 50.9%。
+
+LIBERO-RIG varies robot hardware and setup while keeping LIBERO tasks fixed. Testing nine VLA models, the authors report pooled success falling from 93.2% to 50.9% at the highest perturbation severity.
+
+### 技术点 / Technical points
+
+- 十一个扰动轴覆盖传感、标定与控制。
+  - Eleven perturbation axes cover sensing, calibration and control.
+- 固定的回合参数清单使硬件扰动可复现。
+  - Fixed episode manifests make hardware perturbations reproducible.
+
+### 为什么重要 / Why it matters
+
+它可测量仅靠视觉鲁棒性训练容易遗漏的部署脆弱性。
+
+It measures deployment fragility that visual-only robustness training can miss.
+
+---
+
+<a id="2026-10-13-worldoracle-real-execution-benchmark"></a>
+## [WorldOracle 将世界模型预测与配对的真实机器人执行对照](https://arxiv.org/abs/2610.18826)
+
+**English:** [WorldOracle tests world-model predictions against paired real robot executions](https://arxiv.org/abs/2610.18826)
+
+- **发布 / Published:** `2026-10-13T17:52:55Z`
+- **来源 / Source:** [arXiv — WorldOracle authors](https://arxiv.org/abs/2610.18826) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WorldOracle 在相同初始观测和低层动作下，将预测轨迹与真实执行对照。预印本评测七种动作条件世界模型；数据集、评测代码和排行榜仍为计划发布。
+
+WorldOracle compares predicted rollouts with real executions given identical starting observations and low-level actions. The preprint evaluates seven action-conditioned world models; dataset, evaluation-code and leaderboard releases are planned.
+
+### 技术点 / Technical points
+
+- 四个维度检验物理状态、空间对齐、交互保真度与多视角一致性。
+  - Four dimensions examine physical state, spatial alignment, interaction fidelity and multi-view coherence.
+- 长回合包含成功和失败的执行轨迹。
+  - Long episodes include successful and failed executions.
+
+### 为什么重要 / Why it matters
+
+配对的物理结果能提供比视频观感更直接的检验。
+
+Matched physical outcomes provide a stronger test than video plausibility alone.
+
+---
+
+<a id="2026-10-13-uniwam-shared-world-action-experts"></a>
+## [UniW(A)M 在世界预测与机器人动作生成之间共享专家](https://arxiv.org/abs/2610.18697)
+
+**English:** [UniW(A)M shares experts between world prediction and robot action generation](https://arxiv.org/abs/2610.18697)
+
+- **发布 / Published:** `2026-10-13T16:47:16Z`
+- **来源 / Source:** [arXiv — UniW(A)M authors](https://arxiv.org/abs/2610.18697) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `mixture-of-experts`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+UniW(A)M 在扩散 Transformer 中结合共享动力学专家与专门能力专家。预印本报告，三个真实操作任务的平均成功率为 88.3%，最强对比基线为 76.7%。
+
+UniW(A)M uses diffusion Transformers with shared dynamics experts and specialized capability experts. The preprint reports 88.3% average success on three real-world manipulation tasks versus 76.7% for its strongest comparison baseline.
+
+### 技术点 / Technical points
+
+- 联合训练连接动作条件预测与多种动作接口。
+  - Joint training connects action-conditioned prediction with multiple action interfaces.
+- PAIR 在主干冻结时为每个执行块选择接口。
+  - PAIR selects interfaces per execution chunk while freezing the backbone.
+
+### 为什么重要 / Why it matters
+
+共享学到的动力学有望缩小机器人预测与控制之间的分隔。
+
+Sharing learned dynamics could reduce separation between robot prediction and control.
+
+---
+
 <a id="2026-10-10-vpp2-video-checkpoints-release"></a>
 ## [VPP2 开放 Stage-1 和 Stage-2 机器人视频预测权重](https://github.com/roboterax/video-prediction-policy-2/commit/ec2d2198b805a0463e47c1fe0c2798eff0ef0554)
 

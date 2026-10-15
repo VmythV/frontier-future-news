@@ -14109,6 +14109,455 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-13-chunkact-agentic-robot-action-chunks",
+      "published_at": "2026-10-13T17:59:57Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "tool-use",
+        "planning"
+      ],
+      "title_en": "ChunkAct reduces robot-agent reasoning calls by executing compiled action chunks",
+      "title_zh": "ChunkAct 通过编译动作块减少机器人智能体的推理调用",
+      "summary_en": "ChunkAct compiles remembered robot routines into autonomous action chunks, returning to the planner when execution fails. The preprint reports a five-point success gain on LIBERO-Pro with 2.9× fewer LLM calls.",
+      "summary_zh": "ChunkAct 将记忆中的机器人操作流程编译为可自主执行的动作块，执行失败时再交回规划器。预印本报告在 LIBERO-Pro 上成功率提高 5 个百分点，LLM 调用次数减少至原来的约 1/2.9。",
+      "tech_points_en": [
+        "Chunks chain perception, motion and VLA primitives.",
+        "Offline compilation removes runtime memory lookup."
+      ],
+      "tech_points_zh": [
+        "动作块串联感知、运动和 VLA 操作原语。",
+        "离线编译使测试时无需查询操作记忆。"
+      ],
+      "why_it_matters_en": "It offers a concrete way to reserve expensive reasoning for decisions in robot control.",
+      "why_it_matters_zh": "它提供了一种把昂贵推理集中于机器人控制决策的方法。",
+      "source": {
+        "name": "arXiv — ChunkAct authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18874",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-loopwam-deployment-rollout-improvement",
+      "published_at": "2026-10-13T17:59:56Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "world-action-model",
+        "continual-learning"
+      ],
+      "title_en": "LoopWAM improves robot policies using mixed-quality deployment rollouts",
+      "title_zh": "LoopWAM 利用不同质量的部署轨迹改进机器人策略",
+      "summary_en": "LoopWAM jointly learns future video and actions from successful, suboptimal and failed robot rollouts. The authors report that three deployment-and-training rounds raise RoboChallenge Table30-V2 success from 23.67% to 43.33%.",
+      "summary_zh": "LoopWAM 从成功、次优和失败的机器人轨迹中联合学习未来视频与动作。作者报告，经过三轮部署与训练，RoboChallenge Table30-V2 的成功率从 23.67% 提升至 43.33%。",
+      "tech_points_en": [
+        "Quality-aware supervision retains videos while regulating action imitation.",
+        "Video and action tokens exchange information during denoising."
+      ],
+      "tech_points_zh": [
+        "质量感知监督保留视频信息，同时调节动作模仿。",
+        "视频与动作 token 在去噪过程中交换信息。"
+      ],
+      "why_it_matters_en": "Learning physical consequences from failed rollouts could make deployment data more useful.",
+      "why_it_matters_zh": "从失败轨迹中学习物理后果，有望提高部署数据的利用价值。",
+      "source": {
+        "name": "arXiv — LoopWAM authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18873",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-axis-bench-quality-aware-vla-pretraining",
+      "published_at": "2026-10-13T17:59:52Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "benchmark",
+        "dataset",
+        "robot-learning"
+      ],
+      "title_en": "AXIS-Bench compares quality-aware VLA pretraining on shared demonstrations",
+      "title_zh": "AXIS-Bench 在相同示范数据上比较质量感知 VLA 预训练",
+      "summary_en": "AXIS-Bench compares weighting, filtering and conditioning with 5,000 imperfect human demonstrations and 24 target tasks. The preprint finds that quality-conditioning choices depend on the model and reports real-world success rising from 9.6% to 31.7% after simulation pretraining.",
+      "summary_zh": "AXIS-Bench 使用 5,000 条非最优人类示范和 24 个目标任务，比较加权、筛选与条件化预训练。预印本发现质量条件化的效果取决于模型，并报告仿真预训练后真实机器人成功率从 9.6% 提高至 31.7%。",
+      "tech_points_en": [
+        "Within each VLA, comparisons match data and training budgets.",
+        "Recorded object and contact states support recomputing quality labels."
+      ],
+      "tech_points_zh": [
+        "同一 VLA 内的比较匹配数据与训练预算。",
+        "记录的物体和接触状态支持重新计算质量标签。"
+      ],
+      "why_it_matters_en": "Controlled comparisons help distinguish useful demonstration-quality signals from extra training resources.",
+      "why_it_matters_zh": "受控比较有助于区分示范质量信号的贡献与额外训练资源的影响。",
+      "source": {
+        "name": "arXiv — AXIS-Bench authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18869",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-tev-gym-dense-progress-rewards",
+      "published_at": "2026-10-13T17:59:51Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "dataset",
+        "reinforcement-learning",
+        "long-horizon",
+        "benchmark"
+      ],
+      "title_en": "Tev-Gym builds verifiable long-horizon agent tasks with dense progress rewards",
+      "title_zh": "Tev-Gym 为可验证的长程智能体任务提供密集进度奖励",
+      "summary_en": "Tev introduces 1,170 verified environments across seven domains and trains Tev-27B using progress-based reward shaping. The preprint reports gains on ALE computing and math tasks and transfer to Terminal-Bench subsets.",
+      "summary_zh": "Tev 提出覆盖七个领域的 1,170 个已验证环境，并用基于进度的奖励塑形训练 Tev-27B。预印本报告了 ALE 计算与数学任务上的提升，以及向 Terminal-Bench 子集的迁移。",
+      "tech_points_en": [
+        "Hidden task specifications define expected states after each step.",
+        "Progress-potential reward shaping turns progress into per-step feedback."
+      ],
+      "tech_points_zh": [
+        "隐藏任务规格定义每一步之后的预期状态。",
+        "进度势奖励塑形将任务进度转化为逐步反馈。"
+      ],
+      "why_it_matters_en": "Verifiable intermediate feedback addresses sparse rewards in long-running agent training.",
+      "why_it_matters_zh": "可验证的中间反馈有助于解决长程智能体训练中的奖励稀疏问题。",
+      "source": {
+        "name": "arXiv — Tev-Gym authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18868",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-hybridagents-latent-text-reasoning",
+      "published_at": "2026-10-13T17:59:31Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "reasoning",
+        "tool-use",
+        "post-training"
+      ],
+      "title_en": "HybridAgents switches between latent reasoning and text-based tool interaction",
+      "title_zh": "HybridAgents 在潜在推理与文本工具交互之间切换",
+      "summary_en": "HybridAgents combines latent reasoning with text interaction through HybridLink and continuous working memory. Across three model scales and eleven benchmarks, the authors report token reductions of 35.5%–54.7% alongside improved performance.",
+      "summary_zh": "HybridAgents 通过 HybridLink 和连续工作记忆结合潜在推理与文本交互。作者在三种模型规模、十一个基准上报告，性能改善的同时 token 用量减少 35.5%–54.7%。",
+      "tech_points_en": [
+        "HybridSFT trains coordination between the backbone and HybridLink.",
+        "HybridRL learns when to reason latently and when to act through text."
+      ],
+      "tech_points_zh": [
+        "HybridSFT 训练主干模型与 HybridLink 的协同。",
+        "HybridRL 学习何时进行潜在推理、何时通过文本采取行动。"
+      ],
+      "why_it_matters_en": "The design connects efficient internal reasoning with an agent's external tool interface.",
+      "why_it_matters_zh": "该设计将高效内部推理与智能体的外部工具接口连接起来。",
+      "source": {
+        "name": "arXiv — HybridAgents authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18861",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-libero-rig-hardware-robustness",
+      "published_at": "2026-10-13T17:57:18Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "benchmark",
+        "hardware",
+        "robustness"
+      ],
+      "title_en": "LIBERO-RIG isolates robot hardware and setup failures in VLA evaluation",
+      "title_zh": "LIBERO-RIG 单独评测机器人硬件与设置变化下的 VLA 失效",
+      "summary_en": "LIBERO-RIG varies robot hardware and setup while keeping LIBERO tasks fixed. Testing nine VLA models, the authors report pooled success falling from 93.2% to 50.9% at the highest perturbation severity.",
+      "summary_zh": "LIBERO-RIG 固定 LIBERO 任务，仅改变机器人硬件与设置。作者测试九种 VLA 模型，报告汇总成功率在最高扰动强度下从 93.2% 降至 50.9%。",
+      "tech_points_en": [
+        "Eleven perturbation axes cover sensing, calibration and control.",
+        "Fixed episode manifests make hardware perturbations reproducible."
+      ],
+      "tech_points_zh": [
+        "十一个扰动轴覆盖传感、标定与控制。",
+        "固定的回合参数清单使硬件扰动可复现。"
+      ],
+      "why_it_matters_en": "It measures deployment fragility that visual-only robustness training can miss.",
+      "why_it_matters_zh": "它可测量仅靠视觉鲁棒性训练容易遗漏的部署脆弱性。",
+      "source": {
+        "name": "arXiv — LIBERO-RIG authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18843",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-worldoracle-real-execution-benchmark",
+      "published_at": "2026-10-13T17:52:55Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "benchmark",
+        "robotics",
+        "evaluation"
+      ],
+      "title_en": "WorldOracle tests world-model predictions against paired real robot executions",
+      "title_zh": "WorldOracle 将世界模型预测与配对的真实机器人执行对照",
+      "summary_en": "WorldOracle compares predicted rollouts with real executions given identical starting observations and low-level actions. The preprint evaluates seven action-conditioned world models; dataset, evaluation-code and leaderboard releases are planned.",
+      "summary_zh": "WorldOracle 在相同初始观测和低层动作下，将预测轨迹与真实执行对照。预印本评测七种动作条件世界模型；数据集、评测代码和排行榜仍为计划发布。",
+      "tech_points_en": [
+        "Four dimensions examine physical state, spatial alignment, interaction fidelity and multi-view coherence.",
+        "Long episodes include successful and failed executions."
+      ],
+      "tech_points_zh": [
+        "四个维度检验物理状态、空间对齐、交互保真度与多视角一致性。",
+        "长回合包含成功和失败的执行轨迹。"
+      ],
+      "why_it_matters_en": "Matched physical outcomes provide a stronger test than video plausibility alone.",
+      "why_it_matters_zh": "配对的物理结果能提供比视频观感更直接的检验。",
+      "source": {
+        "name": "arXiv — WorldOracle authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18826",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-self-evolving-agent-harness-validation",
+      "published_at": "2026-10-13T17:48:49Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "self-improvement",
+        "evaluation",
+        "memory",
+        "safety"
+      ],
+      "title_en": "Self-Evolving Agent Harness formalizes persistent revisions and independent validation",
+      "title_zh": "Self-Evolving Agent Harness 形式化持久修订与独立验证",
+      "summary_en": "This preprint formalizes feedback-driven changes to prompts, memory, workflows and executable components while model weights stay fixed. Its theoretical analysis gives conditional generalization and retention bounds, plus an admission rule based on fresh independent validation data.",
+      "summary_zh": "该预印本形式化了在模型权重固定时，依据反馈修改提示、记忆、工作流与可执行组件的过程。其理论分析在明确假设下给出泛化与保留界，并提出使用新鲜独立验证数据的修订准入规则。",
+      "tech_points_en": [
+        "Update targets are separated from proposal and admission mechanisms.",
+        "Retention guarantees depend on historical regression budgets."
+      ],
+      "tech_points_zh": [
+        "更新目标与修订提议、准入机制分开定义。",
+        "保留保证依赖历史任务的回归预算。"
+      ],
+      "why_it_matters_en": "It provides explicit validation conditions for persistent agent scaffolding changes.",
+      "why_it_matters_zh": "它为智能体运行框架的持久变更提供了明确的验证条件。",
+      "source": {
+        "name": "arXiv — Self-Evolving Agent Harness authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18813",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 77,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 24,
+        "novelty": 14,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-carryon-object-oriented-agent-context",
+      "published_at": "2026-10-13T17:35:27Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "computer-use",
+        "long-horizon"
+      ],
+      "title_en": "CarryOn organizes long-horizon agent context around reusable task objects",
+      "title_zh": "CarryOn 用可复用任务对象组织长程智能体上下文",
+      "summary_en": "CarryOn maintains task objects linked to evidence instead of repeatedly rebuilding progress from full interaction histories. The authors report total token reductions of 51.9% on OSWorld 2.0 and 22.9% on BrowseComp-Plus, with improved task performance.",
+      "summary_zh": "CarryOn 维护与证据关联的任务对象，无需反复从完整交互历史中重建进度。作者报告，在任务表现改善的同时，OSWorld 2.0 和 BrowseComp-Plus 的总 token 用量分别减少 51.9% 和 22.9%。",
+      "tech_points_en": [
+        "Context combines continuation carriers, execution state and recent interactions.",
+        "Updates revise affected records against evidence and environment checks."
+      ],
+      "tech_points_zh": [
+        "上下文结合续接载体、执行状态和近期交互。",
+        "更新时依据证据与环境检查修订受影响记录。"
+      ],
+      "why_it_matters_en": "Persistent task state offers an alternative basis for efficient long-horizon continuation.",
+      "why_it_matters_zh": "持久任务状态为高效续接长程任务提供了另一种基础。",
+      "source": {
+        "name": "arXiv — CarryOn authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18784",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-13-uniwam-shared-world-action-experts",
+      "published_at": "2026-10-13T16:47:16Z",
+      "collected_at": "2026-10-15T00:02:49Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "world-action-model",
+        "mixture-of-experts",
+        "robotics"
+      ],
+      "title_en": "UniW(A)M shares experts between world prediction and robot action generation",
+      "title_zh": "UniW(A)M 在世界预测与机器人动作生成之间共享专家",
+      "summary_en": "UniW(A)M uses diffusion Transformers with shared dynamics experts and specialized capability experts. The preprint reports 88.3% average success on three real-world manipulation tasks versus 76.7% for its strongest comparison baseline.",
+      "summary_zh": "UniW(A)M 在扩散 Transformer 中结合共享动力学专家与专门能力专家。预印本报告，三个真实操作任务的平均成功率为 88.3%，最强对比基线为 76.7%。",
+      "tech_points_en": [
+        "Joint training connects action-conditioned prediction with multiple action interfaces.",
+        "PAIR selects interfaces per execution chunk while freezing the backbone."
+      ],
+      "tech_points_zh": [
+        "联合训练连接动作条件预测与多种动作接口。",
+        "PAIR 在主干冻结时为每个执行块选择接口。"
+      ],
+      "why_it_matters_en": "Sharing learned dynamics could reduce separation between robot prediction and control.",
+      "why_it_matters_zh": "共享学到的动力学有望缩小机器人预测与控制之间的分隔。",
+      "source": {
+        "name": "arXiv — UniW(A)M authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.18697",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }

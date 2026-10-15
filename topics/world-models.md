@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-13-loopwam-deployment-rollout-improvement"></a>
+## [LoopWAM 利用不同质量的部署轨迹改进机器人策略](https://arxiv.org/abs/2610.18873)
+
+**English:** [LoopWAM improves robot policies using mixed-quality deployment rollouts](https://arxiv.org/abs/2610.18873)
+
+- **发布 / Published:** `2026-10-13T17:59:56Z`
+- **来源 / Source:** [arXiv — LoopWAM authors](https://arxiv.org/abs/2610.18873) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `world-action-model`, `continual-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+LoopWAM 从成功、次优和失败的机器人轨迹中联合学习未来视频与动作。作者报告，经过三轮部署与训练，RoboChallenge Table30-V2 的成功率从 23.67% 提升至 43.33%。
+
+LoopWAM jointly learns future video and actions from successful, suboptimal and failed robot rollouts. The authors report that three deployment-and-training rounds raise RoboChallenge Table30-V2 success from 23.67% to 43.33%.
+
+### 技术点 / Technical points
+
+- 质量感知监督保留视频信息，同时调节动作模仿。
+  - Quality-aware supervision retains videos while regulating action imitation.
+- 视频与动作 token 在去噪过程中交换信息。
+  - Video and action tokens exchange information during denoising.
+
+### 为什么重要 / Why it matters
+
+从失败轨迹中学习物理后果，有望提高部署数据的利用价值。
+
+Learning physical consequences from failed rollouts could make deployment data more useful.
+
+---
+
+<a id="2026-10-13-worldoracle-real-execution-benchmark"></a>
+## [WorldOracle 将世界模型预测与配对的真实机器人执行对照](https://arxiv.org/abs/2610.18826)
+
+**English:** [WorldOracle tests world-model predictions against paired real robot executions](https://arxiv.org/abs/2610.18826)
+
+- **发布 / Published:** `2026-10-13T17:52:55Z`
+- **来源 / Source:** [arXiv — WorldOracle authors](https://arxiv.org/abs/2610.18826) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WorldOracle 在相同初始观测和低层动作下，将预测轨迹与真实执行对照。预印本评测七种动作条件世界模型；数据集、评测代码和排行榜仍为计划发布。
+
+WorldOracle compares predicted rollouts with real executions given identical starting observations and low-level actions. The preprint evaluates seven action-conditioned world models; dataset, evaluation-code and leaderboard releases are planned.
+
+### 技术点 / Technical points
+
+- 四个维度检验物理状态、空间对齐、交互保真度与多视角一致性。
+  - Four dimensions examine physical state, spatial alignment, interaction fidelity and multi-view coherence.
+- 长回合包含成功和失败的执行轨迹。
+  - Long episodes include successful and failed executions.
+
+### 为什么重要 / Why it matters
+
+配对的物理结果能提供比视频观感更直接的检验。
+
+Matched physical outcomes provide a stronger test than video plausibility alone.
+
+---
+
+<a id="2026-10-13-uniwam-shared-world-action-experts"></a>
+## [UniW(A)M 在世界预测与机器人动作生成之间共享专家](https://arxiv.org/abs/2610.18697)
+
+**English:** [UniW(A)M shares experts between world prediction and robot action generation](https://arxiv.org/abs/2610.18697)
+
+- **发布 / Published:** `2026-10-13T16:47:16Z`
+- **来源 / Source:** [arXiv — UniW(A)M authors](https://arxiv.org/abs/2610.18697) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `mixture-of-experts`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+UniW(A)M 在扩散 Transformer 中结合共享动力学专家与专门能力专家。预印本报告，三个真实操作任务的平均成功率为 88.3%，最强对比基线为 76.7%。
+
+UniW(A)M uses diffusion Transformers with shared dynamics experts and specialized capability experts. The preprint reports 88.3% average success on three real-world manipulation tasks versus 76.7% for its strongest comparison baseline.
+
+### 技术点 / Technical points
+
+- 联合训练连接动作条件预测与多种动作接口。
+  - Joint training connects action-conditioned prediction with multiple action interfaces.
+- PAIR 在主干冻结时为每个执行块选择接口。
+  - PAIR selects interfaces per execution chunk while freezing the backbone.
+
+### 为什么重要 / Why it matters
+
+共享学到的动力学有望缩小机器人预测与控制之间的分隔。
+
+Sharing learned dynamics could reduce separation between robot prediction and control.
+
+---
+
 <a id="2026-10-12-helixbench-spatial-audio-release"></a>
 ## [HelixBench 开放含 1,015 个样本的交互式音视频世界模型评测包](https://huggingface.co/datasets/NoizAI/Helixbench)
 
