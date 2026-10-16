@@ -2,6 +2,326 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-15-openai-agents-sdk-024-approval-compaction"></a>
+## [OpenAI Agents SDK 0.24 暴露 MCP 工具注解并在压缩时保护待审批状态](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
+
+**English:** [OpenAI Agents SDK 0.24 exposes MCP tool annotations and protects pending approvals during compaction](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
+
+- **发布 / Published:** `2026-10-15T02:20:12Z`
+- **来源 / Source:** [OpenAI Agents SDK GitHub Releases](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `mcp`, `open-source`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK 0.24.0 为转换后的工具暴露 MCP 注解，并支持运行范围的工具异常格式化。版本还在存在待审批事项时推迟自动压缩，并按 API 限额批量写入对话会话。
+
+OpenAI Agents SDK 0.24.0 adds MCP annotations to converted tools and run-wide formatting for tool exceptions. The release also defers automatic compaction when approvals are pending and batches conversation-session writes within API limits.
+
+### 技术点 / Technical points
+
+- 转换后的 MCP 工具向下游使用者暴露注解。
+  - Converted MCP tools expose annotations for downstream consumers.
+- 待审批事项会推迟自动压缩；对话写入通过批处理遵守 API 限额。
+  - Pending approvals delay automatic compaction; conversation writes are batched to respect API limits.
+
+### 为什么重要 / Why it matters
+
+这些改进增强工具元数据，并改善智能体审批与持久化边界处的运行连续性。
+
+These changes improve tool metadata and continuity around agent approval and persistence boundaries.
+
+---
+
+<a id="2026-10-14-humanoid-policy-weight-diffusion"></a>
+## [潜在扩散直接生成用于现实动作的人形机器人控制器权重](https://arxiv.org/abs/2610.20606)
+
+**English:** [Latent diffusion generates humanoid controller weights for real-world motions](https://arxiv.org/abs/2610.20606)
+
+- **发布 / Published:** `2026-10-14T17:59:52Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20606) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `diffusion`, `policy-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究者使用线性自编码器与 Diffusion Transformer 建模人形机器人策略权重。方法以 Unitree G1 的强化学习策略为训练数据，生成可部署控制器，并展示现实中的行走、舞蹈与旋转踢动作。
+
+Researchers model humanoid policy weights using a linear autoencoder and a Diffusion Transformer. Trained on reinforcement-learning policies for Unitree G1, the method generates deployable controllers demonstrated on real walking, dancing, and spin-kick motions.
+
+### 技术点 / Technical points
+
+- 先将动作策略网络参数压缩到潜在空间，再使用扩散模型建模。
+  - Actor-network parameters are compressed into a latent space before diffusion modeling.
+- 权重分析发现，强化学习与模仿学习策略的第一层均呈现反映机器人运动学的结构。
+  - Analysis finds a first-layer weight structure reflecting robot kinematics under both reinforcement and imitation learning.
+
+### 为什么重要 / Why it matters
+
+在权重空间生成策略，为复用人形机器人控制器及分析具身知识提供了路径。
+
+Generating policies in weight space offers a route to reusable humanoid controllers and analysis of learned embodiment.
+
+---
+
+<a id="2026-10-14-co-evolving-agent-action-forecasting"></a>
+## [动作预测为语言智能体训练补充多步监督](https://arxiv.org/abs/2610.20597)
+
+**English:** [Action forecasting adds multi-step supervision to language-agent training](https://arxiv.org/abs/2610.20597)
+
+- **发布 / Published:** `2026-10-14T17:59:28Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20597) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一项研究利用成功的在策略采样轨迹，让智能体从中间历史预测后续动作序列。同一策略主干共同学习执行与预测，推理时仍逐步选择动作，无需额外模型。
+
+A new study trains an agent policy to forecast subsequent action sequences from intermediate histories in successful on-policy rollouts. The same backbone learns to act and forecast, while inference continues to select one action at a time without an extra model.
+
+### 技术点 / Technical points
+
+- 实验覆盖 ALFWorld、ScienceWorld、WebShop、tau2-bench 与 AppWorld。
+  - Experiments span ALFWorld, ScienceWorld, WebShop, tau2-bench, and AppWorld.
+- 作者报告在 ScienceWorld 上，样本效率最高达到 ECHO 的 1.9 倍、GRPO 的 2.0 倍。
+  - On ScienceWorld, the authors report up to 1.9 times the sample efficiency of ECHO and 2.0 times that of GRPO.
+
+### 为什么重要 / Why it matters
+
+复用中间步骤的动作监督，可能降低长程智能体训练的轨迹采样成本。
+
+Reusing intermediate action targets could reduce the rollout cost of training long-horizon agents.
+
+---
+
+<a id="2026-10-14-tacclaw-infinity-tactile-manipulation-data"></a>
+## [TacClaw-Infinity 介绍无需目标机器人采集的大规模触觉操作数据](https://arxiv.org/abs/2610.20320)
+
+**English:** [TacClaw-Infinity introduces large-scale tactile manipulation data collected without target robots](https://arxiv.org/abs/2610.20320)
+
+- **发布 / Published:** `2026-10-14T15:06:53Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20320) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `dataset`, `robotics`, `tactile-sensing`, `vla`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+TacClaw-Infinity 介绍使用手持 TacClaw 接口在多种环境中采集的同步视觉、触觉、语言与动作数据。论文报告数据超过 10,000 小时、100 万个片段，并评估无需机器人专属示范向三种不同机器人迁移的能力。
+
+TacClaw-Infinity presents synchronized vision, tactile, language, and action data collected with a handheld TacClaw interface across varied environments. The paper reports over 10,000 hours and one million episodes, and evaluates transfer to three different robots without robot-specific demonstrations.
+
+### 技术点 / Technical points
+
+- 采集端同步记录指尖触觉、视觉观测与末端轨迹，不依赖目标机器人。
+  - Collection records fingertip tactile signals, visual observations, and end-effector trajectories without a target robot.
+- 处理流程包含轨迹重建、多模态质量控制、具身适配过滤及以接触为中心的标注。
+  - The pipeline includes trajectory reconstruction, multimodal quality control, embodiment-aware filtering, and contact-centric annotations.
+
+### 为什么重要 / Why it matters
+
+不依赖机器人的触觉数据采集，有望扩大接触密集型操作学习的数据规模。
+
+Robot-independent tactile data collection could help scale learning for contact-rich manipulation.
+
+---
+
+<a id="2026-10-14-atomic-wam-execution-grounded-reasoning"></a>
+## [Atomic-WAM 用世界动作模型执行结果约束局部动作推理](https://arxiv.org/abs/2610.20157)
+
+**English:** [Atomic-WAM grounds local-motion reasoning in world-action-model execution](https://arxiv.org/abs/2610.20157)
+
+- **发布 / Published:** `2026-10-14T13:13:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20157) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `reinforcement-learning`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Atomic-WAM 通过局部原子动作描述，将视觉语言推理器连接到未来视频与动作的联合预测。论文在 RoboLab 的 real-to-sim 评估中报告，默认指令下成功率为 39.6%，模糊指令下为 31.6%。
+
+Atomic-WAM connects a vision-language reasoner to joint future-video and action prediction through descriptions of local atomic motions. The paper reports 39.6% success with default instructions and 31.6% with vague instructions in RoboLab real-to-sim evaluation.
+
+### 技术点 / Technical points
+
+- 标注流程从多视角 DROID 示范中提取时间对齐且包含接触信息的监督。
+  - An annotation pipeline extracts temporally aligned, contact-enriched supervision from multi-view DROID demonstrations.
+- Execution-Grounded GRPO 固定世界动作模型，以动作适当性和执行奖励更新推理器。
+  - Execution-Grounded GRPO updates the reasoner using motion appropriateness and execution rewards while keeping the world-action model fixed.
+
+### 为什么重要 / Why it matters
+
+执行反馈有望使机器人高层推理更适配其所控制的动作生成器。
+
+Execution feedback could make high-level robot reasoning more compatible with the action generator it controls.
+
+---
+
+<a id="2026-10-14-foveavla-learned-foveation"></a>
+## [FoveaVLA 用学习得到的高分辨率观察区域替代腕部相机输入](https://arxiv.org/abs/2610.20064)
+
+**English:** [FoveaVLA replaces wrist-camera input with learned high-resolution viewing regions](https://arxiv.org/abs/2610.20064)
+
+- **发布 / Published:** `2026-10-14T12:04:21Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20064) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `active-perception`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+FoveaVLA 在预测动作块的同时选择下一次观察区域，将原始分辨率裁剪图与外部相机全景结合。作者在四组现实任务中报告 Single 与 Dual 的成功率分别为 70.8% 和 77.1%，配备腕部相机的 π₀.₅ 为 52.1%。
+
+FoveaVLA predicts where to inspect next alongside each action chunk, then combines original-resolution crops with full external-camera views. Across four real-world task suites, the authors report 70.8% success for Single and 77.1% for Dual, against 52.1% for wrist-equipped π₀.₅.
+
+### 技术点 / Technical points
+
+- Single 与 Dual 分别使用一台或两台外部双目相机，输入包含全景及局部 RGB 与深度。
+  - Single and Dual use one or two external stereo cameras with full and foveal RGB and depth inputs.
+- 两种配置均基于 π₀.₅，并使用带 RoboInter 交互标注的 DROID 数据进行后训练。
+  - Both configurations build on π₀.₅ and are post-trained on DROID with RoboInter interaction annotations.
+
+### 为什么重要 / Why it matters
+
+学习观察位置有望在保留操作细节的同时减少对腕部相机的依赖。
+
+Learning where to look could reduce dependence on wrist-mounted cameras while preserving manipulation detail.
+
+---
+
+<a id="2026-10-14-praxismem-personal-procedural-memory"></a>
+## [PraxisMemBench 测试持续助手中个人记忆与程序记忆的相互依赖](https://arxiv.org/abs/2610.20022)
+
+**English:** [PraxisMemBench tests interdependent personal and procedural memory in persistent assistants](https://arxiv.org/abs/2610.20022)
+
+- **发布 / Published:** `2026-10-14T11:33:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20022) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `benchmark`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+PraxisMemBench 评估用户背景与可复用流程跨会话共同演变的助手。配套 PraxisMem 方法学习维护记忆内容及其组织结构；论文在该评测中报告整体会话成功率为 40.78%，Claude Code 原生记忆为 20.60%。
+
+PraxisMemBench evaluates assistants whose user context and reusable procedures evolve together across sessions. The accompanying PraxisMem method learns to maintain memory content and organization; the paper reports 40.78% overall session success versus 20.60% for Claude Code native memory in this evaluation.
+
+### 技术点 / Technical points
+
+- 任务同时要求掌握用户特定事实，以及应用受这些事实约束的流程。
+  - Tasks require both knowing user-specific facts and applying procedures conditioned on those facts.
+- PraxisMem 结合特权联合状态监督、位置感知 GRPO 与动态残差路由 OPSD。
+  - PraxisMem uses privileged joint-state supervision, location-aware GRPO, and dynamic residual-routed OPSD.
+
+### 为什么重要 / Why it matters
+
+该基准凸显记忆维护及记忆之间的关系对持续助手构成的瓶颈。
+
+The benchmark highlights memory maintenance and relationships as bottlenecks for persistent assistants.
+
+---
+
+<a id="2026-10-14-gracebench-gui-execution-stability"></a>
+## [GraceBench 从偏离、循环与恢复能力诊断 GUI 智能体执行稳定性](https://arxiv.org/abs/2610.19900)
+
+**English:** [GraceBench diagnoses GUI-agent detours, loops, and recovery beyond task success](https://arxiv.org/abs/2610.19900)
+
+- **发布 / Published:** `2026-10-14T09:58:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19900) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `computer-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+GraceBench 将移动应用交互组织成 UI 状态转移图，并结合视频轨迹评估执行稳定性。论文报告，51.24% 的成功运行仍出现偏离或循环；代码和数据在文中仍列为待发布。
+
+GraceBench represents mobile-app interactions as UI transition graphs and uses video-grounded trajectory evaluation to diagnose execution stability. The paper reports that 51.24% of successful runs still contain a deviation or loop; its code and data are described as forthcoming.
+
+### 技术点 / Technical points
+
+- 基准包含 10 个应用中的 169 项任务，记录 2,909 个规范 GUI 状态与 3,116 次观测转移。
+  - The benchmark covers 169 tasks in 10 apps, with 2,909 canonical states and 3,116 observed transitions.
+- 对 3,718 条轨迹同时评估偏离、循环负担、恢复能力与最终结果。
+  - Evaluation of 3,718 trajectories measures deviation, loop burden, and recovery as well as final outcomes.
+
+### 为什么重要 / Why it matters
+
+过程层面的诊断有助于发现被最终成功状态掩盖的可靠性问题。
+
+Process-level diagnostics could expose reliability problems that successful end states conceal.
+
+---
+
+<a id="2026-10-14-vla-world-modeling-controlled-comparison"></a>
+## [受控 VLA 研究比较四种世界模型集成方式](https://arxiv.org/abs/2610.19825)
+
+**English:** [Controlled VLA study compares four ways to integrate world modeling](https://arxiv.org/abs/2610.19825)
+
+- **发布 / Published:** `2026-10-14T09:01:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19825) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `simulation`, `benchmark`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项统一框架研究比较 VLA 世界建模中的表征、集成设计与策略主干。结果未发现普遍最优设计，但二维语义表征在不同范式中表现稳健，解耦的未来专家尤其在分布外场景中具有竞争力。
+
+A unified study compares world representations, integration designs, and policy backbones for VLA world modeling. It finds no universally best design, while 2D semantic representations provide robust gains across paradigms and decoupled future experts perform competitively, particularly out of distribution.
+
+### 技术点 / Technical points
+
+- 比较覆盖隐式未来对齐、显式未来查询、MoT 未来专家与外部世界预测器。
+  - The comparison covers Implicit Future Alignment, Explicit Future Query, MoT Future Expert, and External World Predictor.
+- 评估包含分布内、分布外、长程、动态、少样本及现实环境。
+  - Evaluation includes in-domain, out-of-domain, long-horizon, dynamic, few-shot, and real-world settings.
+
+### 为什么重要 / Why it matters
+
+受控比较有助于辨别哪些世界模型设计真正支持机器人策略。
+
+Controlled comparisons help identify which world-model choices actually support robot policies.
+
+---
+
+<a id="2026-10-14-dgs-wm-decision-guided-world-modeling"></a>
+## [DGS-WM 为智能体世界模型训练筛选决策相关观测](https://arxiv.org/abs/2610.19642)
+
+**English:** [DGS-WM selects decision-relevant observations for agent world-model training](https://arxiv.org/abs/2610.19642)
+
+- **发布 / Published:** `2026-10-14T06:11:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19642) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DGS-WM 在同一模型上联合训练语言智能体策略与辅助世界建模。它选择能支持后续决策的观测单元，并依据预测置信度调整监督权重，避免将全部环境输出视作同等有用的训练目标。
+
+DGS-WM jointly trains a language-agent policy and auxiliary world modeling on the same model. It selects observation units that support later decisions and adjusts supervision by prediction confidence, rather than treating all environment output as equally useful training targets.
+
+### 技术点 / Technical points
+
+- 观测筛选与置信度自适应加权构成辅助损失，与强化学习目标联合优化。
+  - Observation selection and confidence-adaptive weighting define an auxiliary loss combined with reinforcement learning.
+- 实验跨模型规模及强化学习算法，覆盖单跳、多跳问答与交互式网页任务。
+  - Experiments cover single-hop and multi-hop question answering and interactive web tasks across model scales and RL algorithms.
+
+### 为什么重要 / Why it matters
+
+当环境观测冗长且嘈杂时，选择性的动态监督可能改善智能体学习。
+
+Selective dynamics supervision could improve agent learning when environment observations are long and noisy.
+
+---
+
 <a id="2026-10-13-pydantic-ai-256-durability-microvm"></a>
 ## [Pydantic AI 2.56 新增持久执行后端与本地 microVM 工作空间](https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0)
 
@@ -323,350 +643,3 @@ CarryOn maintains task objects linked to evidence instead of repeatedly rebuildi
 持久任务状态为高效续接长程任务提供了另一种基础。
 
 Persistent task state offers an alternative basis for efficient long-horizon continuation.
-
----
-
-<a id="2026-10-13-uniwam-shared-world-action-experts"></a>
-## [UniW(A)M 在世界预测与机器人动作生成之间共享专家](https://arxiv.org/abs/2610.18697)
-
-**English:** [UniW(A)M shares experts between world prediction and robot action generation](https://arxiv.org/abs/2610.18697)
-
-- **发布 / Published:** `2026-10-13T16:47:16Z`
-- **来源 / Source:** [arXiv — UniW(A)M authors](https://arxiv.org/abs/2610.18697) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-action-model`, `mixture-of-experts`, `robotics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-UniW(A)M 在扩散 Transformer 中结合共享动力学专家与专门能力专家。预印本报告，三个真实操作任务的平均成功率为 88.3%，最强对比基线为 76.7%。
-
-UniW(A)M uses diffusion Transformers with shared dynamics experts and specialized capability experts. The preprint reports 88.3% average success on three real-world manipulation tasks versus 76.7% for its strongest comparison baseline.
-
-### 技术点 / Technical points
-
-- 联合训练连接动作条件预测与多种动作接口。
-  - Joint training connects action-conditioned prediction with multiple action interfaces.
-- PAIR 在主干冻结时为每个执行块选择接口。
-  - PAIR selects interfaces per execution chunk while freezing the backbone.
-
-### 为什么重要 / Why it matters
-
-共享学到的动力学有望缩小机器人预测与控制之间的分隔。
-
-Sharing learned dynamics could reduce separation between robot prediction and control.
-
----
-
-<a id="2026-10-13-openclaw-2026103-state-preserving-recovery"></a>
-## [OpenClaw 2026.10.3 保留修复期间的状态并恢复中断的智能体轮次](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
-
-**English:** [OpenClaw 2026.10.3 preserves repair state and resumes interrupted agent turns](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3)
-
-- **发布 / Published:** `2026-10-13T13:49:25Z`
-- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.3) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `open-source`, `safety`, `durable-execution`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
-
-### 摘要 / Summary
-
-OpenClaw 2026.10.3 修复更新阻塞，以及修复流程可能丢失已保存登录信息或改写异常记忆文件的问题；同时改善原生上下文压缩、ChatGPT 回复中断和 Codex 线程准备失败后的对话续接。
-
-OpenClaw 2026.10.3 fixes blocked updates and repairs that could discard saved sign-ins or alter malformed memory files. It also improves conversation continuation after native compaction, interrupted ChatGPT replies and failed Codex thread preparation.
-
-### 技术点 / Technical points
-
-- 旧认证数据无法读取时，Doctor 保留 OAuth 配置，并保持包含无效 UTF-8 的记忆文件原样。
-  - Doctor preserves OAuth profiles when legacy authentication data is unreadable and keeps malformed UTF-8 memory files unchanged.
-- 原生压缩后的下一轮等待历史重建完成；中断的 ChatGPT 回复可在现有重试限制内从已保存对话继续。
-  - The next turn waits for history rebuilt after native compaction; interrupted ChatGPT replies can resume from saved conversations within existing retry limits.
-
-### 为什么重要 / Why it matters
-
-在修复期间保留记忆和对话状态，可减少持续运行智能体遭受的可避免中断。
-
-Preserving memory and conversation state during repair reduces avoidable disruption to persistent agent execution.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.3)
-
----
-
-<a id="2026-10-12-langgraph-1215-checkpoint-replay"></a>
-## [LangGraph 1.2.15 修复智能体运行的检查点隔离与增量重放](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15)
-
-**English:** [LangGraph 1.2.15 fixes checkpoint isolation and delta replay for agent runs](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15)
-
-- **发布 / Published:** `2026-10-12T22:38:26Z`
-- **来源 / Source:** [LangChain / LangGraph](https://github.com/langchain-ai/langgraph/releases/tag/1.2.15) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `tool-use`, `open-source`, `durable-execution`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
-
-### 摘要 / Summary
-
-LangGraph 1.2.15 修复智能体状态写入在检查点、分叉和恢复运行中的保存与重放方式，同时修正中断传递和无效工具恢复值的处理，解决持久工作流可能恢复错误状态的多种路径。
-
-LangGraph 1.2.15 repairs how agent state writes are saved and replayed across checkpoints, forks and resumed runs. It also fixes interrupt propagation and invalid tool-resume handling, addressing several ways durable workflows could recover the wrong state.
-
-### 技术点 / Technical points
-
-- 缓存节点会保存写入；检查点更新保留自身输入写入，运行输入仅从对应检查点读取。
-  - Cached nodes now save their writes; checkpoint updates retain their own input writes, and run inputs are read only from their corresponding checkpoints.
-- 恢复后的退出模式按实时顺序重放增量写入；ToolNode 不再吞掉无效恢复值。
-  - Resumed exit-mode delta writes replay in live order; ToolNode no longer swallows invalid resume values.
-
-### 为什么重要 / Why it matters
-
-正确的检查点边界和重放顺序，为长时间智能体工作流中的可靠恢复与人工介入提供支持。
-
-Correct checkpoint boundaries and replay order support reliable recovery and human intervention in long-running agent workflows.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.15)
-
----
-
-<a id="2026-10-12-meta-muse-wonder-memory-focus"></a>
-## [Meta 发布结合跨对话记忆与持续任务执行的 Muse Wonder](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
-
-**English:** [Meta releases Muse Wonder with cross-conversation memory and sustained agent execution](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/)
-
-- **发布 / Published:** `2026-10-12T17:08:05Z`
-- **来源 / Source:** [Meta](https://about.fb.com/news/2026/10/introducing-muse-wonder-models/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `long-horizon`, `coding-agent`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Meta 发布面向个人与专业智能体任务的 Muse Wonder 和 Muse Wonder Full。Active Memory 从跨对话历史中检索相关上下文，Active Focus 旨在持续推进工作、处理阻碍并按需澄清。Muse Wonder 已通过 Meta Model API 和 Muse Code 提供，Wonder Full 面向 Muse Code 订阅者开放。时间取自官方新闻室公告元数据。
-
-Meta launched Muse Wonder and Muse Wonder Full for personal and professional agent tasks. Its Active Memory retrieves relevant context across conversations, while Active Focus is designed to sustain work, recover from blockers and request clarification. Muse Wonder is available through the Meta Model API and Muse Code; Wonder Full is available to Muse Code subscribers. Time comes from the official newsroom announcement metadata.
-
-### 技术点 / Technical points
-
-- Meta 使用 FocusBench 评测持续专注能力，并以 SWE-Marathon 评测长时间软件项目工作；公布的表现属于厂商自身评测。
-  - Meta evaluates sustained focus with FocusBench and long-running software work with SWE-Marathon; reported performance is the vendor’s own evaluation.
-- 模型训练覆盖多样的长时间任务，将需求跟踪、代码修改、测试和迭代结合。
-  - The models were trained on varied long-running tasks that combine requirement tracking, code changes, testing and revision.
-
-### 为什么重要 / Why it matters
-
-记忆检索与持续执行针对智能体跨多次交互完成工作时的两项实际障碍。
-
-Memory retrieval and sustained execution address two practical obstacles to agents completing work across many interactions.
-
-### 链接 / Links
-
-[Evidence 1](https://research.meta.ai/blog/muse-wonder)
-
----
-
-<a id="2026-10-12-digitalocean-agent-data-services-preview"></a>
-## [DigitalOcean 预览统一管理智能体上下文与执行轨迹的数据目录](https://www.digitalocean.com/blog/introducing-agent-data-services)
-
-**English:** [DigitalOcean previews a managed data catalog for agent context and execution traces](https://www.digitalocean.com/blog/introducing-agent-data-services)
-
-- **发布 / Published:** `2026-10-12T13:08:00.018Z`
-- **来源 / Source:** [DigitalOcean](https://www.digitalocean.com/blog/introducing-agent-data-services) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-memory`, `observability`, `evaluation`, `multimodal`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-DigitalOcean 推出私有预览版 Agent Data Services，将多模态摄取、结构化记录、向量和智能体轨迹汇入受治理的数据目录。同期公告将 Insights、Signals 和 Evaluations & Simulations 列为公开预览。工作流自动改进仍属后续计划，当前闭环保留人工审批。时间取自官方数据服务博客元数据。
-
-DigitalOcean introduced Agent Data Services in private preview, combining multimodal ingestion, structured records, vectors and agent traces in a governed catalog. The accompanying announcement places Insights, Signals and Evaluations & Simulations in public preview. Automated workflow improvement remains planned, with human approvals still part of the current loop. Time comes from the official data-service blog metadata.
-
-### 技术点 / Technical points
-
-- 托管 Data Flows 处理并索引新数据；目录通过 SQL 与 API 提供查询，并保留来源沿袭和访问范围控制。
-  - Managed Data Flows process and index incoming data; the catalog exposes SQL and API queries with source lineage and scoped access.
-- 保存的轮次、工具调用与会话历史支持观测和评测；Signals 筛出问题会话，仿真用于测试拟议修改。
-  - Stored turns, tool calls and session history feed observability and evaluation; Signals flags problematic sessions, while simulations test proposed changes.
-
-### 为什么重要 / Why it matters
-
-将知识依据与执行证据放入同一服务，有助于简化提升智能体可靠性所需的反馈流程。
-
-Putting grounding data and execution evidence in one service can simplify the feedback needed to improve agent reliability.
-
-### 链接 / Links
-
-[Evidence 1](https://investors.digitalocean.com/news/news-details/2026/DigitalOcean-Launches-Agent-Learning-and-Data-Services-for-Recursively-Self-Improving-AI-Agents/default.aspx)
-
----
-
-<a id="2026-10-12-brokenml-access-regime-benchmark"></a>
-## [BrokenML 发布 46 项修复任务，比较智能体在三种访问权限下的表现](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0)
-
-**English:** [BrokenML releases 46 repair tasks to test agents at three access levels](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0)
-
-- **发布 / Published:** `2026-10-12T12:53:39Z`
-- **来源 / Source:** [Alex Zhebrak / BrokenML](https://github.com/zhebrak/brokenml/releases/tag/v0.1.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `tool-use`, `open-source`, `ml-infrastructure`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-BrokenML 0.1.0 开放故障训练与推理服务任务、在全新集群上运行的验证器，以及九种模型的评测结果。它比较智能体仅访问文件、额外读取实时日志、或访问运行中集群时，诊断并修复分布式机器学习任务的能力。
-
-BrokenML 0.1.0 releases broken training and serving jobs, a fresh-cluster verifier and results for nine models. It evaluates whether agents can diagnose and repair distributed ML workloads with files alone, added live logs or access to the running cluster.
-
-### 技术点 / Technical points
-
-- 测试集包含 46 项任务，覆盖双节点 Slurm/PyTorch 训练和 llama.cpp 推理服务；验证器使用新数据重新运行任务。
-  - The test split has 46 tasks spanning two-node Slurm/PyTorch training and llama.cpp serving; verification reruns jobs with fresh data.
-- 已发布评测使用 CPU 和 Gloo，每个任务与权限组合仅运行一次；独立 GPU 子集尚未验证。
-  - Published runs use CPUs and Gloo, one run per task and access regime; the separate GPU split remains unvalidated.
-
-### 为什么重要 / Why it matters
-
-区分访问权限有助于检验修复智能体的进步究竟来自推理能力，还是更多运行现场信息。
-
-Separating access levels helps test whether repair agents benefit from better reasoning or simply more operational visibility.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/zhebrak/brokenml/releases/tags/v0.1.0) · [Evidence 2](https://raw.githubusercontent.com/zhebrak/brokenml/9e12de33f539ec062b871570f04a681fa0eb54bd/README.md)
-[Discussion 1](https://www.reddit.com/r/LocalLLaMA/comments/1x41pqt/brokenml_can_agents_fix_broken_ml_jobs/)
-
----
-
-<a id="2026-10-12-agno-313-durable-external-agents"></a>
-## [Agno 3.1.3 为外部智能体增加持久会话与检查点回放](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
-
-**English:** [Agno 3.1.3 adds durable sessions and checkpoint replay for external agents](https://github.com/agno-agi/agno/releases/tag/v3.1.3)
-
-- **发布 / Published:** `2026-10-12T11:22:21Z`
-- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.3) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `agent-runtime`, `checkpoint`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Agno 3.1.3 为 ClaudeAgent 和 CodexAgent 运行时适配器扩展后台执行、取消、重试与事件保存能力。Claude 会话可从数据库保存的对话轨迹在另一副本上恢复，工具结果检查点支持分支续跑。发布时间取自 GitHub 标签版本的发布记录。
-
-Agno 3.1.3 expands its ClaudeAgent and CodexAgent runtime adapters with background execution, cancellation, retries and stored events. Claude sessions can resume from database-backed transcripts on another replica, and tool-result checkpoints support branching continuations. Publication time is the tagged GitHub release timestamp.
-
-### 技术点 / Technical points
-
-- 支持的 PostgreSQL 与 SQLite 后端将 Claude 对话逐行保存至 agno_transcripts；SDK 会话无法恢复时，以已有历史初始化新会话。
-  - Supported PostgreSQL and SQLite backends mirror Claude transcript lines into agno_transcripts, with history-seeded fallback if an SDK session cannot resume.
-- Claude 检查点续跑创建同级新运行；可重试失败保留运行标识，额度限制与永久错误不触发重试。
-  - Claude checkpoint continuations create sibling runs; retryable failures preserve the run identity, while limits and permanent errors are excluded from retries.
-- Claude 与 Codex 后台运行共用持久队列标识、可恢复的带索引 SSE 事件流和取消接口。
-  - Claude and Codex background runs share durable-queue IDs, resumable indexed SSE streams and cancellation endpoints.
-
-### 为什么重要 / Why it matters
-
-持久状态与显式回放有助于将本地编程智能体会话转化为可恢复的服务部署。
-
-Durable state and explicit replay can reduce the gap between a local coding-agent session and a recoverable service deployment.
-
----
-
-<a id="2026-10-12-helixbench-spatial-audio-release"></a>
-## [HelixBench 开放含 1,015 个样本的交互式音视频世界模型评测包](https://huggingface.co/datasets/NoizAI/Helixbench)
-
-**English:** [HelixBench opens a 1,015-sample evaluation package for interactive audio-visual world models](https://huggingface.co/datasets/NoizAI/Helixbench)
-
-- **发布 / Published:** `2026-10-12T11:01:23Z`
-- **来源 / Source:** [Noiz AI / HelixWorld](https://huggingface.co/datasets/NoizAI/Helixbench) · `primary`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `dataset`, `spatial-audio`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Noiz AI 宣布公开 HelixBench，用于检验生成声场能否跟随视角变化。冻结的评测包提供 1,015 个样本的首帧、音视频提示词、评测代码和参考特征。本条记录对应 10 月 12 日的基准开放公告，时间取自官方仓库提交；HelixWorld 预览模型和论文均已在此前发布。
-
-Noiz AI announced the public HelixBench release for testing sound under changing viewpoints. The frozen package provides first frames, audio-visual prompts, evaluation code and reference features for 1,015 samples. This record covers the October 12 benchmark announcement, timed by its official repository commit; the HelixWorld preview and paper were released earlier.
-
-### 技术点 / Technical points
-
-- 六项独立指标覆盖音频保真度、同步、语义对齐和空间一致性；评测包不合成为单一总分。
-  - Six separate metrics cover audio fidelity, synchronization, semantic alignment and spatial consistency; the package does not produce a combined score.
-- 空间评测使用固定的 150 个视角样本；生成输入公开首帧与音视频描述，打包的参考特征支持在没有参考视频的情况下计算 KL 和 FAD。
-  - Spatial evaluation uses a fixed 150-sample perspective cohort; generation inputs expose first frames and audio-visual captions, while packaged reference features support KL and FAD without reference videos.
-
-### 为什么重要 / Why it matters
-
-公开协议让随相机变化的声音能够与视觉生成一同被评测，补充演示视频之外的验证手段。
-
-A public protocol makes camera-grounded sound testable alongside visual generation, rather than relying on demonstrations alone.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/NoizAI/HelixWorld/commit/d8da2defbd553f910d3db9e58bf30f909ba14ab2) · [Evidence 2](https://noiz.ai/lp/blog/meet-helix-world)
-
----
-
-<a id="2026-10-11-gh-aw-0918-session-evaluation"></a>
-## [GitHub Agentic Workflows 0.91.8 统一会话轨迹并加固评测沙箱](https://github.com/github/gh-aw/releases/tag/v0.91.8)
-
-**English:** [GitHub Agentic Workflows 0.91.8 unifies session traces and hardens evaluation sandboxes](https://github.com/github/gh-aw/releases/tag/v0.91.8)
-
-- **发布 / Published:** `2026-10-11T22:33:56Z`
-- **来源 / Source:** [GitHub / Agentic Workflows](https://github.com/github/gh-aw/releases/tag/v0.91.8) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `evaluation`, `memory`, `safety`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-GitHub 发布 Agentic Workflows 0.91.8，为多种智能体引擎提供统一会话时间线、code-read-precision 轨迹评测器和声明式记忆校验。该版本同时修复自定义评测器的沙箱逃逸问题，并改善模型路由诊断。发布时间取自 GitHub 正式发布记录。
-
-GitHub released Agentic Workflows 0.91.8 with shared session timelines across agent engines, a code-read-precision trajectory grader and declarative memory validation. The release also closes a custom-grader sandbox escape and improves model-routing diagnostics. Publication time is the GitHub release timestamp.
-
-### 技术点 / Technical points
-
-- 统一会话轨迹保留各引擎的原生证据和用量记录，覆盖 Copilot、Codex、Claude 和 Gemini 等引擎。
-  - Normalized session traces retain native evidence and accounting across engines including Copilot, Codex, Claude and Gemini.
-- 记忆可通过 JSON Schema 校验；系统显式报告模型不匹配，并要求红队发现附带证据。
-  - Memory can be checked against a JSON Schema; model mismatches are surfaced, and red-team findings must carry evidence.
-
-### 为什么重要 / Why it matters
-
-可比较的执行轨迹与更严格的评测边界，有助于审计自动化仓库智能体。
-
-Comparable execution traces and stronger evaluation boundaries can make automated repository agents easier to audit.
-
----
-
-<a id="2026-10-10-openclaw-2026101-durable-runtime-recovery"></a>
-## [OpenClaw 2026.10.1 保留运行时状态并改善智能体恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
-
-**English:** [OpenClaw 2026.10.1 preserves runtime state and improves agent recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1)
-
-- **发布 / Published:** `2026-10-10T23:54:03Z`
-- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `memory`, `multi-agent`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-OpenClaw 让 Code Mode 存储值跨执行单元、回复及 Gateway 重启保留，加入支持激活和恢复的不可变安装代次，并修复中断数据库工作进程、升级迁移与子智能体结果交付。
-
-OpenClaw preserves Code Mode stored values across cells, replies and Gateway restarts. It adds immutable installation generations with activation and recovery support, and repairs interrupted database workers, update migrations and subagent-result delivery.
-
-### 技术点 / Technical points
-
-- 插件可使用隔离状态及入站队列，特权能力保留原有信任要求。
-  - Plugins can use isolated state and ingress queues while privileged capabilities retain their trust requirements.
-- 被拒绝的缓存 ChatGPT 工具续接可恢复而不重跑已结束工具；保存记忆的回合不再重新获得无关执行工具。
-  - Rejected cached ChatGPT tool continuations recover without rerunning finished tools; memory-saving turns no longer regain unrelated execution tools.
-
-### 为什么重要 / Why it matters
-
-对跨重启和委派会话运行的智能体而言，状态连续性与稳健恢复具有实际价值。
-
-State continuity and safer recovery matter for agents that operate across restarts and delegated sessions.

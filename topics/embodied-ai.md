@@ -2,6 +2,166 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-14-humanoid-policy-weight-diffusion"></a>
+## [潜在扩散直接生成用于现实动作的人形机器人控制器权重](https://arxiv.org/abs/2610.20606)
+
+**English:** [Latent diffusion generates humanoid controller weights for real-world motions](https://arxiv.org/abs/2610.20606)
+
+- **发布 / Published:** `2026-10-14T17:59:52Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20606) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `diffusion`, `policy-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究者使用线性自编码器与 Diffusion Transformer 建模人形机器人策略权重。方法以 Unitree G1 的强化学习策略为训练数据，生成可部署控制器，并展示现实中的行走、舞蹈与旋转踢动作。
+
+Researchers model humanoid policy weights using a linear autoencoder and a Diffusion Transformer. Trained on reinforcement-learning policies for Unitree G1, the method generates deployable controllers demonstrated on real walking, dancing, and spin-kick motions.
+
+### 技术点 / Technical points
+
+- 先将动作策略网络参数压缩到潜在空间，再使用扩散模型建模。
+  - Actor-network parameters are compressed into a latent space before diffusion modeling.
+- 权重分析发现，强化学习与模仿学习策略的第一层均呈现反映机器人运动学的结构。
+  - Analysis finds a first-layer weight structure reflecting robot kinematics under both reinforcement and imitation learning.
+
+### 为什么重要 / Why it matters
+
+在权重空间生成策略，为复用人形机器人控制器及分析具身知识提供了路径。
+
+Generating policies in weight space offers a route to reusable humanoid controllers and analysis of learned embodiment.
+
+---
+
+<a id="2026-10-14-tacclaw-infinity-tactile-manipulation-data"></a>
+## [TacClaw-Infinity 介绍无需目标机器人采集的大规模触觉操作数据](https://arxiv.org/abs/2610.20320)
+
+**English:** [TacClaw-Infinity introduces large-scale tactile manipulation data collected without target robots](https://arxiv.org/abs/2610.20320)
+
+- **发布 / Published:** `2026-10-14T15:06:53Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20320) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `dataset`, `robotics`, `tactile-sensing`, `vla`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+TacClaw-Infinity 介绍使用手持 TacClaw 接口在多种环境中采集的同步视觉、触觉、语言与动作数据。论文报告数据超过 10,000 小时、100 万个片段，并评估无需机器人专属示范向三种不同机器人迁移的能力。
+
+TacClaw-Infinity presents synchronized vision, tactile, language, and action data collected with a handheld TacClaw interface across varied environments. The paper reports over 10,000 hours and one million episodes, and evaluates transfer to three different robots without robot-specific demonstrations.
+
+### 技术点 / Technical points
+
+- 采集端同步记录指尖触觉、视觉观测与末端轨迹，不依赖目标机器人。
+  - Collection records fingertip tactile signals, visual observations, and end-effector trajectories without a target robot.
+- 处理流程包含轨迹重建、多模态质量控制、具身适配过滤及以接触为中心的标注。
+  - The pipeline includes trajectory reconstruction, multimodal quality control, embodiment-aware filtering, and contact-centric annotations.
+
+### 为什么重要 / Why it matters
+
+不依赖机器人的触觉数据采集，有望扩大接触密集型操作学习的数据规模。
+
+Robot-independent tactile data collection could help scale learning for contact-rich manipulation.
+
+---
+
+<a id="2026-10-14-atomic-wam-execution-grounded-reasoning"></a>
+## [Atomic-WAM 用世界动作模型执行结果约束局部动作推理](https://arxiv.org/abs/2610.20157)
+
+**English:** [Atomic-WAM grounds local-motion reasoning in world-action-model execution](https://arxiv.org/abs/2610.20157)
+
+- **发布 / Published:** `2026-10-14T13:13:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20157) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `reinforcement-learning`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Atomic-WAM 通过局部原子动作描述，将视觉语言推理器连接到未来视频与动作的联合预测。论文在 RoboLab 的 real-to-sim 评估中报告，默认指令下成功率为 39.6%，模糊指令下为 31.6%。
+
+Atomic-WAM connects a vision-language reasoner to joint future-video and action prediction through descriptions of local atomic motions. The paper reports 39.6% success with default instructions and 31.6% with vague instructions in RoboLab real-to-sim evaluation.
+
+### 技术点 / Technical points
+
+- 标注流程从多视角 DROID 示范中提取时间对齐且包含接触信息的监督。
+  - An annotation pipeline extracts temporally aligned, contact-enriched supervision from multi-view DROID demonstrations.
+- Execution-Grounded GRPO 固定世界动作模型，以动作适当性和执行奖励更新推理器。
+  - Execution-Grounded GRPO updates the reasoner using motion appropriateness and execution rewards while keeping the world-action model fixed.
+
+### 为什么重要 / Why it matters
+
+执行反馈有望使机器人高层推理更适配其所控制的动作生成器。
+
+Execution feedback could make high-level robot reasoning more compatible with the action generator it controls.
+
+---
+
+<a id="2026-10-14-foveavla-learned-foveation"></a>
+## [FoveaVLA 用学习得到的高分辨率观察区域替代腕部相机输入](https://arxiv.org/abs/2610.20064)
+
+**English:** [FoveaVLA replaces wrist-camera input with learned high-resolution viewing regions](https://arxiv.org/abs/2610.20064)
+
+- **发布 / Published:** `2026-10-14T12:04:21Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20064) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `active-perception`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+FoveaVLA 在预测动作块的同时选择下一次观察区域，将原始分辨率裁剪图与外部相机全景结合。作者在四组现实任务中报告 Single 与 Dual 的成功率分别为 70.8% 和 77.1%，配备腕部相机的 π₀.₅ 为 52.1%。
+
+FoveaVLA predicts where to inspect next alongside each action chunk, then combines original-resolution crops with full external-camera views. Across four real-world task suites, the authors report 70.8% success for Single and 77.1% for Dual, against 52.1% for wrist-equipped π₀.₅.
+
+### 技术点 / Technical points
+
+- Single 与 Dual 分别使用一台或两台外部双目相机，输入包含全景及局部 RGB 与深度。
+  - Single and Dual use one or two external stereo cameras with full and foveal RGB and depth inputs.
+- 两种配置均基于 π₀.₅，并使用带 RoboInter 交互标注的 DROID 数据进行后训练。
+  - Both configurations build on π₀.₅ and are post-trained on DROID with RoboInter interaction annotations.
+
+### 为什么重要 / Why it matters
+
+学习观察位置有望在保留操作细节的同时减少对腕部相机的依赖。
+
+Learning where to look could reduce dependence on wrist-mounted cameras while preserving manipulation detail.
+
+---
+
+<a id="2026-10-14-vla-world-modeling-controlled-comparison"></a>
+## [受控 VLA 研究比较四种世界模型集成方式](https://arxiv.org/abs/2610.19825)
+
+**English:** [Controlled VLA study compares four ways to integrate world modeling](https://arxiv.org/abs/2610.19825)
+
+- **发布 / Published:** `2026-10-14T09:01:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19825) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `simulation`, `benchmark`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项统一框架研究比较 VLA 世界建模中的表征、集成设计与策略主干。结果未发现普遍最优设计，但二维语义表征在不同范式中表现稳健，解耦的未来专家尤其在分布外场景中具有竞争力。
+
+A unified study compares world representations, integration designs, and policy backbones for VLA world modeling. It finds no universally best design, while 2D semantic representations provide robust gains across paradigms and decoupled future experts perform competitively, particularly out of distribution.
+
+### 技术点 / Technical points
+
+- 比较覆盖隐式未来对齐、显式未来查询、MoT 未来专家与外部世界预测器。
+  - The comparison covers Implicit Future Alignment, Explicit Future Query, MoT Future Expert, and External World Predictor.
+- 评估包含分布内、分布外、长程、动态、少样本及现实环境。
+  - Evaluation includes in-domain, out-of-domain, long-horizon, dynamic, few-shot, and real-world settings.
+
+### 为什么重要 / Why it matters
+
+受控比较有助于辨别哪些世界模型设计真正支持机器人策略。
+
+Controlled comparisons help identify which world-model choices actually support robot policies.
+
+---
+
 <a id="2026-10-13-chunkact-agentic-robot-action-chunks"></a>
 ## [ChunkAct 通过编译动作块减少机器人智能体的推理调用](https://arxiv.org/abs/2610.18874)
 

@@ -2,6 +2,166 @@
 
 # Agents / 智能体
 
+<a id="2026-10-15-openai-agents-sdk-024-approval-compaction"></a>
+## [OpenAI Agents SDK 0.24 暴露 MCP 工具注解并在压缩时保护待审批状态](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
+
+**English:** [OpenAI Agents SDK 0.24 exposes MCP tool annotations and protects pending approvals during compaction](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
+
+- **发布 / Published:** `2026-10-15T02:20:12Z`
+- **来源 / Source:** [OpenAI Agents SDK GitHub Releases](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `mcp`, `open-source`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK 0.24.0 为转换后的工具暴露 MCP 注解，并支持运行范围的工具异常格式化。版本还在存在待审批事项时推迟自动压缩，并按 API 限额批量写入对话会话。
+
+OpenAI Agents SDK 0.24.0 adds MCP annotations to converted tools and run-wide formatting for tool exceptions. The release also defers automatic compaction when approvals are pending and batches conversation-session writes within API limits.
+
+### 技术点 / Technical points
+
+- 转换后的 MCP 工具向下游使用者暴露注解。
+  - Converted MCP tools expose annotations for downstream consumers.
+- 待审批事项会推迟自动压缩；对话写入通过批处理遵守 API 限额。
+  - Pending approvals delay automatic compaction; conversation writes are batched to respect API limits.
+
+### 为什么重要 / Why it matters
+
+这些改进增强工具元数据，并改善智能体审批与持久化边界处的运行连续性。
+
+These changes improve tool metadata and continuity around agent approval and persistence boundaries.
+
+---
+
+<a id="2026-10-14-co-evolving-agent-action-forecasting"></a>
+## [动作预测为语言智能体训练补充多步监督](https://arxiv.org/abs/2610.20597)
+
+**English:** [Action forecasting adds multi-step supervision to language-agent training](https://arxiv.org/abs/2610.20597)
+
+- **发布 / Published:** `2026-10-14T17:59:28Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20597) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一项研究利用成功的在策略采样轨迹，让智能体从中间历史预测后续动作序列。同一策略主干共同学习执行与预测，推理时仍逐步选择动作，无需额外模型。
+
+A new study trains an agent policy to forecast subsequent action sequences from intermediate histories in successful on-policy rollouts. The same backbone learns to act and forecast, while inference continues to select one action at a time without an extra model.
+
+### 技术点 / Technical points
+
+- 实验覆盖 ALFWorld、ScienceWorld、WebShop、tau2-bench 与 AppWorld。
+  - Experiments span ALFWorld, ScienceWorld, WebShop, tau2-bench, and AppWorld.
+- 作者报告在 ScienceWorld 上，样本效率最高达到 ECHO 的 1.9 倍、GRPO 的 2.0 倍。
+  - On ScienceWorld, the authors report up to 1.9 times the sample efficiency of ECHO and 2.0 times that of GRPO.
+
+### 为什么重要 / Why it matters
+
+复用中间步骤的动作监督，可能降低长程智能体训练的轨迹采样成本。
+
+Reusing intermediate action targets could reduce the rollout cost of training long-horizon agents.
+
+---
+
+<a id="2026-10-14-praxismem-personal-procedural-memory"></a>
+## [PraxisMemBench 测试持续助手中个人记忆与程序记忆的相互依赖](https://arxiv.org/abs/2610.20022)
+
+**English:** [PraxisMemBench tests interdependent personal and procedural memory in persistent assistants](https://arxiv.org/abs/2610.20022)
+
+- **发布 / Published:** `2026-10-14T11:33:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20022) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `benchmark`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+PraxisMemBench 评估用户背景与可复用流程跨会话共同演变的助手。配套 PraxisMem 方法学习维护记忆内容及其组织结构；论文在该评测中报告整体会话成功率为 40.78%，Claude Code 原生记忆为 20.60%。
+
+PraxisMemBench evaluates assistants whose user context and reusable procedures evolve together across sessions. The accompanying PraxisMem method learns to maintain memory content and organization; the paper reports 40.78% overall session success versus 20.60% for Claude Code native memory in this evaluation.
+
+### 技术点 / Technical points
+
+- 任务同时要求掌握用户特定事实，以及应用受这些事实约束的流程。
+  - Tasks require both knowing user-specific facts and applying procedures conditioned on those facts.
+- PraxisMem 结合特权联合状态监督、位置感知 GRPO 与动态残差路由 OPSD。
+  - PraxisMem uses privileged joint-state supervision, location-aware GRPO, and dynamic residual-routed OPSD.
+
+### 为什么重要 / Why it matters
+
+该基准凸显记忆维护及记忆之间的关系对持续助手构成的瓶颈。
+
+The benchmark highlights memory maintenance and relationships as bottlenecks for persistent assistants.
+
+---
+
+<a id="2026-10-14-gracebench-gui-execution-stability"></a>
+## [GraceBench 从偏离、循环与恢复能力诊断 GUI 智能体执行稳定性](https://arxiv.org/abs/2610.19900)
+
+**English:** [GraceBench diagnoses GUI-agent detours, loops, and recovery beyond task success](https://arxiv.org/abs/2610.19900)
+
+- **发布 / Published:** `2026-10-14T09:58:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19900) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `computer-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+GraceBench 将移动应用交互组织成 UI 状态转移图，并结合视频轨迹评估执行稳定性。论文报告，51.24% 的成功运行仍出现偏离或循环；代码和数据在文中仍列为待发布。
+
+GraceBench represents mobile-app interactions as UI transition graphs and uses video-grounded trajectory evaluation to diagnose execution stability. The paper reports that 51.24% of successful runs still contain a deviation or loop; its code and data are described as forthcoming.
+
+### 技术点 / Technical points
+
+- 基准包含 10 个应用中的 169 项任务，记录 2,909 个规范 GUI 状态与 3,116 次观测转移。
+  - The benchmark covers 169 tasks in 10 apps, with 2,909 canonical states and 3,116 observed transitions.
+- 对 3,718 条轨迹同时评估偏离、循环负担、恢复能力与最终结果。
+  - Evaluation of 3,718 trajectories measures deviation, loop burden, and recovery as well as final outcomes.
+
+### 为什么重要 / Why it matters
+
+过程层面的诊断有助于发现被最终成功状态掩盖的可靠性问题。
+
+Process-level diagnostics could expose reliability problems that successful end states conceal.
+
+---
+
+<a id="2026-10-14-dgs-wm-decision-guided-world-modeling"></a>
+## [DGS-WM 为智能体世界模型训练筛选决策相关观测](https://arxiv.org/abs/2610.19642)
+
+**English:** [DGS-WM selects decision-relevant observations for agent world-model training](https://arxiv.org/abs/2610.19642)
+
+- **发布 / Published:** `2026-10-14T06:11:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19642) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DGS-WM 在同一模型上联合训练语言智能体策略与辅助世界建模。它选择能支持后续决策的观测单元，并依据预测置信度调整监督权重，避免将全部环境输出视作同等有用的训练目标。
+
+DGS-WM jointly trains a language-agent policy and auxiliary world modeling on the same model. It selects observation units that support later decisions and adjusts supervision by prediction confidence, rather than treating all environment output as equally useful training targets.
+
+### 技术点 / Technical points
+
+- 观测筛选与置信度自适应加权构成辅助损失，与强化学习目标联合优化。
+  - Observation selection and confidence-adaptive weighting define an auxiliary loss combined with reinforcement learning.
+- 实验跨模型规模及强化学习算法，覆盖单跳、多跳问答与交互式网页任务。
+  - Experiments cover single-hop and multi-hop question answering and interactive web tasks across model scales and RL algorithms.
+
+### 为什么重要 / Why it matters
+
+当环境观测冗长且嘈杂时，选择性的动态监督可能改善智能体学习。
+
+Selective dynamics supervision could improve agent learning when environment observations are long and noisy.
+
+---
+
 <a id="2026-10-13-pydantic-ai-256-durability-microvm"></a>
 ## [Pydantic AI 2.56 新增持久执行后端与本地 microVM 工作空间](https://github.com/pydantic/pydantic-ai/releases/tag/v2.56.0)
 

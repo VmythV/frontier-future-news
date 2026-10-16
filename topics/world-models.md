@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-14-atomic-wam-execution-grounded-reasoning"></a>
+## [Atomic-WAM 用世界动作模型执行结果约束局部动作推理](https://arxiv.org/abs/2610.20157)
+
+**English:** [Atomic-WAM grounds local-motion reasoning in world-action-model execution](https://arxiv.org/abs/2610.20157)
+
+- **发布 / Published:** `2026-10-14T13:13:35Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20157) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `reinforcement-learning`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Atomic-WAM 通过局部原子动作描述，将视觉语言推理器连接到未来视频与动作的联合预测。论文在 RoboLab 的 real-to-sim 评估中报告，默认指令下成功率为 39.6%，模糊指令下为 31.6%。
+
+Atomic-WAM connects a vision-language reasoner to joint future-video and action prediction through descriptions of local atomic motions. The paper reports 39.6% success with default instructions and 31.6% with vague instructions in RoboLab real-to-sim evaluation.
+
+### 技术点 / Technical points
+
+- 标注流程从多视角 DROID 示范中提取时间对齐且包含接触信息的监督。
+  - An annotation pipeline extracts temporally aligned, contact-enriched supervision from multi-view DROID demonstrations.
+- Execution-Grounded GRPO 固定世界动作模型，以动作适当性和执行奖励更新推理器。
+  - Execution-Grounded GRPO updates the reasoner using motion appropriateness and execution rewards while keeping the world-action model fixed.
+
+### 为什么重要 / Why it matters
+
+执行反馈有望使机器人高层推理更适配其所控制的动作生成器。
+
+Execution feedback could make high-level robot reasoning more compatible with the action generator it controls.
+
+---
+
+<a id="2026-10-14-vla-world-modeling-controlled-comparison"></a>
+## [受控 VLA 研究比较四种世界模型集成方式](https://arxiv.org/abs/2610.19825)
+
+**English:** [Controlled VLA study compares four ways to integrate world modeling](https://arxiv.org/abs/2610.19825)
+
+- **发布 / Published:** `2026-10-14T09:01:30Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19825) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `simulation`, `benchmark`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项统一框架研究比较 VLA 世界建模中的表征、集成设计与策略主干。结果未发现普遍最优设计，但二维语义表征在不同范式中表现稳健，解耦的未来专家尤其在分布外场景中具有竞争力。
+
+A unified study compares world representations, integration designs, and policy backbones for VLA world modeling. It finds no universally best design, while 2D semantic representations provide robust gains across paradigms and decoupled future experts perform competitively, particularly out of distribution.
+
+### 技术点 / Technical points
+
+- 比较覆盖隐式未来对齐、显式未来查询、MoT 未来专家与外部世界预测器。
+  - The comparison covers Implicit Future Alignment, Explicit Future Query, MoT Future Expert, and External World Predictor.
+- 评估包含分布内、分布外、长程、动态、少样本及现实环境。
+  - Evaluation includes in-domain, out-of-domain, long-horizon, dynamic, few-shot, and real-world settings.
+
+### 为什么重要 / Why it matters
+
+受控比较有助于辨别哪些世界模型设计真正支持机器人策略。
+
+Controlled comparisons help identify which world-model choices actually support robot policies.
+
+---
+
+<a id="2026-10-14-dgs-wm-decision-guided-world-modeling"></a>
+## [DGS-WM 为智能体世界模型训练筛选决策相关观测](https://arxiv.org/abs/2610.19642)
+
+**English:** [DGS-WM selects decision-relevant observations for agent world-model training](https://arxiv.org/abs/2610.19642)
+
+- **发布 / Published:** `2026-10-14T06:11:08Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19642) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DGS-WM 在同一模型上联合训练语言智能体策略与辅助世界建模。它选择能支持后续决策的观测单元，并依据预测置信度调整监督权重，避免将全部环境输出视作同等有用的训练目标。
+
+DGS-WM jointly trains a language-agent policy and auxiliary world modeling on the same model. It selects observation units that support later decisions and adjusts supervision by prediction confidence, rather than treating all environment output as equally useful training targets.
+
+### 技术点 / Technical points
+
+- 观测筛选与置信度自适应加权构成辅助损失，与强化学习目标联合优化。
+  - Observation selection and confidence-adaptive weighting define an auxiliary loss combined with reinforcement learning.
+- 实验跨模型规模及强化学习算法，覆盖单跳、多跳问答与交互式网页任务。
+  - Experiments cover single-hop and multi-hop question answering and interactive web tasks across model scales and RL algorithms.
+
+### 为什么重要 / Why it matters
+
+当环境观测冗长且嘈杂时，选择性的动态监督可能改善智能体学习。
+
+Selective dynamics supervision could improve agent learning when environment observations are long and noisy.
+
+---
+
 <a id="2026-10-13-loopwam-deployment-rollout-improvement"></a>
 ## [LoopWAM 利用不同质量的部署轨迹改进机器人策略](https://arxiv.org/abs/2610.18873)
 
