@@ -15006,6 +15006,466 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-16-matrix-game-4-technical-report",
+      "published_at": "2026-10-16T02:26:50Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "simulation",
+        "interactive-video",
+        "open-source",
+        "neural-rendering"
+      ],
+      "title_en": "Matrix-Game 4.0 publishes its engine-grounded neural-rendering technical report",
+      "title_zh": "Matrix-Game 4.0 发布由游戏引擎维护状态的神经渲染技术报告",
+      "summary_en": "Skywork posted the Matrix-Game 4.0 technical report on October 16. Its game engine explicitly maintains gameplay and physics while a causal video model produces visuals. The repository provides inference, a browser demo and three game scenes; this record uses the report-publication commit time.",
+      "summary_zh": "Skywork 于 10 月 16 日发布 Matrix-Game 4.0 技术报告。系统将显式游戏状态与因果视频渲染器结合，由游戏引擎维护规则和物理状态。仓库提供推理代码、浏览器演示及三个游戏场景；本条时间采用技术报告公开提交的时间。",
+      "tech_points_en": [
+        "An executable engine handles gameplay, physics and input; the model renders low-poly RGB frames into detailed video.",
+        "A causal model generates successive chunks from proxy frames and text; the v4 code is Apache-2.0 licensed."
+      ],
+      "tech_points_zh": [
+        "可执行引擎处理玩法、物理和输入，模型将低多边形 RGB 帧渲染为细致视频。",
+        "因果模型根据代理画面和文本逐块生成视频；v4 代码采用 Apache-2.0 许可。"
+      ],
+      "why_it_matters_en": "The hybrid design provides an inspectable way to preserve interactive state while using learned visual generation.",
+      "why_it_matters_zh": "这种混合设计为交互状态的可靠维护与学习式视觉生成的结合提供了可检查的实现。",
+      "source": {
+        "name": "Skywork AI",
+        "type": "primary",
+        "url": "https://github.com/SkyworkAI/Matrix-Game",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/SkyworkAI/Matrix-Game/commit/3aaed99c5a4300a6de20ec0fbddfd37a4e63dac5",
+        "https://matrix-game-v4-0.github.io/page/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-libero-perm-personalized-manipulation",
+      "published_at": "2026-10-15T17:59:59Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "benchmark",
+        "personalization"
+      ],
+      "title_en": "LIBERO-PeRM separates robot task completion from preference satisfaction",
+      "title_zh": "LIBERO-PeRM 将机器人任务完成与用户偏好满足分开评测",
+      "summary_en": "LIBERO-PeRM introduces 312 simulated tasks across five suites for learning and evaluating robotic preferences. The paper reports weak zero-shot personalization in current VLA policies; supervised fine-tuning helps, but preference transfer, composition and conflict handling remain difficult.",
+      "summary_zh": "LIBERO-PeRM 提出五个任务套件、共 312 项仿真任务，用于学习与评测机器人的偏好遵循。论文发现当前 VLA 策略的零样本个性化能力较弱；监督微调有所帮助，但偏好迁移、组合及冲突处理仍然困难。",
+      "tech_points_en": [
+        "Paired demonstrations with and without preferences support separate task and preference metrics.",
+        "The benchmark covers motion, skill and user-profile preferences that can be expressed in language and automatically evaluated in LIBERO."
+      ],
+      "tech_points_zh": [
+        "带偏好和不带偏好的配对示范支持分别衡量任务完成与偏好满足。",
+        "基准覆盖运动、技能和用户画像偏好，限定为可用语言表达且可在 LIBERO 中自动评估的偏好。"
+      ],
+      "why_it_matters_en": "It makes household personalization measurable beyond whether a robot merely completes the requested task.",
+      "why_it_matters_zh": "它使家庭机器人的个性化能力能够在任务是否完成之外得到单独衡量。",
+      "source": {
+        "name": "LIBERO-PeRM authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22372",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-value-as-memory-online-robot-rl",
+      "published_at": "2026-10-15T17:59:31Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "memory",
+        "reinforcement-learning",
+        "manipulation"
+      ],
+      "title_en": "Value as Memory combines task-progress caching with online robot reinforcement learning",
+      "title_zh": "Value as Memory 将任务进度缓存与机器人在线强化学习结合",
+      "summary_en": "Value as Memory conditions robot actions on recent value predictions and updates policies using deployment experience. The authors report a mean absolute success-rate gain of 29.4 percentage points from value caching, and improved online autonomous learning compared with matched offline training on long-horizon manipulation tasks.",
+      "summary_zh": "Value as Memory 以近期价值预测作为机器人动作的条件，并用部署经验更新策略。作者在长时程操作任务中报告，价值缓存带来平均 29.4 个百分点的成功率绝对提升，在线自主学习也优于匹配的离线训练。",
+      "tech_points_en": [
+        "Value caching supplies task-progress memory for partially observed, long-horizon manipulation.",
+        "Training combines offline demonstrations, off-policy interventions and on-policy rollouts, progressing from offline warmup to sparse-reward online learning."
+      ],
+      "tech_points_zh": [
+        "价值缓存为部分可观测的长时程操作提供任务进度记忆。",
+        "训练结合离线示范、离策略干预和在策略轨迹，从离线预热转向稀疏奖励在线学习。"
+      ],
+      "why_it_matters_en": "The approach links remembered progress with feedback collected during deployment for contact-rich robot tasks.",
+      "why_it_matters_zh": "该方法将进度记忆与部署期间收集的反馈联系起来，用于接触密集的机器人任务。",
+      "source": {
+        "name": "Value as Memory authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22368",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-t2-z-test-time-world-model-adaptation",
+      "published_at": "2026-10-15T17:59:11Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "latent-dynamics",
+        "test-time-adaptation",
+        "manipulation"
+      ],
+      "title_en": "T2-Z adapts frozen robotic world models through environment latents",
+      "title_zh": "T2-Z 通过环境潜变量适配冻结的机器人世界模型",
+      "summary_en": "T2-Z learns a compact environment latent that can be optimized from test-time interactions while keeping the robotic world model frozen. Across seven simulated settings and four real robot tasks, the authors report action success rising from 33.73% to 72.96% and object-prediction error falling from 15.20 to 7.00.",
+      "summary_zh": "T2-Z 学习紧凑的环境潜变量，在测试交互中只优化该变量，保持机器人世界模型冻结。作者在七种仿真设置和四项真实机器人任务中报告，动作成功率从 33.73% 升至 72.96%，物体预测误差从 15.20 降至 7.00。",
+      "tech_points_en": [
+        "Training alternates between dynamics learning with fixed latents and latent optimization with a fixed world model.",
+        "The latent represents unobserved physical properties or environmental rules without factor labels; ablations include adaptation from one interaction trajectory."
+      ],
+      "tech_points_zh": [
+        "训练交替进行固定潜变量的动力学学习，以及固定世界模型的潜变量优化。",
+        "潜变量无需因素标签即可表示不可直接观察的物理属性或环境规则；消融实验包含仅用一条交互轨迹适配。"
+      ],
+      "why_it_matters_en": "It offers a compact adaptation mechanism for changing physical conditions without updating every model parameter.",
+      "why_it_matters_zh": "它为物理条件变化提供了紧凑的适配机制，无需更新全部模型参数。",
+      "source": {
+        "name": "T2-Z authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22364",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-fde-gym-customer-delivery-benchmark",
+      "published_at": "2026-10-15T17:57:23Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "tool-use",
+        "long-horizon",
+        "evaluation"
+      ],
+      "title_en": "FDE-Gym tests whether agents can discover requirements and deliver customer outcomes",
+      "title_zh": "FDE-Gym 测试智能体能否发现隐含需求并交付客户成果",
+      "summary_en": "FDE-Gym evaluates agents on 95 delivery tasks derived from 20 customer scenarios across 18 sectors. Agents must question simulated stakeholders and modify customer-like systems. Among 13 evaluated model configurations, the best realistic-setting configuration resolves only 14 tasks under the benchmark’s success and incident criteria.",
+      "summary_zh": "FDE-Gym 以覆盖 18 个行业、20 个客户场景的 95 项交付任务评测智能体。智能体须询问模拟利益相关方并修改类客户系统。在 13 种受测模型配置中，现实设置下表现最佳的配置也仅有 14 项任务满足基准的成功与无事故要求。",
+      "tech_points_en": [
+        "Scoring measures normalized improvement in customer success metrics and penalizes messages, trial runs and waiting.",
+        "The best configuration scores 0.56 on average; a resolved task requires at least 0.8 and no incident."
+      ],
+      "tech_points_zh": [
+        "评分衡量客户成功指标的归一化改善，并对消息、试运行与等待施加惩罚。",
+        "最佳配置平均得分为 0.56；任务解决要求得分至少 0.8 且无事故。"
+      ],
+      "why_it_matters_en": "The benchmark exposes delivery failures that well-specified coding tickets do not capture.",
+      "why_it_matters_zh": "该基准揭示了需求明确的编码工单难以覆盖的交付失败。",
+      "source": {
+        "name": "FDE-Gym authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22350",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-spark-0-tactile-robot-pretraining",
+      "published_at": "2026-10-15T17:56:17Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "tactile-sensing",
+        "vla",
+        "dataset",
+        "benchmark"
+      ],
+      "title_en": "Spark-0 uses 1,000 hours of human touch to improve dexterous robot pretraining",
+      "title_zh": "Spark-0 利用 1,000 小时人类触觉数据改进机器人灵巧操作预训练",
+      "summary_en": "Spark-0 introduces spatially aligned vision-tactile-language-action pretraining alongside the 1,000-hour HumanTouch dataset and SparkArena benchmark. In matched pretraining comparisons, the authors report vision-only Ego Humanoid success improving from 52.5% to 71.7%, and tactile-conditioned SparkArena-Real success from 44.0% to 52.0%.",
+      "summary_zh": "Spark-0 提出空间对齐的视觉—触觉—语言—动作预训练，并构建 1,000 小时 HumanTouch 数据集及 SparkArena 基准。在匹配的预训练对照中，作者报告纯视觉部署的 Ego Humanoid 成功率从 52.5% 升至 71.7%，触觉条件下的 SparkArena-Real 成功率从 44.0% 升至 52.0%。",
+      "tech_points_en": [
+        "Contact maps and frozen 3D teacher features supervise visual tokens during pretraining; those objectives are removed at inference.",
+        "A separate tactile pathway conditions the action expert, allowing one checkpoint to support vision-only or tactile-conditioned deployment."
+      ],
+      "tech_points_zh": [
+        "预训练以接触图和冻结的三维教师特征监督视觉词元；推理时移除这些训练目标。",
+        "独立触觉通路为动作专家提供条件，使同一检查点支持纯视觉或触觉条件部署。"
+      ],
+      "why_it_matters_en": "The results test touch as scalable training supervision even when deployment does not include tactile input.",
+      "why_it_matters_zh": "这些结果检验了触觉作为可扩展训练监督的价值，即使部署时不使用触觉输入。",
+      "source": {
+        "name": "Spark-0 authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22342",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-gemini-4-argon-minecraft-agent-team",
+      "published_at": "2026-10-15T17:51:32Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "coding",
+        "memory",
+        "long-horizon"
+      ],
+      "title_en": "Four Gemini 4 Argon agents complete a 27-hour Minecraft survival run",
+      "title_zh": "四个 Gemini 4 Argon 智能体完成持续 27 小时的 Minecraft 生存通关",
+      "summary_en": "A research team reports that four Gemini 4 Argon agents defeated Minecraft’s Ender Dragon in 27 hours and 14 minutes on Easy difficulty. The agents wrote 2,783 programs and died 605 times. This is a reported demonstration in one randomly generated world, rather than a measured success rate over repeated trials.",
+      "summary_zh": "研究团队报告，四个 Gemini 4 Argon 智能体在简单难度下，用 27 小时 14 分钟击败 Minecraft 末影龙。智能体共编写 2,783 个程序、死亡 605 次。这是在一个随机生成世界中的演示，并非重复试验所得的成功率。",
+      "tech_points_en": [
+        "Agents control players through Mineflayer and coordinate using in-game chat and shared memory.",
+        "The authors report no assigned roles, custom human-written game logic or researcher intervention during the run."
+      ],
+      "tech_points_zh": [
+        "智能体通过 Mineflayer 控制玩家，以游戏聊天和共享记忆协调。",
+        "作者报告运行中未预先分配角色、未提供人工额外编写的游戏逻辑，也未进行研究者干预。"
+      ],
+      "why_it_matters_en": "The run provides a concrete trace of sustained coding, recovery and coordination across thousands of dependent actions.",
+      "why_it_matters_zh": "此次运行提供了跨越数千项依赖动作的持续编码、故障恢复与协作的具体案例。",
+      "source": {
+        "name": "Faldor, Singh and Raileanu / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22319",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-leash-computer-use-escalation",
+      "published_at": "2026-10-15T17:40:12Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "uncertainty",
+        "routing",
+        "evaluation"
+      ],
+      "title_en": "LEASH uses latent uncertainty to route and oversee computer-use agents",
+      "title_zh": "LEASH 利用潜在不确定性路由与监督计算机操作智能体",
+      "summary_en": "LEASH delegates computer-use steps to a stronger model when a weaker model’s hidden-state uncertainty warrants escalation, then continues oversight. On OSWorld, the authors report 73.66% success at $0.4117 per task with Qwen3.5-35B-A3B, compared with 72.90% for always-on Claude Opus 5, at 19.2% lower inference cost.",
+      "summary_zh": "LEASH 在较弱模型的隐状态不确定性提示需要升级时，将计算机操作交给更强模型，并继续监督。作者在 OSWorld 上报告，采用 Qwen3.5-35B-A3B 时成功率为 73.66%、单任务成本为 0.4117 美元；持续使用 Claude Opus 5 的成功率为 72.90%，前者推理成本降低 19.2%。",
+      "tech_points_en": [
+        "Task routing, step-level escalation and a shadow observer share a latent uncertainty signal.",
+        "Weak-agent monitoring reuses action-generation activations without an extra forward pass or dedicated monitor training."
+      ],
+      "tech_points_zh": [
+        "任务路由、步骤级升级与影子观察器共享潜在不确定性信号。",
+        "弱智能体监控复用动作生成时的激活，无需额外前向计算或专门训练监控器。"
+      ],
+      "why_it_matters_en": "It tests a practical mechanism for balancing strong-model assistance with per-step inference cost.",
+      "why_it_matters_zh": "它检验了在强模型协助与逐步推理成本之间进行权衡的实用机制。",
+      "source": {
+        "name": "LEASH authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.22280",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-15-nemotron-35-super-vl-bolt-agents",
+      "published_at": "2026-10-15T15:00:24Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "multimodal",
+        "open-weights",
+        "local-inference"
+      ],
+      "title_en": "NVIDIA releases Nemotron 3.5 Super VL and Bolt for multimodal and local agents",
+      "title_zh": "NVIDIA 发布面向多模态与本地智能体的 Nemotron 3.5 Super VL 和 Bolt",
+      "summary_en": "NVIDIA released Nemotron 3.5 Super VL and Bolt 74B-A9B for agent workflows. Super VL combines text, image, document and video understanding with reasoning and tool use. Bolt 74B-A9B targets local agents through native 2-bit quantization for a 24GB memory footprint; the smaller Bolt E4B remains scheduled for October 23.",
+      "summary_zh": "NVIDIA 发布面向智能体工作流的 Nemotron 3.5 Super VL 与 Bolt 74B-A9B。Super VL 将文本、图像、文档和视频理解与推理、工具使用结合。Bolt 74B-A9B 通过原生 2 比特量化面向 24GB 内存占用的本地智能体；更小的 Bolt E4B 仍计划于 10 月 23 日推出。",
+      "tech_points_en": [
+        "Super VL uses 120B total parameters with 12B active per token and supports multimodal agent workflows.",
+        "Bolt 74B-A9B has 74B total and 9B active parameters; release availability differs from the forthcoming E4B model."
+      ],
+      "tech_points_zh": [
+        "Super VL 总参数量为 120B，每词元激活 12B 参数，支持多模态智能体工作流。",
+        "Bolt 74B-A9B 总参数量为 74B、激活参数为 9B；其已发布状态与尚未推出的 E4B 不同。"
+      ],
+      "why_it_matters_en": "The release expands deployable model options for agents that combine visual evidence with tool execution.",
+      "why_it_matters_zh": "此次发布为结合视觉证据与工具执行的智能体扩展了可部署的模型选择。",
+      "source": {
+        "name": "NVIDIA",
+        "type": "primary",
+        "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/LocalLLaMA/comments/1x6o31q/nvidianvidianemotron35bolt74ba9b24gb_hugging_face/"
+      ],
+      "evidence_urls": [
+        "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-10-15-verivla-latent-world-model-verification",
+      "published_at": "2026-10-15T14:34:44Z",
+      "collected_at": "2026-10-17T00:03:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "verification",
+        "latent-dynamics"
+      ],
+      "title_en": "VeriVLA ranks robot action candidates with a latent world model at critical states",
+      "title_zh": "VeriVLA 在关键状态用潜在世界模型筛选机器人动作候选",
+      "summary_en": "VeriVLA selectively checks action chunks from flow-based VLA policies using a JEPA latent world model. Across three real manipulation tasks, the authors report average completion scores rising from 50.8% to 65.5%, with 326 ms of additional sampling and verification per triggered decision on an RTX 4090.",
+      "summary_zh": "VeriVLA 利用 JEPA 潜在世界模型，选择性检查基于流的 VLA 策略生成的动作片段。作者在三项真实操作任务中报告，平均完成得分从 50.8% 升至 65.5%；在 RTX 4090 上，每次触发检查增加 326 毫秒的采样与验证耗时。",
+      "tech_points_en": [
+        "A training-free trigger compares temporal variation and variance between two initial action samples.",
+        "The verifier predicts action-conditioned future latent states and task-progress changes, avoiding pixel reconstruction when ranking candidates."
+      ],
+      "tech_points_zh": [
+        "无需训练的触发器比较两个初始动作样本的时间变化与样本间方差。",
+        "验证器预测动作条件下的未来潜在状态和任务进度变化，在候选排序时避免重建像素。"
+      ],
+      "why_it_matters_en": "It concentrates extra inference on decisions where an unsuitable robot action could derail fine manipulation.",
+      "why_it_matters_zh": "它将额外推理集中到不合适动作可能破坏精细操作进程的决策上。",
+      "source": {
+        "name": "VeriVLA authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.21985",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }

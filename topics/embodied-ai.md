@@ -2,6 +2,166 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-15-libero-perm-personalized-manipulation"></a>
+## [LIBERO-PeRM 将机器人任务完成与用户偏好满足分开评测](https://arxiv.org/abs/2610.22372)
+
+**English:** [LIBERO-PeRM separates robot task completion from preference satisfaction](https://arxiv.org/abs/2610.22372)
+
+- **发布 / Published:** `2026-10-15T17:59:59Z`
+- **来源 / Source:** [LIBERO-PeRM authors / arXiv](https://arxiv.org/abs/2610.22372) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `personalization`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+LIBERO-PeRM 提出五个任务套件、共 312 项仿真任务，用于学习与评测机器人的偏好遵循。论文发现当前 VLA 策略的零样本个性化能力较弱；监督微调有所帮助，但偏好迁移、组合及冲突处理仍然困难。
+
+LIBERO-PeRM introduces 312 simulated tasks across five suites for learning and evaluating robotic preferences. The paper reports weak zero-shot personalization in current VLA policies; supervised fine-tuning helps, but preference transfer, composition and conflict handling remain difficult.
+
+### 技术点 / Technical points
+
+- 带偏好和不带偏好的配对示范支持分别衡量任务完成与偏好满足。
+  - Paired demonstrations with and without preferences support separate task and preference metrics.
+- 基准覆盖运动、技能和用户画像偏好，限定为可用语言表达且可在 LIBERO 中自动评估的偏好。
+  - The benchmark covers motion, skill and user-profile preferences that can be expressed in language and automatically evaluated in LIBERO.
+
+### 为什么重要 / Why it matters
+
+它使家庭机器人的个性化能力能够在任务是否完成之外得到单独衡量。
+
+It makes household personalization measurable beyond whether a robot merely completes the requested task.
+
+---
+
+<a id="2026-10-15-value-as-memory-online-robot-rl"></a>
+## [Value as Memory 将任务进度缓存与机器人在线强化学习结合](https://arxiv.org/abs/2610.22368)
+
+**English:** [Value as Memory combines task-progress caching with online robot reinforcement learning](https://arxiv.org/abs/2610.22368)
+
+- **发布 / Published:** `2026-10-15T17:59:31Z`
+- **来源 / Source:** [Value as Memory authors / arXiv](https://arxiv.org/abs/2610.22368) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `reinforcement-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Value as Memory 以近期价值预测作为机器人动作的条件，并用部署经验更新策略。作者在长时程操作任务中报告，价值缓存带来平均 29.4 个百分点的成功率绝对提升，在线自主学习也优于匹配的离线训练。
+
+Value as Memory conditions robot actions on recent value predictions and updates policies using deployment experience. The authors report a mean absolute success-rate gain of 29.4 percentage points from value caching, and improved online autonomous learning compared with matched offline training on long-horizon manipulation tasks.
+
+### 技术点 / Technical points
+
+- 价值缓存为部分可观测的长时程操作提供任务进度记忆。
+  - Value caching supplies task-progress memory for partially observed, long-horizon manipulation.
+- 训练结合离线示范、离策略干预和在策略轨迹，从离线预热转向稀疏奖励在线学习。
+  - Training combines offline demonstrations, off-policy interventions and on-policy rollouts, progressing from offline warmup to sparse-reward online learning.
+
+### 为什么重要 / Why it matters
+
+该方法将进度记忆与部署期间收集的反馈联系起来，用于接触密集的机器人任务。
+
+The approach links remembered progress with feedback collected during deployment for contact-rich robot tasks.
+
+---
+
+<a id="2026-10-15-t2-z-test-time-world-model-adaptation"></a>
+## [T2-Z 通过环境潜变量适配冻结的机器人世界模型](https://arxiv.org/abs/2610.22364)
+
+**English:** [T2-Z adapts frozen robotic world models through environment latents](https://arxiv.org/abs/2610.22364)
+
+- **发布 / Published:** `2026-10-15T17:59:11Z`
+- **来源 / Source:** [T2-Z authors / arXiv](https://arxiv.org/abs/2610.22364) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `latent-dynamics`, `test-time-adaptation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+T2-Z 学习紧凑的环境潜变量，在测试交互中只优化该变量，保持机器人世界模型冻结。作者在七种仿真设置和四项真实机器人任务中报告，动作成功率从 33.73% 升至 72.96%，物体预测误差从 15.20 降至 7.00。
+
+T2-Z learns a compact environment latent that can be optimized from test-time interactions while keeping the robotic world model frozen. Across seven simulated settings and four real robot tasks, the authors report action success rising from 33.73% to 72.96% and object-prediction error falling from 15.20 to 7.00.
+
+### 技术点 / Technical points
+
+- 训练交替进行固定潜变量的动力学学习，以及固定世界模型的潜变量优化。
+  - Training alternates between dynamics learning with fixed latents and latent optimization with a fixed world model.
+- 潜变量无需因素标签即可表示不可直接观察的物理属性或环境规则；消融实验包含仅用一条交互轨迹适配。
+  - The latent represents unobserved physical properties or environmental rules without factor labels; ablations include adaptation from one interaction trajectory.
+
+### 为什么重要 / Why it matters
+
+它为物理条件变化提供了紧凑的适配机制，无需更新全部模型参数。
+
+It offers a compact adaptation mechanism for changing physical conditions without updating every model parameter.
+
+---
+
+<a id="2026-10-15-spark-0-tactile-robot-pretraining"></a>
+## [Spark-0 利用 1,000 小时人类触觉数据改进机器人灵巧操作预训练](https://arxiv.org/abs/2610.22342)
+
+**English:** [Spark-0 uses 1,000 hours of human touch to improve dexterous robot pretraining](https://arxiv.org/abs/2610.22342)
+
+- **发布 / Published:** `2026-10-15T17:56:17Z`
+- **来源 / Source:** [Spark-0 authors / arXiv](https://arxiv.org/abs/2610.22342) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `vla`, `dataset`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Spark-0 提出空间对齐的视觉—触觉—语言—动作预训练，并构建 1,000 小时 HumanTouch 数据集及 SparkArena 基准。在匹配的预训练对照中，作者报告纯视觉部署的 Ego Humanoid 成功率从 52.5% 升至 71.7%，触觉条件下的 SparkArena-Real 成功率从 44.0% 升至 52.0%。
+
+Spark-0 introduces spatially aligned vision-tactile-language-action pretraining alongside the 1,000-hour HumanTouch dataset and SparkArena benchmark. In matched pretraining comparisons, the authors report vision-only Ego Humanoid success improving from 52.5% to 71.7%, and tactile-conditioned SparkArena-Real success from 44.0% to 52.0%.
+
+### 技术点 / Technical points
+
+- 预训练以接触图和冻结的三维教师特征监督视觉词元；推理时移除这些训练目标。
+  - Contact maps and frozen 3D teacher features supervise visual tokens during pretraining; those objectives are removed at inference.
+- 独立触觉通路为动作专家提供条件，使同一检查点支持纯视觉或触觉条件部署。
+  - A separate tactile pathway conditions the action expert, allowing one checkpoint to support vision-only or tactile-conditioned deployment.
+
+### 为什么重要 / Why it matters
+
+这些结果检验了触觉作为可扩展训练监督的价值，即使部署时不使用触觉输入。
+
+The results test touch as scalable training supervision even when deployment does not include tactile input.
+
+---
+
+<a id="2026-10-15-verivla-latent-world-model-verification"></a>
+## [VeriVLA 在关键状态用潜在世界模型筛选机器人动作候选](https://arxiv.org/abs/2610.21985)
+
+**English:** [VeriVLA ranks robot action candidates with a latent world model at critical states](https://arxiv.org/abs/2610.21985)
+
+- **发布 / Published:** `2026-10-15T14:34:44Z`
+- **来源 / Source:** [VeriVLA authors / arXiv](https://arxiv.org/abs/2610.21985) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `verification`, `latent-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+VeriVLA 利用 JEPA 潜在世界模型，选择性检查基于流的 VLA 策略生成的动作片段。作者在三项真实操作任务中报告，平均完成得分从 50.8% 升至 65.5%；在 RTX 4090 上，每次触发检查增加 326 毫秒的采样与验证耗时。
+
+VeriVLA selectively checks action chunks from flow-based VLA policies using a JEPA latent world model. Across three real manipulation tasks, the authors report average completion scores rising from 50.8% to 65.5%, with 326 ms of additional sampling and verification per triggered decision on an RTX 4090.
+
+### 技术点 / Technical points
+
+- 无需训练的触发器比较两个初始动作样本的时间变化与样本间方差。
+  - A training-free trigger compares temporal variation and variance between two initial action samples.
+- 验证器预测动作条件下的未来潜在状态和任务进度变化，在候选排序时避免重建像素。
+  - The verifier predicts action-conditioned future latent states and task-progress changes, avoiding pixel reconstruction when ranking candidates.
+
+### 为什么重要 / Why it matters
+
+它将额外推理集中到不合适动作可能破坏精细操作进程的决策上。
+
+It concentrates extra inference on decisions where an unsuitable robot action could derail fine manipulation.
+
+---
+
 <a id="2026-10-14-humanoid-policy-weight-diffusion"></a>
 ## [潜在扩散直接生成用于现实动作的人形机器人控制器权重](https://arxiv.org/abs/2610.20606)
 

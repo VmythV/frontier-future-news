@@ -2,6 +2,106 @@
 
 # World models / 世界模型
 
+<a id="2026-10-16-matrix-game-4-technical-report"></a>
+## [Matrix-Game 4.0 发布由游戏引擎维护状态的神经渲染技术报告](https://github.com/SkyworkAI/Matrix-Game)
+
+**English:** [Matrix-Game 4.0 publishes its engine-grounded neural-rendering technical report](https://github.com/SkyworkAI/Matrix-Game)
+
+- **发布 / Published:** `2026-10-16T02:26:50Z`
+- **来源 / Source:** [Skywork AI](https://github.com/SkyworkAI/Matrix-Game) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `simulation`, `interactive-video`, `open-source`, `neural-rendering`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Skywork 于 10 月 16 日发布 Matrix-Game 4.0 技术报告。系统将显式游戏状态与因果视频渲染器结合，由游戏引擎维护规则和物理状态。仓库提供推理代码、浏览器演示及三个游戏场景；本条时间采用技术报告公开提交的时间。
+
+Skywork posted the Matrix-Game 4.0 technical report on October 16. Its game engine explicitly maintains gameplay and physics while a causal video model produces visuals. The repository provides inference, a browser demo and three game scenes; this record uses the report-publication commit time.
+
+### 技术点 / Technical points
+
+- 可执行引擎处理玩法、物理和输入，模型将低多边形 RGB 帧渲染为细致视频。
+  - An executable engine handles gameplay, physics and input; the model renders low-poly RGB frames into detailed video.
+- 因果模型根据代理画面和文本逐块生成视频；v4 代码采用 Apache-2.0 许可。
+  - A causal model generates successive chunks from proxy frames and text; the v4 code is Apache-2.0 licensed.
+
+### 为什么重要 / Why it matters
+
+这种混合设计为交互状态的可靠维护与学习式视觉生成的结合提供了可检查的实现。
+
+The hybrid design provides an inspectable way to preserve interactive state while using learned visual generation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/SkyworkAI/Matrix-Game/commit/3aaed99c5a4300a6de20ec0fbddfd37a4e63dac5) · [Evidence 2](https://matrix-game-v4-0.github.io/page/)
+
+---
+
+<a id="2026-10-15-t2-z-test-time-world-model-adaptation"></a>
+## [T2-Z 通过环境潜变量适配冻结的机器人世界模型](https://arxiv.org/abs/2610.22364)
+
+**English:** [T2-Z adapts frozen robotic world models through environment latents](https://arxiv.org/abs/2610.22364)
+
+- **发布 / Published:** `2026-10-15T17:59:11Z`
+- **来源 / Source:** [T2-Z authors / arXiv](https://arxiv.org/abs/2610.22364) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `latent-dynamics`, `test-time-adaptation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+T2-Z 学习紧凑的环境潜变量，在测试交互中只优化该变量，保持机器人世界模型冻结。作者在七种仿真设置和四项真实机器人任务中报告，动作成功率从 33.73% 升至 72.96%，物体预测误差从 15.20 降至 7.00。
+
+T2-Z learns a compact environment latent that can be optimized from test-time interactions while keeping the robotic world model frozen. Across seven simulated settings and four real robot tasks, the authors report action success rising from 33.73% to 72.96% and object-prediction error falling from 15.20 to 7.00.
+
+### 技术点 / Technical points
+
+- 训练交替进行固定潜变量的动力学学习，以及固定世界模型的潜变量优化。
+  - Training alternates between dynamics learning with fixed latents and latent optimization with a fixed world model.
+- 潜变量无需因素标签即可表示不可直接观察的物理属性或环境规则；消融实验包含仅用一条交互轨迹适配。
+  - The latent represents unobserved physical properties or environmental rules without factor labels; ablations include adaptation from one interaction trajectory.
+
+### 为什么重要 / Why it matters
+
+它为物理条件变化提供了紧凑的适配机制，无需更新全部模型参数。
+
+It offers a compact adaptation mechanism for changing physical conditions without updating every model parameter.
+
+---
+
+<a id="2026-10-15-verivla-latent-world-model-verification"></a>
+## [VeriVLA 在关键状态用潜在世界模型筛选机器人动作候选](https://arxiv.org/abs/2610.21985)
+
+**English:** [VeriVLA ranks robot action candidates with a latent world model at critical states](https://arxiv.org/abs/2610.21985)
+
+- **发布 / Published:** `2026-10-15T14:34:44Z`
+- **来源 / Source:** [VeriVLA authors / arXiv](https://arxiv.org/abs/2610.21985) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `verification`, `latent-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+VeriVLA 利用 JEPA 潜在世界模型，选择性检查基于流的 VLA 策略生成的动作片段。作者在三项真实操作任务中报告，平均完成得分从 50.8% 升至 65.5%；在 RTX 4090 上，每次触发检查增加 326 毫秒的采样与验证耗时。
+
+VeriVLA selectively checks action chunks from flow-based VLA policies using a JEPA latent world model. Across three real manipulation tasks, the authors report average completion scores rising from 50.8% to 65.5%, with 326 ms of additional sampling and verification per triggered decision on an RTX 4090.
+
+### 技术点 / Technical points
+
+- 无需训练的触发器比较两个初始动作样本的时间变化与样本间方差。
+  - A training-free trigger compares temporal variation and variance between two initial action samples.
+- 验证器预测动作条件下的未来潜在状态和任务进度变化，在候选排序时避免重建像素。
+  - The verifier predicts action-conditioned future latent states and task-progress changes, avoiding pixel reconstruction when ranking candidates.
+
+### 为什么重要 / Why it matters
+
+它将额外推理集中到不合适动作可能破坏精细操作进程的决策上。
+
+It concentrates extra inference on decisions where an unsuitable robot action could derail fine manipulation.
+
+---
+
 <a id="2026-10-14-atomic-wam-execution-grounded-reasoning"></a>
 ## [Atomic-WAM 用世界动作模型执行结果约束局部动作推理](https://arxiv.org/abs/2610.20157)
 

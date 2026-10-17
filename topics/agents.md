@@ -2,6 +2,139 @@
 
 # Agents / 智能体
 
+<a id="2026-10-15-fde-gym-customer-delivery-benchmark"></a>
+## [FDE-Gym 测试智能体能否发现隐含需求并交付客户成果](https://arxiv.org/abs/2610.22350)
+
+**English:** [FDE-Gym tests whether agents can discover requirements and deliver customer outcomes](https://arxiv.org/abs/2610.22350)
+
+- **发布 / Published:** `2026-10-15T17:57:23Z`
+- **来源 / Source:** [FDE-Gym authors / arXiv](https://arxiv.org/abs/2610.22350) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `long-horizon`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+FDE-Gym 以覆盖 18 个行业、20 个客户场景的 95 项交付任务评测智能体。智能体须询问模拟利益相关方并修改类客户系统。在 13 种受测模型配置中，现实设置下表现最佳的配置也仅有 14 项任务满足基准的成功与无事故要求。
+
+FDE-Gym evaluates agents on 95 delivery tasks derived from 20 customer scenarios across 18 sectors. Agents must question simulated stakeholders and modify customer-like systems. Among 13 evaluated model configurations, the best realistic-setting configuration resolves only 14 tasks under the benchmark’s success and incident criteria.
+
+### 技术点 / Technical points
+
+- 评分衡量客户成功指标的归一化改善，并对消息、试运行与等待施加惩罚。
+  - Scoring measures normalized improvement in customer success metrics and penalizes messages, trial runs and waiting.
+- 最佳配置平均得分为 0.56；任务解决要求得分至少 0.8 且无事故。
+  - The best configuration scores 0.56 on average; a resolved task requires at least 0.8 and no incident.
+
+### 为什么重要 / Why it matters
+
+该基准揭示了需求明确的编码工单难以覆盖的交付失败。
+
+The benchmark exposes delivery failures that well-specified coding tickets do not capture.
+
+---
+
+<a id="2026-10-15-gemini-4-argon-minecraft-agent-team"></a>
+## [四个 Gemini 4 Argon 智能体完成持续 27 小时的 Minecraft 生存通关](https://arxiv.org/abs/2610.22319)
+
+**English:** [Four Gemini 4 Argon agents complete a 27-hour Minecraft survival run](https://arxiv.org/abs/2610.22319)
+
+- **发布 / Published:** `2026-10-15T17:51:32Z`
+- **来源 / Source:** [Faldor, Singh and Raileanu / arXiv](https://arxiv.org/abs/2610.22319) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `coding`, `memory`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+研究团队报告，四个 Gemini 4 Argon 智能体在简单难度下，用 27 小时 14 分钟击败 Minecraft 末影龙。智能体共编写 2,783 个程序、死亡 605 次。这是在一个随机生成世界中的演示，并非重复试验所得的成功率。
+
+A research team reports that four Gemini 4 Argon agents defeated Minecraft’s Ender Dragon in 27 hours and 14 minutes on Easy difficulty. The agents wrote 2,783 programs and died 605 times. This is a reported demonstration in one randomly generated world, rather than a measured success rate over repeated trials.
+
+### 技术点 / Technical points
+
+- 智能体通过 Mineflayer 控制玩家，以游戏聊天和共享记忆协调。
+  - Agents control players through Mineflayer and coordinate using in-game chat and shared memory.
+- 作者报告运行中未预先分配角色、未提供人工额外编写的游戏逻辑，也未进行研究者干预。
+  - The authors report no assigned roles, custom human-written game logic or researcher intervention during the run.
+
+### 为什么重要 / Why it matters
+
+此次运行提供了跨越数千项依赖动作的持续编码、故障恢复与协作的具体案例。
+
+The run provides a concrete trace of sustained coding, recovery and coordination across thousands of dependent actions.
+
+---
+
+<a id="2026-10-15-leash-computer-use-escalation"></a>
+## [LEASH 利用潜在不确定性路由与监督计算机操作智能体](https://arxiv.org/abs/2610.22280)
+
+**English:** [LEASH uses latent uncertainty to route and oversee computer-use agents](https://arxiv.org/abs/2610.22280)
+
+- **发布 / Published:** `2026-10-15T17:40:12Z`
+- **来源 / Source:** [LEASH authors / arXiv](https://arxiv.org/abs/2610.22280) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `uncertainty`, `routing`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+LEASH 在较弱模型的隐状态不确定性提示需要升级时，将计算机操作交给更强模型，并继续监督。作者在 OSWorld 上报告，采用 Qwen3.5-35B-A3B 时成功率为 73.66%、单任务成本为 0.4117 美元；持续使用 Claude Opus 5 的成功率为 72.90%，前者推理成本降低 19.2%。
+
+LEASH delegates computer-use steps to a stronger model when a weaker model’s hidden-state uncertainty warrants escalation, then continues oversight. On OSWorld, the authors report 73.66% success at $0.4117 per task with Qwen3.5-35B-A3B, compared with 72.90% for always-on Claude Opus 5, at 19.2% lower inference cost.
+
+### 技术点 / Technical points
+
+- 任务路由、步骤级升级与影子观察器共享潜在不确定性信号。
+  - Task routing, step-level escalation and a shadow observer share a latent uncertainty signal.
+- 弱智能体监控复用动作生成时的激活，无需额外前向计算或专门训练监控器。
+  - Weak-agent monitoring reuses action-generation activations without an extra forward pass or dedicated monitor training.
+
+### 为什么重要 / Why it matters
+
+它检验了在强模型协助与逐步推理成本之间进行权衡的实用机制。
+
+It tests a practical mechanism for balancing strong-model assistance with per-step inference cost.
+
+---
+
+<a id="2026-10-15-nemotron-35-super-vl-bolt-agents"></a>
+## [NVIDIA 发布面向多模态与本地智能体的 Nemotron 3.5 Super VL 和 Bolt](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+
+**English:** [NVIDIA releases Nemotron 3.5 Super VL and Bolt for multimodal and local agents](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
+
+- **发布 / Published:** `2026-10-15T15:00:24Z`
+- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `multimodal`, `open-weights`, `local-inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+NVIDIA 发布面向智能体工作流的 Nemotron 3.5 Super VL 与 Bolt 74B-A9B。Super VL 将文本、图像、文档和视频理解与推理、工具使用结合。Bolt 74B-A9B 通过原生 2 比特量化面向 24GB 内存占用的本地智能体；更小的 Bolt E4B 仍计划于 10 月 23 日推出。
+
+NVIDIA released Nemotron 3.5 Super VL and Bolt 74B-A9B for agent workflows. Super VL combines text, image, document and video understanding with reasoning and tool use. Bolt 74B-A9B targets local agents through native 2-bit quantization for a 24GB memory footprint; the smaller Bolt E4B remains scheduled for October 23.
+
+### 技术点 / Technical points
+
+- Super VL 总参数量为 120B，每词元激活 12B 参数，支持多模态智能体工作流。
+  - Super VL uses 120B total parameters with 12B active per token and supports multimodal agent workflows.
+- Bolt 74B-A9B 总参数量为 74B、激活参数为 9B；其已发布状态与尚未推出的 E4B 不同。
+  - Bolt 74B-A9B has 74B total and 9B active parameters; release availability differs from the forthcoming E4B model.
+
+### 为什么重要 / Why it matters
+
+此次发布为结合视觉证据与工具执行的智能体扩展了可部署的模型选择。
+
+The release expands deployable model options for agents that combine visual evidence with tool execution.
+
+### 链接 / Links
+
+[Evidence 1](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/)
+[Discussion 1](https://www.reddit.com/r/LocalLLaMA/comments/1x6o31q/nvidianvidianemotron35bolt74ba9b24gb_hugging_face/)
+
+---
+
 <a id="2026-10-15-openai-agents-sdk-024-approval-compaction"></a>
 ## [OpenAI Agents SDK 0.24 暴露 MCP 工具注解并在压缩时保护待审批状态](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
 
