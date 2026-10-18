@@ -2,6 +2,150 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-16-langgraph-1216-resume-correctness"></a>
+## [LangGraph 1.2.16 修复恢复执行时重复更新及已完成任务重跑](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16)
+
+**English:** [LangGraph 1.2.16 fixes repeated updates and completed-task replay during resume](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16)
+
+- **发布 / Published:** `2026-10-16T22:11:28Z`
+- **来源 / Source:** [LangChain / LangGraph](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `69/100`
+
+### 摘要 / Summary
+
+LangGraph 1.2.16 修复恢复执行的正确性问题：恢复后的 Command 更新只应用一次，子图不再重跑已完成任务，无效恢复值也不会阻止其他任务完成。
+
+LangGraph 1.2.16 addresses execution-resume correctness: resumed Command updates apply once, completed subgraph tasks stay completed, and an invalid resume value no longer prevents other tasks from finishing.
+
+### 技术点 / Technical points
+
+- 恢复后的退出运行，其待写入数据只保存一次。
+  - Pending writes for a resumed exit run are saved once.
+- 此次发布纳入的 checkpoint-postgres 3.2.0 为同步和异步 Postgres 存储器加入 prune 支持。
+  - The bundled checkpoint-postgres 3.2.0 changes add prune support to synchronous and asynchronous Postgres savers.
+
+### 为什么重要 / Why it matters
+
+避免重复执行和重复写入，有助于保证中断后恢复的有状态智能体流程正确运行。
+
+Avoiding repeated execution and writes strengthens the correctness of interrupted, stateful agent workflows.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.16)
+
+---
+
+<a id="2026-10-16-google-verid-wet-lab-agents"></a>
+## [Google 展示 VERID 框架及实验室闭环分子发现原型](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
+
+**English:** [Google presents VERID and lab-in-the-loop molecular discovery prototypes](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
+
+- **发布 / Published:** `2026-10-16T18:11:34Z`
+- **来源 / Source:** [Google Research](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `safety`, `scientific-discovery`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google Research 介绍了 VERID，将智能体规划与有状态实验室跟踪、机器人执行连接起来；相关原型利用实验反馈修订分子设计。人员仍负责授权序列、核验实验流程并监督机器人运行。
+
+Google Research described VERID, which connects agent planning to stateful laboratory tracking and robot execution. Related prototypes use experimental feedback to revise molecular designs. The work remains human-directed: people authorize sequences, verify protocols and supervise robot runs.
+
+### 技术点 / Technical points
+
+- 实时三维工作单元表示跟踪几何、液体体积和吸头库存，通过模拟试运行及硬件检查拒绝无效指令。
+  - A live 3D workcell representation tracks geometry, liquid volumes and tip inventory; simulated dry runs and hardware checks reject invalid commands.
+- 同步视频与动作日志支持调试和恢复，案例包括实验中途酶标仪故障后的恢复。
+  - Synchronized video and action logs support debugging and recovery, including a reported mid-run plate-reader failure.
+
+### 为什么重要 / Why it matters
+
+物理状态检查及可追溯反馈为提高实验室智能体的可靠性提供了具体基础设施。
+
+Physical state checks and traceable feedback provide concrete infrastructure for more reliable laboratory agents.
+
+### 链接 / Links
+
+[Evidence 1](https://research.google/blog/rss/)
+
+---
+
+<a id="2026-10-16-reflection-beam-open-weights"></a>
+## [Reflection 发布 Beam 权重及智能体开发工具栈](https://reflection.ai/blog/beam-is-available)
+
+**English:** [Reflection releases Beam weights and an agent development stack](https://reflection.ai/blog/beam-is-available)
+
+- **发布 / Published:** `2026-10-16T10:34:28Z`
+- **来源 / Source:** [Reflection](https://reflection.ai/blog/beam-is-available) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `reasoning`, `tool-use`, `coding`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Reflection 在 10 月 5 日预告后，以 Apache 2.0 许可发布 Beam 权重，并配套部署、定制流程和 Mirror 终端智能体框架。该记录采用模型仓库“Beam is available”提交的时间。
+
+Reflection made Beam weights available under Apache 2.0, following its October 5 preview. The release pairs a coding and tool-use model with deployment and customization workflows, plus the Mirror terminal harness. The timestamp follows the model repository’s “Beam is available” commit.
+
+### 技术点 / Technical points
+
+- 纯文本 MoE 模型总参数为 5013 亿、激活参数为 234 亿，上下文窗口为 100 万 token。
+  - The text-only MoE has 501.3B total and 23.4B active parameters, with a 1M-token context window.
+- 提供 BF16、FP8、NVFP4 权重及推测解码草稿模型；Mirror 支持恢复会话和独立 worktree。
+  - BF16, FP8 and NVFP4 checkpoints ship alongside a speculative-decoding drafter; Mirror supports resumable sessions and separate worktrees.
+
+### 为什么重要 / Why it matters
+
+这次发布使开发者可以自行部署并检查面向智能体的模型及其执行工具栈。
+
+The release makes an agent-focused model and its surrounding execution stack available for self-hosting and inspection.
+
+### 链接 / Links
+
+[Evidence 1](https://reflection.ai/beam-model-card) · [Evidence 2](https://huggingface.co/reflection/Beam-1.0-501B-A23B/commit/06641076793dad51b8907f7eb2a14f4e08fd3ec8) · [Evidence 3](https://github.com/reflection-oss/mirror)
+
+---
+
+<a id="2026-10-16-pydantic-ai-257-approval-reviewer"></a>
+## [Pydantic AI 2.57 新增模型审批审查及 MCP Apps 调用转发](https://github.com/pydantic/pydantic-ai/releases/tag/v2.57.0)
+
+**English:** [Pydantic AI 2.57 adds model-based approval review and MCP Apps relaying](https://github.com/pydantic/pydantic-ai/releases/tag/v2.57.0)
+
+- **发布 / Published:** `2026-10-16T03:35:35Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.57.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `mcp`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.57.0 新增 ApprovalReviewer，可在人工审查前由模型审查低风险工具调用，并补充 MCP Apps 资源读取和调用转发。版本标题写有 10 月 15 日，实际采用 GitHub 记录的 UTC 10 月 16 日发布时间。
+
+Pydantic AI 2.57.0 introduces an ApprovalReviewer for model review of low-risk tool calls before human review, alongside MCP Apps resource and call forwarding. Although the release title says October 15, GitHub records publication on October 16 UTC.
+
+### 技术点 / Technical points
+
+- Skills 现在遵循 disable-model-invocation 和 user-invocable 标记。
+  - Skills now honor disable-model-invocation and user-invocable flags.
+- 修复上下文压缩保留近期历史不足的问题，并在 Temporal 活动及 Render 子任务中保留能力上下文。
+  - The release fixes compaction retaining too little recent history and preserves capability context in Temporal activities and Render child tasks.
+
+### 为什么重要 / Why it matters
+
+这些变更补充了审批路由控制，并改善智能体工具、前端和持久化任务之间的执行连续性。
+
+These changes add approval-routing controls and improve continuity across agent tools, frontends and durable tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.57.0)
+
+---
+
 <a id="2026-10-16-matrix-game-4-technical-report"></a>
 ## [Matrix-Game 4.0 发布由游戏引擎维护状态的神经渲染技术报告](https://github.com/SkyworkAI/Matrix-Game)
 
@@ -35,6 +179,42 @@ The hybrid design provides an inspectable way to preserve interactive state whil
 ### 链接 / Links
 
 [Evidence 1](https://github.com/SkyworkAI/Matrix-Game/commit/3aaed99c5a4300a6de20ec0fbddfd37a4e63dac5) · [Evidence 2](https://matrix-game-v4-0.github.io/page/)
+
+---
+
+<a id="2026-10-16-openclaw-2026104-runtime-recovery"></a>
+## [OpenClaw 2026.10.4 修复所有者冒充问题并在压缩前妥善结束运行](https://github.com/openclaw/openclaw/releases/tag/v2026.10.4)
+
+**English:** [OpenClaw 2026.10.4 fixes owner impersonation and preserves active runs during compaction](https://github.com/openclaw/openclaw/releases/tag/v2026.10.4)
+
+- **发布 / Published:** `2026-10-16T00:36:19Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `memory`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
+
+### 摘要 / Summary
+
+OpenClaw 的稳定性版本修复了 Tlon 群组私信中的所有者冒充路径，并改善运行时恢复。手动压缩现在会先妥善结束当前运行，避免直接中止并丢失待处理请求。
+
+OpenClaw’s stability release closes a Tlon group-message owner-impersonation path and improves runtime recovery. Manual compaction now settles the active run instead of aborting it and losing its pending request.
+
+### 技术点 / Technical points
+
+- Gateway 可在休眠或系统时钟变化后恢复所有权，避免因心跳看似过期而重启。
+  - The Gateway recovers ownership after sleep or system-clock changes instead of restarting because its heartbeat appears stale.
+- 为停滞的转录工作进程限制关闭等待时间，并保持无头浏览器在通行密钥提示期间可响应点击。
+  - Shutdown waits are bounded for stalled transcript workers, and headless browser clicks remain usable during passkey prompts.
+
+### 为什么重要 / Why it matters
+
+这些修复针对持续运行的个人智能体中的授权错误、任务丢失和执行中断问题。
+
+The fixes target authorization mistakes and lost or interrupted work in persistent personal agents.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.4)
 
 ---
 
@@ -488,163 +668,3 @@ Atomic-WAM connects a vision-language reasoner to joint future-video and action 
 执行反馈有望使机器人高层推理更适配其所控制的动作生成器。
 
 Execution feedback could make high-level robot reasoning more compatible with the action generator it controls.
-
----
-
-<a id="2026-10-14-foveavla-learned-foveation"></a>
-## [FoveaVLA 用学习得到的高分辨率观察区域替代腕部相机输入](https://arxiv.org/abs/2610.20064)
-
-**English:** [FoveaVLA replaces wrist-camera input with learned high-resolution viewing regions](https://arxiv.org/abs/2610.20064)
-
-- **发布 / Published:** `2026-10-14T12:04:21Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20064) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `robotics`, `active-perception`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-FoveaVLA 在预测动作块的同时选择下一次观察区域，将原始分辨率裁剪图与外部相机全景结合。作者在四组现实任务中报告 Single 与 Dual 的成功率分别为 70.8% 和 77.1%，配备腕部相机的 π₀.₅ 为 52.1%。
-
-FoveaVLA predicts where to inspect next alongside each action chunk, then combines original-resolution crops with full external-camera views. Across four real-world task suites, the authors report 70.8% success for Single and 77.1% for Dual, against 52.1% for wrist-equipped π₀.₅.
-
-### 技术点 / Technical points
-
-- Single 与 Dual 分别使用一台或两台外部双目相机，输入包含全景及局部 RGB 与深度。
-  - Single and Dual use one or two external stereo cameras with full and foveal RGB and depth inputs.
-- 两种配置均基于 π₀.₅，并使用带 RoboInter 交互标注的 DROID 数据进行后训练。
-  - Both configurations build on π₀.₅ and are post-trained on DROID with RoboInter interaction annotations.
-
-### 为什么重要 / Why it matters
-
-学习观察位置有望在保留操作细节的同时减少对腕部相机的依赖。
-
-Learning where to look could reduce dependence on wrist-mounted cameras while preserving manipulation detail.
-
----
-
-<a id="2026-10-14-praxismem-personal-procedural-memory"></a>
-## [PraxisMemBench 测试持续助手中个人记忆与程序记忆的相互依赖](https://arxiv.org/abs/2610.20022)
-
-**English:** [PraxisMemBench tests interdependent personal and procedural memory in persistent assistants](https://arxiv.org/abs/2610.20022)
-
-- **发布 / Published:** `2026-10-14T11:33:40Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20022) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `benchmark`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-PraxisMemBench 评估用户背景与可复用流程跨会话共同演变的助手。配套 PraxisMem 方法学习维护记忆内容及其组织结构；论文在该评测中报告整体会话成功率为 40.78%，Claude Code 原生记忆为 20.60%。
-
-PraxisMemBench evaluates assistants whose user context and reusable procedures evolve together across sessions. The accompanying PraxisMem method learns to maintain memory content and organization; the paper reports 40.78% overall session success versus 20.60% for Claude Code native memory in this evaluation.
-
-### 技术点 / Technical points
-
-- 任务同时要求掌握用户特定事实，以及应用受这些事实约束的流程。
-  - Tasks require both knowing user-specific facts and applying procedures conditioned on those facts.
-- PraxisMem 结合特权联合状态监督、位置感知 GRPO 与动态残差路由 OPSD。
-  - PraxisMem uses privileged joint-state supervision, location-aware GRPO, and dynamic residual-routed OPSD.
-
-### 为什么重要 / Why it matters
-
-该基准凸显记忆维护及记忆之间的关系对持续助手构成的瓶颈。
-
-The benchmark highlights memory maintenance and relationships as bottlenecks for persistent assistants.
-
----
-
-<a id="2026-10-14-gracebench-gui-execution-stability"></a>
-## [GraceBench 从偏离、循环与恢复能力诊断 GUI 智能体执行稳定性](https://arxiv.org/abs/2610.19900)
-
-**English:** [GraceBench diagnoses GUI-agent detours, loops, and recovery beyond task success](https://arxiv.org/abs/2610.19900)
-
-- **发布 / Published:** `2026-10-14T09:58:40Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19900) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `computer-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-GraceBench 将移动应用交互组织成 UI 状态转移图，并结合视频轨迹评估执行稳定性。论文报告，51.24% 的成功运行仍出现偏离或循环；代码和数据在文中仍列为待发布。
-
-GraceBench represents mobile-app interactions as UI transition graphs and uses video-grounded trajectory evaluation to diagnose execution stability. The paper reports that 51.24% of successful runs still contain a deviation or loop; its code and data are described as forthcoming.
-
-### 技术点 / Technical points
-
-- 基准包含 10 个应用中的 169 项任务，记录 2,909 个规范 GUI 状态与 3,116 次观测转移。
-  - The benchmark covers 169 tasks in 10 apps, with 2,909 canonical states and 3,116 observed transitions.
-- 对 3,718 条轨迹同时评估偏离、循环负担、恢复能力与最终结果。
-  - Evaluation of 3,718 trajectories measures deviation, loop burden, and recovery as well as final outcomes.
-
-### 为什么重要 / Why it matters
-
-过程层面的诊断有助于发现被最终成功状态掩盖的可靠性问题。
-
-Process-level diagnostics could expose reliability problems that successful end states conceal.
-
----
-
-<a id="2026-10-14-vla-world-modeling-controlled-comparison"></a>
-## [受控 VLA 研究比较四种世界模型集成方式](https://arxiv.org/abs/2610.19825)
-
-**English:** [Controlled VLA study compares four ways to integrate world modeling](https://arxiv.org/abs/2610.19825)
-
-- **发布 / Published:** `2026-10-14T09:01:30Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19825) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `vla`, `simulation`, `benchmark`, `robotics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-一项统一框架研究比较 VLA 世界建模中的表征、集成设计与策略主干。结果未发现普遍最优设计，但二维语义表征在不同范式中表现稳健，解耦的未来专家尤其在分布外场景中具有竞争力。
-
-A unified study compares world representations, integration designs, and policy backbones for VLA world modeling. It finds no universally best design, while 2D semantic representations provide robust gains across paradigms and decoupled future experts perform competitively, particularly out of distribution.
-
-### 技术点 / Technical points
-
-- 比较覆盖隐式未来对齐、显式未来查询、MoT 未来专家与外部世界预测器。
-  - The comparison covers Implicit Future Alignment, Explicit Future Query, MoT Future Expert, and External World Predictor.
-- 评估包含分布内、分布外、长程、动态、少样本及现实环境。
-  - Evaluation includes in-domain, out-of-domain, long-horizon, dynamic, few-shot, and real-world settings.
-
-### 为什么重要 / Why it matters
-
-受控比较有助于辨别哪些世界模型设计真正支持机器人策略。
-
-Controlled comparisons help identify which world-model choices actually support robot policies.
-
----
-
-<a id="2026-10-14-dgs-wm-decision-guided-world-modeling"></a>
-## [DGS-WM 为智能体世界模型训练筛选决策相关观测](https://arxiv.org/abs/2610.19642)
-
-**English:** [DGS-WM selects decision-relevant observations for agent world-model training](https://arxiv.org/abs/2610.19642)
-
-- **发布 / Published:** `2026-10-14T06:11:08Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.19642) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-DGS-WM 在同一模型上联合训练语言智能体策略与辅助世界建模。它选择能支持后续决策的观测单元，并依据预测置信度调整监督权重，避免将全部环境输出视作同等有用的训练目标。
-
-DGS-WM jointly trains a language-agent policy and auxiliary world modeling on the same model. It selects observation units that support later decisions and adjusts supervision by prediction confidence, rather than treating all environment output as equally useful training targets.
-
-### 技术点 / Technical points
-
-- 观测筛选与置信度自适应加权构成辅助损失，与强化学习目标联合优化。
-  - Observation selection and confidence-adaptive weighting define an auxiliary loss combined with reinforcement learning.
-- 实验跨模型规模及强化学习算法，覆盖单跳、多跳问答与交互式网页任务。
-  - Experiments cover single-hop and multi-hop question answering and interactive web tasks across model scales and RL algorithms.
-
-### 为什么重要 / Why it matters
-
-当环境观测冗长且嘈杂时，选择性的动态监督可能改善智能体学习。
-
-Selective dynamics supervision could improve agent learning when environment observations are long and noisy.

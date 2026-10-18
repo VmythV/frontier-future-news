@@ -2,6 +2,42 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-16-google-verid-wet-lab-agents"></a>
+## [Google 展示 VERID 框架及实验室闭环分子发现原型](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
+
+**English:** [Google presents VERID and lab-in-the-loop molecular discovery prototypes](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
+
+- **发布 / Published:** `2026-10-16T18:11:34Z`
+- **来源 / Source:** [Google Research](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `safety`, `scientific-discovery`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google Research 介绍了 VERID，将智能体规划与有状态实验室跟踪、机器人执行连接起来；相关原型利用实验反馈修订分子设计。人员仍负责授权序列、核验实验流程并监督机器人运行。
+
+Google Research described VERID, which connects agent planning to stateful laboratory tracking and robot execution. Related prototypes use experimental feedback to revise molecular designs. The work remains human-directed: people authorize sequences, verify protocols and supervise robot runs.
+
+### 技术点 / Technical points
+
+- 实时三维工作单元表示跟踪几何、液体体积和吸头库存，通过模拟试运行及硬件检查拒绝无效指令。
+  - A live 3D workcell representation tracks geometry, liquid volumes and tip inventory; simulated dry runs and hardware checks reject invalid commands.
+- 同步视频与动作日志支持调试和恢复，案例包括实验中途酶标仪故障后的恢复。
+  - Synchronized video and action logs support debugging and recovery, including a reported mid-run plate-reader failure.
+
+### 为什么重要 / Why it matters
+
+物理状态检查及可追溯反馈为提高实验室智能体的可靠性提供了具体基础设施。
+
+Physical state checks and traceable feedback provide concrete infrastructure for more reliable laboratory agents.
+
+### 链接 / Links
+
+[Evidence 1](https://research.google/blog/rss/)
+
+---
+
 <a id="2026-10-15-libero-perm-personalized-manipulation"></a>
 ## [LIBERO-PeRM 将机器人任务完成与用户偏好满足分开评测](https://arxiv.org/abs/2610.22372)
 
