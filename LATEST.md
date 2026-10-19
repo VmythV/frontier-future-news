@@ -2,6 +2,121 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-18-openclaw-restart-recovery-tool-approval"></a>
+## [OpenClaw 2026.10.5 恢复中断的智能体任务，并将审批绑定到最终工具参数](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
+
+**English:** [OpenClaw 2026.10.5 recovers interrupted agent work and binds approval to final tool arguments](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
+
+- **发布 / Published:** `2026-10-18T21:47:25Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reliability`, `tool-use`, `safety`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.10.5 通过 Gateway 重启恢复、持久化会话写入和更稳健的子智能体结果回传，改善常驻智能体可靠性。它还收紧了钩子或插件转换工具参数时的审批处理。
+
+OpenClaw 2026.10.5 targets persistent-agent reliability with Gateway restart recovery, durable session writes and more resilient subagent result delivery. It also tightens approval handling when hooks or plugins transform tool arguments.
+
+### 技术点 / Technical points
+
+- 中断的执行回合、子智能体工作和延后任务可在 Gateway 重启后恢复；会话修复保护用户输入和已提交事实，覆盖并发写入及发布失败。
+  - Interrupted turns, subagent work and deferred tasks can resume after Gateway restarts; session fixes preserve user input and committed facts through concurrent writes and failed publication.
+- 普通钩子改写已获可信内联批准的参数时需要重新审批；转换参数的插件须为最终参数取得批准，否则调用会被阻止。
+  - Ordinary hooks cannot rewrite trusted-inline-approved arguments without renewed approval; transforming plugins must obtain approval for final arguments or the call is blocked.
+- 恢复机制覆盖流停滞、工具调用 ID 重用和异常提供方数据流；未完成回合会显示明确提示。
+  - Recovery covers stalled streams, reused tool-call IDs and malformed provider streams; incomplete turns surface a visible notice.
+
+### 为什么重要 / Why it matters
+
+这些变化针对长期运行智能体跨进程和插件边界时的工作丢失与审批偏移问题。
+
+These changes address loss of ongoing work and approval drift when long-running agents cross process and plugin boundaries.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.5)
+
+---
+
+<a id="2026-10-18-nativeagent-replaceable-turn-runtime"></a>
+## [NativeAgent 0.6.5 将智能体执行回合模块化，支持自动回滚](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5)
+
+**English:** [NativeAgent 0.6.5 makes the agent turn replaceable with automatic rollback](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5)
+
+- **发布 / Published:** `2026-10-18T01:17:25Z`
+- **来源 / Source:** [NativeAgent](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `memory`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+NativeAgent 0.6.5 将工具、技能、感知和执行回合实现统一为可编辑部件。发布说明介绍了替换后的回合实现失败时的恢复机制，以及面向缺少可访问元素名称的 Mac 界面的视觉动作能力。
+
+NativeAgent 0.6.5 unifies tools, skills, senses and its turn implementation as editable parts. The release notes describe recovery when a replacement turn fails and visual actions for Mac interfaces without accessible element names.
+
+### 技术点 / Technical points
+
+- 应用负责运行循环，abilities/turn.js 决定每一步；替换实现失效时回滚并重放同一回合，重启后可依据日志恢复。
+  - The app runs the loop while abilities/turn.js chooses each step; a broken replacement is rolled back and the same turn replayed, with log-based recovery after relaunch.
+- 部件声明可访问范围及唤醒信号；日程、文件变化和消息可在统一权限策略下触发运行。
+  - Parts declare their reach and wake signals; schedules, file changes and messages can trigger them under the shared permission policy.
+- 屏幕图像携带坐标框架以支持按点点击和拖动，其他应用窗口遮挡目标时会阻止相应动作。
+  - Screen images carry coordinate frames for point-based clicks and drags, and actions are blocked where another app window overlays the target.
+
+### 为什么重要 / Why it matters
+
+它为智能体可编辑的执行逻辑提供具体设计，在桌面动作外围加入恢复机制与权限检查。
+
+This provides a concrete design for agent-editable execution logic with recovery and permission checks around desktop actions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.5)
+
+---
+
+<a id="2026-10-17-deepseek-v41-flash-1017"></a>
+## [DeepSeek Flash 1017 提升编码智能体自报成绩，并缩短任务运行](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+
+**English:** [DeepSeek Flash 1017 improves reported coding-agent results with shorter task runs](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
+
+- **发布 / Published:** `2026-10-17T05:46:55Z`
+- **来源 / Source:** [DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `tool-use`, `benchmark`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DeepSeek 发布 V4.1-Flash-1017 权重并更新托管模型。官方评测报告编码和自动化成绩提高，同时任务运行时间与输出长度缩短。发布时间采用模型仓库中明确标记为发布的提交时间。
+
+DeepSeek released V4.1-Flash-1017 weights and updated its hosted model. Its own evaluations report higher coding and automation scores alongside shorter runtimes and outputs. The timestamp follows the model repository commit explicitly labeled as the release.
+
+### 技术点 / Technical points
+
+- 使用 Claude Code 的 Terminal-Bench 4.0 成绩从 31.2 升至 42.3；使用 Mini-SWE-V2 的 DeepSWE v1.1 从 74.2 升至 77.0。
+  - Terminal-Bench 4.0 rises from 31.2 to 42.3 using Claude Code; DeepSWE v1.1 rises from 74.2 to 77.0 using Mini-SWE-V2.
+- Automation-Bench v1.0.6 从 54.8 升至 60.5；这些均为发布方报告的结果，尚非独立复现。
+  - Automation-Bench v1.0.6 rises from 54.8 to 60.5; these are publisher-reported results rather than independent replications.
+- 发布内容包含 Python 提示编码示例，覆盖工具调用、思考模式和交错图像输入。
+  - The release supplies Python prompt-encoding examples covering tool calls, thinking mode and interleaved images.
+
+### 为什么重要 / Why it matters
+
+这一更新提供可检查的模型权重，便于测试智能体质量提升是否也能降低任务执行成本。
+
+The update offers an inspectable checkpoint for testing whether agent quality gains also reduce task execution cost.
+
+### 链接 / Links
+
+[Evidence 1](https://api-docs.deepseek.com/updates/) · [Evidence 2](https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017/commits/main)
+[Discussion 1](https://news.ycombinator.com/item?id=50146627)
+
+---
+
 <a id="2026-10-16-langgraph-1216-resume-correctness"></a>
 ## [LangGraph 1.2.16 修复恢复执行时重复更新及已完成任务重跑](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16)
 
@@ -572,99 +687,3 @@ Researchers model humanoid policy weights using a linear autoencoder and a Diffu
 在权重空间生成策略，为复用人形机器人控制器及分析具身知识提供了路径。
 
 Generating policies in weight space offers a route to reusable humanoid controllers and analysis of learned embodiment.
-
----
-
-<a id="2026-10-14-co-evolving-agent-action-forecasting"></a>
-## [动作预测为语言智能体训练补充多步监督](https://arxiv.org/abs/2610.20597)
-
-**English:** [Action forecasting adds multi-step supervision to language-agent training](https://arxiv.org/abs/2610.20597)
-
-- **发布 / Published:** `2026-10-14T17:59:28Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20597) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reinforcement-learning`, `planning`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-一项研究利用成功的在策略采样轨迹，让智能体从中间历史预测后续动作序列。同一策略主干共同学习执行与预测，推理时仍逐步选择动作，无需额外模型。
-
-A new study trains an agent policy to forecast subsequent action sequences from intermediate histories in successful on-policy rollouts. The same backbone learns to act and forecast, while inference continues to select one action at a time without an extra model.
-
-### 技术点 / Technical points
-
-- 实验覆盖 ALFWorld、ScienceWorld、WebShop、tau2-bench 与 AppWorld。
-  - Experiments span ALFWorld, ScienceWorld, WebShop, tau2-bench, and AppWorld.
-- 作者报告在 ScienceWorld 上，样本效率最高达到 ECHO 的 1.9 倍、GRPO 的 2.0 倍。
-  - On ScienceWorld, the authors report up to 1.9 times the sample efficiency of ECHO and 2.0 times that of GRPO.
-
-### 为什么重要 / Why it matters
-
-复用中间步骤的动作监督，可能降低长程智能体训练的轨迹采样成本。
-
-Reusing intermediate action targets could reduce the rollout cost of training long-horizon agents.
-
----
-
-<a id="2026-10-14-tacclaw-infinity-tactile-manipulation-data"></a>
-## [TacClaw-Infinity 介绍无需目标机器人采集的大规模触觉操作数据](https://arxiv.org/abs/2610.20320)
-
-**English:** [TacClaw-Infinity introduces large-scale tactile manipulation data collected without target robots](https://arxiv.org/abs/2610.20320)
-
-- **发布 / Published:** `2026-10-14T15:06:53Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20320) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `dataset`, `robotics`, `tactile-sensing`, `vla`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-TacClaw-Infinity 介绍使用手持 TacClaw 接口在多种环境中采集的同步视觉、触觉、语言与动作数据。论文报告数据超过 10,000 小时、100 万个片段，并评估无需机器人专属示范向三种不同机器人迁移的能力。
-
-TacClaw-Infinity presents synchronized vision, tactile, language, and action data collected with a handheld TacClaw interface across varied environments. The paper reports over 10,000 hours and one million episodes, and evaluates transfer to three different robots without robot-specific demonstrations.
-
-### 技术点 / Technical points
-
-- 采集端同步记录指尖触觉、视觉观测与末端轨迹，不依赖目标机器人。
-  - Collection records fingertip tactile signals, visual observations, and end-effector trajectories without a target robot.
-- 处理流程包含轨迹重建、多模态质量控制、具身适配过滤及以接触为中心的标注。
-  - The pipeline includes trajectory reconstruction, multimodal quality control, embodiment-aware filtering, and contact-centric annotations.
-
-### 为什么重要 / Why it matters
-
-不依赖机器人的触觉数据采集，有望扩大接触密集型操作学习的数据规模。
-
-Robot-independent tactile data collection could help scale learning for contact-rich manipulation.
-
----
-
-<a id="2026-10-14-atomic-wam-execution-grounded-reasoning"></a>
-## [Atomic-WAM 用世界动作模型执行结果约束局部动作推理](https://arxiv.org/abs/2610.20157)
-
-**English:** [Atomic-WAM grounds local-motion reasoning in world-action-model execution](https://arxiv.org/abs/2610.20157)
-
-- **发布 / Published:** `2026-10-14T13:13:35Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20157) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `planning`, `reinforcement-learning`, `video-prediction`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Atomic-WAM 通过局部原子动作描述，将视觉语言推理器连接到未来视频与动作的联合预测。论文在 RoboLab 的 real-to-sim 评估中报告，默认指令下成功率为 39.6%，模糊指令下为 31.6%。
-
-Atomic-WAM connects a vision-language reasoner to joint future-video and action prediction through descriptions of local atomic motions. The paper reports 39.6% success with default instructions and 31.6% with vague instructions in RoboLab real-to-sim evaluation.
-
-### 技术点 / Technical points
-
-- 标注流程从多视角 DROID 示范中提取时间对齐且包含接触信息的监督。
-  - An annotation pipeline extracts temporally aligned, contact-enriched supervision from multi-view DROID demonstrations.
-- Execution-Grounded GRPO 固定世界动作模型，以动作适当性和执行奖励更新推理器。
-  - Execution-Grounded GRPO updates the reasoner using motion appropriateness and execution rewards while keeping the world-action model fixed.
-
-### 为什么重要 / Why it matters
-
-执行反馈有望使机器人高层推理更适配其所控制的动作生成器。
-
-Execution feedback could make high-level robot reasoning more compatible with the action generator it controls.
