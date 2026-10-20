@@ -2,6 +2,42 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-18-ropedia-w0-5b-cross-embodiment-weights"></a>
+## [Ropedia 发布 W0 5B 权重，用共享运动学接口预测跨本体环境变化](https://huggingface.co/ropedia-ai/Ropedia-W0)
+
+**English:** [Ropedia releases W0 5B checkpoints for cross-embodiment world prediction](https://huggingface.co/ropedia-ai/Ropedia-W0)
+
+- **发布 / Published:** `2026-10-18T19:51:46Z`
+- **来源 / Source:** [Ropedia](https://huggingface.co/ropedia-ai/Ropedia-W0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `video-generation`, `loco-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Ropedia 发布 W0 5B 的人类视频预训练权重及人机混合中训练权重。该第一视角视频世界模型通过相机运动和投影骨架控制未来场景生成；项目披露使用 1 万小时人类视频和 3000 小时机器人视频。
+
+Ropedia released human-pretrained and human–robot mid-trained W0 5B weights. The egocentric video world model conditions future scenes on camera motion and projected skeletons; the project describes training with 10,000 hours of human and 3,000 hours of robot video.
+
+### 技术点 / Technical points
+
+- 已发布的 Wan2.2 系权重根据图像、相机轨迹及骨架输入生成 640×480 分辨率的 81 帧视频。
+  - The released Wan2.2-based checkpoints generate 81 frames at 640×480 from image, camera and skeleton inputs.
+- 权重采用 CC BY-NC 4.0；A14B 权重及各基准专用微调权重尚未发布。
+  - Weights use CC BY-NC 4.0; A14B checkpoints and benchmark-specific fine-tunes remain unreleased.
+
+### 为什么重要 / Why it matters
+
+可下载模型为研究人机共享动作接口与学习式仿真提供了实验基础。
+
+The downloadable models make a shared human–robot action interface available for studying learned simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/ropedia-ai/Ropedia-W0/commit/71e30f604c0def2e17bbb01d8bacaf7f856fae1d) · [Evidence 2](https://ropedia.github.io/ropedia-w0/) · [Evidence 3](https://github.com/Ropedia/ropedia-w0)
+
+---
+
 <a id="2026-10-16-google-verid-wet-lab-agents"></a>
 ## [Google 展示 VERID 框架及实验室闭环分子发现原型](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
 

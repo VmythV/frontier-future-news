@@ -2,6 +2,166 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-19-claude-code-21304-human-decisions-stop"></a>
+## [Claude Code 2.1.304 增加仅人工决策的工具审批并修复无界面停止绕过](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
+
+**English:** [Claude Code 2.1.304 adds human-only tool decisions and fixes headless stop bypasses](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
+
+- **发布 / Published:** `2026-10-19T21:34:39Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `safety`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.304 允许 mod 要求由人工或宿主回调裁决工具请求，无法询问时拒绝执行。同时修复插件通过派生或重启子智能体，让无界面运行越过轮次上限或停止信号的问题。
+
+Claude Code 2.1.304 lets mods require a person or host callback to decide a tool request, refusing it when neither is available. It also fixes plugins keeping headless runs alive beyond turn limits or stop signals by spawning or restarting subagents.
+
+### 技术点 / Technical points
+
+- tool.check 事件在仅人工裁决选项之外，新增只读调用标志。
+  - The tool.check event gains a read-only indicator, alongside the person-only decision option.
+- 其他修复包括磁盘满时清理导致的记录丢失，以及子智能体刚结束便恢复或收到消息时遗忘近期工作。
+  - Fixes also address transcript loss during disk-full trimming and recent-work loss when subagents are immediately resumed or messaged.
+
+### 为什么重要 / Why it matters
+
+这些改动改善无人值守编程智能体的审批边界与停止可靠性。
+
+These changes strengthen approval boundaries and termination reliability for unattended coding agents.
+
+---
+
+<a id="2026-10-19-letta-code-03418-memory-skills"></a>
+## [Letta Code 0.34.18 增加记忆维护技能并修复工作智能体恢复](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
+
+**English:** [Letta Code 0.34.18 adds memory-maintenance skills and worker resumption fixes](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
+
+- **发布 / Published:** `2026-10-19T21:02:20Z`
+- **来源 / Source:** [Letta](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `coding-agent`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Letta Code 0.34.18 增加核心记忆和延后记忆的专用维护技能，向所有智能体开放记忆技能，并为工作流中的智能体创建增加技能选项。该版本还修复会话工作智能体跨本地与监听执行路径的恢复。
+
+Letta Code 0.34.18 adds dedicated skills for maintaining core and deferred memory, exposes memory skills to all agents, and adds a skills option to workflow agent creation. The release also repairs conversation-worker resumption across local and listener execution.
+
+### 技术点 / Technical points
+
+- 核心记忆与延后记忆分别提供维护技能。
+  - Memory-maintenance skills are packaged separately for core and deferred memory.
+- 其他修复涉及远程停止确认的准确报告及共享记忆挂载的浅层克隆。
+  - Additional fixes cover confirmed remote-stop reporting and shallow cloning of shared-memory mounts.
+
+### 为什么重要 / Why it matters
+
+这使记忆维护职责更加明确，并改善持久智能体工作流的连续性。
+
+This makes memory upkeep more explicit while improving continuity in persistent agent workflows.
+
+---
+
+<a id="2026-10-19-aws-vllm-bidirectional-agent-kv"></a>
+## [AWS 报告 vLLM 双向 KV 传输可降低多轮智能体首 token 延迟](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
+
+**English:** [AWS reports lower multi-turn agent latency with bidirectional KV transfer in vLLM](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
+
+- **发布 / Published:** `2026-10-19T16:03:23Z`
+- **来源 / Source:** [Amazon Web Services](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `inference`, `kv-cache`, `benchmark`, `multi-turn`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+AWS 发布可复现研究，在智能体轮次之间将解码节点的 KV 缓存传回预填充节点。其 EC2 P5en 的 1P1D 配置报告 Qwen3-32B 和 GLM-5-FP8 的首 token 延迟分别最高改善 1.6 倍与 3.3 倍。
+
+AWS published a reproducible study of returning decode-side KV blocks to prefill nodes between agent turns. On its EC2 P5en 1P1D setup, it reports TTFT improvements up to 1.6× for Qwen3-32B and 3.3× for GLM-5-FP8.
+
+### 技术点 / Technical points
+
+- 缓存感知路由器跟踪块元数据，保留的解码 KV 可避免重复计算前几轮上下文。
+  - A cache-aware router tracks block metadata; retained decode KV avoids recomputing previous turns.
+- 基准关闭预填充前缀缓存以模拟缓存未命中；收益取决于工作负载、模型及网络。
+  - Benchmarks disable prefill prefix caching to model cache misses; gains depend on workload, model and network.
+
+### 为什么重要 / Why it matters
+
+该结果为对话历史持续增长的智能体提供了具体的推理服务优化方向。
+
+The results identify a concrete serving optimization for agents with growing conversation histories.
+
+---
+
+<a id="2026-10-19-mistral-vibe-3-unified-runtime"></a>
+## [Mistral Vibe 3.0 统一执行运行时，为无界面任务明确预算与结果](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
+
+**English:** [Mistral Vibe 3.0 unifies execution and gives headless runs explicit limits and outcomes](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
+
+- **发布 / Published:** `2026-10-19T16:01:14Z`
+- **来源 / Source:** [Mistral AI](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Mistral Vibe 3.0 将 CLI、ACP、桌面及 IDE 的执行路径统一到 Unified Harness，以 Rust 替代旧 Python 终端界面，并为无界面执行统一预算、平稳停止及机器可读结果。
+
+Mistral Vibe 3.0 makes Unified Harness the execution path across CLI, ACP, desktop and IDE surfaces. It replaces the legacy Python terminal interface with Rust and aligns headless execution with explicit budgets, graceful stopping and machine-readable results.
+
+### 技术点 / Technical points
+
+- Rust 无界面任务支持轮次、token、费用和时间限制，JSON 导出的退出码反映运行结果。
+  - Headless Rust runs support turn, token, cost and time limits, plus JSON exports whose exit code reports the outcome.
+- 对话分支可创建可恢复会话，智能体可等待消息或后台任务完成，减少反复轮询。
+  - Conversation branching creates resumable sessions, and the agent can wait for messages or background completion instead of repeatedly polling.
+
+### 为什么重要 / Why it matters
+
+统一执行约定有助于监督自动编程任务，并将其接入其他系统。
+
+A consistent execution contract can make automated coding runs easier to supervise and integrate.
+
+---
+
+<a id="2026-10-19-agno-315-repository-s3-checkpoints"></a>
+## [Agno 3.1.5 为沙箱智能体加入仓库固定与 S3 检查点](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
+
+**English:** [Agno 3.1.5 adds pinned repository workspaces and S3 sandbox checkpoints](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
+
+- **发布 / Published:** `2026-10-19T11:53:23Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `sandbox`, `checkpointing`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Agno 3.1.5 为沙箱中的 ClaudeAgent 和 CodexAgent 增加仓库工作区与对象存储检查点。会话在复用和恢复后仍保留选定提交及编辑结果，容器销毁后也可读取已完成运行提交的检查点归档。
+
+Agno 3.1.5 extends sandboxed ClaudeAgent and CodexAgent sessions with repository workspaces and object-storage checkpoints. Sessions retain their selected commit and edits through reuse and restoration, while completed-run checkpoint archives can be inspected after containers disappear.
+
+### 技术点 / Technical points
+
+- 仓库配置在首轮固定精确提交，并在后续轮次保留该版本。
+  - Repository configuration pins the exact commit on the first turn and preserves it on later turns.
+- S3CheckpointStore 使用内容寻址对象并校验上传，使多个副本无需共享文件系统即可使用检查点。
+  - S3CheckpointStore uses content-addressed objects and verifies uploads, allowing replicas to share checkpoints without a shared filesystem.
+
+### 为什么重要 / Why it matters
+
+这让临时基础设施上的编程智能体更容易延续工作并恢复产物。
+
+This improves continuity and artifact recovery for coding agents running in disposable infrastructure.
+
+---
+
 <a id="2026-10-18-openclaw-restart-recovery-tool-approval"></a>
 ## [OpenClaw 2026.10.5 恢复中断的智能体任务，并将审批绑定到最终工具参数](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
 
@@ -37,6 +197,42 @@ These changes address loss of ongoing work and approval drift when long-running 
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.5)
+
+---
+
+<a id="2026-10-18-ropedia-w0-5b-cross-embodiment-weights"></a>
+## [Ropedia 发布 W0 5B 权重，用共享运动学接口预测跨本体环境变化](https://huggingface.co/ropedia-ai/Ropedia-W0)
+
+**English:** [Ropedia releases W0 5B checkpoints for cross-embodiment world prediction](https://huggingface.co/ropedia-ai/Ropedia-W0)
+
+- **发布 / Published:** `2026-10-18T19:51:46Z`
+- **来源 / Source:** [Ropedia](https://huggingface.co/ropedia-ai/Ropedia-W0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `video-generation`, `loco-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Ropedia 发布 W0 5B 的人类视频预训练权重及人机混合中训练权重。该第一视角视频世界模型通过相机运动和投影骨架控制未来场景生成；项目披露使用 1 万小时人类视频和 3000 小时机器人视频。
+
+Ropedia released human-pretrained and human–robot mid-trained W0 5B weights. The egocentric video world model conditions future scenes on camera motion and projected skeletons; the project describes training with 10,000 hours of human and 3,000 hours of robot video.
+
+### 技术点 / Technical points
+
+- 已发布的 Wan2.2 系权重根据图像、相机轨迹及骨架输入生成 640×480 分辨率的 81 帧视频。
+  - The released Wan2.2-based checkpoints generate 81 frames at 640×480 from image, camera and skeleton inputs.
+- 权重采用 CC BY-NC 4.0；A14B 权重及各基准专用微调权重尚未发布。
+  - Weights use CC BY-NC 4.0; A14B checkpoints and benchmark-specific fine-tunes remain unreleased.
+
+### 为什么重要 / Why it matters
+
+可下载模型为研究人机共享动作接口与学习式仿真提供了实验基础。
+
+The downloadable models make a shared human–robot action interface available for studying learned simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/ropedia-ai/Ropedia-W0/commit/71e30f604c0def2e17bbb01d8bacaf7f856fae1d) · [Evidence 2](https://ropedia.github.io/ropedia-w0/) · [Evidence 3](https://github.com/Ropedia/ropedia-w0)
 
 ---
 
@@ -490,200 +686,3 @@ Spark-0 introduces spatially aligned vision-tactile-language-action pretraining 
 这些结果检验了触觉作为可扩展训练监督的价值，即使部署时不使用触觉输入。
 
 The results test touch as scalable training supervision even when deployment does not include tactile input.
-
----
-
-<a id="2026-10-15-gemini-4-argon-minecraft-agent-team"></a>
-## [四个 Gemini 4 Argon 智能体完成持续 27 小时的 Minecraft 生存通关](https://arxiv.org/abs/2610.22319)
-
-**English:** [Four Gemini 4 Argon agents complete a 27-hour Minecraft survival run](https://arxiv.org/abs/2610.22319)
-
-- **发布 / Published:** `2026-10-15T17:51:32Z`
-- **来源 / Source:** [Faldor, Singh and Raileanu / arXiv](https://arxiv.org/abs/2610.22319) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `coding`, `memory`, `long-horizon`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-研究团队报告，四个 Gemini 4 Argon 智能体在简单难度下，用 27 小时 14 分钟击败 Minecraft 末影龙。智能体共编写 2,783 个程序、死亡 605 次。这是在一个随机生成世界中的演示，并非重复试验所得的成功率。
-
-A research team reports that four Gemini 4 Argon agents defeated Minecraft’s Ender Dragon in 27 hours and 14 minutes on Easy difficulty. The agents wrote 2,783 programs and died 605 times. This is a reported demonstration in one randomly generated world, rather than a measured success rate over repeated trials.
-
-### 技术点 / Technical points
-
-- 智能体通过 Mineflayer 控制玩家，以游戏聊天和共享记忆协调。
-  - Agents control players through Mineflayer and coordinate using in-game chat and shared memory.
-- 作者报告运行中未预先分配角色、未提供人工额外编写的游戏逻辑，也未进行研究者干预。
-  - The authors report no assigned roles, custom human-written game logic or researcher intervention during the run.
-
-### 为什么重要 / Why it matters
-
-此次运行提供了跨越数千项依赖动作的持续编码、故障恢复与协作的具体案例。
-
-The run provides a concrete trace of sustained coding, recovery and coordination across thousands of dependent actions.
-
----
-
-<a id="2026-10-15-leash-computer-use-escalation"></a>
-## [LEASH 利用潜在不确定性路由与监督计算机操作智能体](https://arxiv.org/abs/2610.22280)
-
-**English:** [LEASH uses latent uncertainty to route and oversee computer-use agents](https://arxiv.org/abs/2610.22280)
-
-- **发布 / Published:** `2026-10-15T17:40:12Z`
-- **来源 / Source:** [LEASH authors / arXiv](https://arxiv.org/abs/2610.22280) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `uncertainty`, `routing`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-LEASH 在较弱模型的隐状态不确定性提示需要升级时，将计算机操作交给更强模型，并继续监督。作者在 OSWorld 上报告，采用 Qwen3.5-35B-A3B 时成功率为 73.66%、单任务成本为 0.4117 美元；持续使用 Claude Opus 5 的成功率为 72.90%，前者推理成本降低 19.2%。
-
-LEASH delegates computer-use steps to a stronger model when a weaker model’s hidden-state uncertainty warrants escalation, then continues oversight. On OSWorld, the authors report 73.66% success at $0.4117 per task with Qwen3.5-35B-A3B, compared with 72.90% for always-on Claude Opus 5, at 19.2% lower inference cost.
-
-### 技术点 / Technical points
-
-- 任务路由、步骤级升级与影子观察器共享潜在不确定性信号。
-  - Task routing, step-level escalation and a shadow observer share a latent uncertainty signal.
-- 弱智能体监控复用动作生成时的激活，无需额外前向计算或专门训练监控器。
-  - Weak-agent monitoring reuses action-generation activations without an extra forward pass or dedicated monitor training.
-
-### 为什么重要 / Why it matters
-
-它检验了在强模型协助与逐步推理成本之间进行权衡的实用机制。
-
-It tests a practical mechanism for balancing strong-model assistance with per-step inference cost.
-
----
-
-<a id="2026-10-15-nemotron-35-super-vl-bolt-agents"></a>
-## [NVIDIA 发布面向多模态与本地智能体的 Nemotron 3.5 Super VL 和 Bolt](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
-
-**English:** [NVIDIA releases Nemotron 3.5 Super VL and Bolt for multimodal and local agents](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/)
-
-- **发布 / Published:** `2026-10-15T15:00:24Z`
-- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `multimodal`, `open-weights`, `local-inference`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-NVIDIA 发布面向智能体工作流的 Nemotron 3.5 Super VL 与 Bolt 74B-A9B。Super VL 将文本、图像、文档和视频理解与推理、工具使用结合。Bolt 74B-A9B 通过原生 2 比特量化面向 24GB 内存占用的本地智能体；更小的 Bolt E4B 仍计划于 10 月 23 日推出。
-
-NVIDIA released Nemotron 3.5 Super VL and Bolt 74B-A9B for agent workflows. Super VL combines text, image, document and video understanding with reasoning and tool use. Bolt 74B-A9B targets local agents through native 2-bit quantization for a 24GB memory footprint; the smaller Bolt E4B remains scheduled for October 23.
-
-### 技术点 / Technical points
-
-- Super VL 总参数量为 120B，每词元激活 12B 参数，支持多模态智能体工作流。
-  - Super VL uses 120B total parameters with 12B active per token and supports multimodal agent workflows.
-- Bolt 74B-A9B 总参数量为 74B、激活参数为 9B；其已发布状态与尚未推出的 E4B 不同。
-  - Bolt 74B-A9B has 74B total and 9B active parameters; release availability differs from the forthcoming E4B model.
-
-### 为什么重要 / Why it matters
-
-此次发布为结合视觉证据与工具执行的智能体扩展了可部署的模型选择。
-
-The release expands deployable model options for agents that combine visual evidence with tool execution.
-
-### 链接 / Links
-
-[Evidence 1](https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/)
-[Discussion 1](https://www.reddit.com/r/LocalLLaMA/comments/1x6o31q/nvidianvidianemotron35bolt74ba9b24gb_hugging_face/)
-
----
-
-<a id="2026-10-15-verivla-latent-world-model-verification"></a>
-## [VeriVLA 在关键状态用潜在世界模型筛选机器人动作候选](https://arxiv.org/abs/2610.21985)
-
-**English:** [VeriVLA ranks robot action candidates with a latent world model at critical states](https://arxiv.org/abs/2610.21985)
-
-- **发布 / Published:** `2026-10-15T14:34:44Z`
-- **来源 / Source:** [VeriVLA authors / arXiv](https://arxiv.org/abs/2610.21985) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `vla`, `verification`, `latent-dynamics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-VeriVLA 利用 JEPA 潜在世界模型，选择性检查基于流的 VLA 策略生成的动作片段。作者在三项真实操作任务中报告，平均完成得分从 50.8% 升至 65.5%；在 RTX 4090 上，每次触发检查增加 326 毫秒的采样与验证耗时。
-
-VeriVLA selectively checks action chunks from flow-based VLA policies using a JEPA latent world model. Across three real manipulation tasks, the authors report average completion scores rising from 50.8% to 65.5%, with 326 ms of additional sampling and verification per triggered decision on an RTX 4090.
-
-### 技术点 / Technical points
-
-- 无需训练的触发器比较两个初始动作样本的时间变化与样本间方差。
-  - A training-free trigger compares temporal variation and variance between two initial action samples.
-- 验证器预测动作条件下的未来潜在状态和任务进度变化，在候选排序时避免重建像素。
-  - The verifier predicts action-conditioned future latent states and task-progress changes, avoiding pixel reconstruction when ranking candidates.
-
-### 为什么重要 / Why it matters
-
-它将额外推理集中到不合适动作可能破坏精细操作进程的决策上。
-
-It concentrates extra inference on decisions where an unsuitable robot action could derail fine manipulation.
-
----
-
-<a id="2026-10-15-openai-agents-sdk-024-approval-compaction"></a>
-## [OpenAI Agents SDK 0.24 暴露 MCP 工具注解并在压缩时保护待审批状态](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
-
-**English:** [OpenAI Agents SDK 0.24 exposes MCP tool annotations and protects pending approvals during compaction](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0)
-
-- **发布 / Published:** `2026-10-15T02:20:12Z`
-- **来源 / Source:** [OpenAI Agents SDK GitHub Releases](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `mcp`, `open-source`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-OpenAI Agents SDK 0.24.0 为转换后的工具暴露 MCP 注解，并支持运行范围的工具异常格式化。版本还在存在待审批事项时推迟自动压缩，并按 API 限额批量写入对话会话。
-
-OpenAI Agents SDK 0.24.0 adds MCP annotations to converted tools and run-wide formatting for tool exceptions. The release also defers automatic compaction when approvals are pending and batches conversation-session writes within API limits.
-
-### 技术点 / Technical points
-
-- 转换后的 MCP 工具向下游使用者暴露注解。
-  - Converted MCP tools expose annotations for downstream consumers.
-- 待审批事项会推迟自动压缩；对话写入通过批处理遵守 API 限额。
-  - Pending approvals delay automatic compaction; conversation writes are batched to respect API limits.
-
-### 为什么重要 / Why it matters
-
-这些改进增强工具元数据，并改善智能体审批与持久化边界处的运行连续性。
-
-These changes improve tool metadata and continuity around agent approval and persistence boundaries.
-
----
-
-<a id="2026-10-14-humanoid-policy-weight-diffusion"></a>
-## [潜在扩散直接生成用于现实动作的人形机器人控制器权重](https://arxiv.org/abs/2610.20606)
-
-**English:** [Latent diffusion generates humanoid controller weights for real-world motions](https://arxiv.org/abs/2610.20606)
-
-- **发布 / Published:** `2026-10-14T17:59:52Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.20606) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `robotics`, `diffusion`, `policy-generation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-研究者使用线性自编码器与 Diffusion Transformer 建模人形机器人策略权重。方法以 Unitree G1 的强化学习策略为训练数据，生成可部署控制器，并展示现实中的行走、舞蹈与旋转踢动作。
-
-Researchers model humanoid policy weights using a linear autoencoder and a Diffusion Transformer. Trained on reinforcement-learning policies for Unitree G1, the method generates deployable controllers demonstrated on real walking, dancing, and spin-kick motions.
-
-### 技术点 / Technical points
-
-- 先将动作策略网络参数压缩到潜在空间，再使用扩散模型建模。
-  - Actor-network parameters are compressed into a latent space before diffusion modeling.
-- 权重分析发现，强化学习与模仿学习策略的第一层均呈现反映机器人运动学的结构。
-  - Analysis finds a first-layer weight structure reflecting robot kinematics under both reinforcement and imitation learning.
-
-### 为什么重要 / Why it matters
-
-在权重空间生成策略，为复用人形机器人控制器及分析具身知识提供了路径。
-
-Generating policies in weight space offers a route to reusable humanoid controllers and analysis of learned embodiment.

@@ -2,6 +2,166 @@
 
 # Agents / 智能体
 
+<a id="2026-10-19-claude-code-21304-human-decisions-stop"></a>
+## [Claude Code 2.1.304 增加仅人工决策的工具审批并修复无界面停止绕过](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
+
+**English:** [Claude Code 2.1.304 adds human-only tool decisions and fixes headless stop bypasses](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
+
+- **发布 / Published:** `2026-10-19T21:34:39Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `safety`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.304 允许 mod 要求由人工或宿主回调裁决工具请求，无法询问时拒绝执行。同时修复插件通过派生或重启子智能体，让无界面运行越过轮次上限或停止信号的问题。
+
+Claude Code 2.1.304 lets mods require a person or host callback to decide a tool request, refusing it when neither is available. It also fixes plugins keeping headless runs alive beyond turn limits or stop signals by spawning or restarting subagents.
+
+### 技术点 / Technical points
+
+- tool.check 事件在仅人工裁决选项之外，新增只读调用标志。
+  - The tool.check event gains a read-only indicator, alongside the person-only decision option.
+- 其他修复包括磁盘满时清理导致的记录丢失，以及子智能体刚结束便恢复或收到消息时遗忘近期工作。
+  - Fixes also address transcript loss during disk-full trimming and recent-work loss when subagents are immediately resumed or messaged.
+
+### 为什么重要 / Why it matters
+
+这些改动改善无人值守编程智能体的审批边界与停止可靠性。
+
+These changes strengthen approval boundaries and termination reliability for unattended coding agents.
+
+---
+
+<a id="2026-10-19-letta-code-03418-memory-skills"></a>
+## [Letta Code 0.34.18 增加记忆维护技能并修复工作智能体恢复](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
+
+**English:** [Letta Code 0.34.18 adds memory-maintenance skills and worker resumption fixes](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
+
+- **发布 / Published:** `2026-10-19T21:02:20Z`
+- **来源 / Source:** [Letta](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `coding-agent`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Letta Code 0.34.18 增加核心记忆和延后记忆的专用维护技能，向所有智能体开放记忆技能，并为工作流中的智能体创建增加技能选项。该版本还修复会话工作智能体跨本地与监听执行路径的恢复。
+
+Letta Code 0.34.18 adds dedicated skills for maintaining core and deferred memory, exposes memory skills to all agents, and adds a skills option to workflow agent creation. The release also repairs conversation-worker resumption across local and listener execution.
+
+### 技术点 / Technical points
+
+- 核心记忆与延后记忆分别提供维护技能。
+  - Memory-maintenance skills are packaged separately for core and deferred memory.
+- 其他修复涉及远程停止确认的准确报告及共享记忆挂载的浅层克隆。
+  - Additional fixes cover confirmed remote-stop reporting and shallow cloning of shared-memory mounts.
+
+### 为什么重要 / Why it matters
+
+这使记忆维护职责更加明确，并改善持久智能体工作流的连续性。
+
+This makes memory upkeep more explicit while improving continuity in persistent agent workflows.
+
+---
+
+<a id="2026-10-19-aws-vllm-bidirectional-agent-kv"></a>
+## [AWS 报告 vLLM 双向 KV 传输可降低多轮智能体首 token 延迟](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
+
+**English:** [AWS reports lower multi-turn agent latency with bidirectional KV transfer in vLLM](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
+
+- **发布 / Published:** `2026-10-19T16:03:23Z`
+- **来源 / Source:** [Amazon Web Services](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `inference`, `kv-cache`, `benchmark`, `multi-turn`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+AWS 发布可复现研究，在智能体轮次之间将解码节点的 KV 缓存传回预填充节点。其 EC2 P5en 的 1P1D 配置报告 Qwen3-32B 和 GLM-5-FP8 的首 token 延迟分别最高改善 1.6 倍与 3.3 倍。
+
+AWS published a reproducible study of returning decode-side KV blocks to prefill nodes between agent turns. On its EC2 P5en 1P1D setup, it reports TTFT improvements up to 1.6× for Qwen3-32B and 3.3× for GLM-5-FP8.
+
+### 技术点 / Technical points
+
+- 缓存感知路由器跟踪块元数据，保留的解码 KV 可避免重复计算前几轮上下文。
+  - A cache-aware router tracks block metadata; retained decode KV avoids recomputing previous turns.
+- 基准关闭预填充前缀缓存以模拟缓存未命中；收益取决于工作负载、模型及网络。
+  - Benchmarks disable prefill prefix caching to model cache misses; gains depend on workload, model and network.
+
+### 为什么重要 / Why it matters
+
+该结果为对话历史持续增长的智能体提供了具体的推理服务优化方向。
+
+The results identify a concrete serving optimization for agents with growing conversation histories.
+
+---
+
+<a id="2026-10-19-mistral-vibe-3-unified-runtime"></a>
+## [Mistral Vibe 3.0 统一执行运行时，为无界面任务明确预算与结果](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
+
+**English:** [Mistral Vibe 3.0 unifies execution and gives headless runs explicit limits and outcomes](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
+
+- **发布 / Published:** `2026-10-19T16:01:14Z`
+- **来源 / Source:** [Mistral AI](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Mistral Vibe 3.0 将 CLI、ACP、桌面及 IDE 的执行路径统一到 Unified Harness，以 Rust 替代旧 Python 终端界面，并为无界面执行统一预算、平稳停止及机器可读结果。
+
+Mistral Vibe 3.0 makes Unified Harness the execution path across CLI, ACP, desktop and IDE surfaces. It replaces the legacy Python terminal interface with Rust and aligns headless execution with explicit budgets, graceful stopping and machine-readable results.
+
+### 技术点 / Technical points
+
+- Rust 无界面任务支持轮次、token、费用和时间限制，JSON 导出的退出码反映运行结果。
+  - Headless Rust runs support turn, token, cost and time limits, plus JSON exports whose exit code reports the outcome.
+- 对话分支可创建可恢复会话，智能体可等待消息或后台任务完成，减少反复轮询。
+  - Conversation branching creates resumable sessions, and the agent can wait for messages or background completion instead of repeatedly polling.
+
+### 为什么重要 / Why it matters
+
+统一执行约定有助于监督自动编程任务，并将其接入其他系统。
+
+A consistent execution contract can make automated coding runs easier to supervise and integrate.
+
+---
+
+<a id="2026-10-19-agno-315-repository-s3-checkpoints"></a>
+## [Agno 3.1.5 为沙箱智能体加入仓库固定与 S3 检查点](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
+
+**English:** [Agno 3.1.5 adds pinned repository workspaces and S3 sandbox checkpoints](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
+
+- **发布 / Published:** `2026-10-19T11:53:23Z`
+- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `sandbox`, `checkpointing`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Agno 3.1.5 为沙箱中的 ClaudeAgent 和 CodexAgent 增加仓库工作区与对象存储检查点。会话在复用和恢复后仍保留选定提交及编辑结果，容器销毁后也可读取已完成运行提交的检查点归档。
+
+Agno 3.1.5 extends sandboxed ClaudeAgent and CodexAgent sessions with repository workspaces and object-storage checkpoints. Sessions retain their selected commit and edits through reuse and restoration, while completed-run checkpoint archives can be inspected after containers disappear.
+
+### 技术点 / Technical points
+
+- 仓库配置在首轮固定精确提交，并在后续轮次保留该版本。
+  - Repository configuration pins the exact commit on the first turn and preserves it on later turns.
+- S3CheckpointStore 使用内容寻址对象并校验上传，使多个副本无需共享文件系统即可使用检查点。
+  - S3CheckpointStore uses content-addressed objects and verifies uploads, allowing replicas to share checkpoints without a shared filesystem.
+
+### 为什么重要 / Why it matters
+
+这让临时基础设施上的编程智能体更容易延续工作并恢复产物。
+
+This improves continuity and artifact recovery for coding agents running in disposable infrastructure.
+
+---
+
 <a id="2026-10-18-openclaw-restart-recovery-tool-approval"></a>
 ## [OpenClaw 2026.10.5 恢复中断的智能体任务，并将审批绑定到最终工具参数](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
 
