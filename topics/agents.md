@@ -66,6 +66,106 @@ This makes memory upkeep more explicit while improving continuity in persistent 
 
 ---
 
+<a id="2026-10-19-agima-imagination-world-model-planning"></a>
+## [Agima 训练单一模型想象动作结果并据此规划](https://arxiv.org/abs/2610.26845)
+
+**English:** [Agima trains one model to imagine action outcomes and plan over them](https://arxiv.org/abs/2610.26845)
+
+- **发布 / Published:** `2026-10-19T17:59:12Z`
+- **来源 / Source:** [Agima authors / arXiv](https://arxiv.org/abs/2610.26845) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reasoning`, `planning`, `world-model`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Agima 将策略与视觉世界建模整合到单一多模态模型，再用强化学习改进对想象结果的规划。作者在 Maze2D、Sokoban、Pacman 和 PushT 中评估；在稀疏真实观测条件下，仅监督训练的模型在四箱 Sokoban 上成功率达 40%，仅动作规划基线为 2%。
+
+Agima combines policy and visual world modeling in one multimodal model, then uses reinforcement learning to improve planning over imagined outcomes. The authors evaluate Maze2D, Sokoban, Pacman, and PushT. With supervised training alone, four-box Sokoban success reaches 40% versus 2% for an action-only planner under sparse real observations.
+
+### 技术点 / Technical points
+
+- 监督训练统一动作提议、未来图像预测与对替代未来的推理。
+  - Supervised training unifies action proposals, predicted future images, and reasoning over alternative futures.
+- 强化学习促使模型有选择地前瞻，并在关键决策点探索分支。
+  - Reinforcement learning encourages selective lookahead and branching at critical decision points.
+
+### 为什么重要 / Why it matters
+
+该工作将学习到的环境预测直接用于决定智能体何时以及如何提前规划。
+
+The work connects learned environment prediction directly to deciding when and how an agent should plan ahead.
+
+### 链接 / Links
+
+[Evidence 1](https://agima.net/)
+
+---
+
+<a id="2026-10-19-stepbench-procedural-planning-diagnostics"></a>
+## [StepBench 用 6,885 个已核验流程区分程序性规划错误](https://arxiv.org/abs/2610.26679)
+
+**English:** [StepBench separates procedural planning errors across 6,885 verified procedures](https://arxiv.org/abs/2610.26679)
+
+- **发布 / Published:** `2026-10-19T16:27:14Z`
+- **来源 / Source:** [StepBench authors / arXiv](https://arxiv.org/abs/2610.26679) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `planning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+StepBench 从覆盖 81 个类别的 wikiHow 流程构建五项诊断任务，并评估完整计划生成。在十二个模型的十四种配置中，步骤排序最困难：最强模型的正确率为 63.0%，九步及以上流程降至 33.1%。
+
+StepBench derives five diagnostic tasks from wikiHow procedures across 81 categories and also evaluates full-plan generation. Across 14 configurations of 12 models, ordering steps is hardest: the strongest model orders 63.0% correctly, falling to 33.1% for procedures with at least nine steps.
+
+### 技术点 / Technical points
+
+- 任务诊断缺失、错误和乱序步骤，并测试下一步生成；STEPEVAL 判断生成中的关键失败。
+  - Tasks diagnose withheld, incorrect, and shuffled steps alongside next-step generation; STEPEVAL judges critical generation failures.
+- 由 214 个 2026 年发布流程组成的验证子集上，理解能力排名稳定，提示记忆效应有限。
+  - A validation subset of 214 procedures published in 2026 yields stable comprehension rankings, suggesting limited memorization effects.
+
+### 为什么重要 / Why it matters
+
+在开放领域流程难以通过实际执行评测时，该基准有助于定位具体规划弱点。
+
+The benchmark helps localize planning weaknesses when execution-based evaluation of open-domain procedures is impractical.
+
+---
+
+<a id="2026-10-19-tandem-mobile-npu-gui-runtime"></a>
+## [Tandem 复用循环状态，降低移动端 GUI 智能体延迟](https://arxiv.org/abs/2610.26660)
+
+**English:** [Tandem reduces mobile GUI-agent latency with reusable recurrent state](https://arxiv.org/abs/2610.26660)
+
+- **发布 / Published:** `2026-10-19T16:18:16Z`
+- **来源 / Source:** [Tandem authors / arXiv](https://arxiv.org/abs/2610.26660) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `efficiency`, `on-device`, `inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Tandem 针对移动 GUI 智能体的请求模式改造混合线性注意力推理。在 Snapdragon 8 Elite 的录制交互评测中，作者报告相对 llama.cpp 最快 NPU 配置，文本屏幕描述与截图的延迟分别降低 30% 和 16%，每个文本步骤能耗降低 33%。
+
+Tandem adapts hybrid linear-attention inference to mobile GUI-agent request patterns. In recorded interactions on Snapdragon 8 Elite, the authors report 30% lower latency for text-described screens and 16% for screenshots versus llama.cpp’s fastest NPU configuration, plus 33% lower energy per text step.
+
+### 技术点 / Technical points
+
+- 循环状态检查点设置在提示分叉位置，同时大部分预填充保留在 NPU 矩阵单元上。
+  - Recurrent checkpoints follow prompt divergence points while most prefill remains on the NPU matrix unit.
+- 在请求间隙释放 NPU 电源请求，使模型仍加载时的待机功耗从 0.76 W 降至 0.22 W。
+  - Releasing NPU power votes between bursts lowers loaded-model standby power from 0.76 W to 0.22 W.
+
+### 为什么重要 / Why it matters
+
+该运行时针对动作延迟累积和待机功耗，解决 GUI 智能体在手机本地运行的两项实际成本。
+
+The runtime addresses cumulative action latency and idle power, two practical costs of keeping GUI agents on a phone.
+
+---
+
 <a id="2026-10-19-aws-vllm-bidirectional-agent-kv"></a>
 ## [AWS 报告 vLLM 双向 KV 传输可降低多轮智能体首 token 延迟](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
 
@@ -130,6 +230,78 @@ A consistent execution contract can make automated coding runs easier to supervi
 
 ---
 
+<a id="2026-10-19-harness-unobservable-state-retention"></a>
+## [运行框架研究将智能体成败关联到不可再次观测状态的保留](https://arxiv.org/abs/2610.26632)
+
+**English:** [A harness study links agent success to retaining state that cannot be observed again](https://arxiv.org/abs/2610.26632)
+
+- **发布 / Published:** `2026-10-19T15:59:13Z`
+- **来源 / Source:** [Raimondas Lencevicius / arXiv](https://arxiv.org/abs/2610.26632) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `benchmark`, `long-context`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一项预注册研究发现：事实可重新检索时，上下文截断可能不影响成功率；事实不可再次观测时，成功率则可能降至随机水平。ARC-AGI-3 实验也显示摘要、记笔记提示与推理回放影响显著，但其归因结果仅来自一个模型和四个游戏。
+
+A pre-registered study finds that context truncation can leave success unchanged when facts can be retrieved again, but reduce it to chance when they cannot. ARC-AGI-3 experiments also show large effects from summarization, note-taking prompts, and reasoning replay; those attribution results are limited to one model and four games.
+
+### 技术点 / Technical points
+
+- 合成探针中，可恢复与不可恢复事实的截断惩罚相差 92.5 个百分点。
+  - The synthetic probe reports a 92.5-percentage-point contrast between truncation penalties for recoverable and unrecoverable facts.
+- 配合记笔记提示的摘要恢复了 63 分框架差距中的 86%；每个配置在每个游戏上仅计入一次运行。
+  - Summarization with a note-taking invitation recovers 86% of a 63-point harness gap; configurations use one counted run per game.
+
+### 为什么重要 / Why it matters
+
+该研究提示应将记忆和运行框架选择视为能力的影响因素，更强的因果归因仍需重复运行验证。
+
+The study motivates evaluating memory and harness choices as determinants of capability, with repeated runs needed for stronger attribution.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/raimondasl/persistgym)
+
+---
+
+<a id="2026-10-19-meta-thin-orchestrator-production-agents"></a>
+## [Meta 详解调度十四个生产专职智能体的轻量编排器](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/)
+
+**English:** [Meta details a thin orchestrator for 14 specialist production agents](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/)
+
+- **发布 / Published:** `2026-10-19T15:30:37Z`
+- **来源 / Source:** [Engineering at Meta](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `orchestration`, `reliability`, `production`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Meta 介绍了用于数据列接入的 1,300 行编排器，将二十多个工作流分配给十四个专职智能体。路由器负责执行顺序与可靠性检查，隔离上下文的专职智能体负责领域推理；工作流模板在接入和流水线迁移之间复用这些智能体。
+
+Meta describes a 1,300-line orchestrator that routes more than twenty workflows to fourteen specialist agents for data-column onboarding. The router owns sequencing and reliability checks while isolated specialists perform domain reasoning. Workflow templates reuse the same specialists across onboarding and pipeline migration.
+
+### 技术点 / Technical points
+
+- 固定七步协议收集输入、检查重复与可靠性条件、委派任务并呈现结果。
+  - A fixed seven-step protocol collects inputs, checks duplicates and reliability conditions, delegates, and surfaces outcomes.
+- 确定性工作流模板约束阶段顺序，无需将所有专职智能体的领域知识载入路由器。
+  - Deterministic workflow templates constrain phase ordering without loading every specialist’s domain knowledge into the router.
+
+### 为什么重要 / Why it matters
+
+这一生产实践提供了可分析的架构模式，用于减少多智能体工作流中的上下文干扰。
+
+The production account gives an inspectable architectural pattern for reducing context interference in multi-agent workflows.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50173764)
+
+---
+
 <a id="2026-10-19-agno-315-repository-s3-checkpoints"></a>
 ## [Agno 3.1.5 为沙箱智能体加入仓库固定与 S3 检查点](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
 
@@ -159,6 +331,42 @@ Agno 3.1.5 extends sandboxed ClaudeAgent and CodexAgent sessions with repository
 这让临时基础设施上的编程智能体更容易延续工作并恢复产物。
 
 This improves continuity and artifact recovery for coding agents running in disposable infrastructure.
+
+---
+
+<a id="2026-10-19-mcp-reference-servers-v2-protocol-migration"></a>
+## [MCP 参考服务器 2.0 支持两代协议并收紧文件系统根目录处理](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0)
+
+**English:** [MCP reference servers 2.0 support two protocol eras and tighten filesystem roots handling](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0)
+
+- **发布 / Published:** `2026-10-19T06:46:48Z`
+- **来源 / Source:** [Model Context Protocol / GitHub](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mcp`, `tool-use`, `open-source`, `runtime`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+MCP 参考服务器此次发布将 TypeScript 和 Python 实现迁移至 SDK v2，同时服务 2026-07-28 与 2025-11-25 两代协议，并更新文件系统访问处理及 Python 工具响应。TypeScript 服务器要求 Node 24 及以上，Python 服务器要求 mcp 版本不低于 2.3 且低于 3。
+
+The MCP reference servers release migrates TypeScript and Python implementations to SDK v2 while serving the 2026-07-28 and 2025-11-25 protocol eras. It updates filesystem access handling and Python tool responses. TypeScript servers require Node 24 or newer; Python servers require mcp 2.3 to below 3.
+
+### 技术点 / Technical points
+
+- 文件系统工具等待根目录刷新完成；更新后无有效根目录时撤销访问。
+  - Filesystem tools wait for roots refresh; an update leaving no valid root revokes access.
+- 未知 Python 工具返回 JSON-RPC -32602；时间工具提供 outputSchema 与 structuredContent。
+  - Unknown Python tools return JSON-RPC -32602; time tools expose outputSchema and structuredContent.
+
+### 为什么重要 / Why it matters
+
+此次发布为依赖 MCP 参考工具的智能体带来具体的兼容性和访问控制变更。
+
+The release supplies concrete compatibility and access-control changes for agents that depend on MCP reference tools.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/modelcontextprotocol/servers/releases/tags/v2.0.0)
 
 ---
 

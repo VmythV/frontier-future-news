@@ -2,6 +2,78 @@
 
 # World models / 世界模型
 
+<a id="2026-10-19-agima-imagination-world-model-planning"></a>
+## [Agima 训练单一模型想象动作结果并据此规划](https://arxiv.org/abs/2610.26845)
+
+**English:** [Agima trains one model to imagine action outcomes and plan over them](https://arxiv.org/abs/2610.26845)
+
+- **发布 / Published:** `2026-10-19T17:59:12Z`
+- **来源 / Source:** [Agima authors / arXiv](https://arxiv.org/abs/2610.26845) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reasoning`, `planning`, `world-model`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Agima 将策略与视觉世界建模整合到单一多模态模型，再用强化学习改进对想象结果的规划。作者在 Maze2D、Sokoban、Pacman 和 PushT 中评估；在稀疏真实观测条件下，仅监督训练的模型在四箱 Sokoban 上成功率达 40%，仅动作规划基线为 2%。
+
+Agima combines policy and visual world modeling in one multimodal model, then uses reinforcement learning to improve planning over imagined outcomes. The authors evaluate Maze2D, Sokoban, Pacman, and PushT. With supervised training alone, four-box Sokoban success reaches 40% versus 2% for an action-only planner under sparse real observations.
+
+### 技术点 / Technical points
+
+- 监督训练统一动作提议、未来图像预测与对替代未来的推理。
+  - Supervised training unifies action proposals, predicted future images, and reasoning over alternative futures.
+- 强化学习促使模型有选择地前瞻，并在关键决策点探索分支。
+  - Reinforcement learning encourages selective lookahead and branching at critical decision points.
+
+### 为什么重要 / Why it matters
+
+该工作将学习到的环境预测直接用于决定智能体何时以及如何提前规划。
+
+The work connects learned environment prediction directly to deciding when and how an agent should plan ahead.
+
+### 链接 / Links
+
+[Evidence 1](https://agima.net/)
+
+---
+
+<a id="2026-10-19-anygoal-world-model-compositional-generalization"></a>
+## [AnyGoal 测试世界模型超出专家状态动作组合后的泛化](https://arxiv.org/abs/2610.26844)
+
+**English:** [AnyGoal tests world models beyond expert state-action combinations](https://arxiv.org/abs/2610.26844)
+
+- **发布 / Published:** `2026-10-19T17:59:05Z`
+- **来源 / Source:** [AnyGoal authors / arXiv](https://arxiv.org/abs/2610.26844) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `planning`, `generalization`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+AnyGoal 通过目标变换任务，测试学习到的动力学能否重新组合熟悉的状态因素与动作。各因素单独处于训练支持范围内，但组合在专家轨迹中较少出现；作者在多种环境和模型家族中发现反复出现的预测与规划失败。
+
+AnyGoal introduces goal-shifted tasks to test whether learned dynamics can recombine familiar state factors and actions. Although individual factors remain within training support, their combinations are underrepresented in expert trajectories. The authors find recurring prediction and planning failures across environments and model families.
+
+### 技术点 / Technical points
+
+- 该基准聚焦组合泛化，而非引入完全未见过的动作或状态因素。
+  - The benchmark isolates compositional generalization rather than introducing wholly unseen action or state factors.
+- 开源库支持分析动力学、表征及下游规划。
+  - An open-source library supports analysis of dynamics, representations, and downstream planning.
+
+### 为什么重要 / Why it matters
+
+它有助于区分真正学习环境动力学与复现专家数据中狭窄目标和轨迹的能力。
+
+It helps distinguish learning environment dynamics from reproducing the narrow goals and trajectories of expert data.
+
+### 链接 / Links
+
+[Evidence 1](https://hazel-heejeong-nam.github.io/anygoal/)
+
+---
+
 <a id="2026-10-18-ropedia-w0-5b-cross-embodiment-weights"></a>
 ## [Ropedia 发布 W0 5B 权重，用共享运动学接口预测跨本体环境变化](https://huggingface.co/ropedia-ai/Ropedia-W0)
 

@@ -2,6 +2,106 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-19-physword-structured-latent-robot-reasoning"></a>
+## [PhysWord 用原子动作词组织机器人的潜在推理](https://arxiv.org/abs/2610.26854)
+
+**English:** [PhysWord anchors latent robot reasoning in atomic action words](https://arxiv.org/abs/2610.26854)
+
+- **发布 / Published:** `2026-10-19T17:59:54Z`
+- **来源 / Source:** [PhysWord authors / arXiv](https://arxiv.org/abs/2610.26854) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `tactile-sensing`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+PhysWord 将原子动作词与未来物理观测的表征对齐，为机器人策略提供执行前的结构化上下文。论文报告 UniVTAC 成功率为 90.3%、LIBERO-Long 为 99.6%，并进行了双臂夹爪与灵巧手真机测试。
+
+PhysWord links atomic action verbs to representations of future physical observations, giving robot policies structured context before acting. The paper reports 90.3% success on UniVTAC and 99.6% on LIBERO-Long, alongside real-robot tests with bimanual grippers and dexterous hands.
+
+### 技术点 / Technical points
+
+- 预测动作词的上下文隐藏状态与未来观测的潜在目标对齐。
+  - Contextual hidden states of predicted action words align with latent targets from future observations.
+- 按时间组织的视觉及可选触觉动作基元为动作生成提供条件。
+  - Temporal sequences of visual and optional tactile action primitives condition action generation.
+
+### 为什么重要 / Why it matters
+
+该方法为连接可复用动作语义与细粒度物理预测提供了具体方案。
+
+The method offers a concrete way to connect reusable action semantics with fine-grained physical prediction.
+
+---
+
+<a id="2026-10-19-astra-visuotactile-simulation-policy"></a>
+## [Astra 通过触觉图像在仿真中执行接触密集操作](https://arxiv.org/abs/2610.26846)
+
+**English:** [Astra uses tactile images for contact-rich control in simulation](https://arxiv.org/abs/2610.26846)
+
+- **发布 / Published:** `2026-10-19T17:59:17Z`
+- **来源 / Source:** [TacTalent authors / arXiv](https://arxiv.org/abs/2610.26846) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `benchmark`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一项研究通过 GPT-6 Astra 的视觉接口输入视觉式触觉图像，实现少样本闭环控制。作者在十九项仿真任务上报告 UniVTAC 与 OpenViTac 平均成功率分别为 93.8% 和 81.8%；真机验证仍属于后续工作。
+
+A study feeds vision-based tactile images through GPT-6 Astra’s visual interface for few-shot closed-loop control. Across nineteen simulated tasks, the authors report mean success of 93.8% on UniVTAC and 81.8% on OpenViTac. Physical-robot validation remains future work.
+
+### 技术点 / Technical points
+
+- 每种设置使用 210 个采样场景种子；仅视觉输入的成功率分别为 76.3% 和 80.6%。
+  - Each setting uses 210 sampled scene seeds; vision-only baselines reach 76.3% and 80.6%.
+- 轨迹分析发现接触引导的对齐与恢复行为，也发现切向受力和纠正执行方面的不足。
+  - Trajectory analysis identifies contact-guided alignment and recovery, with weaknesses in tangential loading and corrective execution.
+
+### 为什么重要 / Why it matters
+
+结果表明触觉图像可能将通用视觉接口扩展至接触推理，但尚未证明真实环境中的可靠性。
+
+The results suggest tactile images can extend a general visual interface to contact reasoning, while leaving real-world reliability unproven.
+
+### 链接 / Links
+
+[Evidence 1](https://tactalent.github.io/)
+
+---
+
+<a id="2026-10-19-handson-dexterous-generalization-benchmark"></a>
+## [HandsOn 跨手型、机械臂及任务迁移评测灵巧操作](https://arxiv.org/abs/2610.26765)
+
+**English:** [HandsOn benchmarks dexterous manipulation across hands, arms, and task transfers](https://arxiv.org/abs/2610.26765)
+
+- **发布 / Published:** `2026-10-19T17:22:48Z`
+- **来源 / Source:** [HandsOn authors / arXiv](https://arxiv.org/abs/2610.26765) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `simulation`, `dexterous-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+HandsOn 提出可组合仿真平台，包含五种机械臂、六种灵巧手、约 200 个资产及 18,000 条人类示范。其 66 项任务区分基于示范的学习与无目标任务示范的迁移；最佳已训练多任务策略在 Core-50 上的成功率为 29.1%。
+
+HandsOn introduces a composable simulation platform with five arms, six dexterous hands, roughly 200 assets, and 18,000 human demonstrations. Its 66 tasks separate demonstration-based learning from transfer without target-task demonstrations. The best trained multi-task policy reaches 29.1% success on Core-50.
+
+### 技术点 / Technical points
+
+- Core-50 测量学习后的执行；Transfer-16 测试资产与关系迁移、技能组合和可变形物体操作。
+  - Core-50 measures learned execution; Transfer-16 tests asset and relation transfer, skill composition, and deformable manipulation.
+- 定性真机轨迹展示迁移可能性；分阶段诊断揭示接触、协调及目标保持方面的失败。
+  - Qualitative real-robot rollouts illustrate transfer; stage diagnostics expose contact, coordination, and goal-maintenance failures.
+
+### 为什么重要 / Why it matters
+
+该基准为操作泛化提供了更困难的测试，超越对熟悉示范任务成功率的衡量。
+
+The benchmark provides harder tests of manipulation generalization beyond success on familiar demonstrations.
+
+---
+
 <a id="2026-10-18-ropedia-w0-5b-cross-embodiment-weights"></a>
 ## [Ropedia 发布 W0 5B 权重，用共享运动学接口预测跨本体环境变化](https://huggingface.co/ropedia-ai/Ropedia-W0)
 
