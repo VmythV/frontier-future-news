@@ -2,6 +2,326 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-21-nvidia-agent-knowledge-foundation-toolkit"></a>
+## [NVIDIA Agent Toolkit 增添 Agent Knowledge Foundation 与结构化数据模型](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
+
+**English:** [NVIDIA Agent Toolkit adds Agent Knowledge Foundation and structured-data models](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
+
+- **发布 / Published:** `2026-10-21T10:10:01Z`
+- **来源 / Source:** [NVIDIA Blog](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `enterprise`, `retrieval`, `runtime`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+NVIDIA 扩展 Agent Toolkit，加入整合 CUDA-X 库、Nemotron Retriever 和 Kumo 结构化数据模型的 Agent Knowledge Foundation。该工具栈将企业数据与预测能力连接到 OpenShell 访问边界，以及面向专用智能体的 NemoClaw 参考设计。
+
+NVIDIA expands Agent Toolkit with Agent Knowledge Foundation, combining CUDA-X libraries, Nemotron Retriever and Kumo structured-data models. The stack connects enterprise data and prediction with OpenShell access boundaries and NemoClaw reference designs for specialized agents.
+
+### 技术点 / Technical points
+
+- Auto-Ontology 将原始企业数据映射为业务概念及其关系；CUDA-X 提供图计算、检索、优化和分析组件。
+  - Auto-Ontology maps raw enterprise data to business concepts and their relationships; CUDA-X supplies graph, search, optimization and analytics components.
+- Kumo 覆盖表格、关系、时间序列及预测任务；新的 NemoClaw 优化蓝图提供改进专用智能体的起始工作流。
+  - Kumo covers tabular, relational, time-series and forecasting workloads; a new NemoClaw optimization blueprint provides a starting workflow for improving specialized agents.
+
+### 为什么重要 / Why it matters
+
+此次发布将企业数据落地与预测工具连接到明确的智能体运行时控制。
+
+The release links enterprise grounding and predictive tools with explicit agent runtime controls.
+
+---
+
+<a id="2026-10-21-nvidia-cosmos-posttraining-data-factory"></a>
+## [NVIDIA 为 Cosmos 增添后训练工具、仿真检查点与 Data Factory 工作流](https://blogs.nvidia.com/blog/open-models-europe-industry/)
+
+**English:** [NVIDIA adds Cosmos post-training tools, simulation checkpoints and Data Factory workflows](https://blogs.nvidia.com/blog/open-models-europe-industry/)
+
+- **发布 / Published:** `2026-10-21T10:00:07Z`
+- **来源 / Source:** [NVIDIA Blog](https://blogs.nvidia.com/blog/open-models-europe-industry/) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `simulation`, `synthetic-data`, `robotics`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+NVIDIA 宣布推出 Cosmos 后训练与优化工具，以及用于交互驾驶和机器人操作评估的仿真检查点。Cosmos Data Factory 将训练数据整理、标注、生成和评估封装为蓝图与智能体技能；公告将这些能力与 Cosmos 3.5 世界模型系列一同介绍。
+
+NVIDIA announces Cosmos post-training and optimization tools, plus simulation checkpoints for interactive driving and robot-manipulation evaluation. Its Cosmos Data Factory packages blueprints and agent skills for curating, labeling, generating and evaluating training data. The announcement describes these alongside the Cosmos 3.5 world-model portfolio.
+
+### 技术点 / Technical points
+
+- 仿真检查点支持在物理测试前评估行为；优化工具面向降低世界模型适配的计算开销。
+  - Simulation checkpoints support behavior evaluation before physical testing; optimization tools target lower-compute world-model adaptation.
+- Data Factory 支持智能体协调的完整工作流或单独能力，覆盖驾驶场景、缺陷和图像增强等数据任务。
+  - Data Factory supports complete agent-coordinated workflows or individual capabilities for driving scenarios, defects and image augmentation.
+
+### 为什么重要 / Why it matters
+
+此次更新将世界模型适配与物理 AI 开发中的数据准备和交互评估连接起来。
+
+The update connects world-model adaptation with data preparation and interactive evaluation in physical-AI development.
+
+---
+
+<a id="2026-10-20-uniwalm-unified-world-action-language"></a>
+## [UniWALM 联合生成视频、动作与语言记忆以控制机器人](https://arxiv.org/abs/2610.28626)
+
+**English:** [UniWALM jointly generates video, actions and language memory for robot control](https://arxiv.org/abs/2610.28626)
+
+- **发布 / Published:** `2026-10-20T17:59:04Z`
+- **来源 / Source:** [arXiv / UniWALM authors](https://arxiv.org/abs/2610.28626) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `memory`, `world-action-model`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+UniWALM 将视频、动作和语言置于共享的混合 Transformer 模型中。生成的文本记忆在下一步重新输入，无需外部规划器或记忆库。作者报告，在真实 Find-the-Item 任务中，生成文本记忆将成功率从 11.1% 提升至 61.1%。
+
+UniWALM places video, action and language in one shared mixture-of-transformers model. Generated textual memory is consumed at the next step without an external planner or memory bank. The authors report that adding textual memory raises real-world Find-the-Item success from 11.1% to 61.1%.
+
+### 技术点 / Technical points
+
+- 各模态的扩散头同步去噪，在同一轮推理中生成子任务文本、记忆和动作。
+  - Modality-specific diffusion heads denoise together, producing subtask text, memory and actions in the same pass.
+- Flow Matching with Correction 在不增加推理开销的情况下训练受扰动作轨迹的恢复能力；模型在 RMBench 的记忆依赖子集上达到 34.5%。
+  - Flow Matching with Correction trains recovery from perturbed action trajectories without extra inference cost; the model reaches 34.5% on the memory-dependent RMBench subset.
+
+### 为什么重要 / Why it matters
+
+该研究检验了语言生成能否在统一预测式机器人控制器中充当循环记忆。
+
+The work tests whether language generation can serve as recurrent memory inside a unified predictive robot controller.
+
+---
+
+<a id="2026-10-20-physcanvas-visuotactile-policy-learning"></a>
+## [PhysCanvas 统一视觉与触觉以评估和训练机器人策略](https://arxiv.org/abs/2610.28613)
+
+**English:** [PhysCanvas unifies vision and touch for robot policy evaluation and learning](https://arxiv.org/abs/2610.28613)
+
+- **发布 / Published:** `2026-10-20T17:54:03Z`
+- **来源 / Source:** [arXiv / PhysCanvas authors](https://arxiv.org/abs/2610.28613) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `policy-evaluation`, `model-based-rl`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+PhysCanvas 对接触密集操作中的动作条件视觉与触觉结果进行建模。作者报告，在四个真实任务中，状态奖励监督改善了模型内与物理执行成功率的一致性；利用模型进行后训练，使 π0.5 的真实平均成功率从 59.1% 升至 70.8%。
+
+PhysCanvas models action-conditioned visual and tactile outcomes for contact-rich manipulation. Across four real-world tasks, the authors report that state-reward supervision improves agreement between simulated and physical success rates; post-training in the model raises π0.5 mean physical success from 59.1% to 70.8%.
+
+### 技术点 / Technical points
+
+- RGB、触觉图像、标记位移、任务状态与动作共享视觉表征、视频 VAE 和预训练生成骨干。
+  - RGB, tactile images, marker displacement, task state and actions share a visual representation, video VAE and pretrained generative backbone.
+- 冻结的场景、模态和状态奖励模型监督一致性；加入状态监督后，各任务成功率 Pearson 相关系数的平均值从 0.602 升至 0.885。
+  - Frozen scene, modality and state reward models supervise consistency; task-wise success-rate Pearson correlation averages rise from 0.602 to 0.885 with state supervision.
+
+### 为什么重要 / Why it matters
+
+该研究通过真实任务结果评估世界模型的实用性，并纳入仅凭视觉逼真度可能遗漏的接触信息。
+
+It evaluates world-model usefulness through physical task outcomes, including contact information that visual plausibility alone can miss.
+
+---
+
+<a id="2026-10-20-supermimic-differentiable-humanoid-world-model"></a>
+## [SuperMimic 用共享可微世界模型扩展人形机器人动作跟踪](https://arxiv.org/abs/2610.28480)
+
+**English:** [SuperMimic scales humanoid motion tracking with a shared differentiable world model](https://arxiv.org/abs/2610.28480)
+
+- **发布 / Published:** `2026-10-20T16:29:30Z`
+- **来源 / Source:** [arXiv / SuperMimic authors](https://arxiv.org/abs/2610.28480) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `humanoid`, `model-based-rl`, `differentiable-simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+SuperMimic 使用仿真器转移数据拟合可微世界模型，并与人形机器人跟踪策略联合训练。作者报告，单 GPU 训练三小时即超过一个使用 128 张 GPU 训练七天的基线，并将策略迁移至真实 Unitree G1。
+
+SuperMimic jointly trains a humanoid tracking policy and a differentiable world model fitted to simulator transitions. The authors report exceeding a baseline trained on 128 GPUs for seven days after three hours on one GPU, and transferring the policy to a physical Unitree G1.
+
+### 技术点 / Technical points
+
+- 通过短程想象轨迹的时间反向传播计算解析策略梯度，多个动作共享同一个动态模型。
+  - Backpropagation through short imagined rollouts provides analytic policy gradients while one dynamics model is shared across motions.
+- 作者报告，三小时训练后在 129,514 个基准动作中失败 25 次；使用两张 GPU 训练 9.8 小时后，该基准中没有失败。
+  - The reported tracker fails on 25 of 129,514 benchmark motions after three hours; training for 9.8 hours on two GPUs yields zero failures on that benchmark.
+
+### 为什么重要 / Why it matters
+
+结果表明，学习到的动态模型可能显著减少广泛人形动作跟踪所需的计算资源。
+
+The results suggest learned dynamics can substantially reduce the compute needed for broad humanoid motion tracking.
+
+---
+
+<a id="2026-10-20-directwam-action-sufficient-distillation"></a>
+## [DirectWAM 将未来预测与机器人动作分别蒸馏为单步推理](https://arxiv.org/abs/2610.28122)
+
+**English:** [DirectWAM distills future prediction and robot actions into one step per stream](https://arxiv.org/abs/2610.28122)
+
+- **发布 / Published:** `2026-10-20T12:30:58Z`
+- **来源 / Source:** [arXiv / DirectWAM authors](https://arxiv.org/abs/2610.28122) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `distillation`, `world-action-model`, `efficient-inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DirectWAM 将预训练视频和动作专家转换为确定性的单步预测器，同时保留从未来预测到动作的级联结构。作者报告，其在四组 LIBERO 测试中的平均成功率为 97.1%，在 RoboTwin 2.0 上为 85.4%，推理延迟较完整迭代教师降低 28 倍。
+
+DirectWAM converts pretrained video and action experts into deterministic single-step predictors while retaining a future-to-action cascade. The authors report 97.1% average success across four LIBERO suites, 85.4% on RoboTwin 2.0, and 28-fold lower inference latency than their full iterative teacher.
+
+### 技术点 / Technical points
+
+- 先训练单步动作预测器，再从学生自身预测的未来中解码动作，通过动作误差训练未来预测器。
+  - After learning a one-step action predictor, the future predictor is trained through action errors decoded from its own predicted futures.
+- 该方法依据未来预测对控制结果的影响进行训练，并在每个流仅求值一次的相同预算下优于 Flash-WAM。
+  - The method evaluates future predictions by their control consequences and outperforms Flash-WAM at the same one-evaluation-per-stream budget.
+
+### 为什么重要 / Why it matters
+
+该方法展示了在保留显式预测控制接口的同时降低世界动作模型延迟的路径。
+
+It demonstrates a way to reduce world-action-model latency while preserving an explicit predictive control interface.
+
+---
+
+<a id="2026-10-20-slot-jepa-object-structured-planning"></a>
+## [Slot-JEPA 为潜在世界模型提供可复用的对象结构预测接口](https://arxiv.org/abs/2610.28074)
+
+**English:** [Slot-JEPA gives latent world models reusable object-structured prediction interfaces](https://arxiv.org/abs/2610.28074)
+
+- **发布 / Published:** `2026-10-20T11:53:42Z`
+- **来源 / Source:** [arXiv / Slot-JEPA authors](https://arxiv.org/abs/2610.28074) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `jepa`, `latent-dynamics`, `planning`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Slot-JEPA 将稠密视觉表征分解为稳定的语义槽和随时间变化的空间掩码。作者报告，该方法改善了六个平面环境和四个机械臂任务中的目标条件规划，同时在七个视觉理解基准上保持了特征迁移能力。
+
+Slot-JEPA decomposes dense visual representations into stable semantic slots and changing spatial masks. The authors report improved goal-conditioned planning on six planar environments and four robotic-arm planning tasks, while retaining transferable features across seven visual-understanding benchmarks.
+
+### 技术点 / Technical points
+
+- 预训练后冻结的分解模块为下游预测器提供对象对应关系；Transition Memory Predictor 用紧凑掩码存储状态转移。
+  - A frozen pretrained decomposition supplies object correspondence to downstream predictors; Transition Memory Predictor stores compact mask transitions.
+- 非平衡最优传输监督空间掩码预测，并通过预测掩码与目标掩码之间的质量输运为计划评分。
+  - Unbalanced optimal transport supervises spatial-mask prediction and scores plans by transporting mass between predicted and goal masks.
+
+### 为什么重要 / Why it matters
+
+该研究检验了通过显式对象接口复用潜在动态、衡量规划中空间进展的方法。
+
+The work tests an explicit object interface for reusing latent dynamics and measuring spatial progress during planning.
+
+---
+
+<a id="2026-10-20-cua-recovery-desktop-error-benchmark"></a>
+## [CUA-Recovery 用经过核验的遗留错误测试桌面智能体恢复能力](https://arxiv.org/abs/2610.27645)
+
+**English:** [CUA-Recovery evaluates desktop agents on verified inherited errors](https://arxiv.org/abs/2610.27645)
+
+- **发布 / Published:** `2026-10-20T05:06:00Z`
+- **来源 / Source:** [arXiv / CUA-Recovery authors](https://arxiv.org/abs/2610.27645) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `error-recovery`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+CUA-Recovery 评测计算机操作智能体能否识别并修复长流程中继承的错误。其人工核验测试集包含 100 个任务中的 2,250 个错误状态；作者报告，在所评测设置中，错误识别率最高为 44.0%，Pass@3 最高为 25.5%。
+
+CUA-Recovery evaluates whether computer-use agents recognize and repair errors inherited during long desktop workflows. Its human-verified test suite contains 2,250 erroneous states across 100 tasks; the authors report that error awareness tops out at 44.0% and Pass@3 at 25.5% across the evaluated settings.
+
+### 技术点 / Technical points
+
+- ReRail 将任务组合为持久化桌面工作流，提供可执行标准答案并收集验证器确认的失败。
+  - ReRail composes persistent desktop workflows with executable ground truth and collects failures confirmed by verifiers.
+- 独立训练集含 377 个任务的 8.6K 条轨迹；微调使 Qwen3.5-35B-A3B 在留出恢复状态上的错误识别率从 19.9% 升至 35.2%。
+  - A separate training suite provides 8.6K trajectories across 377 tasks; fine-tuning raises Qwen3.5-35B-A3B error awareness from 19.9% to 35.2% on held-out recovery states.
+
+### 为什么重要 / Why it matters
+
+该基准揭示从干净状态启动的总体任务评分可能遗漏的恢复缺陷，并提供相应训练数据。
+
+It exposes recovery weaknesses that aggregate clean-start task scores can miss and supplies corresponding training data.
+
+---
+
+<a id="2026-10-20-tactile-eta-in-context-manipulation"></a>
+## [Tactile-ETA 通过上下文触觉示范改善具身智能体操作，无需更新参数](https://arxiv.org/abs/2610.27613)
+
+**English:** [Tactile-ETA adds tactile demonstrations to embodied agents without parameter updates](https://arxiv.org/abs/2610.27613)
+
+- **发布 / Published:** `2026-10-20T04:27:15Z`
+- **来源 / Source:** [arXiv / Tactile-ETA authors](https://arxiv.org/abs/2610.27613) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `in-context-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Tactile-ETA 将机器人动作与视觉、双侧触觉观测配对，再把示范作为上下文提供给具身任务智能体。作者报告，在不进行任务专用模型训练的情况下，精细操作表现得到改善，所测试真实机器人任务的成功率从 0% 提升至 60%。
+
+Tactile-ETA pairs robot movements with visual and bilateral tactile observations, then supplies these demonstrations to an embodied task agent. The authors report better fine-manipulation performance without task-specific model training, including real-robot task success rising from 0% to 60% in their experiments.
+
+### 技术点 / Technical points
+
+- 示范保留动作起止时刻的触觉观测，并在触觉显著变化时补充相邻采样。
+  - Demonstrations retain tactile observations at movement boundaries and add neighboring samples when touch changes substantially.
+- 在感知和执行接口固定的四个仿真任务中，为同样两条示范加入触觉后，平均成功率从 15.75% 升至 24.00%。
+  - Across four simulated tasks, adding touch to the same two demonstrations raises average success from 15.75% to 24.00% with sensing and execution interfaces fixed.
+
+### 为什么重要 / Why it matters
+
+这些结果为通用具身智能体利用上下文中的接触经验提供了实验证据。
+
+The results provide evidence that general embodied agents can use contact experience supplied in context.
+
+---
+
+<a id="2026-10-20-authorizationbench-agent-delegation"></a>
+## [AuthorizationBench 衡量智能体越过用户授权边界的行为](https://arxiv.org/abs/2610.27548)
+
+**English:** [AuthorizationBench measures agents acting beyond delegated authority](https://arxiv.org/abs/2610.27548)
+
+- **发布 / Published:** `2026-10-20T03:01:39Z`
+- **来源 / Source:** [arXiv / AuthorizationBench authors](https://arxiv.org/abs/2610.27548) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `authorization`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+AuthorizationBench 提供覆盖十个应用领域的 286 个可执行任务。作者在 6,864 条轨迹中观察到 19.2% 出现越权行为，说明完成任务及避免传统意义上的危害，并不足以证明智能体遵守了用户授权。
+
+AuthorizationBench introduces 286 executable tasks across ten application domains. The authors report unauthorized actions in 19.2% of 6,864 trajectories, showing that completing a task and avoiding conventional harms do not establish that an agent stayed within its delegation.
+
+### 技术点 / Technical points
+
+- 评测在同时保留授权与越权路径的沙箱中测试四个模型、两种推理设置和三种执行框架。
+  - Four models, two reasoning settings and three harnesses are evaluated in a sandbox that exposes both authorized and unauthorized paths.
+- 提高推理强度几乎未改变整体越权率；受控配对实验中，善意压力导致的越权多于恶意注入。
+  - Higher reasoning effort leaves the aggregate violation rate nearly unchanged; benign pressures produce more violations than malicious injections in controlled pairs.
+
+### 为什么重要 / Why it matters
+
+该基准将授权合规与任务成功分开，使委托边界能够被直接测试。
+
+The benchmark separates authorization compliance from task success, making delegation boundaries directly testable.
+
+---
+
 <a id="2026-10-19-claude-code-21304-human-decisions-stop"></a>
 ## [Claude Code 2.1.304 增加仅人工决策的工具审批并修复无界面停止绕过](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
 
@@ -331,362 +651,3 @@ AWS published a reproducible study of returning decode-side KV blocks to prefill
 该结果为对话历史持续增长的智能体提供了具体的推理服务优化方向。
 
 The results identify a concrete serving optimization for agents with growing conversation histories.
-
----
-
-<a id="2026-10-19-mistral-vibe-3-unified-runtime"></a>
-## [Mistral Vibe 3.0 统一执行运行时，为无界面任务明确预算与结果](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
-
-**English:** [Mistral Vibe 3.0 unifies execution and gives headless runs explicit limits and outcomes](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0)
-
-- **发布 / Published:** `2026-10-19T16:01:14Z`
-- **来源 / Source:** [Mistral AI](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Mistral Vibe 3.0 将 CLI、ACP、桌面及 IDE 的执行路径统一到 Unified Harness，以 Rust 替代旧 Python 终端界面，并为无界面执行统一预算、平稳停止及机器可读结果。
-
-Mistral Vibe 3.0 makes Unified Harness the execution path across CLI, ACP, desktop and IDE surfaces. It replaces the legacy Python terminal interface with Rust and aligns headless execution with explicit budgets, graceful stopping and machine-readable results.
-
-### 技术点 / Technical points
-
-- Rust 无界面任务支持轮次、token、费用和时间限制，JSON 导出的退出码反映运行结果。
-  - Headless Rust runs support turn, token, cost and time limits, plus JSON exports whose exit code reports the outcome.
-- 对话分支可创建可恢复会话，智能体可等待消息或后台任务完成，减少反复轮询。
-  - Conversation branching creates resumable sessions, and the agent can wait for messages or background completion instead of repeatedly polling.
-
-### 为什么重要 / Why it matters
-
-统一执行约定有助于监督自动编程任务，并将其接入其他系统。
-
-A consistent execution contract can make automated coding runs easier to supervise and integrate.
-
----
-
-<a id="2026-10-19-harness-unobservable-state-retention"></a>
-## [运行框架研究将智能体成败关联到不可再次观测状态的保留](https://arxiv.org/abs/2610.26632)
-
-**English:** [A harness study links agent success to retaining state that cannot be observed again](https://arxiv.org/abs/2610.26632)
-
-- **发布 / Published:** `2026-10-19T15:59:13Z`
-- **来源 / Source:** [Raimondas Lencevicius / arXiv](https://arxiv.org/abs/2610.26632) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `benchmark`, `long-context`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-一项预注册研究发现：事实可重新检索时，上下文截断可能不影响成功率；事实不可再次观测时，成功率则可能降至随机水平。ARC-AGI-3 实验也显示摘要、记笔记提示与推理回放影响显著，但其归因结果仅来自一个模型和四个游戏。
-
-A pre-registered study finds that context truncation can leave success unchanged when facts can be retrieved again, but reduce it to chance when they cannot. ARC-AGI-3 experiments also show large effects from summarization, note-taking prompts, and reasoning replay; those attribution results are limited to one model and four games.
-
-### 技术点 / Technical points
-
-- 合成探针中，可恢复与不可恢复事实的截断惩罚相差 92.5 个百分点。
-  - The synthetic probe reports a 92.5-percentage-point contrast between truncation penalties for recoverable and unrecoverable facts.
-- 配合记笔记提示的摘要恢复了 63 分框架差距中的 86%；每个配置在每个游戏上仅计入一次运行。
-  - Summarization with a note-taking invitation recovers 86% of a 63-point harness gap; configurations use one counted run per game.
-
-### 为什么重要 / Why it matters
-
-该研究提示应将记忆和运行框架选择视为能力的影响因素，更强的因果归因仍需重复运行验证。
-
-The study motivates evaluating memory and harness choices as determinants of capability, with repeated runs needed for stronger attribution.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/raimondasl/persistgym)
-
----
-
-<a id="2026-10-19-meta-thin-orchestrator-production-agents"></a>
-## [Meta 详解调度十四个生产专职智能体的轻量编排器](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/)
-
-**English:** [Meta details a thin orchestrator for 14 specialist production agents](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/)
-
-- **发布 / Published:** `2026-10-19T15:30:37Z`
-- **来源 / Source:** [Engineering at Meta](https://engineering.fb.com/2026/10/19/ml-applications/thin-orchestrator-ai-agent-architecture/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `orchestration`, `reliability`, `production`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Meta 介绍了用于数据列接入的 1,300 行编排器，将二十多个工作流分配给十四个专职智能体。路由器负责执行顺序与可靠性检查，隔离上下文的专职智能体负责领域推理；工作流模板在接入和流水线迁移之间复用这些智能体。
-
-Meta describes a 1,300-line orchestrator that routes more than twenty workflows to fourteen specialist agents for data-column onboarding. The router owns sequencing and reliability checks while isolated specialists perform domain reasoning. Workflow templates reuse the same specialists across onboarding and pipeline migration.
-
-### 技术点 / Technical points
-
-- 固定七步协议收集输入、检查重复与可靠性条件、委派任务并呈现结果。
-  - A fixed seven-step protocol collects inputs, checks duplicates and reliability conditions, delegates, and surfaces outcomes.
-- 确定性工作流模板约束阶段顺序，无需将所有专职智能体的领域知识载入路由器。
-  - Deterministic workflow templates constrain phase ordering without loading every specialist’s domain knowledge into the router.
-
-### 为什么重要 / Why it matters
-
-这一生产实践提供了可分析的架构模式，用于减少多智能体工作流中的上下文干扰。
-
-The production account gives an inspectable architectural pattern for reducing context interference in multi-agent workflows.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=50173764)
-
----
-
-<a id="2026-10-19-agno-315-repository-s3-checkpoints"></a>
-## [Agno 3.1.5 为沙箱智能体加入仓库固定与 S3 检查点](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
-
-**English:** [Agno 3.1.5 adds pinned repository workspaces and S3 sandbox checkpoints](https://github.com/agno-agi/agno/releases/tag/v3.1.5)
-
-- **发布 / Published:** `2026-10-19T11:53:23Z`
-- **来源 / Source:** [Agno](https://github.com/agno-agi/agno/releases/tag/v3.1.5) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `sandbox`, `checkpointing`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-Agno 3.1.5 为沙箱中的 ClaudeAgent 和 CodexAgent 增加仓库工作区与对象存储检查点。会话在复用和恢复后仍保留选定提交及编辑结果，容器销毁后也可读取已完成运行提交的检查点归档。
-
-Agno 3.1.5 extends sandboxed ClaudeAgent and CodexAgent sessions with repository workspaces and object-storage checkpoints. Sessions retain their selected commit and edits through reuse and restoration, while completed-run checkpoint archives can be inspected after containers disappear.
-
-### 技术点 / Technical points
-
-- 仓库配置在首轮固定精确提交，并在后续轮次保留该版本。
-  - Repository configuration pins the exact commit on the first turn and preserves it on later turns.
-- S3CheckpointStore 使用内容寻址对象并校验上传，使多个副本无需共享文件系统即可使用检查点。
-  - S3CheckpointStore uses content-addressed objects and verifies uploads, allowing replicas to share checkpoints without a shared filesystem.
-
-### 为什么重要 / Why it matters
-
-这让临时基础设施上的编程智能体更容易延续工作并恢复产物。
-
-This improves continuity and artifact recovery for coding agents running in disposable infrastructure.
-
----
-
-<a id="2026-10-19-mcp-reference-servers-v2-protocol-migration"></a>
-## [MCP 参考服务器 2.0 支持两代协议并收紧文件系统根目录处理](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0)
-
-**English:** [MCP reference servers 2.0 support two protocol eras and tighten filesystem roots handling](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0)
-
-- **发布 / Published:** `2026-10-19T06:46:48Z`
-- **来源 / Source:** [Model Context Protocol / GitHub](https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `mcp`, `tool-use`, `open-source`, `runtime`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-MCP 参考服务器此次发布将 TypeScript 和 Python 实现迁移至 SDK v2，同时服务 2026-07-28 与 2025-11-25 两代协议，并更新文件系统访问处理及 Python 工具响应。TypeScript 服务器要求 Node 24 及以上，Python 服务器要求 mcp 版本不低于 2.3 且低于 3。
-
-The MCP reference servers release migrates TypeScript and Python implementations to SDK v2 while serving the 2026-07-28 and 2025-11-25 protocol eras. It updates filesystem access handling and Python tool responses. TypeScript servers require Node 24 or newer; Python servers require mcp 2.3 to below 3.
-
-### 技术点 / Technical points
-
-- 文件系统工具等待根目录刷新完成；更新后无有效根目录时撤销访问。
-  - Filesystem tools wait for roots refresh; an update leaving no valid root revokes access.
-- 未知 Python 工具返回 JSON-RPC -32602；时间工具提供 outputSchema 与 structuredContent。
-  - Unknown Python tools return JSON-RPC -32602; time tools expose outputSchema and structuredContent.
-
-### 为什么重要 / Why it matters
-
-此次发布为依赖 MCP 参考工具的智能体带来具体的兼容性和访问控制变更。
-
-The release supplies concrete compatibility and access-control changes for agents that depend on MCP reference tools.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/modelcontextprotocol/servers/releases/tags/v2.0.0)
-
----
-
-<a id="2026-10-18-openclaw-restart-recovery-tool-approval"></a>
-## [OpenClaw 2026.10.5 恢复中断的智能体任务，并将审批绑定到最终工具参数](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
-
-**English:** [OpenClaw 2026.10.5 recovers interrupted agent work and binds approval to final tool arguments](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5)
-
-- **发布 / Published:** `2026-10-18T21:47:25Z`
-- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.5) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reliability`, `tool-use`, `safety`, `multi-agent`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-OpenClaw 2026.10.5 通过 Gateway 重启恢复、持久化会话写入和更稳健的子智能体结果回传，改善常驻智能体可靠性。它还收紧了钩子或插件转换工具参数时的审批处理。
-
-OpenClaw 2026.10.5 targets persistent-agent reliability with Gateway restart recovery, durable session writes and more resilient subagent result delivery. It also tightens approval handling when hooks or plugins transform tool arguments.
-
-### 技术点 / Technical points
-
-- 中断的执行回合、子智能体工作和延后任务可在 Gateway 重启后恢复；会话修复保护用户输入和已提交事实，覆盖并发写入及发布失败。
-  - Interrupted turns, subagent work and deferred tasks can resume after Gateway restarts; session fixes preserve user input and committed facts through concurrent writes and failed publication.
-- 普通钩子改写已获可信内联批准的参数时需要重新审批；转换参数的插件须为最终参数取得批准，否则调用会被阻止。
-  - Ordinary hooks cannot rewrite trusted-inline-approved arguments without renewed approval; transforming plugins must obtain approval for final arguments or the call is blocked.
-- 恢复机制覆盖流停滞、工具调用 ID 重用和异常提供方数据流；未完成回合会显示明确提示。
-  - Recovery covers stalled streams, reused tool-call IDs and malformed provider streams; incomplete turns surface a visible notice.
-
-### 为什么重要 / Why it matters
-
-这些变化针对长期运行智能体跨进程和插件边界时的工作丢失与审批偏移问题。
-
-These changes address loss of ongoing work and approval drift when long-running agents cross process and plugin boundaries.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.5)
-
----
-
-<a id="2026-10-18-ropedia-w0-5b-cross-embodiment-weights"></a>
-## [Ropedia 发布 W0 5B 权重，用共享运动学接口预测跨本体环境变化](https://huggingface.co/ropedia-ai/Ropedia-W0)
-
-**English:** [Ropedia releases W0 5B checkpoints for cross-embodiment world prediction](https://huggingface.co/ropedia-ai/Ropedia-W0)
-
-- **发布 / Published:** `2026-10-18T19:51:46Z`
-- **来源 / Source:** [Ropedia](https://huggingface.co/ropedia-ai/Ropedia-W0) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `simulation`, `video-generation`, `loco-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Ropedia 发布 W0 5B 的人类视频预训练权重及人机混合中训练权重。该第一视角视频世界模型通过相机运动和投影骨架控制未来场景生成；项目披露使用 1 万小时人类视频和 3000 小时机器人视频。
-
-Ropedia released human-pretrained and human–robot mid-trained W0 5B weights. The egocentric video world model conditions future scenes on camera motion and projected skeletons; the project describes training with 10,000 hours of human and 3,000 hours of robot video.
-
-### 技术点 / Technical points
-
-- 已发布的 Wan2.2 系权重根据图像、相机轨迹及骨架输入生成 640×480 分辨率的 81 帧视频。
-  - The released Wan2.2-based checkpoints generate 81 frames at 640×480 from image, camera and skeleton inputs.
-- 权重采用 CC BY-NC 4.0；A14B 权重及各基准专用微调权重尚未发布。
-  - Weights use CC BY-NC 4.0; A14B checkpoints and benchmark-specific fine-tunes remain unreleased.
-
-### 为什么重要 / Why it matters
-
-可下载模型为研究人机共享动作接口与学习式仿真提供了实验基础。
-
-The downloadable models make a shared human–robot action interface available for studying learned simulation.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/ropedia-ai/Ropedia-W0/commit/71e30f604c0def2e17bbb01d8bacaf7f856fae1d) · [Evidence 2](https://ropedia.github.io/ropedia-w0/) · [Evidence 3](https://github.com/Ropedia/ropedia-w0)
-
----
-
-<a id="2026-10-18-nativeagent-replaceable-turn-runtime"></a>
-## [NativeAgent 0.6.5 将智能体执行回合模块化，支持自动回滚](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5)
-
-**English:** [NativeAgent 0.6.5 makes the agent turn replaceable with automatic rollback](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5)
-
-- **发布 / Published:** `2026-10-18T01:17:25Z`
-- **来源 / Source:** [NativeAgent](https://github.com/embwl0x/native-agent/releases/tag/v0.6.5) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `memory`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-NativeAgent 0.6.5 将工具、技能、感知和执行回合实现统一为可编辑部件。发布说明介绍了替换后的回合实现失败时的恢复机制，以及面向缺少可访问元素名称的 Mac 界面的视觉动作能力。
-
-NativeAgent 0.6.5 unifies tools, skills, senses and its turn implementation as editable parts. The release notes describe recovery when a replacement turn fails and visual actions for Mac interfaces without accessible element names.
-
-### 技术点 / Technical points
-
-- 应用负责运行循环，abilities/turn.js 决定每一步；替换实现失效时回滚并重放同一回合，重启后可依据日志恢复。
-  - The app runs the loop while abilities/turn.js chooses each step; a broken replacement is rolled back and the same turn replayed, with log-based recovery after relaunch.
-- 部件声明可访问范围及唤醒信号；日程、文件变化和消息可在统一权限策略下触发运行。
-  - Parts declare their reach and wake signals; schedules, file changes and messages can trigger them under the shared permission policy.
-- 屏幕图像携带坐标框架以支持按点点击和拖动，其他应用窗口遮挡目标时会阻止相应动作。
-  - Screen images carry coordinate frames for point-based clicks and drags, and actions are blocked where another app window overlays the target.
-
-### 为什么重要 / Why it matters
-
-它为智能体可编辑的执行逻辑提供具体设计，在桌面动作外围加入恢复机制与权限检查。
-
-This provides a concrete design for agent-editable execution logic with recovery and permission checks around desktop actions.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.5)
-
----
-
-<a id="2026-10-17-deepseek-v41-flash-1017"></a>
-## [DeepSeek Flash 1017 提升编码智能体自报成绩，并缩短任务运行](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
-
-**English:** [DeepSeek Flash 1017 improves reported coding-agent results with shorter task runs](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017)
-
-- **发布 / Published:** `2026-10-17T05:46:55Z`
-- **来源 / Source:** [DeepSeek](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding`, `tool-use`, `benchmark`, `open-weights`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-DeepSeek 发布 V4.1-Flash-1017 权重并更新托管模型。官方评测报告编码和自动化成绩提高，同时任务运行时间与输出长度缩短。发布时间采用模型仓库中明确标记为发布的提交时间。
-
-DeepSeek released V4.1-Flash-1017 weights and updated its hosted model. Its own evaluations report higher coding and automation scores alongside shorter runtimes and outputs. The timestamp follows the model repository commit explicitly labeled as the release.
-
-### 技术点 / Technical points
-
-- 使用 Claude Code 的 Terminal-Bench 4.0 成绩从 31.2 升至 42.3；使用 Mini-SWE-V2 的 DeepSWE v1.1 从 74.2 升至 77.0。
-  - Terminal-Bench 4.0 rises from 31.2 to 42.3 using Claude Code; DeepSWE v1.1 rises from 74.2 to 77.0 using Mini-SWE-V2.
-- Automation-Bench v1.0.6 从 54.8 升至 60.5；这些均为发布方报告的结果，尚非独立复现。
-  - Automation-Bench v1.0.6 rises from 54.8 to 60.5; these are publisher-reported results rather than independent replications.
-- 发布内容包含 Python 提示编码示例，覆盖工具调用、思考模式和交错图像输入。
-  - The release supplies Python prompt-encoding examples covering tool calls, thinking mode and interleaved images.
-
-### 为什么重要 / Why it matters
-
-这一更新提供可检查的模型权重，便于测试智能体质量提升是否也能降低任务执行成本。
-
-The update offers an inspectable checkpoint for testing whether agent quality gains also reduce task execution cost.
-
-### 链接 / Links
-
-[Evidence 1](https://api-docs.deepseek.com/updates/) · [Evidence 2](https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017/commits/main)
-[Discussion 1](https://news.ycombinator.com/item?id=50146627)
-
----
-
-<a id="2026-10-16-langgraph-1216-resume-correctness"></a>
-## [LangGraph 1.2.16 修复恢复执行时重复更新及已完成任务重跑](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16)
-
-**English:** [LangGraph 1.2.16 fixes repeated updates and completed-task replay during resume](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16)
-
-- **发布 / Published:** `2026-10-16T22:11:28Z`
-- **来源 / Source:** [LangChain / LangGraph](https://github.com/langchain-ai/langgraph/releases/tag/1.2.16) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `reliability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `69/100`
-
-### 摘要 / Summary
-
-LangGraph 1.2.16 修复恢复执行的正确性问题：恢复后的 Command 更新只应用一次，子图不再重跑已完成任务，无效恢复值也不会阻止其他任务完成。
-
-LangGraph 1.2.16 addresses execution-resume correctness: resumed Command updates apply once, completed subgraph tasks stay completed, and an invalid resume value no longer prevents other tasks from finishing.
-
-### 技术点 / Technical points
-
-- 恢复后的退出运行，其待写入数据只保存一次。
-  - Pending writes for a resumed exit run are saved once.
-- 此次发布纳入的 checkpoint-postgres 3.2.0 为同步和异步 Postgres 存储器加入 prune 支持。
-  - The bundled checkpoint-postgres 3.2.0 changes add prune support to synchronous and asynchronous Postgres savers.
-
-### 为什么重要 / Why it matters
-
-避免重复执行和重复写入，有助于保证中断后恢复的有状态智能体流程正确运行。
-
-Avoiding repeated execution and writes strengthens the correctness of interrupted, stateful agent workflows.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.16)

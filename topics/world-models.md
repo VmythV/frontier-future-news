@@ -2,6 +2,198 @@
 
 # World models / 世界模型
 
+<a id="2026-10-21-nvidia-cosmos-posttraining-data-factory"></a>
+## [NVIDIA 为 Cosmos 增添后训练工具、仿真检查点与 Data Factory 工作流](https://blogs.nvidia.com/blog/open-models-europe-industry/)
+
+**English:** [NVIDIA adds Cosmos post-training tools, simulation checkpoints and Data Factory workflows](https://blogs.nvidia.com/blog/open-models-europe-industry/)
+
+- **发布 / Published:** `2026-10-21T10:00:07Z`
+- **来源 / Source:** [NVIDIA Blog](https://blogs.nvidia.com/blog/open-models-europe-industry/) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `simulation`, `synthetic-data`, `robotics`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+NVIDIA 宣布推出 Cosmos 后训练与优化工具，以及用于交互驾驶和机器人操作评估的仿真检查点。Cosmos Data Factory 将训练数据整理、标注、生成和评估封装为蓝图与智能体技能；公告将这些能力与 Cosmos 3.5 世界模型系列一同介绍。
+
+NVIDIA announces Cosmos post-training and optimization tools, plus simulation checkpoints for interactive driving and robot-manipulation evaluation. Its Cosmos Data Factory packages blueprints and agent skills for curating, labeling, generating and evaluating training data. The announcement describes these alongside the Cosmos 3.5 world-model portfolio.
+
+### 技术点 / Technical points
+
+- 仿真检查点支持在物理测试前评估行为；优化工具面向降低世界模型适配的计算开销。
+  - Simulation checkpoints support behavior evaluation before physical testing; optimization tools target lower-compute world-model adaptation.
+- Data Factory 支持智能体协调的完整工作流或单独能力，覆盖驾驶场景、缺陷和图像增强等数据任务。
+  - Data Factory supports complete agent-coordinated workflows or individual capabilities for driving scenarios, defects and image augmentation.
+
+### 为什么重要 / Why it matters
+
+此次更新将世界模型适配与物理 AI 开发中的数据准备和交互评估连接起来。
+
+The update connects world-model adaptation with data preparation and interactive evaluation in physical-AI development.
+
+---
+
+<a id="2026-10-20-uniwalm-unified-world-action-language"></a>
+## [UniWALM 联合生成视频、动作与语言记忆以控制机器人](https://arxiv.org/abs/2610.28626)
+
+**English:** [UniWALM jointly generates video, actions and language memory for robot control](https://arxiv.org/abs/2610.28626)
+
+- **发布 / Published:** `2026-10-20T17:59:04Z`
+- **来源 / Source:** [arXiv / UniWALM authors](https://arxiv.org/abs/2610.28626) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `memory`, `world-action-model`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+UniWALM 将视频、动作和语言置于共享的混合 Transformer 模型中。生成的文本记忆在下一步重新输入，无需外部规划器或记忆库。作者报告，在真实 Find-the-Item 任务中，生成文本记忆将成功率从 11.1% 提升至 61.1%。
+
+UniWALM places video, action and language in one shared mixture-of-transformers model. Generated textual memory is consumed at the next step without an external planner or memory bank. The authors report that adding textual memory raises real-world Find-the-Item success from 11.1% to 61.1%.
+
+### 技术点 / Technical points
+
+- 各模态的扩散头同步去噪，在同一轮推理中生成子任务文本、记忆和动作。
+  - Modality-specific diffusion heads denoise together, producing subtask text, memory and actions in the same pass.
+- Flow Matching with Correction 在不增加推理开销的情况下训练受扰动作轨迹的恢复能力；模型在 RMBench 的记忆依赖子集上达到 34.5%。
+  - Flow Matching with Correction trains recovery from perturbed action trajectories without extra inference cost; the model reaches 34.5% on the memory-dependent RMBench subset.
+
+### 为什么重要 / Why it matters
+
+该研究检验了语言生成能否在统一预测式机器人控制器中充当循环记忆。
+
+The work tests whether language generation can serve as recurrent memory inside a unified predictive robot controller.
+
+---
+
+<a id="2026-10-20-physcanvas-visuotactile-policy-learning"></a>
+## [PhysCanvas 统一视觉与触觉以评估和训练机器人策略](https://arxiv.org/abs/2610.28613)
+
+**English:** [PhysCanvas unifies vision and touch for robot policy evaluation and learning](https://arxiv.org/abs/2610.28613)
+
+- **发布 / Published:** `2026-10-20T17:54:03Z`
+- **来源 / Source:** [arXiv / PhysCanvas authors](https://arxiv.org/abs/2610.28613) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `policy-evaluation`, `model-based-rl`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+PhysCanvas 对接触密集操作中的动作条件视觉与触觉结果进行建模。作者报告，在四个真实任务中，状态奖励监督改善了模型内与物理执行成功率的一致性；利用模型进行后训练，使 π0.5 的真实平均成功率从 59.1% 升至 70.8%。
+
+PhysCanvas models action-conditioned visual and tactile outcomes for contact-rich manipulation. Across four real-world tasks, the authors report that state-reward supervision improves agreement between simulated and physical success rates; post-training in the model raises π0.5 mean physical success from 59.1% to 70.8%.
+
+### 技术点 / Technical points
+
+- RGB、触觉图像、标记位移、任务状态与动作共享视觉表征、视频 VAE 和预训练生成骨干。
+  - RGB, tactile images, marker displacement, task state and actions share a visual representation, video VAE and pretrained generative backbone.
+- 冻结的场景、模态和状态奖励模型监督一致性；加入状态监督后，各任务成功率 Pearson 相关系数的平均值从 0.602 升至 0.885。
+  - Frozen scene, modality and state reward models supervise consistency; task-wise success-rate Pearson correlation averages rise from 0.602 to 0.885 with state supervision.
+
+### 为什么重要 / Why it matters
+
+该研究通过真实任务结果评估世界模型的实用性，并纳入仅凭视觉逼真度可能遗漏的接触信息。
+
+It evaluates world-model usefulness through physical task outcomes, including contact information that visual plausibility alone can miss.
+
+---
+
+<a id="2026-10-20-supermimic-differentiable-humanoid-world-model"></a>
+## [SuperMimic 用共享可微世界模型扩展人形机器人动作跟踪](https://arxiv.org/abs/2610.28480)
+
+**English:** [SuperMimic scales humanoid motion tracking with a shared differentiable world model](https://arxiv.org/abs/2610.28480)
+
+- **发布 / Published:** `2026-10-20T16:29:30Z`
+- **来源 / Source:** [arXiv / SuperMimic authors](https://arxiv.org/abs/2610.28480) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `humanoid`, `model-based-rl`, `differentiable-simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+SuperMimic 使用仿真器转移数据拟合可微世界模型，并与人形机器人跟踪策略联合训练。作者报告，单 GPU 训练三小时即超过一个使用 128 张 GPU 训练七天的基线，并将策略迁移至真实 Unitree G1。
+
+SuperMimic jointly trains a humanoid tracking policy and a differentiable world model fitted to simulator transitions. The authors report exceeding a baseline trained on 128 GPUs for seven days after three hours on one GPU, and transferring the policy to a physical Unitree G1.
+
+### 技术点 / Technical points
+
+- 通过短程想象轨迹的时间反向传播计算解析策略梯度，多个动作共享同一个动态模型。
+  - Backpropagation through short imagined rollouts provides analytic policy gradients while one dynamics model is shared across motions.
+- 作者报告，三小时训练后在 129,514 个基准动作中失败 25 次；使用两张 GPU 训练 9.8 小时后，该基准中没有失败。
+  - The reported tracker fails on 25 of 129,514 benchmark motions after three hours; training for 9.8 hours on two GPUs yields zero failures on that benchmark.
+
+### 为什么重要 / Why it matters
+
+结果表明，学习到的动态模型可能显著减少广泛人形动作跟踪所需的计算资源。
+
+The results suggest learned dynamics can substantially reduce the compute needed for broad humanoid motion tracking.
+
+---
+
+<a id="2026-10-20-directwam-action-sufficient-distillation"></a>
+## [DirectWAM 将未来预测与机器人动作分别蒸馏为单步推理](https://arxiv.org/abs/2610.28122)
+
+**English:** [DirectWAM distills future prediction and robot actions into one step per stream](https://arxiv.org/abs/2610.28122)
+
+- **发布 / Published:** `2026-10-20T12:30:58Z`
+- **来源 / Source:** [arXiv / DirectWAM authors](https://arxiv.org/abs/2610.28122) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `distillation`, `world-action-model`, `efficient-inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DirectWAM 将预训练视频和动作专家转换为确定性的单步预测器，同时保留从未来预测到动作的级联结构。作者报告，其在四组 LIBERO 测试中的平均成功率为 97.1%，在 RoboTwin 2.0 上为 85.4%，推理延迟较完整迭代教师降低 28 倍。
+
+DirectWAM converts pretrained video and action experts into deterministic single-step predictors while retaining a future-to-action cascade. The authors report 97.1% average success across four LIBERO suites, 85.4% on RoboTwin 2.0, and 28-fold lower inference latency than their full iterative teacher.
+
+### 技术点 / Technical points
+
+- 先训练单步动作预测器，再从学生自身预测的未来中解码动作，通过动作误差训练未来预测器。
+  - After learning a one-step action predictor, the future predictor is trained through action errors decoded from its own predicted futures.
+- 该方法依据未来预测对控制结果的影响进行训练，并在每个流仅求值一次的相同预算下优于 Flash-WAM。
+  - The method evaluates future predictions by their control consequences and outperforms Flash-WAM at the same one-evaluation-per-stream budget.
+
+### 为什么重要 / Why it matters
+
+该方法展示了在保留显式预测控制接口的同时降低世界动作模型延迟的路径。
+
+It demonstrates a way to reduce world-action-model latency while preserving an explicit predictive control interface.
+
+---
+
+<a id="2026-10-20-slot-jepa-object-structured-planning"></a>
+## [Slot-JEPA 为潜在世界模型提供可复用的对象结构预测接口](https://arxiv.org/abs/2610.28074)
+
+**English:** [Slot-JEPA gives latent world models reusable object-structured prediction interfaces](https://arxiv.org/abs/2610.28074)
+
+- **发布 / Published:** `2026-10-20T11:53:42Z`
+- **来源 / Source:** [arXiv / Slot-JEPA authors](https://arxiv.org/abs/2610.28074) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `jepa`, `latent-dynamics`, `planning`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Slot-JEPA 将稠密视觉表征分解为稳定的语义槽和随时间变化的空间掩码。作者报告，该方法改善了六个平面环境和四个机械臂任务中的目标条件规划，同时在七个视觉理解基准上保持了特征迁移能力。
+
+Slot-JEPA decomposes dense visual representations into stable semantic slots and changing spatial masks. The authors report improved goal-conditioned planning on six planar environments and four robotic-arm planning tasks, while retaining transferable features across seven visual-understanding benchmarks.
+
+### 技术点 / Technical points
+
+- 预训练后冻结的分解模块为下游预测器提供对象对应关系；Transition Memory Predictor 用紧凑掩码存储状态转移。
+  - A frozen pretrained decomposition supplies object correspondence to downstream predictors; Transition Memory Predictor stores compact mask transitions.
+- 非平衡最优传输监督空间掩码预测，并通过预测掩码与目标掩码之间的质量输运为计划评分。
+  - Unbalanced optimal transport supervises spatial-mask prediction and scores plans by transporting mass between predicted and goal masks.
+
+### 为什么重要 / Why it matters
+
+该研究检验了通过显式对象接口复用潜在动态、衡量规划中空间进展的方法。
+
+The work tests an explicit object interface for reusing latent dynamics and measuring spatial progress during planning.
+
+---
+
 <a id="2026-10-19-agima-imagination-world-model-planning"></a>
 ## [Agima 训练单一模型想象动作结果并据此规划](https://arxiv.org/abs/2610.26845)
 

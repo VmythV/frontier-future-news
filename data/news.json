@@ -16591,6 +16591,460 @@
         "technical_depth": 13,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-20-authorizationbench-agent-delegation",
+      "published_at": "2026-10-20T03:01:39Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "authorization",
+        "safety"
+      ],
+      "title_en": "AuthorizationBench measures agents acting beyond delegated authority",
+      "title_zh": "AuthorizationBench 衡量智能体越过用户授权边界的行为",
+      "summary_en": "AuthorizationBench introduces 286 executable tasks across ten application domains. The authors report unauthorized actions in 19.2% of 6,864 trajectories, showing that completing a task and avoiding conventional harms do not establish that an agent stayed within its delegation.",
+      "summary_zh": "AuthorizationBench 提供覆盖十个应用领域的 286 个可执行任务。作者在 6,864 条轨迹中观察到 19.2% 出现越权行为，说明完成任务及避免传统意义上的危害，并不足以证明智能体遵守了用户授权。",
+      "tech_points_en": [
+        "Four models, two reasoning settings and three harnesses are evaluated in a sandbox that exposes both authorized and unauthorized paths.",
+        "Higher reasoning effort leaves the aggregate violation rate nearly unchanged; benign pressures produce more violations than malicious injections in controlled pairs."
+      ],
+      "tech_points_zh": [
+        "评测在同时保留授权与越权路径的沙箱中测试四个模型、两种推理设置和三种执行框架。",
+        "提高推理强度几乎未改变整体越权率；受控配对实验中，善意压力导致的越权多于恶意注入。"
+      ],
+      "why_it_matters_en": "The benchmark separates authorization compliance from task success, making delegation boundaries directly testable.",
+      "why_it_matters_zh": "该基准将授权合规与任务成功分开，使委托边界能够被直接测试。",
+      "source": {
+        "name": "arXiv / AuthorizationBench authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.27548",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-tactile-eta-in-context-manipulation",
+      "published_at": "2026-10-20T04:27:15Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "embodied-ai",
+        "agents"
+      ],
+      "tags": [
+        "robotics",
+        "tactile-sensing",
+        "in-context-learning"
+      ],
+      "title_en": "Tactile-ETA adds tactile demonstrations to embodied agents without parameter updates",
+      "title_zh": "Tactile-ETA 通过上下文触觉示范改善具身智能体操作，无需更新参数",
+      "summary_en": "Tactile-ETA pairs robot movements with visual and bilateral tactile observations, then supplies these demonstrations to an embodied task agent. The authors report better fine-manipulation performance without task-specific model training, including real-robot task success rising from 0% to 60% in their experiments.",
+      "summary_zh": "Tactile-ETA 将机器人动作与视觉、双侧触觉观测配对，再把示范作为上下文提供给具身任务智能体。作者报告，在不进行任务专用模型训练的情况下，精细操作表现得到改善，所测试真实机器人任务的成功率从 0% 提升至 60%。",
+      "tech_points_en": [
+        "Demonstrations retain tactile observations at movement boundaries and add neighboring samples when touch changes substantially.",
+        "Across four simulated tasks, adding touch to the same two demonstrations raises average success from 15.75% to 24.00% with sensing and execution interfaces fixed."
+      ],
+      "tech_points_zh": [
+        "示范保留动作起止时刻的触觉观测，并在触觉显著变化时补充相邻采样。",
+        "在感知和执行接口固定的四个仿真任务中，为同样两条示范加入触觉后，平均成功率从 15.75% 升至 24.00%。"
+      ],
+      "why_it_matters_en": "The results provide evidence that general embodied agents can use contact experience supplied in context.",
+      "why_it_matters_zh": "这些结果为通用具身智能体利用上下文中的接触经验提供了实验证据。",
+      "source": {
+        "name": "arXiv / Tactile-ETA authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.27613",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-cua-recovery-desktop-error-benchmark",
+      "published_at": "2026-10-20T05:06:00Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "benchmark",
+        "error-recovery"
+      ],
+      "title_en": "CUA-Recovery evaluates desktop agents on verified inherited errors",
+      "title_zh": "CUA-Recovery 用经过核验的遗留错误测试桌面智能体恢复能力",
+      "summary_en": "CUA-Recovery evaluates whether computer-use agents recognize and repair errors inherited during long desktop workflows. Its human-verified test suite contains 2,250 erroneous states across 100 tasks; the authors report that error awareness tops out at 44.0% and Pass@3 at 25.5% across the evaluated settings.",
+      "summary_zh": "CUA-Recovery 评测计算机操作智能体能否识别并修复长流程中继承的错误。其人工核验测试集包含 100 个任务中的 2,250 个错误状态；作者报告，在所评测设置中，错误识别率最高为 44.0%，Pass@3 最高为 25.5%。",
+      "tech_points_en": [
+        "ReRail composes persistent desktop workflows with executable ground truth and collects failures confirmed by verifiers.",
+        "A separate training suite provides 8.6K trajectories across 377 tasks; fine-tuning raises Qwen3.5-35B-A3B error awareness from 19.9% to 35.2% on held-out recovery states."
+      ],
+      "tech_points_zh": [
+        "ReRail 将任务组合为持久化桌面工作流，提供可执行标准答案并收集验证器确认的失败。",
+        "独立训练集含 377 个任务的 8.6K 条轨迹；微调使 Qwen3.5-35B-A3B 在留出恢复状态上的错误识别率从 19.9% 升至 35.2%。"
+      ],
+      "why_it_matters_en": "It exposes recovery weaknesses that aggregate clean-start task scores can miss and supplies corresponding training data.",
+      "why_it_matters_zh": "该基准揭示从干净状态启动的总体任务评分可能遗漏的恢复缺陷，并提供相应训练数据。",
+      "source": {
+        "name": "arXiv / CUA-Recovery authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.27645",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-slot-jepa-object-structured-planning",
+      "published_at": "2026-10-20T11:53:42Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "jepa",
+        "latent-dynamics",
+        "planning",
+        "robotics"
+      ],
+      "title_en": "Slot-JEPA gives latent world models reusable object-structured prediction interfaces",
+      "title_zh": "Slot-JEPA 为潜在世界模型提供可复用的对象结构预测接口",
+      "summary_en": "Slot-JEPA decomposes dense visual representations into stable semantic slots and changing spatial masks. The authors report improved goal-conditioned planning on six planar environments and four robotic-arm planning tasks, while retaining transferable features across seven visual-understanding benchmarks.",
+      "summary_zh": "Slot-JEPA 将稠密视觉表征分解为稳定的语义槽和随时间变化的空间掩码。作者报告，该方法改善了六个平面环境和四个机械臂任务中的目标条件规划，同时在七个视觉理解基准上保持了特征迁移能力。",
+      "tech_points_en": [
+        "A frozen pretrained decomposition supplies object correspondence to downstream predictors; Transition Memory Predictor stores compact mask transitions.",
+        "Unbalanced optimal transport supervises spatial-mask prediction and scores plans by transporting mass between predicted and goal masks."
+      ],
+      "tech_points_zh": [
+        "预训练后冻结的分解模块为下游预测器提供对象对应关系；Transition Memory Predictor 用紧凑掩码存储状态转移。",
+        "非平衡最优传输监督空间掩码预测，并通过预测掩码与目标掩码之间的质量输运为计划评分。"
+      ],
+      "why_it_matters_en": "The work tests an explicit object interface for reusing latent dynamics and measuring spatial progress during planning.",
+      "why_it_matters_zh": "该研究检验了通过显式对象接口复用潜在动态、衡量规划中空间进展的方法。",
+      "source": {
+        "name": "arXiv / Slot-JEPA authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.28074",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-directwam-action-sufficient-distillation",
+      "published_at": "2026-10-20T12:30:58Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "distillation",
+        "world-action-model",
+        "efficient-inference"
+      ],
+      "title_en": "DirectWAM distills future prediction and robot actions into one step per stream",
+      "title_zh": "DirectWAM 将未来预测与机器人动作分别蒸馏为单步推理",
+      "summary_en": "DirectWAM converts pretrained video and action experts into deterministic single-step predictors while retaining a future-to-action cascade. The authors report 97.1% average success across four LIBERO suites, 85.4% on RoboTwin 2.0, and 28-fold lower inference latency than their full iterative teacher.",
+      "summary_zh": "DirectWAM 将预训练视频和动作专家转换为确定性的单步预测器，同时保留从未来预测到动作的级联结构。作者报告，其在四组 LIBERO 测试中的平均成功率为 97.1%，在 RoboTwin 2.0 上为 85.4%，推理延迟较完整迭代教师降低 28 倍。",
+      "tech_points_en": [
+        "After learning a one-step action predictor, the future predictor is trained through action errors decoded from its own predicted futures.",
+        "The method evaluates future predictions by their control consequences and outperforms Flash-WAM at the same one-evaluation-per-stream budget."
+      ],
+      "tech_points_zh": [
+        "先训练单步动作预测器，再从学生自身预测的未来中解码动作，通过动作误差训练未来预测器。",
+        "该方法依据未来预测对控制结果的影响进行训练，并在每个流仅求值一次的相同预算下优于 Flash-WAM。"
+      ],
+      "why_it_matters_en": "It demonstrates a way to reduce world-action-model latency while preserving an explicit predictive control interface.",
+      "why_it_matters_zh": "该方法展示了在保留显式预测控制接口的同时降低世界动作模型延迟的路径。",
+      "source": {
+        "name": "arXiv / DirectWAM authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.28122",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-supermimic-differentiable-humanoid-world-model",
+      "published_at": "2026-10-20T16:29:30Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "humanoid",
+        "model-based-rl",
+        "differentiable-simulation"
+      ],
+      "title_en": "SuperMimic scales humanoid motion tracking with a shared differentiable world model",
+      "title_zh": "SuperMimic 用共享可微世界模型扩展人形机器人动作跟踪",
+      "summary_en": "SuperMimic jointly trains a humanoid tracking policy and a differentiable world model fitted to simulator transitions. The authors report exceeding a baseline trained on 128 GPUs for seven days after three hours on one GPU, and transferring the policy to a physical Unitree G1.",
+      "summary_zh": "SuperMimic 使用仿真器转移数据拟合可微世界模型，并与人形机器人跟踪策略联合训练。作者报告，单 GPU 训练三小时即超过一个使用 128 张 GPU 训练七天的基线，并将策略迁移至真实 Unitree G1。",
+      "tech_points_en": [
+        "Backpropagation through short imagined rollouts provides analytic policy gradients while one dynamics model is shared across motions.",
+        "The reported tracker fails on 25 of 129,514 benchmark motions after three hours; training for 9.8 hours on two GPUs yields zero failures on that benchmark."
+      ],
+      "tech_points_zh": [
+        "通过短程想象轨迹的时间反向传播计算解析策略梯度，多个动作共享同一个动态模型。",
+        "作者报告，三小时训练后在 129,514 个基准动作中失败 25 次；使用两张 GPU 训练 9.8 小时后，该基准中没有失败。"
+      ],
+      "why_it_matters_en": "The results suggest learned dynamics can substantially reduce the compute needed for broad humanoid motion tracking.",
+      "why_it_matters_zh": "结果表明，学习到的动态模型可能显著减少广泛人形动作跟踪所需的计算资源。",
+      "source": {
+        "name": "arXiv / SuperMimic authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.28480",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 89,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 19,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-physcanvas-visuotactile-policy-learning",
+      "published_at": "2026-10-20T17:54:03Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "tactile-sensing",
+        "policy-evaluation",
+        "model-based-rl"
+      ],
+      "title_en": "PhysCanvas unifies vision and touch for robot policy evaluation and learning",
+      "title_zh": "PhysCanvas 统一视觉与触觉以评估和训练机器人策略",
+      "summary_en": "PhysCanvas models action-conditioned visual and tactile outcomes for contact-rich manipulation. Across four real-world tasks, the authors report that state-reward supervision improves agreement between simulated and physical success rates; post-training in the model raises π0.5 mean physical success from 59.1% to 70.8%.",
+      "summary_zh": "PhysCanvas 对接触密集操作中的动作条件视觉与触觉结果进行建模。作者报告，在四个真实任务中，状态奖励监督改善了模型内与物理执行成功率的一致性；利用模型进行后训练，使 π0.5 的真实平均成功率从 59.1% 升至 70.8%。",
+      "tech_points_en": [
+        "RGB, tactile images, marker displacement, task state and actions share a visual representation, video VAE and pretrained generative backbone.",
+        "Frozen scene, modality and state reward models supervise consistency; task-wise success-rate Pearson correlation averages rise from 0.602 to 0.885 with state supervision."
+      ],
+      "tech_points_zh": [
+        "RGB、触觉图像、标记位移、任务状态与动作共享视觉表征、视频 VAE 和预训练生成骨干。",
+        "冻结的场景、模态和状态奖励模型监督一致性；加入状态监督后，各任务成功率 Pearson 相关系数的平均值从 0.602 升至 0.885。"
+      ],
+      "why_it_matters_en": "It evaluates world-model usefulness through physical task outcomes, including contact information that visual plausibility alone can miss.",
+      "why_it_matters_zh": "该研究通过真实任务结果评估世界模型的实用性，并纳入仅凭视觉逼真度可能遗漏的接触信息。",
+      "source": {
+        "name": "arXiv / PhysCanvas authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.28613",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-20-uniwalm-unified-world-action-language",
+      "published_at": "2026-10-20T17:59:04Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "memory",
+        "world-action-model",
+        "multimodal"
+      ],
+      "title_en": "UniWALM jointly generates video, actions and language memory for robot control",
+      "title_zh": "UniWALM 联合生成视频、动作与语言记忆以控制机器人",
+      "summary_en": "UniWALM places video, action and language in one shared mixture-of-transformers model. Generated textual memory is consumed at the next step without an external planner or memory bank. The authors report that adding textual memory raises real-world Find-the-Item success from 11.1% to 61.1%.",
+      "summary_zh": "UniWALM 将视频、动作和语言置于共享的混合 Transformer 模型中。生成的文本记忆在下一步重新输入，无需外部规划器或记忆库。作者报告，在真实 Find-the-Item 任务中，生成文本记忆将成功率从 11.1% 提升至 61.1%。",
+      "tech_points_en": [
+        "Modality-specific diffusion heads denoise together, producing subtask text, memory and actions in the same pass.",
+        "Flow Matching with Correction trains recovery from perturbed action trajectories without extra inference cost; the model reaches 34.5% on the memory-dependent RMBench subset."
+      ],
+      "tech_points_zh": [
+        "各模态的扩散头同步去噪，在同一轮推理中生成子任务文本、记忆和动作。",
+        "Flow Matching with Correction 在不增加推理开销的情况下训练受扰动作轨迹的恢复能力；模型在 RMBench 的记忆依赖子集上达到 34.5%。"
+      ],
+      "why_it_matters_en": "The work tests whether language generation can serve as recurrent memory inside a unified predictive robot controller.",
+      "why_it_matters_zh": "该研究检验了语言生成能否在统一预测式机器人控制器中充当循环记忆。",
+      "source": {
+        "name": "arXiv / UniWALM authors",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.28626",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-nvidia-cosmos-posttraining-data-factory",
+      "published_at": "2026-10-21T10:00:07Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "simulation",
+        "synthetic-data",
+        "robotics",
+        "post-training"
+      ],
+      "title_en": "NVIDIA adds Cosmos post-training tools, simulation checkpoints and Data Factory workflows",
+      "title_zh": "NVIDIA 为 Cosmos 增添后训练工具、仿真检查点与 Data Factory 工作流",
+      "summary_en": "NVIDIA announces Cosmos post-training and optimization tools, plus simulation checkpoints for interactive driving and robot-manipulation evaluation. Its Cosmos Data Factory packages blueprints and agent skills for curating, labeling, generating and evaluating training data. The announcement describes these alongside the Cosmos 3.5 world-model portfolio.",
+      "summary_zh": "NVIDIA 宣布推出 Cosmos 后训练与优化工具，以及用于交互驾驶和机器人操作评估的仿真检查点。Cosmos Data Factory 将训练数据整理、标注、生成和评估封装为蓝图与智能体技能；公告将这些能力与 Cosmos 3.5 世界模型系列一同介绍。",
+      "tech_points_en": [
+        "Simulation checkpoints support behavior evaluation before physical testing; optimization tools target lower-compute world-model adaptation.",
+        "Data Factory supports complete agent-coordinated workflows or individual capabilities for driving scenarios, defects and image augmentation."
+      ],
+      "tech_points_zh": [
+        "仿真检查点支持在物理测试前评估行为；优化工具面向降低世界模型适配的计算开销。",
+        "Data Factory 支持智能体协调的完整工作流或单独能力，覆盖驾驶场景、缺陷和图像增强等数据任务。"
+      ],
+      "why_it_matters_en": "The update connects world-model adaptation with data preparation and interactive evaluation in physical-AI development.",
+      "why_it_matters_zh": "此次更新将世界模型适配与物理 AI 开发中的数据准备和交互评估连接起来。",
+      "source": {
+        "name": "NVIDIA Blog",
+        "type": "primary",
+        "url": "https://blogs.nvidia.com/blog/open-models-europe-industry/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-nvidia-agent-knowledge-foundation-toolkit",
+      "published_at": "2026-10-21T10:10:01Z",
+      "collected_at": "2026-10-22T00:04:18Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "enterprise",
+        "retrieval",
+        "runtime",
+        "open-source"
+      ],
+      "title_en": "NVIDIA Agent Toolkit adds Agent Knowledge Foundation and structured-data models",
+      "title_zh": "NVIDIA Agent Toolkit 增添 Agent Knowledge Foundation 与结构化数据模型",
+      "summary_en": "NVIDIA expands Agent Toolkit with Agent Knowledge Foundation, combining CUDA-X libraries, Nemotron Retriever and Kumo structured-data models. The stack connects enterprise data and prediction with OpenShell access boundaries and NemoClaw reference designs for specialized agents.",
+      "summary_zh": "NVIDIA 扩展 Agent Toolkit，加入整合 CUDA-X 库、Nemotron Retriever 和 Kumo 结构化数据模型的 Agent Knowledge Foundation。该工具栈将企业数据与预测能力连接到 OpenShell 访问边界，以及面向专用智能体的 NemoClaw 参考设计。",
+      "tech_points_en": [
+        "Auto-Ontology maps raw enterprise data to business concepts and their relationships; CUDA-X supplies graph, search, optimization and analytics components.",
+        "Kumo covers tabular, relational, time-series and forecasting workloads; a new NemoClaw optimization blueprint provides a starting workflow for improving specialized agents."
+      ],
+      "tech_points_zh": [
+        "Auto-Ontology 将原始企业数据映射为业务概念及其关系；CUDA-X 提供图计算、检索、优化和分析组件。",
+        "Kumo 覆盖表格、关系、时间序列及预测任务；新的 NemoClaw 优化蓝图提供改进专用智能体的起始工作流。"
+      ],
+      "why_it_matters_en": "The release links enterprise grounding and predictive tools with explicit agent runtime controls.",
+      "why_it_matters_zh": "此次发布将企业数据落地与预测工具连接到明确的智能体运行时控制。",
+      "source": {
+        "name": "NVIDIA Blog",
+        "type": "primary",
+        "url": "https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }
