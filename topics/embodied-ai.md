@@ -2,6 +2,210 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-21-agentic-wam-code-video-action"></a>
+## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
+
+**English:** [AW-0 couples reusable skill programs with video and robot action prediction](https://arxiv.org/abs/2610.30136)
+
+- **发布 / Published:** `2026-10-21T17:59:56Z`
+- **来源 / Source:** [AW-0 authors / arXiv](https://arxiv.org/abs/2610.30136) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `world-action-model`, `skill-reuse`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。
+
+AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.
+
+### 技术点 / Technical points
+
+- 自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。
+  - An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.
+- 在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。
+  - On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%.
+
+### 为什么重要 / Why it matters
+
+该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。
+
+The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.
+
+### 链接 / Links
+
+[Evidence 1](https://agentic-wam.github.io/)
+
+---
+
+<a id="2026-10-21-physicalworld-in-context-calibration"></a>
+## [PhysiCalWorld 用探索性交互片段校准世界模型动力学](https://arxiv.org/abs/2610.30125)
+
+**English:** [PhysiCalWorld calibrates world-model dynamics from an exploratory interaction clip](https://arxiv.org/abs/2610.30125)
+
+- **发布 / Published:** `2026-10-21T17:57:59Z`
+- **来源 / Source:** [PhysiCalWorld authors / arXiv](https://arxiv.org/abs/2610.30125) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `physics`, `in-context-learning`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PhysiCalWorld 将测试场景中的短交互编码成物理描述符，用于约束后续预测。该方法无需微调或显式物理标签即可适配动作条件世界模型。作者在四个环境中报告轨迹预测与视觉规划改善，并能泛化到训练物理参数范围之外。
+
+PhysiCalWorld encodes a short interaction in a test scene into a physics descriptor that conditions future predictions. It adapts action-conditioned world models without fine-tuning or explicit physics labels. Across four environments, the authors report improved rollout accuracy and visual planning, including generalization beyond training physics ranges.
+
+### 技术点 / Technical points
+
+- 描述符捕捉单靠外观未必能揭示的实例动力学，例如摩擦或质量分布。
+  - The descriptor captures instance-specific dynamics that appearance alone may not reveal, such as friction or mass distribution.
+- 训练采用潜空间预测损失；推理时仅提取一次描述符，并在多条预测轨迹间复用。
+  - Training uses latent prediction loss; at inference, the descriptor is extracted once and reused across rollouts.
+
+### 为什么重要 / Why it matters
+
+该方法以紧凑表示将学习型模拟器与新场景的实际物理行为联系起来。
+
+The method supplies a compact way to ground a learned simulator in the physical behavior of a new scene.
+
+### 链接 / Links
+
+[Evidence 1](https://physical-world.github.io/)
+
+---
+
+<a id="2026-10-21-cw-wam-contact-wrench-control"></a>
+## [CW-WAM 同时预测接触力旋量、视频与机器人运动](https://arxiv.org/abs/2610.30117)
+
+**English:** [CW-WAM predicts contact wrench alongside video and robot motion](https://arxiv.org/abs/2610.30117)
+
+- **发布 / Published:** `2026-10-21T17:55:53Z`
+- **来源 / Source:** [CW-WAM authors / arXiv](https://arxiv.org/abs/2610.30117) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `force-control`, `manipulation`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CW-WAM 为面向力敏感操作的世界动作模型加入显式接触力旋量预测。作者实验中，相对没有力旋量输入的 WAM，方形插销的插入成功率从 25% 升至 70%，电源适配器从 40% 升至 95%。
+
+CW-WAM adds explicit contact-wrench prediction to a world action model for force-sensitive manipulation. In the authors’ experiments, insertion success rises from 25% to 70% for square pegs and from 40% to 95% for power adapters compared with a WAM lacking wrench input.
+
+### 技术点 / Technical points
+
+- 配对因果注意力关联运动块与力旋量块，固定长度的力旋量记忆保留交互历史。
+  - Pair-causal attention links motion and wrench chunks, while a fixed-length wrench memory retains interaction history.
+- 预测的力参考值驱动 20 Hz 外环导纳控制器；插销任务的力参考均方根误差从 4.8 N 降至 2.7 N。
+  - Predicted force references drive a 20-Hz outer-loop admittance controller; peg-insertion force-reference RMSE falls from 4.8 to 2.7 N.
+
+### 为什么重要 / Why it matters
+
+联合预测力与运动，将世界模型的前瞻能力连接到接触密集任务中的反馈控制。
+
+Joint force and motion prediction connects world-model foresight to feedback control in contact-rich tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://cw-wam-project.github.io/)
+
+---
+
+<a id="2026-10-21-asteroid-on-policy-exploration-distillation"></a>
+## [ASTEROID 从特权专家与学生历史中学习探索行为](https://arxiv.org/abs/2610.30105)
+
+**English:** [ASTEROID learns exploratory behavior from privileged experts and student histories](https://arxiv.org/abs/2610.30105)
+
+- **发布 / Published:** `2026-10-21T17:50:31Z`
+- **来源 / Source:** [ASTEROID authors / arXiv](https://arxiv.org/abs/2610.30105) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `exploration`, `distillation`, `partial-observability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ASTEROID 使用当前学生策略采集的历史和特权专家提供的动作标签，训练部分可观测智能体。作者在涵盖探索、操作、导航和 Procgen 的十一个环境中评测，并展示从仿真迁移到无视觉输入的真实机器人操作。
+
+ASTEROID trains partially observed agents using histories collected by the current student and action labels supplied by a privileged expert. The authors evaluate eleven environments spanning exploration, manipulation, navigation and Procgen, and demonstrate transfer from simulation to real robot manipulation without visual input.
+
+### 技术点 / Technical points
+
+- 学生策略学习在不确定时收集信息，并在隐藏状态显露后利用已有信息行动。
+  - The student learns to gather information while uncertain and exploit it after hidden state is revealed.
+- 论文报告，在固定探索预算下回报约为两倍，相对所比较的强化学习基线，交互需求最多减少约百倍。
+  - The paper reports roughly twice the return at fixed exploration budgets and up to roughly 100 times fewer interactions than compared RL baselines.
+
+### 为什么重要 / Why it matters
+
+在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。
+
+The method offers a supervised route to test-time exploration when privileged training information is available.
+
+---
+
+<a id="2026-10-21-atomicrl-long-horizon-credit-assignment"></a>
+## [AtomicRL 针对机器人强化学习的子任务信用污染与探索瓶颈](https://arxiv.org/abs/2610.30097)
+
+**English:** [AtomicRL targets subtask credit contamination and exploration bottlenecks in robot RL](https://arxiv.org/abs/2610.30097)
+
+- **发布 / Published:** `2026-10-21T17:45:24Z`
+- **来源 / Source:** [AtomicRL authors / arXiv](https://arxiv.org/abs/2610.30097) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `reinforcement-learning`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+AtomicRL 利用原子任务结构，对长时程操作 VLA 策略进行后训练。语义门控限制失败子任务的信用跨边界传播，自适应采样则将学习集中到薄弱阶段。作者还提出 Real2Sim2Real 流程，将仿真在线强化学习迁移到实体机器人。
+
+AtomicRL uses atomic task structure to post-train VLA policies for long-horizon manipulation. Its semantic gating limits credit leakage from failed subtasks, while adaptive sampling focuses learning on weak stages. The authors also introduce a Real2Sim2Real pipeline for transferring simulated online reinforcement learning to physical robots.
+
+### 技术点 / Technical points
+
+- SAPO 在子任务边界对时序差分残差进行门控，同时保留子任务内部的信用分配和价值自举。
+  - SAPO gates temporal-difference residuals at subtask boundaries while retaining within-subtask credit assignment and bootstrapping.
+- 在 LIBERO-LONG 上，论文报告两种 VLA 架构相对 PPO 分别获得 3.6 和 4.0 个百分点的绝对提升。
+  - On LIBERO-LONG, the paper reports absolute gains of 3.6 and 4.0 percentage points over PPO across two VLA architectures.
+
+### 为什么重要 / Why it matters
+
+当少数困难阶段制约整段操作序列时，显式子任务结构有望改善强化学习效率。
+
+Explicit subtask structure may improve reinforcement learning when a few difficult stages limit an entire manipulation sequence.
+
+---
+
+<a id="2026-10-21-rise-steerable-humanoid-fall-recovery"></a>
+## [RISE 通过预测身体运动，在推理时引导人形机器人跌倒恢复](https://arxiv.org/abs/2610.30061)
+
+**English:** [RISE steers humanoid fall recovery at inference time using predicted body motion](https://arxiv.org/abs/2610.30061)
+
+- **发布 / Published:** `2026-10-21T17:20:04Z`
+- **来源 / Source:** [RISE authors / arXiv](https://arxiv.org/abs/2610.30061) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `diffusion`, `motion-planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+RISE 允许任务目标决定跌倒后的人形机器人如何起身。它学习可复用的恢复动作词汇，并用视觉扩散规划器预测未来身体状态。论文报告无需重训即可在仿真中适应地形并调整动作，并提供真实 Unitree G1 演示。
+
+RISE lets task objectives shape how a fallen humanoid stands up. It learns a reusable recovery vocabulary and a visual diffusion planner that anticipates future body states. The paper reports simulated terrain adaptation and steering without retraining, complemented by demonstrations on a physical Unitree G1.
+
+### 技术点 / Technical points
+
+- 恢复动作词汇通过感知反馈连接到电机动作。
+  - Sensory feedback connects the recovery vocabulary to motor actions.
+- 任务代价先将预测意图引导至指定朝向、起身速度或路径，规划器再据此生成运动潜变量。
+  - Task costs guide predicted intent toward a requested heading, rise speed or path before the planner generates conditioned motion latents.
+
+### 为什么重要 / Why it matters
+
+该工作让恢复动作能够适应后续任务需求，而不再只追求单一固定的起身结果。
+
+The work makes recovery behavior adjustable to downstream tasks instead of treating standing up as a single fixed outcome.
+
+---
+
 <a id="2026-10-21-nvidia-cosmos-posttraining-data-factory"></a>
 ## [NVIDIA 为 Cosmos 增添后训练工具、仿真检查点与 Data Factory 工作流](https://blogs.nvidia.com/blog/open-models-europe-industry/)
 

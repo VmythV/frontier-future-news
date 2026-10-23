@@ -2,6 +2,114 @@
 
 # World models / 世界模型
 
+<a id="2026-10-21-agentic-wam-code-video-action"></a>
+## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
+
+**English:** [AW-0 couples reusable skill programs with video and robot action prediction](https://arxiv.org/abs/2610.30136)
+
+- **发布 / Published:** `2026-10-21T17:59:56Z`
+- **来源 / Source:** [AW-0 authors / arXiv](https://arxiv.org/abs/2610.30136) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `world-action-model`, `skill-reuse`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。
+
+AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.
+
+### 技术点 / Technical points
+
+- 自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。
+  - An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.
+- 在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。
+  - On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%.
+
+### 为什么重要 / Why it matters
+
+该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。
+
+The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.
+
+### 链接 / Links
+
+[Evidence 1](https://agentic-wam.github.io/)
+
+---
+
+<a id="2026-10-21-physicalworld-in-context-calibration"></a>
+## [PhysiCalWorld 用探索性交互片段校准世界模型动力学](https://arxiv.org/abs/2610.30125)
+
+**English:** [PhysiCalWorld calibrates world-model dynamics from an exploratory interaction clip](https://arxiv.org/abs/2610.30125)
+
+- **发布 / Published:** `2026-10-21T17:57:59Z`
+- **来源 / Source:** [PhysiCalWorld authors / arXiv](https://arxiv.org/abs/2610.30125) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `physics`, `in-context-learning`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PhysiCalWorld 将测试场景中的短交互编码成物理描述符，用于约束后续预测。该方法无需微调或显式物理标签即可适配动作条件世界模型。作者在四个环境中报告轨迹预测与视觉规划改善，并能泛化到训练物理参数范围之外。
+
+PhysiCalWorld encodes a short interaction in a test scene into a physics descriptor that conditions future predictions. It adapts action-conditioned world models without fine-tuning or explicit physics labels. Across four environments, the authors report improved rollout accuracy and visual planning, including generalization beyond training physics ranges.
+
+### 技术点 / Technical points
+
+- 描述符捕捉单靠外观未必能揭示的实例动力学，例如摩擦或质量分布。
+  - The descriptor captures instance-specific dynamics that appearance alone may not reveal, such as friction or mass distribution.
+- 训练采用潜空间预测损失；推理时仅提取一次描述符，并在多条预测轨迹间复用。
+  - Training uses latent prediction loss; at inference, the descriptor is extracted once and reused across rollouts.
+
+### 为什么重要 / Why it matters
+
+该方法以紧凑表示将学习型模拟器与新场景的实际物理行为联系起来。
+
+The method supplies a compact way to ground a learned simulator in the physical behavior of a new scene.
+
+### 链接 / Links
+
+[Evidence 1](https://physical-world.github.io/)
+
+---
+
+<a id="2026-10-21-cw-wam-contact-wrench-control"></a>
+## [CW-WAM 同时预测接触力旋量、视频与机器人运动](https://arxiv.org/abs/2610.30117)
+
+**English:** [CW-WAM predicts contact wrench alongside video and robot motion](https://arxiv.org/abs/2610.30117)
+
+- **发布 / Published:** `2026-10-21T17:55:53Z`
+- **来源 / Source:** [CW-WAM authors / arXiv](https://arxiv.org/abs/2610.30117) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `force-control`, `manipulation`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CW-WAM 为面向力敏感操作的世界动作模型加入显式接触力旋量预测。作者实验中，相对没有力旋量输入的 WAM，方形插销的插入成功率从 25% 升至 70%，电源适配器从 40% 升至 95%。
+
+CW-WAM adds explicit contact-wrench prediction to a world action model for force-sensitive manipulation. In the authors’ experiments, insertion success rises from 25% to 70% for square pegs and from 40% to 95% for power adapters compared with a WAM lacking wrench input.
+
+### 技术点 / Technical points
+
+- 配对因果注意力关联运动块与力旋量块，固定长度的力旋量记忆保留交互历史。
+  - Pair-causal attention links motion and wrench chunks, while a fixed-length wrench memory retains interaction history.
+- 预测的力参考值驱动 20 Hz 外环导纳控制器；插销任务的力参考均方根误差从 4.8 N 降至 2.7 N。
+  - Predicted force references drive a 20-Hz outer-loop admittance controller; peg-insertion force-reference RMSE falls from 4.8 to 2.7 N.
+
+### 为什么重要 / Why it matters
+
+联合预测力与运动，将世界模型的前瞻能力连接到接触密集任务中的反馈控制。
+
+Joint force and motion prediction connects world-model foresight to feedback control in contact-rich tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://cw-wam-project.github.io/)
+
+---
+
 <a id="2026-10-21-nvidia-cosmos-posttraining-data-factory"></a>
 ## [NVIDIA 为 Cosmos 增添后训练工具、仿真检查点与 Data Factory 工作流](https://blogs.nvidia.com/blog/open-models-europe-industry/)
 
@@ -31,6 +139,38 @@ NVIDIA announces Cosmos post-training and optimization tools, plus simulation ch
 此次更新将世界模型适配与物理 AI 开发中的数据准备和交互评估连接起来。
 
 The update connects world-model adaptation with data preparation and interactive evaluation in physical-AI development.
+
+---
+
+<a id="2026-10-21-events-not-pixels-world-model-return"></a>
+## [事件级诊断揭示视觉保真度掩盖的世界模型回报误差](https://arxiv.org/abs/2610.29435)
+
+**English:** [Event-level diagnostics reveal world-model return errors hidden by visual fidelity](https://arxiv.org/abs/2610.29435)
+
+- **发布 / Published:** `2026-10-21T08:59:02Z`
+- **来源 / Source:** [Events, Not Pixels authors / arXiv](https://arxiv.org/abs/2610.29435) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `planning`, `model-based-rl`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项研究通过将选定的想象转移替换为真实转移，定位回报预测误差。在通过可靠性检查的 44 个 Atari-100k 模型与采集数据组合中，修复奖励或终止事件有 39 次优于同预算随机修复；这些关键转移的画面未必比普通帧更差。
+
+A new study replaces selected imagined transitions with real ones to locate errors in predicted returns. Across 44 reliable Atari-100k model–collection pairs, repairing reward or termination events beats budget-matched random repairs in 39 cases. These pivotal transitions need not look worse than ordinary frames.
+
+### 技术点 / Technical points
+
+- 尽管事件转移与其他步骤的像素误差比值中位数为 0.85，恢复事件转移仍消除了中位数 70% 的回报误差。
+  - Restoring event transitions removes a median 70% of return error despite a median event-to-other-step pixel-error ratio of 0.85.
+- 按 MSE、SSIM 或 LPIPS 最大误差选择转移时，回报误差的降低效果反而不如随机选择。
+  - Choosing transitions by the largest MSE, SSIM or LPIPS errors performs worse than random selection for reducing return error.
+
+### 为什么重要 / Why it matters
+
+这些发现支持将与规划相关的事件准确性同画面重建质量分开评估。
+
+The findings support evaluating planning-relevant events separately from frame reconstruction quality.
 
 ---
 

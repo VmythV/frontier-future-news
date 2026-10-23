@@ -17045,6 +17045,471 @@
         "technical_depth": 13,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-21-agentic-wam-code-video-action",
+      "published_at": "2026-10-21T17:59:56Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "agents",
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "planning",
+        "world-action-model",
+        "skill-reuse"
+      ],
+      "title_en": "AW-0 couples reusable skill programs with video and robot action prediction",
+      "title_zh": "AW-0 将可复用技能程序与视频、机器人动作预测结合",
+      "summary_en": "AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.",
+      "summary_zh": "AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。",
+      "tech_points_en": [
+        "An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.",
+        "On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%."
+      ],
+      "tech_points_zh": [
+        "自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。",
+        "在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。"
+      ],
+      "why_it_matters_en": "The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.",
+      "why_it_matters_zh": "该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。",
+      "source": {
+        "name": "AW-0 authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30136",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://agentic-wam.github.io/"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 19,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-physicalworld-in-context-calibration",
+      "published_at": "2026-10-21T17:57:59Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "physics",
+        "in-context-learning",
+        "planning"
+      ],
+      "title_en": "PhysiCalWorld calibrates world-model dynamics from an exploratory interaction clip",
+      "title_zh": "PhysiCalWorld 用探索性交互片段校准世界模型动力学",
+      "summary_en": "PhysiCalWorld encodes a short interaction in a test scene into a physics descriptor that conditions future predictions. It adapts action-conditioned world models without fine-tuning or explicit physics labels. Across four environments, the authors report improved rollout accuracy and visual planning, including generalization beyond training physics ranges.",
+      "summary_zh": "PhysiCalWorld 将测试场景中的短交互编码成物理描述符，用于约束后续预测。该方法无需微调或显式物理标签即可适配动作条件世界模型。作者在四个环境中报告轨迹预测与视觉规划改善，并能泛化到训练物理参数范围之外。",
+      "tech_points_en": [
+        "The descriptor captures instance-specific dynamics that appearance alone may not reveal, such as friction or mass distribution.",
+        "Training uses latent prediction loss; at inference, the descriptor is extracted once and reused across rollouts."
+      ],
+      "tech_points_zh": [
+        "描述符捕捉单靠外观未必能揭示的实例动力学，例如摩擦或质量分布。",
+        "训练采用潜空间预测损失；推理时仅提取一次描述符，并在多条预测轨迹间复用。"
+      ],
+      "why_it_matters_en": "The method supplies a compact way to ground a learned simulator in the physical behavior of a new scene.",
+      "why_it_matters_zh": "该方法以紧凑表示将学习型模拟器与新场景的实际物理行为联系起来。",
+      "source": {
+        "name": "PhysiCalWorld authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30125",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://physical-world.github.io/"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-cw-wam-contact-wrench-control",
+      "published_at": "2026-10-21T17:55:53Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "force-control",
+        "manipulation",
+        "world-action-model"
+      ],
+      "title_en": "CW-WAM predicts contact wrench alongside video and robot motion",
+      "title_zh": "CW-WAM 同时预测接触力旋量、视频与机器人运动",
+      "summary_en": "CW-WAM adds explicit contact-wrench prediction to a world action model for force-sensitive manipulation. In the authors’ experiments, insertion success rises from 25% to 70% for square pegs and from 40% to 95% for power adapters compared with a WAM lacking wrench input.",
+      "summary_zh": "CW-WAM 为面向力敏感操作的世界动作模型加入显式接触力旋量预测。作者实验中，相对没有力旋量输入的 WAM，方形插销的插入成功率从 25% 升至 70%，电源适配器从 40% 升至 95%。",
+      "tech_points_en": [
+        "Pair-causal attention links motion and wrench chunks, while a fixed-length wrench memory retains interaction history.",
+        "Predicted force references drive a 20-Hz outer-loop admittance controller; peg-insertion force-reference RMSE falls from 4.8 to 2.7 N."
+      ],
+      "tech_points_zh": [
+        "配对因果注意力关联运动块与力旋量块，固定长度的力旋量记忆保留交互历史。",
+        "预测的力参考值驱动 20 Hz 外环导纳控制器；插销任务的力参考均方根误差从 4.8 N 降至 2.7 N。"
+      ],
+      "why_it_matters_en": "Joint force and motion prediction connects world-model foresight to feedback control in contact-rich tasks.",
+      "why_it_matters_zh": "联合预测力与运动，将世界模型的前瞻能力连接到接触密集任务中的反馈控制。",
+      "source": {
+        "name": "CW-WAM authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30117",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://cw-wam-project.github.io/"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-userswe-interactive-coding-benchmark",
+      "published_at": "2026-10-21T14:46:22Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "code-agent",
+        "benchmark",
+        "multi-turn",
+        "evaluation"
+      ],
+      "title_en": "UserSWE tests coding agents through evolving user conversations and per-turn execution",
+      "title_zh": "UserSWE 通过动态用户对话与逐轮执行测试编程智能体",
+      "summary_en": "UserSWE evaluates repository bug fixing through multi-turn conversations with simulated users. Its evaluation covers eleven agents on 72 tasks from 42 repositories and finds that rankings change with the interaction budget. Every turn receives an execution-grounded verdict rather than relying only on a final patch judgment.",
+      "summary_zh": "UserSWE 通过与模拟用户的多轮对话评测仓库级缺陷修复。评测覆盖 42 个仓库中的 72 个任务和十一个智能体，发现排名随交互预算变化。每轮均给出基于执行证据的判定，而非仅判断最终补丁。",
+      "tech_points_en": [
+        "Information pools constrain disclosed facts; user personas follow a transition model calibrated on 20,859 development sessions.",
+        "Tests run after each turn, and agents from different model families write and review verdicts, reserving model judgment for aspects unresolved by tests."
+      ],
+      "tech_points_zh": [
+        "信息池限制可披露事实；用户角色变化由基于 20,859 次开发会话校准的转移模型决定。",
+        "每轮运行测试，由不同模型家族的智能体撰写和审核判定，仅对测试无法确定的部分使用模型判断。"
+      ],
+      "why_it_matters_en": "The benchmark makes interaction quality and evolving requirements part of coding-agent evaluation.",
+      "why_it_matters_zh": "该基准将交互质量与持续变化的需求纳入编程智能体评测。",
+      "source": {
+        "name": "UserSWE authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.29822",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-events-not-pixels-world-model-return",
+      "published_at": "2026-10-21T08:59:02Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "planning",
+        "model-based-rl",
+        "evaluation"
+      ],
+      "title_en": "Event-level diagnostics reveal world-model return errors hidden by visual fidelity",
+      "title_zh": "事件级诊断揭示视觉保真度掩盖的世界模型回报误差",
+      "summary_en": "A new study replaces selected imagined transitions with real ones to locate errors in predicted returns. Across 44 reliable Atari-100k model–collection pairs, repairing reward or termination events beats budget-matched random repairs in 39 cases. These pivotal transitions need not look worse than ordinary frames.",
+      "summary_zh": "一项研究通过将选定的想象转移替换为真实转移，定位回报预测误差。在通过可靠性检查的 44 个 Atari-100k 模型与采集数据组合中，修复奖励或终止事件有 39 次优于同预算随机修复；这些关键转移的画面未必比普通帧更差。",
+      "tech_points_en": [
+        "Restoring event transitions removes a median 70% of return error despite a median event-to-other-step pixel-error ratio of 0.85.",
+        "Choosing transitions by the largest MSE, SSIM or LPIPS errors performs worse than random selection for reducing return error."
+      ],
+      "tech_points_zh": [
+        "尽管事件转移与其他步骤的像素误差比值中位数为 0.85，恢复事件转移仍消除了中位数 70% 的回报误差。",
+        "按 MSE、SSIM 或 LPIPS 最大误差选择转移时，回报误差的降低效果反而不如随机选择。"
+      ],
+      "why_it_matters_en": "The findings support evaluating planning-relevant events separately from frame reconstruction quality.",
+      "why_it_matters_zh": "这些发现支持将与规划相关的事件准确性同画面重建质量分开评估。",
+      "source": {
+        "name": "Events, Not Pixels authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.29435",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-asteroid-on-policy-exploration-distillation",
+      "published_at": "2026-10-21T17:50:31Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "exploration",
+        "distillation",
+        "partial-observability"
+      ],
+      "title_en": "ASTEROID learns exploratory behavior from privileged experts and student histories",
+      "title_zh": "ASTEROID 从特权专家与学生历史中学习探索行为",
+      "summary_en": "ASTEROID trains partially observed agents using histories collected by the current student and action labels supplied by a privileged expert. The authors evaluate eleven environments spanning exploration, manipulation, navigation and Procgen, and demonstrate transfer from simulation to real robot manipulation without visual input.",
+      "summary_zh": "ASTEROID 使用当前学生策略采集的历史和特权专家提供的动作标签，训练部分可观测智能体。作者在涵盖探索、操作、导航和 Procgen 的十一个环境中评测，并展示从仿真迁移到无视觉输入的真实机器人操作。",
+      "tech_points_en": [
+        "The student learns to gather information while uncertain and exploit it after hidden state is revealed.",
+        "The paper reports roughly twice the return at fixed exploration budgets and up to roughly 100 times fewer interactions than compared RL baselines."
+      ],
+      "tech_points_zh": [
+        "学生策略学习在不确定时收集信息，并在隐藏状态显露后利用已有信息行动。",
+        "论文报告，在固定探索预算下回报约为两倍，相对所比较的强化学习基线，交互需求最多减少约百倍。"
+      ],
+      "why_it_matters_en": "The method offers a supervised route to test-time exploration when privileged training information is available.",
+      "why_it_matters_zh": "在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。",
+      "source": {
+        "name": "ASTEROID authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30105",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-rise-steerable-humanoid-fall-recovery",
+      "published_at": "2026-10-21T17:20:04Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "humanoid",
+        "diffusion",
+        "motion-planning"
+      ],
+      "title_en": "RISE steers humanoid fall recovery at inference time using predicted body motion",
+      "title_zh": "RISE 通过预测身体运动，在推理时引导人形机器人跌倒恢复",
+      "summary_en": "RISE lets task objectives shape how a fallen humanoid stands up. It learns a reusable recovery vocabulary and a visual diffusion planner that anticipates future body states. The paper reports simulated terrain adaptation and steering without retraining, complemented by demonstrations on a physical Unitree G1.",
+      "summary_zh": "RISE 允许任务目标决定跌倒后的人形机器人如何起身。它学习可复用的恢复动作词汇，并用视觉扩散规划器预测未来身体状态。论文报告无需重训即可在仿真中适应地形并调整动作，并提供真实 Unitree G1 演示。",
+      "tech_points_en": [
+        "Sensory feedback connects the recovery vocabulary to motor actions.",
+        "Task costs guide predicted intent toward a requested heading, rise speed or path before the planner generates conditioned motion latents."
+      ],
+      "tech_points_zh": [
+        "恢复动作词汇通过感知反馈连接到电机动作。",
+        "任务代价先将预测意图引导至指定朝向、起身速度或路径，规划器再据此生成运动潜变量。"
+      ],
+      "why_it_matters_en": "The work makes recovery behavior adjustable to downstream tasks instead of treating standing up as a single fixed outcome.",
+      "why_it_matters_zh": "该工作让恢复动作能够适应后续任务需求，而不再只追求单一固定的起身结果。",
+      "source": {
+        "name": "RISE authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30061",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-atomicrl-long-horizon-credit-assignment",
+      "published_at": "2026-10-21T17:45:24Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "reinforcement-learning",
+        "long-horizon"
+      ],
+      "title_en": "AtomicRL targets subtask credit contamination and exploration bottlenecks in robot RL",
+      "title_zh": "AtomicRL 针对机器人强化学习的子任务信用污染与探索瓶颈",
+      "summary_en": "AtomicRL uses atomic task structure to post-train VLA policies for long-horizon manipulation. Its semantic gating limits credit leakage from failed subtasks, while adaptive sampling focuses learning on weak stages. The authors also introduce a Real2Sim2Real pipeline for transferring simulated online reinforcement learning to physical robots.",
+      "summary_zh": "AtomicRL 利用原子任务结构，对长时程操作 VLA 策略进行后训练。语义门控限制失败子任务的信用跨边界传播，自适应采样则将学习集中到薄弱阶段。作者还提出 Real2Sim2Real 流程，将仿真在线强化学习迁移到实体机器人。",
+      "tech_points_en": [
+        "SAPO gates temporal-difference residuals at subtask boundaries while retaining within-subtask credit assignment and bootstrapping.",
+        "On LIBERO-LONG, the paper reports absolute gains of 3.6 and 4.0 percentage points over PPO across two VLA architectures."
+      ],
+      "tech_points_zh": [
+        "SAPO 在子任务边界对时序差分残差进行门控，同时保留子任务内部的信用分配和价值自举。",
+        "在 LIBERO-LONG 上，论文报告两种 VLA 架构相对 PPO 分别获得 3.6 和 4.0 个百分点的绝对提升。"
+      ],
+      "why_it_matters_en": "Explicit subtask structure may improve reinforcement learning when a few difficult stages limit an entire manipulation sequence.",
+      "why_it_matters_zh": "当少数困难阶段制约整段操作序列时，显式子任务结构有望改善强化学习效率。",
+      "source": {
+        "name": "AtomicRL authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.30097",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-21-tom2vec-latent-partner-reasoning",
+      "published_at": "2026-10-21T16:05:54Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "latent-reasoning",
+        "coordination",
+        "theory-of-mind"
+      ],
+      "title_en": "ToM2Vec learns continuous partner-state reasoning tokens for multi-agent interaction",
+      "title_zh": "ToM2Vec 学习连续伙伴状态推理令牌以改善多智能体交互",
+      "summary_en": "ToM2Vec represents beliefs about other agents with a fixed budget of continuous reasoning tokens. Training uses the partner’s actual thoughts as supervision; at test time, each agent generates its own tokens. The authors report improvements across cooperative, competitive and mixed-motive environments, including transfer to unseen partner model families.",
+      "summary_zh": "ToM2Vec 以固定数量的连续推理令牌表示对其他智能体的判断。训练时以伙伴的真实思考为监督，测试时由智能体自行生成令牌。作者在合作、竞争和混合动机环境中报告提升，并展示对未见伙伴模型家族的迁移。",
+      "tech_points_en": [
+        "Evaluations include Overcooked-AI, multiparty negotiation, Decrypto, Hanabi and Collab Escape/Capture.",
+        "The learned tokens condition thoughts and actions; expressing reasoning in text reduces performance in the reported comparison."
+      ],
+      "tech_points_zh": [
+        "评测包括 Overcooked-AI、多方谈判、Decrypto、Hanabi 和 Collab Escape/Capture。",
+        "学习到的令牌作为思考和动作的条件；论文对比中，将推理表达为文本会降低表现。"
+      ],
+      "why_it_matters_en": "The approach tests latent representations for reasoning about partners beyond a single textual guess about their state.",
+      "why_it_matters_zh": "该方法探索利用潜表示推理伙伴状态，超越以单一文本猜测描述伙伴的方式。",
+      "source": {
+        "name": "ToM2Vec authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.29934",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/nsivaku/tom2vec"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-22-snap-alchemist-ml-experiment-harness",
+      "published_at": "2026-10-22T20:22:20.292Z",
+      "collected_at": "2026-10-23T00:03:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "ml-experimentation",
+        "agent-runtime",
+        "human-in-the-loop",
+        "reliability"
+      ],
+      "title_en": "Snap describes Alchemist’s deterministic harness for human-approved ML experiments",
+      "title_zh": "Snap 介绍 Alchemist：由确定性框架执行人工批准的机器学习实验",
+      "summary_en": "Snap presents Alchemist, an ML experimentation platform where agents propose hypotheses and interpret results while a deterministic harness runs approved plans. Its first feature-selection recipe reduces the reported cycle from four weeks to two. The underlying manual study removed 30% of a Story ads model’s features without evaluation regression.",
+      "summary_zh": "Snap 介绍 Alchemist 机器学习实验平台：智能体提出假设并解读结果，确定性框架执行获批计划。首个特征选择流程据报告将周期从四周缩短至两周；作为流程基础的人工研究曾在评测指标不下降的情况下，移除一个 Story 广告模型的 30% 特征。",
+      "tech_points_en": [
+        "Approvals are bound to a plan fingerprint; edits and new rounds require approval again, and failed steps are not retried automatically.",
+        "Persisted artifacts isolate each hypothesis; the feature-selection recipe combines permutation importance with penalized stochastic feature gates."
+      ],
+      "tech_points_zh": [
+        "批准与计划指纹绑定；编辑或新一轮计划均需重新批准，失败步骤不会自动重试。",
+        "持久化产物隔离各个假设；特征选择流程结合置换重要性与带惩罚的随机特征门控。"
+      ],
+      "why_it_matters_en": "The production account shows how explicit execution rules can constrain agent-driven experimentation and preserve human decisions.",
+      "why_it_matters_zh": "这一生产实践展示如何用明确的执行规则约束智能体驱动的实验，并保留人工决策。",
+      "source": {
+        "name": "Snap Engineering",
+        "type": "primary",
+        "url": "https://eng.snap.com/alchemist",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50202248"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
     }
   ]
 }

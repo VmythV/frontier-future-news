@@ -2,6 +2,314 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-22-snap-alchemist-ml-experiment-harness"></a>
+## [Snap 介绍 Alchemist：由确定性框架执行人工批准的机器学习实验](https://eng.snap.com/alchemist)
+
+**English:** [Snap describes Alchemist’s deterministic harness for human-approved ML experiments](https://eng.snap.com/alchemist)
+
+- **发布 / Published:** `2026-10-22T20:22:20.292Z`
+- **来源 / Source:** [Snap Engineering](https://eng.snap.com/alchemist) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ml-experimentation`, `agent-runtime`, `human-in-the-loop`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Snap 介绍 Alchemist 机器学习实验平台：智能体提出假设并解读结果，确定性框架执行获批计划。首个特征选择流程据报告将周期从四周缩短至两周；作为流程基础的人工研究曾在评测指标不下降的情况下，移除一个 Story 广告模型的 30% 特征。
+
+Snap presents Alchemist, an ML experimentation platform where agents propose hypotheses and interpret results while a deterministic harness runs approved plans. Its first feature-selection recipe reduces the reported cycle from four weeks to two. The underlying manual study removed 30% of a Story ads model’s features without evaluation regression.
+
+### 技术点 / Technical points
+
+- 批准与计划指纹绑定；编辑或新一轮计划均需重新批准，失败步骤不会自动重试。
+  - Approvals are bound to a plan fingerprint; edits and new rounds require approval again, and failed steps are not retried automatically.
+- 持久化产物隔离各个假设；特征选择流程结合置换重要性与带惩罚的随机特征门控。
+  - Persisted artifacts isolate each hypothesis; the feature-selection recipe combines permutation importance with penalized stochastic feature gates.
+
+### 为什么重要 / Why it matters
+
+这一生产实践展示如何用明确的执行规则约束智能体驱动的实验，并保留人工决策。
+
+The production account shows how explicit execution rules can constrain agent-driven experimentation and preserve human decisions.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50202248)
+
+---
+
+<a id="2026-10-21-agentic-wam-code-video-action"></a>
+## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
+
+**English:** [AW-0 couples reusable skill programs with video and robot action prediction](https://arxiv.org/abs/2610.30136)
+
+- **发布 / Published:** `2026-10-21T17:59:56Z`
+- **来源 / Source:** [AW-0 authors / arXiv](https://arxiv.org/abs/2610.30136) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `world-action-model`, `skill-reuse`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。
+
+AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.
+
+### 技术点 / Technical points
+
+- 自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。
+  - An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.
+- 在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。
+  - On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%.
+
+### 为什么重要 / Why it matters
+
+该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。
+
+The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.
+
+### 链接 / Links
+
+[Evidence 1](https://agentic-wam.github.io/)
+
+---
+
+<a id="2026-10-21-physicalworld-in-context-calibration"></a>
+## [PhysiCalWorld 用探索性交互片段校准世界模型动力学](https://arxiv.org/abs/2610.30125)
+
+**English:** [PhysiCalWorld calibrates world-model dynamics from an exploratory interaction clip](https://arxiv.org/abs/2610.30125)
+
+- **发布 / Published:** `2026-10-21T17:57:59Z`
+- **来源 / Source:** [PhysiCalWorld authors / arXiv](https://arxiv.org/abs/2610.30125) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `physics`, `in-context-learning`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PhysiCalWorld 将测试场景中的短交互编码成物理描述符，用于约束后续预测。该方法无需微调或显式物理标签即可适配动作条件世界模型。作者在四个环境中报告轨迹预测与视觉规划改善，并能泛化到训练物理参数范围之外。
+
+PhysiCalWorld encodes a short interaction in a test scene into a physics descriptor that conditions future predictions. It adapts action-conditioned world models without fine-tuning or explicit physics labels. Across four environments, the authors report improved rollout accuracy and visual planning, including generalization beyond training physics ranges.
+
+### 技术点 / Technical points
+
+- 描述符捕捉单靠外观未必能揭示的实例动力学，例如摩擦或质量分布。
+  - The descriptor captures instance-specific dynamics that appearance alone may not reveal, such as friction or mass distribution.
+- 训练采用潜空间预测损失；推理时仅提取一次描述符，并在多条预测轨迹间复用。
+  - Training uses latent prediction loss; at inference, the descriptor is extracted once and reused across rollouts.
+
+### 为什么重要 / Why it matters
+
+该方法以紧凑表示将学习型模拟器与新场景的实际物理行为联系起来。
+
+The method supplies a compact way to ground a learned simulator in the physical behavior of a new scene.
+
+### 链接 / Links
+
+[Evidence 1](https://physical-world.github.io/)
+
+---
+
+<a id="2026-10-21-cw-wam-contact-wrench-control"></a>
+## [CW-WAM 同时预测接触力旋量、视频与机器人运动](https://arxiv.org/abs/2610.30117)
+
+**English:** [CW-WAM predicts contact wrench alongside video and robot motion](https://arxiv.org/abs/2610.30117)
+
+- **发布 / Published:** `2026-10-21T17:55:53Z`
+- **来源 / Source:** [CW-WAM authors / arXiv](https://arxiv.org/abs/2610.30117) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `force-control`, `manipulation`, `world-action-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CW-WAM 为面向力敏感操作的世界动作模型加入显式接触力旋量预测。作者实验中，相对没有力旋量输入的 WAM，方形插销的插入成功率从 25% 升至 70%，电源适配器从 40% 升至 95%。
+
+CW-WAM adds explicit contact-wrench prediction to a world action model for force-sensitive manipulation. In the authors’ experiments, insertion success rises from 25% to 70% for square pegs and from 40% to 95% for power adapters compared with a WAM lacking wrench input.
+
+### 技术点 / Technical points
+
+- 配对因果注意力关联运动块与力旋量块，固定长度的力旋量记忆保留交互历史。
+  - Pair-causal attention links motion and wrench chunks, while a fixed-length wrench memory retains interaction history.
+- 预测的力参考值驱动 20 Hz 外环导纳控制器；插销任务的力参考均方根误差从 4.8 N 降至 2.7 N。
+  - Predicted force references drive a 20-Hz outer-loop admittance controller; peg-insertion force-reference RMSE falls from 4.8 to 2.7 N.
+
+### 为什么重要 / Why it matters
+
+联合预测力与运动，将世界模型的前瞻能力连接到接触密集任务中的反馈控制。
+
+Joint force and motion prediction connects world-model foresight to feedback control in contact-rich tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://cw-wam-project.github.io/)
+
+---
+
+<a id="2026-10-21-asteroid-on-policy-exploration-distillation"></a>
+## [ASTEROID 从特权专家与学生历史中学习探索行为](https://arxiv.org/abs/2610.30105)
+
+**English:** [ASTEROID learns exploratory behavior from privileged experts and student histories](https://arxiv.org/abs/2610.30105)
+
+- **发布 / Published:** `2026-10-21T17:50:31Z`
+- **来源 / Source:** [ASTEROID authors / arXiv](https://arxiv.org/abs/2610.30105) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `exploration`, `distillation`, `partial-observability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ASTEROID 使用当前学生策略采集的历史和特权专家提供的动作标签，训练部分可观测智能体。作者在涵盖探索、操作、导航和 Procgen 的十一个环境中评测，并展示从仿真迁移到无视觉输入的真实机器人操作。
+
+ASTEROID trains partially observed agents using histories collected by the current student and action labels supplied by a privileged expert. The authors evaluate eleven environments spanning exploration, manipulation, navigation and Procgen, and demonstrate transfer from simulation to real robot manipulation without visual input.
+
+### 技术点 / Technical points
+
+- 学生策略学习在不确定时收集信息，并在隐藏状态显露后利用已有信息行动。
+  - The student learns to gather information while uncertain and exploit it after hidden state is revealed.
+- 论文报告，在固定探索预算下回报约为两倍，相对所比较的强化学习基线，交互需求最多减少约百倍。
+  - The paper reports roughly twice the return at fixed exploration budgets and up to roughly 100 times fewer interactions than compared RL baselines.
+
+### 为什么重要 / Why it matters
+
+在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。
+
+The method offers a supervised route to test-time exploration when privileged training information is available.
+
+---
+
+<a id="2026-10-21-atomicrl-long-horizon-credit-assignment"></a>
+## [AtomicRL 针对机器人强化学习的子任务信用污染与探索瓶颈](https://arxiv.org/abs/2610.30097)
+
+**English:** [AtomicRL targets subtask credit contamination and exploration bottlenecks in robot RL](https://arxiv.org/abs/2610.30097)
+
+- **发布 / Published:** `2026-10-21T17:45:24Z`
+- **来源 / Source:** [AtomicRL authors / arXiv](https://arxiv.org/abs/2610.30097) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `reinforcement-learning`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+AtomicRL 利用原子任务结构，对长时程操作 VLA 策略进行后训练。语义门控限制失败子任务的信用跨边界传播，自适应采样则将学习集中到薄弱阶段。作者还提出 Real2Sim2Real 流程，将仿真在线强化学习迁移到实体机器人。
+
+AtomicRL uses atomic task structure to post-train VLA policies for long-horizon manipulation. Its semantic gating limits credit leakage from failed subtasks, while adaptive sampling focuses learning on weak stages. The authors also introduce a Real2Sim2Real pipeline for transferring simulated online reinforcement learning to physical robots.
+
+### 技术点 / Technical points
+
+- SAPO 在子任务边界对时序差分残差进行门控，同时保留子任务内部的信用分配和价值自举。
+  - SAPO gates temporal-difference residuals at subtask boundaries while retaining within-subtask credit assignment and bootstrapping.
+- 在 LIBERO-LONG 上，论文报告两种 VLA 架构相对 PPO 分别获得 3.6 和 4.0 个百分点的绝对提升。
+  - On LIBERO-LONG, the paper reports absolute gains of 3.6 and 4.0 percentage points over PPO across two VLA architectures.
+
+### 为什么重要 / Why it matters
+
+当少数困难阶段制约整段操作序列时，显式子任务结构有望改善强化学习效率。
+
+Explicit subtask structure may improve reinforcement learning when a few difficult stages limit an entire manipulation sequence.
+
+---
+
+<a id="2026-10-21-rise-steerable-humanoid-fall-recovery"></a>
+## [RISE 通过预测身体运动，在推理时引导人形机器人跌倒恢复](https://arxiv.org/abs/2610.30061)
+
+**English:** [RISE steers humanoid fall recovery at inference time using predicted body motion](https://arxiv.org/abs/2610.30061)
+
+- **发布 / Published:** `2026-10-21T17:20:04Z`
+- **来源 / Source:** [RISE authors / arXiv](https://arxiv.org/abs/2610.30061) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `diffusion`, `motion-planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+RISE 允许任务目标决定跌倒后的人形机器人如何起身。它学习可复用的恢复动作词汇，并用视觉扩散规划器预测未来身体状态。论文报告无需重训即可在仿真中适应地形并调整动作，并提供真实 Unitree G1 演示。
+
+RISE lets task objectives shape how a fallen humanoid stands up. It learns a reusable recovery vocabulary and a visual diffusion planner that anticipates future body states. The paper reports simulated terrain adaptation and steering without retraining, complemented by demonstrations on a physical Unitree G1.
+
+### 技术点 / Technical points
+
+- 恢复动作词汇通过感知反馈连接到电机动作。
+  - Sensory feedback connects the recovery vocabulary to motor actions.
+- 任务代价先将预测意图引导至指定朝向、起身速度或路径，规划器再据此生成运动潜变量。
+  - Task costs guide predicted intent toward a requested heading, rise speed or path before the planner generates conditioned motion latents.
+
+### 为什么重要 / Why it matters
+
+该工作让恢复动作能够适应后续任务需求，而不再只追求单一固定的起身结果。
+
+The work makes recovery behavior adjustable to downstream tasks instead of treating standing up as a single fixed outcome.
+
+---
+
+<a id="2026-10-21-tom2vec-latent-partner-reasoning"></a>
+## [ToM2Vec 学习连续伙伴状态推理令牌以改善多智能体交互](https://arxiv.org/abs/2610.29934)
+
+**English:** [ToM2Vec learns continuous partner-state reasoning tokens for multi-agent interaction](https://arxiv.org/abs/2610.29934)
+
+- **发布 / Published:** `2026-10-21T16:05:54Z`
+- **来源 / Source:** [ToM2Vec authors / arXiv](https://arxiv.org/abs/2610.29934) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `latent-reasoning`, `coordination`, `theory-of-mind`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ToM2Vec 以固定数量的连续推理令牌表示对其他智能体的判断。训练时以伙伴的真实思考为监督，测试时由智能体自行生成令牌。作者在合作、竞争和混合动机环境中报告提升，并展示对未见伙伴模型家族的迁移。
+
+ToM2Vec represents beliefs about other agents with a fixed budget of continuous reasoning tokens. Training uses the partner’s actual thoughts as supervision; at test time, each agent generates its own tokens. The authors report improvements across cooperative, competitive and mixed-motive environments, including transfer to unseen partner model families.
+
+### 技术点 / Technical points
+
+- 评测包括 Overcooked-AI、多方谈判、Decrypto、Hanabi 和 Collab Escape/Capture。
+  - Evaluations include Overcooked-AI, multiparty negotiation, Decrypto, Hanabi and Collab Escape/Capture.
+- 学习到的令牌作为思考和动作的条件；论文对比中，将推理表达为文本会降低表现。
+  - The learned tokens condition thoughts and actions; expressing reasoning in text reduces performance in the reported comparison.
+
+### 为什么重要 / Why it matters
+
+该方法探索利用潜表示推理伙伴状态，超越以单一文本猜测描述伙伴的方式。
+
+The approach tests latent representations for reasoning about partners beyond a single textual guess about their state.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/nsivaku/tom2vec)
+
+---
+
+<a id="2026-10-21-userswe-interactive-coding-benchmark"></a>
+## [UserSWE 通过动态用户对话与逐轮执行测试编程智能体](https://arxiv.org/abs/2610.29822)
+
+**English:** [UserSWE tests coding agents through evolving user conversations and per-turn execution](https://arxiv.org/abs/2610.29822)
+
+- **发布 / Published:** `2026-10-21T14:46:22Z`
+- **来源 / Source:** [UserSWE authors / arXiv](https://arxiv.org/abs/2610.29822) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `benchmark`, `multi-turn`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+UserSWE 通过与模拟用户的多轮对话评测仓库级缺陷修复。评测覆盖 42 个仓库中的 72 个任务和十一个智能体，发现排名随交互预算变化。每轮均给出基于执行证据的判定，而非仅判断最终补丁。
+
+UserSWE evaluates repository bug fixing through multi-turn conversations with simulated users. Its evaluation covers eleven agents on 72 tasks from 42 repositories and finds that rankings change with the interaction budget. Every turn receives an execution-grounded verdict rather than relying only on a final patch judgment.
+
+### 技术点 / Technical points
+
+- 信息池限制可披露事实；用户角色变化由基于 20,859 次开发会话校准的转移模型决定。
+  - Information pools constrain disclosed facts; user personas follow a transition model calibrated on 20,859 development sessions.
+- 每轮运行测试，由不同模型家族的智能体撰写和审核判定，仅对测试无法确定的部分使用模型判断。
+  - Tests run after each turn, and agents from different model families write and review verdicts, reserving model judgment for aspects unresolved by tests.
+
+### 为什么重要 / Why it matters
+
+该基准将交互质量与持续变化的需求纳入编程智能体评测。
+
+The benchmark makes interaction quality and evolving requirements part of coding-agent evaluation.
+
+---
+
 <a id="2026-10-21-nvidia-agent-knowledge-foundation-toolkit"></a>
 ## [NVIDIA Agent Toolkit 增添 Agent Knowledge Foundation 与结构化数据模型](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
 
@@ -63,6 +371,38 @@ NVIDIA announces Cosmos post-training and optimization tools, plus simulation ch
 此次更新将世界模型适配与物理 AI 开发中的数据准备和交互评估连接起来。
 
 The update connects world-model adaptation with data preparation and interactive evaluation in physical-AI development.
+
+---
+
+<a id="2026-10-21-events-not-pixels-world-model-return"></a>
+## [事件级诊断揭示视觉保真度掩盖的世界模型回报误差](https://arxiv.org/abs/2610.29435)
+
+**English:** [Event-level diagnostics reveal world-model return errors hidden by visual fidelity](https://arxiv.org/abs/2610.29435)
+
+- **发布 / Published:** `2026-10-21T08:59:02Z`
+- **来源 / Source:** [Events, Not Pixels authors / arXiv](https://arxiv.org/abs/2610.29435) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `planning`, `model-based-rl`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+一项研究通过将选定的想象转移替换为真实转移，定位回报预测误差。在通过可靠性检查的 44 个 Atari-100k 模型与采集数据组合中，修复奖励或终止事件有 39 次优于同预算随机修复；这些关键转移的画面未必比普通帧更差。
+
+A new study replaces selected imagined transitions with real ones to locate errors in predicted returns. Across 44 reliable Atari-100k model–collection pairs, repairing reward or termination events beats budget-matched random repairs in 39 cases. These pivotal transitions need not look worse than ordinary frames.
+
+### 技术点 / Technical points
+
+- 尽管事件转移与其他步骤的像素误差比值中位数为 0.85，恢复事件转移仍消除了中位数 70% 的回报误差。
+  - Restoring event transitions removes a median 70% of return error despite a median event-to-other-step pixel-error ratio of 0.85.
+- 按 MSE、SSIM 或 LPIPS 最大误差选择转移时，回报误差的降低效果反而不如随机选择。
+  - Choosing transitions by the largest MSE, SSIM or LPIPS errors performs worse than random selection for reducing return error.
+
+### 为什么重要 / Why it matters
+
+这些发现支持将与规划相关的事件准确性同画面重建质量分开评估。
+
+The findings support evaluating planning-relevant events separately from frame reconstruction quality.
 
 ---
 
@@ -319,335 +659,3 @@ AuthorizationBench introduces 286 executable tasks across ten application domain
 该基准将授权合规与任务成功分开，使委托边界能够被直接测试。
 
 The benchmark separates authorization compliance from task success, making delegation boundaries directly testable.
-
----
-
-<a id="2026-10-19-claude-code-21304-human-decisions-stop"></a>
-## [Claude Code 2.1.304 增加仅人工决策的工具审批并修复无界面停止绕过](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
-
-**English:** [Claude Code 2.1.304 adds human-only tool decisions and fixes headless stop bypasses](https://github.com/anthropics/claude-code/releases/tag/v2.1.304)
-
-- **发布 / Published:** `2026-10-19T21:34:39Z`
-- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.304) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `safety`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-Claude Code 2.1.304 允许 mod 要求由人工或宿主回调裁决工具请求，无法询问时拒绝执行。同时修复插件通过派生或重启子智能体，让无界面运行越过轮次上限或停止信号的问题。
-
-Claude Code 2.1.304 lets mods require a person or host callback to decide a tool request, refusing it when neither is available. It also fixes plugins keeping headless runs alive beyond turn limits or stop signals by spawning or restarting subagents.
-
-### 技术点 / Technical points
-
-- tool.check 事件在仅人工裁决选项之外，新增只读调用标志。
-  - The tool.check event gains a read-only indicator, alongside the person-only decision option.
-- 其他修复包括磁盘满时清理导致的记录丢失，以及子智能体刚结束便恢复或收到消息时遗忘近期工作。
-  - Fixes also address transcript loss during disk-full trimming and recent-work loss when subagents are immediately resumed or messaged.
-
-### 为什么重要 / Why it matters
-
-这些改动改善无人值守编程智能体的审批边界与停止可靠性。
-
-These changes strengthen approval boundaries and termination reliability for unattended coding agents.
-
----
-
-<a id="2026-10-19-letta-code-03418-memory-skills"></a>
-## [Letta Code 0.34.18 增加记忆维护技能并修复工作智能体恢复](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
-
-**English:** [Letta Code 0.34.18 adds memory-maintenance skills and worker resumption fixes](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18)
-
-- **发布 / Published:** `2026-10-19T21:02:20Z`
-- **来源 / Source:** [Letta](https://github.com/letta-ai/letta-code/releases/tag/v0.34.18) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `coding-agent`, `multi-agent`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Letta Code 0.34.18 增加核心记忆和延后记忆的专用维护技能，向所有智能体开放记忆技能，并为工作流中的智能体创建增加技能选项。该版本还修复会话工作智能体跨本地与监听执行路径的恢复。
-
-Letta Code 0.34.18 adds dedicated skills for maintaining core and deferred memory, exposes memory skills to all agents, and adds a skills option to workflow agent creation. The release also repairs conversation-worker resumption across local and listener execution.
-
-### 技术点 / Technical points
-
-- 核心记忆与延后记忆分别提供维护技能。
-  - Memory-maintenance skills are packaged separately for core and deferred memory.
-- 其他修复涉及远程停止确认的准确报告及共享记忆挂载的浅层克隆。
-  - Additional fixes cover confirmed remote-stop reporting and shallow cloning of shared-memory mounts.
-
-### 为什么重要 / Why it matters
-
-这使记忆维护职责更加明确，并改善持久智能体工作流的连续性。
-
-This makes memory upkeep more explicit while improving continuity in persistent agent workflows.
-
----
-
-<a id="2026-10-19-physword-structured-latent-robot-reasoning"></a>
-## [PhysWord 用原子动作词组织机器人的潜在推理](https://arxiv.org/abs/2610.26854)
-
-**English:** [PhysWord anchors latent robot reasoning in atomic action words](https://arxiv.org/abs/2610.26854)
-
-- **发布 / Published:** `2026-10-19T17:59:54Z`
-- **来源 / Source:** [PhysWord authors / arXiv](https://arxiv.org/abs/2610.26854) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `tactile-sensing`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-PhysWord 将原子动作词与未来物理观测的表征对齐，为机器人策略提供执行前的结构化上下文。论文报告 UniVTAC 成功率为 90.3%、LIBERO-Long 为 99.6%，并进行了双臂夹爪与灵巧手真机测试。
-
-PhysWord links atomic action verbs to representations of future physical observations, giving robot policies structured context before acting. The paper reports 90.3% success on UniVTAC and 99.6% on LIBERO-Long, alongside real-robot tests with bimanual grippers and dexterous hands.
-
-### 技术点 / Technical points
-
-- 预测动作词的上下文隐藏状态与未来观测的潜在目标对齐。
-  - Contextual hidden states of predicted action words align with latent targets from future observations.
-- 按时间组织的视觉及可选触觉动作基元为动作生成提供条件。
-  - Temporal sequences of visual and optional tactile action primitives condition action generation.
-
-### 为什么重要 / Why it matters
-
-该方法为连接可复用动作语义与细粒度物理预测提供了具体方案。
-
-The method offers a concrete way to connect reusable action semantics with fine-grained physical prediction.
-
----
-
-<a id="2026-10-19-astra-visuotactile-simulation-policy"></a>
-## [Astra 通过触觉图像在仿真中执行接触密集操作](https://arxiv.org/abs/2610.26846)
-
-**English:** [Astra uses tactile images for contact-rich control in simulation](https://arxiv.org/abs/2610.26846)
-
-- **发布 / Published:** `2026-10-19T17:59:17Z`
-- **来源 / Source:** [TacTalent authors / arXiv](https://arxiv.org/abs/2610.26846) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tactile-sensing`, `benchmark`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-一项研究通过 GPT-6 Astra 的视觉接口输入视觉式触觉图像，实现少样本闭环控制。作者在十九项仿真任务上报告 UniVTAC 与 OpenViTac 平均成功率分别为 93.8% 和 81.8%；真机验证仍属于后续工作。
-
-A study feeds vision-based tactile images through GPT-6 Astra’s visual interface for few-shot closed-loop control. Across nineteen simulated tasks, the authors report mean success of 93.8% on UniVTAC and 81.8% on OpenViTac. Physical-robot validation remains future work.
-
-### 技术点 / Technical points
-
-- 每种设置使用 210 个采样场景种子；仅视觉输入的成功率分别为 76.3% 和 80.6%。
-  - Each setting uses 210 sampled scene seeds; vision-only baselines reach 76.3% and 80.6%.
-- 轨迹分析发现接触引导的对齐与恢复行为，也发现切向受力和纠正执行方面的不足。
-  - Trajectory analysis identifies contact-guided alignment and recovery, with weaknesses in tangential loading and corrective execution.
-
-### 为什么重要 / Why it matters
-
-结果表明触觉图像可能将通用视觉接口扩展至接触推理，但尚未证明真实环境中的可靠性。
-
-The results suggest tactile images can extend a general visual interface to contact reasoning, while leaving real-world reliability unproven.
-
-### 链接 / Links
-
-[Evidence 1](https://tactalent.github.io/)
-
----
-
-<a id="2026-10-19-agima-imagination-world-model-planning"></a>
-## [Agima 训练单一模型想象动作结果并据此规划](https://arxiv.org/abs/2610.26845)
-
-**English:** [Agima trains one model to imagine action outcomes and plan over them](https://arxiv.org/abs/2610.26845)
-
-- **发布 / Published:** `2026-10-19T17:59:12Z`
-- **来源 / Source:** [Agima authors / arXiv](https://arxiv.org/abs/2610.26845) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `reasoning`, `planning`, `world-model`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Agima 将策略与视觉世界建模整合到单一多模态模型，再用强化学习改进对想象结果的规划。作者在 Maze2D、Sokoban、Pacman 和 PushT 中评估；在稀疏真实观测条件下，仅监督训练的模型在四箱 Sokoban 上成功率达 40%，仅动作规划基线为 2%。
-
-Agima combines policy and visual world modeling in one multimodal model, then uses reinforcement learning to improve planning over imagined outcomes. The authors evaluate Maze2D, Sokoban, Pacman, and PushT. With supervised training alone, four-box Sokoban success reaches 40% versus 2% for an action-only planner under sparse real observations.
-
-### 技术点 / Technical points
-
-- 监督训练统一动作提议、未来图像预测与对替代未来的推理。
-  - Supervised training unifies action proposals, predicted future images, and reasoning over alternative futures.
-- 强化学习促使模型有选择地前瞻，并在关键决策点探索分支。
-  - Reinforcement learning encourages selective lookahead and branching at critical decision points.
-
-### 为什么重要 / Why it matters
-
-该工作将学习到的环境预测直接用于决定智能体何时以及如何提前规划。
-
-The work connects learned environment prediction directly to deciding when and how an agent should plan ahead.
-
-### 链接 / Links
-
-[Evidence 1](https://agima.net/)
-
----
-
-<a id="2026-10-19-anygoal-world-model-compositional-generalization"></a>
-## [AnyGoal 测试世界模型超出专家状态动作组合后的泛化](https://arxiv.org/abs/2610.26844)
-
-**English:** [AnyGoal tests world models beyond expert state-action combinations](https://arxiv.org/abs/2610.26844)
-
-- **发布 / Published:** `2026-10-19T17:59:05Z`
-- **来源 / Source:** [AnyGoal authors / arXiv](https://arxiv.org/abs/2610.26844) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `planning`, `generalization`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-AnyGoal 通过目标变换任务，测试学习到的动力学能否重新组合熟悉的状态因素与动作。各因素单独处于训练支持范围内，但组合在专家轨迹中较少出现；作者在多种环境和模型家族中发现反复出现的预测与规划失败。
-
-AnyGoal introduces goal-shifted tasks to test whether learned dynamics can recombine familiar state factors and actions. Although individual factors remain within training support, their combinations are underrepresented in expert trajectories. The authors find recurring prediction and planning failures across environments and model families.
-
-### 技术点 / Technical points
-
-- 该基准聚焦组合泛化，而非引入完全未见过的动作或状态因素。
-  - The benchmark isolates compositional generalization rather than introducing wholly unseen action or state factors.
-- 开源库支持分析动力学、表征及下游规划。
-  - An open-source library supports analysis of dynamics, representations, and downstream planning.
-
-### 为什么重要 / Why it matters
-
-它有助于区分真正学习环境动力学与复现专家数据中狭窄目标和轨迹的能力。
-
-It helps distinguish learning environment dynamics from reproducing the narrow goals and trajectories of expert data.
-
-### 链接 / Links
-
-[Evidence 1](https://hazel-heejeong-nam.github.io/anygoal/)
-
----
-
-<a id="2026-10-19-handson-dexterous-generalization-benchmark"></a>
-## [HandsOn 跨手型、机械臂及任务迁移评测灵巧操作](https://arxiv.org/abs/2610.26765)
-
-**English:** [HandsOn benchmarks dexterous manipulation across hands, arms, and task transfers](https://arxiv.org/abs/2610.26765)
-
-- **发布 / Published:** `2026-10-19T17:22:48Z`
-- **来源 / Source:** [HandsOn authors / arXiv](https://arxiv.org/abs/2610.26765) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `simulation`, `dexterous-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-HandsOn 提出可组合仿真平台，包含五种机械臂、六种灵巧手、约 200 个资产及 18,000 条人类示范。其 66 项任务区分基于示范的学习与无目标任务示范的迁移；最佳已训练多任务策略在 Core-50 上的成功率为 29.1%。
-
-HandsOn introduces a composable simulation platform with five arms, six dexterous hands, roughly 200 assets, and 18,000 human demonstrations. Its 66 tasks separate demonstration-based learning from transfer without target-task demonstrations. The best trained multi-task policy reaches 29.1% success on Core-50.
-
-### 技术点 / Technical points
-
-- Core-50 测量学习后的执行；Transfer-16 测试资产与关系迁移、技能组合和可变形物体操作。
-  - Core-50 measures learned execution; Transfer-16 tests asset and relation transfer, skill composition, and deformable manipulation.
-- 定性真机轨迹展示迁移可能性；分阶段诊断揭示接触、协调及目标保持方面的失败。
-  - Qualitative real-robot rollouts illustrate transfer; stage diagnostics expose contact, coordination, and goal-maintenance failures.
-
-### 为什么重要 / Why it matters
-
-该基准为操作泛化提供了更困难的测试，超越对熟悉示范任务成功率的衡量。
-
-The benchmark provides harder tests of manipulation generalization beyond success on familiar demonstrations.
-
----
-
-<a id="2026-10-19-stepbench-procedural-planning-diagnostics"></a>
-## [StepBench 用 6,885 个已核验流程区分程序性规划错误](https://arxiv.org/abs/2610.26679)
-
-**English:** [StepBench separates procedural planning errors across 6,885 verified procedures](https://arxiv.org/abs/2610.26679)
-
-- **发布 / Published:** `2026-10-19T16:27:14Z`
-- **来源 / Source:** [StepBench authors / arXiv](https://arxiv.org/abs/2610.26679) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `planning`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-StepBench 从覆盖 81 个类别的 wikiHow 流程构建五项诊断任务，并评估完整计划生成。在十二个模型的十四种配置中，步骤排序最困难：最强模型的正确率为 63.0%，九步及以上流程降至 33.1%。
-
-StepBench derives five diagnostic tasks from wikiHow procedures across 81 categories and also evaluates full-plan generation. Across 14 configurations of 12 models, ordering steps is hardest: the strongest model orders 63.0% correctly, falling to 33.1% for procedures with at least nine steps.
-
-### 技术点 / Technical points
-
-- 任务诊断缺失、错误和乱序步骤，并测试下一步生成；STEPEVAL 判断生成中的关键失败。
-  - Tasks diagnose withheld, incorrect, and shuffled steps alongside next-step generation; STEPEVAL judges critical generation failures.
-- 由 214 个 2026 年发布流程组成的验证子集上，理解能力排名稳定，提示记忆效应有限。
-  - A validation subset of 214 procedures published in 2026 yields stable comprehension rankings, suggesting limited memorization effects.
-
-### 为什么重要 / Why it matters
-
-在开放领域流程难以通过实际执行评测时，该基准有助于定位具体规划弱点。
-
-The benchmark helps localize planning weaknesses when execution-based evaluation of open-domain procedures is impractical.
-
----
-
-<a id="2026-10-19-tandem-mobile-npu-gui-runtime"></a>
-## [Tandem 复用循环状态，降低移动端 GUI 智能体延迟](https://arxiv.org/abs/2610.26660)
-
-**English:** [Tandem reduces mobile GUI-agent latency with reusable recurrent state](https://arxiv.org/abs/2610.26660)
-
-- **发布 / Published:** `2026-10-19T16:18:16Z`
-- **来源 / Source:** [Tandem authors / arXiv](https://arxiv.org/abs/2610.26660) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `efficiency`, `on-device`, `inference`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Tandem 针对移动 GUI 智能体的请求模式改造混合线性注意力推理。在 Snapdragon 8 Elite 的录制交互评测中，作者报告相对 llama.cpp 最快 NPU 配置，文本屏幕描述与截图的延迟分别降低 30% 和 16%，每个文本步骤能耗降低 33%。
-
-Tandem adapts hybrid linear-attention inference to mobile GUI-agent request patterns. In recorded interactions on Snapdragon 8 Elite, the authors report 30% lower latency for text-described screens and 16% for screenshots versus llama.cpp’s fastest NPU configuration, plus 33% lower energy per text step.
-
-### 技术点 / Technical points
-
-- 循环状态检查点设置在提示分叉位置，同时大部分预填充保留在 NPU 矩阵单元上。
-  - Recurrent checkpoints follow prompt divergence points while most prefill remains on the NPU matrix unit.
-- 在请求间隙释放 NPU 电源请求，使模型仍加载时的待机功耗从 0.76 W 降至 0.22 W。
-  - Releasing NPU power votes between bursts lowers loaded-model standby power from 0.76 W to 0.22 W.
-
-### 为什么重要 / Why it matters
-
-该运行时针对动作延迟累积和待机功耗，解决 GUI 智能体在手机本地运行的两项实际成本。
-
-The runtime addresses cumulative action latency and idle power, two practical costs of keeping GUI agents on a phone.
-
----
-
-<a id="2026-10-19-aws-vllm-bidirectional-agent-kv"></a>
-## [AWS 报告 vLLM 双向 KV 传输可降低多轮智能体首 token 延迟](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
-
-**English:** [AWS reports lower multi-turn agent latency with bidirectional KV transfer in vLLM](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/)
-
-- **发布 / Published:** `2026-10-19T16:03:23Z`
-- **来源 / Source:** [Amazon Web Services](https://aws.amazon.com/blogs/machine-learning/improve-ttft-for-multi-turn-agentic-workloads-with-bi-directional-kv-transfer-in-vllm/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `inference`, `kv-cache`, `benchmark`, `multi-turn`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-AWS 发布可复现研究，在智能体轮次之间将解码节点的 KV 缓存传回预填充节点。其 EC2 P5en 的 1P1D 配置报告 Qwen3-32B 和 GLM-5-FP8 的首 token 延迟分别最高改善 1.6 倍与 3.3 倍。
-
-AWS published a reproducible study of returning decode-side KV blocks to prefill nodes between agent turns. On its EC2 P5en 1P1D setup, it reports TTFT improvements up to 1.6× for Qwen3-32B and 3.3× for GLM-5-FP8.
-
-### 技术点 / Technical points
-
-- 缓存感知路由器跟踪块元数据，保留的解码 KV 可避免重复计算前几轮上下文。
-  - A cache-aware router tracks block metadata; retained decode KV avoids recomputing previous turns.
-- 基准关闭预填充前缀缓存以模拟缓存未命中；收益取决于工作负载、模型及网络。
-  - Benchmarks disable prefill prefix caching to model cache misses; gains depend on workload, model and network.
-
-### 为什么重要 / Why it matters
-
-该结果为对话历史持续增长的智能体提供了具体的推理服务优化方向。
-
-The results identify a concrete serving optimization for agents with growing conversation histories.

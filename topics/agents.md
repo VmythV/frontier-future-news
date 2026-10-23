@@ -2,6 +2,178 @@
 
 # Agents / 智能体
 
+<a id="2026-10-22-snap-alchemist-ml-experiment-harness"></a>
+## [Snap 介绍 Alchemist：由确定性框架执行人工批准的机器学习实验](https://eng.snap.com/alchemist)
+
+**English:** [Snap describes Alchemist’s deterministic harness for human-approved ML experiments](https://eng.snap.com/alchemist)
+
+- **发布 / Published:** `2026-10-22T20:22:20.292Z`
+- **来源 / Source:** [Snap Engineering](https://eng.snap.com/alchemist) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ml-experimentation`, `agent-runtime`, `human-in-the-loop`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Snap 介绍 Alchemist 机器学习实验平台：智能体提出假设并解读结果，确定性框架执行获批计划。首个特征选择流程据报告将周期从四周缩短至两周；作为流程基础的人工研究曾在评测指标不下降的情况下，移除一个 Story 广告模型的 30% 特征。
+
+Snap presents Alchemist, an ML experimentation platform where agents propose hypotheses and interpret results while a deterministic harness runs approved plans. Its first feature-selection recipe reduces the reported cycle from four weeks to two. The underlying manual study removed 30% of a Story ads model’s features without evaluation regression.
+
+### 技术点 / Technical points
+
+- 批准与计划指纹绑定；编辑或新一轮计划均需重新批准，失败步骤不会自动重试。
+  - Approvals are bound to a plan fingerprint; edits and new rounds require approval again, and failed steps are not retried automatically.
+- 持久化产物隔离各个假设；特征选择流程结合置换重要性与带惩罚的随机特征门控。
+  - Persisted artifacts isolate each hypothesis; the feature-selection recipe combines permutation importance with penalized stochastic feature gates.
+
+### 为什么重要 / Why it matters
+
+这一生产实践展示如何用明确的执行规则约束智能体驱动的实验，并保留人工决策。
+
+The production account shows how explicit execution rules can constrain agent-driven experimentation and preserve human decisions.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50202248)
+
+---
+
+<a id="2026-10-21-agentic-wam-code-video-action"></a>
+## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
+
+**English:** [AW-0 couples reusable skill programs with video and robot action prediction](https://arxiv.org/abs/2610.30136)
+
+- **发布 / Published:** `2026-10-21T17:59:56Z`
+- **来源 / Source:** [AW-0 authors / arXiv](https://arxiv.org/abs/2610.30136) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `world-action-model`, `skill-reuse`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。
+
+AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.
+
+### 技术点 / Technical points
+
+- 自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。
+  - An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.
+- 在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。
+  - On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%.
+
+### 为什么重要 / Why it matters
+
+该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。
+
+The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.
+
+### 链接 / Links
+
+[Evidence 1](https://agentic-wam.github.io/)
+
+---
+
+<a id="2026-10-21-asteroid-on-policy-exploration-distillation"></a>
+## [ASTEROID 从特权专家与学生历史中学习探索行为](https://arxiv.org/abs/2610.30105)
+
+**English:** [ASTEROID learns exploratory behavior from privileged experts and student histories](https://arxiv.org/abs/2610.30105)
+
+- **发布 / Published:** `2026-10-21T17:50:31Z`
+- **来源 / Source:** [ASTEROID authors / arXiv](https://arxiv.org/abs/2610.30105) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `exploration`, `distillation`, `partial-observability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ASTEROID 使用当前学生策略采集的历史和特权专家提供的动作标签，训练部分可观测智能体。作者在涵盖探索、操作、导航和 Procgen 的十一个环境中评测，并展示从仿真迁移到无视觉输入的真实机器人操作。
+
+ASTEROID trains partially observed agents using histories collected by the current student and action labels supplied by a privileged expert. The authors evaluate eleven environments spanning exploration, manipulation, navigation and Procgen, and demonstrate transfer from simulation to real robot manipulation without visual input.
+
+### 技术点 / Technical points
+
+- 学生策略学习在不确定时收集信息，并在隐藏状态显露后利用已有信息行动。
+  - The student learns to gather information while uncertain and exploit it after hidden state is revealed.
+- 论文报告，在固定探索预算下回报约为两倍，相对所比较的强化学习基线，交互需求最多减少约百倍。
+  - The paper reports roughly twice the return at fixed exploration budgets and up to roughly 100 times fewer interactions than compared RL baselines.
+
+### 为什么重要 / Why it matters
+
+在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。
+
+The method offers a supervised route to test-time exploration when privileged training information is available.
+
+---
+
+<a id="2026-10-21-tom2vec-latent-partner-reasoning"></a>
+## [ToM2Vec 学习连续伙伴状态推理令牌以改善多智能体交互](https://arxiv.org/abs/2610.29934)
+
+**English:** [ToM2Vec learns continuous partner-state reasoning tokens for multi-agent interaction](https://arxiv.org/abs/2610.29934)
+
+- **发布 / Published:** `2026-10-21T16:05:54Z`
+- **来源 / Source:** [ToM2Vec authors / arXiv](https://arxiv.org/abs/2610.29934) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `latent-reasoning`, `coordination`, `theory-of-mind`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ToM2Vec 以固定数量的连续推理令牌表示对其他智能体的判断。训练时以伙伴的真实思考为监督，测试时由智能体自行生成令牌。作者在合作、竞争和混合动机环境中报告提升，并展示对未见伙伴模型家族的迁移。
+
+ToM2Vec represents beliefs about other agents with a fixed budget of continuous reasoning tokens. Training uses the partner’s actual thoughts as supervision; at test time, each agent generates its own tokens. The authors report improvements across cooperative, competitive and mixed-motive environments, including transfer to unseen partner model families.
+
+### 技术点 / Technical points
+
+- 评测包括 Overcooked-AI、多方谈判、Decrypto、Hanabi 和 Collab Escape/Capture。
+  - Evaluations include Overcooked-AI, multiparty negotiation, Decrypto, Hanabi and Collab Escape/Capture.
+- 学习到的令牌作为思考和动作的条件；论文对比中，将推理表达为文本会降低表现。
+  - The learned tokens condition thoughts and actions; expressing reasoning in text reduces performance in the reported comparison.
+
+### 为什么重要 / Why it matters
+
+该方法探索利用潜表示推理伙伴状态，超越以单一文本猜测描述伙伴的方式。
+
+The approach tests latent representations for reasoning about partners beyond a single textual guess about their state.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/nsivaku/tom2vec)
+
+---
+
+<a id="2026-10-21-userswe-interactive-coding-benchmark"></a>
+## [UserSWE 通过动态用户对话与逐轮执行测试编程智能体](https://arxiv.org/abs/2610.29822)
+
+**English:** [UserSWE tests coding agents through evolving user conversations and per-turn execution](https://arxiv.org/abs/2610.29822)
+
+- **发布 / Published:** `2026-10-21T14:46:22Z`
+- **来源 / Source:** [UserSWE authors / arXiv](https://arxiv.org/abs/2610.29822) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `code-agent`, `benchmark`, `multi-turn`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+UserSWE 通过与模拟用户的多轮对话评测仓库级缺陷修复。评测覆盖 42 个仓库中的 72 个任务和十一个智能体，发现排名随交互预算变化。每轮均给出基于执行证据的判定，而非仅判断最终补丁。
+
+UserSWE evaluates repository bug fixing through multi-turn conversations with simulated users. Its evaluation covers eleven agents on 72 tasks from 42 repositories and finds that rankings change with the interaction budget. Every turn receives an execution-grounded verdict rather than relying only on a final patch judgment.
+
+### 技术点 / Technical points
+
+- 信息池限制可披露事实；用户角色变化由基于 20,859 次开发会话校准的转移模型决定。
+  - Information pools constrain disclosed facts; user personas follow a transition model calibrated on 20,859 development sessions.
+- 每轮运行测试，由不同模型家族的智能体撰写和审核判定，仅对测试无法确定的部分使用模型判断。
+  - Tests run after each turn, and agents from different model families write and review verdicts, reserving model judgment for aspects unresolved by tests.
+
+### 为什么重要 / Why it matters
+
+该基准将交互质量与持续变化的需求纳入编程智能体评测。
+
+The benchmark makes interaction quality and evolving requirements part of coding-agent evaluation.
+
+---
+
 <a id="2026-10-21-nvidia-agent-knowledge-foundation-toolkit"></a>
 ## [NVIDIA Agent Toolkit 增添 Agent Knowledge Foundation 与结构化数据模型](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
 
