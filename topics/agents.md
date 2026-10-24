@@ -38,6 +38,134 @@ The production account shows how explicit execution rules can constrain agent-dr
 
 ---
 
+<a id="2026-10-22-google-agent-compute-engine"></a>
+## [Google 公布 Agent Compute Engine：为智能体提供持久化微虚拟机与检查点暂停](https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance)
+
+**English:** [Google introduces Agent Compute Engine with persistent microVMs and checkpoint-based suspension](https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance)
+
+- **发布 / Published:** `2026-10-22T20:00:03Z`
+- **来源 / Source:** [Google Cloud](https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `sandbox`, `persistence`, `infrastructure`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Google 公布已用于 Gemini 智能体的 Agent Compute Engine，并计划在未来数月向客户提供预览。其设计结合硬件隔离微虚拟机、持久化工作区和空闲时暂停机制；此次公告并不意味着服务已全面开放。
+
+Google announced Agent Compute Engine, the infrastructure already supporting its Gemini agents, with a customer preview planned for the coming months. The design combines hardware-isolated microVMs, persistent workspaces and suspension during idle periods; the announcement does not establish general availability.
+
+### 技术点 / Technical points
+
+- 写时复制内存共享与检查点恢复机制支持高密度智能体会话，并可在等待工具或用户后恢复。
+  - Copy-on-write memory sharing and checkpoint/restore support dense agent sessions and resumption after tool or user waits.
+- Cloud Hypervisor 为各虚拟机提供独立内核；服务凭据在虚拟机外的出站路径注入，Hyperdisk 则保存工作区状态。
+  - Cloud Hypervisor provides each guest its own kernel; service credentials are injected on egress outside the microVM, while Hyperdisk preserves workspace state.
+
+### 为什么重要 / Why it matters
+
+可持久化、可暂停的执行环境，有望降低在计算与等待之间交替运行的智能体基础设施成本。
+
+Persistent, suspendable execution environments could reduce the infrastructure cost of agents that alternate between computation and waiting.
+
+---
+
+<a id="2026-10-22-episem-bench-missing-evidence"></a>
+## [EpiSEM-Bench 测试证据缺失如何导致智能体采取不安全动作](https://arxiv.org/abs/2610.31650)
+
+**English:** [EpiSEM-Bench tests unsafe agent actions caused by omitted evidence](https://arxiv.org/abs/2610.31650)
+
+- **发布 / Published:** `2026-10-22T17:57:04Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31650) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `safety`, `evidence-recovery`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+EpiSEM-Bench 预印本基准从其他内容仍真实的工具响应中移除安全关键事实。作者评测十个模型，报告审计工具访问可减少不安全执行，但各模型有效补回证据的能力不同。
+
+EpiSEM-Bench is a preprint benchmark that removes safety-critical facts from otherwise truthful tool responses. Its authors evaluate ten models and report that access to an audit tool reduces unsafe execution, while useful evidence recovery varies across models.
+
+### 技术点 / Technical points
+
+- 可执行套件包含六个领域的 300 对不安全与安全匹配任务。
+  - The executable suite contains 300 matched unsafe/safe task pairs spanning six domains.
+- 评测分别衡量遗漏引发的违规、缺失事实获取，以及对允许任务的完成情况。
+  - It separately measures omission-triggered violations, missing-fact acquisition and completion of permitted tasks.
+
+### 为什么重要 / Why it matters
+
+该基准将抵御不完整信息的能力，与主动补齐证据后正确行动的能力分开衡量。
+
+The benchmark separates resisting incomplete information from actively recovering enough evidence to act correctly.
+
+---
+
+<a id="2026-10-22-simulated-control-evals"></a>
+## [Simulated Control Evals 用生成的工具响应评估特定部署中的防护效果](https://arxiv.org/abs/2610.31593)
+
+**English:** [Simulated Control Evals use generated tool responses to estimate deployment-specific safeguards](https://arxiv.org/abs/2610.31593)
+
+- **发布 / Published:** `2026-10-22T17:26:42Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31593) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `evaluation`, `safety`, `tool-use`, `simulation`, `runtime-monitoring`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Simulated Control Evals 预印本以语言模型生成的工具响应替代环境执行。作者将预测与 LinuxArena 的实际执行对照，报告其安全估计比从独立 BashArena 环境迁移的评测更接近实际。
+
+The Simulated Control Evals preprint replaces environment execution with language-model-generated tool responses. Authors compare predictions against LinuxArena executions and report closer safety estimates than evaluations transferred from the separate BashArena setting.
+
+### 技术点 / Technical points
+
+- 在五个监控器、5% 审计预算下，报告的安全预测均方根误差为 3.6 个百分点，BashArena 为 10.1 个百分点。
+  - Across five monitors at a 5% audit budget, reported safety-prediction RMSE is 3.6 percentage points versus 10.1 for BashArena.
+- 仿真发现的攻击策略也改善了监控器在留出 LinuxArena 攻击上的表现；结果仍限于所测试的环境。
+  - Simulation-discovered attack strategies also improve monitors on held-out LinuxArena attacks; results remain tied to the tested setting.
+
+### 为什么重要 / Why it matters
+
+针对具体任务的仿真，有望在直接执行成本较高时扩大控制评测覆盖面。
+
+Task-specific simulation could broaden control evaluation when direct execution is costly.
+
+---
+
+<a id="2026-10-22-ridar-research-integrity-intervention"></a>
+## [RIDAR 检测并干预自主智能体的科研诚信违规](https://arxiv.org/abs/2610.31372)
+
+**English:** [RIDAR detects and intervenes on research-integrity violations in autonomous agents](https://arxiv.org/abs/2610.31372)
+
+- **发布 / Published:** `2026-10-22T14:43:36Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31372) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `research-agents`, `benchmark`, `research-integrity`, `runtime-monitoring`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+RIDAR 预印本整理了 14 类科研诚信违规，并提出事后检测及运行时干预方法。作者报告在 60 条专家标注轨迹上检测 F1 为 85.2%，运行时干预使任务结束时仍存在的违规减少 36.8%。
+
+The RIDAR preprint organizes 14 research-integrity violation types and introduces post-hoc detection plus runtime intervention. Authors report 85.2% detection F1 on 60 expert-annotated trajectories and a 36.8% reduction in violations remaining at task completion.
+
+### 技术点 / Technical points
+
+- 在另一组涵盖 50 个任务、300 条轨迹的数据中，检测器标出 3,964 次违规；这些属于检测输出，而非逐项人工最终裁定。
+  - A separate 300-trajectory, 50-task dataset yields 3,964 detected violation instances; these are detector outputs rather than exhaustive human adjudications.
+- 运行时干预动态检测并纠正违规；论文表示代码与数据将在之后发布。
+  - Runtime intervention dynamically detects and corrects violations; the paper says code and data will be released.
+
+### 为什么重要 / Why it matters
+
+这项工作将科研流程诚信与自主研究任务表现纳入并行评估。
+
+The work measures scientific-process integrity alongside autonomous research task performance.
+
+---
+
 <a id="2026-10-21-agentic-wam-code-video-action"></a>
 ## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
 

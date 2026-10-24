@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-22-diffdreamer-world-model-differentiable-flight"></a>
+## [DiffDreamer 在策略训练中分离环境预测与四旋翼物理动态](https://arxiv.org/abs/2610.31617)
+
+**English:** [DiffDreamer separates environmental prediction from quadrotor physics during policy training](https://arxiv.org/abs/2610.31617)
+
+- **发布 / Published:** `2026-10-22T17:41:13Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31617) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `reinforcement-learning`, `differentiable-simulation`, `quadrotor`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DiffDreamer 预印本将学习得到的潜在动态与可微仿真器结合，用于四旋翼控制。作者报告其在高机动跟踪和动态门竞速中改善收敛与表现，并提供概念验证性质的真实飞行实验。
+
+The DiffDreamer preprint couples learned latent dynamics with a differentiable simulator for quadrotor control. Authors report improved convergence and performance in aggressive tracking and dynamic-gate racing, plus proof-of-concept physical flights.
+
+### 技术点 / Technical points
+
+- 世界模型推进外部动态及依赖历史的特征，仿真器则推进显式机器人状态。
+  - The world model advances external dynamics and history-dependent features, while the simulator advances the explicit robot state.
+- 策略优化结合基于价值评估器的任务奖励，以及利用仿真梯度优化可微运动奖励的路径。
+  - Actor optimization combines critic-based task rewards with a simulator-gradient pathway for differentiable motion rewards.
+
+### 为什么重要 / Why it matters
+
+这种分工为基于模型的控制结合学习式预测与已知物理结构提供了方法。
+
+The split offers a way to combine learned predictions with known physical structure in model-based control.
+
+---
+
+<a id="2026-10-22-skelam-skeleton-grounded-world-model"></a>
+## [SkeLAM 用骨架约束潜在机器人动作，实现可控世界预测](https://arxiv.org/abs/2610.31474)
+
+**English:** [SkeLAM grounds latent robot actions in skeletons for controllable world prediction](https://arxiv.org/abs/2610.31474)
+
+- **发布 / Published:** `2026-10-22T16:01:33Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31474) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `latent-action`, `world-model`, `kinematics`, `policy-evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+SkeLAM 预印本在潜在动作中分离受骨架约束的机器人运动与剩余视觉动态。作者报告其在 DROID 上的运动及图像预测优于 DreamDojo，世界模型对策略的评估也与真实执行结果一致。
+
+The SkeLAM preprint separates skeleton-grounded robot motion from residual visual dynamics in latent actions. Authors report improved DROID motion and image prediction over DreamDojo, and agreement between world-model policy estimates and physical executions.
+
+### 技术点 / Technical points
+
+- 跨模态交换重建对齐图像与骨架产生的运动学编码，再通过独立分支为世界模型提供条件。
+  - Cross-modal swap reconstruction aligns image-derived and skeleton-derived kinematic codes; separate branches condition the world model.
+- 在 DROID 上，作者报告末端执行器平均位移误差相对 DreamDojo 降低 19.5%，LPIPS 降低 11.1%。
+  - On DROID, reported end-effector average displacement error falls 19.5% and LPIPS falls 11.1% relative to DreamDojo.
+
+### 为什么重要 / Why it matters
+
+显式运动约束有望让从视频训练的世界模型更忠实地响应机器人控制。
+
+Explicit motion grounding could make video-trained world models respond more faithfully to robot controls.
+
+---
+
+<a id="2026-10-22-uniflowwam-visual-geometry-action"></a>
+## [UniFlowWAM 将视觉、机器人动作与三维场景流作为并列模态建模](https://arxiv.org/abs/2610.30991)
+
+**English:** [UniFlowWAM models vision, robot actions and 3D scene flow as peer modalities](https://arxiv.org/abs/2610.30991)
+
+- **发布 / Published:** `2026-10-22T09:35:56Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.30991) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `world-action-model`, `scene-flow`, `diffusion`, `bimanual`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+UniFlowWAM 预印本将三维场景流与未来视觉特征、动作一同建模。作者在三个仿真基准及四个真实双臂任务上评估这一统一策略与动态模型。
+
+The UniFlowWAM preprint adds 3D scene flow as a jointly modeled modality alongside future visual features and actions. Authors evaluate the unified policy and dynamics model on three simulation benchmarks and four physical bimanual tasks.
+
+### 技术点 / Technical points
+
+- 三个扩散 Transformer 专家通过联合注意力交互；十种目标组合将各模态设为预测目标、条件或缺省。
+  - Three diffusion-transformer experts communicate through joint attention; ten objectives assign each modality a target, conditioning or absent role.
+- 作者报告真实任务平均成功率为 87.0%，最强对照基线为 68.5%；LIBERO-Plus 零样本成功率为 87.7%。
+  - The reported physical-task mean success is 87.0%, versus 68.5% for the strongest compared baseline; LIBERO-Plus zero-shot success is 87.7%.
+
+### 为什么重要 / Why it matters
+
+联合几何与语义预测，为机器人策略及正向、逆向动态提供了共享接口。
+
+Joint geometric and semantic prediction offers a shared interface for robot policies and forward or inverse dynamics.
+
+---
+
 <a id="2026-10-21-agentic-wam-code-video-action"></a>
 ## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
 
