@@ -17970,6 +17970,252 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-23-pydantic-ai-260-sandbox-history-boundaries",
+      "published_at": "2026-10-23T01:44:06Z",
+      "collected_at": "2026-10-25T00:02:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "sandbox",
+        "memory",
+        "safety",
+        "durable-execution"
+      ],
+      "title_en": "Pydantic AI 2.60 adds container sandboxes and hardens agent history boundaries",
+      "title_zh": "Pydantic AI 2.60 增加容器沙箱并强化代理历史记录边界",
+      "summary_en": "Pydantic AI 2.60 adds Docker/Podman and BoxLite sandbox capabilities, relevance-based context compaction, and changes to how untrusted history and subagent output reach the model. This record uses GitHub's publication timestamp; the changelog is dated October 22.",
+      "summary_zh": "Pydantic AI 2.60 新增 Docker/Podman 与 BoxLite 沙箱能力、按相关性压缩上下文，并调整不可信历史及子代理输出传给模型的方式。本条采用 GitHub 的发布时刻，更新日志标注日期为 10 月 22 日。",
+      "tech_points_en": [
+        "DockerSandbox runs a workspace in a local Docker or Podman container; BoxLiteSandbox supplies a local microVM workspace.",
+        "sanitize_messages strips request-level instructions from untrusted history; background subagent output is framed as task data rather than a system prompt.",
+        "RelevanceCompaction uses a judge model to retain, reduce or discard older steps; MCP authentication and headers can be derived from each run's context."
+      ],
+      "tech_points_zh": [
+        "DockerSandbox 将工作区放入本地 Docker 或 Podman 容器，BoxLiteSandbox 提供本地 microVM 工作区。",
+        "sanitize_messages 移除不可信历史中的请求级指令；后台子代理输出以任务数据封装，不再作为系统提示传入。",
+        "RelevanceCompaction 由评判模型决定保留、缩减或丢弃较早步骤；MCP 认证与请求头可按每次运行的上下文生成。"
+      ],
+      "why_it_matters_en": "The release gives agent developers more execution-isolation choices and more explicit boundaries between instructions, stored history and delegated results.",
+      "why_it_matters_zh": "这一版本为代理开发者增加执行隔离选择，并更明确地区分指令、存储历史和委派结果的边界。",
+      "source": {
+        "name": "Pydantic AI GitHub release",
+        "type": "primary",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.60.0"
+      ],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-23-mundo-customized-code-proxy-world",
+      "published_at": "2026-10-23T13:00:56.911Z",
+      "collected_at": "2026-10-25T00:02:26Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "spatial-intelligence",
+        "simulation",
+        "robotics",
+        "video-generation",
+        "multi-agent"
+      ],
+      "title_en": "Mundo combines editable 3D proxy worlds with simulation-guided video rendering",
+      "title_zh": "Mundo 将可编辑三维代理世界与仿真引导视频渲染结合",
+      "summary_en": "Mundo's authors introduce a scene-specific world model built from images of a place. An agent-refined 3D proxy and scene program determine object state and interactions, while a conditioned video model renders the result. Demonstrations include viewpoint exploration, object interaction and robot navigation.",
+      "summary_zh": "Mundo 作者介绍了一种从场景图像构建定制世界模型的方法：由代理细化的三维简化场景与场景程序确定物体状态及交互，再由条件视频模型渲染结果。演示涵盖视角探索、物体交互与机器人导航。",
+      "tech_points_en": [
+        "An editing agent combines visual reasoning with numerical box fitting; a separate reviewer checks the proxy against all input views. MuJoCo computes most demonstrated dynamics.",
+        "The renderer is fine-tuned on about 40,000 video/proxy pairs and streams 124-frame chunks with a 34-frame overlap.",
+        "The authors report roughly 1.5 rendered frames per second on eight A800 GPUs at 20 inference steps; small-object interactions and long-horizon memory remain limitations."
+      ],
+      "tech_points_zh": [
+        "编辑代理结合视觉推理与包围盒数值拟合，独立评审代理再依据所有输入视图检查场景；大部分演示动态由 MuJoCo 计算。",
+        "渲染器使用约 4 万组视频与代理视频配对数据微调，以 124 帧分块流式生成，块间重叠 34 帧。",
+        "作者报告在八张 A800、20 步推理下约每秒渲染 1.5 帧；小物体交互和长时记忆仍有限制。"
+      ],
+      "why_it_matters_en": "Separating explicit simulated state from visual synthesis makes reconstructed environments editable and inspectable for robot testing, while exposing the cost and fidelity limits of the renderer.",
+      "why_it_matters_zh": "将显式仿真状态与视觉合成分开，使重建环境可编辑、可检查，便于机器人测试，也让渲染成本与保真度限制更清晰。",
+      "source": {
+        "name": "Mundo authors / Hugging Face",
+        "type": "primary",
+        "url": "https://huggingface.co/blog/Luo-Yihang/mundo-world-model",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://mundo-world-model.github.io/"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-23-nvidia-microduck-agent-built-training-environments",
+      "published_at": "2026-10-23T14:58:32Z",
+      "collected_at": "2026-10-25T00:02:26Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "reinforcement-learning",
+        "tool-use",
+        "locomotion"
+      ],
+      "title_en": "NVIDIA details an agent-assisted Microduck simulation and locomotion-training workflow",
+      "title_zh": "NVIDIA 展示代理辅助的 Microduck 仿真与运动策略训练流程",
+      "summary_en": "NVIDIA documents a workflow in which Hermes and Nemotron plan a Microduck obstacle course, Astra creates simulation assets, and Isaac Lab trains a perception-and-locomotion policy. The post demonstrates environment construction and simulation evaluation; detailed hardware deployment remains outside its scope.",
+      "summary_zh": "NVIDIA 公开一套流程：Hermes 与 Nemotron 规划 Microduck 障碍课程，Astra 创建仿真资产，再由 Isaac Lab 训练感知与运动策略。文章展示环境构建及仿真评估，详细硬件部署仍不在其覆盖范围内。",
+      "tech_points_en": [
+        "Astra uses FreeCAD for geometry and Blender for materials, exporting editable models and USD assets into an Isaac Sim environment with Newton physics.",
+        "The reported adaptation run starts from a pretrained locomotion policy and uses head-camera depth plus robot-state observations across 4,096 parallel environments on an RTX PRO 6000 Blackwell GPU.",
+        "The workflow evaluates the selected policy locally on RTX Spark and discusses actuator modeling and domain randomization for subsequent sim-to-real work."
+      ],
+      "tech_points_zh": [
+        "Astra 使用 FreeCAD 构建几何、Blender 添加材质，导出可编辑模型及 USD 资产，并在使用 Newton 物理引擎的 Isaac Sim 中组装环境。",
+        "文中适应训练从预训练运动策略出发，以头部相机深度和机器人状态为观测，在一张 RTX PRO 6000 Blackwell 上运行 4,096 个并行环境。",
+        "流程在 RTX Spark 上本地评估选定策略，并讨论后续仿真到现实迁移所需的执行器建模与域随机化。"
+      ],
+      "why_it_matters_en": "The worked example connects agent-generated assets to robot-policy training and evaluation, making the handoff between coding agents and embodied-learning tools more concrete.",
+      "why_it_matters_zh": "这一实例将代理生成的资产接入机器人策略训练与评估，使编码代理与具身学习工具之间的衔接更具体。",
+      "source": {
+        "name": "NVIDIA Technical Blog",
+        "type": "primary",
+        "url": "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 78,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 12,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-23-goose-156-resumable-subagents-boa",
+      "published_at": "2026-10-23T15:49:34Z",
+      "collected_at": "2026-10-25T00:02:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "multi-agent",
+        "runtime",
+        "tool-use",
+        "mcp"
+      ],
+      "title_en": "Goose 1.56 adds resumable delegated agents and a Boa JavaScript runtime",
+      "title_zh": "Goose 1.56 支持恢复委派代理并引入 Boa JavaScript 运行时",
+      "summary_en": "Goose 1.56 adds recovery for failed or cancelled delegated subagents, controls their concurrency, and replaces its PCTX code mode with the Boa JavaScript runtime. The release also adds read-only subagent session views and provider-safe public MCP tool names.",
+      "summary_zh": "Goose 1.56 支持恢复失败或取消的委派子代理、限制其并发数量，并用 Boa JavaScript 运行时替换 PCTX 代码模式。该版本还增加子代理会话只读视图，并为 MCP 工具提供适配模型提供商的公开名称。",
+      "tech_points_en": [
+        "Delegated subagents can resume after failure or cancellation, with a configurable concurrency cap and a global turn-limit fallback.",
+        "The desktop exposes links to read-only subagent sessions, while foreground subagents run through the GDK.",
+        "Code mode moves to Boa; MCP tool naming is adjusted for provider compatibility."
+      ],
+      "tech_points_zh": [
+        "委派子代理可在失败或取消后恢复，支持配置并发上限，并可回退使用全局轮数限制。",
+        "桌面端提供子代理会话的只读链接，前台子代理通过 GDK 运行。",
+        "代码模式迁移至 Boa，MCP 工具命名也调整为适配模型提供商的形式。"
+      ],
+      "why_it_matters_en": "Recovery and concurrency controls make delegated work easier to manage, while session visibility helps users inspect what each agent did.",
+      "why_it_matters_zh": "恢复与并发控制使委派任务更易管理，会话可见性则便于用户检查每个代理的执行过程。",
+      "source": {
+        "name": "Goose GitHub release",
+        "type": "primary",
+        "url": "https://github.com/aaif-goose/goose/releases/tag/v1.56.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 77,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 13,
+        "technical_depth": 11,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-23-google-adk-213-classifier-routing-memory",
+      "published_at": "2026-10-23T18:08:23Z",
+      "collected_at": "2026-10-25T00:02:26Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "workflow",
+        "memory",
+        "speech",
+        "classification"
+      ],
+      "title_en": "Google ADK 2.13 adds classifier-based routing, live audio and MongoDB memory",
+      "title_zh": "Google ADK 2.13 增加分类器路由、实时语音与 MongoDB 记忆",
+      "summary_en": "Google ADK 2.13 introduces typed classifier nodes for workflow routing, interruptible live-audio interactions, and experimental MongoDB session and memory services. It also promotes 12 experimental features to stable. This record follows GitHub's publication time; the changelog is dated October 22.",
+      "summary_zh": "Google ADK 2.13 引入用于工作流路由的类型化分类节点、可打断的实时语音交互，以及实验性的 MongoDB 会话与记忆服务，并将 12 项实验功能转为稳定。本条依据 GitHub 发布时刻入档，更新日志标注日期为 10 月 22 日。",
+      "tech_points_en": [
+        "ClassifierNode and TypesafeClassifier integrate TypeSafe's Jev models for routing with calibrated probabilities.",
+        "MongoDbSessionService persists sessions across runner replicas; MongoDbMemoryService recalls turns by keyword without an embedding model or vector index. Both services remain experimental.",
+        "CascadeLive adds barge-in plus Gemini speech-to-text and text-to-speech; telemetry defaults to OpenTelemetry GenAI v2."
+      ],
+      "tech_points_zh": [
+        "ClassifierNode 与 TypesafeClassifier 接入 TypeSafe 的 Jev 模型，以校准后的概率支持工作流路由。",
+        "MongoDbSessionService 支持跨运行器副本持久化会话；MongoDbMemoryService 通过关键词召回历史，无需嵌入模型或向量索引。两项服务仍属实验功能。",
+        "CascadeLive 增加打断交互及 Gemini 语音识别、语音合成；遥测默认切换至 OpenTelemetry GenAI v2。"
+      ],
+      "why_it_matters_en": "Typed routing and persistent session services give developers additional building blocks for structured, stateful agent workflows.",
+      "why_it_matters_zh": "类型化路由与持久化会话服务，为构建结构化、有状态的代理工作流提供更多组件。",
+      "source": {
+        "name": "Google ADK GitHub release",
+        "type": "primary",
+        "url": "https://github.com/google/adk-python/releases/tag/v2.13.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }

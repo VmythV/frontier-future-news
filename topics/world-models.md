@@ -2,6 +2,44 @@
 
 # World models / 世界模型
 
+<a id="2026-10-23-mundo-customized-code-proxy-world"></a>
+## [Mundo 将可编辑三维代理世界与仿真引导视频渲染结合](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+**English:** [Mundo combines editable 3D proxy worlds with simulation-guided video rendering](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+- **发布 / Published:** `2026-10-23T13:00:56.911Z`
+- **来源 / Source:** [Mundo authors / Hugging Face](https://huggingface.co/blog/Luo-Yihang/mundo-world-model) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `spatial-intelligence`, `simulation`, `robotics`, `video-generation`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Mundo 作者介绍了一种从场景图像构建定制世界模型的方法：由代理细化的三维简化场景与场景程序确定物体状态及交互，再由条件视频模型渲染结果。演示涵盖视角探索、物体交互与机器人导航。
+
+Mundo's authors introduce a scene-specific world model built from images of a place. An agent-refined 3D proxy and scene program determine object state and interactions, while a conditioned video model renders the result. Demonstrations include viewpoint exploration, object interaction and robot navigation.
+
+### 技术点 / Technical points
+
+- 编辑代理结合视觉推理与包围盒数值拟合，独立评审代理再依据所有输入视图检查场景；大部分演示动态由 MuJoCo 计算。
+  - An editing agent combines visual reasoning with numerical box fitting; a separate reviewer checks the proxy against all input views. MuJoCo computes most demonstrated dynamics.
+- 渲染器使用约 4 万组视频与代理视频配对数据微调，以 124 帧分块流式生成，块间重叠 34 帧。
+  - The renderer is fine-tuned on about 40,000 video/proxy pairs and streams 124-frame chunks with a 34-frame overlap.
+- 作者报告在八张 A800、20 步推理下约每秒渲染 1.5 帧；小物体交互和长时记忆仍有限制。
+  - The authors report roughly 1.5 rendered frames per second on eight A800 GPUs at 20 inference steps; small-object interactions and long-horizon memory remain limitations.
+
+### 为什么重要 / Why it matters
+
+将显式仿真状态与视觉合成分开，使重建环境可编辑、可检查，便于机器人测试，也让渲染成本与保真度限制更清晰。
+
+Separating explicit simulated state from visual synthesis makes reconstructed environments editable and inspectable for robot testing, while exposing the cost and fidelity limits of the renderer.
+
+### 链接 / Links
+
+[Evidence 1](https://mundo-world-model.github.io/)
+
+---
+
 <a id="2026-10-22-diffdreamer-world-model-differentiable-flight"></a>
 ## [DiffDreamer 在策略训练中分离环境预测与四旋翼物理动态](https://arxiv.org/abs/2610.31617)
 

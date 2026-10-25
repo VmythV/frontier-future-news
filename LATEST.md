@@ -2,6 +2,184 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-23-google-adk-213-classifier-routing-memory"></a>
+## [Google ADK 2.13 增加分类器路由、实时语音与 MongoDB 记忆](https://github.com/google/adk-python/releases/tag/v2.13.0)
+
+**English:** [Google ADK 2.13 adds classifier-based routing, live audio and MongoDB memory](https://github.com/google/adk-python/releases/tag/v2.13.0)
+
+- **发布 / Published:** `2026-10-23T18:08:23Z`
+- **来源 / Source:** [Google ADK GitHub release](https://github.com/google/adk-python/releases/tag/v2.13.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `workflow`, `memory`, `speech`, `classification`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Google ADK 2.13 引入用于工作流路由的类型化分类节点、可打断的实时语音交互，以及实验性的 MongoDB 会话与记忆服务，并将 12 项实验功能转为稳定。本条依据 GitHub 发布时刻入档，更新日志标注日期为 10 月 22 日。
+
+Google ADK 2.13 introduces typed classifier nodes for workflow routing, interruptible live-audio interactions, and experimental MongoDB session and memory services. It also promotes 12 experimental features to stable. This record follows GitHub's publication time; the changelog is dated October 22.
+
+### 技术点 / Technical points
+
+- ClassifierNode 与 TypesafeClassifier 接入 TypeSafe 的 Jev 模型，以校准后的概率支持工作流路由。
+  - ClassifierNode and TypesafeClassifier integrate TypeSafe's Jev models for routing with calibrated probabilities.
+- MongoDbSessionService 支持跨运行器副本持久化会话；MongoDbMemoryService 通过关键词召回历史，无需嵌入模型或向量索引。两项服务仍属实验功能。
+  - MongoDbSessionService persists sessions across runner replicas; MongoDbMemoryService recalls turns by keyword without an embedding model or vector index. Both services remain experimental.
+- CascadeLive 增加打断交互及 Gemini 语音识别、语音合成；遥测默认切换至 OpenTelemetry GenAI v2。
+  - CascadeLive adds barge-in plus Gemini speech-to-text and text-to-speech; telemetry defaults to OpenTelemetry GenAI v2.
+
+### 为什么重要 / Why it matters
+
+类型化路由与持久化会话服务，为构建结构化、有状态的代理工作流提供更多组件。
+
+Typed routing and persistent session services give developers additional building blocks for structured, stateful agent workflows.
+
+---
+
+<a id="2026-10-23-goose-156-resumable-subagents-boa"></a>
+## [Goose 1.56 支持恢复委派代理并引入 Boa JavaScript 运行时](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
+
+**English:** [Goose 1.56 adds resumable delegated agents and a Boa JavaScript runtime](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
+
+- **发布 / Published:** `2026-10-23T15:49:34Z`
+- **来源 / Source:** [Goose GitHub release](https://github.com/aaif-goose/goose/releases/tag/v1.56.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `multi-agent`, `runtime`, `tool-use`, `mcp`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Goose 1.56 支持恢复失败或取消的委派子代理、限制其并发数量，并用 Boa JavaScript 运行时替换 PCTX 代码模式。该版本还增加子代理会话只读视图，并为 MCP 工具提供适配模型提供商的公开名称。
+
+Goose 1.56 adds recovery for failed or cancelled delegated subagents, controls their concurrency, and replaces its PCTX code mode with the Boa JavaScript runtime. The release also adds read-only subagent session views and provider-safe public MCP tool names.
+
+### 技术点 / Technical points
+
+- 委派子代理可在失败或取消后恢复，支持配置并发上限，并可回退使用全局轮数限制。
+  - Delegated subagents can resume after failure or cancellation, with a configurable concurrency cap and a global turn-limit fallback.
+- 桌面端提供子代理会话的只读链接，前台子代理通过 GDK 运行。
+  - The desktop exposes links to read-only subagent sessions, while foreground subagents run through the GDK.
+- 代码模式迁移至 Boa，MCP 工具命名也调整为适配模型提供商的形式。
+  - Code mode moves to Boa; MCP tool naming is adjusted for provider compatibility.
+
+### 为什么重要 / Why it matters
+
+恢复与并发控制使委派任务更易管理，会话可见性则便于用户检查每个代理的执行过程。
+
+Recovery and concurrency controls make delegated work easier to manage, while session visibility helps users inspect what each agent did.
+
+---
+
+<a id="2026-10-23-nvidia-microduck-agent-built-training-environments"></a>
+## [NVIDIA 展示代理辅助的 Microduck 仿真与运动策略训练流程](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+**English:** [NVIDIA details an agent-assisted Microduck simulation and locomotion-training workflow](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+- **发布 / Published:** `2026-10-23T14:58:32Z`
+- **来源 / Source:** [NVIDIA Technical Blog](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reinforcement-learning`, `tool-use`, `locomotion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+NVIDIA 公开一套流程：Hermes 与 Nemotron 规划 Microduck 障碍课程，Astra 创建仿真资产，再由 Isaac Lab 训练感知与运动策略。文章展示环境构建及仿真评估，详细硬件部署仍不在其覆盖范围内。
+
+NVIDIA documents a workflow in which Hermes and Nemotron plan a Microduck obstacle course, Astra creates simulation assets, and Isaac Lab trains a perception-and-locomotion policy. The post demonstrates environment construction and simulation evaluation; detailed hardware deployment remains outside its scope.
+
+### 技术点 / Technical points
+
+- Astra 使用 FreeCAD 构建几何、Blender 添加材质，导出可编辑模型及 USD 资产，并在使用 Newton 物理引擎的 Isaac Sim 中组装环境。
+  - Astra uses FreeCAD for geometry and Blender for materials, exporting editable models and USD assets into an Isaac Sim environment with Newton physics.
+- 文中适应训练从预训练运动策略出发，以头部相机深度和机器人状态为观测，在一张 RTX PRO 6000 Blackwell 上运行 4,096 个并行环境。
+  - The reported adaptation run starts from a pretrained locomotion policy and uses head-camera depth plus robot-state observations across 4,096 parallel environments on an RTX PRO 6000 Blackwell GPU.
+- 流程在 RTX Spark 上本地评估选定策略，并讨论后续仿真到现实迁移所需的执行器建模与域随机化。
+  - The workflow evaluates the selected policy locally on RTX Spark and discusses actuator modeling and domain randomization for subsequent sim-to-real work.
+
+### 为什么重要 / Why it matters
+
+这一实例将代理生成的资产接入机器人策略训练与评估，使编码代理与具身学习工具之间的衔接更具体。
+
+The worked example connects agent-generated assets to robot-policy training and evaluation, making the handoff between coding agents and embodied-learning tools more concrete.
+
+---
+
+<a id="2026-10-23-mundo-customized-code-proxy-world"></a>
+## [Mundo 将可编辑三维代理世界与仿真引导视频渲染结合](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+**English:** [Mundo combines editable 3D proxy worlds with simulation-guided video rendering](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+- **发布 / Published:** `2026-10-23T13:00:56.911Z`
+- **来源 / Source:** [Mundo authors / Hugging Face](https://huggingface.co/blog/Luo-Yihang/mundo-world-model) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `spatial-intelligence`, `simulation`, `robotics`, `video-generation`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Mundo 作者介绍了一种从场景图像构建定制世界模型的方法：由代理细化的三维简化场景与场景程序确定物体状态及交互，再由条件视频模型渲染结果。演示涵盖视角探索、物体交互与机器人导航。
+
+Mundo's authors introduce a scene-specific world model built from images of a place. An agent-refined 3D proxy and scene program determine object state and interactions, while a conditioned video model renders the result. Demonstrations include viewpoint exploration, object interaction and robot navigation.
+
+### 技术点 / Technical points
+
+- 编辑代理结合视觉推理与包围盒数值拟合，独立评审代理再依据所有输入视图检查场景；大部分演示动态由 MuJoCo 计算。
+  - An editing agent combines visual reasoning with numerical box fitting; a separate reviewer checks the proxy against all input views. MuJoCo computes most demonstrated dynamics.
+- 渲染器使用约 4 万组视频与代理视频配对数据微调，以 124 帧分块流式生成，块间重叠 34 帧。
+  - The renderer is fine-tuned on about 40,000 video/proxy pairs and streams 124-frame chunks with a 34-frame overlap.
+- 作者报告在八张 A800、20 步推理下约每秒渲染 1.5 帧；小物体交互和长时记忆仍有限制。
+  - The authors report roughly 1.5 rendered frames per second on eight A800 GPUs at 20 inference steps; small-object interactions and long-horizon memory remain limitations.
+
+### 为什么重要 / Why it matters
+
+将显式仿真状态与视觉合成分开，使重建环境可编辑、可检查，便于机器人测试，也让渲染成本与保真度限制更清晰。
+
+Separating explicit simulated state from visual synthesis makes reconstructed environments editable and inspectable for robot testing, while exposing the cost and fidelity limits of the renderer.
+
+### 链接 / Links
+
+[Evidence 1](https://mundo-world-model.github.io/)
+
+---
+
+<a id="2026-10-23-pydantic-ai-260-sandbox-history-boundaries"></a>
+## [Pydantic AI 2.60 增加容器沙箱并强化代理历史记录边界](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
+
+**English:** [Pydantic AI 2.60 adds container sandboxes and hardens agent history boundaries](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
+
+- **发布 / Published:** `2026-10-23T01:44:06Z`
+- **来源 / Source:** [Pydantic AI GitHub release](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `sandbox`, `memory`, `safety`, `durable-execution`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.60 新增 Docker/Podman 与 BoxLite 沙箱能力、按相关性压缩上下文，并调整不可信历史及子代理输出传给模型的方式。本条采用 GitHub 的发布时刻，更新日志标注日期为 10 月 22 日。
+
+Pydantic AI 2.60 adds Docker/Podman and BoxLite sandbox capabilities, relevance-based context compaction, and changes to how untrusted history and subagent output reach the model. This record uses GitHub's publication timestamp; the changelog is dated October 22.
+
+### 技术点 / Technical points
+
+- DockerSandbox 将工作区放入本地 Docker 或 Podman 容器，BoxLiteSandbox 提供本地 microVM 工作区。
+  - DockerSandbox runs a workspace in a local Docker or Podman container; BoxLiteSandbox supplies a local microVM workspace.
+- sanitize_messages 移除不可信历史中的请求级指令；后台子代理输出以任务数据封装，不再作为系统提示传入。
+  - sanitize_messages strips request-level instructions from untrusted history; background subagent output is framed as task data rather than a system prompt.
+- RelevanceCompaction 由评判模型决定保留、缩减或丢弃较早步骤；MCP 认证与请求头可按每次运行的上下文生成。
+  - RelevanceCompaction uses a judge model to retain, reduce or discard older steps; MCP authentication and headers can be derived from each run's context.
+
+### 为什么重要 / Why it matters
+
+这一版本为代理开发者增加执行隔离选择，并更明确地区分指令、存储历史和委派结果的边界。
+
+The release gives agent developers more execution-isolation choices and more explicit boundaries between instructions, stored history and delegated results.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.60.0)
+
+---
+
 <a id="2026-10-22-snap-alchemist-ml-experiment-harness"></a>
 ## [Snap 介绍 Alchemist：由确定性框架执行人工批准的机器学习实验](https://eng.snap.com/alchemist)
 
@@ -499,167 +677,3 @@ ASTEROID trains partially observed agents using histories collected by the curre
 在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。
 
 The method offers a supervised route to test-time exploration when privileged training information is available.
-
----
-
-<a id="2026-10-21-atomicrl-long-horizon-credit-assignment"></a>
-## [AtomicRL 针对机器人强化学习的子任务信用污染与探索瓶颈](https://arxiv.org/abs/2610.30097)
-
-**English:** [AtomicRL targets subtask credit contamination and exploration bottlenecks in robot RL](https://arxiv.org/abs/2610.30097)
-
-- **发布 / Published:** `2026-10-21T17:45:24Z`
-- **来源 / Source:** [AtomicRL authors / arXiv](https://arxiv.org/abs/2610.30097) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `reinforcement-learning`, `long-horizon`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-AtomicRL 利用原子任务结构，对长时程操作 VLA 策略进行后训练。语义门控限制失败子任务的信用跨边界传播，自适应采样则将学习集中到薄弱阶段。作者还提出 Real2Sim2Real 流程，将仿真在线强化学习迁移到实体机器人。
-
-AtomicRL uses atomic task structure to post-train VLA policies for long-horizon manipulation. Its semantic gating limits credit leakage from failed subtasks, while adaptive sampling focuses learning on weak stages. The authors also introduce a Real2Sim2Real pipeline for transferring simulated online reinforcement learning to physical robots.
-
-### 技术点 / Technical points
-
-- SAPO 在子任务边界对时序差分残差进行门控，同时保留子任务内部的信用分配和价值自举。
-  - SAPO gates temporal-difference residuals at subtask boundaries while retaining within-subtask credit assignment and bootstrapping.
-- 在 LIBERO-LONG 上，论文报告两种 VLA 架构相对 PPO 分别获得 3.6 和 4.0 个百分点的绝对提升。
-  - On LIBERO-LONG, the paper reports absolute gains of 3.6 and 4.0 percentage points over PPO across two VLA architectures.
-
-### 为什么重要 / Why it matters
-
-当少数困难阶段制约整段操作序列时，显式子任务结构有望改善强化学习效率。
-
-Explicit subtask structure may improve reinforcement learning when a few difficult stages limit an entire manipulation sequence.
-
----
-
-<a id="2026-10-21-rise-steerable-humanoid-fall-recovery"></a>
-## [RISE 通过预测身体运动，在推理时引导人形机器人跌倒恢复](https://arxiv.org/abs/2610.30061)
-
-**English:** [RISE steers humanoid fall recovery at inference time using predicted body motion](https://arxiv.org/abs/2610.30061)
-
-- **发布 / Published:** `2026-10-21T17:20:04Z`
-- **来源 / Source:** [RISE authors / arXiv](https://arxiv.org/abs/2610.30061) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `humanoid`, `diffusion`, `motion-planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-RISE 允许任务目标决定跌倒后的人形机器人如何起身。它学习可复用的恢复动作词汇，并用视觉扩散规划器预测未来身体状态。论文报告无需重训即可在仿真中适应地形并调整动作，并提供真实 Unitree G1 演示。
-
-RISE lets task objectives shape how a fallen humanoid stands up. It learns a reusable recovery vocabulary and a visual diffusion planner that anticipates future body states. The paper reports simulated terrain adaptation and steering without retraining, complemented by demonstrations on a physical Unitree G1.
-
-### 技术点 / Technical points
-
-- 恢复动作词汇通过感知反馈连接到电机动作。
-  - Sensory feedback connects the recovery vocabulary to motor actions.
-- 任务代价先将预测意图引导至指定朝向、起身速度或路径，规划器再据此生成运动潜变量。
-  - Task costs guide predicted intent toward a requested heading, rise speed or path before the planner generates conditioned motion latents.
-
-### 为什么重要 / Why it matters
-
-该工作让恢复动作能够适应后续任务需求，而不再只追求单一固定的起身结果。
-
-The work makes recovery behavior adjustable to downstream tasks instead of treating standing up as a single fixed outcome.
-
----
-
-<a id="2026-10-21-tom2vec-latent-partner-reasoning"></a>
-## [ToM2Vec 学习连续伙伴状态推理令牌以改善多智能体交互](https://arxiv.org/abs/2610.29934)
-
-**English:** [ToM2Vec learns continuous partner-state reasoning tokens for multi-agent interaction](https://arxiv.org/abs/2610.29934)
-
-- **发布 / Published:** `2026-10-21T16:05:54Z`
-- **来源 / Source:** [ToM2Vec authors / arXiv](https://arxiv.org/abs/2610.29934) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `latent-reasoning`, `coordination`, `theory-of-mind`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-ToM2Vec 以固定数量的连续推理令牌表示对其他智能体的判断。训练时以伙伴的真实思考为监督，测试时由智能体自行生成令牌。作者在合作、竞争和混合动机环境中报告提升，并展示对未见伙伴模型家族的迁移。
-
-ToM2Vec represents beliefs about other agents with a fixed budget of continuous reasoning tokens. Training uses the partner’s actual thoughts as supervision; at test time, each agent generates its own tokens. The authors report improvements across cooperative, competitive and mixed-motive environments, including transfer to unseen partner model families.
-
-### 技术点 / Technical points
-
-- 评测包括 Overcooked-AI、多方谈判、Decrypto、Hanabi 和 Collab Escape/Capture。
-  - Evaluations include Overcooked-AI, multiparty negotiation, Decrypto, Hanabi and Collab Escape/Capture.
-- 学习到的令牌作为思考和动作的条件；论文对比中，将推理表达为文本会降低表现。
-  - The learned tokens condition thoughts and actions; expressing reasoning in text reduces performance in the reported comparison.
-
-### 为什么重要 / Why it matters
-
-该方法探索利用潜表示推理伙伴状态，超越以单一文本猜测描述伙伴的方式。
-
-The approach tests latent representations for reasoning about partners beyond a single textual guess about their state.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/nsivaku/tom2vec)
-
----
-
-<a id="2026-10-21-userswe-interactive-coding-benchmark"></a>
-## [UserSWE 通过动态用户对话与逐轮执行测试编程智能体](https://arxiv.org/abs/2610.29822)
-
-**English:** [UserSWE tests coding agents through evolving user conversations and per-turn execution](https://arxiv.org/abs/2610.29822)
-
-- **发布 / Published:** `2026-10-21T14:46:22Z`
-- **来源 / Source:** [UserSWE authors / arXiv](https://arxiv.org/abs/2610.29822) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `code-agent`, `benchmark`, `multi-turn`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-UserSWE 通过与模拟用户的多轮对话评测仓库级缺陷修复。评测覆盖 42 个仓库中的 72 个任务和十一个智能体，发现排名随交互预算变化。每轮均给出基于执行证据的判定，而非仅判断最终补丁。
-
-UserSWE evaluates repository bug fixing through multi-turn conversations with simulated users. Its evaluation covers eleven agents on 72 tasks from 42 repositories and finds that rankings change with the interaction budget. Every turn receives an execution-grounded verdict rather than relying only on a final patch judgment.
-
-### 技术点 / Technical points
-
-- 信息池限制可披露事实；用户角色变化由基于 20,859 次开发会话校准的转移模型决定。
-  - Information pools constrain disclosed facts; user personas follow a transition model calibrated on 20,859 development sessions.
-- 每轮运行测试，由不同模型家族的智能体撰写和审核判定，仅对测试无法确定的部分使用模型判断。
-  - Tests run after each turn, and agents from different model families write and review verdicts, reserving model judgment for aspects unresolved by tests.
-
-### 为什么重要 / Why it matters
-
-该基准将交互质量与持续变化的需求纳入编程智能体评测。
-
-The benchmark makes interaction quality and evolving requirements part of coding-agent evaluation.
-
----
-
-<a id="2026-10-21-nvidia-agent-knowledge-foundation-toolkit"></a>
-## [NVIDIA Agent Toolkit 增添 Agent Knowledge Foundation 与结构化数据模型](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
-
-**English:** [NVIDIA Agent Toolkit adds Agent Knowledge Foundation and structured-data models](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/)
-
-- **发布 / Published:** `2026-10-21T10:10:01Z`
-- **来源 / Source:** [NVIDIA Blog](https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `enterprise`, `retrieval`, `runtime`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-NVIDIA 扩展 Agent Toolkit，加入整合 CUDA-X 库、Nemotron Retriever 和 Kumo 结构化数据模型的 Agent Knowledge Foundation。该工具栈将企业数据与预测能力连接到 OpenShell 访问边界，以及面向专用智能体的 NemoClaw 参考设计。
-
-NVIDIA expands Agent Toolkit with Agent Knowledge Foundation, combining CUDA-X libraries, Nemotron Retriever and Kumo structured-data models. The stack connects enterprise data and prediction with OpenShell access boundaries and NemoClaw reference designs for specialized agents.
-
-### 技术点 / Technical points
-
-- Auto-Ontology 将原始企业数据映射为业务概念及其关系；CUDA-X 提供图计算、检索、优化和分析组件。
-  - Auto-Ontology maps raw enterprise data to business concepts and their relationships; CUDA-X supplies graph, search, optimization and analytics components.
-- Kumo 覆盖表格、关系、时间序列及预测任务；新的 NemoClaw 优化蓝图提供改进专用智能体的起始工作流。
-  - Kumo covers tabular, relational, time-series and forecasting workloads; a new NemoClaw optimization blueprint provides a starting workflow for improving specialized agents.
-
-### 为什么重要 / Why it matters
-
-此次发布将企业数据落地与预测工具连接到明确的智能体运行时控制。
-
-The release links enterprise grounding and predictive tools with explicit agent runtime controls.

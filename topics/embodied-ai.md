@@ -2,6 +2,78 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-23-nvidia-microduck-agent-built-training-environments"></a>
+## [NVIDIA 展示代理辅助的 Microduck 仿真与运动策略训练流程](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+**English:** [NVIDIA details an agent-assisted Microduck simulation and locomotion-training workflow](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+- **发布 / Published:** `2026-10-23T14:58:32Z`
+- **来源 / Source:** [NVIDIA Technical Blog](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reinforcement-learning`, `tool-use`, `locomotion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+NVIDIA 公开一套流程：Hermes 与 Nemotron 规划 Microduck 障碍课程，Astra 创建仿真资产，再由 Isaac Lab 训练感知与运动策略。文章展示环境构建及仿真评估，详细硬件部署仍不在其覆盖范围内。
+
+NVIDIA documents a workflow in which Hermes and Nemotron plan a Microduck obstacle course, Astra creates simulation assets, and Isaac Lab trains a perception-and-locomotion policy. The post demonstrates environment construction and simulation evaluation; detailed hardware deployment remains outside its scope.
+
+### 技术点 / Technical points
+
+- Astra 使用 FreeCAD 构建几何、Blender 添加材质，导出可编辑模型及 USD 资产，并在使用 Newton 物理引擎的 Isaac Sim 中组装环境。
+  - Astra uses FreeCAD for geometry and Blender for materials, exporting editable models and USD assets into an Isaac Sim environment with Newton physics.
+- 文中适应训练从预训练运动策略出发，以头部相机深度和机器人状态为观测，在一张 RTX PRO 6000 Blackwell 上运行 4,096 个并行环境。
+  - The reported adaptation run starts from a pretrained locomotion policy and uses head-camera depth plus robot-state observations across 4,096 parallel environments on an RTX PRO 6000 Blackwell GPU.
+- 流程在 RTX Spark 上本地评估选定策略，并讨论后续仿真到现实迁移所需的执行器建模与域随机化。
+  - The workflow evaluates the selected policy locally on RTX Spark and discusses actuator modeling and domain randomization for subsequent sim-to-real work.
+
+### 为什么重要 / Why it matters
+
+这一实例将代理生成的资产接入机器人策略训练与评估，使编码代理与具身学习工具之间的衔接更具体。
+
+The worked example connects agent-generated assets to robot-policy training and evaluation, making the handoff between coding agents and embodied-learning tools more concrete.
+
+---
+
+<a id="2026-10-23-mundo-customized-code-proxy-world"></a>
+## [Mundo 将可编辑三维代理世界与仿真引导视频渲染结合](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+**English:** [Mundo combines editable 3D proxy worlds with simulation-guided video rendering](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
+
+- **发布 / Published:** `2026-10-23T13:00:56.911Z`
+- **来源 / Source:** [Mundo authors / Hugging Face](https://huggingface.co/blog/Luo-Yihang/mundo-world-model) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `spatial-intelligence`, `simulation`, `robotics`, `video-generation`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Mundo 作者介绍了一种从场景图像构建定制世界模型的方法：由代理细化的三维简化场景与场景程序确定物体状态及交互，再由条件视频模型渲染结果。演示涵盖视角探索、物体交互与机器人导航。
+
+Mundo's authors introduce a scene-specific world model built from images of a place. An agent-refined 3D proxy and scene program determine object state and interactions, while a conditioned video model renders the result. Demonstrations include viewpoint exploration, object interaction and robot navigation.
+
+### 技术点 / Technical points
+
+- 编辑代理结合视觉推理与包围盒数值拟合，独立评审代理再依据所有输入视图检查场景；大部分演示动态由 MuJoCo 计算。
+  - An editing agent combines visual reasoning with numerical box fitting; a separate reviewer checks the proxy against all input views. MuJoCo computes most demonstrated dynamics.
+- 渲染器使用约 4 万组视频与代理视频配对数据微调，以 124 帧分块流式生成，块间重叠 34 帧。
+  - The renderer is fine-tuned on about 40,000 video/proxy pairs and streams 124-frame chunks with a 34-frame overlap.
+- 作者报告在八张 A800、20 步推理下约每秒渲染 1.5 帧；小物体交互和长时记忆仍有限制。
+  - The authors report roughly 1.5 rendered frames per second on eight A800 GPUs at 20 inference steps; small-object interactions and long-horizon memory remain limitations.
+
+### 为什么重要 / Why it matters
+
+将显式仿真状态与视觉合成分开，使重建环境可编辑、可检查，便于机器人测试，也让渲染成本与保真度限制更清晰。
+
+Separating explicit simulated state from visual synthesis makes reconstructed environments editable and inspectable for robot testing, while exposing the cost and fidelity limits of the renderer.
+
+### 链接 / Links
+
+[Evidence 1](https://mundo-world-model.github.io/)
+
+---
+
 <a id="2026-10-22-opentac-customizable-3d-tactile-skin"></a>
 ## [OpenTac 将可定制触觉皮肤与三维力感知结合](https://arxiv.org/abs/2610.31661)
 

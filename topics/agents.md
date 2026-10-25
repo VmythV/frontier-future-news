@@ -2,6 +2,146 @@
 
 # Agents / 智能体
 
+<a id="2026-10-23-google-adk-213-classifier-routing-memory"></a>
+## [Google ADK 2.13 增加分类器路由、实时语音与 MongoDB 记忆](https://github.com/google/adk-python/releases/tag/v2.13.0)
+
+**English:** [Google ADK 2.13 adds classifier-based routing, live audio and MongoDB memory](https://github.com/google/adk-python/releases/tag/v2.13.0)
+
+- **发布 / Published:** `2026-10-23T18:08:23Z`
+- **来源 / Source:** [Google ADK GitHub release](https://github.com/google/adk-python/releases/tag/v2.13.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `workflow`, `memory`, `speech`, `classification`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Google ADK 2.13 引入用于工作流路由的类型化分类节点、可打断的实时语音交互，以及实验性的 MongoDB 会话与记忆服务，并将 12 项实验功能转为稳定。本条依据 GitHub 发布时刻入档，更新日志标注日期为 10 月 22 日。
+
+Google ADK 2.13 introduces typed classifier nodes for workflow routing, interruptible live-audio interactions, and experimental MongoDB session and memory services. It also promotes 12 experimental features to stable. This record follows GitHub's publication time; the changelog is dated October 22.
+
+### 技术点 / Technical points
+
+- ClassifierNode 与 TypesafeClassifier 接入 TypeSafe 的 Jev 模型，以校准后的概率支持工作流路由。
+  - ClassifierNode and TypesafeClassifier integrate TypeSafe's Jev models for routing with calibrated probabilities.
+- MongoDbSessionService 支持跨运行器副本持久化会话；MongoDbMemoryService 通过关键词召回历史，无需嵌入模型或向量索引。两项服务仍属实验功能。
+  - MongoDbSessionService persists sessions across runner replicas; MongoDbMemoryService recalls turns by keyword without an embedding model or vector index. Both services remain experimental.
+- CascadeLive 增加打断交互及 Gemini 语音识别、语音合成；遥测默认切换至 OpenTelemetry GenAI v2。
+  - CascadeLive adds barge-in plus Gemini speech-to-text and text-to-speech; telemetry defaults to OpenTelemetry GenAI v2.
+
+### 为什么重要 / Why it matters
+
+类型化路由与持久化会话服务，为构建结构化、有状态的代理工作流提供更多组件。
+
+Typed routing and persistent session services give developers additional building blocks for structured, stateful agent workflows.
+
+---
+
+<a id="2026-10-23-goose-156-resumable-subagents-boa"></a>
+## [Goose 1.56 支持恢复委派代理并引入 Boa JavaScript 运行时](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
+
+**English:** [Goose 1.56 adds resumable delegated agents and a Boa JavaScript runtime](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
+
+- **发布 / Published:** `2026-10-23T15:49:34Z`
+- **来源 / Source:** [Goose GitHub release](https://github.com/aaif-goose/goose/releases/tag/v1.56.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `multi-agent`, `runtime`, `tool-use`, `mcp`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Goose 1.56 支持恢复失败或取消的委派子代理、限制其并发数量，并用 Boa JavaScript 运行时替换 PCTX 代码模式。该版本还增加子代理会话只读视图，并为 MCP 工具提供适配模型提供商的公开名称。
+
+Goose 1.56 adds recovery for failed or cancelled delegated subagents, controls their concurrency, and replaces its PCTX code mode with the Boa JavaScript runtime. The release also adds read-only subagent session views and provider-safe public MCP tool names.
+
+### 技术点 / Technical points
+
+- 委派子代理可在失败或取消后恢复，支持配置并发上限，并可回退使用全局轮数限制。
+  - Delegated subagents can resume after failure or cancellation, with a configurable concurrency cap and a global turn-limit fallback.
+- 桌面端提供子代理会话的只读链接，前台子代理通过 GDK 运行。
+  - The desktop exposes links to read-only subagent sessions, while foreground subagents run through the GDK.
+- 代码模式迁移至 Boa，MCP 工具命名也调整为适配模型提供商的形式。
+  - Code mode moves to Boa; MCP tool naming is adjusted for provider compatibility.
+
+### 为什么重要 / Why it matters
+
+恢复与并发控制使委派任务更易管理，会话可见性则便于用户检查每个代理的执行过程。
+
+Recovery and concurrency controls make delegated work easier to manage, while session visibility helps users inspect what each agent did.
+
+---
+
+<a id="2026-10-23-nvidia-microduck-agent-built-training-environments"></a>
+## [NVIDIA 展示代理辅助的 Microduck 仿真与运动策略训练流程](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+**English:** [NVIDIA details an agent-assisted Microduck simulation and locomotion-training workflow](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
+
+- **发布 / Published:** `2026-10-23T14:58:32Z`
+- **来源 / Source:** [NVIDIA Technical Blog](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `reinforcement-learning`, `tool-use`, `locomotion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+NVIDIA 公开一套流程：Hermes 与 Nemotron 规划 Microduck 障碍课程，Astra 创建仿真资产，再由 Isaac Lab 训练感知与运动策略。文章展示环境构建及仿真评估，详细硬件部署仍不在其覆盖范围内。
+
+NVIDIA documents a workflow in which Hermes and Nemotron plan a Microduck obstacle course, Astra creates simulation assets, and Isaac Lab trains a perception-and-locomotion policy. The post demonstrates environment construction and simulation evaluation; detailed hardware deployment remains outside its scope.
+
+### 技术点 / Technical points
+
+- Astra 使用 FreeCAD 构建几何、Blender 添加材质，导出可编辑模型及 USD 资产，并在使用 Newton 物理引擎的 Isaac Sim 中组装环境。
+  - Astra uses FreeCAD for geometry and Blender for materials, exporting editable models and USD assets into an Isaac Sim environment with Newton physics.
+- 文中适应训练从预训练运动策略出发，以头部相机深度和机器人状态为观测，在一张 RTX PRO 6000 Blackwell 上运行 4,096 个并行环境。
+  - The reported adaptation run starts from a pretrained locomotion policy and uses head-camera depth plus robot-state observations across 4,096 parallel environments on an RTX PRO 6000 Blackwell GPU.
+- 流程在 RTX Spark 上本地评估选定策略，并讨论后续仿真到现实迁移所需的执行器建模与域随机化。
+  - The workflow evaluates the selected policy locally on RTX Spark and discusses actuator modeling and domain randomization for subsequent sim-to-real work.
+
+### 为什么重要 / Why it matters
+
+这一实例将代理生成的资产接入机器人策略训练与评估，使编码代理与具身学习工具之间的衔接更具体。
+
+The worked example connects agent-generated assets to robot-policy training and evaluation, making the handoff between coding agents and embodied-learning tools more concrete.
+
+---
+
+<a id="2026-10-23-pydantic-ai-260-sandbox-history-boundaries"></a>
+## [Pydantic AI 2.60 增加容器沙箱并强化代理历史记录边界](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
+
+**English:** [Pydantic AI 2.60 adds container sandboxes and hardens agent history boundaries](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
+
+- **发布 / Published:** `2026-10-23T01:44:06Z`
+- **来源 / Source:** [Pydantic AI GitHub release](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `sandbox`, `memory`, `safety`, `durable-execution`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.60 新增 Docker/Podman 与 BoxLite 沙箱能力、按相关性压缩上下文，并调整不可信历史及子代理输出传给模型的方式。本条采用 GitHub 的发布时刻，更新日志标注日期为 10 月 22 日。
+
+Pydantic AI 2.60 adds Docker/Podman and BoxLite sandbox capabilities, relevance-based context compaction, and changes to how untrusted history and subagent output reach the model. This record uses GitHub's publication timestamp; the changelog is dated October 22.
+
+### 技术点 / Technical points
+
+- DockerSandbox 将工作区放入本地 Docker 或 Podman 容器，BoxLiteSandbox 提供本地 microVM 工作区。
+  - DockerSandbox runs a workspace in a local Docker or Podman container; BoxLiteSandbox supplies a local microVM workspace.
+- sanitize_messages 移除不可信历史中的请求级指令；后台子代理输出以任务数据封装，不再作为系统提示传入。
+  - sanitize_messages strips request-level instructions from untrusted history; background subagent output is framed as task data rather than a system prompt.
+- RelevanceCompaction 由评判模型决定保留、缩减或丢弃较早步骤；MCP 认证与请求头可按每次运行的上下文生成。
+  - RelevanceCompaction uses a judge model to retain, reduce or discard older steps; MCP authentication and headers can be derived from each run's context.
+
+### 为什么重要 / Why it matters
+
+这一版本为代理开发者增加执行隔离选择，并更明确地区分指令、存储历史和委派结果的边界。
+
+The release gives agent developers more execution-isolation choices and more explicit boundaries between instructions, stored history and delegated results.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.60.0)
+
+---
+
 <a id="2026-10-22-snap-alchemist-ml-experiment-harness"></a>
 ## [Snap 介绍 Alchemist：由确定性框架执行人工批准的机器学习实验](https://eng.snap.com/alchemist)
 
