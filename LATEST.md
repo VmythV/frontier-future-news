@@ -2,6 +2,156 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-24-qwen-code-0261-durable-recovery-delegation"></a>
+## [Qwen Code 0.26.1 增加持久恢复控制并默认开放子智能体委派](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1)
+
+**English:** [Qwen Code 0.26.1 adds durable recovery controls and public subagent delegation](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1)
+
+- **发布 / Published:** `2026-10-24T15:47:58Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `coding`, `multi-agent`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.26.1 让托管工作区会话在恢复状态持久化完成后再继续，在 WebShell 展示恢复原因与可用操作，并默认开启公开的子智能体委派能力。桌面版发布采用同一组改动，合并为一个事件。
+
+Qwen Code 0.26.1 makes managed workspace sessions wait for durable recovery settlement before continuing, exposes recovery reasons and valid actions in WebShell, and enables public subagent delegation by default. Its desktop release shares the same change set and is treated as one event.
+
+### 技术点 / Technical points
+
+- 空闲托管会话支持保留审计历史的手动上下文压缩，检查点历史增加分页。
+  - Idle managed sessions support manual context compression while preserving audit history; checkpoint history gains pagination.
+- 无需重建会话即可管理 MCP 服务器，工作区会话新增 web_fetch。
+  - MCP servers can be managed without recreating sessions, and workspace sessions gain web_fetch.
+- 计划任务可由模型之外运行的 shell 命令设定执行门槛，守护进程与 WebShell 也会传递该门槛。
+  - Scheduled tasks can be gated by an external shell command, with the gate carried through the daemon and WebShell.
+
+### 为什么重要 / Why it matters
+
+该更新让长时间运行的编程智能体具备更清晰的恢复状态，以及对子任务委派和计划工作的明确控制。
+
+The update gives long-running coding agents clearer recovery state and more explicit controls over delegated and scheduled work.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.1)
+
+---
+
+<a id="2026-10-24-deep-robotics-brain-physical-prediction-benchmarks"></a>
+## [云深处公布连接物理预测、策略学习与导航记忆的研究体系](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
+
+**English:** [DEEP Robotics outlines a research stack linking physical prediction, policies and navigation memory](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
+
+- **发布 / Published:** `2026-10-24T12:20:00Z`
+- **来源 / Source:** [DEEP Robotics via GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `robotics`, `world-model`, `vla`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+云深处在 DEEPRobotics-Brain 体系下汇总世界模型、VLA 学习、策略优化、预测式记忆和评测五个研究方向。10 月 24 日公告包含此前已有预印本的研究；其中结果来自公司及合作研究者的报告。
+
+DEEP Robotics brought together five research directions under DEEPRobotics-Brain: world modeling, VLA learning, policy optimization, predictive memory and evaluation. The October 24 announcement summarizes research including earlier preprints; reported results remain company and collaborator findings.
+
+### 技术点 / Technical points
+
+- DR-WM 用经校准的地形接触物理约束未来观测；DR-APO 将策略改进与高斯、扩散或流表示解耦。
+  - DR-WM uses calibrated terrain-contact physics to condition future observations; DR-APO separates policy improvement from Gaussian, diffusion or flow representations.
+- EvolvingNav 更新带时间索引的物体位置置信信息；LynxScenes 记录 833.6 小时户外机器人运行数据，覆盖四项评测任务。
+  - EvolvingNav updates time-indexed object beliefs; LynxScenes documents 833.6 hours of outdoor robot operation for four evaluation tasks.
+
+### 为什么重要 / Why it matters
+
+该研究体系将动作预测、可修订记忆与机器人策略评测连接起来。
+
+The program connects action prediction and revisable memory with robot policy evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://developer.deeprobotics.cn/research/)
+
+---
+
+<a id="2026-10-24-openclaw-2026107-replay-safe-recovery"></a>
+## [OpenClaw 2026.10.7 在会话恢复中保留未完成工具结果](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7)
+
+**English:** [OpenClaw 2026.10.7 preserves unfinished tool outcomes during session recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7)
+
+- **发布 / Published:** `2026-10-24T09:53:46Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `memory`, `tool-use`, `safety`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.10.7 加强智能体会话中断后的恢复。发布说明包括保留恢复来源信息及未完成工具结果、阻止被拒绝的 Claude CLI 草稿进入最终回复，并让批量子任务完成消息适配请求智能体的上下文预算。
+
+OpenClaw 2026.10.7 strengthens recovery after interrupted agent sessions. Release notes describe retaining recovery provenance and unfinished tool outcomes, excluding rejected Claude CLI drafts from final replies, and keeping batches of child completions within the requesting agent’s context budget.
+
+### 技术点 / Technical points
+
+- 已停止的对话会先清理终止状态的恢复残留，再接受下一条消息。
+  - Stopped conversations clear terminal recovery residue before accepting another message.
+- 配置写入不完整时保留最后有效快照，Memory Wiki 再次导入时保留人工笔记。
+  - Configuration reads retain the last valid snapshot during truncated writes, and Memory Wiki re-imports preserve human-authored notes.
+- 中断的更新及备份校验可恢复，不兼容的既有智能体数据库保持隔离。
+  - Interrupted updates and backup verification can resume; retained incompatible agent databases remain isolated.
+
+### 为什么重要 / Why it matters
+
+该版本针对中断边界上的工作丢失和回复污染问题，改善持续运行智能体的可靠性。
+
+The release addresses lost work and contaminated replies at interruption boundaries, recurring failure modes for persistent agents.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.7)
+
+---
+
+<a id="2026-10-24-pydantic-ai-261-citations-guardrails"></a>
+## [Pydantic AI 2.61 增加结构化引用并收紧智能体护栏](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
+
+**English:** [Pydantic AI 2.61 adds structured citations and tightens agent guardrails](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
+
+- **发布 / Published:** `2026-10-24T03:13:40Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `tool-use`, `safety`, `citations`, `durable-execution`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.61 为文本响应增加结构化引用，并在消息重放及 Vercel 适配器中保留引用，同时开放持久执行引擎的扩展接口。该版本还修复提示词脱敏和护栏失败放行路径。时间采用 GitHub 正式发布时刻；发布标题标注的是 10 月 23 日。
+
+Pydantic AI 2.61 adds structured citations to text responses, retains them through message replay and its Vercel adapter, and exposes durable-engine extension interfaces. It also fixes prompt-redaction and guardrail fail-open paths. The timestamp follows GitHub release publication; the release title carries October 23.
+
+### 技术点 / Technical points
+
+- 引用归一化覆盖 Bedrock、OpenRouter 和 xAI；历史消息会向原提供商重放引用。
+  - Citation normalization covers Bedrock, OpenRouter and xAI; histories replay citations to their originating provider.
+- InputGuardrail 对用户提示词脱敏；并发工作区运行保留各自的 Prefect 环境。
+  - InputGuardrail redacts the user prompt; concurrent workspace runs retain their own Prefect environments.
+- Shell.max_log_bytes 限制后台与 shell 作业日志大小，持久操作类型及运行身份钩子成为公开接口。
+  - Shell.max_log_bytes bounds background and shell-job logs, while durable operation types and run-identity hooks become public.
+
+### 为什么重要 / Why it matters
+
+这些改动有助于使用工具、后台作业和持久工作流的智能体保留证据并明确执行边界。
+
+These changes improve evidence retention and execution boundaries in agents that combine tools, background jobs and durable workflows.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.61.0)
+
+---
+
 <a id="2026-10-23-google-adk-213-classifier-routing-memory"></a>
 ## [Google ADK 2.13 增加分类器路由、实时语音与 MongoDB 记忆](https://github.com/google/adk-python/releases/tag/v2.13.0)
 
@@ -537,143 +687,3 @@ The UniFlowWAM preprint adds 3D scene flow as a jointly modeled modality alongsi
 联合几何与语义预测，为机器人策略及正向、逆向动态提供了共享接口。
 
 Joint geometric and semantic prediction offers a shared interface for robot policies and forward or inverse dynamics.
-
----
-
-<a id="2026-10-21-agentic-wam-code-video-action"></a>
-## [AW-0 将可复用技能程序与视频、机器人动作预测结合](https://arxiv.org/abs/2610.30136)
-
-**English:** [AW-0 couples reusable skill programs with video and robot action prediction](https://arxiv.org/abs/2610.30136)
-
-- **发布 / Published:** `2026-10-21T17:59:56Z`
-- **来源 / Source:** [AW-0 authors / arXiv](https://arxiv.org/abs/2610.30136) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `planning`, `world-action-model`, `skill-reuse`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-AW-0 采用包含代码、视频和动作专家的混合 Transformer 架构。作者在 RoboTwin 2.0 和八个真实双臂任务上评测，报告其表现优于所比较的 VLA 与世界动作模型基线。生成的代码既提供规划上下文，也可支持混合执行。
-
-AW-0 introduces a mixture-of-transformers architecture with code, video and action experts. The authors evaluate it on RoboTwin 2.0 and eight physical bimanual tasks, reporting stronger performance than their VLA and world-action-model baselines. Generated code provides planning context and can also support hybrid execution.
-
-### 技术点 / Technical points
-
-- 自动化流程将机器人和人类视频轨迹与程序对齐，并将重复出现的操作整理为技能库。
-  - An automated pipeline aligns robot and human video trajectories with programs and consolidates recurring routines into a skill library.
-- 在 RoboTwin 2.0 上，默认执行在干净场景中的成功率为 80.8%，视觉随机化后降至 20.6%；混合执行将后者提高到 29.2%。
-  - On RoboTwin 2.0, default execution reaches 80.8% success on clean scenes but 20.6% under visual randomization; hybrid execution raises the latter to 29.2%.
-
-### 为什么重要 / Why it matters
-
-该框架检验可复用程序结构能否改善基于物理环境的预测与控制，同时揭示仍然存在的鲁棒性差距。
-
-The framework tests whether reusable program structure can improve physically grounded prediction and control, while exposing remaining robustness gaps.
-
-### 链接 / Links
-
-[Evidence 1](https://agentic-wam.github.io/)
-
----
-
-<a id="2026-10-21-physicalworld-in-context-calibration"></a>
-## [PhysiCalWorld 用探索性交互片段校准世界模型动力学](https://arxiv.org/abs/2610.30125)
-
-**English:** [PhysiCalWorld calibrates world-model dynamics from an exploratory interaction clip](https://arxiv.org/abs/2610.30125)
-
-- **发布 / Published:** `2026-10-21T17:57:59Z`
-- **来源 / Source:** [PhysiCalWorld authors / arXiv](https://arxiv.org/abs/2610.30125) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `physics`, `in-context-learning`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-PhysiCalWorld 将测试场景中的短交互编码成物理描述符，用于约束后续预测。该方法无需微调或显式物理标签即可适配动作条件世界模型。作者在四个环境中报告轨迹预测与视觉规划改善，并能泛化到训练物理参数范围之外。
-
-PhysiCalWorld encodes a short interaction in a test scene into a physics descriptor that conditions future predictions. It adapts action-conditioned world models without fine-tuning or explicit physics labels. Across four environments, the authors report improved rollout accuracy and visual planning, including generalization beyond training physics ranges.
-
-### 技术点 / Technical points
-
-- 描述符捕捉单靠外观未必能揭示的实例动力学，例如摩擦或质量分布。
-  - The descriptor captures instance-specific dynamics that appearance alone may not reveal, such as friction or mass distribution.
-- 训练采用潜空间预测损失；推理时仅提取一次描述符，并在多条预测轨迹间复用。
-  - Training uses latent prediction loss; at inference, the descriptor is extracted once and reused across rollouts.
-
-### 为什么重要 / Why it matters
-
-该方法以紧凑表示将学习型模拟器与新场景的实际物理行为联系起来。
-
-The method supplies a compact way to ground a learned simulator in the physical behavior of a new scene.
-
-### 链接 / Links
-
-[Evidence 1](https://physical-world.github.io/)
-
----
-
-<a id="2026-10-21-cw-wam-contact-wrench-control"></a>
-## [CW-WAM 同时预测接触力旋量、视频与机器人运动](https://arxiv.org/abs/2610.30117)
-
-**English:** [CW-WAM predicts contact wrench alongside video and robot motion](https://arxiv.org/abs/2610.30117)
-
-- **发布 / Published:** `2026-10-21T17:55:53Z`
-- **来源 / Source:** [CW-WAM authors / arXiv](https://arxiv.org/abs/2610.30117) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `force-control`, `manipulation`, `world-action-model`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-CW-WAM 为面向力敏感操作的世界动作模型加入显式接触力旋量预测。作者实验中，相对没有力旋量输入的 WAM，方形插销的插入成功率从 25% 升至 70%，电源适配器从 40% 升至 95%。
-
-CW-WAM adds explicit contact-wrench prediction to a world action model for force-sensitive manipulation. In the authors’ experiments, insertion success rises from 25% to 70% for square pegs and from 40% to 95% for power adapters compared with a WAM lacking wrench input.
-
-### 技术点 / Technical points
-
-- 配对因果注意力关联运动块与力旋量块，固定长度的力旋量记忆保留交互历史。
-  - Pair-causal attention links motion and wrench chunks, while a fixed-length wrench memory retains interaction history.
-- 预测的力参考值驱动 20 Hz 外环导纳控制器；插销任务的力参考均方根误差从 4.8 N 降至 2.7 N。
-  - Predicted force references drive a 20-Hz outer-loop admittance controller; peg-insertion force-reference RMSE falls from 4.8 to 2.7 N.
-
-### 为什么重要 / Why it matters
-
-联合预测力与运动，将世界模型的前瞻能力连接到接触密集任务中的反馈控制。
-
-Joint force and motion prediction connects world-model foresight to feedback control in contact-rich tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://cw-wam-project.github.io/)
-
----
-
-<a id="2026-10-21-asteroid-on-policy-exploration-distillation"></a>
-## [ASTEROID 从特权专家与学生历史中学习探索行为](https://arxiv.org/abs/2610.30105)
-
-**English:** [ASTEROID learns exploratory behavior from privileged experts and student histories](https://arxiv.org/abs/2610.30105)
-
-- **发布 / Published:** `2026-10-21T17:50:31Z`
-- **来源 / Source:** [ASTEROID authors / arXiv](https://arxiv.org/abs/2610.30105) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `exploration`, `distillation`, `partial-observability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-ASTEROID 使用当前学生策略采集的历史和特权专家提供的动作标签，训练部分可观测智能体。作者在涵盖探索、操作、导航和 Procgen 的十一个环境中评测，并展示从仿真迁移到无视觉输入的真实机器人操作。
-
-ASTEROID trains partially observed agents using histories collected by the current student and action labels supplied by a privileged expert. The authors evaluate eleven environments spanning exploration, manipulation, navigation and Procgen, and demonstrate transfer from simulation to real robot manipulation without visual input.
-
-### 技术点 / Technical points
-
-- 学生策略学习在不确定时收集信息，并在隐藏状态显露后利用已有信息行动。
-  - The student learns to gather information while uncertain and exploit it after hidden state is revealed.
-- 论文报告，在固定探索预算下回报约为两倍，相对所比较的强化学习基线，交互需求最多减少约百倍。
-  - The paper reports roughly twice the return at fixed exploration budgets and up to roughly 100 times fewer interactions than compared RL baselines.
-
-### 为什么重要 / Why it matters
-
-在训练阶段可获得特权信息时，该方法提供了一条通过监督学习获得测试时探索能力的路径。
-
-The method offers a supervised route to test-time exploration when privileged training information is available.

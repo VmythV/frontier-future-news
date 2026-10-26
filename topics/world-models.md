@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-10-24-deep-robotics-brain-physical-prediction-benchmarks"></a>
+## [云深处公布连接物理预测、策略学习与导航记忆的研究体系](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
+
+**English:** [DEEP Robotics outlines a research stack linking physical prediction, policies and navigation memory](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
+
+- **发布 / Published:** `2026-10-24T12:20:00Z`
+- **来源 / Source:** [DEEP Robotics via GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `robotics`, `world-model`, `vla`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+云深处在 DEEPRobotics-Brain 体系下汇总世界模型、VLA 学习、策略优化、预测式记忆和评测五个研究方向。10 月 24 日公告包含此前已有预印本的研究；其中结果来自公司及合作研究者的报告。
+
+DEEP Robotics brought together five research directions under DEEPRobotics-Brain: world modeling, VLA learning, policy optimization, predictive memory and evaluation. The October 24 announcement summarizes research including earlier preprints; reported results remain company and collaborator findings.
+
+### 技术点 / Technical points
+
+- DR-WM 用经校准的地形接触物理约束未来观测；DR-APO 将策略改进与高斯、扩散或流表示解耦。
+  - DR-WM uses calibrated terrain-contact physics to condition future observations; DR-APO separates policy improvement from Gaussian, diffusion or flow representations.
+- EvolvingNav 更新带时间索引的物体位置置信信息；LynxScenes 记录 833.6 小时户外机器人运行数据，覆盖四项评测任务。
+  - EvolvingNav updates time-indexed object beliefs; LynxScenes documents 833.6 hours of outdoor robot operation for four evaluation tasks.
+
+### 为什么重要 / Why it matters
+
+该研究体系将动作预测、可修订记忆与机器人策略评测连接起来。
+
+The program connects action prediction and revisable memory with robot policy evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://developer.deeprobotics.cn/research/)
+
+---
+
 <a id="2026-10-23-mundo-customized-code-proxy-world"></a>
 ## [Mundo 将可编辑三维代理世界与仿真引导视频渲染结合](https://huggingface.co/blog/Luo-Yihang/mundo-world-model)
 
