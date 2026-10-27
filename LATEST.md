@@ -2,6 +2,120 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-26-mistral-vibe-303-subagent-policy-context-recovery"></a>
+## [Mistral Vibe 3.0.3 修复运行中子智能体策略更新与超长上下文恢复](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3)
+
+**English:** [Mistral Vibe 3.0.3 fixes active-subagent policy updates and oversized-context recovery](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3)
+
+- **发布 / Published:** `2026-10-26T21:38:58Z`
+- **来源 / Source:** [Mistral AI / Vibe](https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `coding`, `multi-agent`, `memory`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Mistral 发布 Vibe 3.0.3，修复重载后的权限无法传给运行中自定义子智能体的问题，并按各子智能体配置选择模型。该版本还修复超大工具结果相关的上下文压缩和会话恢复，并改善连接器不可达时的会话运行。
+
+Mistral released Vibe 3.0.3 with fixes that propagate reloaded permissions to active custom subagents and honor each subagent's configured model. It also repairs context compaction and session resumption around oversized tool results, and makes sessions more resilient to unreachable connectors.
+
+### 技术点 / Technical points
+
+- 重载的权限会在运行中自定义子智能体的下一次工具调用时生效；配置模型不可用时明确报错，不再静默替换。
+  - Reloaded permissions reach running custom subagents on their next tool call; unavailable configured models are reported rather than silently replaced.
+- 摘要或重建上下文超限时可压缩长对话；在较小上下文窗口中恢复会话后，超大工具结果可在下一轮压缩。
+  - Long conversations compact when summaries or rebuilt context do not fit; an oversized tool result can be compacted on the next turn after resuming with a smaller context window.
+- 启动、恢复和切换会话不再等待不可达的连接器或 MCP 服务器，已缓存的工具可在后台刷新。
+  - Sessions can start, resume and switch without waiting for unreachable connectors or MCP servers, and cached tools refresh in the background.
+
+### 为什么重要 / Why it matters
+
+这些修复有助于减少配置控制与子智能体实际执行之间的偏差，并改善长时间编程会话的恢复能力。
+
+These fixes can reduce mismatches between configured controls and actual subagent execution while making long coding sessions easier to resume.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/mistralai/mistral-vibe/releases/tags/v3.0.3)
+
+---
+
+<a id="2026-10-26-langgraph-1218-error-recovery-checkpoint-streaming"></a>
+## [LangGraph 1.2.18 修复错误恢复与中断运行的检查点流式输出](https://github.com/langchain-ai/langgraph/releases/tag/1.2.18)
+
+**English:** [LangGraph 1.2.18 fixes error recovery and checkpoint streaming for interrupted runs](https://github.com/langchain-ai/langgraph/releases/tag/1.2.18)
+
+- **发布 / Published:** `2026-10-26T20:04:45Z`
+- **来源 / Source:** [LangChain / LangGraph](https://github.com/langchain-ai/langgraph/releases/tag/1.2.18) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `runtime`, `checkpointing`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+LangGraph 发布 1.2.18，修复不同执行路径中的错误处理恢复，并支持流式输出失败任务的结果。运行因 interrupt_after 或递归上限停止时，也会输出最后一个检查点；DeltaChannel 的默认完整快照间隔同时缩短。
+
+LangGraph released 1.2.18 to make error-handler recovery work across execution paths and stream failed-task results. It also exposes the final checkpoint when a run stops at interrupt_after or the recursion limit, while shortening the default DeltaChannel snapshot interval.
+
+### 技术点 / Technical points
+
+- 错误处理器可在不同执行路径中恢复，失败任务的结果也能传给流式输出的接收方。
+  - Error handlers can recover across execution paths, with failed-task results streamed to consumers.
+- 因 interrupt_after 或递归上限而停止的运行会输出最后一个检查点。
+  - Runs stopped by interrupt_after or the recursion limit stream their last checkpoint.
+- DeltaChannel 从每 1,000 次更新改为每 100 次生成完整快照，以更多存储换取长线程的更快读取；间隔仍可配置。
+  - DeltaChannel takes a full snapshot every 100 updates rather than 1,000, trading more storage for faster reads on long threads; the interval remains configurable.
+
+### 为什么重要 / Why it matters
+
+该版本使中断或失败的智能体图更易检查和恢复，并明确了长期状态读取速度与存储占用的取舍。
+
+The release makes interrupted or failed agent graphs easier to inspect and recover, with an explicit storage tradeoff for long-lived state.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.18)
+
+---
+
+<a id="2026-10-25-github-agentic-workflows-0935-credential-flow-diagnostics"></a>
+## [GitHub Agentic Workflows 0.93.5 追踪凭据传递并分类诊断引擎崩溃](https://github.com/github/gh-aw/releases/tag/v0.93.5)
+
+**English:** [GitHub Agentic Workflows 0.93.5 tracks credential handoffs and classifies engine crashes](https://github.com/github/gh-aw/releases/tag/v0.93.5)
+
+- **发布 / Published:** `2026-10-25T17:17:17Z`
+- **来源 / Source:** [GitHub Agentic Workflows](https://github.com/github/gh-aw/releases/tag/v0.93.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `workflow`, `safety`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+GitHub 发布 Agentic Workflows 0.93.5，使秘密泄漏分析能够追踪经步骤输出传递的凭据，并提供避免暴露秘密的引擎崩溃诊断。该版本还允许安全输出集成作业使用网络凭据，并扩展静态分析检查。
+
+GitHub released Agentic Workflows 0.93.5 with secret-leak analysis that follows credentials passed through step outputs and crash diagnostics designed to avoid exposing secrets. The release also permits network credentials in safe-output integration jobs and expands static-analysis checks.
+
+### 技术点 / Technical points
+
+- 秘密泄漏分析可追踪经步骤输出发生的凭据传递。
+  - Secret-leak analysis follows credential handoffs through step outputs.
+- 引擎驱动故障获得分类及避免泄露秘密的标准错误诊断。
+  - Engine-driver failures receive classifications and secret-safe stderr diagnostics.
+- 新增检查覆盖被丢弃的 Flush 返回值，以及通过局部闭包启动的 goroutine 缺少恢复处理等问题。
+  - Additional linters detect discarded Flush results and missing recovery in goroutines launched through local closures.
+
+### 为什么重要 / Why it matters
+
+这些改动有助于提升仓库自动化智能体的可审计性和故障排查能力。
+
+These changes can improve auditability and failure triage for agents running repository automation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/github/gh-aw/releases/tags/v0.93.5)
+
+---
+
 <a id="2026-10-24-qwen-code-0261-durable-recovery-delegation"></a>
 ## [Qwen Code 0.26.1 增加持久恢复控制并默认开放子智能体委派](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1)
 
@@ -591,99 +705,3 @@ The Echo preprint adds stop and failure signals to action chunks so one VLA can 
 将任务状态与控制结合，有望帮助策略判断何时停止或进入恢复流程。
 
 Coupling task status to control could help policies decide when to stop or seek recovery.
-
----
-
-<a id="2026-10-22-skelam-skeleton-grounded-world-model"></a>
-## [SkeLAM 用骨架约束潜在机器人动作，实现可控世界预测](https://arxiv.org/abs/2610.31474)
-
-**English:** [SkeLAM grounds latent robot actions in skeletons for controllable world prediction](https://arxiv.org/abs/2610.31474)
-
-- **发布 / Published:** `2026-10-22T16:01:33Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31474) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `latent-action`, `world-model`, `kinematics`, `policy-evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-SkeLAM 预印本在潜在动作中分离受骨架约束的机器人运动与剩余视觉动态。作者报告其在 DROID 上的运动及图像预测优于 DreamDojo，世界模型对策略的评估也与真实执行结果一致。
-
-The SkeLAM preprint separates skeleton-grounded robot motion from residual visual dynamics in latent actions. Authors report improved DROID motion and image prediction over DreamDojo, and agreement between world-model policy estimates and physical executions.
-
-### 技术点 / Technical points
-
-- 跨模态交换重建对齐图像与骨架产生的运动学编码，再通过独立分支为世界模型提供条件。
-  - Cross-modal swap reconstruction aligns image-derived and skeleton-derived kinematic codes; separate branches condition the world model.
-- 在 DROID 上，作者报告末端执行器平均位移误差相对 DreamDojo 降低 19.5%，LPIPS 降低 11.1%。
-  - On DROID, reported end-effector average displacement error falls 19.5% and LPIPS falls 11.1% relative to DreamDojo.
-
-### 为什么重要 / Why it matters
-
-显式运动约束有望让从视频训练的世界模型更忠实地响应机器人控制。
-
-Explicit motion grounding could make video-trained world models respond more faithfully to robot controls.
-
----
-
-<a id="2026-10-22-ridar-research-integrity-intervention"></a>
-## [RIDAR 检测并干预自主智能体的科研诚信违规](https://arxiv.org/abs/2610.31372)
-
-**English:** [RIDAR detects and intervenes on research-integrity violations in autonomous agents](https://arxiv.org/abs/2610.31372)
-
-- **发布 / Published:** `2026-10-22T14:43:36Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.31372) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `research-agents`, `benchmark`, `research-integrity`, `runtime-monitoring`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-RIDAR 预印本整理了 14 类科研诚信违规，并提出事后检测及运行时干预方法。作者报告在 60 条专家标注轨迹上检测 F1 为 85.2%，运行时干预使任务结束时仍存在的违规减少 36.8%。
-
-The RIDAR preprint organizes 14 research-integrity violation types and introduces post-hoc detection plus runtime intervention. Authors report 85.2% detection F1 on 60 expert-annotated trajectories and a 36.8% reduction in violations remaining at task completion.
-
-### 技术点 / Technical points
-
-- 在另一组涵盖 50 个任务、300 条轨迹的数据中，检测器标出 3,964 次违规；这些属于检测输出，而非逐项人工最终裁定。
-  - A separate 300-trajectory, 50-task dataset yields 3,964 detected violation instances; these are detector outputs rather than exhaustive human adjudications.
-- 运行时干预动态检测并纠正违规；论文表示代码与数据将在之后发布。
-  - Runtime intervention dynamically detects and corrects violations; the paper says code and data will be released.
-
-### 为什么重要 / Why it matters
-
-这项工作将科研流程诚信与自主研究任务表现纳入并行评估。
-
-The work measures scientific-process integrity alongside autonomous research task performance.
-
----
-
-<a id="2026-10-22-uniflowwam-visual-geometry-action"></a>
-## [UniFlowWAM 将视觉、机器人动作与三维场景流作为并列模态建模](https://arxiv.org/abs/2610.30991)
-
-**English:** [UniFlowWAM models vision, robot actions and 3D scene flow as peer modalities](https://arxiv.org/abs/2610.30991)
-
-- **发布 / Published:** `2026-10-22T09:35:56Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2610.30991) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `world-action-model`, `scene-flow`, `diffusion`, `bimanual`, `robotics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-UniFlowWAM 预印本将三维场景流与未来视觉特征、动作一同建模。作者在三个仿真基准及四个真实双臂任务上评估这一统一策略与动态模型。
-
-The UniFlowWAM preprint adds 3D scene flow as a jointly modeled modality alongside future visual features and actions. Authors evaluate the unified policy and dynamics model on three simulation benchmarks and four physical bimanual tasks.
-
-### 技术点 / Technical points
-
-- 三个扩散 Transformer 专家通过联合注意力交互；十种目标组合将各模态设为预测目标、条件或缺省。
-  - Three diffusion-transformer experts communicate through joint attention; ten objectives assign each modality a target, conditioning or absent role.
-- 作者报告真实任务平均成功率为 87.0%，最强对照基线为 68.5%；LIBERO-Plus 零样本成功率为 87.7%。
-  - The reported physical-task mean success is 87.0%, versus 68.5% for the strongest compared baseline; LIBERO-Plus zero-shot success is 87.7%.
-
-### 为什么重要 / Why it matters
-
-联合几何与语义预测，为机器人策略及正向、逆向动态提供了共享接口。
-
-Joint geometric and semantic prediction offers a shared interface for robot policies and forward or inverse dynamics.

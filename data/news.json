@@ -18416,6 +18416,154 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-25-github-agentic-workflows-0935-credential-flow-diagnostics",
+      "published_at": "2026-10-25T17:17:17Z",
+      "collected_at": "2026-10-27T00:03:33Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "workflow",
+        "safety",
+        "reliability"
+      ],
+      "title_en": "GitHub Agentic Workflows 0.93.5 tracks credential handoffs and classifies engine crashes",
+      "title_zh": "GitHub Agentic Workflows 0.93.5 追踪凭据传递并分类诊断引擎崩溃",
+      "summary_en": "GitHub released Agentic Workflows 0.93.5 with secret-leak analysis that follows credentials passed through step outputs and crash diagnostics designed to avoid exposing secrets. The release also permits network credentials in safe-output integration jobs and expands static-analysis checks.",
+      "summary_zh": "GitHub 发布 Agentic Workflows 0.93.5，使秘密泄漏分析能够追踪经步骤输出传递的凭据，并提供避免暴露秘密的引擎崩溃诊断。该版本还允许安全输出集成作业使用网络凭据，并扩展静态分析检查。",
+      "tech_points_en": [
+        "Secret-leak analysis follows credential handoffs through step outputs.",
+        "Engine-driver failures receive classifications and secret-safe stderr diagnostics.",
+        "Additional linters detect discarded Flush results and missing recovery in goroutines launched through local closures."
+      ],
+      "tech_points_zh": [
+        "秘密泄漏分析可追踪经步骤输出发生的凭据传递。",
+        "引擎驱动故障获得分类及避免泄露秘密的标准错误诊断。",
+        "新增检查覆盖被丢弃的 Flush 返回值，以及通过局部闭包启动的 goroutine 缺少恢复处理等问题。"
+      ],
+      "why_it_matters_en": "These changes can improve auditability and failure triage for agents running repository automation.",
+      "why_it_matters_zh": "这些改动有助于提升仓库自动化智能体的可审计性和故障排查能力。",
+      "source": {
+        "name": "GitHub Agentic Workflows",
+        "type": "primary",
+        "url": "https://github.com/github/gh-aw/releases/tag/v0.93.5",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/github/gh-aw/releases/tags/v0.93.5"
+      ],
+      "confidence": "high",
+      "score": 74,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 10,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-26-langgraph-1218-error-recovery-checkpoint-streaming",
+      "published_at": "2026-10-26T20:04:45Z",
+      "collected_at": "2026-10-27T00:03:33Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "runtime",
+        "checkpointing",
+        "reliability"
+      ],
+      "title_en": "LangGraph 1.2.18 fixes error recovery and checkpoint streaming for interrupted runs",
+      "title_zh": "LangGraph 1.2.18 修复错误恢复与中断运行的检查点流式输出",
+      "summary_en": "LangGraph released 1.2.18 to make error-handler recovery work across execution paths and stream failed-task results. It also exposes the final checkpoint when a run stops at interrupt_after or the recursion limit, while shortening the default DeltaChannel snapshot interval.",
+      "summary_zh": "LangGraph 发布 1.2.18，修复不同执行路径中的错误处理恢复，并支持流式输出失败任务的结果。运行因 interrupt_after 或递归上限停止时，也会输出最后一个检查点；DeltaChannel 的默认完整快照间隔同时缩短。",
+      "tech_points_en": [
+        "Error handlers can recover across execution paths, with failed-task results streamed to consumers.",
+        "Runs stopped by interrupt_after or the recursion limit stream their last checkpoint.",
+        "DeltaChannel takes a full snapshot every 100 updates rather than 1,000, trading more storage for faster reads on long threads; the interval remains configurable."
+      ],
+      "tech_points_zh": [
+        "错误处理器可在不同执行路径中恢复，失败任务的结果也能传给流式输出的接收方。",
+        "因 interrupt_after 或递归上限而停止的运行会输出最后一个检查点。",
+        "DeltaChannel 从每 1,000 次更新改为每 100 次生成完整快照，以更多存储换取长线程的更快读取；间隔仍可配置。"
+      ],
+      "why_it_matters_en": "The release makes interrupted or failed agent graphs easier to inspect and recover, with an explicit storage tradeoff for long-lived state.",
+      "why_it_matters_zh": "该版本使中断或失败的智能体图更易检查和恢复，并明确了长期状态读取速度与存储占用的取舍。",
+      "source": {
+        "name": "LangChain / LangGraph",
+        "type": "primary",
+        "url": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.18",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/langchain-ai/langgraph/releases/tags/1.2.18"
+      ],
+      "confidence": "high",
+      "score": 76,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 11,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-26-mistral-vibe-303-subagent-policy-context-recovery",
+      "published_at": "2026-10-26T21:38:58Z",
+      "collected_at": "2026-10-27T00:03:33Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "coding",
+        "multi-agent",
+        "memory",
+        "reliability"
+      ],
+      "title_en": "Mistral Vibe 3.0.3 fixes active-subagent policy updates and oversized-context recovery",
+      "title_zh": "Mistral Vibe 3.0.3 修复运行中子智能体策略更新与超长上下文恢复",
+      "summary_en": "Mistral released Vibe 3.0.3 with fixes that propagate reloaded permissions to active custom subagents and honor each subagent's configured model. It also repairs context compaction and session resumption around oversized tool results, and makes sessions more resilient to unreachable connectors.",
+      "summary_zh": "Mistral 发布 Vibe 3.0.3，修复重载后的权限无法传给运行中自定义子智能体的问题，并按各子智能体配置选择模型。该版本还修复超大工具结果相关的上下文压缩和会话恢复，并改善连接器不可达时的会话运行。",
+      "tech_points_en": [
+        "Reloaded permissions reach running custom subagents on their next tool call; unavailable configured models are reported rather than silently replaced.",
+        "Long conversations compact when summaries or rebuilt context do not fit; an oversized tool result can be compacted on the next turn after resuming with a smaller context window.",
+        "Sessions can start, resume and switch without waiting for unreachable connectors or MCP servers, and cached tools refresh in the background."
+      ],
+      "tech_points_zh": [
+        "重载的权限会在运行中自定义子智能体的下一次工具调用时生效；配置模型不可用时明确报错，不再静默替换。",
+        "摘要或重建上下文超限时可压缩长对话；在较小上下文窗口中恢复会话后，超大工具结果可在下一轮压缩。",
+        "启动、恢复和切换会话不再等待不可达的连接器或 MCP 服务器，已缓存的工具可在后台刷新。"
+      ],
+      "why_it_matters_en": "These fixes can reduce mismatches between configured controls and actual subagent execution while making long coding sessions easier to resume.",
+      "why_it_matters_zh": "这些修复有助于减少配置控制与子智能体实际执行之间的偏差，并改善长时间编程会话的恢复能力。",
+      "source": {
+        "name": "Mistral AI / Vibe",
+        "type": "primary",
+        "url": "https://github.com/mistralai/mistral-vibe/releases/tag/v3.0.3",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/mistralai/mistral-vibe/releases/tags/v3.0.3"
+      ],
+      "confidence": "high",
+      "score": 78,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 12,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }
