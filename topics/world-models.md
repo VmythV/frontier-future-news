@@ -2,6 +2,74 @@
 
 # World models / 世界模型
 
+<a id="2026-10-27-genie-4-interactive-world-simulation"></a>
+## [Genie 4 为交互式世界模拟加入原生音频与 Gemini 规划引导](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)
+
+**English:** [Genie 4 adds native audio and Gemini-guided planning to interactive world simulation](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)
+
+- **发布 / Published:** `2026-10-27T16:13:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/) · `primary`
+- **分类 / Categories:** World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `simulation`, `multimodal`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布 Genie 4 研究预览，将交互式世界生成、原生音频和实时文本控制结合。Gemini 模型观察并引导场景演进；Argon 演示模拟了 Apollo 下跳棋，但公告未证明这些能力已迁移到实体机器人。
+
+Google DeepMind announced a research preview of Genie 4, combining interactive world generation, native audio and live text steering. Gemini models observe and guide evolving scenes; an Argon demonstration simulates Apollo playing checkers. The announcement does not establish transfer to a physical robot.
+
+### 技术点 / Technical points
+
+- Gemini 3.8 Flash 拆解目标、监测生成帧，并随场景变化调整计划。
+  - Gemini 3.8 Flash decomposes goals, monitors generated frames and adjusts plans as the scene changes.
+- 先向受信测试者开放；物理交互、空间精度和长期一致性仍是研究难点。
+  - Access starts with trusted testers; physical interactions, spatial accuracy and long-term consistency remain research challenges.
+
+### 为什么重要 / Why it matters
+
+这为智能体控制生成式环境提供了试验平台，模拟保真度和机器人迁移效果仍待验证。
+
+This creates a testbed for agents that steer generated environments, while leaving simulation fidelity and robot transfer to be demonstrated.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50261319)
+
+---
+
+<a id="2026-10-26-dream2assist-intent-conditioned-shared-control"></a>
+## [Dream2Assist 以人类意图为条件训练世界模型，实现人机共享车辆控制](https://arxiv.org/abs/2610.34650)
+
+**English:** [Dream2Assist conditions a world model on human intent for shared vehicle control](https://arxiv.org/abs/2610.34650)
+
+- **发布 / Published:** `2026-10-26T00:28:48Z`
+- **来源 / Source:** [Dream2Assist authors (arXiv)](https://arxiv.org/abs/2610.34650) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `model-based-rl`, `human-robot-interaction`, `planning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Dream2Assist 在循环状态空间世界模型中加入意图推断，并通过虚拟协同博弈训练辅助策略。三项人类参与研究覆盖赛车和城市驾驶，另有初步实车部署；作者报告转矩对齐和碰撞率得到改善。
+
+Dream2Assist extends a recurrent state-space world model with intent inference and trains an assistive policy through fictitious co-play. Three human studies cover racing and urban driving, with a separate preliminary vehicle deployment; the authors report improved torque alignment and collision rates.
+
+### 技术点 / Technical points
+
+- 框架预测离散的人类目标，并通过策略筛选和奖励重设计处理从模拟到真实人的迁移。
+  - The framework anticipates discrete human objectives and addresses simulation-to-human transfer through policy selection and reward redesign.
+- 两项赛车研究合计 30 人，城市研究 10 人；初步实车测试为三人。
+  - Racing studies involve 30 participants in total, the urban study 10; the preliminary on-vehicle test has three participants.
+
+### 为什么重要 / Why it matters
+
+该研究将预测式世界模型与人机协作连接起来，部署证据的范围仍属初步阶段。
+
+The work connects predictive world models to human-agent coordination, with deployment evidence whose scope remains preliminary.
+
+---
+
 <a id="2026-10-24-deep-robotics-brain-physical-prediction-benchmarks"></a>
 ## [云深处公布连接物理预测、策略学习与导航记忆的研究体系](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
 

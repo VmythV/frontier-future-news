@@ -2,6 +2,134 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-26-flore-force-reactive-humanoid-manipulation"></a>
+## [FLoRe 协调双手接触力与全身运动，提升人形机器人接触任务表现](https://arxiv.org/abs/2610.35862)
+
+**English:** [FLoRe coordinates hand forces and whole-body motion for contact-rich humanoid tasks](https://arxiv.org/abs/2610.35862)
+
+- **发布 / Published:** `2026-10-26T17:59:11Z`
+- **来源 / Source:** [FLoRe authors (arXiv)](https://arxiv.org/abs/2610.35862) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `force-control`, `diffusion-policy`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+FLoRe 将带力信息的示范、扩散策略和柔顺全身控制结合。作者在三项实体机器人任务中报告 80% 成功率；使用相同示范和控制器、仅预测位置的策略为 26.7%。
+
+FLoRe combines force-aware demonstrations, a diffusion policy and compliant whole-body control. The authors report 80% success across three physical robot tasks, versus 26.7% for a position-only policy using the same demonstrations and controller.
+
+### 技术点 / Technical points
+
+- 手持力感知夹爪与可穿戴身体追踪器在不使用机器人的情况下采集示范。
+  - Handheld force-sensing grippers and wearable body trackers collect demonstrations without using the robot.
+- 策略预测动作与每只手的目标力，借助力/力矩反馈跟踪接触力并维持平衡。
+  - The policy predicts actions and per-hand forces; force/torque feedback supports force tracking while maintaining balance.
+
+### 为什么重要 / Why it matters
+
+显式的力监督为仅靠运动模仿难以控制接触的任务提供了可行路径。
+
+Explicit force supervision offers a practical route to tasks where matching motion alone cannot regulate contact.
+
+---
+
+<a id="2026-10-26-ebench-frontier-agent-policy-harness"></a>
+## [EBench 研究对比智能体直接控制与调用 VLA、WAM 策略的机器人表现](https://arxiv.org/abs/2610.35832)
+
+**English:** [EBench study compares direct robot control with agent-invoked VLA and WAM policies](https://arxiv.org/abs/2610.35832)
+
+- **发布 / Published:** `2026-10-26T17:51:02Z`
+- **来源 / Source:** [EBench study authors (arXiv)](https://arxiv.org/abs/2610.35832) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `vla`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一项 EBench 研究在与后训练策略相同的观测协议下评估 GPT-6-Astra 机器人智能体。直接控制擅长短任务，却在长程和精细接触任务上较弱；调用 VLA 或 WAM 能提高总体成功率并降低 token 成本。
+
+An EBench study evaluates GPT-6-Astra as a robot agent under the same observation protocol as post-trained policies. Direct control is strong on short tasks but weaker on long-horizon and precise contact tasks. Invoking a VLA or WAM improves overall success and reduces token cost.
+
+### 技术点 / Technical points
+
+- 两种配置分别直接生成路点，或额外将动作执行委派给学习得到的策略。
+  - The two configurations generate waypoints directly or additionally delegate action execution to a learned policy.
+- 策略调用不当、缺少子目标和接管时破坏抓握，使组合系统仍低于各任务上组件表现的上界。
+  - Policy invocation, missing subgoals and disrupted grasps still keep the combined system below its per-task component upper bound.
+
+### 为什么重要 / Why it matters
+
+这项对比让推理智能体与运动策略之间的职责分配成为可测量的设计问题。
+
+The comparison makes the division of responsibility between reasoning agents and motor policies measurable.
+
+---
+
+<a id="2026-10-26-robodoctor-execution-time-robot-adaptation"></a>
+## [RoboDoctor 在冻结模型权重下利用执行反馈与持久经验调整机器人策略](https://arxiv.org/abs/2610.35604)
+
+**English:** [RoboDoctor uses execution feedback and persistent experience without updating robot-model weights](https://arxiv.org/abs/2610.35604)
+
+- **发布 / Published:** `2026-10-26T15:27:20Z`
+- **来源 / Source:** [RoboDoctor authors (arXiv)](https://arxiv.org/abs/2610.35604) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `planning`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+RoboDoctor 利用执行证据调整智能体与策略的控制分配、介入时机和物理操作方法。其精选的 54 个 RoboDojo-Sim 任务条目档案报告原生成功率为 49.44%；跨回合经验的独立贡献仍需受控实验确认。
+
+RoboDoctor adapts agent-policy control allocation, intervention timing and physical methods using execution evidence. Its curated archive of 54 RoboDojo-Sim task entries reports a 49.44% native success rate; controlled trials are still needed to isolate cross-episode experience effects.
+
+### 技术点 / Technical points
+
+- 关联经验记录保留决策原因、尝试的方法、观测结果及复用条件。
+  - Linked records retain a decision’s reason, attempted method, observed outcome and reuse conditions.
+- 适应发生于执行过程且模型权重固定；该档案并非递归改进效果的受控因果检验。
+  - Adaptation takes place during execution with fixed model weights; the archive is not a controlled causal test of recursive improvement.
+
+### 为什么重要 / Why it matters
+
+它提供了将机器人反馈转化为可复用决策的可检查设计，并明确了仍需补充的证据。
+
+It provides an inspectable design for turning robot feedback into reusable decisions while identifying the evidence still needed.
+
+---
+
+<a id="2026-10-26-dream2assist-intent-conditioned-shared-control"></a>
+## [Dream2Assist 以人类意图为条件训练世界模型，实现人机共享车辆控制](https://arxiv.org/abs/2610.34650)
+
+**English:** [Dream2Assist conditions a world model on human intent for shared vehicle control](https://arxiv.org/abs/2610.34650)
+
+- **发布 / Published:** `2026-10-26T00:28:48Z`
+- **来源 / Source:** [Dream2Assist authors (arXiv)](https://arxiv.org/abs/2610.34650) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `model-based-rl`, `human-robot-interaction`, `planning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Dream2Assist 在循环状态空间世界模型中加入意图推断，并通过虚拟协同博弈训练辅助策略。三项人类参与研究覆盖赛车和城市驾驶，另有初步实车部署；作者报告转矩对齐和碰撞率得到改善。
+
+Dream2Assist extends a recurrent state-space world model with intent inference and trains an assistive policy through fictitious co-play. Three human studies cover racing and urban driving, with a separate preliminary vehicle deployment; the authors report improved torque alignment and collision rates.
+
+### 技术点 / Technical points
+
+- 框架预测离散的人类目标，并通过策略筛选和奖励重设计处理从模拟到真实人的迁移。
+  - The framework anticipates discrete human objectives and addresses simulation-to-human transfer through policy selection and reward redesign.
+- 两项赛车研究合计 30 人，城市研究 10 人；初步实车测试为三人。
+  - Racing studies involve 30 participants in total, the urban study 10; the preliminary on-vehicle test has three participants.
+
+### 为什么重要 / Why it matters
+
+该研究将预测式世界模型与人机协作连接起来，部署证据的范围仍属初步阶段。
+
+The work connects predictive world models to human-agent coordination, with deployment evidence whose scope remains preliminary.
+
+---
+
 <a id="2026-10-24-deep-robotics-brain-physical-prediction-benchmarks"></a>
 ## [云深处公布连接物理预测、策略学习与导航记忆的研究体系](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
 
