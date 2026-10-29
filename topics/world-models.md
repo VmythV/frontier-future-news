@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
+## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
+
+**English:** [ThinkWorld uses imagined dynamics to learn robot action reasoning from video](https://arxiv.org/abs/2610.37666)
+
+- **发布 / Published:** `2026-10-27T17:59:52Z`
+- **来源 / Source:** [ThinkWorld authors / arXiv](https://arxiv.org/abs/2610.37666) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ThinkWorld 为人类与机器人经验建立共享的运动词元推理空间。论文报告了仿真和实体机器人实验，通过未来状态预测从无动作标签的视频中学习。发布时间采用 arXiv 首次提交时间。
+
+ThinkWorld introduces a shared motion-token reasoning space for human and robot experience. Its paper reports simulation and physical-robot experiments using future-state prediction to learn from videos without action labels. Publication time is the first arXiv submission.
+
+### 技术点 / Technical points
+
+- Chain-of-Dynamics 词元描述连接当前观测与未来状态的中间运动。
+  - Chain-of-Dynamics tokens represent intermediate motion linking the current observation to a future state.
+- 训练强化预测结果与实际状态变化相符的运动链；项目将想象过程放在训练阶段，而非部署阶段。
+  - Training reinforces motion chains whose predicted outcomes match observed transitions; the project places imagination in training, not deployment.
+
+### 为什么重要 / Why it matters
+
+该方法为将丰富的人类视频转化为具备动作依据的机器人学习提供了具体路径。
+
+The method offers a concrete route for transferring abundant human video into action-grounded robot learning.
+
+### 链接 / Links
+
+[Evidence 1](https://thinkworld-project.github.io/)
+
+---
+
 <a id="2026-10-27-genie-4-interactive-world-simulation"></a>
 ## [Genie 4 为交互式世界模拟加入原生音频与 Gemini 规划引导](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)
 

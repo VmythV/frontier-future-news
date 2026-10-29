@@ -2,6 +2,102 @@
 
 # Agents / 智能体
 
+<a id="2026-10-28-github-agentic-workflows-ga"></a>
+## [GitHub Agentic Workflows 正式发布](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
+
+**English:** [GitHub Agentic Workflows reaches general availability](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
+
+- **发布 / Published:** `2026-10-28T15:30:15Z`
+- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `tool-use`, `safety`, `automation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+GitHub 将 Agentic Workflows 推向正式可用阶段，把 Markdown 指令编译为 GitHub Actions 工作流，以运行编码智能体自动化。公告汇总了公开预览以来的防护与能力更新，并非所有功能都在当天首次推出。
+
+GitHub made Agentic Workflows generally available, compiling Markdown instructions into GitHub Actions workflows for coding-agent automation. The announcement consolidates safeguards and capabilities added since public preview, rather than presenting every feature as newly introduced.
+
+### 技术点 / Technical points
+
+- 智能体默认只读访问；经验证的安全输出与独立威胁检测任务共同检查拟议变更。
+  - Agents default to read-only access; validated safe outputs and a separate threat-detection job mediate proposed changes.
+- 正式版能力涵盖模型路由、自托管 ARC 支持、预算预测和微型虚拟机隔离选项。
+  - The GA feature set includes model routing, self-hosted ARC support, budget forecasting and microVM isolation options.
+
+### 为什么重要 / Why it matters
+
+该发布让具备明确执行与变更控制的仓库自动化更容易接入现有 Actions 策略。
+
+The release makes repository automation with explicit execution and change controls more accessible within existing Actions policies.
+
+---
+
+<a id="2026-10-28-copilot-review-max-multi-model-approvals"></a>
+## [Copilot 预览多模型 Max 审查，并正式开放审批能力](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
+
+**English:** [Copilot previews multi-model Max reviews and makes approvals generally available](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
+
+- **发布 / Published:** `2026-10-28T15:30:00Z`
+- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `code-review`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+GitHub 公开预览 Max 代码审查档位，并将 Copilot 审批推向正式可用。Max 使用来自不同提供商的模型运行独立审查智能体，再由汇总智能体协调审查发现。
+
+GitHub introduced Max code-review effort in public preview and made Copilot approvals generally available. Max combines independent review agents using models from different providers, then uses an aggregation agent to reconcile findings.
+
+### 技术点 / Technical points
+
+- 汇总智能体在形成统一审查前处理分歧并复核发现；Max 需要更多时间和额度。
+  - The aggregation agent resolves disagreements and checks findings before producing one review; Max takes more time and credits.
+- 审批默认关闭；启用后可计入必需审批数量，新提交会使已有审批失效。
+  - Approvals are disabled by default, can count toward required approvals when enabled, and are dismissed after new commits.
+
+### 为什么重要 / Why it matters
+
+它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。
+
+This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.
+
+---
+
+<a id="2026-10-27-teamgym-distributed-information-coordination"></a>
+## [TeamGym 衡量智能体团队的通信与检索缺口](https://arxiv.org/abs/2610.37571)
+
+**English:** [TeamGym measures communication and retrieval gaps in agent teams](https://arxiv.org/abs/2610.37571)
+
+- **发布 / Published:** `2026-10-27T17:15:54Z`
+- **来源 / Source:** [TeamGym authors / arXiv](https://arxiv.org/abs/2610.37571) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `benchmark`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+TeamGym 评测必要事实分散在不同智能体手中时的团队决策。论文首次提交研究了八个语言模型和十二个语料库，分别报告信息共享与检索造成的表现损失。
+
+TeamGym evaluates team decisions when necessary facts are distributed among agents. The first arXiv submission studies eight language models across twelve corpora and reports distinct losses from information sharing and retrieval.
+
+### 技术点 / Technical points
+
+- 与把相同事实交给单个模型相比，分散关键事实使平均成功率下降 22.9 个百分点。
+  - Distributing pivotal facts lowers success by 22.9 percentage points on average versus giving the same facts to one model.
+- 要求参与者自行提取事实又损失 19.9 个百分点；两项训练实验中，最终决策奖励改善了协作。
+  - Requiring participants to extract those facts costs another 19.9 points; final-decision reinforcement learning improves coordination in two training experiments.
+
+### 为什么重要 / Why it matters
+
+该环境将协作失败与检索失败区分开，有助于诊断多智能体训练应改进的环节。
+
+The environment separates collaboration failures from retrieval failures, making multi-agent training targets easier to diagnose.
+
+---
+
 <a id="2026-10-27-genie-4-interactive-world-simulation"></a>
 ## [Genie 4 为交互式世界模拟加入原生音频与 Gemini 规划引导](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)
 
@@ -35,6 +131,106 @@ This creates a testbed for agents that steer generated environments, while leavi
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50261319)
+
+---
+
+<a id="2026-10-27-tam-gui-verified-task-progress-memory"></a>
+## [Task Advancement Memory 将已验证 GUI 进展转化为可复用操作](https://arxiv.org/abs/2610.37482)
+
+**English:** [Task Advancement Memory turns verified GUI progress into reusable operations](https://arxiv.org/abs/2610.37482)
+
+- **发布 / Published:** `2026-10-27T16:09:25Z`
+- **来源 / Source:** [Ziyang Chen and coauthors / arXiv](https://arxiv.org/abs/2610.37482) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `memory`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Task Advancement Memory 保存跨应用的已验证进展，并从局部成功交互中学习可复用操作，即便整体任务失败也能提取经验。论文首次提交报告了 MobileWorld GUI 表现改善与生命周期词元消耗下降。
+
+Task Advancement Memory preserves verified progress across applications and learns reusable operations from locally successful interactions, including those inside failed tasks. The first arXiv submission reports improved MobileWorld GUI performance and lower lifecycle token use.
+
+### 技术点 / Technical points
+
+- 仅进展状态组件就将 MobileWorld 纯 GUI 任务成功率从 12.0% 提升至 28.2%。
+  - The advancement-state component alone raises MobileWorld GUI-only success from 12.0% to 28.2%.
+- 完整 TAM 相对最强参评基线的任务成功率提高 17.6%，每个完成任务的生命周期词元减少 38.7%。
+  - Full TAM reports a 17.6% relative success gain over the strongest evaluated baseline and 38.7% fewer lifecycle tokens per solved task.
+
+### 为什么重要 / Why it matters
+
+把已验证的局部结果用作记忆，有望帮助长流程保留有效进展，并从失败尝试中回收经验。
+
+Using verified local outcomes as memory may help long workflows retain useful progress and recover value from failed attempts.
+
+---
+
+<a id="2026-10-27-concordat-runtime-session-protocols"></a>
+## [Concordat 在运行时强制执行智能体动作协议](https://arxiv.org/abs/2610.37461)
+
+**English:** [Concordat enforces agent action protocols at runtime](https://arxiv.org/abs/2610.37461)
+
+- **发布 / Published:** `2026-10-27T16:00:26Z`
+- **来源 / Source:** [Milad Sikaroudi / arXiv](https://arxiv.org/abs/2610.37461) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `safety`, `open-source`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Concordat 只向模型暴露会话协议允许的工具，并在产生副作用前拒绝非法调用。论文首次提交报告，在所评测航空任务中未出现缺失确认的违规行为，任务成功率与基线无显著差异。
+
+Concordat exposes only tools permitted by an agent session protocol and rejects illegal calls before side effects. Its first arXiv submission reports no missing-confirmation violations in the evaluated airline tasks, without a significant task-success difference from the baseline.
+
+### 技术点 / Technical points
+
+- 有限状态协议保留人类决策权，并在交接过程中追踪词元和工具调用预算。
+  - Finite-state protocols reserve human decisions and track token and tool-call budgets across handoffs.
+- tau-bench 实验加入催促智能体跳过确认的模拟客户；常规基准奖励未识别大部分已观察到的违规行为。
+  - The tau-bench study adds simulated customers who pressure agents to skip confirmation; ordinary benchmark rewards miss most observed violations.
+
+### 为什么重要 / Why it matters
+
+该库将动作授权变为可强制执行的接口属性，并揭示只看任务结果的评测盲区。
+
+The library makes action authorization an enforceable interface property and exposes a blind spot in outcome-only evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/miladsikaroudi/concordat)
+
+---
+
+<a id="2026-10-27-m4bench-agent-procedural-specifications"></a>
+## [M4Bench 区分流程规范与智能体技能格式带来的收益](https://arxiv.org/abs/2610.37459)
+
+**English:** [M4Bench separates procedural specification gains from agent skill formatting](https://arxiv.org/abs/2610.37459)
+
+- **发布 / Published:** `2026-10-27T15:59:13Z`
+- **来源 / Source:** [M4Bench authors / arXiv](https://arxiv.org/abs/2610.37459) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `open-source`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+M4Bench 提出覆盖十五个任务族的二十八项临床数据派生任务。论文首次提交发现，详细操作规范解释了技能带来的大部分收益，而严格端到端完成仍较少见。
+
+M4Bench introduces 28 clinical data-derivation tasks across 15 families. The first arXiv submission finds that detailed operational specifications explain most measured skill gains, while strict end-to-end completion remains uncommon.
+
+### 技术点 / Technical points
+
+- 任务基于 MIMIC-IV 和 eICU，对照实验改变规范完整性、交付格式与数据库模式熟悉度。
+  - The tasks use MIMIC-IV and eICU; controls vary specification completeness, delivery format and schema familiarity.
+- 使用技能的 280 次 Codex 运行中仅 25 次通过全部严格检查，未使用技能时为 13 次；奖励上升代表与参考结果的部分一致。
+  - Only 25 of 280 with-skill and 13 of 280 no-skill Codex runs pass every strict check; higher reward is partial reference agreement.
+
+### 为什么重要 / Why it matters
+
+该基准有助于区分可执行任务知识与封装形式的作用，并避免将部分得分等同于任务完成。
+
+The benchmark helps distinguish actionable task knowledge from packaging effects and avoids equating partial scores with task completion.
 
 ---
 

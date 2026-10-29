@@ -2,6 +2,206 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-28-github-agentic-workflows-ga"></a>
+## [GitHub Agentic Workflows 正式发布](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
+
+**English:** [GitHub Agentic Workflows reaches general availability](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
+
+- **发布 / Published:** `2026-10-28T15:30:15Z`
+- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `tool-use`, `safety`, `automation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+GitHub 将 Agentic Workflows 推向正式可用阶段，把 Markdown 指令编译为 GitHub Actions 工作流，以运行编码智能体自动化。公告汇总了公开预览以来的防护与能力更新，并非所有功能都在当天首次推出。
+
+GitHub made Agentic Workflows generally available, compiling Markdown instructions into GitHub Actions workflows for coding-agent automation. The announcement consolidates safeguards and capabilities added since public preview, rather than presenting every feature as newly introduced.
+
+### 技术点 / Technical points
+
+- 智能体默认只读访问；经验证的安全输出与独立威胁检测任务共同检查拟议变更。
+  - Agents default to read-only access; validated safe outputs and a separate threat-detection job mediate proposed changes.
+- 正式版能力涵盖模型路由、自托管 ARC 支持、预算预测和微型虚拟机隔离选项。
+  - The GA feature set includes model routing, self-hosted ARC support, budget forecasting and microVM isolation options.
+
+### 为什么重要 / Why it matters
+
+该发布让具备明确执行与变更控制的仓库自动化更容易接入现有 Actions 策略。
+
+The release makes repository automation with explicit execution and change controls more accessible within existing Actions policies.
+
+---
+
+<a id="2026-10-28-copilot-review-max-multi-model-approvals"></a>
+## [Copilot 预览多模型 Max 审查，并正式开放审批能力](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
+
+**English:** [Copilot previews multi-model Max reviews and makes approvals generally available](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
+
+- **发布 / Published:** `2026-10-28T15:30:00Z`
+- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `code-review`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+GitHub 公开预览 Max 代码审查档位，并将 Copilot 审批推向正式可用。Max 使用来自不同提供商的模型运行独立审查智能体，再由汇总智能体协调审查发现。
+
+GitHub introduced Max code-review effort in public preview and made Copilot approvals generally available. Max combines independent review agents using models from different providers, then uses an aggregation agent to reconcile findings.
+
+### 技术点 / Technical points
+
+- 汇总智能体在形成统一审查前处理分歧并复核发现；Max 需要更多时间和额度。
+  - The aggregation agent resolves disagreements and checks findings before producing one review; Max takes more time and credits.
+- 审批默认关闭；启用后可计入必需审批数量，新提交会使已有审批失效。
+  - Approvals are disabled by default, can count toward required approvals when enabled, and are dismissed after new commits.
+
+### 为什么重要 / Why it matters
+
+它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。
+
+This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.
+
+---
+
+<a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
+## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
+
+**English:** [ThinkWorld uses imagined dynamics to learn robot action reasoning from video](https://arxiv.org/abs/2610.37666)
+
+- **发布 / Published:** `2026-10-27T17:59:52Z`
+- **来源 / Source:** [ThinkWorld authors / arXiv](https://arxiv.org/abs/2610.37666) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ThinkWorld 为人类与机器人经验建立共享的运动词元推理空间。论文报告了仿真和实体机器人实验，通过未来状态预测从无动作标签的视频中学习。发布时间采用 arXiv 首次提交时间。
+
+ThinkWorld introduces a shared motion-token reasoning space for human and robot experience. Its paper reports simulation and physical-robot experiments using future-state prediction to learn from videos without action labels. Publication time is the first arXiv submission.
+
+### 技术点 / Technical points
+
+- Chain-of-Dynamics 词元描述连接当前观测与未来状态的中间运动。
+  - Chain-of-Dynamics tokens represent intermediate motion linking the current observation to a future state.
+- 训练强化预测结果与实际状态变化相符的运动链；项目将想象过程放在训练阶段，而非部署阶段。
+  - Training reinforces motion chains whose predicted outcomes match observed transitions; the project places imagination in training, not deployment.
+
+### 为什么重要 / Why it matters
+
+该方法为将丰富的人类视频转化为具备动作依据的机器人学习提供了具体路径。
+
+The method offers a concrete route for transferring abundant human video into action-grounded robot learning.
+
+### 链接 / Links
+
+[Evidence 1](https://thinkworld-project.github.io/)
+
+---
+
+<a id="2026-10-27-dexsafe-in-hand-pose-safety-filter"></a>
+## [DexSafe 以学习式安全过滤器评测灵巧手内位姿控制](https://arxiv.org/abs/2610.37652)
+
+**English:** [DexSafe evaluates dexterous in-hand pose reaching with a learned safety filter](https://arxiv.org/abs/2610.37652)
+
+- **发布 / Published:** `2026-10-27T17:58:20Z`
+- **来源 / Source:** [DexSafe authors / arXiv](https://arxiv.org/abs/2610.37652) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dexterous-manipulation`, `safety`, `sim-to-real`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+作者提出在仿真中训练的 LEAP 灵巧手策略与残差安全过滤器，用于连续物体位姿目标控制。论文首次提交报告了 13.3 小时实体评测，覆盖四种物体的 4,800 个未见目标。
+
+The authors present simulation-trained LEAP-hand policies and a residual safety filter for sequences of object-pose goals. Their first arXiv submission reports 13.3 hours of physical evaluation across 4,800 unseen goals and four objects.
+
+### 技术点 / Technical points
+
+- 状态策略在 2 厘米和 0.4 弧度误差范围内完成 95.2% 的目标；加入过滤器后完成率为 91.5%，掉落减少 75%。
+  - The state-based policy reaches 95.2% of goals within 2 cm and 0.4 rad; adding the filter yields 91.5% while cutting drops by 75%.
+- 策略无需实体环境中的策略训练即可迁移，可使用动作捕捉或腕部深度相机。
+  - Policies transfer without real-world policy training and can use motion capture or a wrist-mounted depth camera.
+
+### 为什么重要 / Why it matters
+
+该评测量化了长序列灵巧操作中任务表现与掉落率之间的权衡。
+
+The evaluation quantifies a performance-versus-drop-rate tradeoff for long sequences of dexterous manipulation.
+
+### 链接 / Links
+
+[Evidence 1](https://ian-chuang.github.io/dexsafe/)
+
+---
+
+<a id="2026-10-27-teamgym-distributed-information-coordination"></a>
+## [TeamGym 衡量智能体团队的通信与检索缺口](https://arxiv.org/abs/2610.37571)
+
+**English:** [TeamGym measures communication and retrieval gaps in agent teams](https://arxiv.org/abs/2610.37571)
+
+- **发布 / Published:** `2026-10-27T17:15:54Z`
+- **来源 / Source:** [TeamGym authors / arXiv](https://arxiv.org/abs/2610.37571) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `benchmark`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+TeamGym 评测必要事实分散在不同智能体手中时的团队决策。论文首次提交研究了八个语言模型和十二个语料库，分别报告信息共享与检索造成的表现损失。
+
+TeamGym evaluates team decisions when necessary facts are distributed among agents. The first arXiv submission studies eight language models across twelve corpora and reports distinct losses from information sharing and retrieval.
+
+### 技术点 / Technical points
+
+- 与把相同事实交给单个模型相比，分散关键事实使平均成功率下降 22.9 个百分点。
+  - Distributing pivotal facts lowers success by 22.9 percentage points on average versus giving the same facts to one model.
+- 要求参与者自行提取事实又损失 19.9 个百分点；两项训练实验中，最终决策奖励改善了协作。
+  - Requiring participants to extract those facts costs another 19.9 points; final-decision reinforcement learning improves coordination in two training experiments.
+
+### 为什么重要 / Why it matters
+
+该环境将协作失败与检索失败区分开，有助于诊断多智能体训练应改进的环节。
+
+The environment separates collaboration failures from retrieval failures, making multi-agent training targets easier to diagnose.
+
+---
+
+<a id="2026-10-27-quadrotor-dynamic-gap-differentiable-flight"></a>
+## [可微仿真训练四旋翼穿越移动窄缝](https://arxiv.org/abs/2610.37557)
+
+**English:** [Differentiable simulation trains quadrotors to cross moving narrow gaps](https://arxiv.org/abs/2610.37557)
+
+- **发布 / Published:** `2026-10-27T17:05:05Z`
+- **来源 / Source:** [Riccardo Bianco and coauthors / arXiv](https://arxiv.org/abs/2610.37557) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `sim-to-real`, `visual-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一篇新论文从随机初始化直接训练视觉惯性飞行策略，使四旋翼穿越移动窄缝。作者报告仿真成功率为 99.3%，十次实体试验中成功八次；发布时间采用 arXiv 首次提交时间。
+
+A new paper trains a visual-inertial flight policy directly from random initialization for moving-gap traversal. The authors report 99.3% simulation success and eight successful crossings in ten physical trials; publication time is the first arXiv submission.
+
+### 技术点 / Technical points
+
+- 可微移动平面目标为居中、姿态对齐与避碰提供稠密梯度。
+  - A differentiable moving-plane objective supplies dense gradients for centering, alignment and collision avoidance.
+- 单阶段训练无需教师、规划器或蒸馏，策略根据机载感知输出推力与机体角速度指令。
+  - One-stage training uses no teacher, planner or distillation, and outputs thrust and body-rate commands from onboard sensing.
+
+### 为什么重要 / Why it matters
+
+小规模实体试验展示了学习式精密飞行的迁移路径，对更广泛可靠性的证据仍有限。
+
+The small physical trial demonstrates a transfer path for learned precision flight, with limited evidence about broader reliability.
+
+---
+
 <a id="2026-10-27-genie-4-interactive-world-simulation"></a>
 ## [Genie 4 为交互式世界模拟加入原生音频与 Gemini 规划引导](https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/)
 
@@ -35,6 +235,138 @@ This creates a testbed for agents that steer generated environments, while leavi
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50261319)
+
+---
+
+<a id="2026-10-27-tam-gui-verified-task-progress-memory"></a>
+## [Task Advancement Memory 将已验证 GUI 进展转化为可复用操作](https://arxiv.org/abs/2610.37482)
+
+**English:** [Task Advancement Memory turns verified GUI progress into reusable operations](https://arxiv.org/abs/2610.37482)
+
+- **发布 / Published:** `2026-10-27T16:09:25Z`
+- **来源 / Source:** [Ziyang Chen and coauthors / arXiv](https://arxiv.org/abs/2610.37482) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `memory`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Task Advancement Memory 保存跨应用的已验证进展，并从局部成功交互中学习可复用操作，即便整体任务失败也能提取经验。论文首次提交报告了 MobileWorld GUI 表现改善与生命周期词元消耗下降。
+
+Task Advancement Memory preserves verified progress across applications and learns reusable operations from locally successful interactions, including those inside failed tasks. The first arXiv submission reports improved MobileWorld GUI performance and lower lifecycle token use.
+
+### 技术点 / Technical points
+
+- 仅进展状态组件就将 MobileWorld 纯 GUI 任务成功率从 12.0% 提升至 28.2%。
+  - The advancement-state component alone raises MobileWorld GUI-only success from 12.0% to 28.2%.
+- 完整 TAM 相对最强参评基线的任务成功率提高 17.6%，每个完成任务的生命周期词元减少 38.7%。
+  - Full TAM reports a 17.6% relative success gain over the strongest evaluated baseline and 38.7% fewer lifecycle tokens per solved task.
+
+### 为什么重要 / Why it matters
+
+把已验证的局部结果用作记忆，有望帮助长流程保留有效进展，并从失败尝试中回收经验。
+
+Using verified local outcomes as memory may help long workflows retain useful progress and recover value from failed attempts.
+
+---
+
+<a id="2026-10-27-concordat-runtime-session-protocols"></a>
+## [Concordat 在运行时强制执行智能体动作协议](https://arxiv.org/abs/2610.37461)
+
+**English:** [Concordat enforces agent action protocols at runtime](https://arxiv.org/abs/2610.37461)
+
+- **发布 / Published:** `2026-10-27T16:00:26Z`
+- **来源 / Source:** [Milad Sikaroudi / arXiv](https://arxiv.org/abs/2610.37461) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `safety`, `open-source`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Concordat 只向模型暴露会话协议允许的工具，并在产生副作用前拒绝非法调用。论文首次提交报告，在所评测航空任务中未出现缺失确认的违规行为，任务成功率与基线无显著差异。
+
+Concordat exposes only tools permitted by an agent session protocol and rejects illegal calls before side effects. Its first arXiv submission reports no missing-confirmation violations in the evaluated airline tasks, without a significant task-success difference from the baseline.
+
+### 技术点 / Technical points
+
+- 有限状态协议保留人类决策权，并在交接过程中追踪词元和工具调用预算。
+  - Finite-state protocols reserve human decisions and track token and tool-call budgets across handoffs.
+- tau-bench 实验加入催促智能体跳过确认的模拟客户；常规基准奖励未识别大部分已观察到的违规行为。
+  - The tau-bench study adds simulated customers who pressure agents to skip confirmation; ordinary benchmark rewards miss most observed violations.
+
+### 为什么重要 / Why it matters
+
+该库将动作授权变为可强制执行的接口属性，并揭示只看任务结果的评测盲区。
+
+The library makes action authorization an enforceable interface property and exposes a blind spot in outcome-only evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/miladsikaroudi/concordat)
+
+---
+
+<a id="2026-10-27-m4bench-agent-procedural-specifications"></a>
+## [M4Bench 区分流程规范与智能体技能格式带来的收益](https://arxiv.org/abs/2610.37459)
+
+**English:** [M4Bench separates procedural specification gains from agent skill formatting](https://arxiv.org/abs/2610.37459)
+
+- **发布 / Published:** `2026-10-27T15:59:13Z`
+- **来源 / Source:** [M4Bench authors / arXiv](https://arxiv.org/abs/2610.37459) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `open-source`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+M4Bench 提出覆盖十五个任务族的二十八项临床数据派生任务。论文首次提交发现，详细操作规范解释了技能带来的大部分收益，而严格端到端完成仍较少见。
+
+M4Bench introduces 28 clinical data-derivation tasks across 15 families. The first arXiv submission finds that detailed operational specifications explain most measured skill gains, while strict end-to-end completion remains uncommon.
+
+### 技术点 / Technical points
+
+- 任务基于 MIMIC-IV 和 eICU，对照实验改变规范完整性、交付格式与数据库模式熟悉度。
+  - The tasks use MIMIC-IV and eICU; controls vary specification completeness, delivery format and schema familiarity.
+- 使用技能的 280 次 Codex 运行中仅 25 次通过全部严格检查，未使用技能时为 13 次；奖励上升代表与参考结果的部分一致。
+  - Only 25 of 280 with-skill and 13 of 280 no-skill Codex runs pass every strict check; higher reward is partial reference agreement.
+
+### 为什么重要 / Why it matters
+
+该基准有助于区分可执行任务知识与封装形式的作用，并避免将部分得分等同于任务完成。
+
+The benchmark helps distinguish actionable task knowledge from packaging effects and avoids equating partial scores with task completion.
+
+---
+
+<a id="2026-10-27-vla-stem-runtime-obstacle-avoidance"></a>
+## [VLA-Stem 无需微调基础策略即可加入动态避障执行](https://arxiv.org/abs/2610.37378)
+
+**English:** [VLA-Stem adds obstacle-responsive execution without fine-tuning the base policy](https://arxiv.org/abs/2610.37378)
+
+- **发布 / Published:** `2026-10-27T15:07:29Z`
+- **来源 / Source:** [VLA-Stem authors / arXiv](https://arxiv.org/abs/2610.37378) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `safety`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+VLA-Stem 提出强化学习训练的执行层，根据障碍物调整 VLA 策略的运动和时序。论文首次提交报告了仿真对比与实体实验，基础 VLA 策略保持固定。
+
+VLA-Stem introduces an RL-trained execution layer that adjusts a VLA policy’s motion and timing around obstacles. Its first arXiv submission reports simulation comparisons and physical experiments while keeping the underlying VLA policy fixed.
+
+### 技术点 / Technical points
+
+- 动作块被转化为运动参考，本体感知与局部障碍信息指导即时调整。
+  - Action chunks become motion references; proprioception and local obstacle information guide responsive adjustments.
+- 在六种受约束仿真设置中，无碰撞任务成功率平均为 52.8%，最强安全基线为 23.7%。
+  - Across six constrained simulation settings, collision-free task success averages 52.8%, versus 23.7% for the strongest safety baseline.
+
+### 为什么重要 / Why it matters
+
+独立执行层为提高实体响应能力提供了路径，无需重新训练成本较高的通用策略。
+
+A separate execution layer offers a way to improve physical responsiveness without retraining a costly generalist policy.
 
 ---
 
@@ -339,357 +671,3 @@ ShutdownMod inserts shutdown requests into agent trajectories and provides a sig
 它把识别合法操作者请求与实际交还控制权区分开来，为智能体监督提供了评估维度。
 
 It separates recognizing a legitimate operator request from actually yielding control, an important agent oversight property.
-
----
-
-<a id="2026-10-26-omni-interactscope-proactive-streaming-agents"></a>
-## [Omni-InteractScope 测量连续音视频流中的及时工具调用与主动协助](https://arxiv.org/abs/2610.35439)
-
-**English:** [Omni-InteractScope measures timely tool use and proactive assistance in continuous streams](https://arxiv.org/abs/2610.35439)
-
-- **发布 / Published:** `2026-10-26T13:39:48Z`
-- **来源 / Source:** [Omni-InteractScope authors (arXiv)](https://arxiv.org/abs/2610.35439) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `multimodal`, `tool-use`, `proactive-assistance`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Omni-InteractScope 包含八类任务中的 1,479 项人工标注交互和 1,790 个时间目标。所测 12 个模型在工具调用目标上的及时响应率均不超过 40%，时机与工具同时正确的最高准确率为 32.0%。
-
-Omni-InteractScope introduces 1,479 human-annotated interactions and 1,790 temporal targets across eight task groups. All 12 evaluated models respond on time to at most 40% of tool-invocation targets; combined timing-and-tool accuracy peaks at 32.0%.
-
-### 技术点 / Technical points
-
-- 任务将音视频证据及用户需求与通知、警告、状态跟踪和事件触发的工具调用联系起来。
-  - Tasks link audiovisual evidence and user needs to notifications, warnings, state tracking and event-triggered tool calls.
-- 无需用户提问的提醒召回率均未超过 23%；九个模型未完整覆盖任何一条、共 26 条引导序列。
-  - Query-free reminder recall never exceeds 23%; nine models complete none of the 26 full guidance sequences.
-
-### 为什么重要 / Why it matters
-
-它把助手何时行动、能否持续完成协助纳入评估，扩展了对流式内容识别的测试。
-
-It evaluates when an assistant acts and whether assistance stays complete, beyond recognizing content in a stream.
-
----
-
-<a id="2026-10-26-dream2assist-intent-conditioned-shared-control"></a>
-## [Dream2Assist 以人类意图为条件训练世界模型，实现人机共享车辆控制](https://arxiv.org/abs/2610.34650)
-
-**English:** [Dream2Assist conditions a world model on human intent for shared vehicle control](https://arxiv.org/abs/2610.34650)
-
-- **发布 / Published:** `2026-10-26T00:28:48Z`
-- **来源 / Source:** [Dream2Assist authors (arXiv)](https://arxiv.org/abs/2610.34650) · `primary`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `model-based-rl`, `human-robot-interaction`, `planning`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Dream2Assist 在循环状态空间世界模型中加入意图推断，并通过虚拟协同博弈训练辅助策略。三项人类参与研究覆盖赛车和城市驾驶，另有初步实车部署；作者报告转矩对齐和碰撞率得到改善。
-
-Dream2Assist extends a recurrent state-space world model with intent inference and trains an assistive policy through fictitious co-play. Three human studies cover racing and urban driving, with a separate preliminary vehicle deployment; the authors report improved torque alignment and collision rates.
-
-### 技术点 / Technical points
-
-- 框架预测离散的人类目标，并通过策略筛选和奖励重设计处理从模拟到真实人的迁移。
-  - The framework anticipates discrete human objectives and addresses simulation-to-human transfer through policy selection and reward redesign.
-- 两项赛车研究合计 30 人，城市研究 10 人；初步实车测试为三人。
-  - Racing studies involve 30 participants in total, the urban study 10; the preliminary on-vehicle test has three participants.
-
-### 为什么重要 / Why it matters
-
-该研究将预测式世界模型与人机协作连接起来，部署证据的范围仍属初步阶段。
-
-The work connects predictive world models to human-agent coordination, with deployment evidence whose scope remains preliminary.
-
----
-
-<a id="2026-10-25-github-agentic-workflows-0935-credential-flow-diagnostics"></a>
-## [GitHub Agentic Workflows 0.93.5 追踪凭据传递并分类诊断引擎崩溃](https://github.com/github/gh-aw/releases/tag/v0.93.5)
-
-**English:** [GitHub Agentic Workflows 0.93.5 tracks credential handoffs and classifies engine crashes](https://github.com/github/gh-aw/releases/tag/v0.93.5)
-
-- **发布 / Published:** `2026-10-25T17:17:17Z`
-- **来源 / Source:** [GitHub Agentic Workflows](https://github.com/github/gh-aw/releases/tag/v0.93.5) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `workflow`, `safety`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
-
-### 摘要 / Summary
-
-GitHub 发布 Agentic Workflows 0.93.5，使秘密泄漏分析能够追踪经步骤输出传递的凭据，并提供避免暴露秘密的引擎崩溃诊断。该版本还允许安全输出集成作业使用网络凭据，并扩展静态分析检查。
-
-GitHub released Agentic Workflows 0.93.5 with secret-leak analysis that follows credentials passed through step outputs and crash diagnostics designed to avoid exposing secrets. The release also permits network credentials in safe-output integration jobs and expands static-analysis checks.
-
-### 技术点 / Technical points
-
-- 秘密泄漏分析可追踪经步骤输出发生的凭据传递。
-  - Secret-leak analysis follows credential handoffs through step outputs.
-- 引擎驱动故障获得分类及避免泄露秘密的标准错误诊断。
-  - Engine-driver failures receive classifications and secret-safe stderr diagnostics.
-- 新增检查覆盖被丢弃的 Flush 返回值，以及通过局部闭包启动的 goroutine 缺少恢复处理等问题。
-  - Additional linters detect discarded Flush results and missing recovery in goroutines launched through local closures.
-
-### 为什么重要 / Why it matters
-
-这些改动有助于提升仓库自动化智能体的可审计性和故障排查能力。
-
-These changes can improve auditability and failure triage for agents running repository automation.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/github/gh-aw/releases/tags/v0.93.5)
-
----
-
-<a id="2026-10-24-qwen-code-0261-durable-recovery-delegation"></a>
-## [Qwen Code 0.26.1 增加持久恢复控制并默认开放子智能体委派](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1)
-
-**English:** [Qwen Code 0.26.1 adds durable recovery controls and public subagent delegation](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1)
-
-- **发布 / Published:** `2026-10-24T15:47:58Z`
-- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `coding`, `multi-agent`, `tool-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-Qwen Code 0.26.1 让托管工作区会话在恢复状态持久化完成后再继续，在 WebShell 展示恢复原因与可用操作，并默认开启公开的子智能体委派能力。桌面版发布采用同一组改动，合并为一个事件。
-
-Qwen Code 0.26.1 makes managed workspace sessions wait for durable recovery settlement before continuing, exposes recovery reasons and valid actions in WebShell, and enables public subagent delegation by default. Its desktop release shares the same change set and is treated as one event.
-
-### 技术点 / Technical points
-
-- 空闲托管会话支持保留审计历史的手动上下文压缩，检查点历史增加分页。
-  - Idle managed sessions support manual context compression while preserving audit history; checkpoint history gains pagination.
-- 无需重建会话即可管理 MCP 服务器，工作区会话新增 web_fetch。
-  - MCP servers can be managed without recreating sessions, and workspace sessions gain web_fetch.
-- 计划任务可由模型之外运行的 shell 命令设定执行门槛，守护进程与 WebShell 也会传递该门槛。
-  - Scheduled tasks can be gated by an external shell command, with the gate carried through the daemon and WebShell.
-
-### 为什么重要 / Why it matters
-
-该更新让长时间运行的编程智能体具备更清晰的恢复状态，以及对子任务委派和计划工作的明确控制。
-
-The update gives long-running coding agents clearer recovery state and more explicit controls over delegated and scheduled work.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.1)
-
----
-
-<a id="2026-10-24-deep-robotics-brain-physical-prediction-benchmarks"></a>
-## [云深处公布连接物理预测、策略学习与导航记忆的研究体系](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
-
-**English:** [DEEP Robotics outlines a research stack linking physical prediction, policies and navigation memory](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html)
-
-- **发布 / Published:** `2026-10-24T12:20:00Z`
-- **来源 / Source:** [DEEP Robotics via GlobeNewswire](https://www.globenewswire.com/news-release/2026/10/24/3387678/0/en/deep-robotics-unveils-five-research-advances-in-embodied-ai.html) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型, Agents / 智能体
-- **标签 / Tags:** `robotics`, `world-model`, `vla`, `reinforcement-learning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-云深处在 DEEPRobotics-Brain 体系下汇总世界模型、VLA 学习、策略优化、预测式记忆和评测五个研究方向。10 月 24 日公告包含此前已有预印本的研究；其中结果来自公司及合作研究者的报告。
-
-DEEP Robotics brought together five research directions under DEEPRobotics-Brain: world modeling, VLA learning, policy optimization, predictive memory and evaluation. The October 24 announcement summarizes research including earlier preprints; reported results remain company and collaborator findings.
-
-### 技术点 / Technical points
-
-- DR-WM 用经校准的地形接触物理约束未来观测；DR-APO 将策略改进与高斯、扩散或流表示解耦。
-  - DR-WM uses calibrated terrain-contact physics to condition future observations; DR-APO separates policy improvement from Gaussian, diffusion or flow representations.
-- EvolvingNav 更新带时间索引的物体位置置信信息；LynxScenes 记录 833.6 小时户外机器人运行数据，覆盖四项评测任务。
-  - EvolvingNav updates time-indexed object beliefs; LynxScenes documents 833.6 hours of outdoor robot operation for four evaluation tasks.
-
-### 为什么重要 / Why it matters
-
-该研究体系将动作预测、可修订记忆与机器人策略评测连接起来。
-
-The program connects action prediction and revisable memory with robot policy evaluation.
-
-### 链接 / Links
-
-[Evidence 1](https://developer.deeprobotics.cn/research/)
-
----
-
-<a id="2026-10-24-openclaw-2026107-replay-safe-recovery"></a>
-## [OpenClaw 2026.10.7 在会话恢复中保留未完成工具结果](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7)
-
-**English:** [OpenClaw 2026.10.7 preserves unfinished tool outcomes during session recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7)
-
-- **发布 / Published:** `2026-10-24T09:53:46Z`
-- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.7) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `memory`, `tool-use`, `safety`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
-
-### 摘要 / Summary
-
-OpenClaw 2026.10.7 加强智能体会话中断后的恢复。发布说明包括保留恢复来源信息及未完成工具结果、阻止被拒绝的 Claude CLI 草稿进入最终回复，并让批量子任务完成消息适配请求智能体的上下文预算。
-
-OpenClaw 2026.10.7 strengthens recovery after interrupted agent sessions. Release notes describe retaining recovery provenance and unfinished tool outcomes, excluding rejected Claude CLI drafts from final replies, and keeping batches of child completions within the requesting agent’s context budget.
-
-### 技术点 / Technical points
-
-- 已停止的对话会先清理终止状态的恢复残留，再接受下一条消息。
-  - Stopped conversations clear terminal recovery residue before accepting another message.
-- 配置写入不完整时保留最后有效快照，Memory Wiki 再次导入时保留人工笔记。
-  - Configuration reads retain the last valid snapshot during truncated writes, and Memory Wiki re-imports preserve human-authored notes.
-- 中断的更新及备份校验可恢复，不兼容的既有智能体数据库保持隔离。
-  - Interrupted updates and backup verification can resume; retained incompatible agent databases remain isolated.
-
-### 为什么重要 / Why it matters
-
-该版本针对中断边界上的工作丢失和回复污染问题，改善持续运行智能体的可靠性。
-
-The release addresses lost work and contaminated replies at interruption boundaries, recurring failure modes for persistent agents.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.7)
-
----
-
-<a id="2026-10-24-pydantic-ai-261-citations-guardrails"></a>
-## [Pydantic AI 2.61 增加结构化引用并收紧智能体护栏](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
-
-**English:** [Pydantic AI 2.61 adds structured citations and tightens agent guardrails](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
-
-- **发布 / Published:** `2026-10-24T03:13:40Z`
-- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `tool-use`, `safety`, `citations`, `durable-execution`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Pydantic AI 2.61 为文本响应增加结构化引用，并在消息重放及 Vercel 适配器中保留引用，同时开放持久执行引擎的扩展接口。该版本还修复提示词脱敏和护栏失败放行路径。时间采用 GitHub 正式发布时刻；发布标题标注的是 10 月 23 日。
-
-Pydantic AI 2.61 adds structured citations to text responses, retains them through message replay and its Vercel adapter, and exposes durable-engine extension interfaces. It also fixes prompt-redaction and guardrail fail-open paths. The timestamp follows GitHub release publication; the release title carries October 23.
-
-### 技术点 / Technical points
-
-- 引用归一化覆盖 Bedrock、OpenRouter 和 xAI；历史消息会向原提供商重放引用。
-  - Citation normalization covers Bedrock, OpenRouter and xAI; histories replay citations to their originating provider.
-- InputGuardrail 对用户提示词脱敏；并发工作区运行保留各自的 Prefect 环境。
-  - InputGuardrail redacts the user prompt; concurrent workspace runs retain their own Prefect environments.
-- Shell.max_log_bytes 限制后台与 shell 作业日志大小，持久操作类型及运行身份钩子成为公开接口。
-  - Shell.max_log_bytes bounds background and shell-job logs, while durable operation types and run-identity hooks become public.
-
-### 为什么重要 / Why it matters
-
-这些改动有助于使用工具、后台作业和持久工作流的智能体保留证据并明确执行边界。
-
-These changes improve evidence retention and execution boundaries in agents that combine tools, background jobs and durable workflows.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.61.0)
-
----
-
-<a id="2026-10-23-google-adk-213-classifier-routing-memory"></a>
-## [Google ADK 2.13 增加分类器路由、实时语音与 MongoDB 记忆](https://github.com/google/adk-python/releases/tag/v2.13.0)
-
-**English:** [Google ADK 2.13 adds classifier-based routing, live audio and MongoDB memory](https://github.com/google/adk-python/releases/tag/v2.13.0)
-
-- **发布 / Published:** `2026-10-23T18:08:23Z`
-- **来源 / Source:** [Google ADK GitHub release](https://github.com/google/adk-python/releases/tag/v2.13.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `workflow`, `memory`, `speech`, `classification`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-Google ADK 2.13 引入用于工作流路由的类型化分类节点、可打断的实时语音交互，以及实验性的 MongoDB 会话与记忆服务，并将 12 项实验功能转为稳定。本条依据 GitHub 发布时刻入档，更新日志标注日期为 10 月 22 日。
-
-Google ADK 2.13 introduces typed classifier nodes for workflow routing, interruptible live-audio interactions, and experimental MongoDB session and memory services. It also promotes 12 experimental features to stable. This record follows GitHub's publication time; the changelog is dated October 22.
-
-### 技术点 / Technical points
-
-- ClassifierNode 与 TypesafeClassifier 接入 TypeSafe 的 Jev 模型，以校准后的概率支持工作流路由。
-  - ClassifierNode and TypesafeClassifier integrate TypeSafe's Jev models for routing with calibrated probabilities.
-- MongoDbSessionService 支持跨运行器副本持久化会话；MongoDbMemoryService 通过关键词召回历史，无需嵌入模型或向量索引。两项服务仍属实验功能。
-  - MongoDbSessionService persists sessions across runner replicas; MongoDbMemoryService recalls turns by keyword without an embedding model or vector index. Both services remain experimental.
-- CascadeLive 增加打断交互及 Gemini 语音识别、语音合成；遥测默认切换至 OpenTelemetry GenAI v2。
-  - CascadeLive adds barge-in plus Gemini speech-to-text and text-to-speech; telemetry defaults to OpenTelemetry GenAI v2.
-
-### 为什么重要 / Why it matters
-
-类型化路由与持久化会话服务，为构建结构化、有状态的代理工作流提供更多组件。
-
-Typed routing and persistent session services give developers additional building blocks for structured, stateful agent workflows.
-
----
-
-<a id="2026-10-23-goose-156-resumable-subagents-boa"></a>
-## [Goose 1.56 支持恢复委派代理并引入 Boa JavaScript 运行时](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
-
-**English:** [Goose 1.56 adds resumable delegated agents and a Boa JavaScript runtime](https://github.com/aaif-goose/goose/releases/tag/v1.56.0)
-
-- **发布 / Published:** `2026-10-23T15:49:34Z`
-- **来源 / Source:** [Goose GitHub release](https://github.com/aaif-goose/goose/releases/tag/v1.56.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `multi-agent`, `runtime`, `tool-use`, `mcp`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-Goose 1.56 支持恢复失败或取消的委派子代理、限制其并发数量，并用 Boa JavaScript 运行时替换 PCTX 代码模式。该版本还增加子代理会话只读视图，并为 MCP 工具提供适配模型提供商的公开名称。
-
-Goose 1.56 adds recovery for failed or cancelled delegated subagents, controls their concurrency, and replaces its PCTX code mode with the Boa JavaScript runtime. The release also adds read-only subagent session views and provider-safe public MCP tool names.
-
-### 技术点 / Technical points
-
-- 委派子代理可在失败或取消后恢复，支持配置并发上限，并可回退使用全局轮数限制。
-  - Delegated subagents can resume after failure or cancellation, with a configurable concurrency cap and a global turn-limit fallback.
-- 桌面端提供子代理会话的只读链接，前台子代理通过 GDK 运行。
-  - The desktop exposes links to read-only subagent sessions, while foreground subagents run through the GDK.
-- 代码模式迁移至 Boa，MCP 工具命名也调整为适配模型提供商的形式。
-  - Code mode moves to Boa; MCP tool naming is adjusted for provider compatibility.
-
-### 为什么重要 / Why it matters
-
-恢复与并发控制使委派任务更易管理，会话可见性则便于用户检查每个代理的执行过程。
-
-Recovery and concurrency controls make delegated work easier to manage, while session visibility helps users inspect what each agent did.
-
----
-
-<a id="2026-10-23-nvidia-microduck-agent-built-training-environments"></a>
-## [NVIDIA 展示代理辅助的 Microduck 仿真与运动策略训练流程](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
-
-**English:** [NVIDIA details an agent-assisted Microduck simulation and locomotion-training workflow](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/)
-
-- **发布 / Published:** `2026-10-23T14:58:32Z`
-- **来源 / Source:** [NVIDIA Technical Blog](https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/) · `primary`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `reinforcement-learning`, `tool-use`, `locomotion`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-NVIDIA 公开一套流程：Hermes 与 Nemotron 规划 Microduck 障碍课程，Astra 创建仿真资产，再由 Isaac Lab 训练感知与运动策略。文章展示环境构建及仿真评估，详细硬件部署仍不在其覆盖范围内。
-
-NVIDIA documents a workflow in which Hermes and Nemotron plan a Microduck obstacle course, Astra creates simulation assets, and Isaac Lab trains a perception-and-locomotion policy. The post demonstrates environment construction and simulation evaluation; detailed hardware deployment remains outside its scope.
-
-### 技术点 / Technical points
-
-- Astra 使用 FreeCAD 构建几何、Blender 添加材质，导出可编辑模型及 USD 资产，并在使用 Newton 物理引擎的 Isaac Sim 中组装环境。
-  - Astra uses FreeCAD for geometry and Blender for materials, exporting editable models and USD assets into an Isaac Sim environment with Newton physics.
-- 文中适应训练从预训练运动策略出发，以头部相机深度和机器人状态为观测，在一张 RTX PRO 6000 Blackwell 上运行 4,096 个并行环境。
-  - The reported adaptation run starts from a pretrained locomotion policy and uses head-camera depth plus robot-state observations across 4,096 parallel environments on an RTX PRO 6000 Blackwell GPU.
-- 流程在 RTX Spark 上本地评估选定策略，并讨论后续仿真到现实迁移所需的执行器建模与域随机化。
-  - The workflow evaluates the selected policy locally on RTX Spark and discusses actuator modeling and domain randomization for subsequent sim-to-real work.
-
-### 为什么重要 / Why it matters
-
-这一实例将代理生成的资产接入机器人策略训练与评估，使编码代理与具身学习工具之间的衔接更具体。
-
-The worked example connects agent-generated assets to robot-policy training and evaluation, making the handoff between coding agents and embodied-learning tools more concrete.

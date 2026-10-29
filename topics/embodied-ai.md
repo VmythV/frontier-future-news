@@ -2,6 +2,142 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
+## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
+
+**English:** [ThinkWorld uses imagined dynamics to learn robot action reasoning from video](https://arxiv.org/abs/2610.37666)
+
+- **发布 / Published:** `2026-10-27T17:59:52Z`
+- **来源 / Source:** [ThinkWorld authors / arXiv](https://arxiv.org/abs/2610.37666) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ThinkWorld 为人类与机器人经验建立共享的运动词元推理空间。论文报告了仿真和实体机器人实验，通过未来状态预测从无动作标签的视频中学习。发布时间采用 arXiv 首次提交时间。
+
+ThinkWorld introduces a shared motion-token reasoning space for human and robot experience. Its paper reports simulation and physical-robot experiments using future-state prediction to learn from videos without action labels. Publication time is the first arXiv submission.
+
+### 技术点 / Technical points
+
+- Chain-of-Dynamics 词元描述连接当前观测与未来状态的中间运动。
+  - Chain-of-Dynamics tokens represent intermediate motion linking the current observation to a future state.
+- 训练强化预测结果与实际状态变化相符的运动链；项目将想象过程放在训练阶段，而非部署阶段。
+  - Training reinforces motion chains whose predicted outcomes match observed transitions; the project places imagination in training, not deployment.
+
+### 为什么重要 / Why it matters
+
+该方法为将丰富的人类视频转化为具备动作依据的机器人学习提供了具体路径。
+
+The method offers a concrete route for transferring abundant human video into action-grounded robot learning.
+
+### 链接 / Links
+
+[Evidence 1](https://thinkworld-project.github.io/)
+
+---
+
+<a id="2026-10-27-dexsafe-in-hand-pose-safety-filter"></a>
+## [DexSafe 以学习式安全过滤器评测灵巧手内位姿控制](https://arxiv.org/abs/2610.37652)
+
+**English:** [DexSafe evaluates dexterous in-hand pose reaching with a learned safety filter](https://arxiv.org/abs/2610.37652)
+
+- **发布 / Published:** `2026-10-27T17:58:20Z`
+- **来源 / Source:** [DexSafe authors / arXiv](https://arxiv.org/abs/2610.37652) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dexterous-manipulation`, `safety`, `sim-to-real`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+作者提出在仿真中训练的 LEAP 灵巧手策略与残差安全过滤器，用于连续物体位姿目标控制。论文首次提交报告了 13.3 小时实体评测，覆盖四种物体的 4,800 个未见目标。
+
+The authors present simulation-trained LEAP-hand policies and a residual safety filter for sequences of object-pose goals. Their first arXiv submission reports 13.3 hours of physical evaluation across 4,800 unseen goals and four objects.
+
+### 技术点 / Technical points
+
+- 状态策略在 2 厘米和 0.4 弧度误差范围内完成 95.2% 的目标；加入过滤器后完成率为 91.5%，掉落减少 75%。
+  - The state-based policy reaches 95.2% of goals within 2 cm and 0.4 rad; adding the filter yields 91.5% while cutting drops by 75%.
+- 策略无需实体环境中的策略训练即可迁移，可使用动作捕捉或腕部深度相机。
+  - Policies transfer without real-world policy training and can use motion capture or a wrist-mounted depth camera.
+
+### 为什么重要 / Why it matters
+
+该评测量化了长序列灵巧操作中任务表现与掉落率之间的权衡。
+
+The evaluation quantifies a performance-versus-drop-rate tradeoff for long sequences of dexterous manipulation.
+
+### 链接 / Links
+
+[Evidence 1](https://ian-chuang.github.io/dexsafe/)
+
+---
+
+<a id="2026-10-27-quadrotor-dynamic-gap-differentiable-flight"></a>
+## [可微仿真训练四旋翼穿越移动窄缝](https://arxiv.org/abs/2610.37557)
+
+**English:** [Differentiable simulation trains quadrotors to cross moving narrow gaps](https://arxiv.org/abs/2610.37557)
+
+- **发布 / Published:** `2026-10-27T17:05:05Z`
+- **来源 / Source:** [Riccardo Bianco and coauthors / arXiv](https://arxiv.org/abs/2610.37557) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `sim-to-real`, `visual-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+一篇新论文从随机初始化直接训练视觉惯性飞行策略，使四旋翼穿越移动窄缝。作者报告仿真成功率为 99.3%，十次实体试验中成功八次；发布时间采用 arXiv 首次提交时间。
+
+A new paper trains a visual-inertial flight policy directly from random initialization for moving-gap traversal. The authors report 99.3% simulation success and eight successful crossings in ten physical trials; publication time is the first arXiv submission.
+
+### 技术点 / Technical points
+
+- 可微移动平面目标为居中、姿态对齐与避碰提供稠密梯度。
+  - A differentiable moving-plane objective supplies dense gradients for centering, alignment and collision avoidance.
+- 单阶段训练无需教师、规划器或蒸馏，策略根据机载感知输出推力与机体角速度指令。
+  - One-stage training uses no teacher, planner or distillation, and outputs thrust and body-rate commands from onboard sensing.
+
+### 为什么重要 / Why it matters
+
+小规模实体试验展示了学习式精密飞行的迁移路径，对更广泛可靠性的证据仍有限。
+
+The small physical trial demonstrates a transfer path for learned precision flight, with limited evidence about broader reliability.
+
+---
+
+<a id="2026-10-27-vla-stem-runtime-obstacle-avoidance"></a>
+## [VLA-Stem 无需微调基础策略即可加入动态避障执行](https://arxiv.org/abs/2610.37378)
+
+**English:** [VLA-Stem adds obstacle-responsive execution without fine-tuning the base policy](https://arxiv.org/abs/2610.37378)
+
+- **发布 / Published:** `2026-10-27T15:07:29Z`
+- **来源 / Source:** [VLA-Stem authors / arXiv](https://arxiv.org/abs/2610.37378) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `safety`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+VLA-Stem 提出强化学习训练的执行层，根据障碍物调整 VLA 策略的运动和时序。论文首次提交报告了仿真对比与实体实验，基础 VLA 策略保持固定。
+
+VLA-Stem introduces an RL-trained execution layer that adjusts a VLA policy’s motion and timing around obstacles. Its first arXiv submission reports simulation comparisons and physical experiments while keeping the underlying VLA policy fixed.
+
+### 技术点 / Technical points
+
+- 动作块被转化为运动参考，本体感知与局部障碍信息指导即时调整。
+  - Action chunks become motion references; proprioception and local obstacle information guide responsive adjustments.
+- 在六种受约束仿真设置中，无碰撞任务成功率平均为 52.8%，最强安全基线为 23.7%。
+  - Across six constrained simulation settings, collision-free task success averages 52.8%, versus 23.7% for the strongest safety baseline.
+
+### 为什么重要 / Why it matters
+
+独立执行层为提高实体响应能力提供了路径，无需重新训练成本较高的通用策略。
+
+A separate execution layer offers a way to improve physical responsiveness without retraining a costly generalist policy.
+
+---
+
 <a id="2026-10-26-flore-force-reactive-humanoid-manipulation"></a>
 ## [FLoRe 协调双手接触力与全身运动，提升人形机器人接触任务表现](https://arxiv.org/abs/2610.35862)
 

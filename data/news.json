@@ -19020,6 +19020,460 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-28-github-agentic-workflows-ga",
+      "published_at": "2026-10-28T15:30:15Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "tool-use",
+        "safety",
+        "automation"
+      ],
+      "title_en": "GitHub Agentic Workflows reaches general availability",
+      "title_zh": "GitHub Agentic Workflows 正式发布",
+      "summary_en": "GitHub made Agentic Workflows generally available, compiling Markdown instructions into GitHub Actions workflows for coding-agent automation. The announcement consolidates safeguards and capabilities added since public preview, rather than presenting every feature as newly introduced.",
+      "summary_zh": "GitHub 将 Agentic Workflows 推向正式可用阶段，把 Markdown 指令编译为 GitHub Actions 工作流，以运行编码智能体自动化。公告汇总了公开预览以来的防护与能力更新，并非所有功能都在当天首次推出。",
+      "tech_points_en": [
+        "Agents default to read-only access; validated safe outputs and a separate threat-detection job mediate proposed changes.",
+        "The GA feature set includes model routing, self-hosted ARC support, budget forecasting and microVM isolation options."
+      ],
+      "tech_points_zh": [
+        "智能体默认只读访问；经验证的安全输出与独立威胁检测任务共同检查拟议变更。",
+        "正式版能力涵盖模型路由、自托管 ARC 支持、预算预测和微型虚拟机隔离选项。"
+      ],
+      "why_it_matters_en": "The release makes repository automation with explicit execution and change controls more accessible within existing Actions policies.",
+      "why_it_matters_zh": "该发布让具备明确执行与变更控制的仓库自动化更容易接入现有 Actions 策略。",
+      "source": {
+        "name": "GitHub",
+        "type": "primary",
+        "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-28-copilot-review-max-multi-model-approvals",
+      "published_at": "2026-10-28T15:30:00Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "reasoning",
+        "code-review"
+      ],
+      "title_en": "Copilot previews multi-model Max reviews and makes approvals generally available",
+      "title_zh": "Copilot 预览多模型 Max 审查，并正式开放审批能力",
+      "summary_en": "GitHub introduced Max code-review effort in public preview and made Copilot approvals generally available. Max combines independent review agents using models from different providers, then uses an aggregation agent to reconcile findings.",
+      "summary_zh": "GitHub 公开预览 Max 代码审查档位，并将 Copilot 审批推向正式可用。Max 使用来自不同提供商的模型运行独立审查智能体，再由汇总智能体协调审查发现。",
+      "tech_points_en": [
+        "The aggregation agent resolves disagreements and checks findings before producing one review; Max takes more time and credits.",
+        "Approvals are disabled by default, can count toward required approvals when enabled, and are dismissed after new commits."
+      ],
+      "tech_points_zh": [
+        "汇总智能体在形成统一审查前处理分歧并复核发现；Max 需要更多时间和额度。",
+        "审批默认关闭；启用后可计入必需审批数量，新提交会使已有审批失效。"
+      ],
+      "why_it_matters_en": "This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.",
+      "why_it_matters_zh": "它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。",
+      "source": {
+        "name": "GitHub",
+        "type": "primary",
+        "url": "https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-thinkworld-chain-of-dynamics-imagination",
+      "published_at": "2026-10-27T17:59:52Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "reasoning",
+        "reinforcement-learning"
+      ],
+      "title_en": "ThinkWorld uses imagined dynamics to learn robot action reasoning from video",
+      "title_zh": "ThinkWorld 利用想象动力学从视频学习机器人动作推理",
+      "summary_en": "ThinkWorld introduces a shared motion-token reasoning space for human and robot experience. Its paper reports simulation and physical-robot experiments using future-state prediction to learn from videos without action labels. Publication time is the first arXiv submission.",
+      "summary_zh": "ThinkWorld 为人类与机器人经验建立共享的运动词元推理空间。论文报告了仿真和实体机器人实验，通过未来状态预测从无动作标签的视频中学习。发布时间采用 arXiv 首次提交时间。",
+      "tech_points_en": [
+        "Chain-of-Dynamics tokens represent intermediate motion linking the current observation to a future state.",
+        "Training reinforces motion chains whose predicted outcomes match observed transitions; the project places imagination in training, not deployment."
+      ],
+      "tech_points_zh": [
+        "Chain-of-Dynamics 词元描述连接当前观测与未来状态的中间运动。",
+        "训练强化预测结果与实际状态变化相符的运动链；项目将想象过程放在训练阶段，而非部署阶段。"
+      ],
+      "why_it_matters_en": "The method offers a concrete route for transferring abundant human video into action-grounded robot learning.",
+      "why_it_matters_zh": "该方法为将丰富的人类视频转化为具备动作依据的机器人学习提供了具体路径。",
+      "source": {
+        "name": "ThinkWorld authors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37666",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://thinkworld-project.github.io/"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-dexsafe-in-hand-pose-safety-filter",
+      "published_at": "2026-10-27T17:58:20Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "dexterous-manipulation",
+        "safety",
+        "sim-to-real"
+      ],
+      "title_en": "DexSafe evaluates dexterous in-hand pose reaching with a learned safety filter",
+      "title_zh": "DexSafe 以学习式安全过滤器评测灵巧手内位姿控制",
+      "summary_en": "The authors present simulation-trained LEAP-hand policies and a residual safety filter for sequences of object-pose goals. Their first arXiv submission reports 13.3 hours of physical evaluation across 4,800 unseen goals and four objects.",
+      "summary_zh": "作者提出在仿真中训练的 LEAP 灵巧手策略与残差安全过滤器，用于连续物体位姿目标控制。论文首次提交报告了 13.3 小时实体评测，覆盖四种物体的 4,800 个未见目标。",
+      "tech_points_en": [
+        "The state-based policy reaches 95.2% of goals within 2 cm and 0.4 rad; adding the filter yields 91.5% while cutting drops by 75%.",
+        "Policies transfer without real-world policy training and can use motion capture or a wrist-mounted depth camera."
+      ],
+      "tech_points_zh": [
+        "状态策略在 2 厘米和 0.4 弧度误差范围内完成 95.2% 的目标；加入过滤器后完成率为 91.5%，掉落减少 75%。",
+        "策略无需实体环境中的策略训练即可迁移，可使用动作捕捉或腕部深度相机。"
+      ],
+      "why_it_matters_en": "The evaluation quantifies a performance-versus-drop-rate tradeoff for long sequences of dexterous manipulation.",
+      "why_it_matters_zh": "该评测量化了长序列灵巧操作中任务表现与掉落率之间的权衡。",
+      "source": {
+        "name": "DexSafe authors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37652",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://ian-chuang.github.io/dexsafe/"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-teamgym-distributed-information-coordination",
+      "published_at": "2026-10-27T17:15:54Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "multi-agent",
+        "benchmark",
+        "reinforcement-learning"
+      ],
+      "title_en": "TeamGym measures communication and retrieval gaps in agent teams",
+      "title_zh": "TeamGym 衡量智能体团队的通信与检索缺口",
+      "summary_en": "TeamGym evaluates team decisions when necessary facts are distributed among agents. The first arXiv submission studies eight language models across twelve corpora and reports distinct losses from information sharing and retrieval.",
+      "summary_zh": "TeamGym 评测必要事实分散在不同智能体手中时的团队决策。论文首次提交研究了八个语言模型和十二个语料库，分别报告信息共享与检索造成的表现损失。",
+      "tech_points_en": [
+        "Distributing pivotal facts lowers success by 22.9 percentage points on average versus giving the same facts to one model.",
+        "Requiring participants to extract those facts costs another 19.9 points; final-decision reinforcement learning improves coordination in two training experiments."
+      ],
+      "tech_points_zh": [
+        "与把相同事实交给单个模型相比，分散关键事实使平均成功率下降 22.9 个百分点。",
+        "要求参与者自行提取事实又损失 19.9 个百分点；两项训练实验中，最终决策奖励改善了协作。"
+      ],
+      "why_it_matters_en": "The environment separates collaboration failures from retrieval failures, making multi-agent training targets easier to diagnose.",
+      "why_it_matters_zh": "该环境将协作失败与检索失败区分开，有助于诊断多智能体训练应改进的环节。",
+      "source": {
+        "name": "TeamGym authors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37571",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-quadrotor-dynamic-gap-differentiable-flight",
+      "published_at": "2026-10-27T17:05:05Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "sim-to-real",
+        "visual-control"
+      ],
+      "title_en": "Differentiable simulation trains quadrotors to cross moving narrow gaps",
+      "title_zh": "可微仿真训练四旋翼穿越移动窄缝",
+      "summary_en": "A new paper trains a visual-inertial flight policy directly from random initialization for moving-gap traversal. The authors report 99.3% simulation success and eight successful crossings in ten physical trials; publication time is the first arXiv submission.",
+      "summary_zh": "一篇新论文从随机初始化直接训练视觉惯性飞行策略，使四旋翼穿越移动窄缝。作者报告仿真成功率为 99.3%，十次实体试验中成功八次；发布时间采用 arXiv 首次提交时间。",
+      "tech_points_en": [
+        "A differentiable moving-plane objective supplies dense gradients for centering, alignment and collision avoidance.",
+        "One-stage training uses no teacher, planner or distillation, and outputs thrust and body-rate commands from onboard sensing."
+      ],
+      "tech_points_zh": [
+        "可微移动平面目标为居中、姿态对齐与避碰提供稠密梯度。",
+        "单阶段训练无需教师、规划器或蒸馏，策略根据机载感知输出推力与机体角速度指令。"
+      ],
+      "why_it_matters_en": "The small physical trial demonstrates a transfer path for learned precision flight, with limited evidence about broader reliability.",
+      "why_it_matters_zh": "小规模实体试验展示了学习式精密飞行的迁移路径，对更广泛可靠性的证据仍有限。",
+      "source": {
+        "name": "Riccardo Bianco and coauthors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37557",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-tam-gui-verified-task-progress-memory",
+      "published_at": "2026-10-27T16:09:25Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "memory",
+        "benchmark"
+      ],
+      "title_en": "Task Advancement Memory turns verified GUI progress into reusable operations",
+      "title_zh": "Task Advancement Memory 将已验证 GUI 进展转化为可复用操作",
+      "summary_en": "Task Advancement Memory preserves verified progress across applications and learns reusable operations from locally successful interactions, including those inside failed tasks. The first arXiv submission reports improved MobileWorld GUI performance and lower lifecycle token use.",
+      "summary_zh": "Task Advancement Memory 保存跨应用的已验证进展，并从局部成功交互中学习可复用操作，即便整体任务失败也能提取经验。论文首次提交报告了 MobileWorld GUI 表现改善与生命周期词元消耗下降。",
+      "tech_points_en": [
+        "The advancement-state component alone raises MobileWorld GUI-only success from 12.0% to 28.2%.",
+        "Full TAM reports a 17.6% relative success gain over the strongest evaluated baseline and 38.7% fewer lifecycle tokens per solved task."
+      ],
+      "tech_points_zh": [
+        "仅进展状态组件就将 MobileWorld 纯 GUI 任务成功率从 12.0% 提升至 28.2%。",
+        "完整 TAM 相对最强参评基线的任务成功率提高 17.6%，每个完成任务的生命周期词元减少 38.7%。"
+      ],
+      "why_it_matters_en": "Using verified local outcomes as memory may help long workflows retain useful progress and recover value from failed attempts.",
+      "why_it_matters_zh": "把已验证的局部结果用作记忆，有望帮助长流程保留有效进展，并从失败尝试中回收经验。",
+      "source": {
+        "name": "Ziyang Chen and coauthors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37482",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-concordat-runtime-session-protocols",
+      "published_at": "2026-10-27T16:00:26Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "safety",
+        "open-source",
+        "multi-agent"
+      ],
+      "title_en": "Concordat enforces agent action protocols at runtime",
+      "title_zh": "Concordat 在运行时强制执行智能体动作协议",
+      "summary_en": "Concordat exposes only tools permitted by an agent session protocol and rejects illegal calls before side effects. Its first arXiv submission reports no missing-confirmation violations in the evaluated airline tasks, without a significant task-success difference from the baseline.",
+      "summary_zh": "Concordat 只向模型暴露会话协议允许的工具，并在产生副作用前拒绝非法调用。论文首次提交报告，在所评测航空任务中未出现缺失确认的违规行为，任务成功率与基线无显著差异。",
+      "tech_points_en": [
+        "Finite-state protocols reserve human decisions and track token and tool-call budgets across handoffs.",
+        "The tau-bench study adds simulated customers who pressure agents to skip confirmation; ordinary benchmark rewards miss most observed violations."
+      ],
+      "tech_points_zh": [
+        "有限状态协议保留人类决策权，并在交接过程中追踪词元和工具调用预算。",
+        "tau-bench 实验加入催促智能体跳过确认的模拟客户；常规基准奖励未识别大部分已观察到的违规行为。"
+      ],
+      "why_it_matters_en": "The library makes action authorization an enforceable interface property and exposes a blind spot in outcome-only evaluation.",
+      "why_it_matters_zh": "该库将动作授权变为可强制执行的接口属性，并揭示只看任务结果的评测盲区。",
+      "source": {
+        "name": "Milad Sikaroudi / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37461",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/miladsikaroudi/concordat"
+      ],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-m4bench-agent-procedural-specifications",
+      "published_at": "2026-10-27T15:59:13Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "tool-use",
+        "open-source",
+        "evaluation"
+      ],
+      "title_en": "M4Bench separates procedural specification gains from agent skill formatting",
+      "title_zh": "M4Bench 区分流程规范与智能体技能格式带来的收益",
+      "summary_en": "M4Bench introduces 28 clinical data-derivation tasks across 15 families. The first arXiv submission finds that detailed operational specifications explain most measured skill gains, while strict end-to-end completion remains uncommon.",
+      "summary_zh": "M4Bench 提出覆盖十五个任务族的二十八项临床数据派生任务。论文首次提交发现，详细操作规范解释了技能带来的大部分收益，而严格端到端完成仍较少见。",
+      "tech_points_en": [
+        "The tasks use MIMIC-IV and eICU; controls vary specification completeness, delivery format and schema familiarity.",
+        "Only 25 of 280 with-skill and 13 of 280 no-skill Codex runs pass every strict check; higher reward is partial reference agreement."
+      ],
+      "tech_points_zh": [
+        "任务基于 MIMIC-IV 和 eICU，对照实验改变规范完整性、交付格式与数据库模式熟悉度。",
+        "使用技能的 280 次 Codex 运行中仅 25 次通过全部严格检查，未使用技能时为 13 次；奖励上升代表与参考结果的部分一致。"
+      ],
+      "why_it_matters_en": "The benchmark helps distinguish actionable task knowledge from packaging effects and avoids equating partial scores with task completion.",
+      "why_it_matters_zh": "该基准有助于区分可执行任务知识与封装形式的作用，并避免将部分得分等同于任务完成。",
+      "source": {
+        "name": "M4Bench authors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37459",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-27-vla-stem-runtime-obstacle-avoidance",
+      "published_at": "2026-10-27T15:07:29Z",
+      "collected_at": "2026-10-29T00:04:02.297328Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "safety",
+        "reinforcement-learning"
+      ],
+      "title_en": "VLA-Stem adds obstacle-responsive execution without fine-tuning the base policy",
+      "title_zh": "VLA-Stem 无需微调基础策略即可加入动态避障执行",
+      "summary_en": "VLA-Stem introduces an RL-trained execution layer that adjusts a VLA policy’s motion and timing around obstacles. Its first arXiv submission reports simulation comparisons and physical experiments while keeping the underlying VLA policy fixed.",
+      "summary_zh": "VLA-Stem 提出强化学习训练的执行层，根据障碍物调整 VLA 策略的运动和时序。论文首次提交报告了仿真对比与实体实验，基础 VLA 策略保持固定。",
+      "tech_points_en": [
+        "Action chunks become motion references; proprioception and local obstacle information guide responsive adjustments.",
+        "Across six constrained simulation settings, collision-free task success averages 52.8%, versus 23.7% for the strongest safety baseline."
+      ],
+      "tech_points_zh": [
+        "动作块被转化为运动参考，本体感知与局部障碍信息指导即时调整。",
+        "在六种受约束仿真设置中，无碰撞任务成功率平均为 52.8%，最强安全基线为 23.7%。"
+      ],
+      "why_it_matters_en": "A separate execution layer offers a way to improve physical responsiveness without retraining a costly generalist policy.",
+      "why_it_matters_zh": "独立执行层为提高实体响应能力提供了路径，无需重新训练成本较高的通用策略。",
+      "source": {
+        "name": "VLA-Stem authors / arXiv",
+        "type": "primary",
+        "url": "https://arxiv.org/abs/2610.37378",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
     }
   ]
 }
