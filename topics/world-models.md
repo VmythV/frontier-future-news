@@ -2,6 +2,38 @@
 
 # World models / 世界模型
 
+<a id="2026-10-29-agibot-go3-preview-wram"></a>
+## [智元展示统一推理、预测与动作的 GO-3 Preview](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
+
+**English:** [AGIBOT demonstrates GO-3 Preview with unified reasoning, prediction and action](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
+
+- **发布 / Published:** `2026-10-29T09:14:00Z`
+- **来源 / Source:** [AGIBOT via PR Newswire](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `reasoning`, `simulation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+智元在创新日展示 GO-3 Preview 及其 WRAM 架构，将推理、预测与机器人动作连接起来。公司演示了零样本与少样本操作，并介绍贯穿预训练、后训练和部署阶段的学习路线。所报告的榜单成绩仍属于公司披露。
+
+At its Innovation Day, AGIBOT demonstrated GO-3 Preview and its WRAM architecture, which links reasoning, prediction and robot actions. The company showed zero-shot and few-shot manipulation and described learning across pretraining, post-training and deployment. Reported leaderboard results remain company disclosures.
+
+### 技术点 / Technical points
+
+- WRAM 对动作可能产生的结果建模，以支持环境适应及未见任务上的操作。
+  - WRAM models possible action outcomes to support adaptation and manipulation on previously unseen tasks.
+- 智元报告在 RoboDojo、RoboTwin 和 RoboColiseum 取得领先结果；该公告提供的是演示与厂商披露，并非独立复现。
+  - AGIBOT reports leading results on RoboDojo, RoboTwin and RoboColiseum; the announcement describes demonstrations rather than independent replication.
+
+### 为什么重要 / Why it matters
+
+这提供了将预测式世界建模与实体机器人动作、持续学习相结合的具体案例。
+
+This offers a concrete example of predictive world modeling being integrated with physical robot action and continued learning.
+
+---
+
 <a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
 ## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
 

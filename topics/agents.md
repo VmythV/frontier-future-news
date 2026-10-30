@@ -2,6 +2,110 @@
 
 # Agents / 智能体
 
+<a id="2026-10-29-openclaw-2026-10-9-boundaries-recovery"></a>
+## [OpenClaw 2026.10.9 扩展工作区边界并改善故障恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9)
+
+**English:** [OpenClaw 2026.10.9 extends workspace boundaries and improves failure recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9)
+
+- **发布 / Published:** `2026-10-29T15:54:35Z`
+- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+OpenClaw 2026.10.9 将仅限工作区的限制应用到 Gateway 构建的工具，并从 MCP 检查输出中移除实际凭据。此次维护更新还在升级回滚失败时保留操作者修改，并改善智能体数据库恢复。
+
+OpenClaw 2026.10.9 applies workspace-only restrictions to Gateway-built tools and removes live credentials from MCP inspection output. Its maintenance changes also preserve operator edits during failed update rollbacks and improve agent-database recovery.
+
+### 技术点 / Technical points
+
+- 启用 tools.fs.workspaceOnly 时，Gateway 构建的委派工具保留审批要求，媒体工具受工作区边界限制。
+  - Gateway-built delegates retain approval requirements and media tools remain within the workspace when tools.fs.workspaceOnly is enabled.
+- 恢复逻辑处理 SQLite 分词器变化与失效全文索引；磁盘空间恢复后，智能体无需重启即可继续运行。
+  - Recovery handles SQLite tokenizer changes and stale full-text indexes; agents can resume after disk space becomes available without a restart.
+
+### 为什么重要 / Why it matters
+
+该版本加强动作边界，并减少持久运行的智能体系统中的数据丢失与中断。
+
+The release strengthens action boundaries while reducing data loss and interruption in persistent agent installations.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.9)
+
+---
+
+<a id="2026-10-29-qwen-code-0264-workflow-isolation"></a>
+## [Qwen Code 0.26.3–0.26.4 增加持久工作流与主会话独立工作树](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4)
+
+**English:** [Qwen Code 0.26.3–0.26.4 adds persistent workflows and isolated main-session worktrees](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4)
+
+- **发布 / Published:** `2026-10-29T14:29:11Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Qwen Code 在 0.26.3 加入持久 Workflow 模式并加强工具调用解析，随后在 0.26.4 增加主会话独立工作树和自动修复轮次预算。本条合并这两次连续更新，采用后一个版本的发布时间。
+
+Qwen Code released persistent Workflow mode and stronger tool-call parsing in 0.26.3, followed by independent main-session worktrees and bounded autofix rounds in 0.26.4. This entry groups the consecutive releases and uses the latter publication time.
+
+### 技术点 / Technical points
+
+- Workflow 模式可持久保存并传递至 CLI 沙箱；引用的 XML 示例不会被派发为工具调用。
+  - Workflow mode persists across sessions and reaches the CLI sandbox; quoted XML examples are not dispatched as tool calls.
+- 后续版本以独立工作树隔离主会话，限制自动修复接管轮次，并将核验报告绑定到对应轮次快照。
+  - The newer release isolates main sessions in worktrees, bounds autofix takeover rounds and binds verification reports to their round snapshots.
+
+### 为什么重要 / Why it matters
+
+这些更新让反复执行的编码智能体工作流更容易隔离、限制和审计。
+
+The updates make repeated coding-agent workflows easier to isolate, bound and audit.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.3) · [Evidence 2](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.4)
+
+---
+
+<a id="2026-10-28-gemini-4-carbon-long-horizon"></a>
+## [Gemini 4 Carbon 面向持续工程任务，初期限制开放范围](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
+
+**English:** [Gemini 4 Carbon targets sustained engineering agents with restricted initial access](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
+
+- **发布 / Published:** `2026-10-28T17:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `tool-use`, `benchmark`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Google 发布面向长时工程与网络安全工作流的 Gemini 4 Carbon，初期通过 Fairwind 向部分防御人员开放。Google 报告其漏洞发现与修补能力提升，同时减少评测作弊和无依据陈述。这些结果属于厂商评测，尚未宣布全面公开使用。
+
+Google announced Gemini 4 Carbon for long-running engineering and cybersecurity workflows, initially reaching selected defenders through Fairwind. Google reports stronger vulnerability discovery and patching, alongside reduced cheating and unsupported claims. The results are vendor evaluations; broad public access has not been announced.
+
+### 技术点 / Technical points
+
+- Google 报告在不启用防护的评测条件下，SEC-bench Pro、ExploitGym 和 CWE-bench 成绩分别为 88.2%、54.8% 和 71.0%。
+  - Google reports 88.2% on SEC-bench Pro, 54.8% on ExploitGym and 71.0% on CWE-bench, evaluated without guardrails.
+- 内部工程团队报告过持续数天的运行；Google 报告 Terminal-Bench 4.0 成功作弊率为 0.0%，作弊尝试率为 0.4%。
+  - Internal engineering teams report runs lasting days; Google reports 0.0% successful cheating on Terminal-Bench 4.0 and 0.4% cheating attempts.
+
+### 为什么重要 / Why it matters
+
+该公告将更长的自主工程执行与明确的可靠性测量、受限部署联系起来。
+
+The announcement connects longer autonomous engineering runs with explicit measurements of reliability and constrained deployment.
+
+---
+
 <a id="2026-10-28-github-agentic-workflows-ga"></a>
 ## [GitHub Agentic Workflows 正式发布](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
 
@@ -63,6 +167,42 @@ GitHub introduced Max code-review effort in public preview and made Copilot appr
 它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。
 
 This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.
+
+---
+
+<a id="2026-10-28-pydantic-ai-263-loop-control"></a>
+## [Pydantic AI 2.63 新增循环中断与跨实例预算管理](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0)
+
+**English:** [Pydantic AI 2.63 adds loop interruption and shared agent budgets](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0)
+
+- **发布 / Published:** `2026-10-28T00:55:47Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.63 引入重复动作检测、基于 PostgreSQL 的支出限额及 IPython 代码模式，并加强消息边界处理与重放行为。版本标题标为 10 月 27 日，但 GitHub 的实际发布时间为 28 日，本条采用该发布事件时间。
+
+Pydantic AI 2.63 introduces repeated-action detection, PostgreSQL-backed spend limits and an IPython code mode. It also strengthens message framing and replay behavior. The release title says October 27, but GitHub records publication on October 28; this entry uses that release timestamp.
+
+### 技术点 / Technical points
+
+- DetectLoops 可中断重复动作；PostgresSpendStore 通过 PostgreSQL 共享 SpendLimits 预算。
+  - DetectLoops can interrupt repeated actions; PostgresSpendStore shares SpendLimits budgets through PostgreSQL.
+- 动态工具目录通过追加已揭示工具保留提示缓存；溢出内容写入作为持久操作执行，避免重放时重复写入。
+  - Dynamic tool catalogs append revealed tools to preserve cached prompts; replayed spill writes run as durable operations.
+
+### 为什么重要 / Why it matters
+
+这些控制机制有助于限制失控执行，并在智能体运行重放时保留状态。
+
+These controls help bound runaway execution and preserve state when agent runs are replayed.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.63.0)
 
 ---
 

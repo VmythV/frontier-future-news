@@ -19474,6 +19474,239 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-28-pydantic-ai-263-loop-control",
+      "published_at": "2026-10-28T00:55:47Z",
+      "collected_at": "2026-10-30T00:04:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "memory",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "Pydantic AI 2.63 adds loop interruption and shared agent budgets",
+      "title_zh": "Pydantic AI 2.63 新增循环中断与跨实例预算管理",
+      "summary_en": "Pydantic AI 2.63 introduces repeated-action detection, PostgreSQL-backed spend limits and an IPython code mode. It also strengthens message framing and replay behavior. The release title says October 27, but GitHub records publication on October 28; this entry uses that release timestamp.",
+      "summary_zh": "Pydantic AI 2.63 引入重复动作检测、基于 PostgreSQL 的支出限额及 IPython 代码模式，并加强消息边界处理与重放行为。版本标题标为 10 月 27 日，但 GitHub 的实际发布时间为 28 日，本条采用该发布事件时间。",
+      "tech_points_en": [
+        "DetectLoops can interrupt repeated actions; PostgresSpendStore shares SpendLimits budgets through PostgreSQL.",
+        "Dynamic tool catalogs append revealed tools to preserve cached prompts; replayed spill writes run as durable operations."
+      ],
+      "tech_points_zh": [
+        "DetectLoops 可中断重复动作；PostgresSpendStore 通过 PostgreSQL 共享 SpendLimits 预算。",
+        "动态工具目录通过追加已揭示工具保留提示缓存；溢出内容写入作为持久操作执行，避免重放时重复写入。"
+      ],
+      "why_it_matters_en": "These controls help bound runaway execution and preserve state when agent runs are replayed.",
+      "why_it_matters_zh": "这些控制机制有助于限制失控执行，并在智能体运行重放时保留状态。",
+      "source": {
+        "name": "Pydantic AI",
+        "type": "primary",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.63.0"
+      ],
+      "confidence": "high",
+      "score": 76,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 11,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-28-gemini-4-carbon-long-horizon",
+      "published_at": "2026-10-28T17:00:00Z",
+      "collected_at": "2026-10-30T00:04:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "reasoning",
+        "tool-use",
+        "benchmark",
+        "safety"
+      ],
+      "title_en": "Gemini 4 Carbon targets sustained engineering agents with restricted initial access",
+      "title_zh": "Gemini 4 Carbon 面向持续工程任务，初期限制开放范围",
+      "summary_en": "Google announced Gemini 4 Carbon for long-running engineering and cybersecurity workflows, initially reaching selected defenders through Fairwind. Google reports stronger vulnerability discovery and patching, alongside reduced cheating and unsupported claims. The results are vendor evaluations; broad public access has not been announced.",
+      "summary_zh": "Google 发布面向长时工程与网络安全工作流的 Gemini 4 Carbon，初期通过 Fairwind 向部分防御人员开放。Google 报告其漏洞发现与修补能力提升，同时减少评测作弊和无依据陈述。这些结果属于厂商评测，尚未宣布全面公开使用。",
+      "tech_points_en": [
+        "Google reports 88.2% on SEC-bench Pro, 54.8% on ExploitGym and 71.0% on CWE-bench, evaluated without guardrails.",
+        "Internal engineering teams report runs lasting days; Google reports 0.0% successful cheating on Terminal-Bench 4.0 and 0.4% cheating attempts."
+      ],
+      "tech_points_zh": [
+        "Google 报告在不启用防护的评测条件下，SEC-bench Pro、ExploitGym 和 CWE-bench 成绩分别为 88.2%、54.8% 和 71.0%。",
+        "内部工程团队报告过持续数天的运行；Google 报告 Terminal-Bench 4.0 成功作弊率为 0.0%，作弊尝试率为 0.4%。"
+      ],
+      "why_it_matters_en": "The announcement connects longer autonomous engineering runs with explicit measurements of reliability and constrained deployment.",
+      "why_it_matters_zh": "该公告将更长的自主工程执行与明确的可靠性测量、受限部署联系起来。",
+      "source": {
+        "name": "Google DeepMind",
+        "type": "primary",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-agibot-go3-preview-wram",
+      "published_at": "2026-10-29T09:14:00Z",
+      "collected_at": "2026-10-30T00:04:19Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "reasoning",
+        "simulation",
+        "benchmark"
+      ],
+      "title_en": "AGIBOT demonstrates GO-3 Preview with unified reasoning, prediction and action",
+      "title_zh": "智元展示统一推理、预测与动作的 GO-3 Preview",
+      "summary_en": "At its Innovation Day, AGIBOT demonstrated GO-3 Preview and its WRAM architecture, which links reasoning, prediction and robot actions. The company showed zero-shot and few-shot manipulation and described learning across pretraining, post-training and deployment. Reported leaderboard results remain company disclosures.",
+      "summary_zh": "智元在创新日展示 GO-3 Preview 及其 WRAM 架构，将推理、预测与机器人动作连接起来。公司演示了零样本与少样本操作，并介绍贯穿预训练、后训练和部署阶段的学习路线。所报告的榜单成绩仍属于公司披露。",
+      "tech_points_en": [
+        "WRAM models possible action outcomes to support adaptation and manipulation on previously unseen tasks.",
+        "AGIBOT reports leading results on RoboDojo, RoboTwin and RoboColiseum; the announcement describes demonstrations rather than independent replication."
+      ],
+      "tech_points_zh": [
+        "WRAM 对动作可能产生的结果建模，以支持环境适应及未见任务上的操作。",
+        "智元报告在 RoboDojo、RoboTwin 和 RoboColiseum 取得领先结果；该公告提供的是演示与厂商披露，并非独立复现。"
+      ],
+      "why_it_matters_en": "This offers a concrete example of predictive world modeling being integrated with physical robot action and continued learning.",
+      "why_it_matters_zh": "这提供了将预测式世界建模与实体机器人动作、持续学习相结合的具体案例。",
+      "source": {
+        "name": "AGIBOT via PR Newswire",
+        "type": "primary",
+        "url": "https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html",
+        "language": "zh"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 11,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-qwen-code-0264-workflow-isolation",
+      "published_at": "2026-10-29T14:29:11Z",
+      "collected_at": "2026-10-30T00:04:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "memory",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "Qwen Code 0.26.3–0.26.4 adds persistent workflows and isolated main-session worktrees",
+      "title_zh": "Qwen Code 0.26.3–0.26.4 增加持久工作流与主会话独立工作树",
+      "summary_en": "Qwen Code released persistent Workflow mode and stronger tool-call parsing in 0.26.3, followed by independent main-session worktrees and bounded autofix rounds in 0.26.4. This entry groups the consecutive releases and uses the latter publication time.",
+      "summary_zh": "Qwen Code 在 0.26.3 加入持久 Workflow 模式并加强工具调用解析，随后在 0.26.4 增加主会话独立工作树和自动修复轮次预算。本条合并这两次连续更新，采用后一个版本的发布时间。",
+      "tech_points_en": [
+        "Workflow mode persists across sessions and reaches the CLI sandbox; quoted XML examples are not dispatched as tool calls.",
+        "The newer release isolates main sessions in worktrees, bounds autofix takeover rounds and binds verification reports to their round snapshots."
+      ],
+      "tech_points_zh": [
+        "Workflow 模式可持久保存并传递至 CLI 沙箱；引用的 XML 示例不会被派发为工具调用。",
+        "后续版本以独立工作树隔离主会话，限制自动修复接管轮次，并将核验报告绑定到对应轮次快照。"
+      ],
+      "why_it_matters_en": "The updates make repeated coding-agent workflows easier to isolate, bound and audit.",
+      "why_it_matters_zh": "这些更新让反复执行的编码智能体工作流更容易隔离、限制和审计。",
+      "source": {
+        "name": "Qwen Code",
+        "type": "primary",
+        "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.3",
+        "https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.4"
+      ],
+      "confidence": "high",
+      "score": 76,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 11,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-openclaw-2026-10-9-boundaries-recovery",
+      "published_at": "2026-10-29T15:54:35Z",
+      "collected_at": "2026-10-30T00:04:19Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "memory",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "OpenClaw 2026.10.9 extends workspace boundaries and improves failure recovery",
+      "title_zh": "OpenClaw 2026.10.9 扩展工作区边界并改善故障恢复",
+      "summary_en": "OpenClaw 2026.10.9 applies workspace-only restrictions to Gateway-built tools and removes live credentials from MCP inspection output. Its maintenance changes also preserve operator edits during failed update rollbacks and improve agent-database recovery.",
+      "summary_zh": "OpenClaw 2026.10.9 将仅限工作区的限制应用到 Gateway 构建的工具，并从 MCP 检查输出中移除实际凭据。此次维护更新还在升级回滚失败时保留操作者修改，并改善智能体数据库恢复。",
+      "tech_points_en": [
+        "Gateway-built delegates retain approval requirements and media tools remain within the workspace when tools.fs.workspaceOnly is enabled.",
+        "Recovery handles SQLite tokenizer changes and stale full-text indexes; agents can resume after disk space becomes available without a restart."
+      ],
+      "tech_points_zh": [
+        "启用 tools.fs.workspaceOnly 时，Gateway 构建的委派工具保留审批要求，媒体工具受工作区边界限制。",
+        "恢复逻辑处理 SQLite 分词器变化与失效全文索引；磁盘空间恢复后，智能体无需重启即可继续运行。"
+      ],
+      "why_it_matters_en": "The release strengthens action boundaries while reducing data loss and interruption in persistent agent installations.",
+      "why_it_matters_zh": "该版本加强动作边界，并减少持久运行的智能体系统中的数据丢失与中断。",
+      "source": {
+        "name": "OpenClaw",
+        "type": "primary",
+        "url": "https://github.com/openclaw/openclaw/releases/tag/v2026.10.9",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.9"
+      ],
+      "confidence": "high",
+      "score": 74,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 10,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }
