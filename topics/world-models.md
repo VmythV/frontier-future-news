@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-10-29-world2vec-mechanistic-latent-dynamics"></a>
+## [world2vec 无需奖励监督即可学习紧凑的世界动力学](https://arxiv.org/abs/2610.40637)
+
+**English:** [world2vec learns compact world dynamics without reward supervision](https://arxiv.org/abs/2610.40637)
+
+- **发布 / Published:** `2026-10-29T17:58:23Z`
+- **来源 / Source:** [world2vec authors / arXiv](https://arxiv.org/abs/2610.40637) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-dynamics`, `model-based-control`, `system-identification`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+world2vec 预印本直接从观测和动作学习潜在动力学，不使用奖励信息。作者报告，在参数量至少比 DreamerV3、TD-MPC2 和 LeWM 少一个数量级的情况下保留长期系统动力学，并评测了像素输入控制与系统辨识。
+
+The world2vec preprint learns latent dynamics directly from observations and actions without reward information. The authors report long-horizon system fidelity with at least tenfold fewer parameters than DreamerV3, TD-MPC2 and LeWM, alongside pixel-based control and system-identification evaluations.
+
+### 技术点 / Technical points
+
+- 学习目标强调动力学机制，避免仅凭控制表现判断模型是否忠实于系统。
+  - Learning targets mechanistic dynamics rather than relying on control performance alone as evidence of a faithful model.
+- 系统辨识评测覆盖含 71 个吸引子的基准。
+  - System identification is evaluated on a benchmark of 71 attractors.
+
+### 为什么重要 / Why it matters
+
+紧凑、可检查的动力学有望连接世界模型控制与科学理解；现有结果仍来自作者评测。
+
+Compact, inspectable dynamics could connect world-model control to scientific understanding; the reported results remain author evaluations.
+
+---
+
+<a id="2026-10-29-algebraic-world-model-exploration-lean-proofs"></a>
+## [Algebraic World Model 将探索得到的游戏动力学转化为 Lean 证明](https://arxiv.org/abs/2610.40503)
+
+**English:** [Algebraic World Model turns explored game dynamics into Lean proofs](https://arxiv.org/abs/2610.40503)
+
+- **发布 / Published:** `2026-10-29T17:20:31Z`
+- **来源 / Source:** [Algebraic World Model authors / arXiv](https://arxiv.org/abs/2610.40503) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reasoning`, `planning`, `formal-verification`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Algebraic World Model 为陌生游戏建立并测试可执行 Python 假设，再用 Lean 4 形式化规则。预印本报告，在两个不可解关卡的六次运行中生成了经内核检查的不可能性证明，将环境探索连接到显式形式推理。
+
+Algebraic World Model builds and tests executable Python hypotheses about unfamiliar games, then formalizes rules in Lean 4. The preprint reports kernel-checked impossibility proofs for two game levels across six runs, linking environment exploration to explicit formal reasoning.
+
+### 技术点 / Technical points
+
+- 形式化之前，方法将假设组织为类型化对象和共享规则，再通过范畴论引导的变换简化结构。
+  - Typed objects and shared rules are simplified through category-theory-guided transformations before formalization.
+- 作者报告，Lean 可回放 25 个公开 ARC-AGI-3 游戏全部 183 个关卡的获胜轨迹。
+  - The authors report Lean replay of winning trajectories for all 183 levels across 25 public ARC-AGI-3 games.
+
+### 为什么重要 / Why it matters
+
+显式模型可用于检查可达性与不可能性，将推理范围扩展到智能体尚未观察的轨迹。
+
+Explicit models can support checks of reachability and impossibility beyond the trajectories an agent has observed.
+
+---
+
+<a id="2026-10-29-worldprobe-long-horizon-spatial-consistency"></a>
+## [WorldProbe 在主动空间探索中测试世界模型的长期一致性](https://arxiv.org/abs/2610.39721)
+
+**English:** [WorldProbe tests persistent world consistency during active spatial exploration](https://arxiv.org/abs/2610.39721)
+
+- **发布 / Published:** `2026-10-29T09:51:26Z`
+- **来源 / Source:** [WorldProbe authors / arXiv](https://arxiv.org/abs/2610.39721) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `spatial-intelligence`, `memory`, `video-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+WorldProbe 让智能体在生成过程中调整相机动作，突破固定短轨迹的评测方式。预印本发现，局部视觉质量的提升仍可能伴随薄弱的长期记忆和不一致的世界演化。
+
+WorldProbe uses an agent that adjusts camera actions during generation to test video world models beyond fixed short trajectories. The preprint finds that improved local visual quality can coexist with weak long-range memory and inconsistent world evolution.
+
+### 技术点 / Technical points
+
+- 基准包含四类探测任务、164 个测试用例，评测了 10 个模型。
+  - The benchmark contains 164 cases in four probing families and evaluates 10 models.
+- 超过 1,600 次生成轨迹累计约 800 分钟，单次最长达 180 秒。
+  - More than 1,600 rollouts total about 800 minutes, with individual horizons up to 180 seconds.
+
+### 为什么重要 / Why it matters
+
+自适应探索可暴露短片段或预设相机路径难以发现的世界持久性缺陷。
+
+Adaptive exploration can reveal persistence failures that short or predetermined camera paths miss.
+
+---
+
 <a id="2026-10-29-agibot-go3-preview-wram"></a>
 ## [智元展示统一推理、预测与动作的 GO-3 Preview](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
 

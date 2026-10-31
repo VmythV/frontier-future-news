@@ -2,6 +2,106 @@
 
 # Agents / 智能体
 
+<a id="2026-10-30-claude-code-21314-working-directory-write-boundary"></a>
+## [Claude Code 2.1.314 加入显式工作目录写入边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
+
+**English:** [Claude Code 2.1.314 adds an explicit working-directory write boundary](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
+
+- **发布 / Published:** `2026-10-30T01:06:26Z`
+- **来源 / Source:** [Anthropic Claude Code GitHub releases](https://github.com/anthropics/claude-code/releases/tag/v2.1.314) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `safety`, `tool-use`, `context-management`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.314 新增设置，使 Write、Edit 和 NotebookEdit 工具在所有权限模式下拒绝工作目录以外的路径。该版本还加入空闲对话压缩，并修正无界面启动失败却以成功状态退出且无输出的问题。
+
+Claude Code 2.1.314 adds a setting that makes its Write, Edit and NotebookEdit tools reject paths outside working directories in every permission mode. The release also adds idle conversation compaction and corrects headless startup failures that previously returned success without output.
+
+### 技术点 / Technical points
+
+- 边界由 permissions.blockWritesOutsideWorkingDirectories 控制，明确覆盖上述三种文件工具。
+  - The boundary is controlled by permissions.blockWritesOutsideWorkingDirectories and specifically covers the three named file tools.
+- VS Code 与桌面端 Code 页可压缩超过 20 万 token 的空闲对话，在提示缓存过期后使用摘要。
+  - Idle compaction summarizes conversations above 200,000 tokens in VS Code and the Desktop Code tab for reuse after prompt-cache expiry.
+
+### 为什么重要 / Why it matters
+
+明确的工具边界与准确的进程退出状态提升了受监督编码智能体自动化的可预期性。
+
+Explicit tool boundaries and accurate process exit status improve the predictability of supervised coding-agent automation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.314)
+
+---
+
+<a id="2026-10-29-algebraic-world-model-exploration-lean-proofs"></a>
+## [Algebraic World Model 将探索得到的游戏动力学转化为 Lean 证明](https://arxiv.org/abs/2610.40503)
+
+**English:** [Algebraic World Model turns explored game dynamics into Lean proofs](https://arxiv.org/abs/2610.40503)
+
+- **发布 / Published:** `2026-10-29T17:20:31Z`
+- **来源 / Source:** [Algebraic World Model authors / arXiv](https://arxiv.org/abs/2610.40503) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reasoning`, `planning`, `formal-verification`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Algebraic World Model 为陌生游戏建立并测试可执行 Python 假设，再用 Lean 4 形式化规则。预印本报告，在两个不可解关卡的六次运行中生成了经内核检查的不可能性证明，将环境探索连接到显式形式推理。
+
+Algebraic World Model builds and tests executable Python hypotheses about unfamiliar games, then formalizes rules in Lean 4. The preprint reports kernel-checked impossibility proofs for two game levels across six runs, linking environment exploration to explicit formal reasoning.
+
+### 技术点 / Technical points
+
+- 形式化之前，方法将假设组织为类型化对象和共享规则，再通过范畴论引导的变换简化结构。
+  - Typed objects and shared rules are simplified through category-theory-guided transformations before formalization.
+- 作者报告，Lean 可回放 25 个公开 ARC-AGI-3 游戏全部 183 个关卡的获胜轨迹。
+  - The authors report Lean replay of winning trajectories for all 183 levels across 25 public ARC-AGI-3 games.
+
+### 为什么重要 / Why it matters
+
+显式模型可用于检查可达性与不可能性，将推理范围扩展到智能体尚未观察的轨迹。
+
+Explicit models can support checks of reachability and impossibility beyond the trajectories an agent has observed.
+
+---
+
+<a id="2026-10-29-langchain-mda-010-browser-async-subagents"></a>
+## [Managed Deep Agents 0.10 加入浏览器交接与异步子智能体](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents)
+
+**English:** [Managed Deep Agents 0.10 adds browser handoff and asynchronous subagents](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents)
+
+- **发布 / Published:** `2026-10-29T16:54:00Z`
+- **来源 / Source:** [LangChain](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `multi-agent`, `human-in-the-loop`, `sandbox`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+LangChain 发布 Managed Deep Agents 0.10 公测版，加入沙箱浏览器与后台子智能体。浏览器交接让用户在模型消息和追踪记录之外完成登录，委派任务也可在不阻塞主对话的情况下运行。
+
+LangChain released Managed Deep Agents 0.10 in public beta with a sandboxed browser and background subagents. Browser handoff lets a person complete sign-in outside model messages and traces, while delegated tasks can finish without blocking the main conversation.
+
+### 技术点 / Technical points
+
+- 浏览器工具提供无障碍树快照、脚本动作、截图及人工交接，支持按线程或用户划定作用域。
+  - Browser tools expose accessibility snapshots, scripted actions, screenshots and human handoff, with thread or user scope.
+- 异步子智能体共享沙箱，并在完成后通知主智能体；已有审批等待会继续保留。
+  - Async subagents share the sandbox and notify the orchestrator when finished; existing approval waits remain pending.
+
+### 为什么重要 / Why it matters
+
+该版本在托管运行环境中结合浏览器交互与后台委派，并提供明确的人工介入节点。
+
+This combines browser interaction and background delegation in a managed runtime with explicit human intervention points.
+
+---
+
 <a id="2026-10-29-openclaw-2026-10-9-boundaries-recovery"></a>
 ## [OpenClaw 2026.10.9 扩展工作区边界并改善故障恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9)
 
@@ -71,6 +171,74 @@ The updates make repeated coding-agent workflows easier to isolate, bound and au
 ### 链接 / Links
 
 [Evidence 1](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.3) · [Evidence 2](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.4)
+
+---
+
+<a id="2026-10-29-agno-3112-native-agent-approvals"></a>
+## [Agno 3.1.12 在 AgentOS 中持久保存 Claude 与 Codex 原生审批请求](https://github.com/agno-agi/agno/releases/tag/v3.1.12)
+
+**English:** [Agno 3.1.12 persists native Claude and Codex approval requests in AgentOS](https://github.com/agno-agi/agno/releases/tag/v3.1.12)
+
+- **发布 / Published:** `2026-10-29T14:00:55Z`
+- **来源 / Source:** [Agno GitHub releases](https://github.com/agno-agi/agno/releases/tag/v3.1.12) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `human-in-the-loop`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Agno 3.1.12 将 Claude 与 Codex 原生权限请求接入 AgentOS 聊天及审批界面。运行连接数据库后，权限请求会持久化暂停状态，审核决定返回同一次原生执行，无需重新播放提示词。
+
+Agno 3.1.12 routes native Claude and Codex permission requests into AgentOS chat and approval views. With database-backed runs, a request pauses execution durably and a reviewed decision returns to the same native execution without replaying the prompt.
+
+### 技术点 / Technical points
+
+- 何时请求审批由原生执行框架的策略决定；决定需与具体请求动作匹配。
+  - The native harness policy determines when approval is required; decisions are checked against the requested action.
+- 沙箱智能体支持 API 工作进程丢失后的重新连接，并区分审批等待与执行预算。
+  - Sandboxed agents support reattachment after API-worker loss and separate approval-wait and execution budgets.
+
+### 为什么重要 / Why it matters
+
+持久化审批机制让长期委派任务更容易在进程故障前后暂停和恢复。
+
+Durable approval handling makes long-running delegated work easier to pause and resume across process failures.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/agno-agi/agno/releases/tags/v3.1.12)
+
+---
+
+<a id="2026-10-29-sandman-agentic-rl-kubernetes-sandboxes"></a>
+## [Sandman 披露智能体强化学习的生产沙箱运行方案](https://arxiv.org/abs/2610.39711)
+
+**English:** [Sandman details production sandbox operations for agent reinforcement learning](https://arxiv.org/abs/2610.39711)
+
+- **发布 / Published:** `2026-10-29T09:45:57Z`
+- **来源 / Source:** [Sandman authors / arXiv](https://arxiv.org/abs/2610.39711) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `reinforcement-learning`, `sandbox`, `infrastructure`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+亚马逊研究人员介绍基于 Kubernetes 的 Sandman，为智能体工具执行与评测提供沙箱。预印本报告，四次 SWE-bench Verified 训练活动在 10 月创建了 310 万个沙箱；守护进程、提供器和池的开源仍是后续计划。
+
+Amazon researchers describe Sandman, a Kubernetes sandbox service for agent tool execution and evaluation. The preprint reports 3.1 million sandboxes created by four SWE-bench Verified training campaigns in October; open sourcing its daemon, provider and pool is stated as future work.
+
+### 技术点 / Technical points
+
+- 在未修改的任务镜像中挂载小型守护进程，文件与进程在调用间保留，直到环境被释放。
+  - A small daemon is mounted into an unmodified task image, with files and processes retained between calls until release.
+- 扩展测试维持了 11,858 个并发微型沙箱；论文讨论就绪检测、突发创建和遗留环境回收。
+  - A scale test held 11,858 concurrent tiny sandboxes; the paper discusses readiness, burst handling and abandoned-environment cleanup.
+
+### 为什么重要 / Why it matters
+
+训练规模的运行证据有助于揭示智能体反复与环境交互时面临的基础设施瓶颈。
+
+Operational evidence at training scale helps expose the infrastructure bottlenecks behind repeated agent-environment interaction.
 
 ---
 

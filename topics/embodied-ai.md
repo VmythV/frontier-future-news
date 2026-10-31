@@ -34,6 +34,102 @@ This offers a concrete example of predictive world modeling being integrated wit
 
 ---
 
+<a id="2026-10-29-schedulegen-multi-arm-demonstration-scheduling"></a>
+## [ScheduleGen 通过规划与调度生成多臂操作示范](https://arxiv.org/abs/2610.39429)
+
+**English:** [ScheduleGen uses planning and scheduling to generate multi-arm demonstrations](https://arxiv.org/abs/2610.39429)
+
+- **发布 / Published:** `2026-10-29T06:07:04Z`
+- **来源 / Source:** [ScheduleGen authors / arXiv](https://arxiv.org/abs/2610.39429) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `imitation-learning`, `simulation`, `sim-to-real`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+ScheduleGen 从少量原始示范生成新的多臂操作示范，并考虑多臂协调约束。预印本报告，在 28 个仿真任务变体中，平均示范生成成功率为 79.6%，所训练策略的平均成功率为 65.5%。
+
+ScheduleGen generates new multi-arm demonstrations from a few source examples while accounting for coordination constraints. The preprint reports 79.6% mean generation success and 65.5% mean learned-policy success across 28 simulated task variants.
+
+### 技术点 / Technical points
+
+- 联合规划与调度处理以往示范生成方法忽略的多臂约束。
+  - Integrated planning and scheduling address multi-arm constraints ignored by prior demonstration generators.
+- 作者报告，通过仿真到现实及现实到仿真再到现实迁移，策略在八个真实任务变体上的成功率为 50–80%。
+  - The authors report 50–80% policy success across eight real-world variants using sim-to-real and real-to-sim-to-real transfer.
+
+### 为什么重要 / Why it matters
+
+考虑约束的示范合成有助于扩充多臂训练数据，并检查协调动作的可行性。
+
+Constraint-aware demonstration synthesis offers a way to expand multi-arm training data while checking coordination feasibility.
+
+---
+
+<a id="2026-10-29-umi-live-bimanual-data-collection"></a>
+## [UMI-Live 提出便携开源双臂机器人示范采集系统](https://arxiv.org/abs/2610.39385)
+
+**English:** [UMI-Live presents a portable open-source stack for bimanual robot demonstrations](https://arxiv.org/abs/2610.39385)
+
+- **发布 / Published:** `2026-10-29T05:18:16Z`
+- **来源 / Source:** [UMI-Live authors / arXiv](https://arxiv.org/abs/2610.39385) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dataset`, `open-source`, `vla`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+UMI-Live 预印本介绍双臂示范采集系统，将相机、激光雷达惯性传感、板载计算与异步 SLAM 结合。作者提供覆盖三类任务的 40 小时数据，以及硬件设计、软件和复现指南。
+
+The UMI-Live preprint describes a bimanual demonstration system combining cameras, LiDAR-inertial sensing, onboard compute and asynchronous SLAM. The authors provide 40 hours of data across three tasks alongside hardware designs, software and reproduction guides.
+
+### 技术点 / Technical points
+
+- 采集过程无需外部跟踪设备，也无需在采集环境内进行标定。
+  - Collection does not require external tracking equipment or calibration within the collection environment.
+- 在一项双臂抓放任务中，微调后的 pi0.5 与 MolmoAct2 分别完成 10/10 和 8/10 次试验。
+  - On one bimanual pick-and-place task, fine-tuned pi0.5 and MolmoAct2 succeed in 10/10 and 8/10 trials, respectively.
+
+### 为什么重要 / Why it matters
+
+统一采集与处理流程有望降低实验室外收集示范的门槛，但论文中的策略测试规模仍较小。
+
+A shared acquisition and processing stack could make demonstrations easier to collect outside robot laboratories; the reported policy test remains small.
+
+---
+
+<a id="2026-10-29-event2reward-relative-progress-robot-rewards"></a>
+## [Event2Reward 从停滞、倒退和恢复中学习机器人奖励](https://arxiv.org/abs/2610.39212)
+
+**English:** [Event2Reward learns robot rewards from stalls, regressions and recoveries](https://arxiv.org/abs/2610.39212)
+
+- **发布 / Published:** `2026-10-29T02:34:14Z`
+- **来源 / Source:** [Event2Reward authors / arXiv](https://arxiv.org/abs/2610.39212) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `reinforcement-learning`, `reward-model`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Event2Reward 将示范时间标签与机器人成功、失败执行中的相对进度关系结合。预印本报告，这种奖励塑形优于仅使用稀疏奖励的方法，在 40 项 LIBERO 任务上的平均成功率提高 18.16 个百分点。
+
+Event2Reward combines demonstration-time labels with relative progress relations from successful and failed robot executions. The preprint reports better reward shaping than sparse rewards alone, including an 18.16 percentage-point average success gain across 40 LIBERO tasks.
+
+### 技术点 / Technical points
+
+- 事件标注数据集整理自约 10 万条真实机器人执行记录。
+  - An event-annotated dataset is curated from about 100,000 real-robot execution records.
+- 作者报告，真实机器人训练 30 分钟后，插入任务成功率为 60%，物体操作任务为 90%。
+  - After 30 minutes of real-robot training, the authors report 60% success on insertion tasks and 90% on object manipulation tasks.
+
+### 为什么重要 / Why it matters
+
+该方法让失败执行也能用于学习任务进度，无需逐帧标注绝对进度。
+
+The method makes failed executions useful for learning progress without requiring absolute labels for every frame.
+
+---
+
 <a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
 ## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
 

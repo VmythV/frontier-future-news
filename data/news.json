@@ -19707,6 +19707,461 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-10-29-event2reward-relative-progress-robot-rewards",
+      "published_at": "2026-10-29T02:34:14Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "reinforcement-learning",
+        "reward-model",
+        "dataset"
+      ],
+      "title_en": "Event2Reward learns robot rewards from stalls, regressions and recoveries",
+      "title_zh": "Event2Reward 从停滞、倒退和恢复中学习机器人奖励",
+      "summary_en": "Event2Reward combines demonstration-time labels with relative progress relations from successful and failed robot executions. The preprint reports better reward shaping than sparse rewards alone, including an 18.16 percentage-point average success gain across 40 LIBERO tasks.",
+      "summary_zh": "Event2Reward 将示范时间标签与机器人成功、失败执行中的相对进度关系结合。预印本报告，这种奖励塑形优于仅使用稀疏奖励的方法，在 40 项 LIBERO 任务上的平均成功率提高 18.16 个百分点。",
+      "tech_points_en": [
+        "An event-annotated dataset is curated from about 100,000 real-robot execution records.",
+        "After 30 minutes of real-robot training, the authors report 60% success on insertion tasks and 90% on object manipulation tasks."
+      ],
+      "tech_points_zh": [
+        "事件标注数据集整理自约 10 万条真实机器人执行记录。",
+        "作者报告，真实机器人训练 30 分钟后，插入任务成功率为 60%，物体操作任务为 90%。"
+      ],
+      "why_it_matters_en": "The method makes failed executions useful for learning progress without requiring absolute labels for every frame.",
+      "why_it_matters_zh": "该方法让失败执行也能用于学习任务进度，无需逐帧标注绝对进度。",
+      "source": {
+        "name": "Event2Reward authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.39212",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-umi-live-bimanual-data-collection",
+      "published_at": "2026-10-29T05:18:16Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "dataset",
+        "open-source",
+        "vla",
+        "hardware"
+      ],
+      "title_en": "UMI-Live presents a portable open-source stack for bimanual robot demonstrations",
+      "title_zh": "UMI-Live 提出便携开源双臂机器人示范采集系统",
+      "summary_en": "The UMI-Live preprint describes a bimanual demonstration system combining cameras, LiDAR-inertial sensing, onboard compute and asynchronous SLAM. The authors provide 40 hours of data across three tasks alongside hardware designs, software and reproduction guides.",
+      "summary_zh": "UMI-Live 预印本介绍双臂示范采集系统，将相机、激光雷达惯性传感、板载计算与异步 SLAM 结合。作者提供覆盖三类任务的 40 小时数据，以及硬件设计、软件和复现指南。",
+      "tech_points_en": [
+        "Collection does not require external tracking equipment or calibration within the collection environment.",
+        "On one bimanual pick-and-place task, fine-tuned pi0.5 and MolmoAct2 succeed in 10/10 and 8/10 trials, respectively."
+      ],
+      "tech_points_zh": [
+        "采集过程无需外部跟踪设备，也无需在采集环境内进行标定。",
+        "在一项双臂抓放任务中，微调后的 pi0.5 与 MolmoAct2 分别完成 10/10 和 8/10 次试验。"
+      ],
+      "why_it_matters_en": "A shared acquisition and processing stack could make demonstrations easier to collect outside robot laboratories; the reported policy test remains small.",
+      "why_it_matters_zh": "统一采集与处理流程有望降低实验室外收集示范的门槛，但论文中的策略测试规模仍较小。",
+      "source": {
+        "name": "UMI-Live authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.39385",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-schedulegen-multi-arm-demonstration-scheduling",
+      "published_at": "2026-10-29T06:07:04Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "imitation-learning",
+        "simulation",
+        "sim-to-real"
+      ],
+      "title_en": "ScheduleGen uses planning and scheduling to generate multi-arm demonstrations",
+      "title_zh": "ScheduleGen 通过规划与调度生成多臂操作示范",
+      "summary_en": "ScheduleGen generates new multi-arm demonstrations from a few source examples while accounting for coordination constraints. The preprint reports 79.6% mean generation success and 65.5% mean learned-policy success across 28 simulated task variants.",
+      "summary_zh": "ScheduleGen 从少量原始示范生成新的多臂操作示范，并考虑多臂协调约束。预印本报告，在 28 个仿真任务变体中，平均示范生成成功率为 79.6%，所训练策略的平均成功率为 65.5%。",
+      "tech_points_en": [
+        "Integrated planning and scheduling address multi-arm constraints ignored by prior demonstration generators.",
+        "The authors report 50–80% policy success across eight real-world variants using sim-to-real and real-to-sim-to-real transfer."
+      ],
+      "tech_points_zh": [
+        "联合规划与调度处理以往示范生成方法忽略的多臂约束。",
+        "作者报告，通过仿真到现实及现实到仿真再到现实迁移，策略在八个真实任务变体上的成功率为 50–80%。"
+      ],
+      "why_it_matters_en": "Constraint-aware demonstration synthesis offers a way to expand multi-arm training data while checking coordination feasibility.",
+      "why_it_matters_zh": "考虑约束的示范合成有助于扩充多臂训练数据，并检查协调动作的可行性。",
+      "source": {
+        "name": "ScheduleGen authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.39429",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-sandman-agentic-rl-kubernetes-sandboxes",
+      "published_at": "2026-10-29T09:45:57Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "reinforcement-learning",
+        "sandbox",
+        "infrastructure"
+      ],
+      "title_en": "Sandman details production sandbox operations for agent reinforcement learning",
+      "title_zh": "Sandman 披露智能体强化学习的生产沙箱运行方案",
+      "summary_en": "Amazon researchers describe Sandman, a Kubernetes sandbox service for agent tool execution and evaluation. The preprint reports 3.1 million sandboxes created by four SWE-bench Verified training campaigns in October; open sourcing its daemon, provider and pool is stated as future work.",
+      "summary_zh": "亚马逊研究人员介绍基于 Kubernetes 的 Sandman，为智能体工具执行与评测提供沙箱。预印本报告，四次 SWE-bench Verified 训练活动在 10 月创建了 310 万个沙箱；守护进程、提供器和池的开源仍是后续计划。",
+      "tech_points_en": [
+        "A small daemon is mounted into an unmodified task image, with files and processes retained between calls until release.",
+        "A scale test held 11,858 concurrent tiny sandboxes; the paper discusses readiness, burst handling and abandoned-environment cleanup."
+      ],
+      "tech_points_zh": [
+        "在未修改的任务镜像中挂载小型守护进程，文件与进程在调用间保留，直到环境被释放。",
+        "扩展测试维持了 11,858 个并发微型沙箱；论文讨论就绪检测、突发创建和遗留环境回收。"
+      ],
+      "why_it_matters_en": "Operational evidence at training scale helps expose the infrastructure bottlenecks behind repeated agent-environment interaction.",
+      "why_it_matters_zh": "训练规模的运行证据有助于揭示智能体反复与环境交互时面临的基础设施瓶颈。",
+      "source": {
+        "name": "Sandman authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.39711",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-worldprobe-long-horizon-spatial-consistency",
+      "published_at": "2026-10-29T09:51:26Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "spatial-intelligence",
+        "memory",
+        "video-generation"
+      ],
+      "title_en": "WorldProbe tests persistent world consistency during active spatial exploration",
+      "title_zh": "WorldProbe 在主动空间探索中测试世界模型的长期一致性",
+      "summary_en": "WorldProbe uses an agent that adjusts camera actions during generation to test video world models beyond fixed short trajectories. The preprint finds that improved local visual quality can coexist with weak long-range memory and inconsistent world evolution.",
+      "summary_zh": "WorldProbe 让智能体在生成过程中调整相机动作，突破固定短轨迹的评测方式。预印本发现，局部视觉质量的提升仍可能伴随薄弱的长期记忆和不一致的世界演化。",
+      "tech_points_en": [
+        "The benchmark contains 164 cases in four probing families and evaluates 10 models.",
+        "More than 1,600 rollouts total about 800 minutes, with individual horizons up to 180 seconds."
+      ],
+      "tech_points_zh": [
+        "基准包含四类探测任务、164 个测试用例，评测了 10 个模型。",
+        "超过 1,600 次生成轨迹累计约 800 分钟，单次最长达 180 秒。"
+      ],
+      "why_it_matters_en": "Adaptive exploration can reveal persistence failures that short or predetermined camera paths miss.",
+      "why_it_matters_zh": "自适应探索可暴露短片段或预设相机路径难以发现的世界持久性缺陷。",
+      "source": {
+        "name": "WorldProbe authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.39721",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-agno-3112-native-agent-approvals",
+      "published_at": "2026-10-29T14:00:55Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "human-in-the-loop",
+        "tool-use",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "Agno 3.1.12 persists native Claude and Codex approval requests in AgentOS",
+      "title_zh": "Agno 3.1.12 在 AgentOS 中持久保存 Claude 与 Codex 原生审批请求",
+      "summary_en": "Agno 3.1.12 routes native Claude and Codex permission requests into AgentOS chat and approval views. With database-backed runs, a request pauses execution durably and a reviewed decision returns to the same native execution without replaying the prompt.",
+      "summary_zh": "Agno 3.1.12 将 Claude 与 Codex 原生权限请求接入 AgentOS 聊天及审批界面。运行连接数据库后，权限请求会持久化暂停状态，审核决定返回同一次原生执行，无需重新播放提示词。",
+      "tech_points_en": [
+        "The native harness policy determines when approval is required; decisions are checked against the requested action.",
+        "Sandboxed agents support reattachment after API-worker loss and separate approval-wait and execution budgets."
+      ],
+      "tech_points_zh": [
+        "何时请求审批由原生执行框架的策略决定；决定需与具体请求动作匹配。",
+        "沙箱智能体支持 API 工作进程丢失后的重新连接，并区分审批等待与执行预算。"
+      ],
+      "why_it_matters_en": "Durable approval handling makes long-running delegated work easier to pause and resume across process failures.",
+      "why_it_matters_zh": "持久化审批机制让长期委派任务更容易在进程故障前后暂停和恢复。",
+      "source": {
+        "name": "Agno GitHub releases",
+        "type": "primary",
+        "url": "https://github.com/agno-agi/agno/releases/tag/v3.1.12",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/agno-agi/agno/releases/tags/v3.1.12"
+      ],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-langchain-mda-010-browser-async-subagents",
+      "published_at": "2026-10-29T16:54:00Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "multi-agent",
+        "human-in-the-loop",
+        "sandbox"
+      ],
+      "title_en": "Managed Deep Agents 0.10 adds browser handoff and asynchronous subagents",
+      "title_zh": "Managed Deep Agents 0.10 加入浏览器交接与异步子智能体",
+      "summary_en": "LangChain released Managed Deep Agents 0.10 in public beta with a sandboxed browser and background subagents. Browser handoff lets a person complete sign-in outside model messages and traces, while delegated tasks can finish without blocking the main conversation.",
+      "summary_zh": "LangChain 发布 Managed Deep Agents 0.10 公测版，加入沙箱浏览器与后台子智能体。浏览器交接让用户在模型消息和追踪记录之外完成登录，委派任务也可在不阻塞主对话的情况下运行。",
+      "tech_points_en": [
+        "Browser tools expose accessibility snapshots, scripted actions, screenshots and human handoff, with thread or user scope.",
+        "Async subagents share the sandbox and notify the orchestrator when finished; existing approval waits remain pending."
+      ],
+      "tech_points_zh": [
+        "浏览器工具提供无障碍树快照、脚本动作、截图及人工交接，支持按线程或用户划定作用域。",
+        "异步子智能体共享沙箱，并在完成后通知主智能体；已有审批等待会继续保留。"
+      ],
+      "why_it_matters_en": "This combines browser interaction and background delegation in a managed runtime with explicit human intervention points.",
+      "why_it_matters_zh": "该版本在托管运行环境中结合浏览器交互与后台委派，并提供明确的人工介入节点。",
+      "source": {
+        "name": "LangChain",
+        "type": "primary",
+        "url": "https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-algebraic-world-model-exploration-lean-proofs",
+      "published_at": "2026-10-29T17:20:31Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "agents",
+        "world-models"
+      ],
+      "tags": [
+        "reasoning",
+        "planning",
+        "formal-verification",
+        "benchmark"
+      ],
+      "title_en": "Algebraic World Model turns explored game dynamics into Lean proofs",
+      "title_zh": "Algebraic World Model 将探索得到的游戏动力学转化为 Lean 证明",
+      "summary_en": "Algebraic World Model builds and tests executable Python hypotheses about unfamiliar games, then formalizes rules in Lean 4. The preprint reports kernel-checked impossibility proofs for two game levels across six runs, linking environment exploration to explicit formal reasoning.",
+      "summary_zh": "Algebraic World Model 为陌生游戏建立并测试可执行 Python 假设，再用 Lean 4 形式化规则。预印本报告，在两个不可解关卡的六次运行中生成了经内核检查的不可能性证明，将环境探索连接到显式形式推理。",
+      "tech_points_en": [
+        "Typed objects and shared rules are simplified through category-theory-guided transformations before formalization.",
+        "The authors report Lean replay of winning trajectories for all 183 levels across 25 public ARC-AGI-3 games."
+      ],
+      "tech_points_zh": [
+        "形式化之前，方法将假设组织为类型化对象和共享规则，再通过范畴论引导的变换简化结构。",
+        "作者报告，Lean 可回放 25 个公开 ARC-AGI-3 游戏全部 183 个关卡的获胜轨迹。"
+      ],
+      "why_it_matters_en": "Explicit models can support checks of reachability and impossibility beyond the trajectories an agent has observed.",
+      "why_it_matters_zh": "显式模型可用于检查可达性与不可能性，将推理范围扩展到智能体尚未观察的轨迹。",
+      "source": {
+        "name": "Algebraic World Model authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.40503",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-29-world2vec-mechanistic-latent-dynamics",
+      "published_at": "2026-10-29T17:58:23Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "latent-dynamics",
+        "model-based-control",
+        "system-identification"
+      ],
+      "title_en": "world2vec learns compact world dynamics without reward supervision",
+      "title_zh": "world2vec 无需奖励监督即可学习紧凑的世界动力学",
+      "summary_en": "The world2vec preprint learns latent dynamics directly from observations and actions without reward information. The authors report long-horizon system fidelity with at least tenfold fewer parameters than DreamerV3, TD-MPC2 and LeWM, alongside pixel-based control and system-identification evaluations.",
+      "summary_zh": "world2vec 预印本直接从观测和动作学习潜在动力学，不使用奖励信息。作者报告，在参数量至少比 DreamerV3、TD-MPC2 和 LeWM 少一个数量级的情况下保留长期系统动力学，并评测了像素输入控制与系统辨识。",
+      "tech_points_en": [
+        "Learning targets mechanistic dynamics rather than relying on control performance alone as evidence of a faithful model.",
+        "System identification is evaluated on a benchmark of 71 attractors."
+      ],
+      "tech_points_zh": [
+        "学习目标强调动力学机制，避免仅凭控制表现判断模型是否忠实于系统。",
+        "系统辨识评测覆盖含 71 个吸引子的基准。"
+      ],
+      "why_it_matters_en": "Compact, inspectable dynamics could connect world-model control to scientific understanding; the reported results remain author evaluations.",
+      "why_it_matters_zh": "紧凑、可检查的动力学有望连接世界模型控制与科学理解；现有结果仍来自作者评测。",
+      "source": {
+        "name": "world2vec authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2610.40637",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-30-claude-code-21314-working-directory-write-boundary",
+      "published_at": "2026-10-30T01:06:26Z",
+      "collected_at": "2026-10-31T00:02:51Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding",
+        "safety",
+        "tool-use",
+        "context-management"
+      ],
+      "title_en": "Claude Code 2.1.314 adds an explicit working-directory write boundary",
+      "title_zh": "Claude Code 2.1.314 加入显式工作目录写入边界",
+      "summary_en": "Claude Code 2.1.314 adds a setting that makes its Write, Edit and NotebookEdit tools reject paths outside working directories in every permission mode. The release also adds idle conversation compaction and corrects headless startup failures that previously returned success without output.",
+      "summary_zh": "Claude Code 2.1.314 新增设置，使 Write、Edit 和 NotebookEdit 工具在所有权限模式下拒绝工作目录以外的路径。该版本还加入空闲对话压缩，并修正无界面启动失败却以成功状态退出且无输出的问题。",
+      "tech_points_en": [
+        "The boundary is controlled by permissions.blockWritesOutsideWorkingDirectories and specifically covers the three named file tools.",
+        "Idle compaction summarizes conversations above 200,000 tokens in VS Code and the Desktop Code tab for reuse after prompt-cache expiry."
+      ],
+      "tech_points_zh": [
+        "边界由 permissions.blockWritesOutsideWorkingDirectories 控制，明确覆盖上述三种文件工具。",
+        "VS Code 与桌面端 Code 页可压缩超过 20 万 token 的空闲对话，在提示缓存过期后使用摘要。"
+      ],
+      "why_it_matters_en": "Explicit tool boundaries and accurate process exit status improve the predictability of supervised coding-agent automation.",
+      "why_it_matters_zh": "明确的工具边界与准确的进程退出状态提升了受监督编码智能体自动化的可预期性。",
+      "source": {
+        "name": "Anthropic Claude Code GitHub releases",
+        "type": "primary",
+        "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.314",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.314"
+      ],
+      "confidence": "high",
+      "score": 79,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }
