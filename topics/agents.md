@@ -2,6 +2,151 @@
 
 # Agents / 智能体
 
+<a id="2026-10-31-deepseek-superagent-research-prototype"></a>
+## [DeepSeek 公开面向单仓库协作的 superagent 研究原型](https://github.com/deepseek-ai/dsh-superagent-prototype)
+
+**English:** [DeepSeek publishes a repository-focused superagent research prototype](https://github.com/deepseek-ai/dsh-superagent-prototype)
+
+- **发布 / Published:** `2026-10-31T12:05:39Z`
+- **来源 / Source:** [DeepSeek superagent GitHub repository](https://github.com/deepseek-ai/dsh-superagent-prototype) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `multi-agent`, `memory`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DeepSeek 发布 dsh-superagent-prototype 的首个代码提交。这一 DeepSeek Harness 扩展包将获授权的 GitHub 请求及可选飞书请求转为工作工单，分别使用智能体会话和目录处理。README 明确其为研究代码、并非 DeepSeek 官方产品，部分设想尚未实现。
+
+DeepSeek published the first code commit of dsh-superagent-prototype, a DeepSeek Harness bundle that handles authorized GitHub and optional Feishu requests as work tickets with separate agent sessions and directories. Its README labels it research code, not an official DeepSeek product, and notes that some proposed designs remain unimplemented.
+
+### 技术点 / Technical points
+
+- 工单执行跟踪等待、审查与失败状态；待处理输入和工作记录支持宿主重启后的恢复。
+  - Ticket execution tracks waiting, review and failure states; pending inputs and work records support recovery after a host restart.
+- 执行文档明确说明，工作目录与命令封装只是运行默认设置，并不构成安全边界。
+  - Worker directories and command wrappers establish operating defaults rather than a security boundary, as the execution documentation explicitly states.
+
+### 为什么重要 / Why it matters
+
+该原型展示了持续协作编码智能体的具体工程取舍，包括故障恢复机制及执行边界的局限。
+
+The prototype exposes concrete engineering choices for persistent team coding agents, including recovery and the limits of their execution boundaries.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/deepseek-ai/dsh-superagent-prototype/commit/6337fc823ce20251c8de8085948165c81aaa701e) · [Evidence 2](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/003-execution.md)
+[Discussion 1](https://news.ycombinator.com/item?id=50321277)
+
+---
+
+<a id="2026-10-30-pydantic-ai-264-artifact-scanning-fallback"></a>
+## [Pydantic AI 2.64 加入制品扫描、BoxdSandbox 与模型回退控制](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0)
+
+**English:** [Pydantic AI 2.64 adds artifact scanning, BoxdSandbox and model fallback controls](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0)
+
+- **发布 / Published:** `2026-10-30T23:27:24Z`
+- **来源 / Source:** [Pydantic AI GitHub releases](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `memory`, `tool-use`, `sandbox`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.64 为 Memory 与 Skills 加入 ArtifactScanner，并提供 BoxdSandbox，在 boxd 机器中运行智能体运行框架的能力。ModelFallback 增加请求准备与重试控制，已存储的服务端状态标识只会发回创建它们的端点。
+
+Pydantic AI 2.64 adds ArtifactScanner for Memory and Skills, plus BoxdSandbox for running harness capabilities in a boxd machine. ModelFallback gains request-preparation and retry controls, while stored server-state identifiers are sent back only to the endpoint that created them.
+
+### 技术点 / Technical points
+
+- BoxdSandbox 覆盖 Coder、Shell、FileSystem 及其他运行框架能力。
+  - BoxdSandbox covers Coder, Shell, FileSystem and other harness capabilities.
+- first_event_timeout 可在响应流迟迟未启动时触发回退，sticky 可让后续对话继续使用已接替的模型。
+  - first_event_timeout permits fallback when a response stream never starts, and sticky can keep subsequent conversation turns on the fallback model.
+
+### 为什么重要 / Why it matters
+
+新版将记忆与技能扫描、执行隔离和模型端点故障回退结合起来，提升智能体运行的可检查性和可预期性。
+
+The release combines inspectable memory and skill scanning with execution isolation and more predictable recovery from model-endpoint failures.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.64.0)
+
+---
+
+<a id="2026-10-30-microsoft-agent-framework-124-compaction-scope"></a>
+## [Microsoft Agent Framework Python 1.24 加入智能体触发压缩并收紧上下文作用域](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0)
+
+**English:** [Microsoft Agent Framework Python 1.24 adds agent-triggered compaction and tighter context scopes](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0)
+
+- **发布 / Published:** `2026-10-30T21:52:13Z`
+- **来源 / Source:** [Microsoft Agent Framework GitHub releases](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-management`, `memory`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.24 加入实验性的运行中压缩与技能卸载，可由智能体主动触发。新版还为本地 MCP 工具和提示加入显式默认审批模式，并调整测试版 Redis 上下文提供器，保留精确作用域身份、拒绝不兼容的旧索引。
+
+Microsoft Agent Framework Python 1.24 adds experimental in-run compaction and skill unloading initiated by agents. The release also introduces an explicit default approval mode for local MCP tools and prompts, and changes the beta Redis context provider to preserve exact scope identity and reject incompatible legacy indexes.
+
+### 技术点 / Technical points
+
+- AgentTriggeredCompactionStrategy 与 UnloadSkillsCompactionStrategy 提供新的实验性上下文管理路径。
+  - AgentTriggeredCompactionStrategy and UnloadSkillsCompactionStrategy expose the new experimental context-management paths.
+- Redis 作用域 token 保留大小写与标点，写入和搜索均执行配置的作用域约束；overwrite_index 不会迁移旧索引结构。
+  - Redis scope tokens preserve case and punctuation, and configured scopes apply to writes and searches; overwrite_index does not migrate the old index schema.
+
+### 为什么重要 / Why it matters
+
+这些控制为长时间运行的智能体提供显式上下文缩减机制，并使记忆作用域和工具审批行为更易判断。
+
+These controls give long-running agents explicit context-reduction mechanisms while making memory scope and tool approval behavior easier to reason about.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.24.0)
+
+---
+
+<a id="2026-10-30-mage-vl-cowork-hybrid-agent-weights"></a>
+## [Microsoft 发布 4B 混合电脑操作智能体 Mage-VL-Cowork 权重](https://huggingface.co/microsoft/Mage-VL-Cowork)
+
+**English:** [Microsoft releases Mage-VL-Cowork weights for a 4B hybrid computer-use agent](https://huggingface.co/microsoft/Mage-VL-Cowork)
+
+- **发布 / Published:** `2026-10-30T12:14:43Z`
+- **来源 / Source:** [Microsoft Mage model card](https://huggingface.co/microsoft/Mage-VL-Cowork) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `open-source`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Microsoft 上传 Mage-VL-Cowork 权重及模型卡，披露可在图形界面交互与终端执行之间切换的单一 4B 策略。团队报告，在排除 Google Drive 的 361 项 OSWorld-Verified 任务上，以 50 步预算运行两次，平均得分为 66.0%。时间采用权重发布提交的时间。
+
+Microsoft uploaded Mage-VL-Cowork weights and its model card, documenting one 4B policy that switches between graphical interaction and terminal execution. The team reports 66.0% on OSWorld-Verified with a 50-step budget, averaged over two runs on 361 tasks excluding Google Drive. The timestamp follows the weights-release commit.
+
+### 技术点 / Technical points
+
+- 训练依次经过 GUI 中训练、GUI 监督微调、编码与终端监督微调、混合监督微调和在线混合强化学习。
+  - Training progresses through GUI midtraining, GUI SFT, coding and terminal SFT, hybrid SFT, and online hybrid reinforcement learning.
+- 相较混合监督微调，团队报告 RL 检查点提升 10.16 个百分点，同时减少 13.0% 的模型调用和 25.4% 的输出 token。
+  - Relative to hybrid SFT, the reported RL checkpoint gains 10.16 percentage points while using 13.0% fewer model calls and 25.4% fewer output tokens.
+
+### 为什么重要 / Why it matters
+
+公开权重与训练方案为研究紧凑的 GUI 与代码混合策略提供了可检查的基础。
+
+The released weights and training recipe make compact GUI-and-code policies more accessible for computer-use research.
+
+### 链接 / Links
+
+[Evidence 1](https://microsoft.github.io/Mage/cowork/) · [Evidence 2](https://huggingface.co/microsoft/Mage-VL-Cowork/commit/6fbe7f91da477c1c73790dbb1f08d001b8626be1)
+
+---
+
 <a id="2026-10-30-claude-code-21314-working-directory-write-boundary"></a>
 ## [Claude Code 2.1.314 加入显式工作目录写入边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
 

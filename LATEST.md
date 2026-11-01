@@ -2,6 +2,151 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-10-31-deepseek-superagent-research-prototype"></a>
+## [DeepSeek 公开面向单仓库协作的 superagent 研究原型](https://github.com/deepseek-ai/dsh-superagent-prototype)
+
+**English:** [DeepSeek publishes a repository-focused superagent research prototype](https://github.com/deepseek-ai/dsh-superagent-prototype)
+
+- **发布 / Published:** `2026-10-31T12:05:39Z`
+- **来源 / Source:** [DeepSeek superagent GitHub repository](https://github.com/deepseek-ai/dsh-superagent-prototype) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `multi-agent`, `memory`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DeepSeek 发布 dsh-superagent-prototype 的首个代码提交。这一 DeepSeek Harness 扩展包将获授权的 GitHub 请求及可选飞书请求转为工作工单，分别使用智能体会话和目录处理。README 明确其为研究代码、并非 DeepSeek 官方产品，部分设想尚未实现。
+
+DeepSeek published the first code commit of dsh-superagent-prototype, a DeepSeek Harness bundle that handles authorized GitHub and optional Feishu requests as work tickets with separate agent sessions and directories. Its README labels it research code, not an official DeepSeek product, and notes that some proposed designs remain unimplemented.
+
+### 技术点 / Technical points
+
+- 工单执行跟踪等待、审查与失败状态；待处理输入和工作记录支持宿主重启后的恢复。
+  - Ticket execution tracks waiting, review and failure states; pending inputs and work records support recovery after a host restart.
+- 执行文档明确说明，工作目录与命令封装只是运行默认设置，并不构成安全边界。
+  - Worker directories and command wrappers establish operating defaults rather than a security boundary, as the execution documentation explicitly states.
+
+### 为什么重要 / Why it matters
+
+该原型展示了持续协作编码智能体的具体工程取舍，包括故障恢复机制及执行边界的局限。
+
+The prototype exposes concrete engineering choices for persistent team coding agents, including recovery and the limits of their execution boundaries.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/deepseek-ai/dsh-superagent-prototype/commit/6337fc823ce20251c8de8085948165c81aaa701e) · [Evidence 2](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/003-execution.md)
+[Discussion 1](https://news.ycombinator.com/item?id=50321277)
+
+---
+
+<a id="2026-10-30-pydantic-ai-264-artifact-scanning-fallback"></a>
+## [Pydantic AI 2.64 加入制品扫描、BoxdSandbox 与模型回退控制](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0)
+
+**English:** [Pydantic AI 2.64 adds artifact scanning, BoxdSandbox and model fallback controls](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0)
+
+- **发布 / Published:** `2026-10-30T23:27:24Z`
+- **来源 / Source:** [Pydantic AI GitHub releases](https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `memory`, `tool-use`, `sandbox`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.64 为 Memory 与 Skills 加入 ArtifactScanner，并提供 BoxdSandbox，在 boxd 机器中运行智能体运行框架的能力。ModelFallback 增加请求准备与重试控制，已存储的服务端状态标识只会发回创建它们的端点。
+
+Pydantic AI 2.64 adds ArtifactScanner for Memory and Skills, plus BoxdSandbox for running harness capabilities in a boxd machine. ModelFallback gains request-preparation and retry controls, while stored server-state identifiers are sent back only to the endpoint that created them.
+
+### 技术点 / Technical points
+
+- BoxdSandbox 覆盖 Coder、Shell、FileSystem 及其他运行框架能力。
+  - BoxdSandbox covers Coder, Shell, FileSystem and other harness capabilities.
+- first_event_timeout 可在响应流迟迟未启动时触发回退，sticky 可让后续对话继续使用已接替的模型。
+  - first_event_timeout permits fallback when a response stream never starts, and sticky can keep subsequent conversation turns on the fallback model.
+
+### 为什么重要 / Why it matters
+
+新版将记忆与技能扫描、执行隔离和模型端点故障回退结合起来，提升智能体运行的可检查性和可预期性。
+
+The release combines inspectable memory and skill scanning with execution isolation and more predictable recovery from model-endpoint failures.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.64.0)
+
+---
+
+<a id="2026-10-30-microsoft-agent-framework-124-compaction-scope"></a>
+## [Microsoft Agent Framework Python 1.24 加入智能体触发压缩并收紧上下文作用域](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0)
+
+**English:** [Microsoft Agent Framework Python 1.24 adds agent-triggered compaction and tighter context scopes](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0)
+
+- **发布 / Published:** `2026-10-30T21:52:13Z`
+- **来源 / Source:** [Microsoft Agent Framework GitHub releases](https://github.com/microsoft/agent-framework/releases/tag/python-1.24.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-management`, `memory`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.24 加入实验性的运行中压缩与技能卸载，可由智能体主动触发。新版还为本地 MCP 工具和提示加入显式默认审批模式，并调整测试版 Redis 上下文提供器，保留精确作用域身份、拒绝不兼容的旧索引。
+
+Microsoft Agent Framework Python 1.24 adds experimental in-run compaction and skill unloading initiated by agents. The release also introduces an explicit default approval mode for local MCP tools and prompts, and changes the beta Redis context provider to preserve exact scope identity and reject incompatible legacy indexes.
+
+### 技术点 / Technical points
+
+- AgentTriggeredCompactionStrategy 与 UnloadSkillsCompactionStrategy 提供新的实验性上下文管理路径。
+  - AgentTriggeredCompactionStrategy and UnloadSkillsCompactionStrategy expose the new experimental context-management paths.
+- Redis 作用域 token 保留大小写与标点，写入和搜索均执行配置的作用域约束；overwrite_index 不会迁移旧索引结构。
+  - Redis scope tokens preserve case and punctuation, and configured scopes apply to writes and searches; overwrite_index does not migrate the old index schema.
+
+### 为什么重要 / Why it matters
+
+这些控制为长时间运行的智能体提供显式上下文缩减机制，并使记忆作用域和工具审批行为更易判断。
+
+These controls give long-running agents explicit context-reduction mechanisms while making memory scope and tool approval behavior easier to reason about.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.24.0)
+
+---
+
+<a id="2026-10-30-mage-vl-cowork-hybrid-agent-weights"></a>
+## [Microsoft 发布 4B 混合电脑操作智能体 Mage-VL-Cowork 权重](https://huggingface.co/microsoft/Mage-VL-Cowork)
+
+**English:** [Microsoft releases Mage-VL-Cowork weights for a 4B hybrid computer-use agent](https://huggingface.co/microsoft/Mage-VL-Cowork)
+
+- **发布 / Published:** `2026-10-30T12:14:43Z`
+- **来源 / Source:** [Microsoft Mage model card](https://huggingface.co/microsoft/Mage-VL-Cowork) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `open-source`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+Microsoft 上传 Mage-VL-Cowork 权重及模型卡，披露可在图形界面交互与终端执行之间切换的单一 4B 策略。团队报告，在排除 Google Drive 的 361 项 OSWorld-Verified 任务上，以 50 步预算运行两次，平均得分为 66.0%。时间采用权重发布提交的时间。
+
+Microsoft uploaded Mage-VL-Cowork weights and its model card, documenting one 4B policy that switches between graphical interaction and terminal execution. The team reports 66.0% on OSWorld-Verified with a 50-step budget, averaged over two runs on 361 tasks excluding Google Drive. The timestamp follows the weights-release commit.
+
+### 技术点 / Technical points
+
+- 训练依次经过 GUI 中训练、GUI 监督微调、编码与终端监督微调、混合监督微调和在线混合强化学习。
+  - Training progresses through GUI midtraining, GUI SFT, coding and terminal SFT, hybrid SFT, and online hybrid reinforcement learning.
+- 相较混合监督微调，团队报告 RL 检查点提升 10.16 个百分点，同时减少 13.0% 的模型调用和 25.4% 的输出 token。
+  - Relative to hybrid SFT, the reported RL checkpoint gains 10.16 percentage points while using 13.0% fewer model calls and 25.4% fewer output tokens.
+
+### 为什么重要 / Why it matters
+
+公开权重与训练方案为研究紧凑的 GUI 与代码混合策略提供了可检查的基础。
+
+The released weights and training recipe make compact GUI-and-code policies more accessible for computer-use research.
+
+### 链接 / Links
+
+[Evidence 1](https://microsoft.github.io/Mage/cowork/) · [Evidence 2](https://huggingface.co/microsoft/Mage-VL-Cowork/commit/6fbe7f91da477c1c73790dbb1f08d001b8626be1)
+
+---
+
 <a id="2026-10-30-claude-code-21314-working-directory-write-boundary"></a>
 ## [Claude Code 2.1.314 加入显式工作目录写入边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
 
@@ -527,143 +672,3 @@ GitHub introduced Max code-review effort in public preview and made Copilot appr
 它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。
 
 This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.
-
----
-
-<a id="2026-10-28-pydantic-ai-263-loop-control"></a>
-## [Pydantic AI 2.63 新增循环中断与跨实例预算管理](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0)
-
-**English:** [Pydantic AI 2.63 adds loop interruption and shared agent budgets](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0)
-
-- **发布 / Published:** `2026-10-28T00:55:47Z`
-- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.63.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Pydantic AI 2.63 引入重复动作检测、基于 PostgreSQL 的支出限额及 IPython 代码模式，并加强消息边界处理与重放行为。版本标题标为 10 月 27 日，但 GitHub 的实际发布时间为 28 日，本条采用该发布事件时间。
-
-Pydantic AI 2.63 introduces repeated-action detection, PostgreSQL-backed spend limits and an IPython code mode. It also strengthens message framing and replay behavior. The release title says October 27, but GitHub records publication on October 28; this entry uses that release timestamp.
-
-### 技术点 / Technical points
-
-- DetectLoops 可中断重复动作；PostgresSpendStore 通过 PostgreSQL 共享 SpendLimits 预算。
-  - DetectLoops can interrupt repeated actions; PostgresSpendStore shares SpendLimits budgets through PostgreSQL.
-- 动态工具目录通过追加已揭示工具保留提示缓存；溢出内容写入作为持久操作执行，避免重放时重复写入。
-  - Dynamic tool catalogs append revealed tools to preserve cached prompts; replayed spill writes run as durable operations.
-
-### 为什么重要 / Why it matters
-
-这些控制机制有助于限制失控执行，并在智能体运行重放时保留状态。
-
-These controls help bound runaway execution and preserve state when agent runs are replayed.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.63.0)
-
----
-
-<a id="2026-10-27-thinkworld-chain-of-dynamics-imagination"></a>
-## [ThinkWorld 利用想象动力学从视频学习机器人动作推理](https://arxiv.org/abs/2610.37666)
-
-**English:** [ThinkWorld uses imagined dynamics to learn robot action reasoning from video](https://arxiv.org/abs/2610.37666)
-
-- **发布 / Published:** `2026-10-27T17:59:52Z`
-- **来源 / Source:** [ThinkWorld authors / arXiv](https://arxiv.org/abs/2610.37666) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `vla`, `reasoning`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-ThinkWorld 为人类与机器人经验建立共享的运动词元推理空间。论文报告了仿真和实体机器人实验，通过未来状态预测从无动作标签的视频中学习。发布时间采用 arXiv 首次提交时间。
-
-ThinkWorld introduces a shared motion-token reasoning space for human and robot experience. Its paper reports simulation and physical-robot experiments using future-state prediction to learn from videos without action labels. Publication time is the first arXiv submission.
-
-### 技术点 / Technical points
-
-- Chain-of-Dynamics 词元描述连接当前观测与未来状态的中间运动。
-  - Chain-of-Dynamics tokens represent intermediate motion linking the current observation to a future state.
-- 训练强化预测结果与实际状态变化相符的运动链；项目将想象过程放在训练阶段，而非部署阶段。
-  - Training reinforces motion chains whose predicted outcomes match observed transitions; the project places imagination in training, not deployment.
-
-### 为什么重要 / Why it matters
-
-该方法为将丰富的人类视频转化为具备动作依据的机器人学习提供了具体路径。
-
-The method offers a concrete route for transferring abundant human video into action-grounded robot learning.
-
-### 链接 / Links
-
-[Evidence 1](https://thinkworld-project.github.io/)
-
----
-
-<a id="2026-10-27-dexsafe-in-hand-pose-safety-filter"></a>
-## [DexSafe 以学习式安全过滤器评测灵巧手内位姿控制](https://arxiv.org/abs/2610.37652)
-
-**English:** [DexSafe evaluates dexterous in-hand pose reaching with a learned safety filter](https://arxiv.org/abs/2610.37652)
-
-- **发布 / Published:** `2026-10-27T17:58:20Z`
-- **来源 / Source:** [DexSafe authors / arXiv](https://arxiv.org/abs/2610.37652) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `dexterous-manipulation`, `safety`, `sim-to-real`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-作者提出在仿真中训练的 LEAP 灵巧手策略与残差安全过滤器，用于连续物体位姿目标控制。论文首次提交报告了 13.3 小时实体评测，覆盖四种物体的 4,800 个未见目标。
-
-The authors present simulation-trained LEAP-hand policies and a residual safety filter for sequences of object-pose goals. Their first arXiv submission reports 13.3 hours of physical evaluation across 4,800 unseen goals and four objects.
-
-### 技术点 / Technical points
-
-- 状态策略在 2 厘米和 0.4 弧度误差范围内完成 95.2% 的目标；加入过滤器后完成率为 91.5%，掉落减少 75%。
-  - The state-based policy reaches 95.2% of goals within 2 cm and 0.4 rad; adding the filter yields 91.5% while cutting drops by 75%.
-- 策略无需实体环境中的策略训练即可迁移，可使用动作捕捉或腕部深度相机。
-  - Policies transfer without real-world policy training and can use motion capture or a wrist-mounted depth camera.
-
-### 为什么重要 / Why it matters
-
-该评测量化了长序列灵巧操作中任务表现与掉落率之间的权衡。
-
-The evaluation quantifies a performance-versus-drop-rate tradeoff for long sequences of dexterous manipulation.
-
-### 链接 / Links
-
-[Evidence 1](https://ian-chuang.github.io/dexsafe/)
-
----
-
-<a id="2026-10-27-teamgym-distributed-information-coordination"></a>
-## [TeamGym 衡量智能体团队的通信与检索缺口](https://arxiv.org/abs/2610.37571)
-
-**English:** [TeamGym measures communication and retrieval gaps in agent teams](https://arxiv.org/abs/2610.37571)
-
-- **发布 / Published:** `2026-10-27T17:15:54Z`
-- **来源 / Source:** [TeamGym authors / arXiv](https://arxiv.org/abs/2610.37571) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `benchmark`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-TeamGym 评测必要事实分散在不同智能体手中时的团队决策。论文首次提交研究了八个语言模型和十二个语料库，分别报告信息共享与检索造成的表现损失。
-
-TeamGym evaluates team decisions when necessary facts are distributed among agents. The first arXiv submission studies eight language models across twelve corpora and reports distinct losses from information sharing and retrieval.
-
-### 技术点 / Technical points
-
-- 与把相同事实交给单个模型相比，分散关键事实使平均成功率下降 22.9 个百分点。
-  - Distributing pivotal facts lowers success by 22.9 percentage points on average versus giving the same facts to one model.
-- 要求参与者自行提取事实又损失 19.9 个百分点；两项训练实验中，最终决策奖励改善了协作。
-  - Requiring participants to extract those facts costs another 19.9 points; final-decision reinforcement learning improves coordination in two training experiments.
-
-### 为什么重要 / Why it matters
-
-该环境将协作失败与检索失败区分开，有助于诊断多智能体训练应改进的环节。
-
-The environment separates collaboration failures from retrieval failures, making multi-agent training targets easier to diagnose.
