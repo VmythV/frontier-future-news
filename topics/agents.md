@@ -2,6 +2,120 @@
 
 # Agents / 智能体
 
+<a id="2026-11-01-lobehub-2-3-proactive-bot-wake-records"></a>
+## [LobeHub 2.3 默认启用主动 Bot 并提供可检查的唤醒决策记录](https://github.com/lobehub/lobehub/releases/tag/v2.3.0)
+
+**English:** [LobeHub 2.3 enables proactive bots with inspectable wake decisions](https://github.com/lobehub/lobehub/releases/tag/v2.3.0)
+
+- **发布 / Published:** `2026-11-01T09:12:54Z`
+- **来源 / Source:** [LobeHub](https://github.com/lobehub/lobehub/releases/tag/v2.3.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `memory`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+LobeHub 2.3 默认开启 Bot 主动参与，使其评估所关注频道中的消息，自行决定回复、延后或保持安静。所有者可关闭该能力并检查唤醒决策；持久化沙箱结束预览，记忆整合中断后也可继续。
+
+LobeHub 2.3 turns on proactive participation for bots, letting them assess watched-channel messages and decide whether to respond, defer or stay quiet. Owners can disable it and inspect wake decisions. Persistent sandboxes also leave preview, while interrupted memory consolidation can resume.
+
+### 技术点 / Technical points
+
+- 唤醒记录包含结果、模型评分、解释与消息链接，所有者可逐条标记决策是否正确。
+  - Wake records include outcomes, model scores, explanations and links to messages, with owner feedback on each decision.
+- 主动参与提供关闭开关；关闭后，关注关键词仍可唤醒 Bot。
+  - Proactive participation has an off switch; with it disabled, watch keywords can still wake the bot.
+- 记忆整合停止后可接续执行而非重头开始；运行时也避免一个成员中断另一成员的进行中任务。
+  - Stopped memory-consolidation runs resume instead of restarting; the runtime also prevents one member from interrupting another member's live run.
+
+### 为什么重要 / Why it matters
+
+该版本将频道自主参与与控制开关、决策轨迹结合，为评估代理行为提供依据。
+
+The release pairs autonomous channel participation with controls and decision traces that can support evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/lobehub/lobehub/releases/tags/v2.3.0)
+
+---
+
+<a id="2026-11-01-qwen-code-0-26-5-bounded-pr-repair"></a>
+## [Qwen Code 0.26.5 为 PR 自动修复设置预算并新增托管代理部署方式](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5)
+
+**English:** [Qwen Code 0.26.5 bounds automatic PR repairs and adds managed-agent deployment](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5)
+
+- **发布 / Published:** `2026-11-01T03:22:50Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.26.5 为 PR 自动修复增加重试预算：三次修复推送后检查仍失败时转交人工处理。该版本还引入实验性 Managed Agent Helm 部署，并要求本地 PR 验证仅在工作区干净且对应 PR 当前提交时复用工作树。
+
+Qwen Code 0.26.5 adds a retry budget that hands persistently failing PR checks to a human after three fix pushes. The release also introduces experimental Helm deployment for Managed Agent and stricter local PR verification against a clean checkout of the PR head.
+
+### 技术点 / Technical points
+
+- 自动修复受阻时会在 PR 中说明已尝试操作、阻塞原因及所需人工行动。
+  - Blocked autofix rounds post what was attempted, the blocker and the human action needed.
+- 实验性 Helm 部署组合 Hosted Harness、MySQL、本地执行与带身份验证的网关。
+  - The experimental Helm setup combines Hosted Harness, MySQL, local execution and an authenticated gateway.
+- 托管会话历史查询支持有界分页及按操作或命令精确查找。
+  - Managed history queries support bounded pagination and exact operation or command lookups.
+
+### 为什么重要 / Why it matters
+
+明确的停止条件与可核对的工作区状态，有助于监督持续运行的编码代理自动化。
+
+Explicit stopping conditions and reproducible workspace checks improve oversight of recurring coding-agent automation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.5)
+
+---
+
+<a id="2026-10-31-playwright-mcp-0-0-84-isolated-browser-contexts"></a>
+## [Playwright MCP 0.0.84 新增命名浏览器上下文与跨导航网络检查](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84)
+
+**English:** [Playwright MCP 0.0.84 adds named browser contexts and persistent network inspection](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84)
+
+- **发布 / Published:** `2026-10-31T15:20:06Z`
+- **来源 / Source:** [Microsoft](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `browser-use`, `mcp`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Microsoft 发布 Playwright MCP 0.0.84，支持以命名隔离上下文分离账号会话、限制页面搜索返回数量，并保留跨页面导航的网络请求历史，帮助浏览器代理区分账号存储并追踪较长交互流程。
+
+Microsoft released Playwright MCP 0.0.84 with named isolated contexts for separate account sessions, bounded page-search results and retained network history across navigations. Browser agents can keep account storage separate while inspecting a longer interaction flow.
+
+### 技术点 / Technical points
+
+- 使用同一 isolatedContext 名称的标签页共享 Cookie 与存储，不同名称使用独立上下文。
+  - Tabs sharing an isolatedContext name share cookies and storage; different names use separate contexts.
+- browser_network_requests 设置 all=true 后可包含此前导航保留的最多 200 条请求。
+  - browser_network_requests with all=true includes up to 200 retained requests from earlier navigations.
+- URL 参数脱敏可遮蔽工具响应中的指定值；发布说明明确将其定位为便利功能，而非安全特性。
+  - URL-parameter redaction masks configured values in tool responses; the release explicitly describes it as a convenience rather than a security feature.
+
+### 为什么重要 / Why it matters
+
+账号分离与历史观测保留，让多步骤浏览器代理流程更易控制和排查。
+
+Account separation and retained observations make multi-step browser-agent workflows easier to control and diagnose.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/playwright-mcp/releases/tags/v0.0.84)
+
+---
+
 <a id="2026-10-31-deepseek-superagent-research-prototype"></a>
 ## [DeepSeek 公开面向单仓库协作的 superagent 研究原型](https://github.com/deepseek-ai/dsh-superagent-prototype)
 
@@ -36,6 +150,44 @@ The prototype exposes concrete engineering choices for persistent team coding ag
 
 [Evidence 1](https://github.com/deepseek-ai/dsh-superagent-prototype/commit/6337fc823ce20251c8de8085948165c81aaa701e) · [Evidence 2](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/003-execution.md)
 [Discussion 1](https://news.ycombinator.com/item?id=50321277)
+
+---
+
+<a id="2026-10-31-claude-code-2-1-316-restricted-sessions-subagent-control"></a>
+## [Claude Code 2.1.316 修复受限会话文件上传边界并新增子代理推理强度控制](https://github.com/anthropics/claude-code/releases/tag/v2.1.316)
+
+**English:** [Claude Code 2.1.316 fixes restricted-session uploads and adds subagent effort control](https://github.com/anthropics/claude-code/releases/tag/v2.1.316)
+
+- **发布 / Published:** `2026-10-31T01:01:35Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.316) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `safety`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Anthropic 发布 Claude Code 2.1.316，修复受限会话可能上传工作目录外文件、子代理恢复时丢失继承模型等问题，并新增子代理默认推理强度设置及 Claude apps gateway 的模型校验。
+
+Anthropic released Claude Code 2.1.316 with fixes for uploads outside working directories in restricted sessions and for subagents losing inherited models when resumed. It also adds a separate default effort setting for subagents and tighter model checks in the Claude apps gateway.
+
+### 技术点 / Technical points
+
+- 受限会话修复了即使文件命中 Read 允许规则仍可能越过工作目录上传的问题。
+  - Restricted sessions now block the reported outside-directory upload path even when a Read allow rule covers the file.
+- CLAUDE_CODE_SUBAGENT_EFFORT 可设置子代理未另行指定时的推理强度。
+  - CLAUDE_CODE_SUBAGENT_EFFORT sets the fallback effort level for subagents.
+- 网关依据模型访问规则检查请求中列出的每个模型。
+  - The gateway checks every model named in a request against its model access rules.
+
+### 为什么重要 / Why it matters
+
+这些改动针对无人值守编码代理运行中的具体边界与配置失效问题。
+
+These changes address concrete boundary and configuration failures in unattended coding-agent runs.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.316)
 
 ---
 

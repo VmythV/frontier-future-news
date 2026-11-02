@@ -2,6 +2,120 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-01-lobehub-2-3-proactive-bot-wake-records"></a>
+## [LobeHub 2.3 默认启用主动 Bot 并提供可检查的唤醒决策记录](https://github.com/lobehub/lobehub/releases/tag/v2.3.0)
+
+**English:** [LobeHub 2.3 enables proactive bots with inspectable wake decisions](https://github.com/lobehub/lobehub/releases/tag/v2.3.0)
+
+- **发布 / Published:** `2026-11-01T09:12:54Z`
+- **来源 / Source:** [LobeHub](https://github.com/lobehub/lobehub/releases/tag/v2.3.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `memory`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+LobeHub 2.3 默认开启 Bot 主动参与，使其评估所关注频道中的消息，自行决定回复、延后或保持安静。所有者可关闭该能力并检查唤醒决策；持久化沙箱结束预览，记忆整合中断后也可继续。
+
+LobeHub 2.3 turns on proactive participation for bots, letting them assess watched-channel messages and decide whether to respond, defer or stay quiet. Owners can disable it and inspect wake decisions. Persistent sandboxes also leave preview, while interrupted memory consolidation can resume.
+
+### 技术点 / Technical points
+
+- 唤醒记录包含结果、模型评分、解释与消息链接，所有者可逐条标记决策是否正确。
+  - Wake records include outcomes, model scores, explanations and links to messages, with owner feedback on each decision.
+- 主动参与提供关闭开关；关闭后，关注关键词仍可唤醒 Bot。
+  - Proactive participation has an off switch; with it disabled, watch keywords can still wake the bot.
+- 记忆整合停止后可接续执行而非重头开始；运行时也避免一个成员中断另一成员的进行中任务。
+  - Stopped memory-consolidation runs resume instead of restarting; the runtime also prevents one member from interrupting another member's live run.
+
+### 为什么重要 / Why it matters
+
+该版本将频道自主参与与控制开关、决策轨迹结合，为评估代理行为提供依据。
+
+The release pairs autonomous channel participation with controls and decision traces that can support evaluation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/lobehub/lobehub/releases/tags/v2.3.0)
+
+---
+
+<a id="2026-11-01-qwen-code-0-26-5-bounded-pr-repair"></a>
+## [Qwen Code 0.26.5 为 PR 自动修复设置预算并新增托管代理部署方式](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5)
+
+**English:** [Qwen Code 0.26.5 bounds automatic PR repairs and adds managed-agent deployment](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5)
+
+- **发布 / Published:** `2026-11-01T03:22:50Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.26.5 为 PR 自动修复增加重试预算：三次修复推送后检查仍失败时转交人工处理。该版本还引入实验性 Managed Agent Helm 部署，并要求本地 PR 验证仅在工作区干净且对应 PR 当前提交时复用工作树。
+
+Qwen Code 0.26.5 adds a retry budget that hands persistently failing PR checks to a human after three fix pushes. The release also introduces experimental Helm deployment for Managed Agent and stricter local PR verification against a clean checkout of the PR head.
+
+### 技术点 / Technical points
+
+- 自动修复受阻时会在 PR 中说明已尝试操作、阻塞原因及所需人工行动。
+  - Blocked autofix rounds post what was attempted, the blocker and the human action needed.
+- 实验性 Helm 部署组合 Hosted Harness、MySQL、本地执行与带身份验证的网关。
+  - The experimental Helm setup combines Hosted Harness, MySQL, local execution and an authenticated gateway.
+- 托管会话历史查询支持有界分页及按操作或命令精确查找。
+  - Managed history queries support bounded pagination and exact operation or command lookups.
+
+### 为什么重要 / Why it matters
+
+明确的停止条件与可核对的工作区状态，有助于监督持续运行的编码代理自动化。
+
+Explicit stopping conditions and reproducible workspace checks improve oversight of recurring coding-agent automation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.5)
+
+---
+
+<a id="2026-10-31-playwright-mcp-0-0-84-isolated-browser-contexts"></a>
+## [Playwright MCP 0.0.84 新增命名浏览器上下文与跨导航网络检查](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84)
+
+**English:** [Playwright MCP 0.0.84 adds named browser contexts and persistent network inspection](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84)
+
+- **发布 / Published:** `2026-10-31T15:20:06Z`
+- **来源 / Source:** [Microsoft](https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `browser-use`, `mcp`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Microsoft 发布 Playwright MCP 0.0.84，支持以命名隔离上下文分离账号会话、限制页面搜索返回数量，并保留跨页面导航的网络请求历史，帮助浏览器代理区分账号存储并追踪较长交互流程。
+
+Microsoft released Playwright MCP 0.0.84 with named isolated contexts for separate account sessions, bounded page-search results and retained network history across navigations. Browser agents can keep account storage separate while inspecting a longer interaction flow.
+
+### 技术点 / Technical points
+
+- 使用同一 isolatedContext 名称的标签页共享 Cookie 与存储，不同名称使用独立上下文。
+  - Tabs sharing an isolatedContext name share cookies and storage; different names use separate contexts.
+- browser_network_requests 设置 all=true 后可包含此前导航保留的最多 200 条请求。
+  - browser_network_requests with all=true includes up to 200 retained requests from earlier navigations.
+- URL 参数脱敏可遮蔽工具响应中的指定值；发布说明明确将其定位为便利功能，而非安全特性。
+  - URL-parameter redaction masks configured values in tool responses; the release explicitly describes it as a convenience rather than a security feature.
+
+### 为什么重要 / Why it matters
+
+账号分离与历史观测保留，让多步骤浏览器代理流程更易控制和排查。
+
+Account separation and retained observations make multi-step browser-agent workflows easier to control and diagnose.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/playwright-mcp/releases/tags/v0.0.84)
+
+---
+
 <a id="2026-10-31-deepseek-superagent-research-prototype"></a>
 ## [DeepSeek 公开面向单仓库协作的 superagent 研究原型](https://github.com/deepseek-ai/dsh-superagent-prototype)
 
@@ -36,6 +150,44 @@ The prototype exposes concrete engineering choices for persistent team coding ag
 
 [Evidence 1](https://github.com/deepseek-ai/dsh-superagent-prototype/commit/6337fc823ce20251c8de8085948165c81aaa701e) · [Evidence 2](https://github.com/deepseek-ai/dsh-superagent-prototype/blob/6337fc823ce20251c8de8085948165c81aaa701e/docs/003-execution.md)
 [Discussion 1](https://news.ycombinator.com/item?id=50321277)
+
+---
+
+<a id="2026-10-31-claude-code-2-1-316-restricted-sessions-subagent-control"></a>
+## [Claude Code 2.1.316 修复受限会话文件上传边界并新增子代理推理强度控制](https://github.com/anthropics/claude-code/releases/tag/v2.1.316)
+
+**English:** [Claude Code 2.1.316 fixes restricted-session uploads and adds subagent effort control](https://github.com/anthropics/claude-code/releases/tag/v2.1.316)
+
+- **发布 / Published:** `2026-10-31T01:01:35Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.316) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `safety`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Anthropic 发布 Claude Code 2.1.316，修复受限会话可能上传工作目录外文件、子代理恢复时丢失继承模型等问题，并新增子代理默认推理强度设置及 Claude apps gateway 的模型校验。
+
+Anthropic released Claude Code 2.1.316 with fixes for uploads outside working directories in restricted sessions and for subagents losing inherited models when resumed. It also adds a separate default effort setting for subagents and tighter model checks in the Claude apps gateway.
+
+### 技术点 / Technical points
+
+- 受限会话修复了即使文件命中 Read 允许规则仍可能越过工作目录上传的问题。
+  - Restricted sessions now block the reported outside-directory upload path even when a Read allow rule covers the file.
+- CLAUDE_CODE_SUBAGENT_EFFORT 可设置子代理未另行指定时的推理强度。
+  - CLAUDE_CODE_SUBAGENT_EFFORT sets the fallback effort level for subagents.
+- 网关依据模型访问规则检查请求中列出的每个模型。
+  - The gateway checks every model named in a request against its model access rules.
+
+### 为什么重要 / Why it matters
+
+这些改动针对无人值守编码代理运行中的具体边界与配置失效问题。
+
+These changes address concrete boundary and configuration failures in unattended coding-agent runs.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.316)
 
 ---
 
@@ -544,131 +696,3 @@ The UMI-Live preprint describes a bimanual demonstration system combining camera
 统一采集与处理流程有望降低实验室外收集示范的门槛，但论文中的策略测试规模仍较小。
 
 A shared acquisition and processing stack could make demonstrations easier to collect outside robot laboratories; the reported policy test remains small.
-
----
-
-<a id="2026-10-29-event2reward-relative-progress-robot-rewards"></a>
-## [Event2Reward 从停滞、倒退和恢复中学习机器人奖励](https://arxiv.org/abs/2610.39212)
-
-**English:** [Event2Reward learns robot rewards from stalls, regressions and recoveries](https://arxiv.org/abs/2610.39212)
-
-- **发布 / Published:** `2026-10-29T02:34:14Z`
-- **来源 / Source:** [Event2Reward authors / arXiv](https://arxiv.org/abs/2610.39212) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `reinforcement-learning`, `reward-model`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Event2Reward 将示范时间标签与机器人成功、失败执行中的相对进度关系结合。预印本报告，这种奖励塑形优于仅使用稀疏奖励的方法，在 40 项 LIBERO 任务上的平均成功率提高 18.16 个百分点。
-
-Event2Reward combines demonstration-time labels with relative progress relations from successful and failed robot executions. The preprint reports better reward shaping than sparse rewards alone, including an 18.16 percentage-point average success gain across 40 LIBERO tasks.
-
-### 技术点 / Technical points
-
-- 事件标注数据集整理自约 10 万条真实机器人执行记录。
-  - An event-annotated dataset is curated from about 100,000 real-robot execution records.
-- 作者报告，真实机器人训练 30 分钟后，插入任务成功率为 60%，物体操作任务为 90%。
-  - After 30 minutes of real-robot training, the authors report 60% success on insertion tasks and 90% on object manipulation tasks.
-
-### 为什么重要 / Why it matters
-
-该方法让失败执行也能用于学习任务进度，无需逐帧标注绝对进度。
-
-The method makes failed executions useful for learning progress without requiring absolute labels for every frame.
-
----
-
-<a id="2026-10-28-gemini-4-carbon-long-horizon"></a>
-## [Gemini 4 Carbon 面向持续工程任务，初期限制开放范围](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
-
-**English:** [Gemini 4 Carbon targets sustained engineering agents with restricted initial access](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/)
-
-- **发布 / Published:** `2026-10-28T17:00:00Z`
-- **来源 / Source:** [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reasoning`, `tool-use`, `benchmark`, `safety`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Google 发布面向长时工程与网络安全工作流的 Gemini 4 Carbon，初期通过 Fairwind 向部分防御人员开放。Google 报告其漏洞发现与修补能力提升，同时减少评测作弊和无依据陈述。这些结果属于厂商评测，尚未宣布全面公开使用。
-
-Google announced Gemini 4 Carbon for long-running engineering and cybersecurity workflows, initially reaching selected defenders through Fairwind. Google reports stronger vulnerability discovery and patching, alongside reduced cheating and unsupported claims. The results are vendor evaluations; broad public access has not been announced.
-
-### 技术点 / Technical points
-
-- Google 报告在不启用防护的评测条件下，SEC-bench Pro、ExploitGym 和 CWE-bench 成绩分别为 88.2%、54.8% 和 71.0%。
-  - Google reports 88.2% on SEC-bench Pro, 54.8% on ExploitGym and 71.0% on CWE-bench, evaluated without guardrails.
-- 内部工程团队报告过持续数天的运行；Google 报告 Terminal-Bench 4.0 成功作弊率为 0.0%，作弊尝试率为 0.4%。
-  - Internal engineering teams report runs lasting days; Google reports 0.0% successful cheating on Terminal-Bench 4.0 and 0.4% cheating attempts.
-
-### 为什么重要 / Why it matters
-
-该公告将更长的自主工程执行与明确的可靠性测量、受限部署联系起来。
-
-The announcement connects longer autonomous engineering runs with explicit measurements of reliability and constrained deployment.
-
----
-
-<a id="2026-10-28-github-agentic-workflows-ga"></a>
-## [GitHub Agentic Workflows 正式发布](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
-
-**English:** [GitHub Agentic Workflows reaches general availability](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/)
-
-- **发布 / Published:** `2026-10-28T15:30:15Z`
-- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `tool-use`, `safety`, `automation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-GitHub 将 Agentic Workflows 推向正式可用阶段，把 Markdown 指令编译为 GitHub Actions 工作流，以运行编码智能体自动化。公告汇总了公开预览以来的防护与能力更新，并非所有功能都在当天首次推出。
-
-GitHub made Agentic Workflows generally available, compiling Markdown instructions into GitHub Actions workflows for coding-agent automation. The announcement consolidates safeguards and capabilities added since public preview, rather than presenting every feature as newly introduced.
-
-### 技术点 / Technical points
-
-- 智能体默认只读访问；经验证的安全输出与独立威胁检测任务共同检查拟议变更。
-  - Agents default to read-only access; validated safe outputs and a separate threat-detection job mediate proposed changes.
-- 正式版能力涵盖模型路由、自托管 ARC 支持、预算预测和微型虚拟机隔离选项。
-  - The GA feature set includes model routing, self-hosted ARC support, budget forecasting and microVM isolation options.
-
-### 为什么重要 / Why it matters
-
-该发布让具备明确执行与变更控制的仓库自动化更容易接入现有 Actions 策略。
-
-The release makes repository automation with explicit execution and change controls more accessible within existing Actions policies.
-
----
-
-<a id="2026-10-28-copilot-review-max-multi-model-approvals"></a>
-## [Copilot 预览多模型 Max 审查，并正式开放审批能力](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
-
-**English:** [Copilot previews multi-model Max reviews and makes approvals generally available](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/)
-
-- **发布 / Published:** `2026-10-28T15:30:00Z`
-- **来源 / Source:** [GitHub](https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `reasoning`, `code-review`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-GitHub 公开预览 Max 代码审查档位，并将 Copilot 审批推向正式可用。Max 使用来自不同提供商的模型运行独立审查智能体，再由汇总智能体协调审查发现。
-
-GitHub introduced Max code-review effort in public preview and made Copilot approvals generally available. Max combines independent review agents using models from different providers, then uses an aggregation agent to reconcile findings.
-
-### 技术点 / Technical points
-
-- 汇总智能体在形成统一审查前处理分歧并复核发现；Max 需要更多时间和额度。
-  - The aggregation agent resolves disagreements and checks findings before producing one review; Max takes more time and credits.
-- 审批默认关闭；启用后可计入必需审批数量，新提交会使已有审批失效。
-  - Approvals are disabled by default, can count toward required approvals when enabled, and are dismissed after new commits.
-
-### 为什么重要 / Why it matters
-
-它提供了可理解的多智能体审查协作方式，并把智能体判断接入仓库合并控制。
-
-This introduces an inspectable coordination pattern for AI review while connecting agent judgments to repository merge controls.

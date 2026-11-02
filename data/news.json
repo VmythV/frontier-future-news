@@ -20356,6 +20356,202 @@
       },
       "collected_at": "2026-11-01T00:03:59Z",
       "score": 85
+    },
+    {
+      "id": "2026-10-31-claude-code-2-1-316-restricted-sessions-subagent-control",
+      "published_at": "2026-10-31T01:01:35Z",
+      "collected_at": "2026-11-02T00:03:31Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "safety",
+        "multi-agent",
+        "open-source"
+      ],
+      "title_en": "Claude Code 2.1.316 fixes restricted-session uploads and adds subagent effort control",
+      "title_zh": "Claude Code 2.1.316 修复受限会话文件上传边界并新增子代理推理强度控制",
+      "summary_en": "Anthropic released Claude Code 2.1.316 with fixes for uploads outside working directories in restricted sessions and for subagents losing inherited models when resumed. It also adds a separate default effort setting for subagents and tighter model checks in the Claude apps gateway.",
+      "summary_zh": "Anthropic 发布 Claude Code 2.1.316，修复受限会话可能上传工作目录外文件、子代理恢复时丢失继承模型等问题，并新增子代理默认推理强度设置及 Claude apps gateway 的模型校验。",
+      "tech_points_en": [
+        "Restricted sessions now block the reported outside-directory upload path even when a Read allow rule covers the file.",
+        "CLAUDE_CODE_SUBAGENT_EFFORT sets the fallback effort level for subagents.",
+        "The gateway checks every model named in a request against its model access rules."
+      ],
+      "tech_points_zh": [
+        "受限会话修复了即使文件命中 Read 允许规则仍可能越过工作目录上传的问题。",
+        "CLAUDE_CODE_SUBAGENT_EFFORT 可设置子代理未另行指定时的推理强度。",
+        "网关依据模型访问规则检查请求中列出的每个模型。"
+      ],
+      "why_it_matters_en": "These changes address concrete boundary and configuration failures in unattended coding-agent runs.",
+      "why_it_matters_zh": "这些改动针对无人值守编码代理运行中的具体边界与配置失效问题。",
+      "source": {
+        "name": "Anthropic",
+        "type": "primary",
+        "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.316",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.316"
+      ],
+      "confidence": "high",
+      "score": 77,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 11,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-10-31-playwright-mcp-0-0-84-isolated-browser-contexts",
+      "published_at": "2026-10-31T15:20:06Z",
+      "collected_at": "2026-11-02T00:03:31Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "browser-use",
+        "mcp",
+        "tool-use",
+        "open-source"
+      ],
+      "title_en": "Playwright MCP 0.0.84 adds named browser contexts and persistent network inspection",
+      "title_zh": "Playwright MCP 0.0.84 新增命名浏览器上下文与跨导航网络检查",
+      "summary_en": "Microsoft released Playwright MCP 0.0.84 with named isolated contexts for separate account sessions, bounded page-search results and retained network history across navigations. Browser agents can keep account storage separate while inspecting a longer interaction flow.",
+      "summary_zh": "Microsoft 发布 Playwright MCP 0.0.84，支持以命名隔离上下文分离账号会话、限制页面搜索返回数量，并保留跨页面导航的网络请求历史，帮助浏览器代理区分账号存储并追踪较长交互流程。",
+      "tech_points_en": [
+        "Tabs sharing an isolatedContext name share cookies and storage; different names use separate contexts.",
+        "browser_network_requests with all=true includes up to 200 retained requests from earlier navigations.",
+        "URL-parameter redaction masks configured values in tool responses; the release explicitly describes it as a convenience rather than a security feature."
+      ],
+      "tech_points_zh": [
+        "使用同一 isolatedContext 名称的标签页共享 Cookie 与存储，不同名称使用独立上下文。",
+        "browser_network_requests 设置 all=true 后可包含此前导航保留的最多 200 条请求。",
+        "URL 参数脱敏可遮蔽工具响应中的指定值；发布说明明确将其定位为便利功能，而非安全特性。"
+      ],
+      "why_it_matters_en": "Account separation and retained observations make multi-step browser-agent workflows easier to control and diagnose.",
+      "why_it_matters_zh": "账号分离与历史观测保留，让多步骤浏览器代理流程更易控制和排查。",
+      "source": {
+        "name": "Microsoft",
+        "type": "primary",
+        "url": "https://github.com/microsoft/playwright-mcp/releases/tag/v0.0.84",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/microsoft/playwright-mcp/releases/tags/v0.0.84"
+      ],
+      "confidence": "high",
+      "score": 78,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 13,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-01-qwen-code-0-26-5-bounded-pr-repair",
+      "published_at": "2026-11-01T03:22:50Z",
+      "collected_at": "2026-11-02T00:03:31Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "agent-runtime",
+        "reliability",
+        "open-source"
+      ],
+      "title_en": "Qwen Code 0.26.5 bounds automatic PR repairs and adds managed-agent deployment",
+      "title_zh": "Qwen Code 0.26.5 为 PR 自动修复设置预算并新增托管代理部署方式",
+      "summary_en": "Qwen Code 0.26.5 adds a retry budget that hands persistently failing PR checks to a human after three fix pushes. The release also introduces experimental Helm deployment for Managed Agent and stricter local PR verification against a clean checkout of the PR head.",
+      "summary_zh": "Qwen Code 0.26.5 为 PR 自动修复增加重试预算：三次修复推送后检查仍失败时转交人工处理。该版本还引入实验性 Managed Agent Helm 部署，并要求本地 PR 验证仅在工作区干净且对应 PR 当前提交时复用工作树。",
+      "tech_points_en": [
+        "Blocked autofix rounds post what was attempted, the blocker and the human action needed.",
+        "The experimental Helm setup combines Hosted Harness, MySQL, local execution and an authenticated gateway.",
+        "Managed history queries support bounded pagination and exact operation or command lookups."
+      ],
+      "tech_points_zh": [
+        "自动修复受阻时会在 PR 中说明已尝试操作、阻塞原因及所需人工行动。",
+        "实验性 Helm 部署组合 Hosted Harness、MySQL、本地执行与带身份验证的网关。",
+        "托管会话历史查询支持有界分页及按操作或命令精确查找。"
+      ],
+      "why_it_matters_en": "Explicit stopping conditions and reproducible workspace checks improve oversight of recurring coding-agent automation.",
+      "why_it_matters_zh": "明确的停止条件与可核对的工作区状态，有助于监督持续运行的编码代理自动化。",
+      "source": {
+        "name": "Qwen Code",
+        "type": "primary",
+        "url": "https://github.com/QwenLM/qwen-code/releases/tag/v0.26.5",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.5"
+      ],
+      "confidence": "high",
+      "score": 78,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 25,
+        "novelty": 13,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-01-lobehub-2-3-proactive-bot-wake-records",
+      "published_at": "2026-11-01T09:12:54Z",
+      "collected_at": "2026-11-02T00:03:31Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-runtime",
+        "memory",
+        "observability",
+        "open-source"
+      ],
+      "title_en": "LobeHub 2.3 enables proactive bots with inspectable wake decisions",
+      "title_zh": "LobeHub 2.3 默认启用主动 Bot 并提供可检查的唤醒决策记录",
+      "summary_en": "LobeHub 2.3 turns on proactive participation for bots, letting them assess watched-channel messages and decide whether to respond, defer or stay quiet. Owners can disable it and inspect wake decisions. Persistent sandboxes also leave preview, while interrupted memory consolidation can resume.",
+      "summary_zh": "LobeHub 2.3 默认开启 Bot 主动参与，使其评估所关注频道中的消息，自行决定回复、延后或保持安静。所有者可关闭该能力并检查唤醒决策；持久化沙箱结束预览，记忆整合中断后也可继续。",
+      "tech_points_en": [
+        "Wake records include outcomes, model scores, explanations and links to messages, with owner feedback on each decision.",
+        "Proactive participation has an off switch; with it disabled, watch keywords can still wake the bot.",
+        "Stopped memory-consolidation runs resume instead of restarting; the runtime also prevents one member from interrupting another member's live run."
+      ],
+      "tech_points_zh": [
+        "唤醒记录包含结果、模型评分、解释与消息链接，所有者可逐条标记决策是否正确。",
+        "主动参与提供关闭开关；关闭后，关注关键词仍可唤醒 Bot。",
+        "记忆整合停止后可接续执行而非重头开始；运行时也避免一个成员中断另一成员的进行中任务。"
+      ],
+      "why_it_matters_en": "The release pairs autonomous channel participation with controls and decision traces that can support evaluation.",
+      "why_it_matters_zh": "该版本将频道自主参与与控制开关、决策轨迹结合，为评估代理行为提供依据。",
+      "source": {
+        "name": "LobeHub",
+        "type": "primary",
+        "url": "https://github.com/lobehub/lobehub/releases/tag/v2.3.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/lobehub/lobehub/releases/tags/v2.3.0"
+      ],
+      "confidence": "high",
+      "score": 79,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }
