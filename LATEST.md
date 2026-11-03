@@ -2,6 +2,121 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-02-trustworthy-data-analysis-agent-trap-benchmark"></a>
+## [Trustworthy Data Analysis 将智能体技能与 30 个数据分析陷阱案例配套开放](https://github.com/boranfurkan/trustworthy-data-analysis)
+
+**English:** [Trustworthy Data Analysis pairs an agent skill with 30 analysis-trap cases](https://github.com/boranfurkan/trustworthy-data-analysis)
+
+- **发布 / Published:** `2026-11-02T22:09:08Z`
+- **来源 / Source:** [Trustworthy Data Analysis](https://github.com/boranfurkan/trustworthy-data-analysis) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `evaluation`, `data-analysis`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+作者在 Hacker News 介绍了开源数据分析技能与配套基准；本条采用该介绍帖的发布时间。仓库提供 30 个案例、通过生成过程计算的参考答案，以及 Claude Code 的对照结果。报告中的提升幅度较小，每个案例在每种条件下仅运行一次。
+
+The author announced an open-source data-analysis skill and benchmark on Hacker News; this record uses that announcement time. The repository provides 30 cases with generated reference answers and published Claude Code comparisons. Reported improvements are small, with only one run per case and condition.
+
+### 技术点 / Technical points
+
+- 案例包含 19 个数据分析陷阱、8 个性能与可靠性陷阱，以及 3 个智能体衡量自身修改效果的案例。
+  - Cases cover 19 data-analysis traps, eight performance and reliability traps, and three cases of agents measuring their own changes.
+- 固定随机种子的生成器计算参考答案；LLM 裁判评估结果，而非是否遵循检查清单。
+  - Fixed-seed generators compute reference answers; an LLM judge evaluates outcomes rather than checklist compliance.
+- 公布结果对每个模型、每种条件包含 61 项评分检查；两个受测模型在不加载技能时已通过大多数检查。
+  - Published results contain 61 grader checks per model and condition; both tested models already pass most checks without the skill.
+
+### 为什么重要 / Why it matters
+
+这些可复现案例针对看似合理却错误的智能体分析；有限的对照结果适合后续评测，尚不足以证明广泛有效。
+
+The reproducible cases target plausible but incorrect agent analyses; the limited comparisons support further evaluation rather than broad efficacy claims.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/boranfurkan/trustworthy-data-analysis/blob/fe131f0cf20d2ceecb6f71230daf607ee962c49e/evals/results/summary.md) · [Evidence 2](https://hacker-news.firebaseio.com/v0/item/50344593.json)
+[Discussion 1](https://news.ycombinator.com/item?id=50344593)
+
+---
+
+<a id="2026-11-02-qwen-code-0266-recovery-evidence-mcp-discovery"></a>
+## [Qwen Code 0.26.6 收紧托管智能体恢复证据要求并修复 MCP 工具发现](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
+
+**English:** [Qwen Code 0.26.6 tightens managed-agent recovery and MCP tool discovery](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
+
+- **发布 / Published:** `2026-11-02T18:22:40Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `multi-agent`, `tool-use`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.26.6 要求在补全托管智能体恢复缺口前具备子任务账本证据，并修复已消费的子任务结果仍被标记为待处理的问题。该版本还在 MCP 名称冲突时保留名称唯一的工具，增加无界面提示钩子，并通过实验性设置扩大共享执行循环的覆盖范围。
+
+Qwen Code 0.26.6 requires child-ledger evidence before filling managed-agent recovery gaps and fixes consumed child results being marked pending. It also preserves uniquely named MCP tools when names collide, adds headless prompt hooks and expands shared-loop execution behind an experimental setting.
+
+### 技术点 / Technical points
+
+- 恢复逻辑明确区分未知或从未启动的子任务，缺乏子任务账本证据时不再补全缺口。
+  - Recovery now distinguishes unknown or never-started children instead of filling gaps without child-ledger evidence.
+- MCP 发现跳过重名工具，同时保留同一服务器中名称唯一的工具。
+  - MCP discovery skips duplicate names while retaining uniquely named tools from the same server.
+- 无界面运行支持 prompt.submit 钩子；experimental.unifiedAgentLoop 将频道提示、Goal 提案审批等更多 ACP 轮次纳入共享循环。
+  - Headless runs support prompt.submit hooks; experimental.unifiedAgentLoop includes more ACP turns, including channel prompts and Goal-proposal approvals.
+
+### 为什么重要 / Why it matters
+
+这些变更使长时间智能体会话中的工具可用性与子任务恢复更准确地反映实际执行记录。
+
+These changes make tool availability and child-task recovery more faithful to recorded execution state in long-running agent sessions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.6)
+
+---
+
+<a id="2026-11-02-gdpx-high-value-agentic-benchmark"></a>
+## [SemiAnalysis 发布 GDPx，以 206 项任务评测 11 个领域的智能体能力](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities)
+
+**English:** [SemiAnalysis launches GDPx with 206 agent tasks across 11 domains](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities)
+
+- **发布 / Published:** `2026-11-02T01:51:42.757Z`
+- **来源 / Source:** [SemiAnalysis](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `evaluation`, `long-horizon`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+SemiAnalysis 与 14 家专业合作方推出 GDPx，评测智能体完成高难度技术与专业工作流的能力。初始榜单最高分为 12.0%。结果由评测组织方报告，作者指出安全拒答会影响部分领域的得分。
+
+SemiAnalysis introduced GDPx with 14 specialist partners to evaluate agents on demanding technical and professional workflows. Its initial leaderboard tops out at 12.0%. These are organizer-reported results; the authors note that safety refusals affect some domain scores.
+
+### 技术点 / Technical points
+
+- 206 项任务覆盖芯片设计、软件工程、AI 研究工作流等 11 个领域。
+  - The 206 tasks span 11 domains, including chip design, software engineering and AI research workflows.
+- 任务通常限时八小时，优先采用模型原生智能体框架；评分方式随领域而异。
+  - Tasks generally allow eight hours and use native agent harnesses when available; grading varies by domain.
+- 总分汇总三次尝试的平均结果，对各领域等权，并在领域内对合作方等权。
+  - Headline scores average three attempts, weighting domains equally and partners equally within each domain.
+
+### 为什么重要 / Why it matters
+
+该基准把评测扩展到持续使用工具和完成工作流，分领域结果也有助于暴露能力差异。
+
+The benchmark tests sustained tool use and workflow completion beyond isolated answers, while domain scores help expose uneven capabilities.
+
+### 链接 / Links
+
+[Evidence 1](https://gdpx.semianalysis.com/) · [Evidence 2](https://newsletter.semianalysis.com/api/v1/posts/gdpx-measuring-frontier-model-capabilities)
+
+---
+
 <a id="2026-11-01-lobehub-2-3-proactive-bot-wake-records"></a>
 ## [LobeHub 2.3 默认启用主动 Bot 并提供可检查的唤醒决策记录](https://github.com/lobehub/lobehub/releases/tag/v2.3.0)
 
@@ -600,99 +715,3 @@ Amazon researchers describe Sandman, a Kubernetes sandbox service for agent tool
 训练规模的运行证据有助于揭示智能体反复与环境交互时面临的基础设施瓶颈。
 
 Operational evidence at training scale helps expose the infrastructure bottlenecks behind repeated agent-environment interaction.
-
----
-
-<a id="2026-10-29-agibot-go3-preview-wram"></a>
-## [智元展示统一推理、预测与动作的 GO-3 Preview](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
-
-**English:** [AGIBOT demonstrates GO-3 Preview with unified reasoning, prediction and action](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
-
-- **发布 / Published:** `2026-10-29T09:14:00Z`
-- **来源 / Source:** [AGIBOT via PR Newswire](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `reasoning`, `simulation`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-智元在创新日展示 GO-3 Preview 及其 WRAM 架构，将推理、预测与机器人动作连接起来。公司演示了零样本与少样本操作，并介绍贯穿预训练、后训练和部署阶段的学习路线。所报告的榜单成绩仍属于公司披露。
-
-At its Innovation Day, AGIBOT demonstrated GO-3 Preview and its WRAM architecture, which links reasoning, prediction and robot actions. The company showed zero-shot and few-shot manipulation and described learning across pretraining, post-training and deployment. Reported leaderboard results remain company disclosures.
-
-### 技术点 / Technical points
-
-- WRAM 对动作可能产生的结果建模，以支持环境适应及未见任务上的操作。
-  - WRAM models possible action outcomes to support adaptation and manipulation on previously unseen tasks.
-- 智元报告在 RoboDojo、RoboTwin 和 RoboColiseum 取得领先结果；该公告提供的是演示与厂商披露，并非独立复现。
-  - AGIBOT reports leading results on RoboDojo, RoboTwin and RoboColiseum; the announcement describes demonstrations rather than independent replication.
-
-### 为什么重要 / Why it matters
-
-这提供了将预测式世界建模与实体机器人动作、持续学习相结合的具体案例。
-
-This offers a concrete example of predictive world modeling being integrated with physical robot action and continued learning.
-
----
-
-<a id="2026-10-29-schedulegen-multi-arm-demonstration-scheduling"></a>
-## [ScheduleGen 通过规划与调度生成多臂操作示范](https://arxiv.org/abs/2610.39429)
-
-**English:** [ScheduleGen uses planning and scheduling to generate multi-arm demonstrations](https://arxiv.org/abs/2610.39429)
-
-- **发布 / Published:** `2026-10-29T06:07:04Z`
-- **来源 / Source:** [ScheduleGen authors / arXiv](https://arxiv.org/abs/2610.39429) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `imitation-learning`, `simulation`, `sim-to-real`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-ScheduleGen 从少量原始示范生成新的多臂操作示范，并考虑多臂协调约束。预印本报告，在 28 个仿真任务变体中，平均示范生成成功率为 79.6%，所训练策略的平均成功率为 65.5%。
-
-ScheduleGen generates new multi-arm demonstrations from a few source examples while accounting for coordination constraints. The preprint reports 79.6% mean generation success and 65.5% mean learned-policy success across 28 simulated task variants.
-
-### 技术点 / Technical points
-
-- 联合规划与调度处理以往示范生成方法忽略的多臂约束。
-  - Integrated planning and scheduling address multi-arm constraints ignored by prior demonstration generators.
-- 作者报告，通过仿真到现实及现实到仿真再到现实迁移，策略在八个真实任务变体上的成功率为 50–80%。
-  - The authors report 50–80% policy success across eight real-world variants using sim-to-real and real-to-sim-to-real transfer.
-
-### 为什么重要 / Why it matters
-
-考虑约束的示范合成有助于扩充多臂训练数据，并检查协调动作的可行性。
-
-Constraint-aware demonstration synthesis offers a way to expand multi-arm training data while checking coordination feasibility.
-
----
-
-<a id="2026-10-29-umi-live-bimanual-data-collection"></a>
-## [UMI-Live 提出便携开源双臂机器人示范采集系统](https://arxiv.org/abs/2610.39385)
-
-**English:** [UMI-Live presents a portable open-source stack for bimanual robot demonstrations](https://arxiv.org/abs/2610.39385)
-
-- **发布 / Published:** `2026-10-29T05:18:16Z`
-- **来源 / Source:** [UMI-Live authors / arXiv](https://arxiv.org/abs/2610.39385) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `dataset`, `open-source`, `vla`, `hardware`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-UMI-Live 预印本介绍双臂示范采集系统，将相机、激光雷达惯性传感、板载计算与异步 SLAM 结合。作者提供覆盖三类任务的 40 小时数据，以及硬件设计、软件和复现指南。
-
-The UMI-Live preprint describes a bimanual demonstration system combining cameras, LiDAR-inertial sensing, onboard compute and asynchronous SLAM. The authors provide 40 hours of data across three tasks alongside hardware designs, software and reproduction guides.
-
-### 技术点 / Technical points
-
-- 采集过程无需外部跟踪设备，也无需在采集环境内进行标定。
-  - Collection does not require external tracking equipment or calibration within the collection environment.
-- 在一项双臂抓放任务中，微调后的 pi0.5 与 MolmoAct2 分别完成 10/10 和 8/10 次试验。
-  - On one bimanual pick-and-place task, fine-tuned pi0.5 and MolmoAct2 succeed in 10/10 and 8/10 trials, respectively.
-
-### 为什么重要 / Why it matters
-
-统一采集与处理流程有望降低实验室外收集示范的门槛，但论文中的策略测试规模仍较小。
-
-A shared acquisition and processing stack could make demonstrations easier to collect outside robot laboratories; the reported policy test remains small.
