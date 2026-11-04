@@ -2,6 +2,206 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-02-pixel-full-stack-mobile-manipulation-human-data"></a>
+## [Pixel 协同设计移动操作硬件、控制与人类示范学习](https://arxiv.org/abs/2611.03648)
+
+**English:** [Pixel co-designs mobile-manipulation hardware, control and human-demonstration learning](https://arxiv.org/abs/2611.03648)
+
+- **发布 / Published:** `2026-11-02T18:59:32Z`
+- **来源 / Source:** [Pixel and Pixel-UMI authors / arXiv](https://arxiv.org/abs/2611.03648) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `hardware`, `imitation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+配套的 Pixel 与 Pixel-UMI 论文介绍集成式轮式人形系统及人类数据学习管线，将贴合人体运动学的硬件、全身控制和环境感知示范重定向结合起来。
+
+The companion Pixel and Pixel-UMI papers describe an integrated wheeled-humanoid system and a human-data learning pipeline. They connect human-aligned hardware, whole-body control and environment-aware demonstration retargeting rather than treating each component independently.
+
+### 技术点 / Technical points
+
+- Pixel-UMI 使用场景几何完成碰撞感知重定向，屏蔽受重定向误差影响的视图，并加入 DAgger 纠正。
+  - Pixel-UMI uses scene geometry for collision-aware retargeting, masks views affected by retargeting errors, and adds DAgger corrections.
+- Pixel-UMI 报告五项任务的平均任务进度为 87.0%；这一指标不是任务成功率。
+  - Pixel-UMI reports 87.0% average task progress across five tasks; this metric is not a task success rate.
+
+### 为什么重要 / Why it matters
+
+协同设计硬件与数据流程，有望提升人类示范对机器人全身学习的价值。
+
+Joint hardware and data design could make human demonstrations more useful for whole-body robot learning.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/abs/2611.03647)
+
+---
+
+<a id="2026-11-02-describe-assess-zero-shot-robot-rewards"></a>
+## [D&A 分离场景描述与标准评估以生成零样本机器人奖励](https://arxiv.org/abs/2611.03622)
+
+**English:** [D&A separates scene description and rubric assessment for zero-shot robot rewards](https://arxiv.org/abs/2611.03622)
+
+- **发布 / Published:** `2026-11-02T18:52:11Z`
+- **来源 / Source:** [D&A authors / arXiv](https://arxiv.org/abs/2611.03622) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `reward-model`, `reasoning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Describe & Assess 通过提示估计机器人任务进展，无需对视觉语言模型进行后训练。论文报告，该方法缓解确认偏差，能更细致地惩罚失败执行，其奖励估计也支持后续强化学习。
+
+Describe & Assess uses prompting to estimate robot-task progress without post-training the VLM. The paper reports reduced confirmation bias and finer-grained penalties for failed executions, with reward estimates supporting downstream reinforcement learning.
+
+### 技术点 / Technical points
+
+- 先生成与任务相关的场景动态描述，再依据显式成功标准评估。
+  - A task-grounded description of scene dynamics precedes assessment against an explicit success rubric.
+- 用绝对成功定义锚定评分，避免假定视频越靠后就代表进展越大。
+  - An absolute success definition anchors scores instead of assuming later video frames always show more progress.
+
+### 为什么重要 / Why it matters
+
+将观察与判断分开，有望减少机器人学习中具有误导性的奖励信号。
+
+Separating observation from judgment may reduce misleading reward signals in robot learning.
+
+---
+
+<a id="2026-11-02-wise-world-action-model-rollout-selection"></a>
+## [WISE 在执行前筛选冻结世界动作模型的想象轨迹](https://arxiv.org/abs/2611.03585)
+
+**English:** [WISE ranks imagined rollouts before executing frozen world action models](https://arxiv.org/abs/2611.03585)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [WISE authors / arXiv](https://arxiv.org/abs/2611.03585) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `inference-scaling`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+WISE 无需更新世界动作模型，即可在动作与未来预测候选中进行选择。每次决策使用四个候选时，论文报告 Cosmos 3 Edge 在 RoboLab 上的成功率从 6.0% 升至 24.0%，DreamZero 在 LIBERO 上从 75.1% 升至 78.3%。
+
+WISE selects among action-and-future rollouts without updating the world action model. With four candidates per decision, the paper reports success rising from 6.0% to 24.0% for Cosmos 3 Edge on RoboLab and from 75.1% to 78.3% for DreamZero on LIBERO.
+
+### 技术点 / Technical points
+
+- 评分结合动作有效性与时间规律、逆动力学一致性以及指令条件下的任务进展。
+  - Selection combines action validity and temporal regularity, inverse-dynamics consistency, and instruction-conditioned progress.
+- 系统在闭环中执行最高分候选，增益依赖所评测的模型与基准。
+  - The highest-scoring candidate is executed in a closed loop; gains depend on the evaluated model and benchmark.
+
+### 为什么重要 / Why it matters
+
+该工作检验了动作与预测一致性检查能否让想象未来更有效地服务控制。
+
+The work tests whether checking action–prediction consistency can make imagined futures more useful for control.
+
+---
+
+<a id="2026-11-02-tampagent-belief-space-mobile-manipulation"></a>
+## [TAMPAgent 将视觉语言智能体与信念空间任务运动规划结合](https://arxiv.org/abs/2611.03584)
+
+**English:** [TAMPAgent combines vision-language agents with belief-space task and motion planning](https://arxiv.org/abs/2611.03584)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [TAMPAgent authors / arXiv](https://arxiv.org/abs/2611.03584) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+TAMPAgent 将大型视觉语言模型智能体与任务运动规划结合，处理部分可观测的移动操作任务。论文报告，在 Rainbow Y1 与宇树 G1 的家居任务中，该方法优于直接调用工具的智能体。
+
+TAMPAgent combines an LVLM agent with task and motion planning to handle partially observed mobile-manipulation tasks. The paper reports improvements over direct tool-calling agents on household tasks using Rainbow Y1 and Unitree G1 robots.
+
+### 技术点 / Technical points
+
+- 智能体提出部分观测与执行计划，再由经典搜索和几何约束补全可执行运动。
+  - The agent proposes partial observation and execution plans; classical search and geometric constraints complete executable motions.
+- 感知、规划与控制 API 支持执行期间反复更新信念状态。
+  - A perception, planning and control API supports repeated belief updates during execution.
+
+### 为什么重要 / Why it matters
+
+显式可行性检查有望帮助语言驱动机器人在真实空间的不确定条件下行动。
+
+Explicit feasibility checks may help language-driven robots act under uncertainty in physical spaces.
+
+### 链接 / Links
+
+[Evidence 1](https://umishra.me/TAMPAgent/)
+
+---
+
+<a id="2026-11-02-panotac-dense-three-axis-touch"></a>
+## [PanoTac 融合法向与剪切触觉用于接触密集型机器人学习](https://arxiv.org/abs/2611.03520)
+
+**English:** [PanoTac combines dense normal and shear sensing for contact-rich robot learning](https://arxiv.org/abs/2611.03520)
+
+- **发布 / Published:** `2026-11-02T17:55:07Z`
+- **来源 / Source:** [PanoTac authors / arXiv](https://arxiv.org/abs/2611.03520) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `hardware`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+PanoTac 提出柔顺触觉指尖与视觉触觉策略管线。作者报告，在试管准备、谷物舀取与食盐倾倒任务中，相比纯视觉基线平均提升 46.7 个百分点。
+
+PanoTac presents a compliant tactile fingertip and a visuo-tactile policy pipeline. The authors report an average 46.7-percentage-point improvement over vision-only baselines across test-tube preparation, grain scooping and salt pouring.
+
+### 技术点 / Technical points
+
+- 每个指尖以 60 Hz 输出 12 × 32 × 3 触觉表示，作者报告单个指尖成本低于 50 美元。
+  - Each fingertip provides a 12 × 32 × 3 tactile representation at 60 Hz, at a reported cost below $50.
+- 消融实验中，移除接触空间信息或剪切反馈都会降低总体任务表现。
+  - Ablations removing spatial contact information or shear feedback reduce overall task performance.
+
+### 为什么重要 / Why it matters
+
+密集剪切反馈有望帮助触觉策略处理精细且对接触敏感的操作。
+
+Dense shear feedback could make tactile policies more practical for delicate, contact-sensitive manipulation.
+
+---
+
+<a id="2026-11-02-robot-inertia-mismatch-imitation-learning"></a>
+## [仿真研究揭示接触惯性失配对机器人模仿学习的限制](https://arxiv.org/abs/2611.03501)
+
+**English:** [Simulation study links contact inertia mismatch to robot imitation-learning limits](https://arxiv.org/abs/2611.03501)
+
+- **发布 / Published:** `2026-11-02T17:40:05Z`
+- **来源 / Source:** [When Robots Outweigh Objects authors / arXiv](https://arxiv.org/abs/2611.03501) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `imitation-learning`, `simulation`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+这项受控仿真研究改变机器人与物体质量，考察接触惯性失配如何影响学习。作者发现，机器人更轻、物体更重时，行为克隆更可靠；增加数据能缩小差距，却不能完全消除差距。
+
+A controlled simulation study varies robot and object masses to examine learning under contact inertia mismatch. The authors find behavior cloning is more reliable with lighter robots and heavier objects; additional data reduces but does not eliminate the gap.
+
+### 技术点 / Technical points
+
+- 即使机械臂重量不变，通过传动增加电机反映到关节的惯性也会削弱行为克隆表现。
+  - Increasing motor-reflected inertia through gearing also harms behavior cloning without changing arm weight.
+- 在这些仿真案例中，选择低惯性工作区域或示范轨迹可改善模仿效果。
+  - Lower-inertia workspaces and demonstrations improve imitation in the simulated cases.
+
+### 为什么重要 / Why it matters
+
+结果提示，硬件动力学与示范设计可能限制增加训练数据所带来的收益。
+
+The findings suggest hardware dynamics and demonstration design can constrain gains from more training data.
+
+---
+
 <a id="2026-10-29-agibot-go3-preview-wram"></a>
 ## [智元展示统一推理、预测与动作的 GO-3 Preview](https://www.prnewswire.com/apac/zh/news-releases/worken---302923463.html)
 

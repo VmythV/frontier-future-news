@@ -2,6 +2,70 @@
 
 # World models / 世界模型
 
+<a id="2026-11-02-wise-world-action-model-rollout-selection"></a>
+## [WISE 在执行前筛选冻结世界动作模型的想象轨迹](https://arxiv.org/abs/2611.03585)
+
+**English:** [WISE ranks imagined rollouts before executing frozen world action models](https://arxiv.org/abs/2611.03585)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [WISE authors / arXiv](https://arxiv.org/abs/2611.03585) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `inference-scaling`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+WISE 无需更新世界动作模型，即可在动作与未来预测候选中进行选择。每次决策使用四个候选时，论文报告 Cosmos 3 Edge 在 RoboLab 上的成功率从 6.0% 升至 24.0%，DreamZero 在 LIBERO 上从 75.1% 升至 78.3%。
+
+WISE selects among action-and-future rollouts without updating the world action model. With four candidates per decision, the paper reports success rising from 6.0% to 24.0% for Cosmos 3 Edge on RoboLab and from 75.1% to 78.3% for DreamZero on LIBERO.
+
+### 技术点 / Technical points
+
+- 评分结合动作有效性与时间规律、逆动力学一致性以及指令条件下的任务进展。
+  - Selection combines action validity and temporal regularity, inverse-dynamics consistency, and instruction-conditioned progress.
+- 系统在闭环中执行最高分候选，增益依赖所评测的模型与基准。
+  - The highest-scoring candidate is executed in a closed loop; gains depend on the evaluated model and benchmark.
+
+### 为什么重要 / Why it matters
+
+该工作检验了动作与预测一致性检查能否让想象未来更有效地服务控制。
+
+The work tests whether checking action–prediction consistency can make imagined futures more useful for control.
+
+---
+
+<a id="2026-11-02-agiworld-persistent-agent-video-world"></a>
+## [AgiWorld 以探索智能体与空间记忆构建持久视频世界](https://arxiv.org/abs/2611.02341)
+
+**English:** [AgiWorld links an exploration agent and spatial memory to build persistent video worlds](https://arxiv.org/abs/2611.02341)
+
+- **发布 / Published:** `2026-11-02T00:39:40Z`
+- **来源 / Source:** [AgiWorld authors / arXiv](https://arxiv.org/abs/2611.02341) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `spatial-intelligence`, `memory`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+AgiWorld 将高层规划智能体与视频世界模型结合，从图像和指令生成可探索环境。预印本报告了分钟级连贯探索，以及在世界重访与探索评测中的改进。
+
+AgiWorld combines a high-level planning agent with a video world model that generates an explorable environment from an image and an instruction. The preprint reports coherent minute-long journeys and improved world revisiting and exploration results.
+
+### 技术点 / Technical points
+
+- 生成的视频与几何信息更新共享空间记忆和智能体的世界状态。
+  - Generated video and geometry update shared spatial memory and the agent’s world state.
+- 遮挡感知检索与可靠性驱动的记忆维护用于缓解长序列几何误差。
+  - Occlusion-aware retrieval and reliability-based memory maintenance address long-rollout geometry errors.
+
+### 为什么重要 / Why it matters
+
+这一反馈回路为交互式世界探索中的场景持久性提供了具体方案。
+
+The feedback loop offers a concrete approach to preserving places during interactive world exploration.
+
+---
+
 <a id="2026-10-29-world2vec-mechanistic-latent-dynamics"></a>
 ## [world2vec 无需奖励监督即可学习紧凑的世界动力学](https://arxiv.org/abs/2610.40637)
 

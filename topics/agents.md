@@ -41,6 +41,110 @@ The reproducible cases target plausible but incorrect agent analyses; the limite
 
 ---
 
+<a id="2026-11-02-webharbor-dockerized-gui-agent-environments"></a>
+## [WebHarbor 发布 153 个可执行网站环境与 3,518 项 GUI 智能体任务](https://arxiv.org/abs/2611.03634)
+
+**English:** [WebHarbor releases 153 executable website environments and 3,518 GUI-agent tasks](https://arxiv.org/abs/2611.03634)
+
+- **发布 / Published:** `2026-11-02T18:57:36Z`
+- **来源 / Source:** [WebHarbor authors / arXiv](https://arxiv.org/abs/2611.03634) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `simulation`, `reinforcement-learning`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+WebHarbor 将真实网站的重建版本封装为可控 Docker 环境，用于 GUI 智能体评测和强化学习。本次发布包含 153 个环境与 3,518 项任务，覆盖多步骤及登录后的工作流。
+
+WebHarbor packages reconstructions of real websites into controlled Docker environments for GUI-agent evaluation and reinforcement learning. The release includes 153 environments and 3,518 tasks covering multi-step and post-authentication workflows.
+
+### 技术点 / Technical points
+
+- 编码智能体根据任务扩展网站功能，人类贡献者审核外观、行为与任务有效性。
+  - Coding agents expand task-driven website functionality while human contributors audit appearance, behavior and task validity.
+- 论文报告，在这些环境中训练的 Qwen 4B 级智能体可迁移至四项基准中的未见任务。
+  - The paper reports that a Qwen 4B-level agent trained in these environments transfers to unseen tasks across four benchmarks.
+
+### 为什么重要 / Why it matters
+
+可复现的交互式网站有助于减少训练与评测浏览器智能体时的真实网页波动。
+
+Reproducible interactive websites can reduce live-web variability when training and measuring browser agents.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/aiming-lab/WebHarbor)
+
+---
+
+<a id="2026-11-02-strategist-reusable-inference-blueprints"></a>
+## [Strategist 通过持续积累的蓝图库演化可复用推理策略](https://arxiv.org/abs/2611.03618)
+
+**English:** [Strategist evolves reusable inference strategies through an expanding blueprint library](https://arxiv.org/abs/2611.03618)
+
+- **发布 / Published:** `2026-11-02T18:51:04Z`
+- **来源 / Source:** [Strategist authors / arXiv](https://arxiv.org/abs/2611.03618) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `memory`, `inference-scaling`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Strategist 是能够检索、编写、测试并修订可执行推理策略的元智能体。作者报告，在 30 项基准中有 24 项优于最强基线，平均准确率为 74.7%，基线为 74.0%，同时推理成本降低 39%。
+
+Strategist is a meta-agent that retrieves, writes, tests and revises executable inference strategies. Across 30 benchmarks, the authors report beating the strongest baseline on 24, with average accuracy of 74.7% versus 74.0% at 39% lower inference cost.
+
+### 技术点 / Technical points
+
+- 策略以可组合的代码蓝图保存，后续搜索可复用先前候选。
+  - Strategies are stored as composable code blueprints so later searches can reuse earlier candidates.
+- 论文报告这些策略无需额外搜索即可迁移到未见任务和其他模型。
+  - The paper reports transfer to unseen tasks and other models without additional strategy search.
+
+### 为什么重要 / Why it matters
+
+持续积累的策略库提供了在模型权重之外改进智能体计算过程的路径。
+
+An accumulating strategy library offers a way to improve agent computation beyond changing model weights.
+
+---
+
+<a id="2026-11-02-tampagent-belief-space-mobile-manipulation"></a>
+## [TAMPAgent 将视觉语言智能体与信念空间任务运动规划结合](https://arxiv.org/abs/2611.03584)
+
+**English:** [TAMPAgent combines vision-language agents with belief-space task and motion planning](https://arxiv.org/abs/2611.03584)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [TAMPAgent authors / arXiv](https://arxiv.org/abs/2611.03584) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+TAMPAgent 将大型视觉语言模型智能体与任务运动规划结合，处理部分可观测的移动操作任务。论文报告，在 Rainbow Y1 与宇树 G1 的家居任务中，该方法优于直接调用工具的智能体。
+
+TAMPAgent combines an LVLM agent with task and motion planning to handle partially observed mobile-manipulation tasks. The paper reports improvements over direct tool-calling agents on household tasks using Rainbow Y1 and Unitree G1 robots.
+
+### 技术点 / Technical points
+
+- 智能体提出部分观测与执行计划，再由经典搜索和几何约束补全可执行运动。
+  - The agent proposes partial observation and execution plans; classical search and geometric constraints complete executable motions.
+- 感知、规划与控制 API 支持执行期间反复更新信念状态。
+  - A perception, planning and control API supports repeated belief updates during execution.
+
+### 为什么重要 / Why it matters
+
+显式可行性检查有望帮助语言驱动机器人在真实空间的不确定条件下行动。
+
+Explicit feasibility checks may help language-driven robots act under uncertainty in physical spaces.
+
+### 链接 / Links
+
+[Evidence 1](https://umishra.me/TAMPAgent/)
+
+---
+
 <a id="2026-11-02-qwen-code-0266-recovery-evidence-mcp-discovery"></a>
 ## [Qwen Code 0.26.6 收紧托管智能体恢复证据要求并修复 MCP 工具发现](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
 
@@ -79,6 +183,42 @@ These changes make tool availability and child-task recovery more faithful to re
 
 ---
 
+<a id="2026-11-02-luca-experimental-agent-causal-evaluation"></a>
+## [LUCA 分别评测实验智能体的预测、诊断与干预能力](https://arxiv.org/abs/2611.03100)
+
+**English:** [LUCA separates experimental-agent prediction, diagnosis and intervention performance](https://arxiv.org/abs/2611.03100)
+
+- **发布 / Published:** `2026-11-02T13:17:36Z`
+- **来源 / Source:** [LUCA authors / arXiv](https://arxiv.org/abs/2611.03100) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `reasoning`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+LUCA 提供具有已知真值的可配置合成调控环境。研究比较七个前沿大模型与三个基线，发现成功干预可能伴随错误诊断，揭示只看最终结果时容易遗漏的失败。
+
+LUCA introduces a configurable synthetic regulatory environment with known ground truth. Its study of seven frontier LLMs and three baselines finds that successful interventions can coexist with incorrect diagnoses, exposing failures hidden by outcome-only evaluation.
+
+### 技术点 / Technical points
+
+- 智能体在固定预算下选择实验，再预测干预结果、诊断故障并尝试修复。
+  - Agents choose experiments under a fixed budget, then predict interventions, diagnose faults and attempt rescues.
+- 论文报告模型间诊断表现相差七倍，而预测表现相差 1.4 倍。
+  - The paper reports a sevenfold spread in diagnosis performance across models, versus 1.4-fold for prediction.
+
+### 为什么重要 / Why it matters
+
+对过程分别评测，有助于区分因果理解与偶然奏效的行动。
+
+Process-level evaluation can distinguish causal understanding from accidentally successful actions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/RelationRx/luca)
+
+---
+
 <a id="2026-11-02-gdpx-high-value-agentic-benchmark"></a>
 ## [SemiAnalysis 发布 GDPx，以 206 项任务评测 11 个领域的智能体能力](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities)
 
@@ -114,6 +254,38 @@ The benchmark tests sustained tool use and workflow completion beyond isolated a
 ### 链接 / Links
 
 [Evidence 1](https://gdpx.semianalysis.com/) · [Evidence 2](https://newsletter.semianalysis.com/api/v1/posts/gdpx-measuring-frontier-model-capabilities)
+
+---
+
+<a id="2026-11-02-agiworld-persistent-agent-video-world"></a>
+## [AgiWorld 以探索智能体与空间记忆构建持久视频世界](https://arxiv.org/abs/2611.02341)
+
+**English:** [AgiWorld links an exploration agent and spatial memory to build persistent video worlds](https://arxiv.org/abs/2611.02341)
+
+- **发布 / Published:** `2026-11-02T00:39:40Z`
+- **来源 / Source:** [AgiWorld authors / arXiv](https://arxiv.org/abs/2611.02341) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `spatial-intelligence`, `memory`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+AgiWorld 将高层规划智能体与视频世界模型结合，从图像和指令生成可探索环境。预印本报告了分钟级连贯探索，以及在世界重访与探索评测中的改进。
+
+AgiWorld combines a high-level planning agent with a video world model that generates an explorable environment from an image and an instruction. The preprint reports coherent minute-long journeys and improved world revisiting and exploration results.
+
+### 技术点 / Technical points
+
+- 生成的视频与几何信息更新共享空间记忆和智能体的世界状态。
+  - Generated video and geometry update shared spatial memory and the agent’s world state.
+- 遮挡感知检索与可靠性驱动的记忆维护用于缓解长序列几何误差。
+  - Occlusion-aware retrieval and reliability-based memory maintenance address long-rollout geometry errors.
+
+### 为什么重要 / Why it matters
+
+这一反馈回路为交互式世界探索中的场景持久性提供了具体方案。
+
+The feedback loop offers a concrete approach to preserving places during interactive world exploration.
 
 ---
 

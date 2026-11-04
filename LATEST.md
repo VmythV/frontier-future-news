@@ -41,6 +41,210 @@ The reproducible cases target plausible but incorrect agent analyses; the limite
 
 ---
 
+<a id="2026-11-02-pixel-full-stack-mobile-manipulation-human-data"></a>
+## [Pixel 协同设计移动操作硬件、控制与人类示范学习](https://arxiv.org/abs/2611.03648)
+
+**English:** [Pixel co-designs mobile-manipulation hardware, control and human-demonstration learning](https://arxiv.org/abs/2611.03648)
+
+- **发布 / Published:** `2026-11-02T18:59:32Z`
+- **来源 / Source:** [Pixel and Pixel-UMI authors / arXiv](https://arxiv.org/abs/2611.03648) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `hardware`, `imitation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+配套的 Pixel 与 Pixel-UMI 论文介绍集成式轮式人形系统及人类数据学习管线，将贴合人体运动学的硬件、全身控制和环境感知示范重定向结合起来。
+
+The companion Pixel and Pixel-UMI papers describe an integrated wheeled-humanoid system and a human-data learning pipeline. They connect human-aligned hardware, whole-body control and environment-aware demonstration retargeting rather than treating each component independently.
+
+### 技术点 / Technical points
+
+- Pixel-UMI 使用场景几何完成碰撞感知重定向，屏蔽受重定向误差影响的视图，并加入 DAgger 纠正。
+  - Pixel-UMI uses scene geometry for collision-aware retargeting, masks views affected by retargeting errors, and adds DAgger corrections.
+- Pixel-UMI 报告五项任务的平均任务进度为 87.0%；这一指标不是任务成功率。
+  - Pixel-UMI reports 87.0% average task progress across five tasks; this metric is not a task success rate.
+
+### 为什么重要 / Why it matters
+
+协同设计硬件与数据流程，有望提升人类示范对机器人全身学习的价值。
+
+Joint hardware and data design could make human demonstrations more useful for whole-body robot learning.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/abs/2611.03647)
+
+---
+
+<a id="2026-11-02-webharbor-dockerized-gui-agent-environments"></a>
+## [WebHarbor 发布 153 个可执行网站环境与 3,518 项 GUI 智能体任务](https://arxiv.org/abs/2611.03634)
+
+**English:** [WebHarbor releases 153 executable website environments and 3,518 GUI-agent tasks](https://arxiv.org/abs/2611.03634)
+
+- **发布 / Published:** `2026-11-02T18:57:36Z`
+- **来源 / Source:** [WebHarbor authors / arXiv](https://arxiv.org/abs/2611.03634) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `simulation`, `reinforcement-learning`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+WebHarbor 将真实网站的重建版本封装为可控 Docker 环境，用于 GUI 智能体评测和强化学习。本次发布包含 153 个环境与 3,518 项任务，覆盖多步骤及登录后的工作流。
+
+WebHarbor packages reconstructions of real websites into controlled Docker environments for GUI-agent evaluation and reinforcement learning. The release includes 153 environments and 3,518 tasks covering multi-step and post-authentication workflows.
+
+### 技术点 / Technical points
+
+- 编码智能体根据任务扩展网站功能，人类贡献者审核外观、行为与任务有效性。
+  - Coding agents expand task-driven website functionality while human contributors audit appearance, behavior and task validity.
+- 论文报告，在这些环境中训练的 Qwen 4B 级智能体可迁移至四项基准中的未见任务。
+  - The paper reports that a Qwen 4B-level agent trained in these environments transfers to unseen tasks across four benchmarks.
+
+### 为什么重要 / Why it matters
+
+可复现的交互式网站有助于减少训练与评测浏览器智能体时的真实网页波动。
+
+Reproducible interactive websites can reduce live-web variability when training and measuring browser agents.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/aiming-lab/WebHarbor)
+
+---
+
+<a id="2026-11-02-describe-assess-zero-shot-robot-rewards"></a>
+## [D&A 分离场景描述与标准评估以生成零样本机器人奖励](https://arxiv.org/abs/2611.03622)
+
+**English:** [D&A separates scene description and rubric assessment for zero-shot robot rewards](https://arxiv.org/abs/2611.03622)
+
+- **发布 / Published:** `2026-11-02T18:52:11Z`
+- **来源 / Source:** [D&A authors / arXiv](https://arxiv.org/abs/2611.03622) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `reward-model`, `reasoning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Describe & Assess 通过提示估计机器人任务进展，无需对视觉语言模型进行后训练。论文报告，该方法缓解确认偏差，能更细致地惩罚失败执行，其奖励估计也支持后续强化学习。
+
+Describe & Assess uses prompting to estimate robot-task progress without post-training the VLM. The paper reports reduced confirmation bias and finer-grained penalties for failed executions, with reward estimates supporting downstream reinforcement learning.
+
+### 技术点 / Technical points
+
+- 先生成与任务相关的场景动态描述，再依据显式成功标准评估。
+  - A task-grounded description of scene dynamics precedes assessment against an explicit success rubric.
+- 用绝对成功定义锚定评分，避免假定视频越靠后就代表进展越大。
+  - An absolute success definition anchors scores instead of assuming later video frames always show more progress.
+
+### 为什么重要 / Why it matters
+
+将观察与判断分开，有望减少机器人学习中具有误导性的奖励信号。
+
+Separating observation from judgment may reduce misleading reward signals in robot learning.
+
+---
+
+<a id="2026-11-02-strategist-reusable-inference-blueprints"></a>
+## [Strategist 通过持续积累的蓝图库演化可复用推理策略](https://arxiv.org/abs/2611.03618)
+
+**English:** [Strategist evolves reusable inference strategies through an expanding blueprint library](https://arxiv.org/abs/2611.03618)
+
+- **发布 / Published:** `2026-11-02T18:51:04Z`
+- **来源 / Source:** [Strategist authors / arXiv](https://arxiv.org/abs/2611.03618) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `memory`, `inference-scaling`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Strategist 是能够检索、编写、测试并修订可执行推理策略的元智能体。作者报告，在 30 项基准中有 24 项优于最强基线，平均准确率为 74.7%，基线为 74.0%，同时推理成本降低 39%。
+
+Strategist is a meta-agent that retrieves, writes, tests and revises executable inference strategies. Across 30 benchmarks, the authors report beating the strongest baseline on 24, with average accuracy of 74.7% versus 74.0% at 39% lower inference cost.
+
+### 技术点 / Technical points
+
+- 策略以可组合的代码蓝图保存，后续搜索可复用先前候选。
+  - Strategies are stored as composable code blueprints so later searches can reuse earlier candidates.
+- 论文报告这些策略无需额外搜索即可迁移到未见任务和其他模型。
+  - The paper reports transfer to unseen tasks and other models without additional strategy search.
+
+### 为什么重要 / Why it matters
+
+持续积累的策略库提供了在模型权重之外改进智能体计算过程的路径。
+
+An accumulating strategy library offers a way to improve agent computation beyond changing model weights.
+
+---
+
+<a id="2026-11-02-wise-world-action-model-rollout-selection"></a>
+## [WISE 在执行前筛选冻结世界动作模型的想象轨迹](https://arxiv.org/abs/2611.03585)
+
+**English:** [WISE ranks imagined rollouts before executing frozen world action models](https://arxiv.org/abs/2611.03585)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [WISE authors / arXiv](https://arxiv.org/abs/2611.03585) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `inference-scaling`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+WISE 无需更新世界动作模型，即可在动作与未来预测候选中进行选择。每次决策使用四个候选时，论文报告 Cosmos 3 Edge 在 RoboLab 上的成功率从 6.0% 升至 24.0%，DreamZero 在 LIBERO 上从 75.1% 升至 78.3%。
+
+WISE selects among action-and-future rollouts without updating the world action model. With four candidates per decision, the paper reports success rising from 6.0% to 24.0% for Cosmos 3 Edge on RoboLab and from 75.1% to 78.3% for DreamZero on LIBERO.
+
+### 技术点 / Technical points
+
+- 评分结合动作有效性与时间规律、逆动力学一致性以及指令条件下的任务进展。
+  - Selection combines action validity and temporal regularity, inverse-dynamics consistency, and instruction-conditioned progress.
+- 系统在闭环中执行最高分候选，增益依赖所评测的模型与基准。
+  - The highest-scoring candidate is executed in a closed loop; gains depend on the evaluated model and benchmark.
+
+### 为什么重要 / Why it matters
+
+该工作检验了动作与预测一致性检查能否让想象未来更有效地服务控制。
+
+The work tests whether checking action–prediction consistency can make imagined futures more useful for control.
+
+---
+
+<a id="2026-11-02-tampagent-belief-space-mobile-manipulation"></a>
+## [TAMPAgent 将视觉语言智能体与信念空间任务运动规划结合](https://arxiv.org/abs/2611.03584)
+
+**English:** [TAMPAgent combines vision-language agents with belief-space task and motion planning](https://arxiv.org/abs/2611.03584)
+
+- **发布 / Published:** `2026-11-02T18:32:18Z`
+- **来源 / Source:** [TAMPAgent authors / arXiv](https://arxiv.org/abs/2611.03584) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `planning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+TAMPAgent 将大型视觉语言模型智能体与任务运动规划结合，处理部分可观测的移动操作任务。论文报告，在 Rainbow Y1 与宇树 G1 的家居任务中，该方法优于直接调用工具的智能体。
+
+TAMPAgent combines an LVLM agent with task and motion planning to handle partially observed mobile-manipulation tasks. The paper reports improvements over direct tool-calling agents on household tasks using Rainbow Y1 and Unitree G1 robots.
+
+### 技术点 / Technical points
+
+- 智能体提出部分观测与执行计划，再由经典搜索和几何约束补全可执行运动。
+  - The agent proposes partial observation and execution plans; classical search and geometric constraints complete executable motions.
+- 感知、规划与控制 API 支持执行期间反复更新信念状态。
+  - A perception, planning and control API supports repeated belief updates during execution.
+
+### 为什么重要 / Why it matters
+
+显式可行性检查有望帮助语言驱动机器人在真实空间的不确定条件下行动。
+
+Explicit feasibility checks may help language-driven robots act under uncertainty in physical spaces.
+
+### 链接 / Links
+
+[Evidence 1](https://umishra.me/TAMPAgent/)
+
+---
+
 <a id="2026-11-02-qwen-code-0266-recovery-evidence-mcp-discovery"></a>
 ## [Qwen Code 0.26.6 收紧托管智能体恢复证据要求并修复 MCP 工具发现](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
 
@@ -79,6 +283,106 @@ These changes make tool availability and child-task recovery more faithful to re
 
 ---
 
+<a id="2026-11-02-panotac-dense-three-axis-touch"></a>
+## [PanoTac 融合法向与剪切触觉用于接触密集型机器人学习](https://arxiv.org/abs/2611.03520)
+
+**English:** [PanoTac combines dense normal and shear sensing for contact-rich robot learning](https://arxiv.org/abs/2611.03520)
+
+- **发布 / Published:** `2026-11-02T17:55:07Z`
+- **来源 / Source:** [PanoTac authors / arXiv](https://arxiv.org/abs/2611.03520) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `hardware`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+PanoTac 提出柔顺触觉指尖与视觉触觉策略管线。作者报告，在试管准备、谷物舀取与食盐倾倒任务中，相比纯视觉基线平均提升 46.7 个百分点。
+
+PanoTac presents a compliant tactile fingertip and a visuo-tactile policy pipeline. The authors report an average 46.7-percentage-point improvement over vision-only baselines across test-tube preparation, grain scooping and salt pouring.
+
+### 技术点 / Technical points
+
+- 每个指尖以 60 Hz 输出 12 × 32 × 3 触觉表示，作者报告单个指尖成本低于 50 美元。
+  - Each fingertip provides a 12 × 32 × 3 tactile representation at 60 Hz, at a reported cost below $50.
+- 消融实验中，移除接触空间信息或剪切反馈都会降低总体任务表现。
+  - Ablations removing spatial contact information or shear feedback reduce overall task performance.
+
+### 为什么重要 / Why it matters
+
+密集剪切反馈有望帮助触觉策略处理精细且对接触敏感的操作。
+
+Dense shear feedback could make tactile policies more practical for delicate, contact-sensitive manipulation.
+
+---
+
+<a id="2026-11-02-robot-inertia-mismatch-imitation-learning"></a>
+## [仿真研究揭示接触惯性失配对机器人模仿学习的限制](https://arxiv.org/abs/2611.03501)
+
+**English:** [Simulation study links contact inertia mismatch to robot imitation-learning limits](https://arxiv.org/abs/2611.03501)
+
+- **发布 / Published:** `2026-11-02T17:40:05Z`
+- **来源 / Source:** [When Robots Outweigh Objects authors / arXiv](https://arxiv.org/abs/2611.03501) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `imitation-learning`, `simulation`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+这项受控仿真研究改变机器人与物体质量，考察接触惯性失配如何影响学习。作者发现，机器人更轻、物体更重时，行为克隆更可靠；增加数据能缩小差距，却不能完全消除差距。
+
+A controlled simulation study varies robot and object masses to examine learning under contact inertia mismatch. The authors find behavior cloning is more reliable with lighter robots and heavier objects; additional data reduces but does not eliminate the gap.
+
+### 技术点 / Technical points
+
+- 即使机械臂重量不变，通过传动增加电机反映到关节的惯性也会削弱行为克隆表现。
+  - Increasing motor-reflected inertia through gearing also harms behavior cloning without changing arm weight.
+- 在这些仿真案例中，选择低惯性工作区域或示范轨迹可改善模仿效果。
+  - Lower-inertia workspaces and demonstrations improve imitation in the simulated cases.
+
+### 为什么重要 / Why it matters
+
+结果提示，硬件动力学与示范设计可能限制增加训练数据所带来的收益。
+
+The findings suggest hardware dynamics and demonstration design can constrain gains from more training data.
+
+---
+
+<a id="2026-11-02-luca-experimental-agent-causal-evaluation"></a>
+## [LUCA 分别评测实验智能体的预测、诊断与干预能力](https://arxiv.org/abs/2611.03100)
+
+**English:** [LUCA separates experimental-agent prediction, diagnosis and intervention performance](https://arxiv.org/abs/2611.03100)
+
+- **发布 / Published:** `2026-11-02T13:17:36Z`
+- **来源 / Source:** [LUCA authors / arXiv](https://arxiv.org/abs/2611.03100) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `reasoning`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+LUCA 提供具有已知真值的可配置合成调控环境。研究比较七个前沿大模型与三个基线，发现成功干预可能伴随错误诊断，揭示只看最终结果时容易遗漏的失败。
+
+LUCA introduces a configurable synthetic regulatory environment with known ground truth. Its study of seven frontier LLMs and three baselines finds that successful interventions can coexist with incorrect diagnoses, exposing failures hidden by outcome-only evaluation.
+
+### 技术点 / Technical points
+
+- 智能体在固定预算下选择实验，再预测干预结果、诊断故障并尝试修复。
+  - Agents choose experiments under a fixed budget, then predict interventions, diagnose faults and attempt rescues.
+- 论文报告模型间诊断表现相差七倍，而预测表现相差 1.4 倍。
+  - The paper reports a sevenfold spread in diagnosis performance across models, versus 1.4-fold for prediction.
+
+### 为什么重要 / Why it matters
+
+对过程分别评测，有助于区分因果理解与偶然奏效的行动。
+
+Process-level evaluation can distinguish causal understanding from accidentally successful actions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/RelationRx/luca)
+
+---
+
 <a id="2026-11-02-gdpx-high-value-agentic-benchmark"></a>
 ## [SemiAnalysis 发布 GDPx，以 206 项任务评测 11 个领域的智能体能力](https://newsletter.semianalysis.com/p/gdpx-measuring-frontier-model-capabilities)
 
@@ -114,6 +418,38 @@ The benchmark tests sustained tool use and workflow completion beyond isolated a
 ### 链接 / Links
 
 [Evidence 1](https://gdpx.semianalysis.com/) · [Evidence 2](https://newsletter.semianalysis.com/api/v1/posts/gdpx-measuring-frontier-model-capabilities)
+
+---
+
+<a id="2026-11-02-agiworld-persistent-agent-video-world"></a>
+## [AgiWorld 以探索智能体与空间记忆构建持久视频世界](https://arxiv.org/abs/2611.02341)
+
+**English:** [AgiWorld links an exploration agent and spatial memory to build persistent video worlds](https://arxiv.org/abs/2611.02341)
+
+- **发布 / Published:** `2026-11-02T00:39:40Z`
+- **来源 / Source:** [AgiWorld authors / arXiv](https://arxiv.org/abs/2611.02341) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `spatial-intelligence`, `memory`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+AgiWorld 将高层规划智能体与视频世界模型结合，从图像和指令生成可探索环境。预印本报告了分钟级连贯探索，以及在世界重访与探索评测中的改进。
+
+AgiWorld combines a high-level planning agent with a video world model that generates an explorable environment from an image and an instruction. The preprint reports coherent minute-long journeys and improved world revisiting and exploration results.
+
+### 技术点 / Technical points
+
+- 生成的视频与几何信息更新共享空间记忆和智能体的世界状态。
+  - Generated video and geometry update shared spatial memory and the agent’s world state.
+- 遮挡感知检索与可靠性驱动的记忆维护用于缓解长序列几何误差。
+  - Occlusion-aware retrieval and reliability-based memory maintenance address long-rollout geometry errors.
+
+### 为什么重要 / Why it matters
+
+这一反馈回路为交互式世界探索中的场景持久性提供了具体方案。
+
+The feedback loop offers a concrete approach to preserving places during interactive world exploration.
 
 ---
 
@@ -375,343 +711,3 @@ These controls give long-running agents explicit context-reduction mechanisms wh
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.24.0)
-
----
-
-<a id="2026-10-30-mage-vl-cowork-hybrid-agent-weights"></a>
-## [Microsoft 发布 4B 混合电脑操作智能体 Mage-VL-Cowork 权重](https://huggingface.co/microsoft/Mage-VL-Cowork)
-
-**English:** [Microsoft releases Mage-VL-Cowork weights for a 4B hybrid computer-use agent](https://huggingface.co/microsoft/Mage-VL-Cowork)
-
-- **发布 / Published:** `2026-10-30T12:14:43Z`
-- **来源 / Source:** [Microsoft Mage model card](https://huggingface.co/microsoft/Mage-VL-Cowork) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `open-source`, `reinforcement-learning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-Microsoft 上传 Mage-VL-Cowork 权重及模型卡，披露可在图形界面交互与终端执行之间切换的单一 4B 策略。团队报告，在排除 Google Drive 的 361 项 OSWorld-Verified 任务上，以 50 步预算运行两次，平均得分为 66.0%。时间采用权重发布提交的时间。
-
-Microsoft uploaded Mage-VL-Cowork weights and its model card, documenting one 4B policy that switches between graphical interaction and terminal execution. The team reports 66.0% on OSWorld-Verified with a 50-step budget, averaged over two runs on 361 tasks excluding Google Drive. The timestamp follows the weights-release commit.
-
-### 技术点 / Technical points
-
-- 训练依次经过 GUI 中训练、GUI 监督微调、编码与终端监督微调、混合监督微调和在线混合强化学习。
-  - Training progresses through GUI midtraining, GUI SFT, coding and terminal SFT, hybrid SFT, and online hybrid reinforcement learning.
-- 相较混合监督微调，团队报告 RL 检查点提升 10.16 个百分点，同时减少 13.0% 的模型调用和 25.4% 的输出 token。
-  - Relative to hybrid SFT, the reported RL checkpoint gains 10.16 percentage points while using 13.0% fewer model calls and 25.4% fewer output tokens.
-
-### 为什么重要 / Why it matters
-
-公开权重与训练方案为研究紧凑的 GUI 与代码混合策略提供了可检查的基础。
-
-The released weights and training recipe make compact GUI-and-code policies more accessible for computer-use research.
-
-### 链接 / Links
-
-[Evidence 1](https://microsoft.github.io/Mage/cowork/) · [Evidence 2](https://huggingface.co/microsoft/Mage-VL-Cowork/commit/6fbe7f91da477c1c73790dbb1f08d001b8626be1)
-
----
-
-<a id="2026-10-30-claude-code-21314-working-directory-write-boundary"></a>
-## [Claude Code 2.1.314 加入显式工作目录写入边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
-
-**English:** [Claude Code 2.1.314 adds an explicit working-directory write boundary](https://github.com/anthropics/claude-code/releases/tag/v2.1.314)
-
-- **发布 / Published:** `2026-10-30T01:06:26Z`
-- **来源 / Source:** [Anthropic Claude Code GitHub releases](https://github.com/anthropics/claude-code/releases/tag/v2.1.314) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding`, `safety`, `tool-use`, `context-management`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-Claude Code 2.1.314 新增设置，使 Write、Edit 和 NotebookEdit 工具在所有权限模式下拒绝工作目录以外的路径。该版本还加入空闲对话压缩，并修正无界面启动失败却以成功状态退出且无输出的问题。
-
-Claude Code 2.1.314 adds a setting that makes its Write, Edit and NotebookEdit tools reject paths outside working directories in every permission mode. The release also adds idle conversation compaction and corrects headless startup failures that previously returned success without output.
-
-### 技术点 / Technical points
-
-- 边界由 permissions.blockWritesOutsideWorkingDirectories 控制，明确覆盖上述三种文件工具。
-  - The boundary is controlled by permissions.blockWritesOutsideWorkingDirectories and specifically covers the three named file tools.
-- VS Code 与桌面端 Code 页可压缩超过 20 万 token 的空闲对话，在提示缓存过期后使用摘要。
-  - Idle compaction summarizes conversations above 200,000 tokens in VS Code and the Desktop Code tab for reuse after prompt-cache expiry.
-
-### 为什么重要 / Why it matters
-
-明确的工具边界与准确的进程退出状态提升了受监督编码智能体自动化的可预期性。
-
-Explicit tool boundaries and accurate process exit status improve the predictability of supervised coding-agent automation.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.314)
-
----
-
-<a id="2026-10-29-world2vec-mechanistic-latent-dynamics"></a>
-## [world2vec 无需奖励监督即可学习紧凑的世界动力学](https://arxiv.org/abs/2610.40637)
-
-**English:** [world2vec learns compact world dynamics without reward supervision](https://arxiv.org/abs/2610.40637)
-
-- **发布 / Published:** `2026-10-29T17:58:23Z`
-- **来源 / Source:** [world2vec authors / arXiv](https://arxiv.org/abs/2610.40637) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `latent-dynamics`, `model-based-control`, `system-identification`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-world2vec 预印本直接从观测和动作学习潜在动力学，不使用奖励信息。作者报告，在参数量至少比 DreamerV3、TD-MPC2 和 LeWM 少一个数量级的情况下保留长期系统动力学，并评测了像素输入控制与系统辨识。
-
-The world2vec preprint learns latent dynamics directly from observations and actions without reward information. The authors report long-horizon system fidelity with at least tenfold fewer parameters than DreamerV3, TD-MPC2 and LeWM, alongside pixel-based control and system-identification evaluations.
-
-### 技术点 / Technical points
-
-- 学习目标强调动力学机制，避免仅凭控制表现判断模型是否忠实于系统。
-  - Learning targets mechanistic dynamics rather than relying on control performance alone as evidence of a faithful model.
-- 系统辨识评测覆盖含 71 个吸引子的基准。
-  - System identification is evaluated on a benchmark of 71 attractors.
-
-### 为什么重要 / Why it matters
-
-紧凑、可检查的动力学有望连接世界模型控制与科学理解；现有结果仍来自作者评测。
-
-Compact, inspectable dynamics could connect world-model control to scientific understanding; the reported results remain author evaluations.
-
----
-
-<a id="2026-10-29-algebraic-world-model-exploration-lean-proofs"></a>
-## [Algebraic World Model 将探索得到的游戏动力学转化为 Lean 证明](https://arxiv.org/abs/2610.40503)
-
-**English:** [Algebraic World Model turns explored game dynamics into Lean proofs](https://arxiv.org/abs/2610.40503)
-
-- **发布 / Published:** `2026-10-29T17:20:31Z`
-- **来源 / Source:** [Algebraic World Model authors / arXiv](https://arxiv.org/abs/2610.40503) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `reasoning`, `planning`, `formal-verification`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Algebraic World Model 为陌生游戏建立并测试可执行 Python 假设，再用 Lean 4 形式化规则。预印本报告，在两个不可解关卡的六次运行中生成了经内核检查的不可能性证明，将环境探索连接到显式形式推理。
-
-Algebraic World Model builds and tests executable Python hypotheses about unfamiliar games, then formalizes rules in Lean 4. The preprint reports kernel-checked impossibility proofs for two game levels across six runs, linking environment exploration to explicit formal reasoning.
-
-### 技术点 / Technical points
-
-- 形式化之前，方法将假设组织为类型化对象和共享规则，再通过范畴论引导的变换简化结构。
-  - Typed objects and shared rules are simplified through category-theory-guided transformations before formalization.
-- 作者报告，Lean 可回放 25 个公开 ARC-AGI-3 游戏全部 183 个关卡的获胜轨迹。
-  - The authors report Lean replay of winning trajectories for all 183 levels across 25 public ARC-AGI-3 games.
-
-### 为什么重要 / Why it matters
-
-显式模型可用于检查可达性与不可能性，将推理范围扩展到智能体尚未观察的轨迹。
-
-Explicit models can support checks of reachability and impossibility beyond the trajectories an agent has observed.
-
----
-
-<a id="2026-10-29-langchain-mda-010-browser-async-subagents"></a>
-## [Managed Deep Agents 0.10 加入浏览器交接与异步子智能体](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents)
-
-**English:** [Managed Deep Agents 0.10 adds browser handoff and asynchronous subagents](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents)
-
-- **发布 / Published:** `2026-10-29T16:54:00Z`
-- **来源 / Source:** [LangChain](https://www.langchain.com/blog/managed-deep-agents-browser-use-and-asynchronous-subagents) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `multi-agent`, `human-in-the-loop`, `sandbox`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-LangChain 发布 Managed Deep Agents 0.10 公测版，加入沙箱浏览器与后台子智能体。浏览器交接让用户在模型消息和追踪记录之外完成登录，委派任务也可在不阻塞主对话的情况下运行。
-
-LangChain released Managed Deep Agents 0.10 in public beta with a sandboxed browser and background subagents. Browser handoff lets a person complete sign-in outside model messages and traces, while delegated tasks can finish without blocking the main conversation.
-
-### 技术点 / Technical points
-
-- 浏览器工具提供无障碍树快照、脚本动作、截图及人工交接，支持按线程或用户划定作用域。
-  - Browser tools expose accessibility snapshots, scripted actions, screenshots and human handoff, with thread or user scope.
-- 异步子智能体共享沙箱，并在完成后通知主智能体；已有审批等待会继续保留。
-  - Async subagents share the sandbox and notify the orchestrator when finished; existing approval waits remain pending.
-
-### 为什么重要 / Why it matters
-
-该版本在托管运行环境中结合浏览器交互与后台委派，并提供明确的人工介入节点。
-
-This combines browser interaction and background delegation in a managed runtime with explicit human intervention points.
-
----
-
-<a id="2026-10-29-openclaw-2026-10-9-boundaries-recovery"></a>
-## [OpenClaw 2026.10.9 扩展工作区边界并改善故障恢复](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9)
-
-**English:** [OpenClaw 2026.10.9 extends workspace boundaries and improves failure recovery](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9)
-
-- **发布 / Published:** `2026-10-29T15:54:35Z`
-- **来源 / Source:** [OpenClaw](https://github.com/openclaw/openclaw/releases/tag/v2026.10.9) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
-
-### 摘要 / Summary
-
-OpenClaw 2026.10.9 将仅限工作区的限制应用到 Gateway 构建的工具，并从 MCP 检查输出中移除实际凭据。此次维护更新还在升级回滚失败时保留操作者修改，并改善智能体数据库恢复。
-
-OpenClaw 2026.10.9 applies workspace-only restrictions to Gateway-built tools and removes live credentials from MCP inspection output. Its maintenance changes also preserve operator edits during failed update rollbacks and improve agent-database recovery.
-
-### 技术点 / Technical points
-
-- 启用 tools.fs.workspaceOnly 时，Gateway 构建的委派工具保留审批要求，媒体工具受工作区边界限制。
-  - Gateway-built delegates retain approval requirements and media tools remain within the workspace when tools.fs.workspaceOnly is enabled.
-- 恢复逻辑处理 SQLite 分词器变化与失效全文索引；磁盘空间恢复后，智能体无需重启即可继续运行。
-  - Recovery handles SQLite tokenizer changes and stale full-text indexes; agents can resume after disk space becomes available without a restart.
-
-### 为什么重要 / Why it matters
-
-该版本加强动作边界，并减少持久运行的智能体系统中的数据丢失与中断。
-
-The release strengthens action boundaries while reducing data loss and interruption in persistent agent installations.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openclaw/openclaw/releases/tags/v2026.10.9)
-
----
-
-<a id="2026-10-29-qwen-code-0264-workflow-isolation"></a>
-## [Qwen Code 0.26.3–0.26.4 增加持久工作流与主会话独立工作树](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4)
-
-**English:** [Qwen Code 0.26.3–0.26.4 adds persistent workflows and isolated main-session worktrees](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4)
-
-- **发布 / Published:** `2026-10-29T14:29:11Z`
-- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.4) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Qwen Code 在 0.26.3 加入持久 Workflow 模式并加强工具调用解析，随后在 0.26.4 增加主会话独立工作树和自动修复轮次预算。本条合并这两次连续更新，采用后一个版本的发布时间。
-
-Qwen Code released persistent Workflow mode and stronger tool-call parsing in 0.26.3, followed by independent main-session worktrees and bounded autofix rounds in 0.26.4. This entry groups the consecutive releases and uses the latter publication time.
-
-### 技术点 / Technical points
-
-- Workflow 模式可持久保存并传递至 CLI 沙箱；引用的 XML 示例不会被派发为工具调用。
-  - Workflow mode persists across sessions and reaches the CLI sandbox; quoted XML examples are not dispatched as tool calls.
-- 后续版本以独立工作树隔离主会话，限制自动修复接管轮次，并将核验报告绑定到对应轮次快照。
-  - The newer release isolates main sessions in worktrees, bounds autofix takeover rounds and binds verification reports to their round snapshots.
-
-### 为什么重要 / Why it matters
-
-这些更新让反复执行的编码智能体工作流更容易隔离、限制和审计。
-
-The updates make repeated coding-agent workflows easier to isolate, bound and audit.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.3) · [Evidence 2](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.4)
-
----
-
-<a id="2026-10-29-agno-3112-native-agent-approvals"></a>
-## [Agno 3.1.12 在 AgentOS 中持久保存 Claude 与 Codex 原生审批请求](https://github.com/agno-agi/agno/releases/tag/v3.1.12)
-
-**English:** [Agno 3.1.12 persists native Claude and Codex approval requests in AgentOS](https://github.com/agno-agi/agno/releases/tag/v3.1.12)
-
-- **发布 / Published:** `2026-10-29T14:00:55Z`
-- **来源 / Source:** [Agno GitHub releases](https://github.com/agno-agi/agno/releases/tag/v3.1.12) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `human-in-the-loop`, `tool-use`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Agno 3.1.12 将 Claude 与 Codex 原生权限请求接入 AgentOS 聊天及审批界面。运行连接数据库后，权限请求会持久化暂停状态，审核决定返回同一次原生执行，无需重新播放提示词。
-
-Agno 3.1.12 routes native Claude and Codex permission requests into AgentOS chat and approval views. With database-backed runs, a request pauses execution durably and a reviewed decision returns to the same native execution without replaying the prompt.
-
-### 技术点 / Technical points
-
-- 何时请求审批由原生执行框架的策略决定；决定需与具体请求动作匹配。
-  - The native harness policy determines when approval is required; decisions are checked against the requested action.
-- 沙箱智能体支持 API 工作进程丢失后的重新连接，并区分审批等待与执行预算。
-  - Sandboxed agents support reattachment after API-worker loss and separate approval-wait and execution budgets.
-
-### 为什么重要 / Why it matters
-
-持久化审批机制让长期委派任务更容易在进程故障前后暂停和恢复。
-
-Durable approval handling makes long-running delegated work easier to pause and resume across process failures.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/agno-agi/agno/releases/tags/v3.1.12)
-
----
-
-<a id="2026-10-29-worldprobe-long-horizon-spatial-consistency"></a>
-## [WorldProbe 在主动空间探索中测试世界模型的长期一致性](https://arxiv.org/abs/2610.39721)
-
-**English:** [WorldProbe tests persistent world consistency during active spatial exploration](https://arxiv.org/abs/2610.39721)
-
-- **发布 / Published:** `2026-10-29T09:51:26Z`
-- **来源 / Source:** [WorldProbe authors / arXiv](https://arxiv.org/abs/2610.39721) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `spatial-intelligence`, `memory`, `video-generation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-WorldProbe 让智能体在生成过程中调整相机动作，突破固定短轨迹的评测方式。预印本发现，局部视觉质量的提升仍可能伴随薄弱的长期记忆和不一致的世界演化。
-
-WorldProbe uses an agent that adjusts camera actions during generation to test video world models beyond fixed short trajectories. The preprint finds that improved local visual quality can coexist with weak long-range memory and inconsistent world evolution.
-
-### 技术点 / Technical points
-
-- 基准包含四类探测任务、164 个测试用例，评测了 10 个模型。
-  - The benchmark contains 164 cases in four probing families and evaluates 10 models.
-- 超过 1,600 次生成轨迹累计约 800 分钟，单次最长达 180 秒。
-  - More than 1,600 rollouts total about 800 minutes, with individual horizons up to 180 seconds.
-
-### 为什么重要 / Why it matters
-
-自适应探索可暴露短片段或预设相机路径难以发现的世界持久性缺陷。
-
-Adaptive exploration can reveal persistence failures that short or predetermined camera paths miss.
-
----
-
-<a id="2026-10-29-sandman-agentic-rl-kubernetes-sandboxes"></a>
-## [Sandman 披露智能体强化学习的生产沙箱运行方案](https://arxiv.org/abs/2610.39711)
-
-**English:** [Sandman details production sandbox operations for agent reinforcement learning](https://arxiv.org/abs/2610.39711)
-
-- **发布 / Published:** `2026-10-29T09:45:57Z`
-- **来源 / Source:** [Sandman authors / arXiv](https://arxiv.org/abs/2610.39711) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `reinforcement-learning`, `sandbox`, `infrastructure`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-亚马逊研究人员介绍基于 Kubernetes 的 Sandman，为智能体工具执行与评测提供沙箱。预印本报告，四次 SWE-bench Verified 训练活动在 10 月创建了 310 万个沙箱；守护进程、提供器和池的开源仍是后续计划。
-
-Amazon researchers describe Sandman, a Kubernetes sandbox service for agent tool execution and evaluation. The preprint reports 3.1 million sandboxes created by four SWE-bench Verified training campaigns in October; open sourcing its daemon, provider and pool is stated as future work.
-
-### 技术点 / Technical points
-
-- 在未修改的任务镜像中挂载小型守护进程，文件与进程在调用间保留，直到环境被释放。
-  - A small daemon is mounted into an unmodified task image, with files and processes retained between calls until release.
-- 扩展测试维持了 11,858 个并发微型沙箱；论文讨论就绪检测、突发创建和遗留环境回收。
-  - A scale test held 11,858 concurrent tiny sandboxes; the paper discusses readiness, burst handling and abandoned-environment cleanup.
-
-### 为什么重要 / Why it matters
-
-训练规模的运行证据有助于揭示智能体反复与环境交互时面临的基础设施瓶颈。
-
-Operational evidence at training scale helps expose the infrastructure bottlenecks behind repeated agent-environment interaction.
