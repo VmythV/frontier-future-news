@@ -2,6 +2,238 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-03-dreamx-transferable-latent-actions"></a>
+## [DreamX 学习可在人与机器人之间迁移的紧凑动作表征](https://arxiv.org/abs/2611.05377)
+
+**English:** [DreamX learns compact action representations that transfer between humans and robots](https://arxiv.org/abs/2611.05377)
+
+- **发布 / Published:** `2026-11-03T18:59:56Z`
+- **来源 / Source:** [DreamX authors / arXiv](https://arxiv.org/abs/2611.05377) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `latent-actions`, `video-diffusion`, `cross-embodiment`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DreamX 从预训练视频扩散模型中提取潜在动作，将运动与外观信息解耦。预印本报告了跨具身动作迁移，以及通过共享紧凑动作接口进行策略学习的结果。
+
+DreamX extracts latent actions from a pretrained video diffusion model to separate motion from appearance. The preprint reports cross-embodiment action transfer and policy learning through a shared, compact action interface.
+
+### 技术点 / Technical points
+
+- 该表征将每个潜在视频帧从 1,200 个 token 压缩至 4 个；这是表征压缩，并非实测运行速度提升 300 倍。
+  - The representation reduces each latent video frame from 1,200 tokens to four; this is representation compression, not a measured 300-fold runtime speedup.
+- 作者在 LARY-Bench 上评估潜在动作，并演示不同具身形态与环境之间的零样本迁移。
+  - The authors evaluate latent actions on LARY-Bench and demonstrate zero-shot transfer between different embodiments and environments.
+
+### 为什么重要 / Why it matters
+
+共享动作表征有望提升人类视频对机器人策略训练的价值。
+
+A shared action representation could make human video more useful for training robot policies.
+
+---
+
+<a id="2026-11-03-pyrua-datafarm-agent-generated-robot-demonstrations"></a>
+## [PyRUA-DataFarm 用编程智能体生成机器人训练示范](https://arxiv.org/abs/2611.05320)
+
+**English:** [PyRUA-DataFarm uses a coding agent to generate robot training demonstrations](https://arxiv.org/abs/2611.05320)
+
+- **发布 / Published:** `2026-11-03T18:25:14Z`
+- **来源 / Source:** [PyRUA-DataFarm authors / arXiv](https://arxiv.org/abs/2611.05320) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `synthetic-data`, `coding-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PyRUA-DataFarm 向编程智能体提供任务请求和一段真实标定轨迹，由其构建仿真场景、控制器与成功判定器，再用视频模型将仿真轨迹转换为带动作标签的相机视图，用于训练真实机器人。
+
+PyRUA-DataFarm gives a coding agent a task request and one real calibration episode, then has it build a simulated scene, controller and success judge. A video model converts simulated rollouts into action-labelled camera views for training real robots.
+
+### 技术点 / Technical points
+
+- 独立判定器在数据进入训练前检查仿真专家与渲染轨迹。
+  - Separate judges check the simulated expert and rendered episodes before the data enters training.
+- 在五项真实机器人任务中，作者报告合成数据策略在 100 次试验中成功 93 次，使用相同数量遥操作轨迹的策略成功 84 次。
+  - Across five real-robot tasks, the authors report 93 successes in 100 trials for synthetic-data policies versus 84 for policies using the same number of teleoperated episodes.
+
+### 为什么重要 / Why it matters
+
+由智能体构建仿真，有望减少新增机器人任务时重复开展遥操作采集的工作量。
+
+Agent-built simulation could reduce repeated teleoperation work when adding robot tasks.
+
+---
+
+<a id="2026-11-03-robotryon-human-video-robot-demonstrations"></a>
+## [RoboTryOn 将人类视频转换为灵巧机器人示范](https://arxiv.org/abs/2611.05163)
+
+**English:** [RoboTryOn turns human videos into demonstrations for dexterous robots](https://arxiv.org/abs/2611.05163)
+
+- **发布 / Published:** `2026-11-03T16:35:42Z`
+- **来源 / Source:** [RoboTryOn authors / arXiv](https://arxiv.org/abs/2611.05163) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `synthetic-data`, `imitation-learning`, `dexterous-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+RoboTryOn 根据人类演示合成目标机器人执行相应动作的视频，再推断动作标签用于策略学习。作者报告，在没有目标任务真实机器人示范的条件下，新任务平均成功率从 2% 提升至 60%。
+
+RoboTryOn synthesizes videos of a target robot performing motions shown by a human, then infers action labels for policy learning. The authors report an increase in average novel-task success from 2% to 60% without real robot demonstrations of those target tasks.
+
+### 技术点 / Technical points
+
+- 自回归关键帧转换与手部骨架条件生成用于保留演示动作、物体和场景。
+  - Autoregressive keyframe translation and hand-skeleton conditioning preserve the demonstrated motion, objects and scene.
+- 引入深度特征的逆动力学模型为合成视频标注动作；评估涉及多种人形机器人和双臂任务。
+  - A depth-aware inverse dynamics model labels the synthesized videos; the evaluation includes multiple humanoid embodiments and bimanual tasks.
+
+### 为什么重要 / Why it matters
+
+将人类示范转换为机器人专用训练数据，有望降低教授新操作技能的成本。
+
+Converting human demonstrations into robot-specific training data could lower the cost of teaching new manipulation skills.
+
+---
+
+<a id="2026-11-03-asynchronous-robot-policies-semantic-memory"></a>
+## [Asynchronous Robot Policies 将慢速推理与快速动作生成分离](https://arxiv.org/abs/2611.05155)
+
+**English:** [Asynchronous Robot Policies separate slow reasoning from fast action generation](https://arxiv.org/abs/2611.05155)
+
+- **发布 / Published:** `2026-11-03T16:30:27Z`
+- **来源 / Source:** [Asynchronous Robot Policies authors / arXiv](https://arxiv.org/abs/2611.05155) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `memory`, `real-time-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Asynchronous Robot Policy 让大型视觉语言模型更新语义记忆，同时由较小的视觉动作专家以更高频率控制机器人。预印本报告，其操作实验中的反应能力得到提升，执行时间有所缩短。
+
+Asynchronous Robot Policy lets a large vision-language model update semantic memory while a smaller vision-action expert controls the robot at a higher frequency. The preprint reports improved reactivity and shorter execution time in its manipulation experiments.
+
+### 技术点 / Technical points
+
+- 训练使用时间不对齐的观测，让动作专家适应滞后的语义记忆和执行延迟。
+  - Training uses temporally mismatched observations so the action expert can handle stale semantic memory and execution delay.
+- 作者报告，在准静态 Franka 任务中执行时间约减少 20%，将 VLM 更新频率降至十分之一时表现没有明显下降。
+  - The authors report roughly 20% less execution time in quasi-static Franka tasks and little performance loss when reducing VLM update frequency tenfold.
+
+### 为什么重要 / Why it matters
+
+让推理和控制以独立频率运行，为使用大型基础模型的机器人提高反应速度提供了实用途径。
+
+Independent reasoning and control rates offer a practical route to reactive robots using large foundation models.
+
+---
+
+<a id="2026-11-03-hilo-wam-multiscale-world-action-model"></a>
+## [HiLo-WAM 分别建模长期任务演化与局部交互](https://arxiv.org/abs/2611.05023)
+
+**English:** [HiLo-WAM models long-range task evolution separately from local interactions](https://arxiv.org/abs/2611.05023)
+
+- **发布 / Published:** `2026-11-03T15:02:19Z`
+- **来源 / Source:** [HiLo-WAM authors / arXiv](https://arxiv.org/abs/2611.05023) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `long-horizon`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+HiLo-WAM 将描述长期任务演化的稀疏视觉流与描述短期机器人—物体动力学的稠密视觉流结合。作者报告 RoboTwin 2.0 平均成功率为 93.70%，并在 Fourier GR-3 机器人上进行了测试。
+
+HiLo-WAM combines a sparse visual stream for long-range task evolution with a dense stream for short-range robot-object dynamics. The authors report 93.70% average success on RoboTwin 2.0 and test the approach on a Fourier GR-3 robot.
+
+### 技术点 / Technical points
+
+- 双 DiT 架构通过结构化注意力，将两个时间尺度的视觉流与动作生成连接起来。
+  - A dual-DiT architecture uses structured attention to connect the two temporal streams with action generation.
+- 作者报告渐进式推理带来 2.93 倍加速；论文仍将显式任务分解和高层推理列为局限。
+  - Progressive inference is reported to provide a 2.93-fold speedup; the paper still identifies explicit task decomposition and higher-level reasoning as limitations.
+
+### 为什么重要 / Why it matters
+
+分别建模不同时间尺度，有望提升预测式机器人控制在长程任务中的作用。
+
+Modeling different time scales separately could make predictive robot control more useful for extended tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2611.05023v1)
+
+---
+
+<a id="2026-11-03-primesim-cross-embodiment-world-simulator"></a>
+## [PrimeSim 基于 22 种平台训练多视角机器人世界模拟器](https://arxiv.org/abs/2611.04870)
+
+**English:** [PrimeSim trains a multiview robot world simulator across 22 platforms](https://arxiv.org/abs/2611.04870)
+
+- **发布 / Published:** `2026-11-03T13:25:52Z`
+- **来源 / Source:** [PrimeSim authors / arXiv](https://arxiv.org/abs/2611.04870) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `cross-embodiment`, `action-conditioned`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PrimeSim 使用来自 22 种机器人平台的 30,110 小时示范，将视频生成器改造成动作条件模拟器。论文报告生成速度为 10.1 FPS，并评估了动作忠实度、多视角一致性和长程展开。
+
+PrimeSim adapts a video generator into an action-conditioned simulator using 30,110 hours of demonstrations from 22 robot platforms. The paper reports 10.1 FPS generation and evaluates action fidelity, multiview consistency and extended rollouts.
+
+### 技术点 / Technical points
+
+- 统一动作条件、相机感知注意力与分层时间记忆用于改善动作对齐和展开误差累积。
+  - Unified action conditioning, camera-aware attention and hierarchical temporal memory address action alignment and accumulated rollout error.
+- 适配未参与训练的平台仍需其自身数据和 100–200 次梯度更新；每视角输出为 192×256，精细局部校准仍是弱项。
+  - Adaptation to held-out platforms uses their own data and 100–200 gradient steps; output resolution is 192 by 256 per view, and fine local calibration remains a weakness.
+
+### 为什么重要 / Why it matters
+
+跨平台学习型模拟器有望减少策略测试与优化对真实机器人轨迹的依赖。
+
+Cross-platform learned simulators could support robot policy testing and optimization with fewer physical rollouts.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2611.04870v1)
+
+---
+
+<a id="2026-11-03-dreamfree-predictive-representation-distillation"></a>
+## [DreamFree 蒸馏预测视频特征，无需生成未来视频即可控制机器人](https://arxiv.org/abs/2611.04527)
+
+**English:** [DreamFree distills predictive video features for robot control without future-video generation](https://arxiv.org/abs/2611.04527)
+
+- **发布 / Published:** `2026-11-03T08:55:03Z`
+- **来源 / Source:** [Future Representation Distillation for Imagination-Free World Action Models authors / arXiv](https://arxiv.org/abs/2611.04527) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `distillation`, `real-time-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DreamFree 训练视觉编码器，使其仅凭当前观测恢复冻结视频扩散模型的预测表征。动作模块直接使用这些特征，在机器人控制时省去迭代生成未来视频的过程。
+
+DreamFree trains a visual encoder to recover a frozen video diffusion model’s predictive representation from the current observation. An action module uses those features directly, avoiding iterative future-video generation during robot control.
+
+### 技术点 / Technical points
+
+- 作者报告，其实验配置使用 14B 视频扩散骨干网络实现了 11 Hz 闭环控制。
+  - The authors report 11 Hz closed-loop control with a 14B video diffusion backbone in their experimental setup.
+- 研究包括通过没有目标任务动作标签的视频学习新任务，其中也使用了其他具身形态的示范。
+  - The study includes learning new tasks from videos without action labels for those tasks, including demonstrations from another embodiment.
+
+### 为什么重要 / Why it matters
+
+蒸馏预测特征有望保留世界模型知识，同时降低动作推理成本。
+
+Distilling predictive features could preserve useful world-model knowledge while reducing the cost of action inference.
+
+---
+
 <a id="2026-11-02-pixel-full-stack-mobile-manipulation-human-data"></a>
 ## [Pixel 协同设计移动操作硬件、控制与人类示范学习](https://arxiv.org/abs/2611.03648)
 

@@ -2,6 +2,110 @@
 
 # World models / 世界模型
 
+<a id="2026-11-03-hilo-wam-multiscale-world-action-model"></a>
+## [HiLo-WAM 分别建模长期任务演化与局部交互](https://arxiv.org/abs/2611.05023)
+
+**English:** [HiLo-WAM models long-range task evolution separately from local interactions](https://arxiv.org/abs/2611.05023)
+
+- **发布 / Published:** `2026-11-03T15:02:19Z`
+- **来源 / Source:** [HiLo-WAM authors / arXiv](https://arxiv.org/abs/2611.05023) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `long-horizon`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+HiLo-WAM 将描述长期任务演化的稀疏视觉流与描述短期机器人—物体动力学的稠密视觉流结合。作者报告 RoboTwin 2.0 平均成功率为 93.70%，并在 Fourier GR-3 机器人上进行了测试。
+
+HiLo-WAM combines a sparse visual stream for long-range task evolution with a dense stream for short-range robot-object dynamics. The authors report 93.70% average success on RoboTwin 2.0 and test the approach on a Fourier GR-3 robot.
+
+### 技术点 / Technical points
+
+- 双 DiT 架构通过结构化注意力，将两个时间尺度的视觉流与动作生成连接起来。
+  - A dual-DiT architecture uses structured attention to connect the two temporal streams with action generation.
+- 作者报告渐进式推理带来 2.93 倍加速；论文仍将显式任务分解和高层推理列为局限。
+  - Progressive inference is reported to provide a 2.93-fold speedup; the paper still identifies explicit task decomposition and higher-level reasoning as limitations.
+
+### 为什么重要 / Why it matters
+
+分别建模不同时间尺度，有望提升预测式机器人控制在长程任务中的作用。
+
+Modeling different time scales separately could make predictive robot control more useful for extended tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2611.05023v1)
+
+---
+
+<a id="2026-11-03-primesim-cross-embodiment-world-simulator"></a>
+## [PrimeSim 基于 22 种平台训练多视角机器人世界模拟器](https://arxiv.org/abs/2611.04870)
+
+**English:** [PrimeSim trains a multiview robot world simulator across 22 platforms](https://arxiv.org/abs/2611.04870)
+
+- **发布 / Published:** `2026-11-03T13:25:52Z`
+- **来源 / Source:** [PrimeSim authors / arXiv](https://arxiv.org/abs/2611.04870) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `cross-embodiment`, `action-conditioned`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PrimeSim 使用来自 22 种机器人平台的 30,110 小时示范，将视频生成器改造成动作条件模拟器。论文报告生成速度为 10.1 FPS，并评估了动作忠实度、多视角一致性和长程展开。
+
+PrimeSim adapts a video generator into an action-conditioned simulator using 30,110 hours of demonstrations from 22 robot platforms. The paper reports 10.1 FPS generation and evaluates action fidelity, multiview consistency and extended rollouts.
+
+### 技术点 / Technical points
+
+- 统一动作条件、相机感知注意力与分层时间记忆用于改善动作对齐和展开误差累积。
+  - Unified action conditioning, camera-aware attention and hierarchical temporal memory address action alignment and accumulated rollout error.
+- 适配未参与训练的平台仍需其自身数据和 100–200 次梯度更新；每视角输出为 192×256，精细局部校准仍是弱项。
+  - Adaptation to held-out platforms uses their own data and 100–200 gradient steps; output resolution is 192 by 256 per view, and fine local calibration remains a weakness.
+
+### 为什么重要 / Why it matters
+
+跨平台学习型模拟器有望减少策略测试与优化对真实机器人轨迹的依赖。
+
+Cross-platform learned simulators could support robot policy testing and optimization with fewer physical rollouts.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2611.04870v1)
+
+---
+
+<a id="2026-11-03-dreamfree-predictive-representation-distillation"></a>
+## [DreamFree 蒸馏预测视频特征，无需生成未来视频即可控制机器人](https://arxiv.org/abs/2611.04527)
+
+**English:** [DreamFree distills predictive video features for robot control without future-video generation](https://arxiv.org/abs/2611.04527)
+
+- **发布 / Published:** `2026-11-03T08:55:03Z`
+- **来源 / Source:** [Future Representation Distillation for Imagination-Free World Action Models authors / arXiv](https://arxiv.org/abs/2611.04527) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `distillation`, `real-time-control`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DreamFree 训练视觉编码器，使其仅凭当前观测恢复冻结视频扩散模型的预测表征。动作模块直接使用这些特征，在机器人控制时省去迭代生成未来视频的过程。
+
+DreamFree trains a visual encoder to recover a frozen video diffusion model’s predictive representation from the current observation. An action module uses those features directly, avoiding iterative future-video generation during robot control.
+
+### 技术点 / Technical points
+
+- 作者报告，其实验配置使用 14B 视频扩散骨干网络实现了 11 Hz 闭环控制。
+  - The authors report 11 Hz closed-loop control with a 14B video diffusion backbone in their experimental setup.
+- 研究包括通过没有目标任务动作标签的视频学习新任务，其中也使用了其他具身形态的示范。
+  - The study includes learning new tasks from videos without action labels for those tasks, including demonstrations from another embodiment.
+
+### 为什么重要 / Why it matters
+
+蒸馏预测特征有望保留世界模型知识，同时降低动作推理成本。
+
+Distilling predictive features could preserve useful world-model knowledge while reducing the cost of action inference.
+
+---
+
 <a id="2026-11-02-wise-world-action-model-rollout-selection"></a>
 ## [WISE 在执行前筛选冻结世界动作模型的想象轨迹](https://arxiv.org/abs/2611.03585)
 

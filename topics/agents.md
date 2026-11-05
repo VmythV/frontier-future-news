@@ -2,6 +2,138 @@
 
 # Agents / 智能体
 
+<a id="2026-11-03-pyrua-datafarm-agent-generated-robot-demonstrations"></a>
+## [PyRUA-DataFarm 用编程智能体生成机器人训练示范](https://arxiv.org/abs/2611.05320)
+
+**English:** [PyRUA-DataFarm uses a coding agent to generate robot training demonstrations](https://arxiv.org/abs/2611.05320)
+
+- **发布 / Published:** `2026-11-03T18:25:14Z`
+- **来源 / Source:** [PyRUA-DataFarm authors / arXiv](https://arxiv.org/abs/2611.05320) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `synthetic-data`, `coding-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PyRUA-DataFarm 向编程智能体提供任务请求和一段真实标定轨迹，由其构建仿真场景、控制器与成功判定器，再用视频模型将仿真轨迹转换为带动作标签的相机视图，用于训练真实机器人。
+
+PyRUA-DataFarm gives a coding agent a task request and one real calibration episode, then has it build a simulated scene, controller and success judge. A video model converts simulated rollouts into action-labelled camera views for training real robots.
+
+### 技术点 / Technical points
+
+- 独立判定器在数据进入训练前检查仿真专家与渲染轨迹。
+  - Separate judges check the simulated expert and rendered episodes before the data enters training.
+- 在五项真实机器人任务中，作者报告合成数据策略在 100 次试验中成功 93 次，使用相同数量遥操作轨迹的策略成功 84 次。
+  - Across five real-robot tasks, the authors report 93 successes in 100 trials for synthetic-data policies versus 84 for policies using the same number of teleoperated episodes.
+
+### 为什么重要 / Why it matters
+
+由智能体构建仿真，有望减少新增机器人任务时重复开展遥操作采集的工作量。
+
+Agent-built simulation could reduce repeated teleoperation work when adding robot tasks.
+
+---
+
+<a id="2026-11-03-frequent-compaction-short-context-agents"></a>
+## [频繁压缩上下文可让智能体在短工作上下文中维持表现](https://arxiv.org/abs/2611.05306)
+
+**English:** [Frequent compaction preserves agent performance with short working contexts](https://arxiv.org/abs/2611.05306)
+
+- **发布 / Published:** `2026-11-03T18:17:23Z`
+- **来源 / Source:** [You don't need long context authors / arXiv](https://arxiv.org/abs/2611.05306) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `context-compaction`, `benchmark`, `coding-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+这份技术报告在长程任务与长输入任务中，对比不断累积的对话历史和频繁上下文压缩。作者发现，较短的实时上下文通常能维持相近准确率，其中包括在单次动作之间只保留紧凑状态的软件工程实验。
+
+The technical report compares growing conversation histories with frequent compaction on long-horizon and long-input tasks. The authors find broadly comparable accuracy with shorter live contexts, including software-engineering runs that retain a compact state between individual actions.
+
+### 技术点 / Technical points
+
+- 单动作压缩将自然语言状态传入每段新对话，并在执行一次动作后替换上一段对话。
+  - Single-action compaction carries a natural-language state into each new conversation, then replaces the previous conversation after an action.
+- 压缩存在信息损失；论文区分了让历史可检索与将全部历史放入当前上下文。
+  - Compaction is lossy; the paper distinguishes keeping history retrievable from keeping the full history inside the active context.
+
+### 为什么重要 / Why it matters
+
+该结果支持将显式状态管理作为控制长时间运行智能体成本的一条评估路径。
+
+The results support evaluating explicit state management as a way to control long-running agent costs.
+
+### 链接 / Links
+
+[Evidence 1](https://arxiv.org/html/2611.05306v1)
+
+---
+
+<a id="2026-11-03-continual-autoresearch-persistent-agent-evaluation"></a>
+## [Continual AutoResearch 区分快速复用经验与改善最终研究结果](https://arxiv.org/abs/2611.05108)
+
+**English:** [Continual AutoResearch separates faster reuse from better final research results](https://arxiv.org/abs/2611.05108)
+
+- **发布 / Published:** `2026-11-03T16:02:34Z`
+- **来源 / Source:** [From AutoResearch to Continual AutoResearch authors / arXiv](https://arxiv.org/abs/2611.05108) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `benchmark`, `continual-learning`, `ai-research`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Continual AutoResearch 在相同任务流与预算下，对比五种前沿智能体保留状态和重置状态的版本。作者发现，持久状态能让所有受测智能体更早找到较强方案，却未稳定改善最终留出集表现。
+
+Continual AutoResearch compares persistent and reset versions of five frontier agents under matched task streams and budgets. The authors find that persistent state helps every tested agent reach stronger solutions sooner, but does not consistently improve final held-out performance.
+
+### 技术点 / Technical points
+
+- 环境覆盖九类任务，包括符号回归、时间序列预测和表格 AutoML。
+  - The environment spans nine task families, including symbolic regression, time-series forecasting and tabular AutoML.
+- 记忆消融改变保留的信息，以区分可迁移的研究经验与延续会话本身带来的收益。
+  - Memory ablations vary retained information to distinguish transferable research insights from the benefit of continuing a session.
+
+### 为什么重要 / Why it matters
+
+评估持久运行的研究智能体，需要同时衡量经验复用效率与最终方案质量。
+
+Persistent research agents need evaluations that measure both reuse efficiency and the quality of their final solutions.
+
+---
+
+<a id="2026-11-03-scamworld-web-agent-fraud-evaluation"></a>
+## [ScamWorld 测试网页智能体能否根据可见诈骗迹象调整行动](https://arxiv.org/abs/2611.04879)
+
+**English:** [ScamWorld tests whether web agents act on visible signs of online fraud](https://arxiv.org/abs/2611.04879)
+
+- **发布 / Published:** `2026-11-03T13:31:11Z`
+- **来源 / Source:** [ScamWorld authors / arXiv](https://arxiv.org/abs/2611.04879) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `web-agents`, `safety`, `fraud-detection`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+ScamWorld 将有记录的诈骗网站重建为可重复的交互式评测环境。作者在六种前沿模型驱动的智能体上报告 11%–35% 的基线受骗率，其中存在智能体察觉可疑条件后仍继续行动的情况。
+
+ScamWorld reconstructs documented scam sites as repeatable, interactive evaluation environments. Across agents powered by six frontier models, the authors report baseline deception rates of 11%–35%, including cases where agents notice suspicious conditions but continue.
+
+### 技术点 / Technical points
+
+- 场景覆盖多种语言与诈骗机制，并让相关警示信息在智能体最终行动前可见。
+  - Scenarios span different languages and fraud mechanisms, with relevant warning signs observable before the final agent action.
+- 在所报告的评测中，智能体比起提交凭据或钱包信息，更容易继续执行付款。
+  - Agents were more willing to proceed with payments than with requests for credentials or wallet information in the reported evaluation.
+
+### 为什么重要 / Why it matters
+
+网页智能体安全评测需要检验：识别警示是否真正改变了后续行为。
+
+Web-agent safety evaluations should test whether recognizing a warning changes subsequent behavior.
+
+---
+
 <a id="2026-11-02-trustworthy-data-analysis-agent-trap-benchmark"></a>
 ## [Trustworthy Data Analysis 将智能体技能与 30 个数据分析陷阱案例配套开放](https://github.com/boranfurkan/trustworthy-data-analysis)
 

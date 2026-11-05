@@ -21166,6 +21166,466 @@
         "technical_depth": 15,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-03-dreamx-transferable-latent-actions",
+      "published_at": "2026-11-03T18:59:56Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "latent-actions",
+        "video-diffusion",
+        "cross-embodiment"
+      ],
+      "title_en": "DreamX learns compact action representations that transfer between humans and robots",
+      "title_zh": "DreamX 学习可在人与机器人之间迁移的紧凑动作表征",
+      "summary_en": "DreamX extracts latent actions from a pretrained video diffusion model to separate motion from appearance. The preprint reports cross-embodiment action transfer and policy learning through a shared, compact action interface.",
+      "summary_zh": "DreamX 从预训练视频扩散模型中提取潜在动作，将运动与外观信息解耦。预印本报告了跨具身动作迁移，以及通过共享紧凑动作接口进行策略学习的结果。",
+      "tech_points_en": [
+        "The representation reduces each latent video frame from 1,200 tokens to four; this is representation compression, not a measured 300-fold runtime speedup.",
+        "The authors evaluate latent actions on LARY-Bench and demonstrate zero-shot transfer between different embodiments and environments."
+      ],
+      "tech_points_zh": [
+        "该表征将每个潜在视频帧从 1,200 个 token 压缩至 4 个；这是表征压缩，并非实测运行速度提升 300 倍。",
+        "作者在 LARY-Bench 上评估潜在动作，并演示不同具身形态与环境之间的零样本迁移。"
+      ],
+      "why_it_matters_en": "A shared action representation could make human video more useful for training robot policies.",
+      "why_it_matters_zh": "共享动作表征有望提升人类视频对机器人策略训练的价值。",
+      "source": {
+        "name": "DreamX authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05377",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-pyrua-datafarm-agent-generated-robot-demonstrations",
+      "published_at": "2026-11-03T18:25:14Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "synthetic-data",
+        "coding-agents"
+      ],
+      "title_en": "PyRUA-DataFarm uses a coding agent to generate robot training demonstrations",
+      "title_zh": "PyRUA-DataFarm 用编程智能体生成机器人训练示范",
+      "summary_en": "PyRUA-DataFarm gives a coding agent a task request and one real calibration episode, then has it build a simulated scene, controller and success judge. A video model converts simulated rollouts into action-labelled camera views for training real robots.",
+      "summary_zh": "PyRUA-DataFarm 向编程智能体提供任务请求和一段真实标定轨迹，由其构建仿真场景、控制器与成功判定器，再用视频模型将仿真轨迹转换为带动作标签的相机视图，用于训练真实机器人。",
+      "tech_points_en": [
+        "Separate judges check the simulated expert and rendered episodes before the data enters training.",
+        "Across five real-robot tasks, the authors report 93 successes in 100 trials for synthetic-data policies versus 84 for policies using the same number of teleoperated episodes."
+      ],
+      "tech_points_zh": [
+        "独立判定器在数据进入训练前检查仿真专家与渲染轨迹。",
+        "在五项真实机器人任务中，作者报告合成数据策略在 100 次试验中成功 93 次，使用相同数量遥操作轨迹的策略成功 84 次。"
+      ],
+      "why_it_matters_en": "Agent-built simulation could reduce repeated teleoperation work when adding robot tasks.",
+      "why_it_matters_zh": "由智能体构建仿真，有望减少新增机器人任务时重复开展遥操作采集的工作量。",
+      "source": {
+        "name": "PyRUA-DataFarm authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05320",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-frequent-compaction-short-context-agents",
+      "published_at": "2026-11-03T18:17:23Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "context-compaction",
+        "benchmark",
+        "coding-agents"
+      ],
+      "title_en": "Frequent compaction preserves agent performance with short working contexts",
+      "title_zh": "频繁压缩上下文可让智能体在短工作上下文中维持表现",
+      "summary_en": "The technical report compares growing conversation histories with frequent compaction on long-horizon and long-input tasks. The authors find broadly comparable accuracy with shorter live contexts, including software-engineering runs that retain a compact state between individual actions.",
+      "summary_zh": "这份技术报告在长程任务与长输入任务中，对比不断累积的对话历史和频繁上下文压缩。作者发现，较短的实时上下文通常能维持相近准确率，其中包括在单次动作之间只保留紧凑状态的软件工程实验。",
+      "tech_points_en": [
+        "Single-action compaction carries a natural-language state into each new conversation, then replaces the previous conversation after an action.",
+        "Compaction is lossy; the paper distinguishes keeping history retrievable from keeping the full history inside the active context."
+      ],
+      "tech_points_zh": [
+        "单动作压缩将自然语言状态传入每段新对话，并在执行一次动作后替换上一段对话。",
+        "压缩存在信息损失；论文区分了让历史可检索与将全部历史放入当前上下文。"
+      ],
+      "why_it_matters_en": "The results support evaluating explicit state management as a way to control long-running agent costs.",
+      "why_it_matters_zh": "该结果支持将显式状态管理作为控制长时间运行智能体成本的一条评估路径。",
+      "source": {
+        "name": "You don't need long context authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05306",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://arxiv.org/html/2611.05306v1"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-robotryon-human-video-robot-demonstrations",
+      "published_at": "2026-11-03T16:35:42Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "synthetic-data",
+        "imitation-learning",
+        "dexterous-manipulation"
+      ],
+      "title_en": "RoboTryOn turns human videos into demonstrations for dexterous robots",
+      "title_zh": "RoboTryOn 将人类视频转换为灵巧机器人示范",
+      "summary_en": "RoboTryOn synthesizes videos of a target robot performing motions shown by a human, then infers action labels for policy learning. The authors report an increase in average novel-task success from 2% to 60% without real robot demonstrations of those target tasks.",
+      "summary_zh": "RoboTryOn 根据人类演示合成目标机器人执行相应动作的视频，再推断动作标签用于策略学习。作者报告，在没有目标任务真实机器人示范的条件下，新任务平均成功率从 2% 提升至 60%。",
+      "tech_points_en": [
+        "Autoregressive keyframe translation and hand-skeleton conditioning preserve the demonstrated motion, objects and scene.",
+        "A depth-aware inverse dynamics model labels the synthesized videos; the evaluation includes multiple humanoid embodiments and bimanual tasks."
+      ],
+      "tech_points_zh": [
+        "自回归关键帧转换与手部骨架条件生成用于保留演示动作、物体和场景。",
+        "引入深度特征的逆动力学模型为合成视频标注动作；评估涉及多种人形机器人和双臂任务。"
+      ],
+      "why_it_matters_en": "Converting human demonstrations into robot-specific training data could lower the cost of teaching new manipulation skills.",
+      "why_it_matters_zh": "将人类示范转换为机器人专用训练数据，有望降低教授新操作技能的成本。",
+      "source": {
+        "name": "RoboTryOn authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05163",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-asynchronous-robot-policies-semantic-memory",
+      "published_at": "2026-11-03T16:30:27Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "vla",
+        "memory",
+        "real-time-control"
+      ],
+      "title_en": "Asynchronous Robot Policies separate slow reasoning from fast action generation",
+      "title_zh": "Asynchronous Robot Policies 将慢速推理与快速动作生成分离",
+      "summary_en": "Asynchronous Robot Policy lets a large vision-language model update semantic memory while a smaller vision-action expert controls the robot at a higher frequency. The preprint reports improved reactivity and shorter execution time in its manipulation experiments.",
+      "summary_zh": "Asynchronous Robot Policy 让大型视觉语言模型更新语义记忆，同时由较小的视觉动作专家以更高频率控制机器人。预印本报告，其操作实验中的反应能力得到提升，执行时间有所缩短。",
+      "tech_points_en": [
+        "Training uses temporally mismatched observations so the action expert can handle stale semantic memory and execution delay.",
+        "The authors report roughly 20% less execution time in quasi-static Franka tasks and little performance loss when reducing VLM update frequency tenfold."
+      ],
+      "tech_points_zh": [
+        "训练使用时间不对齐的观测，让动作专家适应滞后的语义记忆和执行延迟。",
+        "作者报告，在准静态 Franka 任务中执行时间约减少 20%，将 VLM 更新频率降至十分之一时表现没有明显下降。"
+      ],
+      "why_it_matters_en": "Independent reasoning and control rates offer a practical route to reactive robots using large foundation models.",
+      "why_it_matters_zh": "让推理和控制以独立频率运行，为使用大型基础模型的机器人提高反应速度提供了实用途径。",
+      "source": {
+        "name": "Asynchronous Robot Policies authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05155",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-continual-autoresearch-persistent-agent-evaluation",
+      "published_at": "2026-11-03T16:02:34Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "benchmark",
+        "continual-learning",
+        "ai-research"
+      ],
+      "title_en": "Continual AutoResearch separates faster reuse from better final research results",
+      "title_zh": "Continual AutoResearch 区分快速复用经验与改善最终研究结果",
+      "summary_en": "Continual AutoResearch compares persistent and reset versions of five frontier agents under matched task streams and budgets. The authors find that persistent state helps every tested agent reach stronger solutions sooner, but does not consistently improve final held-out performance.",
+      "summary_zh": "Continual AutoResearch 在相同任务流与预算下，对比五种前沿智能体保留状态和重置状态的版本。作者发现，持久状态能让所有受测智能体更早找到较强方案，却未稳定改善最终留出集表现。",
+      "tech_points_en": [
+        "The environment spans nine task families, including symbolic regression, time-series forecasting and tabular AutoML.",
+        "Memory ablations vary retained information to distinguish transferable research insights from the benefit of continuing a session."
+      ],
+      "tech_points_zh": [
+        "环境覆盖九类任务，包括符号回归、时间序列预测和表格 AutoML。",
+        "记忆消融改变保留的信息，以区分可迁移的研究经验与延续会话本身带来的收益。"
+      ],
+      "why_it_matters_en": "Persistent research agents need evaluations that measure both reuse efficiency and the quality of their final solutions.",
+      "why_it_matters_zh": "评估持久运行的研究智能体，需要同时衡量经验复用效率与最终方案质量。",
+      "source": {
+        "name": "From AutoResearch to Continual AutoResearch authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05108",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-hilo-wam-multiscale-world-action-model",
+      "published_at": "2026-11-03T15:02:19Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "long-horizon",
+        "manipulation"
+      ],
+      "title_en": "HiLo-WAM models long-range task evolution separately from local interactions",
+      "title_zh": "HiLo-WAM 分别建模长期任务演化与局部交互",
+      "summary_en": "HiLo-WAM combines a sparse visual stream for long-range task evolution with a dense stream for short-range robot-object dynamics. The authors report 93.70% average success on RoboTwin 2.0 and test the approach on a Fourier GR-3 robot.",
+      "summary_zh": "HiLo-WAM 将描述长期任务演化的稀疏视觉流与描述短期机器人—物体动力学的稠密视觉流结合。作者报告 RoboTwin 2.0 平均成功率为 93.70%，并在 Fourier GR-3 机器人上进行了测试。",
+      "tech_points_en": [
+        "A dual-DiT architecture uses structured attention to connect the two temporal streams with action generation.",
+        "Progressive inference is reported to provide a 2.93-fold speedup; the paper still identifies explicit task decomposition and higher-level reasoning as limitations."
+      ],
+      "tech_points_zh": [
+        "双 DiT 架构通过结构化注意力，将两个时间尺度的视觉流与动作生成连接起来。",
+        "作者报告渐进式推理带来 2.93 倍加速；论文仍将显式任务分解和高层推理列为局限。"
+      ],
+      "why_it_matters_en": "Modeling different time scales separately could make predictive robot control more useful for extended tasks.",
+      "why_it_matters_zh": "分别建模不同时间尺度，有望提升预测式机器人控制在长程任务中的作用。",
+      "source": {
+        "name": "HiLo-WAM authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.05023",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://arxiv.org/html/2611.05023v1"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-scamworld-web-agent-fraud-evaluation",
+      "published_at": "2026-11-03T13:31:11Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "web-agents",
+        "safety",
+        "fraud-detection"
+      ],
+      "title_en": "ScamWorld tests whether web agents act on visible signs of online fraud",
+      "title_zh": "ScamWorld 测试网页智能体能否根据可见诈骗迹象调整行动",
+      "summary_en": "ScamWorld reconstructs documented scam sites as repeatable, interactive evaluation environments. Across agents powered by six frontier models, the authors report baseline deception rates of 11%–35%, including cases where agents notice suspicious conditions but continue.",
+      "summary_zh": "ScamWorld 将有记录的诈骗网站重建为可重复的交互式评测环境。作者在六种前沿模型驱动的智能体上报告 11%–35% 的基线受骗率，其中存在智能体察觉可疑条件后仍继续行动的情况。",
+      "tech_points_en": [
+        "Scenarios span different languages and fraud mechanisms, with relevant warning signs observable before the final agent action.",
+        "Agents were more willing to proceed with payments than with requests for credentials or wallet information in the reported evaluation."
+      ],
+      "tech_points_zh": [
+        "场景覆盖多种语言与诈骗机制，并让相关警示信息在智能体最终行动前可见。",
+        "在所报告的评测中，智能体比起提交凭据或钱包信息，更容易继续执行付款。"
+      ],
+      "why_it_matters_en": "Web-agent safety evaluations should test whether recognizing a warning changes subsequent behavior.",
+      "why_it_matters_zh": "网页智能体安全评测需要检验：识别警示是否真正改变了后续行为。",
+      "source": {
+        "name": "ScamWorld authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.04879",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-primesim-cross-embodiment-world-simulator",
+      "published_at": "2026-11-03T13:25:52Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "cross-embodiment",
+        "action-conditioned"
+      ],
+      "title_en": "PrimeSim trains a multiview robot world simulator across 22 platforms",
+      "title_zh": "PrimeSim 基于 22 种平台训练多视角机器人世界模拟器",
+      "summary_en": "PrimeSim adapts a video generator into an action-conditioned simulator using 30,110 hours of demonstrations from 22 robot platforms. The paper reports 10.1 FPS generation and evaluates action fidelity, multiview consistency and extended rollouts.",
+      "summary_zh": "PrimeSim 使用来自 22 种机器人平台的 30,110 小时示范，将视频生成器改造成动作条件模拟器。论文报告生成速度为 10.1 FPS，并评估了动作忠实度、多视角一致性和长程展开。",
+      "tech_points_en": [
+        "Unified action conditioning, camera-aware attention and hierarchical temporal memory address action alignment and accumulated rollout error.",
+        "Adaptation to held-out platforms uses their own data and 100–200 gradient steps; output resolution is 192 by 256 per view, and fine local calibration remains a weakness."
+      ],
+      "tech_points_zh": [
+        "统一动作条件、相机感知注意力与分层时间记忆用于改善动作对齐和展开误差累积。",
+        "适配未参与训练的平台仍需其自身数据和 100–200 次梯度更新；每视角输出为 192×256，精细局部校准仍是弱项。"
+      ],
+      "why_it_matters_en": "Cross-platform learned simulators could support robot policy testing and optimization with fewer physical rollouts.",
+      "why_it_matters_zh": "跨平台学习型模拟器有望减少策略测试与优化对真实机器人轨迹的依赖。",
+      "source": {
+        "name": "PrimeSim authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.04870",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://arxiv.org/html/2611.04870v1"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-03-dreamfree-predictive-representation-distillation",
+      "published_at": "2026-11-03T08:55:03Z",
+      "collected_at": "2026-11-05T00:05:00Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-action-model",
+        "distillation",
+        "real-time-control"
+      ],
+      "title_en": "DreamFree distills predictive video features for robot control without future-video generation",
+      "title_zh": "DreamFree 蒸馏预测视频特征，无需生成未来视频即可控制机器人",
+      "summary_en": "DreamFree trains a visual encoder to recover a frozen video diffusion model’s predictive representation from the current observation. An action module uses those features directly, avoiding iterative future-video generation during robot control.",
+      "summary_zh": "DreamFree 训练视觉编码器，使其仅凭当前观测恢复冻结视频扩散模型的预测表征。动作模块直接使用这些特征，在机器人控制时省去迭代生成未来视频的过程。",
+      "tech_points_en": [
+        "The authors report 11 Hz closed-loop control with a 14B video diffusion backbone in their experimental setup.",
+        "The study includes learning new tasks from videos without action labels for those tasks, including demonstrations from another embodiment."
+      ],
+      "tech_points_zh": [
+        "作者报告，其实验配置使用 14B 视频扩散骨干网络实现了 11 Hz 闭环控制。",
+        "研究包括通过没有目标任务动作标签的视频学习新任务，其中也使用了其他具身形态的示范。"
+      ],
+      "why_it_matters_en": "Distilling predictive features could preserve useful world-model knowledge while reducing the cost of action inference.",
+      "why_it_matters_zh": "蒸馏预测特征有望保留世界模型知识，同时降低动作推理成本。",
+      "source": {
+        "name": "Future Representation Distillation for Imagination-Free World Action Models authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.04527",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }
