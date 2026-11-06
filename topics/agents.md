@@ -2,6 +2,270 @@
 
 # Agents / 智能体
 
+<a id="2026-11-05-microsoft-pdd-kit-formal-agent-code-verification"></a>
+## [微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
+
+**English:** [Microsoft demonstrates PDD Kit verifying agent-written web-app login logic](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
+
+- **发布 / Published:** `2026-11-05T16:00:00Z`
+- **来源 / Source:** [Microsoft Research](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `formal-verification`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+微软研究院展示 PDD Kit 将经过审阅的意图转换为 Verus 规范，并检查智能体生成的 Rust 代码。Pet Store 示例验证登录逻辑，明确列出可信假设，并对证明边界之外的组件使用测试；这不代表整个应用都已证明正确。
+
+Microsoft Research demonstrates PDD Kit translating reviewed intent into Verus specifications and checking agent-generated Rust code. Its Pet Store example verifies login logic, with explicit trusted assumptions and tests for components outside the proof boundary; it does not establish correctness of the entire application.
+
+### 技术点 / Technical points
+
+- 工作流串联用户需求、形式化契约、机器检查证明与经验验证。
+  - The workflow links user requirements, formal contracts, machine-checked proofs and empirical checks.
+- 数据库访问、密码哈希、签名及时钟行为仍属于明确列出的可信依赖。
+  - Database access, password hashing, signing and clock behavior remain explicit trusted dependencies.
+
+### 为什么重要 / Why it matters
+
+该示例展示了如何让编程智能体审阅聚焦预期属性及证明假设，并由工具检查规范所覆盖的实现行为。
+
+It shows how coding-agent review can focus on intended properties and proof assumptions while tools check specified implementation behavior.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50386024)
+
+---
+
+<a id="2026-11-04-frontierphysics-end-to-end-research-benchmark"></a>
+## [FrontierPhysics 在九个物理领域评估智能体的完整科研流程](https://arxiv.org/abs/2611.06910)
+
+**English:** [FrontierPhysics tests agents on complete research workflows across nine physics domains](https://arxiv.org/abs/2611.06910)
+
+- **发布 / Published:** `2026-11-04T18:56:22Z`
+- **来源 / Source:** [FrontierPhysics authors (arXiv)](https://arxiv.org/abs/2611.06910) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `scientific-discovery`, `evaluation`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+FrontierPhysics 包含 42 位物理学家设计的 56 项研究任务，要求完成文献调研、规划、实验及论文产出。在 22 种模型、26 种配置中，最佳配置通过 168 次运行中的 46 次；作者将严谨性不足与专家直觉有限归纳为常见短板。
+
+FrontierPhysics contains 56 research tasks designed by 42 physicists and requires literature review, planning, experiments and manuscripts. Across 22 models in 26 configurations, the best configuration passes 46 of 168 rollouts; the authors identify weak rigor and expert intuition as recurring limitations.
+
+### 技术点 / Technical points
+
+- 任务覆盖理论、计算和实验物理的九个领域。
+  - Tasks span nine theoretical, computational and experimental physics domains.
+- 评分结合确定性检查与专家编写的量表，兼顾正确性和研究质量。
+  - Scoring combines deterministic checks with expert-written rubrics to assess correctness and research quality.
+
+### 为什么重要 / Why it matters
+
+该基准检验科研智能体能否整合完整科学工作流，而不只回答孤立的物理问题。
+
+It tests whether research agents can integrate an entire scientific workflow rather than solve isolated physics questions.
+
+---
+
+<a id="2026-11-04-speccompact-slot-parallel-compaction"></a>
+## [SpecCompact 通过并行摘要槽位加速智能体上下文压缩](https://arxiv.org/abs/2611.06876)
+
+**English:** [SpecCompact accelerates agent context compaction with parallel summary slots](https://arxiv.org/abs/2611.06876)
+
+- **发布 / Published:** `2026-11-04T18:34:41Z`
+- **来源 / Source:** [SpecCompact authors (arXiv)](https://arxiv.org/abs/2611.06876) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-compaction`, `inference`, `speculative-decoding`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+SpecCompact 用小型草稿模型并行生成结构化摘要槽位，再由目标模型逐行核验和修复。论文在 AppWorld 与 τ³ 设置中报告 2.04—5.63 倍的压缩加速，同时指出下游任务表现随模型和任务而变化。
+
+SpecCompact uses a small drafting model to propose structured summary slots in parallel, then a target model verifies and repairs individual lines. The paper reports 2.04–5.63× compaction speedups on AppWorld and τ³ settings, with downstream performance varying by model and task.
+
+### 技术点 / Technical points
+
+- 核验后的槽位前缀会用于后续草稿生成。
+  - Subsequent drafting conditions on updated slot prefixes after verification.
+- 系统优化减少重复上下文处理；Hermes 用户研究报告压缩速度中位数提升 8.68 倍。
+  - System optimizations reduce repeated context processing; a Hermes user study reports an 8.68× median compaction speedup.
+
+### 为什么重要 / Why it matters
+
+该工作针对记忆维护造成的等待，并明确呈现延迟与任务表现之间的权衡。
+
+It targets the pauses caused by memory maintenance while making the latency–task-performance tradeoff explicit.
+
+---
+
+<a id="2026-11-04-serverbench-agent-designed-llm-serving"></a>
+## [ServerBench 评估编程智能体构建完整且独立核验的模型服务系统](https://arxiv.org/abs/2611.06841)
+
+**English:** [ServerBench tests coding agents on complete, independently verified LLM serving systems](https://arxiv.org/abs/2611.06841)
+
+- **发布 / Published:** `2026-11-04T17:59:07Z`
+- **来源 / Source:** [ServerBench authors (arXiv)](https://arxiv.org/abs/2611.06841) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `systems`, `verification`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ServerBench 要求智能体在延迟、会话依赖和正确性约束下优化模型服务系统。论文报告，在 11 种智能体模型、三种部署配置的 33 次运行中，22 次生成的系统通过核验，其中 13 次超过最强基线。
+
+ServerBench asks agents to optimize serving systems under latency, session and correctness constraints. Across 11 agent models and three deployments, 22 of 33 runs produce verified systems and 13 beat the strongest baseline, according to the paper.
+
+### 技术点 / Technical points
+
+- 优化目标衡量每美元 GPU 成本所产生的满足延迟要求的 token 价值。
+  - The objective measures latency-qualified token value per dollar of GPU cost.
+- 有状态负载回放保留会话依赖，并由独立验证器检查提交系统。
+  - Stateful workload replay preserves session dependencies and an independent verifier checks submissions.
+
+### 为什么重要 / Why it matters
+
+该基准同时衡量基础设施优化价值与正确性，揭示快速实验与可靠交付之间的差距。
+
+It evaluates useful infrastructure optimization together with correctness, exposing a gap between fast experiments and reliable delivery.
+
+---
+
+<a id="2026-11-04-pyrua-real-persistent-robot-skills"></a>
+## [PyRUA-REAL 将真实探索转化为持久记忆和可执行机器人技能](https://arxiv.org/abs/2611.06768)
+
+**English:** [PyRUA-REAL turns physical exploration into persistent memory and executable robot skills](https://arxiv.org/abs/2611.06768)
+
+- **发布 / Published:** `2026-11-04T16:46:03Z`
+- **来源 / Source:** [PyRUA-REAL authors (arXiv)](https://arxiv.org/abs/2611.06768) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `code-generation`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PyRUA-REAL 研究编程智能体如何利用真实交互、保留的经验和可复用技能改进机器人程序。作者报告，八项实机任务平均成功率为 91.1%，42 项 RoboDojo 任务为 84.4%；生成的程序可在部署时脱离在线决策智能体运行。
+
+PyRUA-REAL studies coding agents that refine robot programs using real-world interaction, retained experience and reusable skills. The authors report 91.1% average success on eight physical tasks and 84.4% across 42 RoboDojo tasks; deployment can use the resulting programs without an online decision-making agent.
+
+### 技术点 / Technical points
+
+- 物理执行反馈用于指导探索和代码改进。
+  - Physical execution feedback guides exploration and code refinement.
+- 交互历史以记忆及可复用程序的形式保留，为后续任务提供支持。
+  - Interaction history persists as memory and reusable programs that support later tasks.
+
+### 为什么重要 / Why it matters
+
+该工作检验智能体驱动的机器人探索能否形成在探索结束后仍可使用的能力。
+
+It examines whether agent-driven robot exploration produces capabilities that remain useful after the exploration loop ends.
+
+---
+
+<a id="2026-11-04-mkd2world-spatial-markdown-web-foresight"></a>
+## [MKD2World 以带类型的空间 Markdown 预测网页界面状态](https://arxiv.org/abs/2611.06544)
+
+**English:** [MKD2World predicts web-interface states through typed spatial Markdown](https://arxiv.org/abs/2611.06544)
+
+- **发布 / Published:** `2026-11-04T14:11:56Z`
+- **来源 / Source:** [MKD2World authors (arXiv)](https://arxiv.org/abs/2611.06544) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `computer-use`, `world-model`, `spatial-intelligence`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MKD2World 以带类型的空间 Markdown 表示网页界面，并学习动作条件下的下一状态预测。作者报告，在其评估中加入 9B 世界模型后，Qwen3.5-35B 智能体的 Online-Mind2Web 成功率从 22.94% 提升至 37.61%。
+
+MKD2World represents web interfaces with Typed Spatial Markdown and learns action-conditioned next-state prediction. The authors report that adding the 9B model raises a Qwen3.5-35B agent’s Online-Mind2Web success from 22.94% to 37.61% in their evaluation.
+
+### 技术点 / Technical points
+
+- TSM 编码元素类型、视觉语义、位置、控件状态及层级。
+  - TSM encodes element types, visual meaning, locations, control states and hierarchy.
+- AtomBlock-WebUI 提供块级与原子级标注；智能体从预测状态中提取任务相关证据。
+  - AtomBlock-WebUI supplies block and atomic annotations; the agent extracts task-relevant evidence from predicted states.
+
+### 为什么重要 / Why it matters
+
+显式空间状态描述为网页智能体提供了一种便于检查的动作前瞻方式。
+
+Explicit spatial state descriptions offer an inspectable route for giving web agents action foresight.
+
+---
+
+<a id="2026-11-04-budgetmix-agent-rl-interaction-budgets"></a>
+## [BudgetMix 通过混合交互预算训练改善智能体的受限执行](https://arxiv.org/abs/2611.06483)
+
+**English:** [BudgetMix trains agentic RL across interaction budgets to improve constrained execution](https://arxiv.org/abs/2611.06483)
+
+- **发布 / Published:** `2026-11-04T13:24:54Z`
+- **来源 / Source:** [BudgetMix authors (arXiv)](https://arxiv.org/abs/2611.06483) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `benchmark`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+研究发现，多轮强化学习的收益依赖可用交互轮数，主要体现在错误恢复，而非每一步决策都得到改善。BudgetMix 在训练时混合轮数预算，论文报告其在不同执行约束下表现更稳健。
+
+The study finds that multi-turn RL gains depend on available interaction turns and concentrate on recovery from mistakes rather than uniformly better individual decisions. BudgetMix varies turn budgets during training and reports more robust results across execution settings.
+
+### 技术点 / Technical points
+
+- Pass@(K,T) 将采样广度与交互深度分开评估。
+  - Pass@(K,T) separates sampling breadth from interaction depth.
+- 严格轮数限制会削弱轨迹级强化学习收益；论文评估了混合预算训练的缓解作用。
+  - Tight turn limits diminish trajectory-level RL gains; training across budgets is evaluated as a mitigation.
+
+### 为什么重要 / Why it matters
+
+智能体评估需要匹配部署预算，不能直接将长轨迹收益外推到短执行过程。
+
+Agent evaluations should match deployment budgets instead of assuming that long-run gains transfer to short executions.
+
+---
+
+<a id="2026-11-04-tencent-hy4-computer-use"></a>
+## [腾讯 Hy4 加入视觉理解与 CLI、GUI 计算机操作能力](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
+
+**English:** [Tencent Hy4 adds visual understanding and CLI/GUI computer use](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
+
+- **发布 / Published:** `2026-11-04T08:06:53Z`
+- **来源 / Source:** [Tencent](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `tool-use`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+腾讯发布 Hy4，加入视觉输入和计算机操作能力，并针对 Blender、CAD 等工作流进行训练。公告称服务已经可用，模型权重与系统卡计划随后发布；此次正式版与八月预览版属于不同事件。
+
+Tencent released Hy4 with visual input and computer-use capabilities, including training on Blender and CAD workflows. The announcement says services are available while weights and system cards are planned for the coming days; this is distinct from the August preview.
+
+### 技术点 / Technical points
+
+- 模型可通过命令行和图形界面执行操作。
+  - The model can act through command-line and graphical interfaces.
+- 腾讯称其针对专业软件的长程任务进行训练；本次公告尚未发布权重。
+  - Tencent reports targeted training for long-horizon professional-software tasks; weights were not yet released in this announcement.
+
+### 为什么重要 / Why it matters
+
+该模型系列由此扩展到视觉软件操作，其可复现性仍取决于后续权重发布。
+
+It extends the model family into visual software operation, with broader reproducibility dependent on the planned weight release.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50383963)
+
+---
+
 <a id="2026-11-03-pyrua-datafarm-agent-generated-robot-demonstrations"></a>
 ## [PyRUA-DataFarm 用编程智能体生成机器人训练示范](https://arxiv.org/abs/2611.05320)
 

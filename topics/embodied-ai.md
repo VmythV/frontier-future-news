@@ -2,6 +2,102 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-04-neo-vla-native-visual-action-policies"></a>
+## [NEO-VLA 让机器人动作生成访问多层视觉计算结果](https://arxiv.org/abs/2611.06918)
+
+**English:** [NEO-VLA lets robot action generation use visual computation at multiple depths](https://arxiv.org/abs/2611.06918)
+
+- **发布 / Published:** `2026-11-04T18:59:58Z`
+- **来源 / Source:** [NEO-VLA authors (arXiv)](https://arxiv.org/abs/2611.06918) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `representation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+NEO-VLA 用轻量图像 token 化和贯穿骨干的视觉语言联合处理，替代固定视觉编码器输出。流匹配动作专家可访问不同深度的指令条件表示；论文的受控比较报告其操作鲁棒性优于编码器式对应模型。
+
+NEO-VLA replaces a fixed visual-encoder endpoint with lightweight image tokenization and joint visual-language processing through the backbone. A flow-matching action expert accesses instruction-conditioned representations at different depths; controlled comparisons report more robust manipulation than encoder-based counterparts.
+
+### 技术点 / Technical points
+
+- 图像通过图像块卷积进入模型，而非先经独立视觉编码器。
+  - Images enter through patch convolutions rather than a separate visual encoder.
+- 逐层探测发现，动作关键线索常在最终视觉表示之前达到峰值。
+  - Layer probes find that action-critical signals often peak before the final visual representation.
+
+### 为什么重要 / Why it matters
+
+该工作重新检验单一压缩视觉输出是否适合作为感知与机器人控制之间的接口。
+
+It questions whether a single compressed visual output is the right interface between perception and robot control.
+
+---
+
+<a id="2026-11-04-halo-procedural-homes-humanoid-transfer"></a>
+## [HALO 利用千个程序化住宅中的合成数据训练感知型人形技能](https://arxiv.org/abs/2611.06908)
+
+**English:** [HALO trains perceptive humanoid skills with data synthesized in 1,000 homes](https://arxiv.org/abs/2611.06908)
+
+- **发布 / Published:** `2026-11-04T18:55:33Z`
+- **来源 / Source:** [HALO authors (arXiv)](https://arxiv.org/abs/2611.06908) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `simulation`, `sim-to-real`, `synthetic-data`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+HALO 在 1,000 个程序化住宅中合成视觉、语言与运动训练数据，并组合学得的全身技能。作者报告，在六个未见真实环境的 360 次试验中成功率为 91%，训练未使用真实住宅；结果范围限于所测试的技能与环境。
+
+HALO synthesizes vision-language-motion training data in 1,000 procedural homes and composes learned whole-body skills. The authors report 91% success in 360 trials across six unseen real environments, with no real homes used during training; the result concerns the tested skills and environments.
+
+### 技术点 / Technical points
+
+- 技能包括坐下、向指定物体导航、穿过半开门、蹲伏、爬行和推箱。
+  - Skills include sitting, object-directed navigation, passing half-open doors, crouching, crawling and pushing boxes.
+- 系统组合技能处理更长任务，并研究从仿真到物理部署的迁移。
+  - The system composes skills for longer tasks and studies transfer from simulation to physical deployment.
+
+### 为什么重要 / Why it matters
+
+程序化配对数据提供了扩展人形机器人训练的方法，无需按比例增加人工遥操作时间。
+
+Procedural paired data offers a way to expand humanoid training without proportional growth in human teleoperation time.
+
+---
+
+<a id="2026-11-04-pyrua-real-persistent-robot-skills"></a>
+## [PyRUA-REAL 将真实探索转化为持久记忆和可执行机器人技能](https://arxiv.org/abs/2611.06768)
+
+**English:** [PyRUA-REAL turns physical exploration into persistent memory and executable robot skills](https://arxiv.org/abs/2611.06768)
+
+- **发布 / Published:** `2026-11-04T16:46:03Z`
+- **来源 / Source:** [PyRUA-REAL authors (arXiv)](https://arxiv.org/abs/2611.06768) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `code-generation`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PyRUA-REAL 研究编程智能体如何利用真实交互、保留的经验和可复用技能改进机器人程序。作者报告，八项实机任务平均成功率为 91.1%，42 项 RoboDojo 任务为 84.4%；生成的程序可在部署时脱离在线决策智能体运行。
+
+PyRUA-REAL studies coding agents that refine robot programs using real-world interaction, retained experience and reusable skills. The authors report 91.1% average success on eight physical tasks and 84.4% across 42 RoboDojo tasks; deployment can use the resulting programs without an online decision-making agent.
+
+### 技术点 / Technical points
+
+- 物理执行反馈用于指导探索和代码改进。
+  - Physical execution feedback guides exploration and code refinement.
+- 交互历史以记忆及可复用程序的形式保留，为后续任务提供支持。
+  - Interaction history persists as memory and reusable programs that support later tasks.
+
+### 为什么重要 / Why it matters
+
+该工作检验智能体驱动的机器人探索能否形成在探索结束后仍可使用的能力。
+
+It examines whether agent-driven robot exploration produces capabilities that remain useful after the exploration loop ends.
+
+---
+
 <a id="2026-11-03-dreamx-transferable-latent-actions"></a>
 ## [DreamX 学习可在人与机器人之间迁移的紧凑动作表征](https://arxiv.org/abs/2611.05377)
 

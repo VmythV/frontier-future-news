@@ -21626,6 +21626,460 @@
         "technical_depth": 13,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-04-tencent-hy4-computer-use",
+      "published_at": "2026-11-04T08:06:53Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "tool-use",
+        "reasoning"
+      ],
+      "title_en": "Tencent Hy4 adds visual understanding and CLI/GUI computer use",
+      "title_zh": "腾讯 Hy4 加入视觉理解与 CLI、GUI 计算机操作能力",
+      "summary_en": "Tencent released Hy4 with visual input and computer-use capabilities, including training on Blender and CAD workflows. The announcement says services are available while weights and system cards are planned for the coming days; this is distinct from the August preview.",
+      "summary_zh": "腾讯发布 Hy4，加入视觉输入和计算机操作能力，并针对 Blender、CAD 等工作流进行训练。公告称服务已经可用，模型权重与系统卡计划随后发布；此次正式版与八月预览版属于不同事件。",
+      "tech_points_en": [
+        "The model can act through command-line and graphical interfaces.",
+        "Tencent reports targeted training for long-horizon professional-software tasks; weights were not yet released in this announcement."
+      ],
+      "tech_points_zh": [
+        "模型可通过命令行和图形界面执行操作。",
+        "腾讯称其针对专业软件的长程任务进行训练；本次公告尚未发布权重。"
+      ],
+      "why_it_matters_en": "It extends the model family into visual software operation, with broader reproducibility dependent on the planned weight release.",
+      "why_it_matters_zh": "该模型系列由此扩展到视觉软件操作，其可复现性仍取决于后续权重发布。",
+      "source": {
+        "name": "Tencent",
+        "type": "primary",
+        "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50383963"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 11,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-04-budgetmix-agent-rl-interaction-budgets",
+      "published_at": "2026-11-04T13:24:54Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "reinforcement-learning",
+        "benchmark",
+        "reasoning"
+      ],
+      "title_en": "BudgetMix trains agentic RL across interaction budgets to improve constrained execution",
+      "title_zh": "BudgetMix 通过混合交互预算训练改善智能体的受限执行",
+      "summary_en": "The study finds that multi-turn RL gains depend on available interaction turns and concentrate on recovery from mistakes rather than uniformly better individual decisions. BudgetMix varies turn budgets during training and reports more robust results across execution settings.",
+      "summary_zh": "研究发现，多轮强化学习的收益依赖可用交互轮数，主要体现在错误恢复，而非每一步决策都得到改善。BudgetMix 在训练时混合轮数预算，论文报告其在不同执行约束下表现更稳健。",
+      "tech_points_en": [
+        "Pass@(K,T) separates sampling breadth from interaction depth.",
+        "Tight turn limits diminish trajectory-level RL gains; training across budgets is evaluated as a mitigation."
+      ],
+      "tech_points_zh": [
+        "Pass@(K,T) 将采样广度与交互深度分开评估。",
+        "严格轮数限制会削弱轨迹级强化学习收益；论文评估了混合预算训练的缓解作用。"
+      ],
+      "why_it_matters_en": "Agent evaluations should match deployment budgets instead of assuming that long-run gains transfer to short executions.",
+      "why_it_matters_zh": "智能体评估需要匹配部署预算，不能直接将长轨迹收益外推到短执行过程。",
+      "source": {
+        "name": "BudgetMix authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06483",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-mkd2world-spatial-markdown-web-foresight",
+      "published_at": "2026-11-04T14:11:56Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents",
+        "world-models"
+      ],
+      "tags": [
+        "computer-use",
+        "world-model",
+        "spatial-intelligence",
+        "benchmark"
+      ],
+      "title_en": "MKD2World predicts web-interface states through typed spatial Markdown",
+      "title_zh": "MKD2World 以带类型的空间 Markdown 预测网页界面状态",
+      "summary_en": "MKD2World represents web interfaces with Typed Spatial Markdown and learns action-conditioned next-state prediction. The authors report that adding the 9B model raises a Qwen3.5-35B agent’s Online-Mind2Web success from 22.94% to 37.61% in their evaluation.",
+      "summary_zh": "MKD2World 以带类型的空间 Markdown 表示网页界面，并学习动作条件下的下一状态预测。作者报告，在其评估中加入 9B 世界模型后，Qwen3.5-35B 智能体的 Online-Mind2Web 成功率从 22.94% 提升至 37.61%。",
+      "tech_points_en": [
+        "TSM encodes element types, visual meaning, locations, control states and hierarchy.",
+        "AtomBlock-WebUI supplies block and atomic annotations; the agent extracts task-relevant evidence from predicted states."
+      ],
+      "tech_points_zh": [
+        "TSM 编码元素类型、视觉语义、位置、控件状态及层级。",
+        "AtomBlock-WebUI 提供块级与原子级标注；智能体从预测状态中提取任务相关证据。"
+      ],
+      "why_it_matters_en": "Explicit spatial state descriptions offer an inspectable route for giving web agents action foresight.",
+      "why_it_matters_zh": "显式空间状态描述为网页智能体提供了一种便于检查的动作前瞻方式。",
+      "source": {
+        "name": "MKD2World authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06544",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-pyrua-real-persistent-robot-skills",
+      "published_at": "2026-11-04T16:46:03Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "memory",
+        "code-generation",
+        "self-improvement"
+      ],
+      "title_en": "PyRUA-REAL turns physical exploration into persistent memory and executable robot skills",
+      "title_zh": "PyRUA-REAL 将真实探索转化为持久记忆和可执行机器人技能",
+      "summary_en": "PyRUA-REAL studies coding agents that refine robot programs using real-world interaction, retained experience and reusable skills. The authors report 91.1% average success on eight physical tasks and 84.4% across 42 RoboDojo tasks; deployment can use the resulting programs without an online decision-making agent.",
+      "summary_zh": "PyRUA-REAL 研究编程智能体如何利用真实交互、保留的经验和可复用技能改进机器人程序。作者报告，八项实机任务平均成功率为 91.1%，42 项 RoboDojo 任务为 84.4%；生成的程序可在部署时脱离在线决策智能体运行。",
+      "tech_points_en": [
+        "Physical execution feedback guides exploration and code refinement.",
+        "Interaction history persists as memory and reusable programs that support later tasks."
+      ],
+      "tech_points_zh": [
+        "物理执行反馈用于指导探索和代码改进。",
+        "交互历史以记忆及可复用程序的形式保留，为后续任务提供支持。"
+      ],
+      "why_it_matters_en": "It examines whether agent-driven robot exploration produces capabilities that remain useful after the exploration loop ends.",
+      "why_it_matters_zh": "该工作检验智能体驱动的机器人探索能否形成在探索结束后仍可使用的能力。",
+      "source": {
+        "name": "PyRUA-REAL authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06768",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-serverbench-agent-designed-llm-serving",
+      "published_at": "2026-11-04T17:59:07Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding-agent",
+        "systems",
+        "verification"
+      ],
+      "title_en": "ServerBench tests coding agents on complete, independently verified LLM serving systems",
+      "title_zh": "ServerBench 评估编程智能体构建完整且独立核验的模型服务系统",
+      "summary_en": "ServerBench asks agents to optimize serving systems under latency, session and correctness constraints. Across 11 agent models and three deployments, 22 of 33 runs produce verified systems and 13 beat the strongest baseline, according to the paper.",
+      "summary_zh": "ServerBench 要求智能体在延迟、会话依赖和正确性约束下优化模型服务系统。论文报告，在 11 种智能体模型、三种部署配置的 33 次运行中，22 次生成的系统通过核验，其中 13 次超过最强基线。",
+      "tech_points_en": [
+        "The objective measures latency-qualified token value per dollar of GPU cost.",
+        "Stateful workload replay preserves session dependencies and an independent verifier checks submissions."
+      ],
+      "tech_points_zh": [
+        "优化目标衡量每美元 GPU 成本所产生的满足延迟要求的 token 价值。",
+        "有状态负载回放保留会话依赖，并由独立验证器检查提交系统。"
+      ],
+      "why_it_matters_en": "It evaluates useful infrastructure optimization together with correctness, exposing a gap between fast experiments and reliable delivery.",
+      "why_it_matters_zh": "该基准同时衡量基础设施优化价值与正确性，揭示快速实验与可靠交付之间的差距。",
+      "source": {
+        "name": "ServerBench authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06841",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-speccompact-slot-parallel-compaction",
+      "published_at": "2026-11-04T18:34:41Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "context-compaction",
+        "inference",
+        "speculative-decoding",
+        "benchmark"
+      ],
+      "title_en": "SpecCompact accelerates agent context compaction with parallel summary slots",
+      "title_zh": "SpecCompact 通过并行摘要槽位加速智能体上下文压缩",
+      "summary_en": "SpecCompact uses a small drafting model to propose structured summary slots in parallel, then a target model verifies and repairs individual lines. The paper reports 2.04–5.63× compaction speedups on AppWorld and τ³ settings, with downstream performance varying by model and task.",
+      "summary_zh": "SpecCompact 用小型草稿模型并行生成结构化摘要槽位，再由目标模型逐行核验和修复。论文在 AppWorld 与 τ³ 设置中报告 2.04—5.63 倍的压缩加速，同时指出下游任务表现随模型和任务而变化。",
+      "tech_points_en": [
+        "Subsequent drafting conditions on updated slot prefixes after verification.",
+        "System optimizations reduce repeated context processing; a Hermes user study reports an 8.68× median compaction speedup."
+      ],
+      "tech_points_zh": [
+        "核验后的槽位前缀会用于后续草稿生成。",
+        "系统优化减少重复上下文处理；Hermes 用户研究报告压缩速度中位数提升 8.68 倍。"
+      ],
+      "why_it_matters_en": "It targets the pauses caused by memory maintenance while making the latency–task-performance tradeoff explicit.",
+      "why_it_matters_zh": "该工作针对记忆维护造成的等待，并明确呈现延迟与任务表现之间的权衡。",
+      "source": {
+        "name": "SpecCompact authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06876",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-halo-procedural-homes-humanoid-transfer",
+      "published_at": "2026-11-04T18:55:33Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid",
+        "simulation",
+        "sim-to-real",
+        "synthetic-data"
+      ],
+      "title_en": "HALO trains perceptive humanoid skills with data synthesized in 1,000 homes",
+      "title_zh": "HALO 利用千个程序化住宅中的合成数据训练感知型人形技能",
+      "summary_en": "HALO synthesizes vision-language-motion training data in 1,000 procedural homes and composes learned whole-body skills. The authors report 91% success in 360 trials across six unseen real environments, with no real homes used during training; the result concerns the tested skills and environments.",
+      "summary_zh": "HALO 在 1,000 个程序化住宅中合成视觉、语言与运动训练数据，并组合学得的全身技能。作者报告，在六个未见真实环境的 360 次试验中成功率为 91%，训练未使用真实住宅；结果范围限于所测试的技能与环境。",
+      "tech_points_en": [
+        "Skills include sitting, object-directed navigation, passing half-open doors, crouching, crawling and pushing boxes.",
+        "The system composes skills for longer tasks and studies transfer from simulation to physical deployment."
+      ],
+      "tech_points_zh": [
+        "技能包括坐下、向指定物体导航、穿过半开门、蹲伏、爬行和推箱。",
+        "系统组合技能处理更长任务，并研究从仿真到物理部署的迁移。"
+      ],
+      "why_it_matters_en": "Procedural paired data offers a way to expand humanoid training without proportional growth in human teleoperation time.",
+      "why_it_matters_zh": "程序化配对数据提供了扩展人形机器人训练的方法，无需按比例增加人工遥操作时间。",
+      "source": {
+        "name": "HALO authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06908",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-frontierphysics-end-to-end-research-benchmark",
+      "published_at": "2026-11-04T18:56:22Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "scientific-discovery",
+        "evaluation",
+        "reasoning"
+      ],
+      "title_en": "FrontierPhysics tests agents on complete research workflows across nine physics domains",
+      "title_zh": "FrontierPhysics 在九个物理领域评估智能体的完整科研流程",
+      "summary_en": "FrontierPhysics contains 56 research tasks designed by 42 physicists and requires literature review, planning, experiments and manuscripts. Across 22 models in 26 configurations, the best configuration passes 46 of 168 rollouts; the authors identify weak rigor and expert intuition as recurring limitations.",
+      "summary_zh": "FrontierPhysics 包含 42 位物理学家设计的 56 项研究任务，要求完成文献调研、规划、实验及论文产出。在 22 种模型、26 种配置中，最佳配置通过 168 次运行中的 46 次；作者将严谨性不足与专家直觉有限归纳为常见短板。",
+      "tech_points_en": [
+        "Tasks span nine theoretical, computational and experimental physics domains.",
+        "Scoring combines deterministic checks with expert-written rubrics to assess correctness and research quality."
+      ],
+      "tech_points_zh": [
+        "任务覆盖理论、计算和实验物理的九个领域。",
+        "评分结合确定性检查与专家编写的量表，兼顾正确性和研究质量。"
+      ],
+      "why_it_matters_en": "It tests whether research agents can integrate an entire scientific workflow rather than solve isolated physics questions.",
+      "why_it_matters_zh": "该基准检验科研智能体能否整合完整科学工作流，而不只回答孤立的物理问题。",
+      "source": {
+        "name": "FrontierPhysics authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06910",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-04-neo-vla-native-visual-action-policies",
+      "published_at": "2026-11-04T18:59:58Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "robotics",
+        "representation-learning",
+        "manipulation"
+      ],
+      "title_en": "NEO-VLA lets robot action generation use visual computation at multiple depths",
+      "title_zh": "NEO-VLA 让机器人动作生成访问多层视觉计算结果",
+      "summary_en": "NEO-VLA replaces a fixed visual-encoder endpoint with lightweight image tokenization and joint visual-language processing through the backbone. A flow-matching action expert accesses instruction-conditioned representations at different depths; controlled comparisons report more robust manipulation than encoder-based counterparts.",
+      "summary_zh": "NEO-VLA 用轻量图像 token 化和贯穿骨干的视觉语言联合处理，替代固定视觉编码器输出。流匹配动作专家可访问不同深度的指令条件表示；论文的受控比较报告其操作鲁棒性优于编码器式对应模型。",
+      "tech_points_en": [
+        "Images enter through patch convolutions rather than a separate visual encoder.",
+        "Layer probes find that action-critical signals often peak before the final visual representation."
+      ],
+      "tech_points_zh": [
+        "图像通过图像块卷积进入模型，而非先经独立视觉编码器。",
+        "逐层探测发现，动作关键线索常在最终视觉表示之前达到峰值。"
+      ],
+      "why_it_matters_en": "It questions whether a single compressed visual output is the right interface between perception and robot control.",
+      "why_it_matters_zh": "该工作重新检验单一压缩视觉输出是否适合作为感知与机器人控制之间的接口。",
+      "source": {
+        "name": "NEO-VLA authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.06918",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-microsoft-pdd-kit-formal-agent-code-verification",
+      "published_at": "2026-11-05T16:00:00Z",
+      "collected_at": "2026-11-06T00:04:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "formal-verification",
+        "reliability",
+        "tool-use"
+      ],
+      "title_en": "Microsoft demonstrates PDD Kit verifying agent-written web-app login logic",
+      "title_zh": "微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证",
+      "summary_en": "Microsoft Research demonstrates PDD Kit translating reviewed intent into Verus specifications and checking agent-generated Rust code. Its Pet Store example verifies login logic, with explicit trusted assumptions and tests for components outside the proof boundary; it does not establish correctness of the entire application.",
+      "summary_zh": "微软研究院展示 PDD Kit 将经过审阅的意图转换为 Verus 规范，并检查智能体生成的 Rust 代码。Pet Store 示例验证登录逻辑，明确列出可信假设，并对证明边界之外的组件使用测试；这不代表整个应用都已证明正确。",
+      "tech_points_en": [
+        "The workflow links user requirements, formal contracts, machine-checked proofs and empirical checks.",
+        "Database access, password hashing, signing and clock behavior remain explicit trusted dependencies."
+      ],
+      "tech_points_zh": [
+        "工作流串联用户需求、形式化契约、机器检查证明与经验验证。",
+        "数据库访问、密码哈希、签名及时钟行为仍属于明确列出的可信依赖。"
+      ],
+      "why_it_matters_en": "It shows how coding-agent review can focus on intended properties and proof assumptions while tools check specified implementation behavior.",
+      "why_it_matters_zh": "该示例展示了如何让编程智能体审阅聚焦预期属性及证明假设，并由工具检查规范所覆盖的实现行为。",
+      "source": {
+        "name": "Microsoft Research",
+        "type": "primary",
+        "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50386024"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
     }
   ]
 }

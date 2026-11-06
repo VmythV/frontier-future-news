@@ -2,6 +2,38 @@
 
 # World models / 世界模型
 
+<a id="2026-11-04-mkd2world-spatial-markdown-web-foresight"></a>
+## [MKD2World 以带类型的空间 Markdown 预测网页界面状态](https://arxiv.org/abs/2611.06544)
+
+**English:** [MKD2World predicts web-interface states through typed spatial Markdown](https://arxiv.org/abs/2611.06544)
+
+- **发布 / Published:** `2026-11-04T14:11:56Z`
+- **来源 / Source:** [MKD2World authors (arXiv)](https://arxiv.org/abs/2611.06544) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `computer-use`, `world-model`, `spatial-intelligence`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MKD2World 以带类型的空间 Markdown 表示网页界面，并学习动作条件下的下一状态预测。作者报告，在其评估中加入 9B 世界模型后，Qwen3.5-35B 智能体的 Online-Mind2Web 成功率从 22.94% 提升至 37.61%。
+
+MKD2World represents web interfaces with Typed Spatial Markdown and learns action-conditioned next-state prediction. The authors report that adding the 9B model raises a Qwen3.5-35B agent’s Online-Mind2Web success from 22.94% to 37.61% in their evaluation.
+
+### 技术点 / Technical points
+
+- TSM 编码元素类型、视觉语义、位置、控件状态及层级。
+  - TSM encodes element types, visual meaning, locations, control states and hierarchy.
+- AtomBlock-WebUI 提供块级与原子级标注；智能体从预测状态中提取任务相关证据。
+  - AtomBlock-WebUI supplies block and atomic annotations; the agent extracts task-relevant evidence from predicted states.
+
+### 为什么重要 / Why it matters
+
+显式空间状态描述为网页智能体提供了一种便于检查的动作前瞻方式。
+
+Explicit spatial state descriptions offer an inspectable route for giving web agents action foresight.
+
+---
+
 <a id="2026-11-03-hilo-wam-multiscale-world-action-model"></a>
 ## [HiLo-WAM 分别建模长期任务演化与局部交互](https://arxiv.org/abs/2611.05023)
 

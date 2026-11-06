@@ -2,6 +2,334 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-05-microsoft-pdd-kit-formal-agent-code-verification"></a>
+## [微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
+
+**English:** [Microsoft demonstrates PDD Kit verifying agent-written web-app login logic](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
+
+- **发布 / Published:** `2026-11-05T16:00:00Z`
+- **来源 / Source:** [Microsoft Research](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `formal-verification`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+微软研究院展示 PDD Kit 将经过审阅的意图转换为 Verus 规范，并检查智能体生成的 Rust 代码。Pet Store 示例验证登录逻辑，明确列出可信假设，并对证明边界之外的组件使用测试；这不代表整个应用都已证明正确。
+
+Microsoft Research demonstrates PDD Kit translating reviewed intent into Verus specifications and checking agent-generated Rust code. Its Pet Store example verifies login logic, with explicit trusted assumptions and tests for components outside the proof boundary; it does not establish correctness of the entire application.
+
+### 技术点 / Technical points
+
+- 工作流串联用户需求、形式化契约、机器检查证明与经验验证。
+  - The workflow links user requirements, formal contracts, machine-checked proofs and empirical checks.
+- 数据库访问、密码哈希、签名及时钟行为仍属于明确列出的可信依赖。
+  - Database access, password hashing, signing and clock behavior remain explicit trusted dependencies.
+
+### 为什么重要 / Why it matters
+
+该示例展示了如何让编程智能体审阅聚焦预期属性及证明假设，并由工具检查规范所覆盖的实现行为。
+
+It shows how coding-agent review can focus on intended properties and proof assumptions while tools check specified implementation behavior.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50386024)
+
+---
+
+<a id="2026-11-04-neo-vla-native-visual-action-policies"></a>
+## [NEO-VLA 让机器人动作生成访问多层视觉计算结果](https://arxiv.org/abs/2611.06918)
+
+**English:** [NEO-VLA lets robot action generation use visual computation at multiple depths](https://arxiv.org/abs/2611.06918)
+
+- **发布 / Published:** `2026-11-04T18:59:58Z`
+- **来源 / Source:** [NEO-VLA authors (arXiv)](https://arxiv.org/abs/2611.06918) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `representation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+NEO-VLA 用轻量图像 token 化和贯穿骨干的视觉语言联合处理，替代固定视觉编码器输出。流匹配动作专家可访问不同深度的指令条件表示；论文的受控比较报告其操作鲁棒性优于编码器式对应模型。
+
+NEO-VLA replaces a fixed visual-encoder endpoint with lightweight image tokenization and joint visual-language processing through the backbone. A flow-matching action expert accesses instruction-conditioned representations at different depths; controlled comparisons report more robust manipulation than encoder-based counterparts.
+
+### 技术点 / Technical points
+
+- 图像通过图像块卷积进入模型，而非先经独立视觉编码器。
+  - Images enter through patch convolutions rather than a separate visual encoder.
+- 逐层探测发现，动作关键线索常在最终视觉表示之前达到峰值。
+  - Layer probes find that action-critical signals often peak before the final visual representation.
+
+### 为什么重要 / Why it matters
+
+该工作重新检验单一压缩视觉输出是否适合作为感知与机器人控制之间的接口。
+
+It questions whether a single compressed visual output is the right interface between perception and robot control.
+
+---
+
+<a id="2026-11-04-frontierphysics-end-to-end-research-benchmark"></a>
+## [FrontierPhysics 在九个物理领域评估智能体的完整科研流程](https://arxiv.org/abs/2611.06910)
+
+**English:** [FrontierPhysics tests agents on complete research workflows across nine physics domains](https://arxiv.org/abs/2611.06910)
+
+- **发布 / Published:** `2026-11-04T18:56:22Z`
+- **来源 / Source:** [FrontierPhysics authors (arXiv)](https://arxiv.org/abs/2611.06910) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `scientific-discovery`, `evaluation`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+FrontierPhysics 包含 42 位物理学家设计的 56 项研究任务，要求完成文献调研、规划、实验及论文产出。在 22 种模型、26 种配置中，最佳配置通过 168 次运行中的 46 次；作者将严谨性不足与专家直觉有限归纳为常见短板。
+
+FrontierPhysics contains 56 research tasks designed by 42 physicists and requires literature review, planning, experiments and manuscripts. Across 22 models in 26 configurations, the best configuration passes 46 of 168 rollouts; the authors identify weak rigor and expert intuition as recurring limitations.
+
+### 技术点 / Technical points
+
+- 任务覆盖理论、计算和实验物理的九个领域。
+  - Tasks span nine theoretical, computational and experimental physics domains.
+- 评分结合确定性检查与专家编写的量表，兼顾正确性和研究质量。
+  - Scoring combines deterministic checks with expert-written rubrics to assess correctness and research quality.
+
+### 为什么重要 / Why it matters
+
+该基准检验科研智能体能否整合完整科学工作流，而不只回答孤立的物理问题。
+
+It tests whether research agents can integrate an entire scientific workflow rather than solve isolated physics questions.
+
+---
+
+<a id="2026-11-04-halo-procedural-homes-humanoid-transfer"></a>
+## [HALO 利用千个程序化住宅中的合成数据训练感知型人形技能](https://arxiv.org/abs/2611.06908)
+
+**English:** [HALO trains perceptive humanoid skills with data synthesized in 1,000 homes](https://arxiv.org/abs/2611.06908)
+
+- **发布 / Published:** `2026-11-04T18:55:33Z`
+- **来源 / Source:** [HALO authors (arXiv)](https://arxiv.org/abs/2611.06908) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `simulation`, `sim-to-real`, `synthetic-data`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+HALO 在 1,000 个程序化住宅中合成视觉、语言与运动训练数据，并组合学得的全身技能。作者报告，在六个未见真实环境的 360 次试验中成功率为 91%，训练未使用真实住宅；结果范围限于所测试的技能与环境。
+
+HALO synthesizes vision-language-motion training data in 1,000 procedural homes and composes learned whole-body skills. The authors report 91% success in 360 trials across six unseen real environments, with no real homes used during training; the result concerns the tested skills and environments.
+
+### 技术点 / Technical points
+
+- 技能包括坐下、向指定物体导航、穿过半开门、蹲伏、爬行和推箱。
+  - Skills include sitting, object-directed navigation, passing half-open doors, crouching, crawling and pushing boxes.
+- 系统组合技能处理更长任务，并研究从仿真到物理部署的迁移。
+  - The system composes skills for longer tasks and studies transfer from simulation to physical deployment.
+
+### 为什么重要 / Why it matters
+
+程序化配对数据提供了扩展人形机器人训练的方法，无需按比例增加人工遥操作时间。
+
+Procedural paired data offers a way to expand humanoid training without proportional growth in human teleoperation time.
+
+---
+
+<a id="2026-11-04-speccompact-slot-parallel-compaction"></a>
+## [SpecCompact 通过并行摘要槽位加速智能体上下文压缩](https://arxiv.org/abs/2611.06876)
+
+**English:** [SpecCompact accelerates agent context compaction with parallel summary slots](https://arxiv.org/abs/2611.06876)
+
+- **发布 / Published:** `2026-11-04T18:34:41Z`
+- **来源 / Source:** [SpecCompact authors (arXiv)](https://arxiv.org/abs/2611.06876) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `context-compaction`, `inference`, `speculative-decoding`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+SpecCompact 用小型草稿模型并行生成结构化摘要槽位，再由目标模型逐行核验和修复。论文在 AppWorld 与 τ³ 设置中报告 2.04—5.63 倍的压缩加速，同时指出下游任务表现随模型和任务而变化。
+
+SpecCompact uses a small drafting model to propose structured summary slots in parallel, then a target model verifies and repairs individual lines. The paper reports 2.04–5.63× compaction speedups on AppWorld and τ³ settings, with downstream performance varying by model and task.
+
+### 技术点 / Technical points
+
+- 核验后的槽位前缀会用于后续草稿生成。
+  - Subsequent drafting conditions on updated slot prefixes after verification.
+- 系统优化减少重复上下文处理；Hermes 用户研究报告压缩速度中位数提升 8.68 倍。
+  - System optimizations reduce repeated context processing; a Hermes user study reports an 8.68× median compaction speedup.
+
+### 为什么重要 / Why it matters
+
+该工作针对记忆维护造成的等待，并明确呈现延迟与任务表现之间的权衡。
+
+It targets the pauses caused by memory maintenance while making the latency–task-performance tradeoff explicit.
+
+---
+
+<a id="2026-11-04-serverbench-agent-designed-llm-serving"></a>
+## [ServerBench 评估编程智能体构建完整且独立核验的模型服务系统](https://arxiv.org/abs/2611.06841)
+
+**English:** [ServerBench tests coding agents on complete, independently verified LLM serving systems](https://arxiv.org/abs/2611.06841)
+
+- **发布 / Published:** `2026-11-04T17:59:07Z`
+- **来源 / Source:** [ServerBench authors (arXiv)](https://arxiv.org/abs/2611.06841) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agent`, `systems`, `verification`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ServerBench 要求智能体在延迟、会话依赖和正确性约束下优化模型服务系统。论文报告，在 11 种智能体模型、三种部署配置的 33 次运行中，22 次生成的系统通过核验，其中 13 次超过最强基线。
+
+ServerBench asks agents to optimize serving systems under latency, session and correctness constraints. Across 11 agent models and three deployments, 22 of 33 runs produce verified systems and 13 beat the strongest baseline, according to the paper.
+
+### 技术点 / Technical points
+
+- 优化目标衡量每美元 GPU 成本所产生的满足延迟要求的 token 价值。
+  - The objective measures latency-qualified token value per dollar of GPU cost.
+- 有状态负载回放保留会话依赖，并由独立验证器检查提交系统。
+  - Stateful workload replay preserves session dependencies and an independent verifier checks submissions.
+
+### 为什么重要 / Why it matters
+
+该基准同时衡量基础设施优化价值与正确性，揭示快速实验与可靠交付之间的差距。
+
+It evaluates useful infrastructure optimization together with correctness, exposing a gap between fast experiments and reliable delivery.
+
+---
+
+<a id="2026-11-04-pyrua-real-persistent-robot-skills"></a>
+## [PyRUA-REAL 将真实探索转化为持久记忆和可执行机器人技能](https://arxiv.org/abs/2611.06768)
+
+**English:** [PyRUA-REAL turns physical exploration into persistent memory and executable robot skills](https://arxiv.org/abs/2611.06768)
+
+- **发布 / Published:** `2026-11-04T16:46:03Z`
+- **来源 / Source:** [PyRUA-REAL authors (arXiv)](https://arxiv.org/abs/2611.06768) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `code-generation`, `self-improvement`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PyRUA-REAL 研究编程智能体如何利用真实交互、保留的经验和可复用技能改进机器人程序。作者报告，八项实机任务平均成功率为 91.1%，42 项 RoboDojo 任务为 84.4%；生成的程序可在部署时脱离在线决策智能体运行。
+
+PyRUA-REAL studies coding agents that refine robot programs using real-world interaction, retained experience and reusable skills. The authors report 91.1% average success on eight physical tasks and 84.4% across 42 RoboDojo tasks; deployment can use the resulting programs without an online decision-making agent.
+
+### 技术点 / Technical points
+
+- 物理执行反馈用于指导探索和代码改进。
+  - Physical execution feedback guides exploration and code refinement.
+- 交互历史以记忆及可复用程序的形式保留，为后续任务提供支持。
+  - Interaction history persists as memory and reusable programs that support later tasks.
+
+### 为什么重要 / Why it matters
+
+该工作检验智能体驱动的机器人探索能否形成在探索结束后仍可使用的能力。
+
+It examines whether agent-driven robot exploration produces capabilities that remain useful after the exploration loop ends.
+
+---
+
+<a id="2026-11-04-mkd2world-spatial-markdown-web-foresight"></a>
+## [MKD2World 以带类型的空间 Markdown 预测网页界面状态](https://arxiv.org/abs/2611.06544)
+
+**English:** [MKD2World predicts web-interface states through typed spatial Markdown](https://arxiv.org/abs/2611.06544)
+
+- **发布 / Published:** `2026-11-04T14:11:56Z`
+- **来源 / Source:** [MKD2World authors (arXiv)](https://arxiv.org/abs/2611.06544) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `computer-use`, `world-model`, `spatial-intelligence`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MKD2World 以带类型的空间 Markdown 表示网页界面，并学习动作条件下的下一状态预测。作者报告，在其评估中加入 9B 世界模型后，Qwen3.5-35B 智能体的 Online-Mind2Web 成功率从 22.94% 提升至 37.61%。
+
+MKD2World represents web interfaces with Typed Spatial Markdown and learns action-conditioned next-state prediction. The authors report that adding the 9B model raises a Qwen3.5-35B agent’s Online-Mind2Web success from 22.94% to 37.61% in their evaluation.
+
+### 技术点 / Technical points
+
+- TSM 编码元素类型、视觉语义、位置、控件状态及层级。
+  - TSM encodes element types, visual meaning, locations, control states and hierarchy.
+- AtomBlock-WebUI 提供块级与原子级标注；智能体从预测状态中提取任务相关证据。
+  - AtomBlock-WebUI supplies block and atomic annotations; the agent extracts task-relevant evidence from predicted states.
+
+### 为什么重要 / Why it matters
+
+显式空间状态描述为网页智能体提供了一种便于检查的动作前瞻方式。
+
+Explicit spatial state descriptions offer an inspectable route for giving web agents action foresight.
+
+---
+
+<a id="2026-11-04-budgetmix-agent-rl-interaction-budgets"></a>
+## [BudgetMix 通过混合交互预算训练改善智能体的受限执行](https://arxiv.org/abs/2611.06483)
+
+**English:** [BudgetMix trains agentic RL across interaction budgets to improve constrained execution](https://arxiv.org/abs/2611.06483)
+
+- **发布 / Published:** `2026-11-04T13:24:54Z`
+- **来源 / Source:** [BudgetMix authors (arXiv)](https://arxiv.org/abs/2611.06483) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `benchmark`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+研究发现，多轮强化学习的收益依赖可用交互轮数，主要体现在错误恢复，而非每一步决策都得到改善。BudgetMix 在训练时混合轮数预算，论文报告其在不同执行约束下表现更稳健。
+
+The study finds that multi-turn RL gains depend on available interaction turns and concentrate on recovery from mistakes rather than uniformly better individual decisions. BudgetMix varies turn budgets during training and reports more robust results across execution settings.
+
+### 技术点 / Technical points
+
+- Pass@(K,T) 将采样广度与交互深度分开评估。
+  - Pass@(K,T) separates sampling breadth from interaction depth.
+- 严格轮数限制会削弱轨迹级强化学习收益；论文评估了混合预算训练的缓解作用。
+  - Tight turn limits diminish trajectory-level RL gains; training across budgets is evaluated as a mitigation.
+
+### 为什么重要 / Why it matters
+
+智能体评估需要匹配部署预算，不能直接将长轨迹收益外推到短执行过程。
+
+Agent evaluations should match deployment budgets instead of assuming that long-run gains transfer to short executions.
+
+---
+
+<a id="2026-11-04-tencent-hy4-computer-use"></a>
+## [腾讯 Hy4 加入视觉理解与 CLI、GUI 计算机操作能力](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
+
+**English:** [Tencent Hy4 adds visual understanding and CLI/GUI computer use](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
+
+- **发布 / Published:** `2026-11-04T08:06:53Z`
+- **来源 / Source:** [Tencent](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `tool-use`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+腾讯发布 Hy4，加入视觉输入和计算机操作能力，并针对 Blender、CAD 等工作流进行训练。公告称服务已经可用，模型权重与系统卡计划随后发布；此次正式版与八月预览版属于不同事件。
+
+Tencent released Hy4 with visual input and computer-use capabilities, including training on Blender and CAD workflows. The announcement says services are available while weights and system cards are planned for the coming days; this is distinct from the August preview.
+
+### 技术点 / Technical points
+
+- 模型可通过命令行和图形界面执行操作。
+  - The model can act through command-line and graphical interfaces.
+- 腾讯称其针对专业软件的长程任务进行训练；本次公告尚未发布权重。
+  - Tencent reports targeted training for long-horizon professional-software tasks; weights were not yet released in this announcement.
+
+### 为什么重要 / Why it matters
+
+该模型系列由此扩展到视觉软件操作，其可复现性仍取决于后续权重发布。
+
+It extends the model family into visual software operation, with broader reproducibility dependent on the planned weight release.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50383963)
+
+---
+
 <a id="2026-11-03-dreamx-transferable-latent-actions"></a>
 ## [DreamX 学习可在人与机器人之间迁移的紧凑动作表征](https://arxiv.org/abs/2611.05377)
 
@@ -331,348 +659,3 @@ DreamFree trains a visual encoder to recover a frozen video diffusion model’s 
 蒸馏预测特征有望保留世界模型知识，同时降低动作推理成本。
 
 Distilling predictive features could preserve useful world-model knowledge while reducing the cost of action inference.
-
----
-
-<a id="2026-11-02-trustworthy-data-analysis-agent-trap-benchmark"></a>
-## [Trustworthy Data Analysis 将智能体技能与 30 个数据分析陷阱案例配套开放](https://github.com/boranfurkan/trustworthy-data-analysis)
-
-**English:** [Trustworthy Data Analysis pairs an agent skill with 30 analysis-trap cases](https://github.com/boranfurkan/trustworthy-data-analysis)
-
-- **发布 / Published:** `2026-11-02T22:09:08Z`
-- **来源 / Source:** [Trustworthy Data Analysis](https://github.com/boranfurkan/trustworthy-data-analysis) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `evaluation`, `data-analysis`, `reliability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
-
-### 摘要 / Summary
-
-作者在 Hacker News 介绍了开源数据分析技能与配套基准；本条采用该介绍帖的发布时间。仓库提供 30 个案例、通过生成过程计算的参考答案，以及 Claude Code 的对照结果。报告中的提升幅度较小，每个案例在每种条件下仅运行一次。
-
-The author announced an open-source data-analysis skill and benchmark on Hacker News; this record uses that announcement time. The repository provides 30 cases with generated reference answers and published Claude Code comparisons. Reported improvements are small, with only one run per case and condition.
-
-### 技术点 / Technical points
-
-- 案例包含 19 个数据分析陷阱、8 个性能与可靠性陷阱，以及 3 个智能体衡量自身修改效果的案例。
-  - Cases cover 19 data-analysis traps, eight performance and reliability traps, and three cases of agents measuring their own changes.
-- 固定随机种子的生成器计算参考答案；LLM 裁判评估结果，而非是否遵循检查清单。
-  - Fixed-seed generators compute reference answers; an LLM judge evaluates outcomes rather than checklist compliance.
-- 公布结果对每个模型、每种条件包含 61 项评分检查；两个受测模型在不加载技能时已通过大多数检查。
-  - Published results contain 61 grader checks per model and condition; both tested models already pass most checks without the skill.
-
-### 为什么重要 / Why it matters
-
-这些可复现案例针对看似合理却错误的智能体分析；有限的对照结果适合后续评测，尚不足以证明广泛有效。
-
-The reproducible cases target plausible but incorrect agent analyses; the limited comparisons support further evaluation rather than broad efficacy claims.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/boranfurkan/trustworthy-data-analysis/blob/fe131f0cf20d2ceecb6f71230daf607ee962c49e/evals/results/summary.md) · [Evidence 2](https://hacker-news.firebaseio.com/v0/item/50344593.json)
-[Discussion 1](https://news.ycombinator.com/item?id=50344593)
-
----
-
-<a id="2026-11-02-pixel-full-stack-mobile-manipulation-human-data"></a>
-## [Pixel 协同设计移动操作硬件、控制与人类示范学习](https://arxiv.org/abs/2611.03648)
-
-**English:** [Pixel co-designs mobile-manipulation hardware, control and human-demonstration learning](https://arxiv.org/abs/2611.03648)
-
-- **发布 / Published:** `2026-11-02T18:59:32Z`
-- **来源 / Source:** [Pixel and Pixel-UMI authors / arXiv](https://arxiv.org/abs/2611.03648) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `hardware`, `imitation-learning`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-配套的 Pixel 与 Pixel-UMI 论文介绍集成式轮式人形系统及人类数据学习管线，将贴合人体运动学的硬件、全身控制和环境感知示范重定向结合起来。
-
-The companion Pixel and Pixel-UMI papers describe an integrated wheeled-humanoid system and a human-data learning pipeline. They connect human-aligned hardware, whole-body control and environment-aware demonstration retargeting rather than treating each component independently.
-
-### 技术点 / Technical points
-
-- Pixel-UMI 使用场景几何完成碰撞感知重定向，屏蔽受重定向误差影响的视图，并加入 DAgger 纠正。
-  - Pixel-UMI uses scene geometry for collision-aware retargeting, masks views affected by retargeting errors, and adds DAgger corrections.
-- Pixel-UMI 报告五项任务的平均任务进度为 87.0%；这一指标不是任务成功率。
-  - Pixel-UMI reports 87.0% average task progress across five tasks; this metric is not a task success rate.
-
-### 为什么重要 / Why it matters
-
-协同设计硬件与数据流程，有望提升人类示范对机器人全身学习的价值。
-
-Joint hardware and data design could make human demonstrations more useful for whole-body robot learning.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/abs/2611.03647)
-
----
-
-<a id="2026-11-02-webharbor-dockerized-gui-agent-environments"></a>
-## [WebHarbor 发布 153 个可执行网站环境与 3,518 项 GUI 智能体任务](https://arxiv.org/abs/2611.03634)
-
-**English:** [WebHarbor releases 153 executable website environments and 3,518 GUI-agent tasks](https://arxiv.org/abs/2611.03634)
-
-- **发布 / Published:** `2026-11-02T18:57:36Z`
-- **来源 / Source:** [WebHarbor authors / arXiv](https://arxiv.org/abs/2611.03634) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `benchmark`, `simulation`, `reinforcement-learning`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-WebHarbor 将真实网站的重建版本封装为可控 Docker 环境，用于 GUI 智能体评测和强化学习。本次发布包含 153 个环境与 3,518 项任务，覆盖多步骤及登录后的工作流。
-
-WebHarbor packages reconstructions of real websites into controlled Docker environments for GUI-agent evaluation and reinforcement learning. The release includes 153 environments and 3,518 tasks covering multi-step and post-authentication workflows.
-
-### 技术点 / Technical points
-
-- 编码智能体根据任务扩展网站功能，人类贡献者审核外观、行为与任务有效性。
-  - Coding agents expand task-driven website functionality while human contributors audit appearance, behavior and task validity.
-- 论文报告，在这些环境中训练的 Qwen 4B 级智能体可迁移至四项基准中的未见任务。
-  - The paper reports that a Qwen 4B-level agent trained in these environments transfers to unseen tasks across four benchmarks.
-
-### 为什么重要 / Why it matters
-
-可复现的交互式网站有助于减少训练与评测浏览器智能体时的真实网页波动。
-
-Reproducible interactive websites can reduce live-web variability when training and measuring browser agents.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/aiming-lab/WebHarbor)
-
----
-
-<a id="2026-11-02-describe-assess-zero-shot-robot-rewards"></a>
-## [D&A 分离场景描述与标准评估以生成零样本机器人奖励](https://arxiv.org/abs/2611.03622)
-
-**English:** [D&A separates scene description and rubric assessment for zero-shot robot rewards](https://arxiv.org/abs/2611.03622)
-
-- **发布 / Published:** `2026-11-02T18:52:11Z`
-- **来源 / Source:** [D&A authors / arXiv](https://arxiv.org/abs/2611.03622) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `reward-model`, `reasoning`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Describe & Assess 通过提示估计机器人任务进展，无需对视觉语言模型进行后训练。论文报告，该方法缓解确认偏差，能更细致地惩罚失败执行，其奖励估计也支持后续强化学习。
-
-Describe & Assess uses prompting to estimate robot-task progress without post-training the VLM. The paper reports reduced confirmation bias and finer-grained penalties for failed executions, with reward estimates supporting downstream reinforcement learning.
-
-### 技术点 / Technical points
-
-- 先生成与任务相关的场景动态描述，再依据显式成功标准评估。
-  - A task-grounded description of scene dynamics precedes assessment against an explicit success rubric.
-- 用绝对成功定义锚定评分，避免假定视频越靠后就代表进展越大。
-  - An absolute success definition anchors scores instead of assuming later video frames always show more progress.
-
-### 为什么重要 / Why it matters
-
-将观察与判断分开，有望减少机器人学习中具有误导性的奖励信号。
-
-Separating observation from judgment may reduce misleading reward signals in robot learning.
-
----
-
-<a id="2026-11-02-strategist-reusable-inference-blueprints"></a>
-## [Strategist 通过持续积累的蓝图库演化可复用推理策略](https://arxiv.org/abs/2611.03618)
-
-**English:** [Strategist evolves reusable inference strategies through an expanding blueprint library](https://arxiv.org/abs/2611.03618)
-
-- **发布 / Published:** `2026-11-02T18:51:04Z`
-- **来源 / Source:** [Strategist authors / arXiv](https://arxiv.org/abs/2611.03618) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reasoning`, `memory`, `inference-scaling`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Strategist 是能够检索、编写、测试并修订可执行推理策略的元智能体。作者报告，在 30 项基准中有 24 项优于最强基线，平均准确率为 74.7%，基线为 74.0%，同时推理成本降低 39%。
-
-Strategist is a meta-agent that retrieves, writes, tests and revises executable inference strategies. Across 30 benchmarks, the authors report beating the strongest baseline on 24, with average accuracy of 74.7% versus 74.0% at 39% lower inference cost.
-
-### 技术点 / Technical points
-
-- 策略以可组合的代码蓝图保存，后续搜索可复用先前候选。
-  - Strategies are stored as composable code blueprints so later searches can reuse earlier candidates.
-- 论文报告这些策略无需额外搜索即可迁移到未见任务和其他模型。
-  - The paper reports transfer to unseen tasks and other models without additional strategy search.
-
-### 为什么重要 / Why it matters
-
-持续积累的策略库提供了在模型权重之外改进智能体计算过程的路径。
-
-An accumulating strategy library offers a way to improve agent computation beyond changing model weights.
-
----
-
-<a id="2026-11-02-wise-world-action-model-rollout-selection"></a>
-## [WISE 在执行前筛选冻结世界动作模型的想象轨迹](https://arxiv.org/abs/2611.03585)
-
-**English:** [WISE ranks imagined rollouts before executing frozen world action models](https://arxiv.org/abs/2611.03585)
-
-- **发布 / Published:** `2026-11-02T18:32:18Z`
-- **来源 / Source:** [WISE authors / arXiv](https://arxiv.org/abs/2611.03585) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `planning`, `inference-scaling`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-WISE 无需更新世界动作模型，即可在动作与未来预测候选中进行选择。每次决策使用四个候选时，论文报告 Cosmos 3 Edge 在 RoboLab 上的成功率从 6.0% 升至 24.0%，DreamZero 在 LIBERO 上从 75.1% 升至 78.3%。
-
-WISE selects among action-and-future rollouts without updating the world action model. With four candidates per decision, the paper reports success rising from 6.0% to 24.0% for Cosmos 3 Edge on RoboLab and from 75.1% to 78.3% for DreamZero on LIBERO.
-
-### 技术点 / Technical points
-
-- 评分结合动作有效性与时间规律、逆动力学一致性以及指令条件下的任务进展。
-  - Selection combines action validity and temporal regularity, inverse-dynamics consistency, and instruction-conditioned progress.
-- 系统在闭环中执行最高分候选，增益依赖所评测的模型与基准。
-  - The highest-scoring candidate is executed in a closed loop; gains depend on the evaluated model and benchmark.
-
-### 为什么重要 / Why it matters
-
-该工作检验了动作与预测一致性检查能否让想象未来更有效地服务控制。
-
-The work tests whether checking action–prediction consistency can make imagined futures more useful for control.
-
----
-
-<a id="2026-11-02-tampagent-belief-space-mobile-manipulation"></a>
-## [TAMPAgent 将视觉语言智能体与信念空间任务运动规划结合](https://arxiv.org/abs/2611.03584)
-
-**English:** [TAMPAgent combines vision-language agents with belief-space task and motion planning](https://arxiv.org/abs/2611.03584)
-
-- **发布 / Published:** `2026-11-02T18:32:18Z`
-- **来源 / Source:** [TAMPAgent authors / arXiv](https://arxiv.org/abs/2611.03584) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tool-use`, `planning`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-TAMPAgent 将大型视觉语言模型智能体与任务运动规划结合，处理部分可观测的移动操作任务。论文报告，在 Rainbow Y1 与宇树 G1 的家居任务中，该方法优于直接调用工具的智能体。
-
-TAMPAgent combines an LVLM agent with task and motion planning to handle partially observed mobile-manipulation tasks. The paper reports improvements over direct tool-calling agents on household tasks using Rainbow Y1 and Unitree G1 robots.
-
-### 技术点 / Technical points
-
-- 智能体提出部分观测与执行计划，再由经典搜索和几何约束补全可执行运动。
-  - The agent proposes partial observation and execution plans; classical search and geometric constraints complete executable motions.
-- 感知、规划与控制 API 支持执行期间反复更新信念状态。
-  - A perception, planning and control API supports repeated belief updates during execution.
-
-### 为什么重要 / Why it matters
-
-显式可行性检查有望帮助语言驱动机器人在真实空间的不确定条件下行动。
-
-Explicit feasibility checks may help language-driven robots act under uncertainty in physical spaces.
-
-### 链接 / Links
-
-[Evidence 1](https://umishra.me/TAMPAgent/)
-
----
-
-<a id="2026-11-02-qwen-code-0266-recovery-evidence-mcp-discovery"></a>
-## [Qwen Code 0.26.6 收紧托管智能体恢复证据要求并修复 MCP 工具发现](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
-
-**English:** [Qwen Code 0.26.6 tightens managed-agent recovery and MCP tool discovery](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6)
-
-- **发布 / Published:** `2026-11-02T18:22:40Z`
-- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.26.6) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `multi-agent`, `tool-use`, `reliability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-Qwen Code 0.26.6 要求在补全托管智能体恢复缺口前具备子任务账本证据，并修复已消费的子任务结果仍被标记为待处理的问题。该版本还在 MCP 名称冲突时保留名称唯一的工具，增加无界面提示钩子，并通过实验性设置扩大共享执行循环的覆盖范围。
-
-Qwen Code 0.26.6 requires child-ledger evidence before filling managed-agent recovery gaps and fixes consumed child results being marked pending. It also preserves uniquely named MCP tools when names collide, adds headless prompt hooks and expands shared-loop execution behind an experimental setting.
-
-### 技术点 / Technical points
-
-- 恢复逻辑明确区分未知或从未启动的子任务，缺乏子任务账本证据时不再补全缺口。
-  - Recovery now distinguishes unknown or never-started children instead of filling gaps without child-ledger evidence.
-- MCP 发现跳过重名工具，同时保留同一服务器中名称唯一的工具。
-  - MCP discovery skips duplicate names while retaining uniquely named tools from the same server.
-- 无界面运行支持 prompt.submit 钩子；experimental.unifiedAgentLoop 将频道提示、Goal 提案审批等更多 ACP 轮次纳入共享循环。
-  - Headless runs support prompt.submit hooks; experimental.unifiedAgentLoop includes more ACP turns, including channel prompts and Goal-proposal approvals.
-
-### 为什么重要 / Why it matters
-
-这些变更使长时间智能体会话中的工具可用性与子任务恢复更准确地反映实际执行记录。
-
-These changes make tool availability and child-task recovery more faithful to recorded execution state in long-running agent sessions.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.26.6)
-
----
-
-<a id="2026-11-02-panotac-dense-three-axis-touch"></a>
-## [PanoTac 融合法向与剪切触觉用于接触密集型机器人学习](https://arxiv.org/abs/2611.03520)
-
-**English:** [PanoTac combines dense normal and shear sensing for contact-rich robot learning](https://arxiv.org/abs/2611.03520)
-
-- **发布 / Published:** `2026-11-02T17:55:07Z`
-- **来源 / Source:** [PanoTac authors / arXiv](https://arxiv.org/abs/2611.03520) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tactile-sensing`, `hardware`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-PanoTac 提出柔顺触觉指尖与视觉触觉策略管线。作者报告，在试管准备、谷物舀取与食盐倾倒任务中，相比纯视觉基线平均提升 46.7 个百分点。
-
-PanoTac presents a compliant tactile fingertip and a visuo-tactile policy pipeline. The authors report an average 46.7-percentage-point improvement over vision-only baselines across test-tube preparation, grain scooping and salt pouring.
-
-### 技术点 / Technical points
-
-- 每个指尖以 60 Hz 输出 12 × 32 × 3 触觉表示，作者报告单个指尖成本低于 50 美元。
-  - Each fingertip provides a 12 × 32 × 3 tactile representation at 60 Hz, at a reported cost below $50.
-- 消融实验中，移除接触空间信息或剪切反馈都会降低总体任务表现。
-  - Ablations removing spatial contact information or shear feedback reduce overall task performance.
-
-### 为什么重要 / Why it matters
-
-密集剪切反馈有望帮助触觉策略处理精细且对接触敏感的操作。
-
-Dense shear feedback could make tactile policies more practical for delicate, contact-sensitive manipulation.
-
----
-
-<a id="2026-11-02-robot-inertia-mismatch-imitation-learning"></a>
-## [仿真研究揭示接触惯性失配对机器人模仿学习的限制](https://arxiv.org/abs/2611.03501)
-
-**English:** [Simulation study links contact inertia mismatch to robot imitation-learning limits](https://arxiv.org/abs/2611.03501)
-
-- **发布 / Published:** `2026-11-02T17:40:05Z`
-- **来源 / Source:** [When Robots Outweigh Objects authors / arXiv](https://arxiv.org/abs/2611.03501) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `imitation-learning`, `simulation`, `hardware`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-这项受控仿真研究改变机器人与物体质量，考察接触惯性失配如何影响学习。作者发现，机器人更轻、物体更重时，行为克隆更可靠；增加数据能缩小差距，却不能完全消除差距。
-
-A controlled simulation study varies robot and object masses to examine learning under contact inertia mismatch. The authors find behavior cloning is more reliable with lighter robots and heavier objects; additional data reduces but does not eliminate the gap.
-
-### 技术点 / Technical points
-
-- 即使机械臂重量不变，通过传动增加电机反映到关节的惯性也会削弱行为克隆表现。
-  - Increasing motor-reflected inertia through gearing also harms behavior cloning without changing arm weight.
-- 在这些仿真案例中，选择低惯性工作区域或示范轨迹可改善模仿效果。
-  - Lower-inertia workspaces and demonstrations improve imitation in the simulated cases.
-
-### 为什么重要 / Why it matters
-
-结果提示，硬件动力学与示范设计可能限制增加训练数据所带来的收益。
-
-The findings suggest hardware dynamics and demonstration design can constrain gains from more training data.
