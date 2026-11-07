@@ -2,6 +2,138 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-05-gpwm-generative-particle-dynamics-planning"></a>
+## [GPWM 统一粒子物理预测与接触密集型规划](https://arxiv.org/abs/2611.08338)
+
+**English:** [GPWM unifies particle-based physical prediction and contact-rich planning](https://arxiv.org/abs/2611.08338)
+
+- **发布 / Published:** `2026-11-05T17:24:36Z`
+- **来源 / Source:** [GPWM authors / arXiv](https://arxiv.org/abs/2611.08338) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `learned-physics`, `simulation`, `planning`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+GPWM 预印本预测三维粒子与刚体运动，覆盖刚性、可变形、布料和颗粒材料。模型使用包含 2,550 万帧的 ParticleWorlds 数据训练；作者报告，在六个物理领域中，相较各领域最好的既有学习型动力学基线，预测误差平均降低 31%。
+
+The GPWM preprint predicts 3D particle and rigid-body motion across rigid, deformable, cloth and granular materials. Trained on the 25.5-million-frame ParticleWorlds corpus, it reports a 31% average prediction-error reduction against the best prior learned-dynamics baseline across six physical domains.
+
+### 技术点 / Technical points
+
+- 具备对象感知能力的多分辨率 Transformer 结合流匹配与扩散强制训练，单一统一模型覆盖异质物理场景。
+  - An object-aware multi-resolution transformer combines flow matching and diffusion forcing; one unified model covers heterogeneous physical regimes.
+- 规划在执行器与物体联合运动的潜在噪声空间中搜索；推动和拾取计划在仿真中开环执行，尚非真实机器人部署演示。
+  - Planning searches latent noise over joint actuator-object motion; pushing and picking plans are executed open-loop in simulation, rather than demonstrated as real-robot deployment.
+
+### 为什么重要 / Why it matters
+
+共享物理表示有望将预测仿真与跨材料类型的操作规划连接起来。
+
+A shared physical representation could connect predictive simulation to manipulation planning across different material types.
+
+---
+
+<a id="2026-11-05-lerobot-070-interactive-world-action-training"></a>
+## [LeRobot 0.7 增加交互式机器人运行与大规模世界动作模型训练](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
+
+**English:** [LeRobot 0.7 adds interactive robot rollouts and larger world-action-model training](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
+
+- **发布 / Published:** `2026-11-05T17:13:20Z`
+- **来源 / Source:** [Hugging Face / LeRobot](https://github.com/huggingface/lerobot/releases/tag/v0.7.0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `open-source`, `vla`, `world-action-model`, `distributed-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Hugging Face 发布 LeRobot 0.7.0，加入运行中的语言交互、远程策略推理和机器人数据集流式读取。训练栈增加 FSDP2、HSDP 和分布式检查点，以支持更大的世界动作模型，并集成 Cosmos 3、FLUX 3 Action、LaWAM 和 Long-WAM。
+
+Hugging Face released LeRobot 0.7.0 with live language interaction, remote policy inference and streaming robot datasets. Its training stack adds FSDP2, HSDP and distributed checkpoints for larger world action models, including integrations for Cosmos 3, FLUX 3 Action, LaWAM and Long-WAM.
+
+### 技术点 / Technical points
+
+- 交互式运行在用户切换子任务时保持策略权重和机器人连接加载；视觉问答及自主选择子任务需要可生成文本的策略或外部 VLM 规划器。
+  - Interactive rollouts keep policy weights and robot connections loaded while users change subtasks; visual questions and autonomous subtask selection require a text-generating policy or external VLM planner.
+- 数据集可从 Hub、Storage Buckets 或 LanceDB 流式读取；策略服务器可将推理放到远程 GPU 上执行。
+  - Datasets can stream from the Hub, Storage Buckets or LanceDB; a policy server moves inference onto a remote GPU.
+
+### 为什么重要 / Why it matters
+
+统一的训练与部署基础设施，可减少在人类指导下测试预测型机器人策略所需的集成工作。
+
+Shared training and deployment infrastructure lowers the integration work needed to test predictive robot policies with human guidance.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/blog/lerobot/lerobot-release-v070)
+
+---
+
+<a id="2026-11-05-la-jepa-compact-latent-world-policies"></a>
+## [La-JEPA 用未来特征预测训练紧凑机器人策略](https://arxiv.org/abs/2611.08156)
+
+**English:** [La-JEPA trains compact robot policies with future-feature prediction](https://arxiv.org/abs/2611.08156)
+
+- **发布 / Published:** `2026-11-05T15:16:38Z`
+- **来源 / Source:** [La-JEPA authors / arXiv](https://arxiv.org/abs/2611.08156) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `jepa`, `latent-dynamics`, `efficiency`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+La-JEPA 预印本在预训练 V-JEPA 2.1 编码器的特征空间中，从头训练策略 Transformer。训练时联合预测未来特征和动作，推理时仅输出动作；作者报告在不采用具身预训练策略骨干的情况下，仿真和真实机器人控制表现具有竞争力。
+
+The La-JEPA preprint trains a policy transformer from scratch in a pretrained V-JEPA 2.1 encoder's feature space. It predicts future features and actions during training but emits only actions at inference, reporting competitive simulated and real-robot control without an embodied-pretrained policy backbone.
+
+### 技术点 / Technical points
+
+- 研究评测了标准及随机化 RoboTwin 2.0 场景、LIBERO-Plus 和四项真实机器人任务，并报告在性能相近时推理快于 Fast-WAM。
+  - The study evaluates clean and randomized RoboTwin 2.0 scenes, LIBERO-Plus and four real-robot tasks; it reports faster inference than Fast-WAM at comparable performance.
+- 作者修正了已发布 LIBERO-Plus 评测器中损坏的指令并重新评测开放基线，因此该评测条件是比较结果的重要前提。
+  - The authors correct corrupted instructions in the released LIBERO-Plus evaluator and re-evaluate open baselines, making that evaluation condition material to the comparison.
+
+### 为什么重要 / Why it matters
+
+训练阶段的动力学预测可能改善控制，同时避免部署时生成未来视频的高额开销。
+
+Training-time dynamics prediction may improve control without requiring costly future-video generation during deployment.
+
+---
+
+<a id="2026-11-05-affectivevla-intent-gated-humanoid-contact"></a>
+## [AffectiveVLA 通过人类意图识别控制人形机器人的社交接触](https://arxiv.org/abs/2611.07712)
+
+**English:** [AffectiveVLA gates humanoid social contact on recognized human intent](https://arxiv.org/abs/2611.07712)
+
+- **发布 / Published:** `2026-11-05T09:29:21Z`
+- **来源 / Source:** [AffectiveVLA authors / arXiv](https://arxiv.org/abs/2611.07712) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `vla`, `safety`, `human-robot-interaction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AffectiveVLA 预印本在 Unitree G1 上结合视觉意图识别与 VLA 控制，用于握手、拥抱等交互。意图预测置信度不足时禁止执行动作，并通过接触类型对应的阻抗设置和独立语音触发停止机制提供额外保护。
+
+The AffectiveVLA preprint combines visual intent recognition with VLA control on a Unitree G1 for interactions such as handshakes and hugs. Low-confidence intent predictions suppress movement, while contact-specific impedance settings and an independent voice-triggered stop provide additional safeguards.
+
+### 技术点 / Technical points
+
+- 团队通过 VR 遥操作收集了约 1,300 段多模态交互，并微调了四种 VLA 模型。
+  - The team collected about 1,300 multimodal interaction episodes through VR teleoperation and fine-tuned four VLA models.
+- 在单模型表现最好的 GR00T 上，加入意图识别使宏平均 F1 从 0.75 提升至 0.90；意图推理的 p95 延迟为 6.27 毫秒。
+  - For the best standalone model, GR00T, adding intent recognition raises macro-F1 from 0.75 to 0.90; intent inference has a reported p95 latency of 6.27 ms.
+
+### 为什么重要 / Why it matters
+
+该研究检验了意图置信度与物理执行之间的明确约束，对减少人形机器人交互中的意外接触具有参考价值。
+
+The work tests an explicit link between intent confidence and physical execution, relevant to reducing accidental contact during humanoid interaction.
+
+---
+
 <a id="2026-11-04-neo-vla-native-visual-action-policies"></a>
 ## [NEO-VLA 让机器人动作生成访问多层视觉计算结果](https://arxiv.org/abs/2611.06918)
 

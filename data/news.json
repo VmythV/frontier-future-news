@@ -22080,6 +22080,467 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-05-diagdbench-interactive-database-diagnosis",
+      "published_at": "2026-11-05T02:27:03Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "database",
+        "tool-use"
+      ],
+      "title_en": "DiagDBench tests database agents in executable diagnosis and remediation environments",
+      "title_zh": "DiagDBench 在可执行数据库环境中评测智能体诊断与修复能力",
+      "summary_en": "The DiagDBench preprint introduces live database environments for diagnosing anomalies, applying remedies and optionally optimizing workloads. Its authors report 6,940 training samples and 454 expert-annotated test samples; even their strongest evaluated agent scores 56.24.",
+      "summary_zh": "DiagDBench 预印本提出用于异常诊断、修复及可选负载优化的真实运行数据库环境。作者报告了 6,940 个训练样本和 454 个专家标注测试样本；其评测中表现最好的智能体得分也仅为 56.24。",
+      "tech_points_en": [
+        "Each sample includes a user request, an anomaly-verified workload and a self-contained DBMS environment supporting interactive monitoring and execution.",
+        "Construction combines documentation-guided anomaly synthesis with reproduction of enterprise incidents; evaluation spans two DBMSs and three hardware configurations."
+      ],
+      "tech_points_zh": [
+        "每个样本包含用户请求、已验证异常的负载，以及支持交互监控和执行的独立 DBMS 环境。",
+        "构建流程结合文档引导的异常合成与企业事故复现；评测覆盖两种 DBMS 和三种硬件配置。"
+      ],
+      "why_it_matters_en": "Executable failures make it possible to evaluate whether an agent actually repairs a database rather than merely describing a plausible diagnosis.",
+      "why_it_matters_zh": "可执行故障使评测能够检查智能体是否真正修复数据库，而不只给出貌似合理的诊断。",
+      "source": {
+        "name": "DiagDBench authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.07339",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-openai-gpt-6-cyber-scope-alignment",
+      "published_at": "2026-11-05T09:00:00Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "cybersecurity",
+        "safety",
+        "benchmark",
+        "tool-use"
+      ],
+      "title_en": "GPT-6 Cyber pairs stronger security-agent results with scope-adherence evaluations",
+      "title_zh": "GPT-6 Cyber 同时报告安全智能体能力与任务范围遵循评测",
+      "summary_en": "OpenAI introduced GPT-6 Cyber for selected approved Daybreak Red customers through the API and Codex. It reports 48.5% on ExploitGym, versus 32.1% for GPT-5.6 Cyber, alongside improved adherence to authorized task boundaries. The timestamp follows the official RSS.",
+      "summary_zh": "OpenAI 面向部分获批 Daybreak Red 客户，通过 API 和 Codex 推出 GPT-6 Cyber。官方报告其 ExploitGym 得分为 48.5%，高于 GPT-5.6 Cyber 的 32.1%，同时提升了对授权任务范围的遵循能力。发布时间采用官方 RSS。",
+      "tech_points_en": [
+        "In a separate alignment evaluation, OpenAI reports avoiding exploitation of out-of-scope services in 99.93% of tests without the deployment prompt and 100% with it.",
+        "The system card describes reinforcement learning on vulnerability investigation and exploit development, with additional signals for respecting authorization and reporting accurately."
+      ],
+      "tech_points_zh": [
+        "在另一项对齐评测中，OpenAI 报告未使用部署提示时，99.93% 的测试未利用范围外服务，使用提示后为 100%。",
+        "系统卡描述了面向漏洞调查和利用开发的强化学习，并加入遵循授权和准确报告的训练信号。"
+      ],
+      "why_it_matters_en": "Publishing both capability and boundary-following results gives security-agent developers more evidence for assessing controlled deployment.",
+      "why_it_matters_zh": "同时公布能力和边界遵循结果，为安全智能体的受控部署评估提供了更多证据。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://openai.com/index/introducing-gpt-6-cyber/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://deploymentsafety.openai.com/gpt-6-cyber",
+        "https://openai.com/news/rss.xml"
+      ],
+      "confidence": "high",
+      "score": 90,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 12,
+        "traction": 5
+      }
+    },
+    {
+      "id": "2026-11-05-mcphallu-structured-agent-failure-benchmark",
+      "published_at": "2026-11-05T09:14:26Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "mcp",
+        "tool-use",
+        "memory",
+        "reliability"
+      ],
+      "title_en": "MCPHallu isolates reasoning, execution and memory failures across MCP agents",
+      "title_zh": "MCPHallu 分离评测 MCP 智能体的推理、执行与记忆失误",
+      "summary_en": "MCPHallu is a preprint benchmark with 358 tasks running on 36 production MCP servers in isolated containers. Across 14 agents and 5,012 trajectories, the authors find substantial differences between failure subtypes, especially difficulty recognizing unreachable goals.",
+      "summary_zh": "MCPHallu 预印本提出包含 358 项任务的基准，在隔离容器中的 36 个生产级 MCP 服务器上运行。作者评测了 14 个智能体和 5,012 条轨迹，发现不同失误子类型的表现差异显著，其中识别不可达目标尤其困难。",
+      "tech_points_en": [
+        "Tasks deliberately trigger branch collapse, unreachable goals, tool misuse or context forgetting instead of diagnosing all failures only after execution.",
+        "On unreachable-goal tasks, the reported average score is 0.458 on a zero-to-one scale and 23.2% of runs pass."
+      ],
+      "tech_points_zh": [
+        "任务在设计时分别设置分支坍缩、目标不可达、工具误用或上下文遗忘的触发条件，而非仅在执行后诊断失败。",
+        "在目标不可达任务上，作者报告平均得分为 0.458（满分 1），运行通过率为 23.2%。"
+      ],
+      "why_it_matters_en": "Failure-specific tasks can reveal agents that keep calling tools or claim success when completion is infeasible.",
+      "why_it_matters_zh": "针对具体失误设计的任务，有助于暴露在目标不可完成时仍反复调用工具或宣称成功的智能体。",
+      "source": {
+        "name": "MCPHallu authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.07689",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-affectivevla-intent-gated-humanoid-contact",
+      "published_at": "2026-11-05T09:29:21Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid",
+        "vla",
+        "safety",
+        "human-robot-interaction"
+      ],
+      "title_en": "AffectiveVLA gates humanoid social contact on recognized human intent",
+      "title_zh": "AffectiveVLA 通过人类意图识别控制人形机器人的社交接触",
+      "summary_en": "The AffectiveVLA preprint combines visual intent recognition with VLA control on a Unitree G1 for interactions such as handshakes and hugs. Low-confidence intent predictions suppress movement, while contact-specific impedance settings and an independent voice-triggered stop provide additional safeguards.",
+      "summary_zh": "AffectiveVLA 预印本在 Unitree G1 上结合视觉意图识别与 VLA 控制，用于握手、拥抱等交互。意图预测置信度不足时禁止执行动作，并通过接触类型对应的阻抗设置和独立语音触发停止机制提供额外保护。",
+      "tech_points_en": [
+        "The team collected about 1,300 multimodal interaction episodes through VR teleoperation and fine-tuned four VLA models.",
+        "For the best standalone model, GR00T, adding intent recognition raises macro-F1 from 0.75 to 0.90; intent inference has a reported p95 latency of 6.27 ms."
+      ],
+      "tech_points_zh": [
+        "团队通过 VR 遥操作收集了约 1,300 段多模态交互，并微调了四种 VLA 模型。",
+        "在单模型表现最好的 GR00T 上，加入意图识别使宏平均 F1 从 0.75 提升至 0.90；意图推理的 p95 延迟为 6.27 毫秒。"
+      ],
+      "why_it_matters_en": "The work tests an explicit link between intent confidence and physical execution, relevant to reducing accidental contact during humanoid interaction.",
+      "why_it_matters_zh": "该研究检验了意图置信度与物理执行之间的明确约束，对减少人形机器人交互中的意外接触具有参考价值。",
+      "source": {
+        "name": "AffectiveVLA authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.07712",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-playgen2-persistent-3d-world-state",
+      "published_at": "2026-11-05T11:45:25Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "interactive-worlds",
+        "spatial-memory",
+        "simulation"
+      ],
+      "title_en": "PlayGen2 separates persistent 3D world dynamics from neural rendering",
+      "title_zh": "PlayGen2 将持久三维世界动力学与神经渲染分离",
+      "summary_en": "The PlayGen2 preprint models playable Doom environments through explicit 3D state rather than recurrently generated images. A persistent memory tracks geometry and entities, while a separate renderer produces observations. The authors report about 160 ms backend latency on an M4 Pro MacBook Pro.",
+      "summary_zh": "PlayGen2 预印本使用显式三维状态建模可玩的 Doom 环境，而非循环依赖生成图像。持久记忆跟踪几何和实体，独立渲染器生成观测；作者报告在 M4 Pro MacBook Pro 上后端延迟约为 160 毫秒。",
+      "tech_points_en": [
+        "A local world-state model jointly predicts action-conditioned entity motion, completes geometry and discovers entities, then updates persistent memory.",
+        "Generated images are excluded from state prediction; demonstrations include unseen maps, composition of single-player models for multiplayer and rule-based state interventions."
+      ],
+      "tech_points_zh": [
+        "局部世界状态模型联合预测动作条件下的实体运动、补全几何和发现实体，再更新持久记忆。",
+        "生成图像不参与状态预测；演示涵盖未见地图、组合单人模型实现多人交互，以及基于规则的状态干预。"
+      ],
+      "why_it_matters_en": "An explicit state interface makes learned environments easier to inspect and manipulate while reducing dependence on image-feedback consistency.",
+      "why_it_matters_zh": "显式状态接口让学习型环境更易检查和修改，并降低其对图像反馈一致性的依赖。",
+      "source": {
+        "name": "PlayGen2 authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.07867",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-la-jepa-compact-latent-world-policies",
+      "published_at": "2026-11-05T15:16:38Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "jepa",
+        "latent-dynamics",
+        "efficiency",
+        "benchmark"
+      ],
+      "title_en": "La-JEPA trains compact robot policies with future-feature prediction",
+      "title_zh": "La-JEPA 用未来特征预测训练紧凑机器人策略",
+      "summary_en": "The La-JEPA preprint trains a policy transformer from scratch in a pretrained V-JEPA 2.1 encoder's feature space. It predicts future features and actions during training but emits only actions at inference, reporting competitive simulated and real-robot control without an embodied-pretrained policy backbone.",
+      "summary_zh": "La-JEPA 预印本在预训练 V-JEPA 2.1 编码器的特征空间中，从头训练策略 Transformer。训练时联合预测未来特征和动作，推理时仅输出动作；作者报告在不采用具身预训练策略骨干的情况下，仿真和真实机器人控制表现具有竞争力。",
+      "tech_points_en": [
+        "The study evaluates clean and randomized RoboTwin 2.0 scenes, LIBERO-Plus and four real-robot tasks; it reports faster inference than Fast-WAM at comparable performance.",
+        "The authors correct corrupted instructions in the released LIBERO-Plus evaluator and re-evaluate open baselines, making that evaluation condition material to the comparison."
+      ],
+      "tech_points_zh": [
+        "研究评测了标准及随机化 RoboTwin 2.0 场景、LIBERO-Plus 和四项真实机器人任务，并报告在性能相近时推理快于 Fast-WAM。",
+        "作者修正了已发布 LIBERO-Plus 评测器中损坏的指令并重新评测开放基线，因此该评测条件是比较结果的重要前提。"
+      ],
+      "why_it_matters_en": "Training-time dynamics prediction may improve control without requiring costly future-video generation during deployment.",
+      "why_it_matters_zh": "训练阶段的动力学预测可能改善控制，同时避免部署时生成未来视频的高额开销。",
+      "source": {
+        "name": "La-JEPA authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.08156",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-lerobot-070-interactive-world-action-training",
+      "published_at": "2026-11-05T17:13:20Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "open-source",
+        "vla",
+        "world-action-model",
+        "distributed-training"
+      ],
+      "title_en": "LeRobot 0.7 adds interactive robot rollouts and larger world-action-model training",
+      "title_zh": "LeRobot 0.7 增加交互式机器人运行与大规模世界动作模型训练",
+      "summary_en": "Hugging Face released LeRobot 0.7.0 with live language interaction, remote policy inference and streaming robot datasets. Its training stack adds FSDP2, HSDP and distributed checkpoints for larger world action models, including integrations for Cosmos 3, FLUX 3 Action, LaWAM and Long-WAM.",
+      "summary_zh": "Hugging Face 发布 LeRobot 0.7.0，加入运行中的语言交互、远程策略推理和机器人数据集流式读取。训练栈增加 FSDP2、HSDP 和分布式检查点，以支持更大的世界动作模型，并集成 Cosmos 3、FLUX 3 Action、LaWAM 和 Long-WAM。",
+      "tech_points_en": [
+        "Interactive rollouts keep policy weights and robot connections loaded while users change subtasks; visual questions and autonomous subtask selection require a text-generating policy or external VLM planner.",
+        "Datasets can stream from the Hub, Storage Buckets or LanceDB; a policy server moves inference onto a remote GPU."
+      ],
+      "tech_points_zh": [
+        "交互式运行在用户切换子任务时保持策略权重和机器人连接加载；视觉问答及自主选择子任务需要可生成文本的策略或外部 VLM 规划器。",
+        "数据集可从 Hub、Storage Buckets 或 LanceDB 流式读取；策略服务器可将推理放到远程 GPU 上执行。"
+      ],
+      "why_it_matters_en": "Shared training and deployment infrastructure lowers the integration work needed to test predictive robot policies with human guidance.",
+      "why_it_matters_zh": "统一的训练与部署基础设施，可减少在人类指导下测试预测型机器人策略所需的集成工作。",
+      "source": {
+        "name": "Hugging Face / LeRobot",
+        "type": "primary",
+        "url": "https://github.com/huggingface/lerobot/releases/tag/v0.7.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/blog/lerobot/lerobot-release-v070"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-05-gpwm-generative-particle-dynamics-planning",
+      "published_at": "2026-11-05T17:24:36Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "learned-physics",
+        "simulation",
+        "planning",
+        "dataset"
+      ],
+      "title_en": "GPWM unifies particle-based physical prediction and contact-rich planning",
+      "title_zh": "GPWM 统一粒子物理预测与接触密集型规划",
+      "summary_en": "The GPWM preprint predicts 3D particle and rigid-body motion across rigid, deformable, cloth and granular materials. Trained on the 25.5-million-frame ParticleWorlds corpus, it reports a 31% average prediction-error reduction against the best prior learned-dynamics baseline across six physical domains.",
+      "summary_zh": "GPWM 预印本预测三维粒子与刚体运动，覆盖刚性、可变形、布料和颗粒材料。模型使用包含 2,550 万帧的 ParticleWorlds 数据训练；作者报告，在六个物理领域中，相较各领域最好的既有学习型动力学基线，预测误差平均降低 31%。",
+      "tech_points_en": [
+        "An object-aware multi-resolution transformer combines flow matching and diffusion forcing; one unified model covers heterogeneous physical regimes.",
+        "Planning searches latent noise over joint actuator-object motion; pushing and picking plans are executed open-loop in simulation, rather than demonstrated as real-robot deployment."
+      ],
+      "tech_points_zh": [
+        "具备对象感知能力的多分辨率 Transformer 结合流匹配与扩散强制训练，单一统一模型覆盖异质物理场景。",
+        "规划在执行器与物体联合运动的潜在噪声空间中搜索；推动和拾取计划在仿真中开环执行，尚非真实机器人部署演示。"
+      ],
+      "why_it_matters_en": "A shared physical representation could connect predictive simulation to manipulation planning across different material types.",
+      "why_it_matters_zh": "共享物理表示有望将预测仿真与跨材料类型的操作规划连接起来。",
+      "source": {
+        "name": "GPWM authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.08338",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-scientist-world-executable-research-environments",
+      "published_at": "2026-11-05T18:58:17Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "ai-scientist",
+        "benchmark",
+        "dataset",
+        "reinforcement-learning"
+      ],
+      "title_en": "Scientist World turns research papers into 1,000 executable agent environments",
+      "title_zh": "Scientist World 将研究论文转化为 1,000 个可执行智能体环境",
+      "summary_en": "The Scientist World preprint describes a pipeline that extracts research questions from papers and reproduces their methods as executable baselines. The authors release 1,000 verified environments and 6,400 hours of research traces, positioning the collection for research-agent evaluation and training.",
+      "summary_zh": "Scientist World 预印本描述了一条从论文中提取研究问题、并将其方法复现为可执行基线的流程。作者发布了 1,000 个已验证环境及 6,400 小时研究轨迹，用于科研智能体评测与训练。",
+      "tech_points_en": [
+        "Agents are evaluated against reproduced author baselines, with traces covering ideas, experiments, failures and successes.",
+        "The authors report frontier agents surpassing those baselines in 74% of their evaluations; this measures performance inside the constructed environments, not general superiority over human scientists."
+      ],
+      "tech_points_zh": [
+        "智能体与复现的作者基线进行比较，轨迹覆盖构思、实验、失败与成功过程。",
+        "作者报告前沿智能体在其 74% 的评测中超过基线；这衡量的是所构建环境内的表现，不代表全面超越人类科学家。"
+      ],
+      "why_it_matters_en": "Executable research questions provide a more concrete basis for measuring and training scientific experimentation than text-only proposals.",
+      "why_it_matters_zh": "可执行研究问题为衡量和训练科研实验能力提供了比纯文本提案更具体的依据。",
+      "source": {
+        "name": "Scientist World authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.08478",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-05-hermes-023-unified-agent-session-gateway",
+      "published_at": "2026-11-05T21:32:33Z",
+      "collected_at": "2026-11-07T00:02:49Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "agent-runtime",
+        "multi-agent",
+        "mcp",
+        "reliability"
+      ],
+      "title_en": "Hermes Agent 0.23 unifies session ownership across clients and adds a browser workspace",
+      "title_zh": "Hermes Agent 0.23 统一跨客户端会话归属并增加浏览器工作区",
+      "summary_en": "Nous Research released Hermes Agent 0.23.0, consolidating CLI, desktop, editor, messaging and scheduled sessions under one gateway per machine. A browser workspace attaches to that gateway, while the release also adds pluggable delegation and cost-aware controls for paid MCP tools.",
+      "summary_zh": "Nous Research 发布 Hermes Agent 0.23.0，将命令行、桌面、编辑器、消息及定时会话统一交由每台机器的单一网关管理。浏览器工作区连接同一网关，版本还加入可插拔任务委派，以及针对付费 MCP 工具的成本控制。",
+      "tech_points_en": [
+        "Clients share a session queue and history, addressing duplicated or missing messages when multiple interfaces access the same conversation.",
+        "Delegation can route tasks to models or profiles; paid MCP tools can expose call prices and trigger approval when a conversation exceeds its spending limit."
+      ],
+      "tech_points_zh": [
+        "各客户端共享会话队列和历史，处理多个界面访问同一对话时消息重复或丢失的问题。",
+        "委派可将任务路由到指定模型或配置；付费 MCP 工具可声明调用价格，并在会话超出开支上限时触发审批。"
+      ],
+      "why_it_matters_en": "Centralized session ownership and explicit delegation controls address practical reliability problems in persistent, multi-client agent deployments.",
+      "why_it_matters_zh": "集中管理会话归属并明确控制任务委派，有助于处理持续运行、多客户端智能体部署中的可靠性问题。",
+      "source": {
+        "name": "Nous Research / Hermes Agent",
+        "type": "primary",
+        "url": "https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 12,
+        "traction": 0
+      }
     }
   ]
 }

@@ -2,6 +2,138 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-05-hermes-023-unified-agent-session-gateway"></a>
+## [Hermes Agent 0.23 统一跨客户端会话归属并增加浏览器工作区](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
+
+**English:** [Hermes Agent 0.23 unifies session ownership across clients and adds a browser workspace](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
+
+- **发布 / Published:** `2026-11-05T21:32:33Z`
+- **来源 / Source:** [Nous Research / Hermes Agent](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `multi-agent`, `mcp`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Nous Research 发布 Hermes Agent 0.23.0，将命令行、桌面、编辑器、消息及定时会话统一交由每台机器的单一网关管理。浏览器工作区连接同一网关，版本还加入可插拔任务委派，以及针对付费 MCP 工具的成本控制。
+
+Nous Research released Hermes Agent 0.23.0, consolidating CLI, desktop, editor, messaging and scheduled sessions under one gateway per machine. A browser workspace attaches to that gateway, while the release also adds pluggable delegation and cost-aware controls for paid MCP tools.
+
+### 技术点 / Technical points
+
+- 各客户端共享会话队列和历史，处理多个界面访问同一对话时消息重复或丢失的问题。
+  - Clients share a session queue and history, addressing duplicated or missing messages when multiple interfaces access the same conversation.
+- 委派可将任务路由到指定模型或配置；付费 MCP 工具可声明调用价格，并在会话超出开支上限时触发审批。
+  - Delegation can route tasks to models or profiles; paid MCP tools can expose call prices and trigger approval when a conversation exceeds its spending limit.
+
+### 为什么重要 / Why it matters
+
+集中管理会话归属并明确控制任务委派，有助于处理持续运行、多客户端智能体部署中的可靠性问题。
+
+Centralized session ownership and explicit delegation controls address practical reliability problems in persistent, multi-client agent deployments.
+
+---
+
+<a id="2026-11-05-scientist-world-executable-research-environments"></a>
+## [Scientist World 将研究论文转化为 1,000 个可执行智能体环境](https://arxiv.org/abs/2611.08478)
+
+**English:** [Scientist World turns research papers into 1,000 executable agent environments](https://arxiv.org/abs/2611.08478)
+
+- **发布 / Published:** `2026-11-05T18:58:17Z`
+- **来源 / Source:** [Scientist World authors / arXiv](https://arxiv.org/abs/2611.08478) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ai-scientist`, `benchmark`, `dataset`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Scientist World 预印本描述了一条从论文中提取研究问题、并将其方法复现为可执行基线的流程。作者发布了 1,000 个已验证环境及 6,400 小时研究轨迹，用于科研智能体评测与训练。
+
+The Scientist World preprint describes a pipeline that extracts research questions from papers and reproduces their methods as executable baselines. The authors release 1,000 verified environments and 6,400 hours of research traces, positioning the collection for research-agent evaluation and training.
+
+### 技术点 / Technical points
+
+- 智能体与复现的作者基线进行比较，轨迹覆盖构思、实验、失败与成功过程。
+  - Agents are evaluated against reproduced author baselines, with traces covering ideas, experiments, failures and successes.
+- 作者报告前沿智能体在其 74% 的评测中超过基线；这衡量的是所构建环境内的表现，不代表全面超越人类科学家。
+  - The authors report frontier agents surpassing those baselines in 74% of their evaluations; this measures performance inside the constructed environments, not general superiority over human scientists.
+
+### 为什么重要 / Why it matters
+
+可执行研究问题为衡量和训练科研实验能力提供了比纯文本提案更具体的依据。
+
+Executable research questions provide a more concrete basis for measuring and training scientific experimentation than text-only proposals.
+
+---
+
+<a id="2026-11-05-gpwm-generative-particle-dynamics-planning"></a>
+## [GPWM 统一粒子物理预测与接触密集型规划](https://arxiv.org/abs/2611.08338)
+
+**English:** [GPWM unifies particle-based physical prediction and contact-rich planning](https://arxiv.org/abs/2611.08338)
+
+- **发布 / Published:** `2026-11-05T17:24:36Z`
+- **来源 / Source:** [GPWM authors / arXiv](https://arxiv.org/abs/2611.08338) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `learned-physics`, `simulation`, `planning`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+GPWM 预印本预测三维粒子与刚体运动，覆盖刚性、可变形、布料和颗粒材料。模型使用包含 2,550 万帧的 ParticleWorlds 数据训练；作者报告，在六个物理领域中，相较各领域最好的既有学习型动力学基线，预测误差平均降低 31%。
+
+The GPWM preprint predicts 3D particle and rigid-body motion across rigid, deformable, cloth and granular materials. Trained on the 25.5-million-frame ParticleWorlds corpus, it reports a 31% average prediction-error reduction against the best prior learned-dynamics baseline across six physical domains.
+
+### 技术点 / Technical points
+
+- 具备对象感知能力的多分辨率 Transformer 结合流匹配与扩散强制训练，单一统一模型覆盖异质物理场景。
+  - An object-aware multi-resolution transformer combines flow matching and diffusion forcing; one unified model covers heterogeneous physical regimes.
+- 规划在执行器与物体联合运动的潜在噪声空间中搜索；推动和拾取计划在仿真中开环执行，尚非真实机器人部署演示。
+  - Planning searches latent noise over joint actuator-object motion; pushing and picking plans are executed open-loop in simulation, rather than demonstrated as real-robot deployment.
+
+### 为什么重要 / Why it matters
+
+共享物理表示有望将预测仿真与跨材料类型的操作规划连接起来。
+
+A shared physical representation could connect predictive simulation to manipulation planning across different material types.
+
+---
+
+<a id="2026-11-05-lerobot-070-interactive-world-action-training"></a>
+## [LeRobot 0.7 增加交互式机器人运行与大规模世界动作模型训练](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
+
+**English:** [LeRobot 0.7 adds interactive robot rollouts and larger world-action-model training](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
+
+- **发布 / Published:** `2026-11-05T17:13:20Z`
+- **来源 / Source:** [Hugging Face / LeRobot](https://github.com/huggingface/lerobot/releases/tag/v0.7.0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `open-source`, `vla`, `world-action-model`, `distributed-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Hugging Face 发布 LeRobot 0.7.0，加入运行中的语言交互、远程策略推理和机器人数据集流式读取。训练栈增加 FSDP2、HSDP 和分布式检查点，以支持更大的世界动作模型，并集成 Cosmos 3、FLUX 3 Action、LaWAM 和 Long-WAM。
+
+Hugging Face released LeRobot 0.7.0 with live language interaction, remote policy inference and streaming robot datasets. Its training stack adds FSDP2, HSDP and distributed checkpoints for larger world action models, including integrations for Cosmos 3, FLUX 3 Action, LaWAM and Long-WAM.
+
+### 技术点 / Technical points
+
+- 交互式运行在用户切换子任务时保持策略权重和机器人连接加载；视觉问答及自主选择子任务需要可生成文本的策略或外部 VLM 规划器。
+  - Interactive rollouts keep policy weights and robot connections loaded while users change subtasks; visual questions and autonomous subtask selection require a text-generating policy or external VLM planner.
+- 数据集可从 Hub、Storage Buckets 或 LanceDB 流式读取；策略服务器可将推理放到远程 GPU 上执行。
+  - Datasets can stream from the Hub, Storage Buckets or LanceDB; a policy server moves inference onto a remote GPU.
+
+### 为什么重要 / Why it matters
+
+统一的训练与部署基础设施，可减少在人类指导下测试预测型机器人策略所需的集成工作。
+
+Shared training and deployment infrastructure lowers the integration work needed to test predictive robot policies with human guidance.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/blog/lerobot/lerobot-release-v070)
+
+---
+
 <a id="2026-11-05-microsoft-pdd-kit-formal-agent-code-verification"></a>
 ## [微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
 
@@ -35,6 +167,202 @@ It shows how coding-agent review can focus on intended properties and proof assu
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50386024)
+
+---
+
+<a id="2026-11-05-la-jepa-compact-latent-world-policies"></a>
+## [La-JEPA 用未来特征预测训练紧凑机器人策略](https://arxiv.org/abs/2611.08156)
+
+**English:** [La-JEPA trains compact robot policies with future-feature prediction](https://arxiv.org/abs/2611.08156)
+
+- **发布 / Published:** `2026-11-05T15:16:38Z`
+- **来源 / Source:** [La-JEPA authors / arXiv](https://arxiv.org/abs/2611.08156) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `jepa`, `latent-dynamics`, `efficiency`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+La-JEPA 预印本在预训练 V-JEPA 2.1 编码器的特征空间中，从头训练策略 Transformer。训练时联合预测未来特征和动作，推理时仅输出动作；作者报告在不采用具身预训练策略骨干的情况下，仿真和真实机器人控制表现具有竞争力。
+
+The La-JEPA preprint trains a policy transformer from scratch in a pretrained V-JEPA 2.1 encoder's feature space. It predicts future features and actions during training but emits only actions at inference, reporting competitive simulated and real-robot control without an embodied-pretrained policy backbone.
+
+### 技术点 / Technical points
+
+- 研究评测了标准及随机化 RoboTwin 2.0 场景、LIBERO-Plus 和四项真实机器人任务，并报告在性能相近时推理快于 Fast-WAM。
+  - The study evaluates clean and randomized RoboTwin 2.0 scenes, LIBERO-Plus and four real-robot tasks; it reports faster inference than Fast-WAM at comparable performance.
+- 作者修正了已发布 LIBERO-Plus 评测器中损坏的指令并重新评测开放基线，因此该评测条件是比较结果的重要前提。
+  - The authors correct corrupted instructions in the released LIBERO-Plus evaluator and re-evaluate open baselines, making that evaluation condition material to the comparison.
+
+### 为什么重要 / Why it matters
+
+训练阶段的动力学预测可能改善控制，同时避免部署时生成未来视频的高额开销。
+
+Training-time dynamics prediction may improve control without requiring costly future-video generation during deployment.
+
+---
+
+<a id="2026-11-05-playgen2-persistent-3d-world-state"></a>
+## [PlayGen2 将持久三维世界动力学与神经渲染分离](https://arxiv.org/abs/2611.07867)
+
+**English:** [PlayGen2 separates persistent 3D world dynamics from neural rendering](https://arxiv.org/abs/2611.07867)
+
+- **发布 / Published:** `2026-11-05T11:45:25Z`
+- **来源 / Source:** [PlayGen2 authors / arXiv](https://arxiv.org/abs/2611.07867) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `interactive-worlds`, `spatial-memory`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+PlayGen2 预印本使用显式三维状态建模可玩的 Doom 环境，而非循环依赖生成图像。持久记忆跟踪几何和实体，独立渲染器生成观测；作者报告在 M4 Pro MacBook Pro 上后端延迟约为 160 毫秒。
+
+The PlayGen2 preprint models playable Doom environments through explicit 3D state rather than recurrently generated images. A persistent memory tracks geometry and entities, while a separate renderer produces observations. The authors report about 160 ms backend latency on an M4 Pro MacBook Pro.
+
+### 技术点 / Technical points
+
+- 局部世界状态模型联合预测动作条件下的实体运动、补全几何和发现实体，再更新持久记忆。
+  - A local world-state model jointly predicts action-conditioned entity motion, completes geometry and discovers entities, then updates persistent memory.
+- 生成图像不参与状态预测；演示涵盖未见地图、组合单人模型实现多人交互，以及基于规则的状态干预。
+  - Generated images are excluded from state prediction; demonstrations include unseen maps, composition of single-player models for multiplayer and rule-based state interventions.
+
+### 为什么重要 / Why it matters
+
+显式状态接口让学习型环境更易检查和修改，并降低其对图像反馈一致性的依赖。
+
+An explicit state interface makes learned environments easier to inspect and manipulate while reducing dependence on image-feedback consistency.
+
+---
+
+<a id="2026-11-05-affectivevla-intent-gated-humanoid-contact"></a>
+## [AffectiveVLA 通过人类意图识别控制人形机器人的社交接触](https://arxiv.org/abs/2611.07712)
+
+**English:** [AffectiveVLA gates humanoid social contact on recognized human intent](https://arxiv.org/abs/2611.07712)
+
+- **发布 / Published:** `2026-11-05T09:29:21Z`
+- **来源 / Source:** [AffectiveVLA authors / arXiv](https://arxiv.org/abs/2611.07712) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `vla`, `safety`, `human-robot-interaction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AffectiveVLA 预印本在 Unitree G1 上结合视觉意图识别与 VLA 控制，用于握手、拥抱等交互。意图预测置信度不足时禁止执行动作，并通过接触类型对应的阻抗设置和独立语音触发停止机制提供额外保护。
+
+The AffectiveVLA preprint combines visual intent recognition with VLA control on a Unitree G1 for interactions such as handshakes and hugs. Low-confidence intent predictions suppress movement, while contact-specific impedance settings and an independent voice-triggered stop provide additional safeguards.
+
+### 技术点 / Technical points
+
+- 团队通过 VR 遥操作收集了约 1,300 段多模态交互，并微调了四种 VLA 模型。
+  - The team collected about 1,300 multimodal interaction episodes through VR teleoperation and fine-tuned four VLA models.
+- 在单模型表现最好的 GR00T 上，加入意图识别使宏平均 F1 从 0.75 提升至 0.90；意图推理的 p95 延迟为 6.27 毫秒。
+  - For the best standalone model, GR00T, adding intent recognition raises macro-F1 from 0.75 to 0.90; intent inference has a reported p95 latency of 6.27 ms.
+
+### 为什么重要 / Why it matters
+
+该研究检验了意图置信度与物理执行之间的明确约束，对减少人形机器人交互中的意外接触具有参考价值。
+
+The work tests an explicit link between intent confidence and physical execution, relevant to reducing accidental contact during humanoid interaction.
+
+---
+
+<a id="2026-11-05-mcphallu-structured-agent-failure-benchmark"></a>
+## [MCPHallu 分离评测 MCP 智能体的推理、执行与记忆失误](https://arxiv.org/abs/2611.07689)
+
+**English:** [MCPHallu isolates reasoning, execution and memory failures across MCP agents](https://arxiv.org/abs/2611.07689)
+
+- **发布 / Published:** `2026-11-05T09:14:26Z`
+- **来源 / Source:** [MCPHallu authors / arXiv](https://arxiv.org/abs/2611.07689) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `mcp`, `tool-use`, `memory`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MCPHallu 预印本提出包含 358 项任务的基准，在隔离容器中的 36 个生产级 MCP 服务器上运行。作者评测了 14 个智能体和 5,012 条轨迹，发现不同失误子类型的表现差异显著，其中识别不可达目标尤其困难。
+
+MCPHallu is a preprint benchmark with 358 tasks running on 36 production MCP servers in isolated containers. Across 14 agents and 5,012 trajectories, the authors find substantial differences between failure subtypes, especially difficulty recognizing unreachable goals.
+
+### 技术点 / Technical points
+
+- 任务在设计时分别设置分支坍缩、目标不可达、工具误用或上下文遗忘的触发条件，而非仅在执行后诊断失败。
+  - Tasks deliberately trigger branch collapse, unreachable goals, tool misuse or context forgetting instead of diagnosing all failures only after execution.
+- 在目标不可达任务上，作者报告平均得分为 0.458（满分 1），运行通过率为 23.2%。
+  - On unreachable-goal tasks, the reported average score is 0.458 on a zero-to-one scale and 23.2% of runs pass.
+
+### 为什么重要 / Why it matters
+
+针对具体失误设计的任务，有助于暴露在目标不可完成时仍反复调用工具或宣称成功的智能体。
+
+Failure-specific tasks can reveal agents that keep calling tools or claim success when completion is infeasible.
+
+---
+
+<a id="2026-11-05-openai-gpt-6-cyber-scope-alignment"></a>
+## [GPT-6 Cyber 同时报告安全智能体能力与任务范围遵循评测](https://openai.com/index/introducing-gpt-6-cyber/)
+
+**English:** [GPT-6 Cyber pairs stronger security-agent results with scope-adherence evaluations](https://openai.com/index/introducing-gpt-6-cyber/)
+
+- **发布 / Published:** `2026-11-05T09:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-gpt-6-cyber/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `cybersecurity`, `safety`, `benchmark`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+OpenAI 面向部分获批 Daybreak Red 客户，通过 API 和 Codex 推出 GPT-6 Cyber。官方报告其 ExploitGym 得分为 48.5%，高于 GPT-5.6 Cyber 的 32.1%，同时提升了对授权任务范围的遵循能力。发布时间采用官方 RSS。
+
+OpenAI introduced GPT-6 Cyber for selected approved Daybreak Red customers through the API and Codex. It reports 48.5% on ExploitGym, versus 32.1% for GPT-5.6 Cyber, alongside improved adherence to authorized task boundaries. The timestamp follows the official RSS.
+
+### 技术点 / Technical points
+
+- 在另一项对齐评测中，OpenAI 报告未使用部署提示时，99.93% 的测试未利用范围外服务，使用提示后为 100%。
+  - In a separate alignment evaluation, OpenAI reports avoiding exploitation of out-of-scope services in 99.93% of tests without the deployment prompt and 100% with it.
+- 系统卡描述了面向漏洞调查和利用开发的强化学习，并加入遵循授权和准确报告的训练信号。
+  - The system card describes reinforcement learning on vulnerability investigation and exploit development, with additional signals for respecting authorization and reporting accurately.
+
+### 为什么重要 / Why it matters
+
+同时公布能力和边界遵循结果，为安全智能体的受控部署评估提供了更多证据。
+
+Publishing both capability and boundary-following results gives security-agent developers more evidence for assessing controlled deployment.
+
+### 链接 / Links
+
+[Evidence 1](https://deploymentsafety.openai.com/gpt-6-cyber) · [Evidence 2](https://openai.com/news/rss.xml)
+
+---
+
+<a id="2026-11-05-diagdbench-interactive-database-diagnosis"></a>
+## [DiagDBench 在可执行数据库环境中评测智能体诊断与修复能力](https://arxiv.org/abs/2611.07339)
+
+**English:** [DiagDBench tests database agents in executable diagnosis and remediation environments](https://arxiv.org/abs/2611.07339)
+
+- **发布 / Published:** `2026-11-05T02:27:03Z`
+- **来源 / Source:** [DiagDBench authors / arXiv](https://arxiv.org/abs/2611.07339) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `database`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+DiagDBench 预印本提出用于异常诊断、修复及可选负载优化的真实运行数据库环境。作者报告了 6,940 个训练样本和 454 个专家标注测试样本；其评测中表现最好的智能体得分也仅为 56.24。
+
+The DiagDBench preprint introduces live database environments for diagnosing anomalies, applying remedies and optionally optimizing workloads. Its authors report 6,940 training samples and 454 expert-annotated test samples; even their strongest evaluated agent scores 56.24.
+
+### 技术点 / Technical points
+
+- 每个样本包含用户请求、已验证异常的负载，以及支持交互监控和执行的独立 DBMS 环境。
+  - Each sample includes a user request, an anomaly-verified workload and a self-contained DBMS environment supporting interactive monitoring and execution.
+- 构建流程结合文档引导的异常合成与企业事故复现；评测覆盖两种 DBMS 和三种硬件配置。
+  - Construction combines documentation-guided anomaly synthesis with reproduction of enterprise incidents; evaluation spans two DBMSs and three hardware configurations.
+
+### 为什么重要 / Why it matters
+
+可执行故障使评测能够检查智能体是否真正修复数据库，而不只给出貌似合理的诊断。
+
+Executable failures make it possible to evaluate whether an agent actually repairs a database rather than merely describing a plausible diagnosis.
 
 ---
 
@@ -327,335 +655,3 @@ It extends the model family into visual software operation, with broader reprodu
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50383963)
-
----
-
-<a id="2026-11-03-dreamx-transferable-latent-actions"></a>
-## [DreamX 学习可在人与机器人之间迁移的紧凑动作表征](https://arxiv.org/abs/2611.05377)
-
-**English:** [DreamX learns compact action representations that transfer between humans and robots](https://arxiv.org/abs/2611.05377)
-
-- **发布 / Published:** `2026-11-03T18:59:56Z`
-- **来源 / Source:** [DreamX authors / arXiv](https://arxiv.org/abs/2611.05377) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `latent-actions`, `video-diffusion`, `cross-embodiment`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-DreamX 从预训练视频扩散模型中提取潜在动作，将运动与外观信息解耦。预印本报告了跨具身动作迁移，以及通过共享紧凑动作接口进行策略学习的结果。
-
-DreamX extracts latent actions from a pretrained video diffusion model to separate motion from appearance. The preprint reports cross-embodiment action transfer and policy learning through a shared, compact action interface.
-
-### 技术点 / Technical points
-
-- 该表征将每个潜在视频帧从 1,200 个 token 压缩至 4 个；这是表征压缩，并非实测运行速度提升 300 倍。
-  - The representation reduces each latent video frame from 1,200 tokens to four; this is representation compression, not a measured 300-fold runtime speedup.
-- 作者在 LARY-Bench 上评估潜在动作，并演示不同具身形态与环境之间的零样本迁移。
-  - The authors evaluate latent actions on LARY-Bench and demonstrate zero-shot transfer between different embodiments and environments.
-
-### 为什么重要 / Why it matters
-
-共享动作表征有望提升人类视频对机器人策略训练的价值。
-
-A shared action representation could make human video more useful for training robot policies.
-
----
-
-<a id="2026-11-03-pyrua-datafarm-agent-generated-robot-demonstrations"></a>
-## [PyRUA-DataFarm 用编程智能体生成机器人训练示范](https://arxiv.org/abs/2611.05320)
-
-**English:** [PyRUA-DataFarm uses a coding agent to generate robot training demonstrations](https://arxiv.org/abs/2611.05320)
-
-- **发布 / Published:** `2026-11-03T18:25:14Z`
-- **来源 / Source:** [PyRUA-DataFarm authors / arXiv](https://arxiv.org/abs/2611.05320) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `synthetic-data`, `coding-agents`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-PyRUA-DataFarm 向编程智能体提供任务请求和一段真实标定轨迹，由其构建仿真场景、控制器与成功判定器，再用视频模型将仿真轨迹转换为带动作标签的相机视图，用于训练真实机器人。
-
-PyRUA-DataFarm gives a coding agent a task request and one real calibration episode, then has it build a simulated scene, controller and success judge. A video model converts simulated rollouts into action-labelled camera views for training real robots.
-
-### 技术点 / Technical points
-
-- 独立判定器在数据进入训练前检查仿真专家与渲染轨迹。
-  - Separate judges check the simulated expert and rendered episodes before the data enters training.
-- 在五项真实机器人任务中，作者报告合成数据策略在 100 次试验中成功 93 次，使用相同数量遥操作轨迹的策略成功 84 次。
-  - Across five real-robot tasks, the authors report 93 successes in 100 trials for synthetic-data policies versus 84 for policies using the same number of teleoperated episodes.
-
-### 为什么重要 / Why it matters
-
-由智能体构建仿真，有望减少新增机器人任务时重复开展遥操作采集的工作量。
-
-Agent-built simulation could reduce repeated teleoperation work when adding robot tasks.
-
----
-
-<a id="2026-11-03-frequent-compaction-short-context-agents"></a>
-## [频繁压缩上下文可让智能体在短工作上下文中维持表现](https://arxiv.org/abs/2611.05306)
-
-**English:** [Frequent compaction preserves agent performance with short working contexts](https://arxiv.org/abs/2611.05306)
-
-- **发布 / Published:** `2026-11-03T18:17:23Z`
-- **来源 / Source:** [You don't need long context authors / arXiv](https://arxiv.org/abs/2611.05306) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `context-compaction`, `benchmark`, `coding-agents`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-这份技术报告在长程任务与长输入任务中，对比不断累积的对话历史和频繁上下文压缩。作者发现，较短的实时上下文通常能维持相近准确率，其中包括在单次动作之间只保留紧凑状态的软件工程实验。
-
-The technical report compares growing conversation histories with frequent compaction on long-horizon and long-input tasks. The authors find broadly comparable accuracy with shorter live contexts, including software-engineering runs that retain a compact state between individual actions.
-
-### 技术点 / Technical points
-
-- 单动作压缩将自然语言状态传入每段新对话，并在执行一次动作后替换上一段对话。
-  - Single-action compaction carries a natural-language state into each new conversation, then replaces the previous conversation after an action.
-- 压缩存在信息损失；论文区分了让历史可检索与将全部历史放入当前上下文。
-  - Compaction is lossy; the paper distinguishes keeping history retrievable from keeping the full history inside the active context.
-
-### 为什么重要 / Why it matters
-
-该结果支持将显式状态管理作为控制长时间运行智能体成本的一条评估路径。
-
-The results support evaluating explicit state management as a way to control long-running agent costs.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/html/2611.05306v1)
-
----
-
-<a id="2026-11-03-robotryon-human-video-robot-demonstrations"></a>
-## [RoboTryOn 将人类视频转换为灵巧机器人示范](https://arxiv.org/abs/2611.05163)
-
-**English:** [RoboTryOn turns human videos into demonstrations for dexterous robots](https://arxiv.org/abs/2611.05163)
-
-- **发布 / Published:** `2026-11-03T16:35:42Z`
-- **来源 / Source:** [RoboTryOn authors / arXiv](https://arxiv.org/abs/2611.05163) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `synthetic-data`, `imitation-learning`, `dexterous-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-RoboTryOn 根据人类演示合成目标机器人执行相应动作的视频，再推断动作标签用于策略学习。作者报告，在没有目标任务真实机器人示范的条件下，新任务平均成功率从 2% 提升至 60%。
-
-RoboTryOn synthesizes videos of a target robot performing motions shown by a human, then infers action labels for policy learning. The authors report an increase in average novel-task success from 2% to 60% without real robot demonstrations of those target tasks.
-
-### 技术点 / Technical points
-
-- 自回归关键帧转换与手部骨架条件生成用于保留演示动作、物体和场景。
-  - Autoregressive keyframe translation and hand-skeleton conditioning preserve the demonstrated motion, objects and scene.
-- 引入深度特征的逆动力学模型为合成视频标注动作；评估涉及多种人形机器人和双臂任务。
-  - A depth-aware inverse dynamics model labels the synthesized videos; the evaluation includes multiple humanoid embodiments and bimanual tasks.
-
-### 为什么重要 / Why it matters
-
-将人类示范转换为机器人专用训练数据，有望降低教授新操作技能的成本。
-
-Converting human demonstrations into robot-specific training data could lower the cost of teaching new manipulation skills.
-
----
-
-<a id="2026-11-03-asynchronous-robot-policies-semantic-memory"></a>
-## [Asynchronous Robot Policies 将慢速推理与快速动作生成分离](https://arxiv.org/abs/2611.05155)
-
-**English:** [Asynchronous Robot Policies separate slow reasoning from fast action generation](https://arxiv.org/abs/2611.05155)
-
-- **发布 / Published:** `2026-11-03T16:30:27Z`
-- **来源 / Source:** [Asynchronous Robot Policies authors / arXiv](https://arxiv.org/abs/2611.05155) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `memory`, `real-time-control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Asynchronous Robot Policy 让大型视觉语言模型更新语义记忆，同时由较小的视觉动作专家以更高频率控制机器人。预印本报告，其操作实验中的反应能力得到提升，执行时间有所缩短。
-
-Asynchronous Robot Policy lets a large vision-language model update semantic memory while a smaller vision-action expert controls the robot at a higher frequency. The preprint reports improved reactivity and shorter execution time in its manipulation experiments.
-
-### 技术点 / Technical points
-
-- 训练使用时间不对齐的观测，让动作专家适应滞后的语义记忆和执行延迟。
-  - Training uses temporally mismatched observations so the action expert can handle stale semantic memory and execution delay.
-- 作者报告，在准静态 Franka 任务中执行时间约减少 20%，将 VLM 更新频率降至十分之一时表现没有明显下降。
-  - The authors report roughly 20% less execution time in quasi-static Franka tasks and little performance loss when reducing VLM update frequency tenfold.
-
-### 为什么重要 / Why it matters
-
-让推理和控制以独立频率运行，为使用大型基础模型的机器人提高反应速度提供了实用途径。
-
-Independent reasoning and control rates offer a practical route to reactive robots using large foundation models.
-
----
-
-<a id="2026-11-03-continual-autoresearch-persistent-agent-evaluation"></a>
-## [Continual AutoResearch 区分快速复用经验与改善最终研究结果](https://arxiv.org/abs/2611.05108)
-
-**English:** [Continual AutoResearch separates faster reuse from better final research results](https://arxiv.org/abs/2611.05108)
-
-- **发布 / Published:** `2026-11-03T16:02:34Z`
-- **来源 / Source:** [From AutoResearch to Continual AutoResearch authors / arXiv](https://arxiv.org/abs/2611.05108) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `benchmark`, `continual-learning`, `ai-research`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Continual AutoResearch 在相同任务流与预算下，对比五种前沿智能体保留状态和重置状态的版本。作者发现，持久状态能让所有受测智能体更早找到较强方案，却未稳定改善最终留出集表现。
-
-Continual AutoResearch compares persistent and reset versions of five frontier agents under matched task streams and budgets. The authors find that persistent state helps every tested agent reach stronger solutions sooner, but does not consistently improve final held-out performance.
-
-### 技术点 / Technical points
-
-- 环境覆盖九类任务，包括符号回归、时间序列预测和表格 AutoML。
-  - The environment spans nine task families, including symbolic regression, time-series forecasting and tabular AutoML.
-- 记忆消融改变保留的信息，以区分可迁移的研究经验与延续会话本身带来的收益。
-  - Memory ablations vary retained information to distinguish transferable research insights from the benefit of continuing a session.
-
-### 为什么重要 / Why it matters
-
-评估持久运行的研究智能体，需要同时衡量经验复用效率与最终方案质量。
-
-Persistent research agents need evaluations that measure both reuse efficiency and the quality of their final solutions.
-
----
-
-<a id="2026-11-03-hilo-wam-multiscale-world-action-model"></a>
-## [HiLo-WAM 分别建模长期任务演化与局部交互](https://arxiv.org/abs/2611.05023)
-
-**English:** [HiLo-WAM models long-range task evolution separately from local interactions](https://arxiv.org/abs/2611.05023)
-
-- **发布 / Published:** `2026-11-03T15:02:19Z`
-- **来源 / Source:** [HiLo-WAM authors / arXiv](https://arxiv.org/abs/2611.05023) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `long-horizon`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-HiLo-WAM 将描述长期任务演化的稀疏视觉流与描述短期机器人—物体动力学的稠密视觉流结合。作者报告 RoboTwin 2.0 平均成功率为 93.70%，并在 Fourier GR-3 机器人上进行了测试。
-
-HiLo-WAM combines a sparse visual stream for long-range task evolution with a dense stream for short-range robot-object dynamics. The authors report 93.70% average success on RoboTwin 2.0 and test the approach on a Fourier GR-3 robot.
-
-### 技术点 / Technical points
-
-- 双 DiT 架构通过结构化注意力，将两个时间尺度的视觉流与动作生成连接起来。
-  - A dual-DiT architecture uses structured attention to connect the two temporal streams with action generation.
-- 作者报告渐进式推理带来 2.93 倍加速；论文仍将显式任务分解和高层推理列为局限。
-  - Progressive inference is reported to provide a 2.93-fold speedup; the paper still identifies explicit task decomposition and higher-level reasoning as limitations.
-
-### 为什么重要 / Why it matters
-
-分别建模不同时间尺度，有望提升预测式机器人控制在长程任务中的作用。
-
-Modeling different time scales separately could make predictive robot control more useful for extended tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/html/2611.05023v1)
-
----
-
-<a id="2026-11-03-scamworld-web-agent-fraud-evaluation"></a>
-## [ScamWorld 测试网页智能体能否根据可见诈骗迹象调整行动](https://arxiv.org/abs/2611.04879)
-
-**English:** [ScamWorld tests whether web agents act on visible signs of online fraud](https://arxiv.org/abs/2611.04879)
-
-- **发布 / Published:** `2026-11-03T13:31:11Z`
-- **来源 / Source:** [ScamWorld authors / arXiv](https://arxiv.org/abs/2611.04879) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `web-agents`, `safety`, `fraud-detection`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-ScamWorld 将有记录的诈骗网站重建为可重复的交互式评测环境。作者在六种前沿模型驱动的智能体上报告 11%–35% 的基线受骗率，其中存在智能体察觉可疑条件后仍继续行动的情况。
-
-ScamWorld reconstructs documented scam sites as repeatable, interactive evaluation environments. Across agents powered by six frontier models, the authors report baseline deception rates of 11%–35%, including cases where agents notice suspicious conditions but continue.
-
-### 技术点 / Technical points
-
-- 场景覆盖多种语言与诈骗机制，并让相关警示信息在智能体最终行动前可见。
-  - Scenarios span different languages and fraud mechanisms, with relevant warning signs observable before the final agent action.
-- 在所报告的评测中，智能体比起提交凭据或钱包信息，更容易继续执行付款。
-  - Agents were more willing to proceed with payments than with requests for credentials or wallet information in the reported evaluation.
-
-### 为什么重要 / Why it matters
-
-网页智能体安全评测需要检验：识别警示是否真正改变了后续行为。
-
-Web-agent safety evaluations should test whether recognizing a warning changes subsequent behavior.
-
----
-
-<a id="2026-11-03-primesim-cross-embodiment-world-simulator"></a>
-## [PrimeSim 基于 22 种平台训练多视角机器人世界模拟器](https://arxiv.org/abs/2611.04870)
-
-**English:** [PrimeSim trains a multiview robot world simulator across 22 platforms](https://arxiv.org/abs/2611.04870)
-
-- **发布 / Published:** `2026-11-03T13:25:52Z`
-- **来源 / Source:** [PrimeSim authors / arXiv](https://arxiv.org/abs/2611.04870) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `simulation`, `cross-embodiment`, `action-conditioned`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-PrimeSim 使用来自 22 种机器人平台的 30,110 小时示范，将视频生成器改造成动作条件模拟器。论文报告生成速度为 10.1 FPS，并评估了动作忠实度、多视角一致性和长程展开。
-
-PrimeSim adapts a video generator into an action-conditioned simulator using 30,110 hours of demonstrations from 22 robot platforms. The paper reports 10.1 FPS generation and evaluates action fidelity, multiview consistency and extended rollouts.
-
-### 技术点 / Technical points
-
-- 统一动作条件、相机感知注意力与分层时间记忆用于改善动作对齐和展开误差累积。
-  - Unified action conditioning, camera-aware attention and hierarchical temporal memory address action alignment and accumulated rollout error.
-- 适配未参与训练的平台仍需其自身数据和 100–200 次梯度更新；每视角输出为 192×256，精细局部校准仍是弱项。
-  - Adaptation to held-out platforms uses their own data and 100–200 gradient steps; output resolution is 192 by 256 per view, and fine local calibration remains a weakness.
-
-### 为什么重要 / Why it matters
-
-跨平台学习型模拟器有望减少策略测试与优化对真实机器人轨迹的依赖。
-
-Cross-platform learned simulators could support robot policy testing and optimization with fewer physical rollouts.
-
-### 链接 / Links
-
-[Evidence 1](https://arxiv.org/html/2611.04870v1)
-
----
-
-<a id="2026-11-03-dreamfree-predictive-representation-distillation"></a>
-## [DreamFree 蒸馏预测视频特征，无需生成未来视频即可控制机器人](https://arxiv.org/abs/2611.04527)
-
-**English:** [DreamFree distills predictive video features for robot control without future-video generation](https://arxiv.org/abs/2611.04527)
-
-- **发布 / Published:** `2026-11-03T08:55:03Z`
-- **来源 / Source:** [Future Representation Distillation for Imagination-Free World Action Models authors / arXiv](https://arxiv.org/abs/2611.04527) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `distillation`, `real-time-control`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-DreamFree 训练视觉编码器，使其仅凭当前观测恢复冻结视频扩散模型的预测表征。动作模块直接使用这些特征，在机器人控制时省去迭代生成未来视频的过程。
-
-DreamFree trains a visual encoder to recover a frozen video diffusion model’s predictive representation from the current observation. An action module uses those features directly, avoiding iterative future-video generation during robot control.
-
-### 技术点 / Technical points
-
-- 作者报告，其实验配置使用 14B 视频扩散骨干网络实现了 11 Hz 闭环控制。
-  - The authors report 11 Hz closed-loop control with a 14B video diffusion backbone in their experimental setup.
-- 研究包括通过没有目标任务动作标签的视频学习新任务，其中也使用了其他具身形态的示范。
-  - The study includes learning new tasks from videos without action labels for those tasks, including demonstrations from another embodiment.
-
-### 为什么重要 / Why it matters
-
-蒸馏预测特征有望保留世界模型知识，同时降低动作推理成本。
-
-Distilling predictive features could preserve useful world-model knowledge while reducing the cost of action inference.

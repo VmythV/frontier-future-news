@@ -2,6 +2,70 @@
 
 # Agents / 智能体
 
+<a id="2026-11-05-hermes-023-unified-agent-session-gateway"></a>
+## [Hermes Agent 0.23 统一跨客户端会话归属并增加浏览器工作区](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
+
+**English:** [Hermes Agent 0.23 unifies session ownership across clients and adds a browser workspace](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
+
+- **发布 / Published:** `2026-11-05T21:32:33Z`
+- **来源 / Source:** [Nous Research / Hermes Agent](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `multi-agent`, `mcp`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Nous Research 发布 Hermes Agent 0.23.0，将命令行、桌面、编辑器、消息及定时会话统一交由每台机器的单一网关管理。浏览器工作区连接同一网关，版本还加入可插拔任务委派，以及针对付费 MCP 工具的成本控制。
+
+Nous Research released Hermes Agent 0.23.0, consolidating CLI, desktop, editor, messaging and scheduled sessions under one gateway per machine. A browser workspace attaches to that gateway, while the release also adds pluggable delegation and cost-aware controls for paid MCP tools.
+
+### 技术点 / Technical points
+
+- 各客户端共享会话队列和历史，处理多个界面访问同一对话时消息重复或丢失的问题。
+  - Clients share a session queue and history, addressing duplicated or missing messages when multiple interfaces access the same conversation.
+- 委派可将任务路由到指定模型或配置；付费 MCP 工具可声明调用价格，并在会话超出开支上限时触发审批。
+  - Delegation can route tasks to models or profiles; paid MCP tools can expose call prices and trigger approval when a conversation exceeds its spending limit.
+
+### 为什么重要 / Why it matters
+
+集中管理会话归属并明确控制任务委派，有助于处理持续运行、多客户端智能体部署中的可靠性问题。
+
+Centralized session ownership and explicit delegation controls address practical reliability problems in persistent, multi-client agent deployments.
+
+---
+
+<a id="2026-11-05-scientist-world-executable-research-environments"></a>
+## [Scientist World 将研究论文转化为 1,000 个可执行智能体环境](https://arxiv.org/abs/2611.08478)
+
+**English:** [Scientist World turns research papers into 1,000 executable agent environments](https://arxiv.org/abs/2611.08478)
+
+- **发布 / Published:** `2026-11-05T18:58:17Z`
+- **来源 / Source:** [Scientist World authors / arXiv](https://arxiv.org/abs/2611.08478) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `ai-scientist`, `benchmark`, `dataset`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Scientist World 预印本描述了一条从论文中提取研究问题、并将其方法复现为可执行基线的流程。作者发布了 1,000 个已验证环境及 6,400 小时研究轨迹，用于科研智能体评测与训练。
+
+The Scientist World preprint describes a pipeline that extracts research questions from papers and reproduces their methods as executable baselines. The authors release 1,000 verified environments and 6,400 hours of research traces, positioning the collection for research-agent evaluation and training.
+
+### 技术点 / Technical points
+
+- 智能体与复现的作者基线进行比较，轨迹覆盖构思、实验、失败与成功过程。
+  - Agents are evaluated against reproduced author baselines, with traces covering ideas, experiments, failures and successes.
+- 作者报告前沿智能体在其 74% 的评测中超过基线；这衡量的是所构建环境内的表现，不代表全面超越人类科学家。
+  - The authors report frontier agents surpassing those baselines in 74% of their evaluations; this measures performance inside the constructed environments, not general superiority over human scientists.
+
+### 为什么重要 / Why it matters
+
+可执行研究问题为衡量和训练科研实验能力提供了比纯文本提案更具体的依据。
+
+Executable research questions provide a more concrete basis for measuring and training scientific experimentation than text-only proposals.
+
+---
+
 <a id="2026-11-05-microsoft-pdd-kit-formal-agent-code-verification"></a>
 ## [微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
 
@@ -35,6 +99,106 @@ It shows how coding-agent review can focus on intended properties and proof assu
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50386024)
+
+---
+
+<a id="2026-11-05-mcphallu-structured-agent-failure-benchmark"></a>
+## [MCPHallu 分离评测 MCP 智能体的推理、执行与记忆失误](https://arxiv.org/abs/2611.07689)
+
+**English:** [MCPHallu isolates reasoning, execution and memory failures across MCP agents](https://arxiv.org/abs/2611.07689)
+
+- **发布 / Published:** `2026-11-05T09:14:26Z`
+- **来源 / Source:** [MCPHallu authors / arXiv](https://arxiv.org/abs/2611.07689) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `mcp`, `tool-use`, `memory`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+MCPHallu 预印本提出包含 358 项任务的基准，在隔离容器中的 36 个生产级 MCP 服务器上运行。作者评测了 14 个智能体和 5,012 条轨迹，发现不同失误子类型的表现差异显著，其中识别不可达目标尤其困难。
+
+MCPHallu is a preprint benchmark with 358 tasks running on 36 production MCP servers in isolated containers. Across 14 agents and 5,012 trajectories, the authors find substantial differences between failure subtypes, especially difficulty recognizing unreachable goals.
+
+### 技术点 / Technical points
+
+- 任务在设计时分别设置分支坍缩、目标不可达、工具误用或上下文遗忘的触发条件，而非仅在执行后诊断失败。
+  - Tasks deliberately trigger branch collapse, unreachable goals, tool misuse or context forgetting instead of diagnosing all failures only after execution.
+- 在目标不可达任务上，作者报告平均得分为 0.458（满分 1），运行通过率为 23.2%。
+  - On unreachable-goal tasks, the reported average score is 0.458 on a zero-to-one scale and 23.2% of runs pass.
+
+### 为什么重要 / Why it matters
+
+针对具体失误设计的任务，有助于暴露在目标不可完成时仍反复调用工具或宣称成功的智能体。
+
+Failure-specific tasks can reveal agents that keep calling tools or claim success when completion is infeasible.
+
+---
+
+<a id="2026-11-05-openai-gpt-6-cyber-scope-alignment"></a>
+## [GPT-6 Cyber 同时报告安全智能体能力与任务范围遵循评测](https://openai.com/index/introducing-gpt-6-cyber/)
+
+**English:** [GPT-6 Cyber pairs stronger security-agent results with scope-adherence evaluations](https://openai.com/index/introducing-gpt-6-cyber/)
+
+- **发布 / Published:** `2026-11-05T09:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-gpt-6-cyber/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `cybersecurity`, `safety`, `benchmark`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+OpenAI 面向部分获批 Daybreak Red 客户，通过 API 和 Codex 推出 GPT-6 Cyber。官方报告其 ExploitGym 得分为 48.5%，高于 GPT-5.6 Cyber 的 32.1%，同时提升了对授权任务范围的遵循能力。发布时间采用官方 RSS。
+
+OpenAI introduced GPT-6 Cyber for selected approved Daybreak Red customers through the API and Codex. It reports 48.5% on ExploitGym, versus 32.1% for GPT-5.6 Cyber, alongside improved adherence to authorized task boundaries. The timestamp follows the official RSS.
+
+### 技术点 / Technical points
+
+- 在另一项对齐评测中，OpenAI 报告未使用部署提示时，99.93% 的测试未利用范围外服务，使用提示后为 100%。
+  - In a separate alignment evaluation, OpenAI reports avoiding exploitation of out-of-scope services in 99.93% of tests without the deployment prompt and 100% with it.
+- 系统卡描述了面向漏洞调查和利用开发的强化学习，并加入遵循授权和准确报告的训练信号。
+  - The system card describes reinforcement learning on vulnerability investigation and exploit development, with additional signals for respecting authorization and reporting accurately.
+
+### 为什么重要 / Why it matters
+
+同时公布能力和边界遵循结果，为安全智能体的受控部署评估提供了更多证据。
+
+Publishing both capability and boundary-following results gives security-agent developers more evidence for assessing controlled deployment.
+
+### 链接 / Links
+
+[Evidence 1](https://deploymentsafety.openai.com/gpt-6-cyber) · [Evidence 2](https://openai.com/news/rss.xml)
+
+---
+
+<a id="2026-11-05-diagdbench-interactive-database-diagnosis"></a>
+## [DiagDBench 在可执行数据库环境中评测智能体诊断与修复能力](https://arxiv.org/abs/2611.07339)
+
+**English:** [DiagDBench tests database agents in executable diagnosis and remediation environments](https://arxiv.org/abs/2611.07339)
+
+- **发布 / Published:** `2026-11-05T02:27:03Z`
+- **来源 / Source:** [DiagDBench authors / arXiv](https://arxiv.org/abs/2611.07339) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `database`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+DiagDBench 预印本提出用于异常诊断、修复及可选负载优化的真实运行数据库环境。作者报告了 6,940 个训练样本和 454 个专家标注测试样本；其评测中表现最好的智能体得分也仅为 56.24。
+
+The DiagDBench preprint introduces live database environments for diagnosing anomalies, applying remedies and optionally optimizing workloads. Its authors report 6,940 training samples and 454 expert-annotated test samples; even their strongest evaluated agent scores 56.24.
+
+### 技术点 / Technical points
+
+- 每个样本包含用户请求、已验证异常的负载，以及支持交互监控和执行的独立 DBMS 环境。
+  - Each sample includes a user request, an anomaly-verified workload and a self-contained DBMS environment supporting interactive monitoring and execution.
+- 构建流程结合文档引导的异常合成与企业事故复现；评测覆盖两种 DBMS 和三种硬件配置。
+  - Construction combines documentation-guided anomaly synthesis with reproduction of enterprise incidents; evaluation spans two DBMSs and three hardware configurations.
+
+### 为什么重要 / Why it matters
+
+可执行故障使评测能够检查智能体是否真正修复数据库，而不只给出貌似合理的诊断。
+
+Executable failures make it possible to evaluate whether an agent actually repairs a database rather than merely describing a plausible diagnosis.
 
 ---
 
