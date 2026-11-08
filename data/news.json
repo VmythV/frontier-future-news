@@ -22541,6 +22541,209 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-07-google-adk-214-stable-environments-evaluation",
+      "published_at": "2026-11-07T00:58:18Z",
+      "collected_at": "2026-11-08T00:04:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "agent-framework",
+        "tool-use",
+        "evaluation",
+        "sandbox",
+        "safety",
+        "open-source"
+      ],
+      "title_en": "Google ADK Python 2.14 stabilizes execution environments and adds repeated agent evaluation",
+      "title_zh": "Google ADK Python 2.14 将执行环境转为稳定接口，新增智能体重复评测",
+      "summary_en": "Google published ADK Python 2.14.0 with stable execution environments and A2A integration, repeated evaluation, and safer skill-script invocation. The timestamp follows the GitHub release published on November 7; the changelog heading is dated November 4.",
+      "summary_zh": "Google 发布 ADK Python 2.14.0，将执行环境和 A2A 集成转为稳定接口，新增重复评测，并收紧技能脚本调用。时间采用 11 月 7 日的 GitHub release 发布时间；更新日志标题标注的是 11 月 4 日。",
+      "tech_points_en": [
+        "Local, E2B and Daytona environment APIs graduate from experimental; file reads can stream chunks instead of loading entire files.",
+        "MultiRunConfig and CLI parallelism repeat evaluation cases and aggregate scores or pass rates; tool arguments support semantic matching.",
+        "In environment mode, RunSkillScriptTool accepts structured arguments and validated script paths instead of a free-form shell command, with a breaking API change."
+      ],
+      "tech_points_zh": [
+        "Local、E2B 和 Daytona 环境接口脱离实验状态；文件读取可分块流式进行，无需将整个文件载入内存。",
+        "MultiRunConfig 和命令行并行选项支持重复运行评测案例并汇总分数或通过率；工具参数支持语义匹配。",
+        "环境模式下的 RunSkillScriptTool 改用结构化参数和经过校验的脚本路径，替代自由格式 shell 命令，构成不兼容的接口变更。"
+      ],
+      "why_it_matters_en": "Stable environment contracts and repeated evaluations give agent builders firmer execution boundaries and better visibility into run-to-run variability.",
+      "why_it_matters_zh": "稳定的环境接口与重复评测，为智能体开发提供更明确的执行边界，也更便于观察多次运行的波动。",
+      "source": {
+        "name": "Google ADK",
+        "type": "primary",
+        "url": "https://github.com/google/adk-python/releases/tag/v2.14.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/google/adk-python/releases/tags/v2.14.0"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-11-06-opencode-226-background-job-completion",
+      "published_at": "2026-11-06T23:37:20Z",
+      "collected_at": "2026-11-08T00:04:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "mcp",
+        "multi-agent",
+        "reliability",
+        "open-source"
+      ],
+      "title_en": "OpenCode 2.2.6 waits for background agent work and adds MCP connection pooling",
+      "title_zh": "OpenCode 2.2.6 等待后台智能体任务完成，新增 MCP 连接池",
+      "summary_en": "OpenCode 2.2.6 changes noninteractive runs to wait for background shell commands, subagents and image jobs, then lets the model process their results before exiting. It also introduces opt-in MCP connection sharing and worktree-based scripted sessions.",
+      "summary_zh": "OpenCode 2.2.6 调整非交互运行：等待后台 shell 命令、子智能体和图像任务结束，再让模型处理结果后退出。版本还加入可选的 MCP 连接共享，以及基于 worktree 的脚本化会话。",
+      "tech_points_en": [
+        "MCP servers configured with pool: true share one connection across projects with matching configuration.",
+        "opencode run --worktree creates a separate Git worktree; --archived hides automated sessions from normal session lists.",
+        "Background waits emit a background_wait event in JSON mode and have no built-in time limit, so persistent jobs can keep a run open."
+      ],
+      "tech_points_zh": [
+        "设置 pool: true 的 MCP 服务可在配置相同的项目之间共享同一连接。",
+        "opencode run --worktree 创建独立 Git worktree；--archived 将自动化会话从常规会话列表中隐藏。",
+        "JSON 模式下，后台等待会输出 background_wait 事件，且没有内置时间上限，常驻任务可能使运行持续不退出。"
+      ],
+      "why_it_matters_en": "The release makes completion semantics more explicit for delegated coding work and reduces duplicated MCP processes across projects.",
+      "why_it_matters_zh": "这次更新让委派式编程任务的完成条件更清晰，并减少跨项目重复启动的 MCP 进程。",
+      "source": {
+        "name": "Anomaly / OpenCode",
+        "type": "primary",
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.2.6",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/anomalyco/opencode/releases/tags/v2.2.6"
+      ],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 12,
+        "technical_depth": 12,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-06-mujoco-4-speculative-contacts-plasticity",
+      "published_at": "2026-11-06T15:39:53Z",
+      "collected_at": "2026-11-08T00:04:52Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "deformable-objects",
+        "open-source"
+      ],
+      "title_en": "MuJoCo 4.0 adds speculative contacts and plastic deformation for robot simulation",
+      "title_zh": "MuJoCo 4.0 为机器人仿真加入预测式接触与塑性形变",
+      "summary_en": "Google DeepMind released MuJoCo 4.0 with speculative contacts for fast-moving objects, stateful elasto-plastic deformation, and split Python packages for the core engine and Studio. These are physics-simulation tools for robotics rather than a learned predictive model.",
+      "summary_zh": "Google DeepMind 发布 MuJoCo 4.0，为快速运动物体加入预测式接触，支持保存状态的弹塑性形变，并将 Python 分发拆分为核心引擎与 Studio 等包。这些能力属于机器人研究的物理仿真工具，并非学习得到的预测模型。",
+      "tech_points_en": [
+        "The optional speculative-contact flag is designed to prevent fast convex geometries from crossing thin obstacles within one timestep.",
+        "Plastic deformation state covers joint and tendon springs and 2D/3D deformables, with separate stretching and bending yield strains for shells.",
+        "The distribution separates mujoco-core and mujoco-studio; changed tendon wrapping, RK4 orientation integration and deformable APIs can alter existing simulations."
+      ],
+      "tech_points_zh": [
+        "可选的预测式接触开关用于防止快速运动的凸几何体在单个时间步内穿过薄障碍物。",
+        "塑性形变状态覆盖关节和肌腱弹簧及二维、三维可变形体，壳体可分别设置拉伸和弯曲屈服应变。",
+        "分发拆分为 mujoco-core 与 mujoco-studio；肌腱绕行、RK4 姿态积分和可变形体接口的变化可能改变已有仿真行为。"
+      ],
+      "why_it_matters_en": "Better treatment of contact and permanent deformation expands the physical interactions that robot-learning environments can represent.",
+      "why_it_matters_zh": "更完整的接触与永久形变处理，扩展了机器人学习环境能够表达的物理交互。",
+      "source": {
+        "name": "Google DeepMind / MuJoCo",
+        "type": "primary",
+        "url": "https://github.com/google-deepmind/mujoco/releases/tag/4.0.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/google-deepmind/mujoco/releases/tags/4.0.0",
+        "https://github.com/google-deepmind/mujoco/discussions/3773"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-06-embodied-ai-air-onsite-imitation-learning",
+      "published_at": "2026-11-06T08:00:00Z",
+      "collected_at": "2026-11-08T00:04:52Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "humanoid",
+        "imitation-learning",
+        "teleoperation",
+        "hardware"
+      ],
+      "title_en": "Embodied AI introduces AIR with compliant arms and on-site learning from teleoperation",
+      "title_zh": "Embodied AI 发布 AIR，以柔顺双臂和遥操作示范支持现场学习",
+      "summary_en": "Embodied AI announced AIR, a wheeled dual-arm humanoid that combines tendon-driven arms with learning from recorded operator demonstrations. The company says autonomy typically develops within a month, with operators available for unfamiliar cases. The timestamp matches the official PDF embargo of 09:00 CET and the syndicated announcement at 03:00 EST.",
+      "summary_zh": "Embodied AI 宣布推出轮式双臂人形机器人 AIR，将肌腱驱动双臂与操作员示范记录学习相结合。公司称通常可在一个月内逐步实现任务自主执行，操作员继续处理未见情况。时间对应官网 PDF 的 09:00 CET 解禁时刻，也与署名通稿的 03:00 EST 一致。",
+      "tech_points_en": [
+        "Motors, gearboxes and electronics sit in the torso; lightweight compliant arms are designed to yield on contact.",
+        "Teleoperation records provide on-site training data, and the official site describes compact multimodal policies orchestrated by a VLM on the robot.",
+        "The announcement reports earlier industrial-cell results; those figures are not independent measurements of AIR."
+      ],
+      "tech_points_zh": [
+        "电机、减速器和电子设备集中在躯干，轻量柔顺双臂设计为在接触时让位。",
+        "遥操作记录提供现场训练数据；官网描述由机器人本地的 VLM 编排紧凑多模态策略。",
+        "公告介绍了较早双臂工业工作站的结果，这些数字并非对 AIR 的独立测量。"
+      ],
+      "why_it_matters_en": "AIR connects compliant hardware with incremental workplace learning, providing a concrete deployment approach whose autonomy claims still need independent validation.",
+      "why_it_matters_zh": "AIR 将柔顺硬件与渐进式现场学习结合，提供了具体的部署路径，其自主能力宣称仍需独立验证。",
+      "source": {
+        "name": "Embodied AI via Business Wire",
+        "type": "primary",
+        "url": "https://www.businesswire.com/news/home/20261106661068/en/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://www.embodiedai.ch/",
+        "https://markets.chroniclejournal.com/thepilotnews/article/bizwire-2026-11-6-embodied-ai-unveils-air-a-physically-safe-humanoid-robot-that-learns-on-the-job",
+        "https://cdn.prod.website-files.com/696e4d2b681829764d29ce1c/6aed7eac45a2f3ef02919537_2026%20Press%20Release%20-%20Embodied%20AI%20AIR%20Launch_v2%20LOOK%20AI.pdf"
+      ],
+      "confidence": "high",
+      "score": 74,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 23,
+        "novelty": 13,
+        "technical_depth": 8,
+        "traction": 2
+      }
     }
   ]
 }

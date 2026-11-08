@@ -2,6 +2,82 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-06-mujoco-4-speculative-contacts-plasticity"></a>
+## [MuJoCo 4.0 为机器人仿真加入预测式接触与塑性形变](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
+
+**English:** [MuJoCo 4.0 adds speculative contacts and plastic deformation for robot simulation](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
+
+- **发布 / Published:** `2026-11-06T15:39:53Z`
+- **来源 / Source:** [Google DeepMind / MuJoCo](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `deformable-objects`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布 MuJoCo 4.0，为快速运动物体加入预测式接触，支持保存状态的弹塑性形变，并将 Python 分发拆分为核心引擎与 Studio 等包。这些能力属于机器人研究的物理仿真工具，并非学习得到的预测模型。
+
+Google DeepMind released MuJoCo 4.0 with speculative contacts for fast-moving objects, stateful elasto-plastic deformation, and split Python packages for the core engine and Studio. These are physics-simulation tools for robotics rather than a learned predictive model.
+
+### 技术点 / Technical points
+
+- 可选的预测式接触开关用于防止快速运动的凸几何体在单个时间步内穿过薄障碍物。
+  - The optional speculative-contact flag is designed to prevent fast convex geometries from crossing thin obstacles within one timestep.
+- 塑性形变状态覆盖关节和肌腱弹簧及二维、三维可变形体，壳体可分别设置拉伸和弯曲屈服应变。
+  - Plastic deformation state covers joint and tendon springs and 2D/3D deformables, with separate stretching and bending yield strains for shells.
+- 分发拆分为 mujoco-core 与 mujoco-studio；肌腱绕行、RK4 姿态积分和可变形体接口的变化可能改变已有仿真行为。
+  - The distribution separates mujoco-core and mujoco-studio; changed tendon wrapping, RK4 orientation integration and deformable APIs can alter existing simulations.
+
+### 为什么重要 / Why it matters
+
+更完整的接触与永久形变处理，扩展了机器人学习环境能够表达的物理交互。
+
+Better treatment of contact and permanent deformation expands the physical interactions that robot-learning environments can represent.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/google-deepmind/mujoco/releases/tags/4.0.0) · [Evidence 2](https://github.com/google-deepmind/mujoco/discussions/3773)
+
+---
+
+<a id="2026-11-06-embodied-ai-air-onsite-imitation-learning"></a>
+## [Embodied AI 发布 AIR，以柔顺双臂和遥操作示范支持现场学习](https://www.businesswire.com/news/home/20261106661068/en/)
+
+**English:** [Embodied AI introduces AIR with compliant arms and on-site learning from teleoperation](https://www.businesswire.com/news/home/20261106661068/en/)
+
+- **发布 / Published:** `2026-11-06T08:00:00Z`
+- **来源 / Source:** [Embodied AI via Business Wire](https://www.businesswire.com/news/home/20261106661068/en/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `imitation-learning`, `teleoperation`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+Embodied AI 宣布推出轮式双臂人形机器人 AIR，将肌腱驱动双臂与操作员示范记录学习相结合。公司称通常可在一个月内逐步实现任务自主执行，操作员继续处理未见情况。时间对应官网 PDF 的 09:00 CET 解禁时刻，也与署名通稿的 03:00 EST 一致。
+
+Embodied AI announced AIR, a wheeled dual-arm humanoid that combines tendon-driven arms with learning from recorded operator demonstrations. The company says autonomy typically develops within a month, with operators available for unfamiliar cases. The timestamp matches the official PDF embargo of 09:00 CET and the syndicated announcement at 03:00 EST.
+
+### 技术点 / Technical points
+
+- 电机、减速器和电子设备集中在躯干，轻量柔顺双臂设计为在接触时让位。
+  - Motors, gearboxes and electronics sit in the torso; lightweight compliant arms are designed to yield on contact.
+- 遥操作记录提供现场训练数据；官网描述由机器人本地的 VLM 编排紧凑多模态策略。
+  - Teleoperation records provide on-site training data, and the official site describes compact multimodal policies orchestrated by a VLM on the robot.
+- 公告介绍了较早双臂工业工作站的结果，这些数字并非对 AIR 的独立测量。
+  - The announcement reports earlier industrial-cell results; those figures are not independent measurements of AIR.
+
+### 为什么重要 / Why it matters
+
+AIR 将柔顺硬件与渐进式现场学习结合，提供了具体的部署路径，其自主能力宣称仍需独立验证。
+
+AIR connects compliant hardware with incremental workplace learning, providing a concrete deployment approach whose autonomy claims still need independent validation.
+
+### 链接 / Links
+
+[Evidence 1](https://www.embodiedai.ch/) · [Evidence 2](https://markets.chroniclejournal.com/thepilotnews/article/bizwire-2026-11-6-embodied-ai-unveils-air-a-physically-safe-humanoid-robot-that-learns-on-the-job) · [Evidence 3](https://cdn.prod.website-files.com/696e4d2b681829764d29ce1c/6aed7eac45a2f3ef02919537_2026%20Press%20Release%20-%20Embodied%20AI%20AIR%20Launch_v2%20LOOK%20AI.pdf)
+
+---
+
 <a id="2026-11-05-gpwm-generative-particle-dynamics-planning"></a>
 ## [GPWM 统一粒子物理预测与接触密集型规划](https://arxiv.org/abs/2611.08338)
 

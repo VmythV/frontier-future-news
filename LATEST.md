@@ -2,6 +2,158 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-07-google-adk-214-stable-environments-evaluation"></a>
+## [Google ADK Python 2.14 将执行环境转为稳定接口，新增智能体重复评测](https://github.com/google/adk-python/releases/tag/v2.14.0)
+
+**English:** [Google ADK Python 2.14 stabilizes execution environments and adds repeated agent evaluation](https://github.com/google/adk-python/releases/tag/v2.14.0)
+
+- **发布 / Published:** `2026-11-07T00:58:18Z`
+- **来源 / Source:** [Google ADK](https://github.com/google/adk-python/releases/tag/v2.14.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `tool-use`, `evaluation`, `sandbox`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Google 发布 ADK Python 2.14.0，将执行环境和 A2A 集成转为稳定接口，新增重复评测，并收紧技能脚本调用。时间采用 11 月 7 日的 GitHub release 发布时间；更新日志标题标注的是 11 月 4 日。
+
+Google published ADK Python 2.14.0 with stable execution environments and A2A integration, repeated evaluation, and safer skill-script invocation. The timestamp follows the GitHub release published on November 7; the changelog heading is dated November 4.
+
+### 技术点 / Technical points
+
+- Local、E2B 和 Daytona 环境接口脱离实验状态；文件读取可分块流式进行，无需将整个文件载入内存。
+  - Local, E2B and Daytona environment APIs graduate from experimental; file reads can stream chunks instead of loading entire files.
+- MultiRunConfig 和命令行并行选项支持重复运行评测案例并汇总分数或通过率；工具参数支持语义匹配。
+  - MultiRunConfig and CLI parallelism repeat evaluation cases and aggregate scores or pass rates; tool arguments support semantic matching.
+- 环境模式下的 RunSkillScriptTool 改用结构化参数和经过校验的脚本路径，替代自由格式 shell 命令，构成不兼容的接口变更。
+  - In environment mode, RunSkillScriptTool accepts structured arguments and validated script paths instead of a free-form shell command, with a breaking API change.
+
+### 为什么重要 / Why it matters
+
+稳定的环境接口与重复评测，为智能体开发提供更明确的执行边界，也更便于观察多次运行的波动。
+
+Stable environment contracts and repeated evaluations give agent builders firmer execution boundaries and better visibility into run-to-run variability.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/google/adk-python/releases/tags/v2.14.0)
+
+---
+
+<a id="2026-11-06-opencode-226-background-job-completion"></a>
+## [OpenCode 2.2.6 等待后台智能体任务完成，新增 MCP 连接池](https://github.com/anomalyco/opencode/releases/tag/v2.2.6)
+
+**English:** [OpenCode 2.2.6 waits for background agent work and adds MCP connection pooling](https://github.com/anomalyco/opencode/releases/tag/v2.2.6)
+
+- **发布 / Published:** `2026-11-06T23:37:20Z`
+- **来源 / Source:** [Anomaly / OpenCode](https://github.com/anomalyco/opencode/releases/tag/v2.2.6) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `mcp`, `multi-agent`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+OpenCode 2.2.6 调整非交互运行：等待后台 shell 命令、子智能体和图像任务结束，再让模型处理结果后退出。版本还加入可选的 MCP 连接共享，以及基于 worktree 的脚本化会话。
+
+OpenCode 2.2.6 changes noninteractive runs to wait for background shell commands, subagents and image jobs, then lets the model process their results before exiting. It also introduces opt-in MCP connection sharing and worktree-based scripted sessions.
+
+### 技术点 / Technical points
+
+- 设置 pool: true 的 MCP 服务可在配置相同的项目之间共享同一连接。
+  - MCP servers configured with pool: true share one connection across projects with matching configuration.
+- opencode run --worktree 创建独立 Git worktree；--archived 将自动化会话从常规会话列表中隐藏。
+  - opencode run --worktree creates a separate Git worktree; --archived hides automated sessions from normal session lists.
+- JSON 模式下，后台等待会输出 background_wait 事件，且没有内置时间上限，常驻任务可能使运行持续不退出。
+  - Background waits emit a background_wait event in JSON mode and have no built-in time limit, so persistent jobs can keep a run open.
+
+### 为什么重要 / Why it matters
+
+这次更新让委派式编程任务的完成条件更清晰，并减少跨项目重复启动的 MCP 进程。
+
+The release makes completion semantics more explicit for delegated coding work and reduces duplicated MCP processes across projects.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anomalyco/opencode/releases/tags/v2.2.6)
+
+---
+
+<a id="2026-11-06-mujoco-4-speculative-contacts-plasticity"></a>
+## [MuJoCo 4.0 为机器人仿真加入预测式接触与塑性形变](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
+
+**English:** [MuJoCo 4.0 adds speculative contacts and plastic deformation for robot simulation](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
+
+- **发布 / Published:** `2026-11-06T15:39:53Z`
+- **来源 / Source:** [Google DeepMind / MuJoCo](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `deformable-objects`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布 MuJoCo 4.0，为快速运动物体加入预测式接触，支持保存状态的弹塑性形变，并将 Python 分发拆分为核心引擎与 Studio 等包。这些能力属于机器人研究的物理仿真工具，并非学习得到的预测模型。
+
+Google DeepMind released MuJoCo 4.0 with speculative contacts for fast-moving objects, stateful elasto-plastic deformation, and split Python packages for the core engine and Studio. These are physics-simulation tools for robotics rather than a learned predictive model.
+
+### 技术点 / Technical points
+
+- 可选的预测式接触开关用于防止快速运动的凸几何体在单个时间步内穿过薄障碍物。
+  - The optional speculative-contact flag is designed to prevent fast convex geometries from crossing thin obstacles within one timestep.
+- 塑性形变状态覆盖关节和肌腱弹簧及二维、三维可变形体，壳体可分别设置拉伸和弯曲屈服应变。
+  - Plastic deformation state covers joint and tendon springs and 2D/3D deformables, with separate stretching and bending yield strains for shells.
+- 分发拆分为 mujoco-core 与 mujoco-studio；肌腱绕行、RK4 姿态积分和可变形体接口的变化可能改变已有仿真行为。
+  - The distribution separates mujoco-core and mujoco-studio; changed tendon wrapping, RK4 orientation integration and deformable APIs can alter existing simulations.
+
+### 为什么重要 / Why it matters
+
+更完整的接触与永久形变处理，扩展了机器人学习环境能够表达的物理交互。
+
+Better treatment of contact and permanent deformation expands the physical interactions that robot-learning environments can represent.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/google-deepmind/mujoco/releases/tags/4.0.0) · [Evidence 2](https://github.com/google-deepmind/mujoco/discussions/3773)
+
+---
+
+<a id="2026-11-06-embodied-ai-air-onsite-imitation-learning"></a>
+## [Embodied AI 发布 AIR，以柔顺双臂和遥操作示范支持现场学习](https://www.businesswire.com/news/home/20261106661068/en/)
+
+**English:** [Embodied AI introduces AIR with compliant arms and on-site learning from teleoperation](https://www.businesswire.com/news/home/20261106661068/en/)
+
+- **发布 / Published:** `2026-11-06T08:00:00Z`
+- **来源 / Source:** [Embodied AI via Business Wire](https://www.businesswire.com/news/home/20261106661068/en/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `imitation-learning`, `teleoperation`, `hardware`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+Embodied AI 宣布推出轮式双臂人形机器人 AIR，将肌腱驱动双臂与操作员示范记录学习相结合。公司称通常可在一个月内逐步实现任务自主执行，操作员继续处理未见情况。时间对应官网 PDF 的 09:00 CET 解禁时刻，也与署名通稿的 03:00 EST 一致。
+
+Embodied AI announced AIR, a wheeled dual-arm humanoid that combines tendon-driven arms with learning from recorded operator demonstrations. The company says autonomy typically develops within a month, with operators available for unfamiliar cases. The timestamp matches the official PDF embargo of 09:00 CET and the syndicated announcement at 03:00 EST.
+
+### 技术点 / Technical points
+
+- 电机、减速器和电子设备集中在躯干，轻量柔顺双臂设计为在接触时让位。
+  - Motors, gearboxes and electronics sit in the torso; lightweight compliant arms are designed to yield on contact.
+- 遥操作记录提供现场训练数据；官网描述由机器人本地的 VLM 编排紧凑多模态策略。
+  - Teleoperation records provide on-site training data, and the official site describes compact multimodal policies orchestrated by a VLM on the robot.
+- 公告介绍了较早双臂工业工作站的结果，这些数字并非对 AIR 的独立测量。
+  - The announcement reports earlier industrial-cell results; those figures are not independent measurements of AIR.
+
+### 为什么重要 / Why it matters
+
+AIR 将柔顺硬件与渐进式现场学习结合，提供了具体的部署路径，其自主能力宣称仍需独立验证。
+
+AIR connects compliant hardware with incremental workplace learning, providing a concrete deployment approach whose autonomy claims still need independent validation.
+
+### 链接 / Links
+
+[Evidence 1](https://www.embodiedai.ch/) · [Evidence 2](https://markets.chroniclejournal.com/thepilotnews/article/bizwire-2026-11-6-embodied-ai-unveils-air-a-physically-safe-humanoid-robot-that-learns-on-the-job) · [Evidence 3](https://cdn.prod.website-files.com/696e4d2b681829764d29ce1c/6aed7eac45a2f3ef02919537_2026%20Press%20Release%20-%20Embodied%20AI%20AIR%20Launch_v2%20LOOK%20AI.pdf)
+
+---
+
 <a id="2026-11-05-hermes-023-unified-agent-session-gateway"></a>
 ## [Hermes Agent 0.23 统一跨客户端会话归属并增加浏览器工作区](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
 
@@ -523,135 +675,3 @@ ServerBench asks agents to optimize serving systems under latency, session and c
 该基准同时衡量基础设施优化价值与正确性，揭示快速实验与可靠交付之间的差距。
 
 It evaluates useful infrastructure optimization together with correctness, exposing a gap between fast experiments and reliable delivery.
-
----
-
-<a id="2026-11-04-pyrua-real-persistent-robot-skills"></a>
-## [PyRUA-REAL 将真实探索转化为持久记忆和可执行机器人技能](https://arxiv.org/abs/2611.06768)
-
-**English:** [PyRUA-REAL turns physical exploration into persistent memory and executable robot skills](https://arxiv.org/abs/2611.06768)
-
-- **发布 / Published:** `2026-11-04T16:46:03Z`
-- **来源 / Source:** [PyRUA-REAL authors (arXiv)](https://arxiv.org/abs/2611.06768) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `memory`, `code-generation`, `self-improvement`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-PyRUA-REAL 研究编程智能体如何利用真实交互、保留的经验和可复用技能改进机器人程序。作者报告，八项实机任务平均成功率为 91.1%，42 项 RoboDojo 任务为 84.4%；生成的程序可在部署时脱离在线决策智能体运行。
-
-PyRUA-REAL studies coding agents that refine robot programs using real-world interaction, retained experience and reusable skills. The authors report 91.1% average success on eight physical tasks and 84.4% across 42 RoboDojo tasks; deployment can use the resulting programs without an online decision-making agent.
-
-### 技术点 / Technical points
-
-- 物理执行反馈用于指导探索和代码改进。
-  - Physical execution feedback guides exploration and code refinement.
-- 交互历史以记忆及可复用程序的形式保留，为后续任务提供支持。
-  - Interaction history persists as memory and reusable programs that support later tasks.
-
-### 为什么重要 / Why it matters
-
-该工作检验智能体驱动的机器人探索能否形成在探索结束后仍可使用的能力。
-
-It examines whether agent-driven robot exploration produces capabilities that remain useful after the exploration loop ends.
-
----
-
-<a id="2026-11-04-mkd2world-spatial-markdown-web-foresight"></a>
-## [MKD2World 以带类型的空间 Markdown 预测网页界面状态](https://arxiv.org/abs/2611.06544)
-
-**English:** [MKD2World predicts web-interface states through typed spatial Markdown](https://arxiv.org/abs/2611.06544)
-
-- **发布 / Published:** `2026-11-04T14:11:56Z`
-- **来源 / Source:** [MKD2World authors (arXiv)](https://arxiv.org/abs/2611.06544) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `computer-use`, `world-model`, `spatial-intelligence`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-MKD2World 以带类型的空间 Markdown 表示网页界面，并学习动作条件下的下一状态预测。作者报告，在其评估中加入 9B 世界模型后，Qwen3.5-35B 智能体的 Online-Mind2Web 成功率从 22.94% 提升至 37.61%。
-
-MKD2World represents web interfaces with Typed Spatial Markdown and learns action-conditioned next-state prediction. The authors report that adding the 9B model raises a Qwen3.5-35B agent’s Online-Mind2Web success from 22.94% to 37.61% in their evaluation.
-
-### 技术点 / Technical points
-
-- TSM 编码元素类型、视觉语义、位置、控件状态及层级。
-  - TSM encodes element types, visual meaning, locations, control states and hierarchy.
-- AtomBlock-WebUI 提供块级与原子级标注；智能体从预测状态中提取任务相关证据。
-  - AtomBlock-WebUI supplies block and atomic annotations; the agent extracts task-relevant evidence from predicted states.
-
-### 为什么重要 / Why it matters
-
-显式空间状态描述为网页智能体提供了一种便于检查的动作前瞻方式。
-
-Explicit spatial state descriptions offer an inspectable route for giving web agents action foresight.
-
----
-
-<a id="2026-11-04-budgetmix-agent-rl-interaction-budgets"></a>
-## [BudgetMix 通过混合交互预算训练改善智能体的受限执行](https://arxiv.org/abs/2611.06483)
-
-**English:** [BudgetMix trains agentic RL across interaction budgets to improve constrained execution](https://arxiv.org/abs/2611.06483)
-
-- **发布 / Published:** `2026-11-04T13:24:54Z`
-- **来源 / Source:** [BudgetMix authors (arXiv)](https://arxiv.org/abs/2611.06483) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reinforcement-learning`, `benchmark`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-研究发现，多轮强化学习的收益依赖可用交互轮数，主要体现在错误恢复，而非每一步决策都得到改善。BudgetMix 在训练时混合轮数预算，论文报告其在不同执行约束下表现更稳健。
-
-The study finds that multi-turn RL gains depend on available interaction turns and concentrate on recovery from mistakes rather than uniformly better individual decisions. BudgetMix varies turn budgets during training and reports more robust results across execution settings.
-
-### 技术点 / Technical points
-
-- Pass@(K,T) 将采样广度与交互深度分开评估。
-  - Pass@(K,T) separates sampling breadth from interaction depth.
-- 严格轮数限制会削弱轨迹级强化学习收益；论文评估了混合预算训练的缓解作用。
-  - Tight turn limits diminish trajectory-level RL gains; training across budgets is evaluated as a mitigation.
-
-### 为什么重要 / Why it matters
-
-智能体评估需要匹配部署预算，不能直接将长轨迹收益外推到短执行过程。
-
-Agent evaluations should match deployment budgets instead of assuming that long-run gains transfer to short executions.
-
----
-
-<a id="2026-11-04-tencent-hy4-computer-use"></a>
-## [腾讯 Hy4 加入视觉理解与 CLI、GUI 计算机操作能力](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
-
-**English:** [Tencent Hy4 adds visual understanding and CLI/GUI computer use](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)
-
-- **发布 / Published:** `2026-11-04T08:06:53Z`
-- **来源 / Source:** [Tencent](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `tool-use`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-腾讯发布 Hy4，加入视觉输入和计算机操作能力，并针对 Blender、CAD 等工作流进行训练。公告称服务已经可用，模型权重与系统卡计划随后发布；此次正式版与八月预览版属于不同事件。
-
-Tencent released Hy4 with visual input and computer-use capabilities, including training on Blender and CAD workflows. The announcement says services are available while weights and system cards are planned for the coming days; this is distinct from the August preview.
-
-### 技术点 / Technical points
-
-- 模型可通过命令行和图形界面执行操作。
-  - The model can act through command-line and graphical interfaces.
-- 腾讯称其针对专业软件的长程任务进行训练；本次公告尚未发布权重。
-  - Tencent reports targeted training for long-horizon professional-software tasks; weights were not yet released in this announcement.
-
-### 为什么重要 / Why it matters
-
-该模型系列由此扩展到视觉软件操作，其可复现性仍取决于后续权重发布。
-
-It extends the model family into visual software operation, with broader reproducibility dependent on the planned weight release.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=50383963)
