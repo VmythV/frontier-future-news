@@ -2,6 +2,158 @@
 
 # Agents / 智能体
 
+<a id="2026-11-08-open-webui-0131-tether-coding-agents"></a>
+## [Open WebUI 0.13.1 通过 Tether 接入本机编程智能体](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
+
+**English:** [Open WebUI 0.13.1 connects local coding agents through Tether](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
+
+- **发布 / Published:** `2026-11-08T11:07:53Z`
+- **来源 / Source:** [Open WebUI](https://github.com/open-webui/open-webui/releases/tag/v0.13.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `tool-use`, `human-in-the-loop`, `desktop`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Open WebUI 0.13.1 新增连接个人电脑的 Tether，并通过模型选择器接入编程智能体，用户可在对话中审核工具请求。
+
+Open WebUI 0.13.1 adds Tether for connecting a personal computer and exposes coding agents through its model picker. Users can review tool requests within the chat.
+
+### 技术点 / Technical points
+
+- Tether 支持 macOS、Windows 和 Linux，通过出站连接接入 Open WebUI。
+  - Tether supports macOS, Windows and Linux and makes an outbound connection to Open WebUI.
+- 支持智能体的 Open Terminal 可展示 Claude Code、Codex 和 Pi；每段对话使用一个智能体。
+  - Supported Open Terminals expose Claude Code, Codex and Pi; each conversation uses one agent.
+- 可选的 Auto 权限模式使用评审模型；评审失败或不可用时请求批准。该模式默认关闭。
+  - Optional Auto permissions use a review model; failed or unavailable reviews request approval. The mode is disabled by default.
+
+### 为什么重要 / Why it matters
+
+通过浏览器访问本机智能体，使工具审批、对话与实际工作环境衔接在一起。
+
+Browser-based access to local agent work puts tool approval alongside the conversation and the actual working environment.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/open-webui/open-webui/releases/tags/v0.13.1)
+
+---
+
+<a id="2026-11-07-qwen-code-027-parallel-child-questions"></a>
+## [Qwen Code 0.27 支持托管智能体会话并行保留多个子智能体提问](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
+
+**English:** [Qwen Code 0.27 supports concurrent child questions in managed-agent sessions](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
+
+- **发布 / Published:** `2026-11-07T20:45:25Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `human-in-the-loop`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.27.0 允许托管智能体会话同时保留多个待答的子智能体问题，并按任意顺序回答，同时改进运行时可靠性和 GitHub 渠道筛选。
+
+Qwen Code 0.27.0 lets managed-agent sessions retain multiple pending child questions and answer them in any order. It also improves runtime reliability and GitHub channel filtering.
+
+### 技术点 / Technical points
+
+- 每个子智能体问题分别保存草稿与错误状态。
+  - Each child question keeps its own draft and error state.
+- GitHub 渠道的仓库筛选支持允许列表和阻止列表。
+  - GitHub channel repository filters support allowlists and blocklists.
+- 取消 shell 命令时保留部分输出；托管智能体更新处理死锁、快照及锁管理问题。
+  - Cancelled shell commands retain partial output; managed-agent changes address deadlocks, snapshots and lock handling.
+
+### 为什么重要 / Why it matters
+
+当多个委派任务需要人工输入时，并行澄清有助于减少协调等待。
+
+Parallel clarification reduces coordination bottlenecks when several delegated tasks need human input.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.0)
+
+---
+
+<a id="2026-11-07-microsoft-agent-framework-125-mcp-discovery-scope"></a>
+## [Microsoft Agent Framework 1.25 限制 MCP 发现规模并收紧工作流授权](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
+
+**English:** [Microsoft Agent Framework 1.25 bounds MCP discovery and tightens workflow authorization](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
+
+- **发布 / Published:** `2026-11-07T15:52:42Z`
+- **来源 / Source:** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `mcp`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Microsoft 发布 Python Agent Framework 1.25.0，为 MCP 发现设置上限，支持动态审批策略，并检查工作流授权范围。此次版本含不兼容变更，要求 Python 3.11 或更新版本。
+
+Microsoft released Python Agent Framework 1.25.0 with bounded MCP discovery, dynamic approval policies and workflow scope checks. This breaking release requires Python 3.11 or later.
+
+### 技术点 / Technical points
+
+- 发现过程默认每个目录最多 100 页、1,000 项；框架负责的请求默认超时为 30 秒。
+  - Discovery defaults to 100 pages and 1,000 items per catalog; framework-owned requests default to 30-second timeouts.
+- 可调用审批策略支持按工具名称和只读属性筛选，并更新已保留工具的策略。
+  - Callable approval policies support tool-name and read-only filters and refresh policies for retained tools.
+- 模型调用前拒绝跨授权范围复用活动工作流执行器或会话；共享存储和自定义工具函数不在此检查覆盖范围内。
+  - Live workflow executor/session reuse across authorization scopes is rejected before model calls; shared storage and custom tool functions remain outside this guard.
+
+### 为什么重要 / Why it matters
+
+明确的发现预算和授权检查，更便于评估远程工具行为及多用户工作流的边界。
+
+Explicit discovery budgets and scope checks make remote-tool behavior and multi-user workflow boundaries easier to assess.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.25.0)
+
+---
+
+<a id="2026-11-07-sandbox-mcp-12-windows-agent-testing"></a>
+## [sandbox-mcp 1.2 扩展面向智能体应用测试的一次性 Windows 环境](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
+
+**English:** [sandbox-mcp 1.2 expands disposable Windows environments for agent-led app testing](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
+
+- **发布 / Published:** `2026-11-07T06:40:44Z`
+- **来源 / Source:** [sandbox-mcp](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `mcp`, `sandbox`, `testing`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+sandbox-mcp 1.2.0 为 Windows Sandbox 测试环境扩展 CLI/MCP 协同访问、录屏和经过校验的增量部署，并区分纯净机器测试结果与显式安装依赖后的运行结果。
+
+sandbox-mcp 1.2.0 extends its Windows Sandbox testing environment with coordinated CLI/MCP access, recordings and verified incremental deployment. It distinguishes clean-machine results from explicitly provisioned runs.
+
+### 技术点 / Technical points
+
+- CLI 与 MCP 共享状态，协同分配桌面操作轮次，并通过代际标识约束清理。
+  - CLI and MCP share state with cooperative desktop turns and generation-safe cleanup.
+- 传输支持认证加密 TCP 或离线邮箱，并校验启动身份、拒绝重放。
+  - Transport supports authenticated encrypted TCP or an offline mailbox, with boot identity and replay rejection.
+- 有界录屏支持 HTML 回放；依赖安装须显式启用，应用及硬件兼容性并非全面覆盖。
+  - Bounded recordings support HTML playback; dependency provisioning is explicit, and app or hardware compatibility is not universal.
+
+### 为什么重要 / Why it matters
+
+一次性桌面测试可为编程智能体提供可检查的应用行为证据，补充构建成功这一信号。
+
+Disposable desktop tests can give coding agents inspectable evidence of app behavior beyond successful builds.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/shanselman/sandbox-mcp/releases/tags/v1.2.0)
+
+---
+
 <a id="2026-11-07-google-adk-214-stable-environments-evaluation"></a>
 ## [Google ADK Python 2.14 将执行环境转为稳定接口，新增智能体重复评测](https://github.com/google/adk-python/releases/tag/v2.14.0)
 

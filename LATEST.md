@@ -2,6 +2,196 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-08-genesis-146-differentiable-robot-simulation"></a>
+## [Genesis 1.4.6 扩展可微仿真并原生兼容 PyTorch](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
+
+**English:** [Genesis 1.4.6 expands differentiable simulation and native PyTorch compatibility](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
+
+- **发布 / Published:** `2026-11-08T21:56:48Z`
+- **来源 / Source:** [Genesis](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `differentiable-simulation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Genesis 1.4.6 更新面向机器人学习仿真的可变形体求解器与可微物理功能。维护者称可微仿真约加速三倍；该结果来自项目方报告。
+
+Genesis 1.4.6 updates deformable-body solvers and differentiable physics for robot-learning simulation. Maintainers report roughly threefold faster differentiable simulation; this is a project-reported result.
+
+### 技术点 / Technical points
+
+- 可微仿真原生兼容 PyTorch，并支持对 PD 控制目标求梯度。
+  - Differentiable simulation is natively compatible with PyTorch and supports gradients with respect to PD control targets.
+- 隐式 FEM 实体及中点积分新增可微仿真支持。
+  - Implicit FEM entities and midpoint integration gain differentiable simulation support.
+- 修复涉及接触梯度、轨迹中途设置状态和 GPU 可复现性；SAP 与 FEM 的地面改用刚体地平面。
+  - Fixes cover contact gradients, rollout setters and GPU reproducibility; SAP and FEM floors now use the rigid ground plane.
+
+### 为什么重要 / Why it matters
+
+更广的梯度支持，为机器人学习研究提供更多可通过仿真优化的控制变量与形变交互。
+
+Broader gradient support gives robot-learning researchers more control variables and deformable interactions to optimize through simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Genesis-Embodied-AI/genesis-world/releases/tags/v1.4.6)
+
+---
+
+<a id="2026-11-08-open-webui-0131-tether-coding-agents"></a>
+## [Open WebUI 0.13.1 通过 Tether 接入本机编程智能体](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
+
+**English:** [Open WebUI 0.13.1 connects local coding agents through Tether](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
+
+- **发布 / Published:** `2026-11-08T11:07:53Z`
+- **来源 / Source:** [Open WebUI](https://github.com/open-webui/open-webui/releases/tag/v0.13.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `tool-use`, `human-in-the-loop`, `desktop`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Open WebUI 0.13.1 新增连接个人电脑的 Tether，并通过模型选择器接入编程智能体，用户可在对话中审核工具请求。
+
+Open WebUI 0.13.1 adds Tether for connecting a personal computer and exposes coding agents through its model picker. Users can review tool requests within the chat.
+
+### 技术点 / Technical points
+
+- Tether 支持 macOS、Windows 和 Linux，通过出站连接接入 Open WebUI。
+  - Tether supports macOS, Windows and Linux and makes an outbound connection to Open WebUI.
+- 支持智能体的 Open Terminal 可展示 Claude Code、Codex 和 Pi；每段对话使用一个智能体。
+  - Supported Open Terminals expose Claude Code, Codex and Pi; each conversation uses one agent.
+- 可选的 Auto 权限模式使用评审模型；评审失败或不可用时请求批准。该模式默认关闭。
+  - Optional Auto permissions use a review model; failed or unavailable reviews request approval. The mode is disabled by default.
+
+### 为什么重要 / Why it matters
+
+通过浏览器访问本机智能体，使工具审批、对话与实际工作环境衔接在一起。
+
+Browser-based access to local agent work puts tool approval alongside the conversation and the actual working environment.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/open-webui/open-webui/releases/tags/v0.13.1)
+
+---
+
+<a id="2026-11-07-qwen-code-027-parallel-child-questions"></a>
+## [Qwen Code 0.27 支持托管智能体会话并行保留多个子智能体提问](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
+
+**English:** [Qwen Code 0.27 supports concurrent child questions in managed-agent sessions](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
+
+- **发布 / Published:** `2026-11-07T20:45:25Z`
+- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `multi-agent`, `human-in-the-loop`, `reliability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.27.0 允许托管智能体会话同时保留多个待答的子智能体问题，并按任意顺序回答，同时改进运行时可靠性和 GitHub 渠道筛选。
+
+Qwen Code 0.27.0 lets managed-agent sessions retain multiple pending child questions and answer them in any order. It also improves runtime reliability and GitHub channel filtering.
+
+### 技术点 / Technical points
+
+- 每个子智能体问题分别保存草稿与错误状态。
+  - Each child question keeps its own draft and error state.
+- GitHub 渠道的仓库筛选支持允许列表和阻止列表。
+  - GitHub channel repository filters support allowlists and blocklists.
+- 取消 shell 命令时保留部分输出；托管智能体更新处理死锁、快照及锁管理问题。
+  - Cancelled shell commands retain partial output; managed-agent changes address deadlocks, snapshots and lock handling.
+
+### 为什么重要 / Why it matters
+
+当多个委派任务需要人工输入时，并行澄清有助于减少协调等待。
+
+Parallel clarification reduces coordination bottlenecks when several delegated tasks need human input.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.0)
+
+---
+
+<a id="2026-11-07-microsoft-agent-framework-125-mcp-discovery-scope"></a>
+## [Microsoft Agent Framework 1.25 限制 MCP 发现规模并收紧工作流授权](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
+
+**English:** [Microsoft Agent Framework 1.25 bounds MCP discovery and tightens workflow authorization](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
+
+- **发布 / Published:** `2026-11-07T15:52:42Z`
+- **来源 / Source:** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `mcp`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Microsoft 发布 Python Agent Framework 1.25.0，为 MCP 发现设置上限，支持动态审批策略，并检查工作流授权范围。此次版本含不兼容变更，要求 Python 3.11 或更新版本。
+
+Microsoft released Python Agent Framework 1.25.0 with bounded MCP discovery, dynamic approval policies and workflow scope checks. This breaking release requires Python 3.11 or later.
+
+### 技术点 / Technical points
+
+- 发现过程默认每个目录最多 100 页、1,000 项；框架负责的请求默认超时为 30 秒。
+  - Discovery defaults to 100 pages and 1,000 items per catalog; framework-owned requests default to 30-second timeouts.
+- 可调用审批策略支持按工具名称和只读属性筛选，并更新已保留工具的策略。
+  - Callable approval policies support tool-name and read-only filters and refresh policies for retained tools.
+- 模型调用前拒绝跨授权范围复用活动工作流执行器或会话；共享存储和自定义工具函数不在此检查覆盖范围内。
+  - Live workflow executor/session reuse across authorization scopes is rejected before model calls; shared storage and custom tool functions remain outside this guard.
+
+### 为什么重要 / Why it matters
+
+明确的发现预算和授权检查，更便于评估远程工具行为及多用户工作流的边界。
+
+Explicit discovery budgets and scope checks make remote-tool behavior and multi-user workflow boundaries easier to assess.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.25.0)
+
+---
+
+<a id="2026-11-07-sandbox-mcp-12-windows-agent-testing"></a>
+## [sandbox-mcp 1.2 扩展面向智能体应用测试的一次性 Windows 环境](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
+
+**English:** [sandbox-mcp 1.2 expands disposable Windows environments for agent-led app testing](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
+
+- **发布 / Published:** `2026-11-07T06:40:44Z`
+- **来源 / Source:** [sandbox-mcp](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `mcp`, `sandbox`, `testing`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+sandbox-mcp 1.2.0 为 Windows Sandbox 测试环境扩展 CLI/MCP 协同访问、录屏和经过校验的增量部署，并区分纯净机器测试结果与显式安装依赖后的运行结果。
+
+sandbox-mcp 1.2.0 extends its Windows Sandbox testing environment with coordinated CLI/MCP access, recordings and verified incremental deployment. It distinguishes clean-machine results from explicitly provisioned runs.
+
+### 技术点 / Technical points
+
+- CLI 与 MCP 共享状态，协同分配桌面操作轮次，并通过代际标识约束清理。
+  - CLI and MCP share state with cooperative desktop turns and generation-safe cleanup.
+- 传输支持认证加密 TCP 或离线邮箱，并校验启动身份、拒绝重放。
+  - Transport supports authenticated encrypted TCP or an offline mailbox, with boot identity and replay rejection.
+- 有界录屏支持 HTML 回放；依赖安装须显式启用，应用及硬件兼容性并非全面覆盖。
+  - Bounded recordings support HTML playback; dependency provisioning is explicit, and app or hardware compatibility is not universal.
+
+### 为什么重要 / Why it matters
+
+一次性桌面测试可为编程智能体提供可检查的应用行为证据，补充构建成功这一信号。
+
+Disposable desktop tests can give coding agents inspectable evidence of app behavior beyond successful builds.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/shanselman/sandbox-mcp/releases/tags/v1.2.0)
+
+---
+
 <a id="2026-11-07-google-adk-214-stable-environments-evaluation"></a>
 ## [Google ADK Python 2.14 将执行环境转为稳定接口，新增智能体重复评测](https://github.com/google/adk-python/releases/tag/v2.14.0)
 
@@ -515,163 +705,3 @@ The DiagDBench preprint introduces live database environments for diagnosing ano
 可执行故障使评测能够检查智能体是否真正修复数据库，而不只给出貌似合理的诊断。
 
 Executable failures make it possible to evaluate whether an agent actually repairs a database rather than merely describing a plausible diagnosis.
-
----
-
-<a id="2026-11-04-neo-vla-native-visual-action-policies"></a>
-## [NEO-VLA 让机器人动作生成访问多层视觉计算结果](https://arxiv.org/abs/2611.06918)
-
-**English:** [NEO-VLA lets robot action generation use visual computation at multiple depths](https://arxiv.org/abs/2611.06918)
-
-- **发布 / Published:** `2026-11-04T18:59:58Z`
-- **来源 / Source:** [NEO-VLA authors (arXiv)](https://arxiv.org/abs/2611.06918) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `robotics`, `representation-learning`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-NEO-VLA 用轻量图像 token 化和贯穿骨干的视觉语言联合处理，替代固定视觉编码器输出。流匹配动作专家可访问不同深度的指令条件表示；论文的受控比较报告其操作鲁棒性优于编码器式对应模型。
-
-NEO-VLA replaces a fixed visual-encoder endpoint with lightweight image tokenization and joint visual-language processing through the backbone. A flow-matching action expert accesses instruction-conditioned representations at different depths; controlled comparisons report more robust manipulation than encoder-based counterparts.
-
-### 技术点 / Technical points
-
-- 图像通过图像块卷积进入模型，而非先经独立视觉编码器。
-  - Images enter through patch convolutions rather than a separate visual encoder.
-- 逐层探测发现，动作关键线索常在最终视觉表示之前达到峰值。
-  - Layer probes find that action-critical signals often peak before the final visual representation.
-
-### 为什么重要 / Why it matters
-
-该工作重新检验单一压缩视觉输出是否适合作为感知与机器人控制之间的接口。
-
-It questions whether a single compressed visual output is the right interface between perception and robot control.
-
----
-
-<a id="2026-11-04-frontierphysics-end-to-end-research-benchmark"></a>
-## [FrontierPhysics 在九个物理领域评估智能体的完整科研流程](https://arxiv.org/abs/2611.06910)
-
-**English:** [FrontierPhysics tests agents on complete research workflows across nine physics domains](https://arxiv.org/abs/2611.06910)
-
-- **发布 / Published:** `2026-11-04T18:56:22Z`
-- **来源 / Source:** [FrontierPhysics authors (arXiv)](https://arxiv.org/abs/2611.06910) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `scientific-discovery`, `evaluation`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-FrontierPhysics 包含 42 位物理学家设计的 56 项研究任务，要求完成文献调研、规划、实验及论文产出。在 22 种模型、26 种配置中，最佳配置通过 168 次运行中的 46 次；作者将严谨性不足与专家直觉有限归纳为常见短板。
-
-FrontierPhysics contains 56 research tasks designed by 42 physicists and requires literature review, planning, experiments and manuscripts. Across 22 models in 26 configurations, the best configuration passes 46 of 168 rollouts; the authors identify weak rigor and expert intuition as recurring limitations.
-
-### 技术点 / Technical points
-
-- 任务覆盖理论、计算和实验物理的九个领域。
-  - Tasks span nine theoretical, computational and experimental physics domains.
-- 评分结合确定性检查与专家编写的量表，兼顾正确性和研究质量。
-  - Scoring combines deterministic checks with expert-written rubrics to assess correctness and research quality.
-
-### 为什么重要 / Why it matters
-
-该基准检验科研智能体能否整合完整科学工作流，而不只回答孤立的物理问题。
-
-It tests whether research agents can integrate an entire scientific workflow rather than solve isolated physics questions.
-
----
-
-<a id="2026-11-04-halo-procedural-homes-humanoid-transfer"></a>
-## [HALO 利用千个程序化住宅中的合成数据训练感知型人形技能](https://arxiv.org/abs/2611.06908)
-
-**English:** [HALO trains perceptive humanoid skills with data synthesized in 1,000 homes](https://arxiv.org/abs/2611.06908)
-
-- **发布 / Published:** `2026-11-04T18:55:33Z`
-- **来源 / Source:** [HALO authors (arXiv)](https://arxiv.org/abs/2611.06908) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `simulation`, `sim-to-real`, `synthetic-data`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-HALO 在 1,000 个程序化住宅中合成视觉、语言与运动训练数据，并组合学得的全身技能。作者报告，在六个未见真实环境的 360 次试验中成功率为 91%，训练未使用真实住宅；结果范围限于所测试的技能与环境。
-
-HALO synthesizes vision-language-motion training data in 1,000 procedural homes and composes learned whole-body skills. The authors report 91% success in 360 trials across six unseen real environments, with no real homes used during training; the result concerns the tested skills and environments.
-
-### 技术点 / Technical points
-
-- 技能包括坐下、向指定物体导航、穿过半开门、蹲伏、爬行和推箱。
-  - Skills include sitting, object-directed navigation, passing half-open doors, crouching, crawling and pushing boxes.
-- 系统组合技能处理更长任务，并研究从仿真到物理部署的迁移。
-  - The system composes skills for longer tasks and studies transfer from simulation to physical deployment.
-
-### 为什么重要 / Why it matters
-
-程序化配对数据提供了扩展人形机器人训练的方法，无需按比例增加人工遥操作时间。
-
-Procedural paired data offers a way to expand humanoid training without proportional growth in human teleoperation time.
-
----
-
-<a id="2026-11-04-speccompact-slot-parallel-compaction"></a>
-## [SpecCompact 通过并行摘要槽位加速智能体上下文压缩](https://arxiv.org/abs/2611.06876)
-
-**English:** [SpecCompact accelerates agent context compaction with parallel summary slots](https://arxiv.org/abs/2611.06876)
-
-- **发布 / Published:** `2026-11-04T18:34:41Z`
-- **来源 / Source:** [SpecCompact authors (arXiv)](https://arxiv.org/abs/2611.06876) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `context-compaction`, `inference`, `speculative-decoding`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-SpecCompact 用小型草稿模型并行生成结构化摘要槽位，再由目标模型逐行核验和修复。论文在 AppWorld 与 τ³ 设置中报告 2.04—5.63 倍的压缩加速，同时指出下游任务表现随模型和任务而变化。
-
-SpecCompact uses a small drafting model to propose structured summary slots in parallel, then a target model verifies and repairs individual lines. The paper reports 2.04–5.63× compaction speedups on AppWorld and τ³ settings, with downstream performance varying by model and task.
-
-### 技术点 / Technical points
-
-- 核验后的槽位前缀会用于后续草稿生成。
-  - Subsequent drafting conditions on updated slot prefixes after verification.
-- 系统优化减少重复上下文处理；Hermes 用户研究报告压缩速度中位数提升 8.68 倍。
-  - System optimizations reduce repeated context processing; a Hermes user study reports an 8.68× median compaction speedup.
-
-### 为什么重要 / Why it matters
-
-该工作针对记忆维护造成的等待，并明确呈现延迟与任务表现之间的权衡。
-
-It targets the pauses caused by memory maintenance while making the latency–task-performance tradeoff explicit.
-
----
-
-<a id="2026-11-04-serverbench-agent-designed-llm-serving"></a>
-## [ServerBench 评估编程智能体构建完整且独立核验的模型服务系统](https://arxiv.org/abs/2611.06841)
-
-**English:** [ServerBench tests coding agents on complete, independently verified LLM serving systems](https://arxiv.org/abs/2611.06841)
-
-- **发布 / Published:** `2026-11-04T17:59:07Z`
-- **来源 / Source:** [ServerBench authors (arXiv)](https://arxiv.org/abs/2611.06841) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `coding-agent`, `systems`, `verification`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-ServerBench 要求智能体在延迟、会话依赖和正确性约束下优化模型服务系统。论文报告，在 11 种智能体模型、三种部署配置的 33 次运行中，22 次生成的系统通过核验，其中 13 次超过最强基线。
-
-ServerBench asks agents to optimize serving systems under latency, session and correctness constraints. Across 11 agent models and three deployments, 22 of 33 runs produce verified systems and 13 beat the strongest baseline, according to the paper.
-
-### 技术点 / Technical points
-
-- 优化目标衡量每美元 GPU 成本所产生的满足延迟要求的 token 价值。
-  - The objective measures latency-qualified token value per dollar of GPU cost.
-- 有状态负载回放保留会话依赖，并由独立验证器检查提交系统。
-  - Stateful workload replay preserves session dependencies and an independent verifier checks submissions.
-
-### 为什么重要 / Why it matters
-
-该基准同时衡量基础设施优化价值与正确性，揭示快速实验与可靠交付之间的差距。
-
-It evaluates useful infrastructure optimization together with correctness, exposing a gap between fast experiments and reliable delivery.

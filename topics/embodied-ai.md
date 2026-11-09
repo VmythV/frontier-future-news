@@ -2,6 +2,44 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-08-genesis-146-differentiable-robot-simulation"></a>
+## [Genesis 1.4.6 扩展可微仿真并原生兼容 PyTorch](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
+
+**English:** [Genesis 1.4.6 expands differentiable simulation and native PyTorch compatibility](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
+
+- **发布 / Published:** `2026-11-08T21:56:48Z`
+- **来源 / Source:** [Genesis](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `differentiable-simulation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Genesis 1.4.6 更新面向机器人学习仿真的可变形体求解器与可微物理功能。维护者称可微仿真约加速三倍；该结果来自项目方报告。
+
+Genesis 1.4.6 updates deformable-body solvers and differentiable physics for robot-learning simulation. Maintainers report roughly threefold faster differentiable simulation; this is a project-reported result.
+
+### 技术点 / Technical points
+
+- 可微仿真原生兼容 PyTorch，并支持对 PD 控制目标求梯度。
+  - Differentiable simulation is natively compatible with PyTorch and supports gradients with respect to PD control targets.
+- 隐式 FEM 实体及中点积分新增可微仿真支持。
+  - Implicit FEM entities and midpoint integration gain differentiable simulation support.
+- 修复涉及接触梯度、轨迹中途设置状态和 GPU 可复现性；SAP 与 FEM 的地面改用刚体地平面。
+  - Fixes cover contact gradients, rollout setters and GPU reproducibility; SAP and FEM floors now use the rigid ground plane.
+
+### 为什么重要 / Why it matters
+
+更广的梯度支持，为机器人学习研究提供更多可通过仿真优化的控制变量与形变交互。
+
+Broader gradient support gives robot-learning researchers more control variables and deformable interactions to optimize through simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Genesis-Embodied-AI/genesis-world/releases/tags/v1.4.6)
+
+---
+
 <a id="2026-11-06-mujoco-4-speculative-contacts-plasticity"></a>
 ## [MuJoCo 4.0 为机器人仿真加入预测式接触与塑性形变](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
 
