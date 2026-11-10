@@ -2,6 +2,44 @@
 
 # World models / 世界模型
 
+<a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
+## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+**English:** [NVIDIA announces GR00T 2 world-action models and Isaac Lab 3.0 at CoRL](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+- **发布 / Published:** `2026-11-09T14:00:01Z`
+- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `tool-use`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+NVIDIA 公布联合预测未来视频与机器人动作的 GR00T 2，并介绍 Isaac Lab 3.0 的仿真和评测更新。项目展示了智能体调度的操作任务；GR00T 2 代码计划于 12 月提供。
+
+NVIDIA announced GR00T 2, which jointly predicts future video and robot actions, alongside Isaac Lab 3.0 simulation and evaluation updates. The project demonstrates agent-directed manipulation; GR00T 2 code is scheduled for December.
+
+### 技术点 / Technical points
+
+- NVIDIA 报告在 50 项任务上零样本试验成功率为 40%，每项使用五次示范后升至 95%；其中 40 项任务在零样本条件下至少成功一次。
+  - NVIDIA reports 40% zero-shot trial success across 50 tasks, rising to 95% after five demonstrations per task; 40 tasks succeeded at least once zero-shot.
+- 推理智能体编排 GR00T 2 技能与恢复工具，由世界动作模型执行操作。
+  - A reasoning agent sequences GR00T 2 skills and recovery tools, while the world-action model handles manipulation.
+- Isaac Lab 3.0 集成 Newton 和强化后训练；NVIDIA 报告在一项灵巧操作基准中吞吐量最高提升至 2.5 倍。
+  - Isaac Lab 3.0 integrates Newton and reinforcement post-training; NVIDIA reports up to 2.5x throughput in one dexterous-manipulation benchmark.
+
+### 为什么重要 / Why it matters
+
+该公告将学习得到的物理预测、智能体编排和仿真机器人训练联系起来。
+
+The announcement connects learned physical prediction, agent orchestration and simulation-based robot training.
+
+### 链接 / Links
+
+[Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
 <a id="2026-11-05-gpwm-generative-particle-dynamics-planning"></a>
 ## [GPWM 统一粒子物理预测与接触密集型规划](https://arxiv.org/abs/2611.08338)
 

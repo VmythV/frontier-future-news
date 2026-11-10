@@ -2,6 +2,120 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-09-claude-code-21321-mcp-redirect-write-checks"></a>
+## [Claude Code 2.1.321 修复 MCP 重定向泄漏与文件写入权限检查](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
+
+**English:** [Claude Code 2.1.321 fixes MCP redirect leaks and file-write permission checks](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
+
+- **发布 / Published:** `2026-11-09T19:22:30Z`
+- **来源 / Source:** [Anthropic Claude Code](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `mcp`, `safety`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.321 将默认 Fable 模型更新为 Fable 5.2，并修复多项智能体执行边界问题。发布说明列出的修复包括跨主机 MCP OAuth 重定向、沙箱提示和目标文件检查。
+
+Claude Code 2.1.321 adds Fable 5.2 as its default Fable model and fixes several agent execution boundaries. Release notes identify cross-host MCP OAuth redirects, sandbox prompts and destination-file checks among the repaired cases.
+
+### 技术点 / Technical points
+
+- MCP OAuth 重定向不再把刷新令牌等秘密发送到另一主机。
+  - MCP OAuth redirects no longer send secrets such as refresh tokens to another host.
+- 修复覆盖只读 Bash 命令未经提示在沙箱外运行，以及文件写入检查使用错误工作目录的问题。
+  - Fixes cover a read-only Bash command escaping the sandbox without a prompt and file-write checks using the wrong working directory.
+- 复制或移动文件到目录时，拒绝规则和受保护文件提示会应用到实际目标文件。
+  - Deny rules and protected-file prompts now apply to the destination file when copying or moving into a directory.
+
+### 为什么重要 / Why it matters
+
+这些修复针对连接工具并操作本地文件的编程智能体中具体的边界失效情形。
+
+These fixes address concrete failure modes in tool-connected coding agents that operate on local files.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.321)
+
+---
+
+<a id="2026-11-09-lingbot-touch-tactile-encoder-checkpoints"></a>
+## [Robbyant 发布 LingBot-Touch 触觉编码器权重与推理代码](https://github.com/Robbyant/lingbot-touch)
+
+**English:** [Robbyant publishes LingBot-Touch tactile encoders and inference code](https://github.com/Robbyant/lingbot-touch)
+
+- **发布 / Published:** `2026-11-09T17:32:08Z`
+- **来源 / Source:** [Robbyant](https://github.com/Robbyant/lingbot-touch) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tactile-sensing`, `representation-learning`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Robbyant 发布 LingBot-Touch 的 Tiny、Small 权重与推理代码，支持触觉表征跨传感器和机器人手迁移。本条时间采用 Tiny 权重包的上传记录，而非推定的公告时刻。
+
+Robbyant published Tiny and Small LingBot-Touch checkpoints with inference code for transferring tactile representations across sensors and robot hands. The recorded time follows the Tiny checkpoint bundle upload, rather than an inferred announcement time.
+
+### 技术点 / Technical points
+
+- 模态专用分词器与共享的 JEPA 式 Transformer 从磁性、压阻和视触觉信号中学习表征。
+  - Modality-specific tokenizers and a shared JEPA-style Transformer learn from magnetic, piezoresistive and visuotactile signals.
+- 项目报告使用 4,983 小时触觉记录预训练，并在 26 项实机与 12 项仿真任务上评测。
+  - The project reports pretraining on 4,983 hours of tactile recordings and evaluation on 26 real-world and 12 simulated tasks.
+- Apache-2.0 权重包提供冻结的目标编码器及配套配置；推理代码和传感器适配器另行发布。
+  - Apache-2.0 bundles provide frozen target encoders and matching configurations; inference code and sensor adapters are distributed separately.
+
+### 为什么重要 / Why it matters
+
+可复用触觉特征为研究异构硬件上的接触密集控制提供了具体工具。
+
+Reusable tactile features offer a concrete route to studying contact-rich control across heterogeneous hardware.
+
+### 链接 / Links
+
+[Evidence 1](https://technology.robbyant.com/lingbot-touch) · [Evidence 2](https://huggingface.co/robbyant/lingbot-touch-tiny/commit/b149dfa8a9c6e6647ff059cd476fbf7e368cf321) · [Evidence 3](https://huggingface.co/api/models/robbyant/lingbot-touch-tiny/commits/main)
+
+---
+
+<a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
+## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+**English:** [NVIDIA announces GR00T 2 world-action models and Isaac Lab 3.0 at CoRL](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+- **发布 / Published:** `2026-11-09T14:00:01Z`
+- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `tool-use`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+NVIDIA 公布联合预测未来视频与机器人动作的 GR00T 2，并介绍 Isaac Lab 3.0 的仿真和评测更新。项目展示了智能体调度的操作任务；GR00T 2 代码计划于 12 月提供。
+
+NVIDIA announced GR00T 2, which jointly predicts future video and robot actions, alongside Isaac Lab 3.0 simulation and evaluation updates. The project demonstrates agent-directed manipulation; GR00T 2 code is scheduled for December.
+
+### 技术点 / Technical points
+
+- NVIDIA 报告在 50 项任务上零样本试验成功率为 40%，每项使用五次示范后升至 95%；其中 40 项任务在零样本条件下至少成功一次。
+  - NVIDIA reports 40% zero-shot trial success across 50 tasks, rising to 95% after five demonstrations per task; 40 tasks succeeded at least once zero-shot.
+- 推理智能体编排 GR00T 2 技能与恢复工具，由世界动作模型执行操作。
+  - A reasoning agent sequences GR00T 2 skills and recovery tools, while the world-action model handles manipulation.
+- Isaac Lab 3.0 集成 Newton 和强化后训练；NVIDIA 报告在一项灵巧操作基准中吞吐量最高提升至 2.5 倍。
+  - Isaac Lab 3.0 integrates Newton and reinforcement post-training; NVIDIA reports up to 2.5x throughput in one dexterous-manipulation benchmark.
+
+### 为什么重要 / Why it matters
+
+该公告将学习得到的物理预测、智能体编排和仿真机器人训练联系起来。
+
+The announcement connects learned physical prediction, agent orchestration and simulation-based robot training.
+
+### 链接 / Links
+
+[Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
 <a id="2026-11-08-genesis-146-differentiable-robot-simulation"></a>
 ## [Genesis 1.4.6 扩展可微仿真并原生兼容 PyTorch](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
 
@@ -75,6 +189,44 @@ Browser-based access to local agent work puts tool approval alongside the conver
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/open-webui/open-webui/releases/tags/v0.13.1)
+
+---
+
+<a id="2026-11-08-openai-agents-sdk-alpha7-native-storage-supervision"></a>
+## [OpenAI Agents SDK alpha.7 增加应用自管存储与原生智能体监督机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
+
+**English:** [OpenAI Agents SDK alpha.7 adds application-owned storage and native-agent supervision](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
+
+- **发布 / Published:** `2026-11-08T07:05:11Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `memory`, `mcp`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK v0.24.0-alpha.7 增加持久化根会话、上下文与完成钩子，以及基于已观测用量的预算机制。该预发布版本还变更执行器写入默认策略和 MCP 审批模式名称。
+
+OpenAI Agents SDK v0.24.0-alpha.7 adds durable root Sessions, context and completion hooks, and observed usage budgets. This prerelease also changes executor write defaults and MCP approval-mode names.
+
+### 技术点 / Technical points
+
+- CustomStorage 可持久化根会话历史与 Python 工具结果；不确定的执行效果需要显式核对，而非自动重放。
+  - CustomStorage can persist root history and Python tool results; uncertain effects require explicit reconciliation rather than automatic replay.
+- RunBudget 在下一次请求前检查根会话用量；已放行请求可能超额，子智能体用量不计入。
+  - RunBudget checks root usage before another request; admitted requests can overshoot, and child usage is excluded.
+- 新 Environment 默认采用严格写入策略；Classic 与原生工作流仍使用各自独立的对象和检查点。
+  - New Environments default to strict write policies; Classic and native workflows retain separate objects and checkpoints.
+
+### 为什么重要 / Why it matters
+
+这些机制让持久化智能体工作流更易监督，同时明确恢复与预算约束的适用边界。
+
+These controls make persistent agent workflows easier to supervise while exposing concrete recovery and budget limits.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases/tags/v0.24.0-alpha.7)
 
 ---
 
@@ -573,135 +725,3 @@ The PlayGen2 preprint models playable Doom environments through explicit 3D stat
 显式状态接口让学习型环境更易检查和修改，并降低其对图像反馈一致性的依赖。
 
 An explicit state interface makes learned environments easier to inspect and manipulate while reducing dependence on image-feedback consistency.
-
----
-
-<a id="2026-11-05-affectivevla-intent-gated-humanoid-contact"></a>
-## [AffectiveVLA 通过人类意图识别控制人形机器人的社交接触](https://arxiv.org/abs/2611.07712)
-
-**English:** [AffectiveVLA gates humanoid social contact on recognized human intent](https://arxiv.org/abs/2611.07712)
-
-- **发布 / Published:** `2026-11-05T09:29:21Z`
-- **来源 / Source:** [AffectiveVLA authors / arXiv](https://arxiv.org/abs/2611.07712) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `vla`, `safety`, `human-robot-interaction`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-AffectiveVLA 预印本在 Unitree G1 上结合视觉意图识别与 VLA 控制，用于握手、拥抱等交互。意图预测置信度不足时禁止执行动作，并通过接触类型对应的阻抗设置和独立语音触发停止机制提供额外保护。
-
-The AffectiveVLA preprint combines visual intent recognition with VLA control on a Unitree G1 for interactions such as handshakes and hugs. Low-confidence intent predictions suppress movement, while contact-specific impedance settings and an independent voice-triggered stop provide additional safeguards.
-
-### 技术点 / Technical points
-
-- 团队通过 VR 遥操作收集了约 1,300 段多模态交互，并微调了四种 VLA 模型。
-  - The team collected about 1,300 multimodal interaction episodes through VR teleoperation and fine-tuned four VLA models.
-- 在单模型表现最好的 GR00T 上，加入意图识别使宏平均 F1 从 0.75 提升至 0.90；意图推理的 p95 延迟为 6.27 毫秒。
-  - For the best standalone model, GR00T, adding intent recognition raises macro-F1 from 0.75 to 0.90; intent inference has a reported p95 latency of 6.27 ms.
-
-### 为什么重要 / Why it matters
-
-该研究检验了意图置信度与物理执行之间的明确约束，对减少人形机器人交互中的意外接触具有参考价值。
-
-The work tests an explicit link between intent confidence and physical execution, relevant to reducing accidental contact during humanoid interaction.
-
----
-
-<a id="2026-11-05-mcphallu-structured-agent-failure-benchmark"></a>
-## [MCPHallu 分离评测 MCP 智能体的推理、执行与记忆失误](https://arxiv.org/abs/2611.07689)
-
-**English:** [MCPHallu isolates reasoning, execution and memory failures across MCP agents](https://arxiv.org/abs/2611.07689)
-
-- **发布 / Published:** `2026-11-05T09:14:26Z`
-- **来源 / Source:** [MCPHallu authors / arXiv](https://arxiv.org/abs/2611.07689) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `mcp`, `tool-use`, `memory`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-MCPHallu 预印本提出包含 358 项任务的基准，在隔离容器中的 36 个生产级 MCP 服务器上运行。作者评测了 14 个智能体和 5,012 条轨迹，发现不同失误子类型的表现差异显著，其中识别不可达目标尤其困难。
-
-MCPHallu is a preprint benchmark with 358 tasks running on 36 production MCP servers in isolated containers. Across 14 agents and 5,012 trajectories, the authors find substantial differences between failure subtypes, especially difficulty recognizing unreachable goals.
-
-### 技术点 / Technical points
-
-- 任务在设计时分别设置分支坍缩、目标不可达、工具误用或上下文遗忘的触发条件，而非仅在执行后诊断失败。
-  - Tasks deliberately trigger branch collapse, unreachable goals, tool misuse or context forgetting instead of diagnosing all failures only after execution.
-- 在目标不可达任务上，作者报告平均得分为 0.458（满分 1），运行通过率为 23.2%。
-  - On unreachable-goal tasks, the reported average score is 0.458 on a zero-to-one scale and 23.2% of runs pass.
-
-### 为什么重要 / Why it matters
-
-针对具体失误设计的任务，有助于暴露在目标不可完成时仍反复调用工具或宣称成功的智能体。
-
-Failure-specific tasks can reveal agents that keep calling tools or claim success when completion is infeasible.
-
----
-
-<a id="2026-11-05-openai-gpt-6-cyber-scope-alignment"></a>
-## [GPT-6 Cyber 同时报告安全智能体能力与任务范围遵循评测](https://openai.com/index/introducing-gpt-6-cyber/)
-
-**English:** [GPT-6 Cyber pairs stronger security-agent results with scope-adherence evaluations](https://openai.com/index/introducing-gpt-6-cyber/)
-
-- **发布 / Published:** `2026-11-05T09:00:00Z`
-- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-gpt-6-cyber/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `cybersecurity`, `safety`, `benchmark`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-OpenAI 面向部分获批 Daybreak Red 客户，通过 API 和 Codex 推出 GPT-6 Cyber。官方报告其 ExploitGym 得分为 48.5%，高于 GPT-5.6 Cyber 的 32.1%，同时提升了对授权任务范围的遵循能力。发布时间采用官方 RSS。
-
-OpenAI introduced GPT-6 Cyber for selected approved Daybreak Red customers through the API and Codex. It reports 48.5% on ExploitGym, versus 32.1% for GPT-5.6 Cyber, alongside improved adherence to authorized task boundaries. The timestamp follows the official RSS.
-
-### 技术点 / Technical points
-
-- 在另一项对齐评测中，OpenAI 报告未使用部署提示时，99.93% 的测试未利用范围外服务，使用提示后为 100%。
-  - In a separate alignment evaluation, OpenAI reports avoiding exploitation of out-of-scope services in 99.93% of tests without the deployment prompt and 100% with it.
-- 系统卡描述了面向漏洞调查和利用开发的强化学习，并加入遵循授权和准确报告的训练信号。
-  - The system card describes reinforcement learning on vulnerability investigation and exploit development, with additional signals for respecting authorization and reporting accurately.
-
-### 为什么重要 / Why it matters
-
-同时公布能力和边界遵循结果，为安全智能体的受控部署评估提供了更多证据。
-
-Publishing both capability and boundary-following results gives security-agent developers more evidence for assessing controlled deployment.
-
-### 链接 / Links
-
-[Evidence 1](https://deploymentsafety.openai.com/gpt-6-cyber) · [Evidence 2](https://openai.com/news/rss.xml)
-
----
-
-<a id="2026-11-05-diagdbench-interactive-database-diagnosis"></a>
-## [DiagDBench 在可执行数据库环境中评测智能体诊断与修复能力](https://arxiv.org/abs/2611.07339)
-
-**English:** [DiagDBench tests database agents in executable diagnosis and remediation environments](https://arxiv.org/abs/2611.07339)
-
-- **发布 / Published:** `2026-11-05T02:27:03Z`
-- **来源 / Source:** [DiagDBench authors / arXiv](https://arxiv.org/abs/2611.07339) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `database`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-DiagDBench 预印本提出用于异常诊断、修复及可选负载优化的真实运行数据库环境。作者报告了 6,940 个训练样本和 454 个专家标注测试样本；其评测中表现最好的智能体得分也仅为 56.24。
-
-The DiagDBench preprint introduces live database environments for diagnosing anomalies, applying remedies and optionally optimizing workloads. Its authors report 6,940 training samples and 454 expert-annotated test samples; even their strongest evaluated agent scores 56.24.
-
-### 技术点 / Technical points
-
-- 每个样本包含用户请求、已验证异常的负载，以及支持交互监控和执行的独立 DBMS 环境。
-  - Each sample includes a user request, an anomaly-verified workload and a self-contained DBMS environment supporting interactive monitoring and execution.
-- 构建流程结合文档引导的异常合成与企业事故复现；评测覆盖两种 DBMS 和三种硬件配置。
-  - Construction combines documentation-guided anomaly synthesis with reproduction of enterprise incidents; evaluation spans two DBMSs and three hardware configurations.
-
-### 为什么重要 / Why it matters
-
-可执行故障使评测能够检查智能体是否真正修复数据库，而不只给出貌似合理的诊断。
-
-Executable failures make it possible to evaluate whether an agent actually repairs a database rather than merely describing a plausible diagnosis.

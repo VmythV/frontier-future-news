@@ -2,6 +2,82 @@
 
 # Agents / 智能体
 
+<a id="2026-11-09-claude-code-21321-mcp-redirect-write-checks"></a>
+## [Claude Code 2.1.321 修复 MCP 重定向泄漏与文件写入权限检查](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
+
+**English:** [Claude Code 2.1.321 fixes MCP redirect leaks and file-write permission checks](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
+
+- **发布 / Published:** `2026-11-09T19:22:30Z`
+- **来源 / Source:** [Anthropic Claude Code](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `mcp`, `safety`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.321 将默认 Fable 模型更新为 Fable 5.2，并修复多项智能体执行边界问题。发布说明列出的修复包括跨主机 MCP OAuth 重定向、沙箱提示和目标文件检查。
+
+Claude Code 2.1.321 adds Fable 5.2 as its default Fable model and fixes several agent execution boundaries. Release notes identify cross-host MCP OAuth redirects, sandbox prompts and destination-file checks among the repaired cases.
+
+### 技术点 / Technical points
+
+- MCP OAuth 重定向不再把刷新令牌等秘密发送到另一主机。
+  - MCP OAuth redirects no longer send secrets such as refresh tokens to another host.
+- 修复覆盖只读 Bash 命令未经提示在沙箱外运行，以及文件写入检查使用错误工作目录的问题。
+  - Fixes cover a read-only Bash command escaping the sandbox without a prompt and file-write checks using the wrong working directory.
+- 复制或移动文件到目录时，拒绝规则和受保护文件提示会应用到实际目标文件。
+  - Deny rules and protected-file prompts now apply to the destination file when copying or moving into a directory.
+
+### 为什么重要 / Why it matters
+
+这些修复针对连接工具并操作本地文件的编程智能体中具体的边界失效情形。
+
+These fixes address concrete failure modes in tool-connected coding agents that operate on local files.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.321)
+
+---
+
+<a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
+## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+**English:** [NVIDIA announces GR00T 2 world-action models and Isaac Lab 3.0 at CoRL](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
+
+- **发布 / Published:** `2026-11-09T14:00:01Z`
+- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `tool-use`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+NVIDIA 公布联合预测未来视频与机器人动作的 GR00T 2，并介绍 Isaac Lab 3.0 的仿真和评测更新。项目展示了智能体调度的操作任务；GR00T 2 代码计划于 12 月提供。
+
+NVIDIA announced GR00T 2, which jointly predicts future video and robot actions, alongside Isaac Lab 3.0 simulation and evaluation updates. The project demonstrates agent-directed manipulation; GR00T 2 code is scheduled for December.
+
+### 技术点 / Technical points
+
+- NVIDIA 报告在 50 项任务上零样本试验成功率为 40%，每项使用五次示范后升至 95%；其中 40 项任务在零样本条件下至少成功一次。
+  - NVIDIA reports 40% zero-shot trial success across 50 tasks, rising to 95% after five demonstrations per task; 40 tasks succeeded at least once zero-shot.
+- 推理智能体编排 GR00T 2 技能与恢复工具，由世界动作模型执行操作。
+  - A reasoning agent sequences GR00T 2 skills and recovery tools, while the world-action model handles manipulation.
+- Isaac Lab 3.0 集成 Newton 和强化后训练；NVIDIA 报告在一项灵巧操作基准中吞吐量最高提升至 2.5 倍。
+  - Isaac Lab 3.0 integrates Newton and reinforcement post-training; NVIDIA reports up to 2.5x throughput in one dexterous-manipulation benchmark.
+
+### 为什么重要 / Why it matters
+
+该公告将学习得到的物理预测、智能体编排和仿真机器人训练联系起来。
+
+The announcement connects learned physical prediction, agent orchestration and simulation-based robot training.
+
+### 链接 / Links
+
+[Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
 <a id="2026-11-08-open-webui-0131-tether-coding-agents"></a>
 ## [Open WebUI 0.13.1 通过 Tether 接入本机编程智能体](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
 
@@ -37,6 +113,44 @@ Browser-based access to local agent work puts tool approval alongside the conver
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/open-webui/open-webui/releases/tags/v0.13.1)
+
+---
+
+<a id="2026-11-08-openai-agents-sdk-alpha7-native-storage-supervision"></a>
+## [OpenAI Agents SDK alpha.7 增加应用自管存储与原生智能体监督机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
+
+**English:** [OpenAI Agents SDK alpha.7 adds application-owned storage and native-agent supervision](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
+
+- **发布 / Published:** `2026-11-08T07:05:11Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `memory`, `mcp`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK v0.24.0-alpha.7 增加持久化根会话、上下文与完成钩子，以及基于已观测用量的预算机制。该预发布版本还变更执行器写入默认策略和 MCP 审批模式名称。
+
+OpenAI Agents SDK v0.24.0-alpha.7 adds durable root Sessions, context and completion hooks, and observed usage budgets. This prerelease also changes executor write defaults and MCP approval-mode names.
+
+### 技术点 / Technical points
+
+- CustomStorage 可持久化根会话历史与 Python 工具结果；不确定的执行效果需要显式核对，而非自动重放。
+  - CustomStorage can persist root history and Python tool results; uncertain effects require explicit reconciliation rather than automatic replay.
+- RunBudget 在下一次请求前检查根会话用量；已放行请求可能超额，子智能体用量不计入。
+  - RunBudget checks root usage before another request; admitted requests can overshoot, and child usage is excluded.
+- 新 Environment 默认采用严格写入策略；Classic 与原生工作流仍使用各自独立的对象和检查点。
+  - New Environments default to strict write policies; Classic and native workflows retain separate objects and checkpoints.
+
+### 为什么重要 / Why it matters
+
+这些机制让持久化智能体工作流更易监督，同时明确恢复与预算约束的适用边界。
+
+These controls make persistent agent workflows easier to supervise while exposing concrete recovery and budget limits.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases/tags/v0.24.0-alpha.7)
 
 ---
 
