@@ -2,6 +2,38 @@
 
 # World models / 世界模型
 
+<a id="2026-11-09-library-of-hands-frozen-world-model-adaptation"></a>
+## [Library of Hands 冻结世界模型，仅适应动作映射](https://arxiv.org/abs/2611.12678)
+
+**English:** [Library of Hands adapts action mappings while keeping world models frozen](https://arxiv.org/abs/2611.12678)
+
+- **发布 / Published:** `2026-11-09T16:45:11Z`
+- **来源 / Source:** [Library of Hands authors (arXiv)](https://arxiv.org/abs/2611.12678) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `simulation`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Library of Hands 通过连续图像和冻结的世界模型，识别机器人指令到实际动作之间映射的变化。作者报告，在三项模拟任务中平均成功率从 28.6% 升至 62.3%。使用真实机器人数据预训练模型的测试，并不等于取得相同的实体机器人部署结果。
+
+Library of Hands identifies changes in the mapping from robot commands to applied actions using consecutive images and a frozen world model. In three simulated tasks, the authors report mean success rising from 28.6% to 62.3%. Tests with models pretrained on real robot data do not establish equivalent real-robot deployment results.
+
+### 技术点 / Technical points
+
+- 该方法寻找最能解释图像转移的动作，无需新增传感器或重新训练世界模型。
+  - The method infers the action that best explains an observed image transition without adding a sensor or retraining the world model.
+- 已识别的映射会被保存，方便在配置再次出现时直接识别。
+  - Identified mappings are stored so returning configurations can be recognised rather than learned again.
+
+### 为什么重要 / Why it matters
+
+它将控制器校准独立为可复用的适应层，为世界模型规划提供新的迁移思路。
+
+It isolates controller calibration as a reusable adaptation layer for world-model planning.
+
+---
+
 <a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
 ## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
@@ -37,6 +69,70 @@ The announcement connects learned physical prediction, agent orchestration and s
 ### 链接 / Links
 
 [Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
+<a id="2026-11-09-warc-mecheval-test-time-world-mechanics"></a>
+## [MechEval 与 WARC 衡量世界模型在测试时学习新游戏机制的能力](https://arxiv.org/abs/2611.12324)
+
+**English:** [MechEval and WARC measure test-time learning of unseen game mechanics](https://arxiv.org/abs/2611.12324)
+
+- **发布 / Published:** `2026-11-09T12:45:40Z`
+- **来源 / Source:** [MechEval and WARC authors (arXiv)](https://arxiv.org/abs/2611.12324) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `test-time-training`, `planning`, `interactive-environments`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+论文提出 MechEval，在 20 个 ARC-AGI-3 游戏中追踪 69 种机制，并构建每次状态转移后更新的 3500 万参数世界模型 WARC。作者报告，将 WARC 接入固定探索器后，公开游戏效率得分从 0.15 升至 0.46；隐藏游戏参赛得分为 0.20。
+
+The paper introduces MechEval, which tracks 69 mechanics across 20 ARC-AGI-3 games, and WARC, a 35M-parameter world model updated after each transition. The authors report that adding WARC to a fixed explorer raises its public-game efficiency score from 0.15 to 0.46; the hidden-game entry scores 0.20.
+
+### 技术点 / Technical points
+
+- 机制级评测只对相应机制改变的单元格计算预测成绩。
+  - Mechanic-level evaluation scores predictions on the cells changed by each observed mechanic.
+- WARC 在测试时更新全部参数，可按机制被观察的次数追踪预测准确率。
+  - WARC updates all parameters at test time, allowing prediction accuracy to be tracked against the number of mechanic exposures.
+
+### 为什么重要 / Why it matters
+
+这项工作将适应所需的数据量与闭环探索表现联系起来，也显示出公开与隐藏评测之间的明显差距。
+
+It connects adaptation data requirements to closed-loop exploration performance while exposing a substantial public-to-hidden evaluation gap.
+
+---
+
+<a id="2026-11-09-wm-ppo-successor-value-world-model-training"></a>
+## [WM-PPO 用预测后继状态的价值训练稀疏奖励智能体](https://arxiv.org/abs/2611.12200)
+
+**English:** [WM-PPO uses predicted successor values to train sparse-reward agents](https://arxiv.org/abs/2611.12200)
+
+- **发布 / Published:** `2026-11-09T10:59:19Z`
+- **来源 / Source:** [WM-PPO authors (arXiv)](https://arxiv.org/abs/2611.12200) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `latent-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WM-PPO 将学习到的世界模型与 PPO 价值网络结合，通过预测的下一步观测评估动作。预印本报告，在真实环境交互预算相近时，ALFWorld 与 ScienceWorld 成功率分别为 87.5% 和 52.9%，PPO 基线则为 63.5% 和 39.3%。
+
+WM-PPO combines a learned world model with PPO’s critic to assess actions through predicted next observations. The preprint reports success rates of 87.5% on ALFWorld and 52.9% on ScienceWorld, versus 63.5% and 39.3% for PPO, using comparable real interaction budgets.
+
+### 技术点 / Technical points
+
+- 后继状态价值的比较提供额外策略优势信号，其均值则提供额外价值学习目标。
+  - Successor-value comparisons supply auxiliary policy advantages, while their mean supplies an auxiliary critic target.
+- 共享可靠性门控对两类信号加权；训练使用智能体自身交互，推理时仅需策略。
+  - A shared reliability gate weights both signals; training uses the agent’s own interactions and inference needs only the policy.
+
+### 为什么重要 / Why it matters
+
+该方法探索从环境动力学提取更密集的学习信号，同时避免给部署策略增加世界模型计算。
+
+It explores extracting denser learning signals from dynamics without increasing the deployed policy’s world-model computation.
 
 ---
 

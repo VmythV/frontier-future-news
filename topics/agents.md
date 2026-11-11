@@ -2,6 +2,42 @@
 
 # Agents / 智能体
 
+<a id="2026-11-10-alphaproof-code-signal-machine-code-verification"></a>
+## [AlphaProof Code 结合智能体与 Lean 验证 Signal 实现的安全属性](https://deepmind.google/blog/introducing-alphaproof-code/)
+
+**English:** [AlphaProof Code uses agents and Lean to verify Signal implementation security](https://deepmind.google/blog/introducing-alphaproof-code/)
+
+- **发布 / Published:** `2026-11-10T12:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/introducing-alphaproof-code/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `formal-verification`, `safety`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布 AlphaProof Code，将人工审阅的形式化规格与自主证明智能体结合。团队报告，已在机器码层面证明 libsignal 的关键安全属性，并由 Lean 检查证明。保证范围取决于获准规格与受信语义，不能涵盖部署中的所有潜在缺陷。
+
+Google DeepMind introduced AlphaProof Code, combining human-reviewed specifications with autonomous prover agents. The team reports machine-code-level proofs of key libsignal security properties, checked by Lean. The guarantees depend on the approved specifications and trusted semantics rather than covering every possible deployment flaw.
+
+### 技术点 / Technical points
+
+- 技术论文报告约 650 万行经检查的 Lean 证明，以及约 2.6 万行受信规格和 AArch64 语义。
+  - The technical paper reports about 6.5 million lines of checked Lean proofs and roughly 26,000 lines of trusted specifications and AArch64 semantics.
+- 证明涵盖 PQXDH 与 Triple Ratchet；重新引入两个已修复缺陷后，系统生成了经检查的不安全性证明。
+  - The proofs cover PQXDH and Triple Ratchet; reintroducing two previously fixed bugs produced checked proofs of insecurity.
+
+### 为什么重要 / Why it matters
+
+它展示了一种由人指导、依据明确形式化约定独立检查产出的智能体工作流。
+
+It demonstrates a human-guided agent workflow whose outputs can be checked independently against explicit formal contracts.
+
+### 链接 / Links
+
+[Evidence 1](https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf)
+
+---
+
 <a id="2026-11-09-claude-code-21321-mcp-redirect-write-checks"></a>
 ## [Claude Code 2.1.321 修复 MCP 重定向泄漏与文件写入权限检查](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
 
@@ -40,6 +76,70 @@ These fixes address concrete failure modes in tool-connected coding agents that 
 
 ---
 
+<a id="2026-11-09-roboscript-world-in-context-manipulation-memory"></a>
+## [RoboScript 通过模拟演练形成机器人操作任务记忆](https://arxiv.org/abs/2611.12885)
+
+**English:** [RoboScript learns manipulation task memories through simulation rehearsal](https://arxiv.org/abs/2611.12885)
+
+- **发布 / Published:** `2026-11-09T18:59:45Z`
+- **来源 / Source:** [RoboScript authors (arXiv)](https://arxiv.org/abs/2611.12885) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `simulation`, `in-context-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+RoboScript 实现 World In-Context Learning：冻结模型从单次演示出发在模拟中演练，将反馈写入任务记忆。预印本报告，在 RoboTwin 2.0 的 50 项任务上，干净与随机化设置的平均成功率为 83.4%，无需梯度更新，并展示了向实体双臂机器人的迁移。
+
+RoboScript implements World In-Context Learning: a frozen model rehearses from one demonstration in simulation and records feedback in task memory. The preprint reports 83.4% mean success across clean and randomized RoboTwin 2.0 settings over 50 tasks without gradient updates, plus transfer to a physical dual-arm robot.
+
+### 技术点 / Technical points
+
+- 模拟反馈汇总为任务记忆，在部署到新场景前固定下来。
+  - Simulation feedback is consolidated into Task Memory, which is frozen before deployment to new scenes.
+- 部署输入限于真实机器人可获取的信息，并通过跨形态记忆适配支持实体迁移。
+  - Deployment inputs are isolated to information available on a real robot; cross-embodiment memory adaptation supports physical transfer.
+
+### 为什么重要 / Why it matters
+
+它探索借助模拟器将技能存入可复用上下文，为策略权重更新之外的学习路径提供证据。
+
+It explores simulator-assisted skill acquisition through reusable context rather than policy weight updates.
+
+---
+
+<a id="2026-11-09-workflowarena-executable-multi-agent-orchestration"></a>
+## [WorkflowArena 在八个专业领域评估智能体自主编排工作流](https://arxiv.org/abs/2611.12856)
+
+**English:** [WorkflowArena evaluates agent-authored workflows across eight professional domains](https://arxiv.org/abs/2611.12856)
+
+- **发布 / Published:** `2026-11-09T18:45:28Z`
+- **来源 / Source:** [WorkflowArena authors (arXiv)](https://arxiv.org/abs/2611.12856) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `benchmark`, `planning`, `workflow`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+WorkflowArena 提供 145 项长程任务，并用隐藏验证器评估综合交付物。智能体自主决定是否委派任务及如何委派，使研究者可以同时分析工作流组织方式与产出质量。对九个模型的实验表明，没有一种配置能在所有领域领先。
+
+WorkflowArena introduces 145 long-horizon tasks whose integrated deliverables are assessed by hidden verifiers. Agents decide whether and how to delegate, allowing researchers to examine workflow organisation alongside output quality. Experiments with nine models find that no single configuration leads across all domains.
+
+### 技术点 / Technical points
+
+- 任务横跨八个领域，要求从给定工作区完成相互依赖的多个组成部分。
+  - Tasks span eight domains and require interdependent components in a shared initial workspace.
+- 委派轨迹记录组织方式；固定执行模型的比较用于检验所编排工作流的贡献。
+  - Delegation traces expose organisation choices; fixed-executor comparisons test the contribution of the authored workflow.
+
+### 为什么重要 / Why it matters
+
+它让工作编排质量成为可单独检查的智能体能力，避免仅凭委派次数判断成效。
+
+It makes orchestration quality a separately inspectable agent capability instead of treating delegation volume as success.
+
+---
+
 <a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
 ## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
@@ -75,6 +175,134 @@ The announcement connects learned physical prediction, agent orchestration and s
 ### 链接 / Links
 
 [Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
+<a id="2026-11-09-autobuddy-proactive-task-discovery-execution"></a>
+## [AutoBuddy-Bench 分别评估主动任务发现与办公执行能力](https://arxiv.org/abs/2611.12393)
+
+**English:** [AutoBuddy-Bench separates proactive task discovery from workplace execution](https://arxiv.org/abs/2611.12393)
+
+- **发布 / Published:** `2026-11-09T13:30:18Z`
+- **来源 / Source:** [AutoBuddy authors (arXiv)](https://arxiv.org/abs/2611.12393) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `memory`, `proactive-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+AutoBuddy-Bench 模拟内部一致的组织环境，要求智能体从工作区记录中主动发现待办事项并完成任务。参考智能体 AutoBuddy 为发现的任务关联来源记录，再在独立的可写会话中执行。研究发现，仅凭任务发现精确率难以预测实际执行质量。
+
+AutoBuddy-Bench simulates a coherent organisation so agents must discover obligations in workspace records and then complete them. The reference AutoBuddy agent grounds discovered tasks in source records and executes them in separate writable sessions. The study finds that discovery precision alone poorly predicts execution quality.
+
+### 技术点 / Technical points
+
+- 时间图生成员工、项目、事件和工作区材料，并根据环境状态计算任务结果。
+  - A temporal graph generates employees, projects, events and workspace artefacts, with task outcomes computed from world state.
+- 较弱模型主要遗漏任务；较强模型更常在执行阶段失败，尤其是业务系统操作。
+  - Weaker models mainly miss tasks; stronger models more often fail during execution, particularly business-system operations.
+
+### 为什么重要 / Why it matters
+
+该基准衡量持续运行助手所需的从识别职责到产出结果的完整过程。
+
+The benchmark measures the full obligation-to-outcome loop needed by persistent assistants.
+
+---
+
+<a id="2026-11-09-warc-mecheval-test-time-world-mechanics"></a>
+## [MechEval 与 WARC 衡量世界模型在测试时学习新游戏机制的能力](https://arxiv.org/abs/2611.12324)
+
+**English:** [MechEval and WARC measure test-time learning of unseen game mechanics](https://arxiv.org/abs/2611.12324)
+
+- **发布 / Published:** `2026-11-09T12:45:40Z`
+- **来源 / Source:** [MechEval and WARC authors (arXiv)](https://arxiv.org/abs/2611.12324) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `test-time-training`, `planning`, `interactive-environments`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+论文提出 MechEval，在 20 个 ARC-AGI-3 游戏中追踪 69 种机制，并构建每次状态转移后更新的 3500 万参数世界模型 WARC。作者报告，将 WARC 接入固定探索器后，公开游戏效率得分从 0.15 升至 0.46；隐藏游戏参赛得分为 0.20。
+
+The paper introduces MechEval, which tracks 69 mechanics across 20 ARC-AGI-3 games, and WARC, a 35M-parameter world model updated after each transition. The authors report that adding WARC to a fixed explorer raises its public-game efficiency score from 0.15 to 0.46; the hidden-game entry scores 0.20.
+
+### 技术点 / Technical points
+
+- 机制级评测只对相应机制改变的单元格计算预测成绩。
+  - Mechanic-level evaluation scores predictions on the cells changed by each observed mechanic.
+- WARC 在测试时更新全部参数，可按机制被观察的次数追踪预测准确率。
+  - WARC updates all parameters at test time, allowing prediction accuracy to be tracked against the number of mechanic exposures.
+
+### 为什么重要 / Why it matters
+
+这项工作将适应所需的数据量与闭环探索表现联系起来，也显示出公开与隐藏评测之间的明显差距。
+
+It connects adaptation data requirements to closed-loop exploration performance while exposing a substantial public-to-hidden evaluation gap.
+
+---
+
+<a id="2026-11-09-wm-ppo-successor-value-world-model-training"></a>
+## [WM-PPO 用预测后继状态的价值训练稀疏奖励智能体](https://arxiv.org/abs/2611.12200)
+
+**English:** [WM-PPO uses predicted successor values to train sparse-reward agents](https://arxiv.org/abs/2611.12200)
+
+- **发布 / Published:** `2026-11-09T10:59:19Z`
+- **来源 / Source:** [WM-PPO authors (arXiv)](https://arxiv.org/abs/2611.12200) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `latent-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WM-PPO 将学习到的世界模型与 PPO 价值网络结合，通过预测的下一步观测评估动作。预印本报告，在真实环境交互预算相近时，ALFWorld 与 ScienceWorld 成功率分别为 87.5% 和 52.9%，PPO 基线则为 63.5% 和 39.3%。
+
+WM-PPO combines a learned world model with PPO’s critic to assess actions through predicted next observations. The preprint reports success rates of 87.5% on ALFWorld and 52.9% on ScienceWorld, versus 63.5% and 39.3% for PPO, using comparable real interaction budgets.
+
+### 技术点 / Technical points
+
+- 后继状态价值的比较提供额外策略优势信号，其均值则提供额外价值学习目标。
+  - Successor-value comparisons supply auxiliary policy advantages, while their mean supplies an auxiliary critic target.
+- 共享可靠性门控对两类信号加权；训练使用智能体自身交互，推理时仅需策略。
+  - A shared reliability gate weights both signals; training uses the agent’s own interactions and inference needs only the policy.
+
+### 为什么重要 / Why it matters
+
+该方法探索从环境动力学提取更密集的学习信号，同时避免给部署策略增加世界模型计算。
+
+It explores extracting denser learning signals from dynamics without increasing the deployed policy’s world-model computation.
+
+---
+
+<a id="2026-11-09-embodied-first-exam-agent-robot-control"></a>
+## [Embodied First Exam 在 47 种机器人上评测编码智能体](https://arxiv.org/abs/2611.12177)
+
+**English:** [Embodied First Exam evaluates coding agents across 47 robots](https://arxiv.org/abs/2611.12177)
+
+- **发布 / Published:** `2026-11-09T10:29:19Z`
+- **来源 / Source:** [Embodied First Exam authors (arXiv)](https://arxiv.org/abs/2611.12177) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `simulation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Embodied First Exam 提供 35 个套件中的 1,156 项任务，允许智能体直接控制机器人、编写控制代码或训练策略。作者报告，在 456 项核心任务上，八个智能体中最好的标准设置成功率为 34%；这些结果来自基准评测，不能视为广泛实体部署的证据。
+
+Embodied First Exam introduces 1,156 tasks in 35 suites for agents that control robots directly, write control code, or train policies. On 456 core tasks, the authors report a best Standard Setting success rate of 34% among eight agents; these are benchmark results rather than evidence of broad physical deployment.
+
+### 技术点 / Technical points
+
+- 标准设置仅提供传感器观测，默认禁止重置；其实时变体在智能体推理期间继续推进环境。
+  - The Standard Setting uses sensor observations and normally disallows resets; its Realtime variant keeps the environment advancing during reasoning.
+- 特权设置开放模拟器状态并允许无限重置，用于近似估计能力上限。
+  - A Privileged Setting exposes simulator state and permits unlimited resets to approximate an upper bound.
+
+### 为什么重要 / Why it matters
+
+它检验编码智能体面对具身环境的时序、感知与控制约束时还能保留多少能力。
+
+It tests whether coding-agent capabilities survive timing, sensing and control constraints in embodied environments.
 
 ---
 

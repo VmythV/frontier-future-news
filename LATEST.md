@@ -2,6 +2,74 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-10-gemini-robotics-25-dexterity-factory-safety"></a>
+## [Gemini Robotics 2.5 提升灵巧操作，并公布工厂配料试点结果](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+**English:** [Gemini Robotics 2.5 adds dexterity and reports a factory kitting pilot](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+- **发布 / Published:** `2026-11-10T15:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Google DeepMind 在评估逾 200 项任务后，开始向机器人合作伙伴提供 Gemini Robotics 2.5。官方报告，在梅赛德斯-奔驰生产线的概念验证中，Apptronik Apollo 2 的汽车配料任务成功率为 96%。公告还推出面向机器人对抗安全评测的 ASIMOV-Jailbreak。
+
+Google DeepMind is rolling Gemini Robotics 2.5 out to robotics partners after evaluating more than 200 tasks. In a Mercedes-Benz production-line proof of concept, it reports 96% success for automotive kitting with Apptronik’s Apollo 2. The announcement also introduces ASIMOV-Jailbreak for adversarial robotics safety evaluation.
+
+### 技术点 / Technical points
+
+- 配料试点由 Gemini Robotics ER 跟踪流程，2.5 动作模型控制手部与手臂。
+  - Gemini Robotics ER tracks the workflow while the 2.5 action model controls hands and arms in the kitting pilot.
+- 推理时引导用于约束物理动作；ASIMOV-Jailbreak 中 99.5% 的抗越狱成绩属于 Gemini 4 Argon。
+  - Inference-time guidance steers physical actions; the separate ASIMOV-Jailbreak result of 99.5% resistance is attributed to Gemini 4 Argon.
+
+### 为什么重要 / Why it matters
+
+此次发布将更广泛的操作技能、具体工业试点和专用安全基准结合起来；可靠性数据仍属于公司自报结果。
+
+The release connects broader manipulation skills with a concrete industrial pilot and a dedicated safety benchmark, while the reliability figures remain company-reported.
+
+---
+
+<a id="2026-11-10-alphaproof-code-signal-machine-code-verification"></a>
+## [AlphaProof Code 结合智能体与 Lean 验证 Signal 实现的安全属性](https://deepmind.google/blog/introducing-alphaproof-code/)
+
+**English:** [AlphaProof Code uses agents and Lean to verify Signal implementation security](https://deepmind.google/blog/introducing-alphaproof-code/)
+
+- **发布 / Published:** `2026-11-10T12:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/introducing-alphaproof-code/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `formal-verification`, `safety`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布 AlphaProof Code，将人工审阅的形式化规格与自主证明智能体结合。团队报告，已在机器码层面证明 libsignal 的关键安全属性，并由 Lean 检查证明。保证范围取决于获准规格与受信语义，不能涵盖部署中的所有潜在缺陷。
+
+Google DeepMind introduced AlphaProof Code, combining human-reviewed specifications with autonomous prover agents. The team reports machine-code-level proofs of key libsignal security properties, checked by Lean. The guarantees depend on the approved specifications and trusted semantics rather than covering every possible deployment flaw.
+
+### 技术点 / Technical points
+
+- 技术论文报告约 650 万行经检查的 Lean 证明，以及约 2.6 万行受信规格和 AArch64 语义。
+  - The technical paper reports about 6.5 million lines of checked Lean proofs and roughly 26,000 lines of trusted specifications and AArch64 semantics.
+- 证明涵盖 PQXDH 与 Triple Ratchet；重新引入两个已修复缺陷后，系统生成了经检查的不安全性证明。
+  - The proofs cover PQXDH and Triple Ratchet; reintroducing two previously fixed bugs produced checked proofs of insecurity.
+
+### 为什么重要 / Why it matters
+
+它展示了一种由人指导、依据明确形式化约定独立检查产出的智能体工作流。
+
+It demonstrates a human-guided agent workflow whose outputs can be checked independently against explicit formal contracts.
+
+### 链接 / Links
+
+[Evidence 1](https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf)
+
+---
+
 <a id="2026-11-09-claude-code-21321-mcp-redirect-write-checks"></a>
 ## [Claude Code 2.1.321 修复 MCP 重定向泄漏与文件写入权限检查](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
 
@@ -37,6 +105,70 @@ These fixes address concrete failure modes in tool-connected coding agents that 
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.321)
+
+---
+
+<a id="2026-11-09-roboscript-world-in-context-manipulation-memory"></a>
+## [RoboScript 通过模拟演练形成机器人操作任务记忆](https://arxiv.org/abs/2611.12885)
+
+**English:** [RoboScript learns manipulation task memories through simulation rehearsal](https://arxiv.org/abs/2611.12885)
+
+- **发布 / Published:** `2026-11-09T18:59:45Z`
+- **来源 / Source:** [RoboScript authors (arXiv)](https://arxiv.org/abs/2611.12885) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `simulation`, `in-context-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+RoboScript 实现 World In-Context Learning：冻结模型从单次演示出发在模拟中演练，将反馈写入任务记忆。预印本报告，在 RoboTwin 2.0 的 50 项任务上，干净与随机化设置的平均成功率为 83.4%，无需梯度更新，并展示了向实体双臂机器人的迁移。
+
+RoboScript implements World In-Context Learning: a frozen model rehearses from one demonstration in simulation and records feedback in task memory. The preprint reports 83.4% mean success across clean and randomized RoboTwin 2.0 settings over 50 tasks without gradient updates, plus transfer to a physical dual-arm robot.
+
+### 技术点 / Technical points
+
+- 模拟反馈汇总为任务记忆，在部署到新场景前固定下来。
+  - Simulation feedback is consolidated into Task Memory, which is frozen before deployment to new scenes.
+- 部署输入限于真实机器人可获取的信息，并通过跨形态记忆适配支持实体迁移。
+  - Deployment inputs are isolated to information available on a real robot; cross-embodiment memory adaptation supports physical transfer.
+
+### 为什么重要 / Why it matters
+
+它探索借助模拟器将技能存入可复用上下文，为策略权重更新之外的学习路径提供证据。
+
+It explores simulator-assisted skill acquisition through reusable context rather than policy weight updates.
+
+---
+
+<a id="2026-11-09-workflowarena-executable-multi-agent-orchestration"></a>
+## [WorkflowArena 在八个专业领域评估智能体自主编排工作流](https://arxiv.org/abs/2611.12856)
+
+**English:** [WorkflowArena evaluates agent-authored workflows across eight professional domains](https://arxiv.org/abs/2611.12856)
+
+- **发布 / Published:** `2026-11-09T18:45:28Z`
+- **来源 / Source:** [WorkflowArena authors (arXiv)](https://arxiv.org/abs/2611.12856) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `benchmark`, `planning`, `workflow`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+WorkflowArena 提供 145 项长程任务，并用隐藏验证器评估综合交付物。智能体自主决定是否委派任务及如何委派，使研究者可以同时分析工作流组织方式与产出质量。对九个模型的实验表明，没有一种配置能在所有领域领先。
+
+WorkflowArena introduces 145 long-horizon tasks whose integrated deliverables are assessed by hidden verifiers. Agents decide whether and how to delegate, allowing researchers to examine workflow organisation alongside output quality. Experiments with nine models find that no single configuration leads across all domains.
+
+### 技术点 / Technical points
+
+- 任务横跨八个领域，要求从给定工作区完成相互依赖的多个组成部分。
+  - Tasks span eight domains and require interdependent components in a shared initial workspace.
+- 委派轨迹记录组织方式；固定执行模型的比较用于检验所编排工作流的贡献。
+  - Delegation traces expose organisation choices; fixed-executor comparisons test the contribution of the authored workflow.
+
+### 为什么重要 / Why it matters
+
+它让工作编排质量成为可单独检查的智能体能力，避免仅凭委派次数判断成效。
+
+It makes orchestration quality a separately inspectable agent capability instead of treating delegation volume as success.
 
 ---
 
@@ -78,6 +210,38 @@ Reusable tactile features offer a concrete route to studying contact-rich contro
 
 ---
 
+<a id="2026-11-09-library-of-hands-frozen-world-model-adaptation"></a>
+## [Library of Hands 冻结世界模型，仅适应动作映射](https://arxiv.org/abs/2611.12678)
+
+**English:** [Library of Hands adapts action mappings while keeping world models frozen](https://arxiv.org/abs/2611.12678)
+
+- **发布 / Published:** `2026-11-09T16:45:11Z`
+- **来源 / Source:** [Library of Hands authors (arXiv)](https://arxiv.org/abs/2611.12678) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `simulation`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Library of Hands 通过连续图像和冻结的世界模型，识别机器人指令到实际动作之间映射的变化。作者报告，在三项模拟任务中平均成功率从 28.6% 升至 62.3%。使用真实机器人数据预训练模型的测试，并不等于取得相同的实体机器人部署结果。
+
+Library of Hands identifies changes in the mapping from robot commands to applied actions using consecutive images and a frozen world model. In three simulated tasks, the authors report mean success rising from 28.6% to 62.3%. Tests with models pretrained on real robot data do not establish equivalent real-robot deployment results.
+
+### 技术点 / Technical points
+
+- 该方法寻找最能解释图像转移的动作，无需新增传感器或重新训练世界模型。
+  - The method infers the action that best explains an observed image transition without adding a sensor or retraining the world model.
+- 已识别的映射会被保存，方便在配置再次出现时直接识别。
+  - Identified mappings are stored so returning configurations can be recognised rather than learned again.
+
+### 为什么重要 / Why it matters
+
+它将控制器校准独立为可复用的适应层，为世界模型规划提供新的迁移思路。
+
+It isolates controller calibration as a reusable adaptation layer for world-model planning.
+
+---
+
 <a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
 ## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
@@ -113,6 +277,166 @@ The announcement connects learned physical prediction, agent orchestration and s
 ### 链接 / Links
 
 [Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
+<a id="2026-11-09-autobuddy-proactive-task-discovery-execution"></a>
+## [AutoBuddy-Bench 分别评估主动任务发现与办公执行能力](https://arxiv.org/abs/2611.12393)
+
+**English:** [AutoBuddy-Bench separates proactive task discovery from workplace execution](https://arxiv.org/abs/2611.12393)
+
+- **发布 / Published:** `2026-11-09T13:30:18Z`
+- **来源 / Source:** [AutoBuddy authors (arXiv)](https://arxiv.org/abs/2611.12393) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `tool-use`, `memory`, `proactive-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+AutoBuddy-Bench 模拟内部一致的组织环境，要求智能体从工作区记录中主动发现待办事项并完成任务。参考智能体 AutoBuddy 为发现的任务关联来源记录，再在独立的可写会话中执行。研究发现，仅凭任务发现精确率难以预测实际执行质量。
+
+AutoBuddy-Bench simulates a coherent organisation so agents must discover obligations in workspace records and then complete them. The reference AutoBuddy agent grounds discovered tasks in source records and executes them in separate writable sessions. The study finds that discovery precision alone poorly predicts execution quality.
+
+### 技术点 / Technical points
+
+- 时间图生成员工、项目、事件和工作区材料，并根据环境状态计算任务结果。
+  - A temporal graph generates employees, projects, events and workspace artefacts, with task outcomes computed from world state.
+- 较弱模型主要遗漏任务；较强模型更常在执行阶段失败，尤其是业务系统操作。
+  - Weaker models mainly miss tasks; stronger models more often fail during execution, particularly business-system operations.
+
+### 为什么重要 / Why it matters
+
+该基准衡量持续运行助手所需的从识别职责到产出结果的完整过程。
+
+The benchmark measures the full obligation-to-outcome loop needed by persistent assistants.
+
+---
+
+<a id="2026-11-09-warc-mecheval-test-time-world-mechanics"></a>
+## [MechEval 与 WARC 衡量世界模型在测试时学习新游戏机制的能力](https://arxiv.org/abs/2611.12324)
+
+**English:** [MechEval and WARC measure test-time learning of unseen game mechanics](https://arxiv.org/abs/2611.12324)
+
+- **发布 / Published:** `2026-11-09T12:45:40Z`
+- **来源 / Source:** [MechEval and WARC authors (arXiv)](https://arxiv.org/abs/2611.12324) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `benchmark`, `test-time-training`, `planning`, `interactive-environments`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+论文提出 MechEval，在 20 个 ARC-AGI-3 游戏中追踪 69 种机制，并构建每次状态转移后更新的 3500 万参数世界模型 WARC。作者报告，将 WARC 接入固定探索器后，公开游戏效率得分从 0.15 升至 0.46；隐藏游戏参赛得分为 0.20。
+
+The paper introduces MechEval, which tracks 69 mechanics across 20 ARC-AGI-3 games, and WARC, a 35M-parameter world model updated after each transition. The authors report that adding WARC to a fixed explorer raises its public-game efficiency score from 0.15 to 0.46; the hidden-game entry scores 0.20.
+
+### 技术点 / Technical points
+
+- 机制级评测只对相应机制改变的单元格计算预测成绩。
+  - Mechanic-level evaluation scores predictions on the cells changed by each observed mechanic.
+- WARC 在测试时更新全部参数，可按机制被观察的次数追踪预测准确率。
+  - WARC updates all parameters at test time, allowing prediction accuracy to be tracked against the number of mechanic exposures.
+
+### 为什么重要 / Why it matters
+
+这项工作将适应所需的数据量与闭环探索表现联系起来，也显示出公开与隐藏评测之间的明显差距。
+
+It connects adaptation data requirements to closed-loop exploration performance while exposing a substantial public-to-hidden evaluation gap.
+
+---
+
+<a id="2026-11-09-wm-ppo-successor-value-world-model-training"></a>
+## [WM-PPO 用预测后继状态的价值训练稀疏奖励智能体](https://arxiv.org/abs/2611.12200)
+
+**English:** [WM-PPO uses predicted successor values to train sparse-reward agents](https://arxiv.org/abs/2611.12200)
+
+- **发布 / Published:** `2026-11-09T10:59:19Z`
+- **来源 / Source:** [WM-PPO authors (arXiv)](https://arxiv.org/abs/2611.12200) · `research`
+- **分类 / Categories:** Agents / 智能体, World models / 世界模型
+- **标签 / Tags:** `reinforcement-learning`, `planning`, `latent-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+WM-PPO 将学习到的世界模型与 PPO 价值网络结合，通过预测的下一步观测评估动作。预印本报告，在真实环境交互预算相近时，ALFWorld 与 ScienceWorld 成功率分别为 87.5% 和 52.9%，PPO 基线则为 63.5% 和 39.3%。
+
+WM-PPO combines a learned world model with PPO’s critic to assess actions through predicted next observations. The preprint reports success rates of 87.5% on ALFWorld and 52.9% on ScienceWorld, versus 63.5% and 39.3% for PPO, using comparable real interaction budgets.
+
+### 技术点 / Technical points
+
+- 后继状态价值的比较提供额外策略优势信号，其均值则提供额外价值学习目标。
+  - Successor-value comparisons supply auxiliary policy advantages, while their mean supplies an auxiliary critic target.
+- 共享可靠性门控对两类信号加权；训练使用智能体自身交互，推理时仅需策略。
+  - A shared reliability gate weights both signals; training uses the agent’s own interactions and inference needs only the policy.
+
+### 为什么重要 / Why it matters
+
+该方法探索从环境动力学提取更密集的学习信号，同时避免给部署策略增加世界模型计算。
+
+It explores extracting denser learning signals from dynamics without increasing the deployed policy’s world-model computation.
+
+---
+
+<a id="2026-11-09-embodied-first-exam-agent-robot-control"></a>
+## [Embodied First Exam 在 47 种机器人上评测编码智能体](https://arxiv.org/abs/2611.12177)
+
+**English:** [Embodied First Exam evaluates coding agents across 47 robots](https://arxiv.org/abs/2611.12177)
+
+- **发布 / Published:** `2026-11-09T10:29:19Z`
+- **来源 / Source:** [Embodied First Exam authors (arXiv)](https://arxiv.org/abs/2611.12177) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `simulation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Embodied First Exam 提供 35 个套件中的 1,156 项任务，允许智能体直接控制机器人、编写控制代码或训练策略。作者报告，在 456 项核心任务上，八个智能体中最好的标准设置成功率为 34%；这些结果来自基准评测，不能视为广泛实体部署的证据。
+
+Embodied First Exam introduces 1,156 tasks in 35 suites for agents that control robots directly, write control code, or train policies. On 456 core tasks, the authors report a best Standard Setting success rate of 34% among eight agents; these are benchmark results rather than evidence of broad physical deployment.
+
+### 技术点 / Technical points
+
+- 标准设置仅提供传感器观测，默认禁止重置；其实时变体在智能体推理期间继续推进环境。
+  - The Standard Setting uses sensor observations and normally disallows resets; its Realtime variant keeps the environment advancing during reasoning.
+- 特权设置开放模拟器状态并允许无限重置，用于近似估计能力上限。
+  - A Privileged Setting exposes simulator state and permits unlimited resets to approximate an upper bound.
+
+### 为什么重要 / Why it matters
+
+它检验编码智能体面对具身环境的时序、感知与控制约束时还能保留多少能力。
+
+It tests whether coding-agent capabilities survive timing, sensing and control constraints in embodied environments.
+
+---
+
+<a id="2026-11-09-dash-asynchronous-humanoid-vla-control"></a>
+## [DASH 将 VLA 语义推理与人形机器人高速动作控制解耦](https://arxiv.org/abs/2611.11854)
+
+**English:** [DASH separates VLA reasoning from fast humanoid action control](https://arxiv.org/abs/2611.11854)
+
+- **发布 / Published:** `2026-11-09T04:23:14Z`
+- **来源 / Source:** [DASH authors (arXiv)](https://arxiv.org/abs/2611.11854) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `latency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DASH 将冻结的视觉语言骨干与流匹配动作头并发运行。论文报告，在计入推理延迟的 RoboTwin 评测中，骨干规模从 0.8B 扩大至 8B 时仍能保持 20 Hz 控制，并补充了真实人形机器人的抓放测试。
+
+DASH runs a frozen vision-language backbone and a flow-matching action head concurrently. The paper reports that this preserves 20 Hz control across 0.8B–8B backbones in a latency-aware RoboTwin evaluation, with additional pick-and-place tests on a real humanoid.
+
+### 技术点 / Technical points
+
+- 动作头将延迟的语义特征与自身 ResNet 编码器提供的新图像结合。
+  - The action head combines delayed semantic features with fresh images from its own ResNet encoder.
+- 通过异步训练和自适应时间聚合处理过时特征及重叠动作块。
+  - Desynchronized training and adaptive temporal aggregation address stale features and overlapping action chunks.
+
+### 为什么重要 / Why it matters
+
+这一架构为扩大语义模型容量同时维持机器人实时响应提供了具体方法。
+
+The architecture offers a concrete way to increase semantic model capacity while preserving reactive robot control.
 
 ---
 
@@ -379,349 +703,3 @@ Stable environment contracts and repeated evaluations give agent builders firmer
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/google/adk-python/releases/tags/v2.14.0)
-
----
-
-<a id="2026-11-06-opencode-226-background-job-completion"></a>
-## [OpenCode 2.2.6 等待后台智能体任务完成，新增 MCP 连接池](https://github.com/anomalyco/opencode/releases/tag/v2.2.6)
-
-**English:** [OpenCode 2.2.6 waits for background agent work and adds MCP connection pooling](https://github.com/anomalyco/opencode/releases/tag/v2.2.6)
-
-- **发布 / Published:** `2026-11-06T23:37:20Z`
-- **来源 / Source:** [Anomaly / OpenCode](https://github.com/anomalyco/opencode/releases/tag/v2.2.6) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `mcp`, `multi-agent`, `reliability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-OpenCode 2.2.6 调整非交互运行：等待后台 shell 命令、子智能体和图像任务结束，再让模型处理结果后退出。版本还加入可选的 MCP 连接共享，以及基于 worktree 的脚本化会话。
-
-OpenCode 2.2.6 changes noninteractive runs to wait for background shell commands, subagents and image jobs, then lets the model process their results before exiting. It also introduces opt-in MCP connection sharing and worktree-based scripted sessions.
-
-### 技术点 / Technical points
-
-- 设置 pool: true 的 MCP 服务可在配置相同的项目之间共享同一连接。
-  - MCP servers configured with pool: true share one connection across projects with matching configuration.
-- opencode run --worktree 创建独立 Git worktree；--archived 将自动化会话从常规会话列表中隐藏。
-  - opencode run --worktree creates a separate Git worktree; --archived hides automated sessions from normal session lists.
-- JSON 模式下，后台等待会输出 background_wait 事件，且没有内置时间上限，常驻任务可能使运行持续不退出。
-  - Background waits emit a background_wait event in JSON mode and have no built-in time limit, so persistent jobs can keep a run open.
-
-### 为什么重要 / Why it matters
-
-这次更新让委派式编程任务的完成条件更清晰，并减少跨项目重复启动的 MCP 进程。
-
-The release makes completion semantics more explicit for delegated coding work and reduces duplicated MCP processes across projects.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/anomalyco/opencode/releases/tags/v2.2.6)
-
----
-
-<a id="2026-11-06-mujoco-4-speculative-contacts-plasticity"></a>
-## [MuJoCo 4.0 为机器人仿真加入预测式接触与塑性形变](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
-
-**English:** [MuJoCo 4.0 adds speculative contacts and plastic deformation for robot simulation](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0)
-
-- **发布 / Published:** `2026-11-06T15:39:53Z`
-- **来源 / Source:** [Google DeepMind / MuJoCo](https://github.com/google-deepmind/mujoco/releases/tag/4.0.0) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `deformable-objects`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Google DeepMind 发布 MuJoCo 4.0，为快速运动物体加入预测式接触，支持保存状态的弹塑性形变，并将 Python 分发拆分为核心引擎与 Studio 等包。这些能力属于机器人研究的物理仿真工具，并非学习得到的预测模型。
-
-Google DeepMind released MuJoCo 4.0 with speculative contacts for fast-moving objects, stateful elasto-plastic deformation, and split Python packages for the core engine and Studio. These are physics-simulation tools for robotics rather than a learned predictive model.
-
-### 技术点 / Technical points
-
-- 可选的预测式接触开关用于防止快速运动的凸几何体在单个时间步内穿过薄障碍物。
-  - The optional speculative-contact flag is designed to prevent fast convex geometries from crossing thin obstacles within one timestep.
-- 塑性形变状态覆盖关节和肌腱弹簧及二维、三维可变形体，壳体可分别设置拉伸和弯曲屈服应变。
-  - Plastic deformation state covers joint and tendon springs and 2D/3D deformables, with separate stretching and bending yield strains for shells.
-- 分发拆分为 mujoco-core 与 mujoco-studio；肌腱绕行、RK4 姿态积分和可变形体接口的变化可能改变已有仿真行为。
-  - The distribution separates mujoco-core and mujoco-studio; changed tendon wrapping, RK4 orientation integration and deformable APIs can alter existing simulations.
-
-### 为什么重要 / Why it matters
-
-更完整的接触与永久形变处理，扩展了机器人学习环境能够表达的物理交互。
-
-Better treatment of contact and permanent deformation expands the physical interactions that robot-learning environments can represent.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/google-deepmind/mujoco/releases/tags/4.0.0) · [Evidence 2](https://github.com/google-deepmind/mujoco/discussions/3773)
-
----
-
-<a id="2026-11-06-embodied-ai-air-onsite-imitation-learning"></a>
-## [Embodied AI 发布 AIR，以柔顺双臂和遥操作示范支持现场学习](https://www.businesswire.com/news/home/20261106661068/en/)
-
-**English:** [Embodied AI introduces AIR with compliant arms and on-site learning from teleoperation](https://www.businesswire.com/news/home/20261106661068/en/)
-
-- **发布 / Published:** `2026-11-06T08:00:00Z`
-- **来源 / Source:** [Embodied AI via Business Wire](https://www.businesswire.com/news/home/20261106661068/en/) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `humanoid`, `imitation-learning`, `teleoperation`, `hardware`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
-
-### 摘要 / Summary
-
-Embodied AI 宣布推出轮式双臂人形机器人 AIR，将肌腱驱动双臂与操作员示范记录学习相结合。公司称通常可在一个月内逐步实现任务自主执行，操作员继续处理未见情况。时间对应官网 PDF 的 09:00 CET 解禁时刻，也与署名通稿的 03:00 EST 一致。
-
-Embodied AI announced AIR, a wheeled dual-arm humanoid that combines tendon-driven arms with learning from recorded operator demonstrations. The company says autonomy typically develops within a month, with operators available for unfamiliar cases. The timestamp matches the official PDF embargo of 09:00 CET and the syndicated announcement at 03:00 EST.
-
-### 技术点 / Technical points
-
-- 电机、减速器和电子设备集中在躯干，轻量柔顺双臂设计为在接触时让位。
-  - Motors, gearboxes and electronics sit in the torso; lightweight compliant arms are designed to yield on contact.
-- 遥操作记录提供现场训练数据；官网描述由机器人本地的 VLM 编排紧凑多模态策略。
-  - Teleoperation records provide on-site training data, and the official site describes compact multimodal policies orchestrated by a VLM on the robot.
-- 公告介绍了较早双臂工业工作站的结果，这些数字并非对 AIR 的独立测量。
-  - The announcement reports earlier industrial-cell results; those figures are not independent measurements of AIR.
-
-### 为什么重要 / Why it matters
-
-AIR 将柔顺硬件与渐进式现场学习结合，提供了具体的部署路径，其自主能力宣称仍需独立验证。
-
-AIR connects compliant hardware with incremental workplace learning, providing a concrete deployment approach whose autonomy claims still need independent validation.
-
-### 链接 / Links
-
-[Evidence 1](https://www.embodiedai.ch/) · [Evidence 2](https://markets.chroniclejournal.com/thepilotnews/article/bizwire-2026-11-6-embodied-ai-unveils-air-a-physically-safe-humanoid-robot-that-learns-on-the-job) · [Evidence 3](https://cdn.prod.website-files.com/696e4d2b681829764d29ce1c/6aed7eac45a2f3ef02919537_2026%20Press%20Release%20-%20Embodied%20AI%20AIR%20Launch_v2%20LOOK%20AI.pdf)
-
----
-
-<a id="2026-11-05-hermes-023-unified-agent-session-gateway"></a>
-## [Hermes Agent 0.23 统一跨客户端会话归属并增加浏览器工作区](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
-
-**English:** [Hermes Agent 0.23 unifies session ownership across clients and adds a browser workspace](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0)
-
-- **发布 / Published:** `2026-11-05T21:32:33Z`
-- **来源 / Source:** [Nous Research / Hermes Agent](https://github.com/NousResearch/hermes-agent/releases/tag/v0.23.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `agent-runtime`, `multi-agent`, `mcp`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-Nous Research 发布 Hermes Agent 0.23.0，将命令行、桌面、编辑器、消息及定时会话统一交由每台机器的单一网关管理。浏览器工作区连接同一网关，版本还加入可插拔任务委派，以及针对付费 MCP 工具的成本控制。
-
-Nous Research released Hermes Agent 0.23.0, consolidating CLI, desktop, editor, messaging and scheduled sessions under one gateway per machine. A browser workspace attaches to that gateway, while the release also adds pluggable delegation and cost-aware controls for paid MCP tools.
-
-### 技术点 / Technical points
-
-- 各客户端共享会话队列和历史，处理多个界面访问同一对话时消息重复或丢失的问题。
-  - Clients share a session queue and history, addressing duplicated or missing messages when multiple interfaces access the same conversation.
-- 委派可将任务路由到指定模型或配置；付费 MCP 工具可声明调用价格，并在会话超出开支上限时触发审批。
-  - Delegation can route tasks to models or profiles; paid MCP tools can expose call prices and trigger approval when a conversation exceeds its spending limit.
-
-### 为什么重要 / Why it matters
-
-集中管理会话归属并明确控制任务委派，有助于处理持续运行、多客户端智能体部署中的可靠性问题。
-
-Centralized session ownership and explicit delegation controls address practical reliability problems in persistent, multi-client agent deployments.
-
----
-
-<a id="2026-11-05-scientist-world-executable-research-environments"></a>
-## [Scientist World 将研究论文转化为 1,000 个可执行智能体环境](https://arxiv.org/abs/2611.08478)
-
-**English:** [Scientist World turns research papers into 1,000 executable agent environments](https://arxiv.org/abs/2611.08478)
-
-- **发布 / Published:** `2026-11-05T18:58:17Z`
-- **来源 / Source:** [Scientist World authors / arXiv](https://arxiv.org/abs/2611.08478) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `ai-scientist`, `benchmark`, `dataset`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Scientist World 预印本描述了一条从论文中提取研究问题、并将其方法复现为可执行基线的流程。作者发布了 1,000 个已验证环境及 6,400 小时研究轨迹，用于科研智能体评测与训练。
-
-The Scientist World preprint describes a pipeline that extracts research questions from papers and reproduces their methods as executable baselines. The authors release 1,000 verified environments and 6,400 hours of research traces, positioning the collection for research-agent evaluation and training.
-
-### 技术点 / Technical points
-
-- 智能体与复现的作者基线进行比较，轨迹覆盖构思、实验、失败与成功过程。
-  - Agents are evaluated against reproduced author baselines, with traces covering ideas, experiments, failures and successes.
-- 作者报告前沿智能体在其 74% 的评测中超过基线；这衡量的是所构建环境内的表现，不代表全面超越人类科学家。
-  - The authors report frontier agents surpassing those baselines in 74% of their evaluations; this measures performance inside the constructed environments, not general superiority over human scientists.
-
-### 为什么重要 / Why it matters
-
-可执行研究问题为衡量和训练科研实验能力提供了比纯文本提案更具体的依据。
-
-Executable research questions provide a more concrete basis for measuring and training scientific experimentation than text-only proposals.
-
----
-
-<a id="2026-11-05-gpwm-generative-particle-dynamics-planning"></a>
-## [GPWM 统一粒子物理预测与接触密集型规划](https://arxiv.org/abs/2611.08338)
-
-**English:** [GPWM unifies particle-based physical prediction and contact-rich planning](https://arxiv.org/abs/2611.08338)
-
-- **发布 / Published:** `2026-11-05T17:24:36Z`
-- **来源 / Source:** [GPWM authors / arXiv](https://arxiv.org/abs/2611.08338) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `learned-physics`, `simulation`, `planning`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-GPWM 预印本预测三维粒子与刚体运动，覆盖刚性、可变形、布料和颗粒材料。模型使用包含 2,550 万帧的 ParticleWorlds 数据训练；作者报告，在六个物理领域中，相较各领域最好的既有学习型动力学基线，预测误差平均降低 31%。
-
-The GPWM preprint predicts 3D particle and rigid-body motion across rigid, deformable, cloth and granular materials. Trained on the 25.5-million-frame ParticleWorlds corpus, it reports a 31% average prediction-error reduction against the best prior learned-dynamics baseline across six physical domains.
-
-### 技术点 / Technical points
-
-- 具备对象感知能力的多分辨率 Transformer 结合流匹配与扩散强制训练，单一统一模型覆盖异质物理场景。
-  - An object-aware multi-resolution transformer combines flow matching and diffusion forcing; one unified model covers heterogeneous physical regimes.
-- 规划在执行器与物体联合运动的潜在噪声空间中搜索；推动和拾取计划在仿真中开环执行，尚非真实机器人部署演示。
-  - Planning searches latent noise over joint actuator-object motion; pushing and picking plans are executed open-loop in simulation, rather than demonstrated as real-robot deployment.
-
-### 为什么重要 / Why it matters
-
-共享物理表示有望将预测仿真与跨材料类型的操作规划连接起来。
-
-A shared physical representation could connect predictive simulation to manipulation planning across different material types.
-
----
-
-<a id="2026-11-05-lerobot-070-interactive-world-action-training"></a>
-## [LeRobot 0.7 增加交互式机器人运行与大规模世界动作模型训练](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
-
-**English:** [LeRobot 0.7 adds interactive robot rollouts and larger world-action-model training](https://github.com/huggingface/lerobot/releases/tag/v0.7.0)
-
-- **发布 / Published:** `2026-11-05T17:13:20Z`
-- **来源 / Source:** [Hugging Face / LeRobot](https://github.com/huggingface/lerobot/releases/tag/v0.7.0) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `open-source`, `vla`, `world-action-model`, `distributed-training`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Hugging Face 发布 LeRobot 0.7.0，加入运行中的语言交互、远程策略推理和机器人数据集流式读取。训练栈增加 FSDP2、HSDP 和分布式检查点，以支持更大的世界动作模型，并集成 Cosmos 3、FLUX 3 Action、LaWAM 和 Long-WAM。
-
-Hugging Face released LeRobot 0.7.0 with live language interaction, remote policy inference and streaming robot datasets. Its training stack adds FSDP2, HSDP and distributed checkpoints for larger world action models, including integrations for Cosmos 3, FLUX 3 Action, LaWAM and Long-WAM.
-
-### 技术点 / Technical points
-
-- 交互式运行在用户切换子任务时保持策略权重和机器人连接加载；视觉问答及自主选择子任务需要可生成文本的策略或外部 VLM 规划器。
-  - Interactive rollouts keep policy weights and robot connections loaded while users change subtasks; visual questions and autonomous subtask selection require a text-generating policy or external VLM planner.
-- 数据集可从 Hub、Storage Buckets 或 LanceDB 流式读取；策略服务器可将推理放到远程 GPU 上执行。
-  - Datasets can stream from the Hub, Storage Buckets or LanceDB; a policy server moves inference onto a remote GPU.
-
-### 为什么重要 / Why it matters
-
-统一的训练与部署基础设施，可减少在人类指导下测试预测型机器人策略所需的集成工作。
-
-Shared training and deployment infrastructure lowers the integration work needed to test predictive robot policies with human guidance.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/blog/lerobot/lerobot-release-v070)
-
----
-
-<a id="2026-11-05-microsoft-pdd-kit-formal-agent-code-verification"></a>
-## [微软展示 PDD Kit 对智能体生成网页应用登录逻辑的形式化验证](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
-
-**English:** [Microsoft demonstrates PDD Kit verifying agent-written web-app login logic](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/)
-
-- **发布 / Published:** `2026-11-05T16:00:00Z`
-- **来源 / Source:** [Microsoft Research](https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `formal-verification`, `reliability`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-微软研究院展示 PDD Kit 将经过审阅的意图转换为 Verus 规范，并检查智能体生成的 Rust 代码。Pet Store 示例验证登录逻辑，明确列出可信假设，并对证明边界之外的组件使用测试；这不代表整个应用都已证明正确。
-
-Microsoft Research demonstrates PDD Kit translating reviewed intent into Verus specifications and checking agent-generated Rust code. Its Pet Store example verifies login logic, with explicit trusted assumptions and tests for components outside the proof boundary; it does not establish correctness of the entire application.
-
-### 技术点 / Technical points
-
-- 工作流串联用户需求、形式化契约、机器检查证明与经验验证。
-  - The workflow links user requirements, formal contracts, machine-checked proofs and empirical checks.
-- 数据库访问、密码哈希、签名及时钟行为仍属于明确列出的可信依赖。
-  - Database access, password hashing, signing and clock behavior remain explicit trusted dependencies.
-
-### 为什么重要 / Why it matters
-
-该示例展示了如何让编程智能体审阅聚焦预期属性及证明假设，并由工具检查规范所覆盖的实现行为。
-
-It shows how coding-agent review can focus on intended properties and proof assumptions while tools check specified implementation behavior.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=50386024)
-
----
-
-<a id="2026-11-05-la-jepa-compact-latent-world-policies"></a>
-## [La-JEPA 用未来特征预测训练紧凑机器人策略](https://arxiv.org/abs/2611.08156)
-
-**English:** [La-JEPA trains compact robot policies with future-feature prediction](https://arxiv.org/abs/2611.08156)
-
-- **发布 / Published:** `2026-11-05T15:16:38Z`
-- **来源 / Source:** [La-JEPA authors / arXiv](https://arxiv.org/abs/2611.08156) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `jepa`, `latent-dynamics`, `efficiency`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-La-JEPA 预印本在预训练 V-JEPA 2.1 编码器的特征空间中，从头训练策略 Transformer。训练时联合预测未来特征和动作，推理时仅输出动作；作者报告在不采用具身预训练策略骨干的情况下，仿真和真实机器人控制表现具有竞争力。
-
-The La-JEPA preprint trains a policy transformer from scratch in a pretrained V-JEPA 2.1 encoder's feature space. It predicts future features and actions during training but emits only actions at inference, reporting competitive simulated and real-robot control without an embodied-pretrained policy backbone.
-
-### 技术点 / Technical points
-
-- 研究评测了标准及随机化 RoboTwin 2.0 场景、LIBERO-Plus 和四项真实机器人任务，并报告在性能相近时推理快于 Fast-WAM。
-  - The study evaluates clean and randomized RoboTwin 2.0 scenes, LIBERO-Plus and four real-robot tasks; it reports faster inference than Fast-WAM at comparable performance.
-- 作者修正了已发布 LIBERO-Plus 评测器中损坏的指令并重新评测开放基线，因此该评测条件是比较结果的重要前提。
-  - The authors correct corrupted instructions in the released LIBERO-Plus evaluator and re-evaluate open baselines, making that evaluation condition material to the comparison.
-
-### 为什么重要 / Why it matters
-
-训练阶段的动力学预测可能改善控制，同时避免部署时生成未来视频的高额开销。
-
-Training-time dynamics prediction may improve control without requiring costly future-video generation during deployment.
-
----
-
-<a id="2026-11-05-playgen2-persistent-3d-world-state"></a>
-## [PlayGen2 将持久三维世界动力学与神经渲染分离](https://arxiv.org/abs/2611.07867)
-
-**English:** [PlayGen2 separates persistent 3D world dynamics from neural rendering](https://arxiv.org/abs/2611.07867)
-
-- **发布 / Published:** `2026-11-05T11:45:25Z`
-- **来源 / Source:** [PlayGen2 authors / arXiv](https://arxiv.org/abs/2611.07867) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `interactive-worlds`, `spatial-memory`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-PlayGen2 预印本使用显式三维状态建模可玩的 Doom 环境，而非循环依赖生成图像。持久记忆跟踪几何和实体，独立渲染器生成观测；作者报告在 M4 Pro MacBook Pro 上后端延迟约为 160 毫秒。
-
-The PlayGen2 preprint models playable Doom environments through explicit 3D state rather than recurrently generated images. A persistent memory tracks geometry and entities, while a separate renderer produces observations. The authors report about 160 ms backend latency on an M4 Pro MacBook Pro.
-
-### 技术点 / Technical points
-
-- 局部世界状态模型联合预测动作条件下的实体运动、补全几何和发现实体，再更新持久记忆。
-  - A local world-state model jointly predicts action-conditioned entity motion, completes geometry and discovers entities, then updates persistent memory.
-- 生成图像不参与状态预测；演示涵盖未见地图、组合单人模型实现多人交互，以及基于规则的状态干预。
-  - Generated images are excluded from state prediction; demonstrations include unseen maps, composition of single-player models for multiplayer and rule-based state interventions.
-
-### 为什么重要 / Why it matters
-
-显式状态接口让学习型环境更易检查和修改，并降低其对图像反馈一致性的依赖。
-
-An explicit state interface makes learned environments easier to inspect and manipulate while reducing dependence on image-feedback consistency.

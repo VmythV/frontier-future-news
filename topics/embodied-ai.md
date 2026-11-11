@@ -2,6 +2,70 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-10-gemini-robotics-25-dexterity-factory-safety"></a>
+## [Gemini Robotics 2.5 提升灵巧操作，并公布工厂配料试点结果](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+**English:** [Gemini Robotics 2.5 adds dexterity and reports a factory kitting pilot](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
+
+- **发布 / Published:** `2026-11-10T15:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `safety`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+Google DeepMind 在评估逾 200 项任务后，开始向机器人合作伙伴提供 Gemini Robotics 2.5。官方报告，在梅赛德斯-奔驰生产线的概念验证中，Apptronik Apollo 2 的汽车配料任务成功率为 96%。公告还推出面向机器人对抗安全评测的 ASIMOV-Jailbreak。
+
+Google DeepMind is rolling Gemini Robotics 2.5 out to robotics partners after evaluating more than 200 tasks. In a Mercedes-Benz production-line proof of concept, it reports 96% success for automotive kitting with Apptronik’s Apollo 2. The announcement also introduces ASIMOV-Jailbreak for adversarial robotics safety evaluation.
+
+### 技术点 / Technical points
+
+- 配料试点由 Gemini Robotics ER 跟踪流程，2.5 动作模型控制手部与手臂。
+  - Gemini Robotics ER tracks the workflow while the 2.5 action model controls hands and arms in the kitting pilot.
+- 推理时引导用于约束物理动作；ASIMOV-Jailbreak 中 99.5% 的抗越狱成绩属于 Gemini 4 Argon。
+  - Inference-time guidance steers physical actions; the separate ASIMOV-Jailbreak result of 99.5% resistance is attributed to Gemini 4 Argon.
+
+### 为什么重要 / Why it matters
+
+此次发布将更广泛的操作技能、具体工业试点和专用安全基准结合起来；可靠性数据仍属于公司自报结果。
+
+The release connects broader manipulation skills with a concrete industrial pilot and a dedicated safety benchmark, while the reliability figures remain company-reported.
+
+---
+
+<a id="2026-11-09-roboscript-world-in-context-manipulation-memory"></a>
+## [RoboScript 通过模拟演练形成机器人操作任务记忆](https://arxiv.org/abs/2611.12885)
+
+**English:** [RoboScript learns manipulation task memories through simulation rehearsal](https://arxiv.org/abs/2611.12885)
+
+- **发布 / Published:** `2026-11-09T18:59:45Z`
+- **来源 / Source:** [RoboScript authors (arXiv)](https://arxiv.org/abs/2611.12885) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `memory`, `simulation`, `in-context-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+RoboScript 实现 World In-Context Learning：冻结模型从单次演示出发在模拟中演练，将反馈写入任务记忆。预印本报告，在 RoboTwin 2.0 的 50 项任务上，干净与随机化设置的平均成功率为 83.4%，无需梯度更新，并展示了向实体双臂机器人的迁移。
+
+RoboScript implements World In-Context Learning: a frozen model rehearses from one demonstration in simulation and records feedback in task memory. The preprint reports 83.4% mean success across clean and randomized RoboTwin 2.0 settings over 50 tasks without gradient updates, plus transfer to a physical dual-arm robot.
+
+### 技术点 / Technical points
+
+- 模拟反馈汇总为任务记忆，在部署到新场景前固定下来。
+  - Simulation feedback is consolidated into Task Memory, which is frozen before deployment to new scenes.
+- 部署输入限于真实机器人可获取的信息，并通过跨形态记忆适配支持实体迁移。
+  - Deployment inputs are isolated to information available on a real robot; cross-embodiment memory adaptation supports physical transfer.
+
+### 为什么重要 / Why it matters
+
+它探索借助模拟器将技能存入可复用上下文，为策略权重更新之外的学习路径提供证据。
+
+It explores simulator-assisted skill acquisition through reusable context rather than policy weight updates.
+
+---
+
 <a id="2026-11-09-lingbot-touch-tactile-encoder-checkpoints"></a>
 ## [Robbyant 发布 LingBot-Touch 触觉编码器权重与推理代码](https://github.com/Robbyant/lingbot-touch)
 
@@ -40,6 +104,38 @@ Reusable tactile features offer a concrete route to studying contact-rich contro
 
 ---
 
+<a id="2026-11-09-library-of-hands-frozen-world-model-adaptation"></a>
+## [Library of Hands 冻结世界模型，仅适应动作映射](https://arxiv.org/abs/2611.12678)
+
+**English:** [Library of Hands adapts action mappings while keeping world models frozen](https://arxiv.org/abs/2611.12678)
+
+- **发布 / Published:** `2026-11-09T16:45:11Z`
+- **来源 / Source:** [Library of Hands authors (arXiv)](https://arxiv.org/abs/2611.12678) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `simulation`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Library of Hands 通过连续图像和冻结的世界模型，识别机器人指令到实际动作之间映射的变化。作者报告，在三项模拟任务中平均成功率从 28.6% 升至 62.3%。使用真实机器人数据预训练模型的测试，并不等于取得相同的实体机器人部署结果。
+
+Library of Hands identifies changes in the mapping from robot commands to applied actions using consecutive images and a frozen world model. In three simulated tasks, the authors report mean success rising from 28.6% to 62.3%. Tests with models pretrained on real robot data do not establish equivalent real-robot deployment results.
+
+### 技术点 / Technical points
+
+- 该方法寻找最能解释图像转移的动作，无需新增传感器或重新训练世界模型。
+  - The method infers the action that best explains an observed image transition without adding a sensor or retraining the world model.
+- 已识别的映射会被保存，方便在配置再次出现时直接识别。
+  - Identified mappings are stored so returning configurations can be recognised rather than learned again.
+
+### 为什么重要 / Why it matters
+
+它将控制器校准独立为可复用的适应层，为世界模型规划提供新的迁移思路。
+
+It isolates controller calibration as a reusable adaptation layer for world-model planning.
+
+---
+
 <a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
 ## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
 
@@ -75,6 +171,70 @@ The announcement connects learned physical prediction, agent orchestration and s
 ### 链接 / Links
 
 [Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
+
+---
+
+<a id="2026-11-09-embodied-first-exam-agent-robot-control"></a>
+## [Embodied First Exam 在 47 种机器人上评测编码智能体](https://arxiv.org/abs/2611.12177)
+
+**English:** [Embodied First Exam evaluates coding agents across 47 robots](https://arxiv.org/abs/2611.12177)
+
+- **发布 / Published:** `2026-11-09T10:29:19Z`
+- **来源 / Source:** [Embodied First Exam authors (arXiv)](https://arxiv.org/abs/2611.12177) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `simulation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Embodied First Exam 提供 35 个套件中的 1,156 项任务，允许智能体直接控制机器人、编写控制代码或训练策略。作者报告，在 456 项核心任务上，八个智能体中最好的标准设置成功率为 34%；这些结果来自基准评测，不能视为广泛实体部署的证据。
+
+Embodied First Exam introduces 1,156 tasks in 35 suites for agents that control robots directly, write control code, or train policies. On 456 core tasks, the authors report a best Standard Setting success rate of 34% among eight agents; these are benchmark results rather than evidence of broad physical deployment.
+
+### 技术点 / Technical points
+
+- 标准设置仅提供传感器观测，默认禁止重置；其实时变体在智能体推理期间继续推进环境。
+  - The Standard Setting uses sensor observations and normally disallows resets; its Realtime variant keeps the environment advancing during reasoning.
+- 特权设置开放模拟器状态并允许无限重置，用于近似估计能力上限。
+  - A Privileged Setting exposes simulator state and permits unlimited resets to approximate an upper bound.
+
+### 为什么重要 / Why it matters
+
+它检验编码智能体面对具身环境的时序、感知与控制约束时还能保留多少能力。
+
+It tests whether coding-agent capabilities survive timing, sensing and control constraints in embodied environments.
+
+---
+
+<a id="2026-11-09-dash-asynchronous-humanoid-vla-control"></a>
+## [DASH 将 VLA 语义推理与人形机器人高速动作控制解耦](https://arxiv.org/abs/2611.11854)
+
+**English:** [DASH separates VLA reasoning from fast humanoid action control](https://arxiv.org/abs/2611.11854)
+
+- **发布 / Published:** `2026-11-09T04:23:14Z`
+- **来源 / Source:** [DASH authors (arXiv)](https://arxiv.org/abs/2611.11854) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `latency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DASH 将冻结的视觉语言骨干与流匹配动作头并发运行。论文报告，在计入推理延迟的 RoboTwin 评测中，骨干规模从 0.8B 扩大至 8B 时仍能保持 20 Hz 控制，并补充了真实人形机器人的抓放测试。
+
+DASH runs a frozen vision-language backbone and a flow-matching action head concurrently. The paper reports that this preserves 20 Hz control across 0.8B–8B backbones in a latency-aware RoboTwin evaluation, with additional pick-and-place tests on a real humanoid.
+
+### 技术点 / Technical points
+
+- 动作头将延迟的语义特征与自身 ResNet 编码器提供的新图像结合。
+  - The action head combines delayed semantic features with fresh images from its own ResNet encoder.
+- 通过异步训练和自适应时间聚合处理过时特征及重叠动作块。
+  - Desynchronized training and adaptive temporal aggregation address stale features and overlapping action chunks.
+
+### 为什么重要 / Why it matters
+
+这一架构为扩大语义模型容量同时维持机器人实时响应提供了具体方法。
+
+The architecture offers a concrete way to increase semantic model capacity while preserving reactive robot control.
 
 ---
 
