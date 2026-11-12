@@ -2,6 +2,214 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-11-aws-uaef-canonical-trace-agent-evaluation"></a>
+## [AWS 详解跨框架统一智能体评测系统 UAEF](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
+
+**English:** [AWS details UAEF for consistent agent evaluation across frameworks](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
+
+- **发布 / Published:** `2026-11-11T15:50:55Z`
+- **来源 / Source:** [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `evaluation`, `tool-use`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AWS 发布开源 Universal Agent Evaluation Framework 的技术介绍。UAEF 将不同框架的智能体轨迹转换为统一格式，使用覆盖七个维度的 36 项内置指标评分，并通过实验存储与基线比较帮助团队发现智能体版本间的回退。
+
+AWS published a technical overview of the open-source Universal Agent Evaluation Framework. UAEF converts native agent traces into a canonical format and applies 36 built-in metrics across seven dimensions, with experiment storage and baseline comparisons to help teams detect regressions between agent versions.
+
+### 技术点 / Technical points
+
+- 适配器支持 LangGraph、LangChain、Strands、AgentCore 和 Langfuse，并通过通用 JSON 映射接入自定义系统。
+  - Adapters support LangGraph, LangChain, Strands, AgentCore and Langfuse, with generic JSON mapping for custom systems.
+- 确定性指标与 LLM 评审指标共用评测引擎；持久化实验将元数据存于 DynamoDB、完整结果存于 S3。
+  - Deterministic and LLM-judge metrics share an engine; persisted experiments use DynamoDB metadata and S3 result storage.
+
+### 为什么重要 / Why it matters
+
+统一轨迹格式有助于在智能体更换模型、工具或实现框架后，保持回归检查的一致性。
+
+A common trace format can make regression checks more consistent when an agent's model, tools or implementation framework changes.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/awslabs/uaef)
+
+---
+
+<a id="2026-11-11-ntt-physics-adapter-preaction-world-model"></a>
+## [NTT 将物理适配器融入视频预测，在机器人动作前评估后果](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
+
+**English:** [NTT integrates a physics adapter into video prediction to assess robot actions before execution](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
+
+- **发布 / Published:** `2026-11-11T06:00:30Z`
+- **来源 / Source:** [NTT](https://group.ntt/en/newsrelease/2026/11/11/261111b.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `predictive-control`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+NTT 公布一种将视频生成与物理控制适配器结合的世界模型，在机器人执行前预测物体掉落与堆叠坍塌。NTT 报告，在小型机器人的货架装载实验中，成功率从 73.1% 提升至 92.3%。机场行李装卸是拟应用场景，计划与 Mujin 开展现场试验。
+
+NTT announced a world model that combines video generation with a physics control adapter to predict object drops and load collapse before robot execution. NTT reports shelf-loading success rising from 73.1% to 92.3% in a small-robot experiment. Airport baggage handling is an intended application, with field trials planned with Mujin.
+
+### 技术点 / Technical points
+
+- 适配器显式表示质量、位置、朝向和速度等物理量，并依据运动方程预测运动。
+  - The adapter explicitly represents quantities including mass, position, orientation and velocity, and predicts motion using equations of motion.
+- 系统先评估现有机器人控制器或 VLA 生成的多个候选计划，再选择更可能成功的动作。
+  - It evaluates multiple candidate plans from existing robot controllers or VLAs before selecting an action likely to succeed.
+
+### 为什么重要 / Why it matters
+
+结合物理结构与学习式视频预测，有望在实际执行前改善针对多样物体的动作筛选。
+
+Combining physical structure and learned video prediction could improve action screening for varied objects before costly real-world execution.
+
+---
+
+<a id="2026-11-10-memory-vla-temporal-shortcut-phantom-progress"></a>
+## [记忆增强 VLA 研究发现，暂停可能被误判为机器人已完成的工作](https://arxiv.org/abs/2611.14488)
+
+**English:** [Memory-VLA study finds pauses can be mistaken for completed robot work](https://arxiv.org/abs/2611.14488)
+
+- **发布 / Published:** `2026-11-10T18:47:57Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14488) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `memory`, `benchmark`, `robustness`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+一篇预印本发现记忆增强 VLA 中的时间捷径：即使没有发生相关事件，暂停或手腕轻动也可能被当作任务进度。在 RoboMME 的两项计数任务上，受测已发布策略的成功次数分别从 50 次中的 47 次降至 16 次、从 44 次降至 10 次。
+
+A preprint identifies a temporal shortcut in memory-augmented VLA policies: pauses or wrist fidgets can be counted as task progress even when no relevant event occurs. On two RoboMME counting tasks, the tested released policy's successes fell from 47 to 16 and from 44 to 10 out of 50 trials.
+
+### 技术点 / Technical points
+
+- 不将中断帧存入记忆可恢复成功表现，实验据此将原因定位到记忆处理。
+  - Withholding interruption frames from memory restores success, isolating memory handling as the cause in these experiments.
+- 去掉时间编码无法修复按时间采样的记忆；按事件索引的记忆无需重训即可挽回至少一半损失。
+  - Removing time encodings does not fix time-sampled memory; event-indexed memory recovers at least half the loss without retraining.
+
+### 为什么重要 / Why it matters
+
+基于事件的记忆评测有助于暴露普通连续机器人示范难以发现的脆弱进度判断。
+
+Event-based memory evaluation could expose brittle progress tracking that ordinary uninterrupted robot demonstrations miss.
+
+---
+
+<a id="2026-11-10-behavior-2026-single-policy-coding-agent"></a>
+## [BEHAVIOR 挑战赛报告结合百任务 VLA 与针对部分任务的编程智能体](https://arxiv.org/abs/2611.14432)
+
+**English:** [BEHAVIOR Challenge report combines a 100-task VLA with a coding agent for selected tasks](https://arxiv.org/abs/2611.14432)
+
+- **发布 / Published:** `2026-11-10T18:06:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14432) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `simulation`, `coding-agents`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一份新技术报告介绍 Robot Learning Collective 在 BEHAVIOR 2026 中获得第九名的方案：以单个 VLA 检查点处理 100 项仿真家庭任务，并在其中 14 项上辅以编程智能体。公开提交取得 0.446 Q 和 27.3% 完整任务成功率；这些结果来自仿真。
+
+A new technical report describes Robot Learning Collective's ninth-place BEHAVIOR 2026 solution: one VLA checkpoint for 100 simulated household tasks, supplemented by a coding agent on 14 tasks. The public submission achieved 0.446 Q and 27.3% full-task success; these are simulator results.
+
+### 技术点 / Technical points
+
+- 策略基于 pi0.5，训练 20 万步，约遍历一次 2.11 亿帧示范数据。
+  - The policy builds on pi0.5 and trains for 200,000 steps, approximately one pass over 211 million demonstration frames.
+- 在选定的 14 项任务上，作者报告使用观测与运动工具的 GPT-6 Astra 平均 Q 为 0.639，学习策略为 0.108。
+  - On the selected 14 tasks, the authors report mean Q of 0.639 for GPT-6 Astra using observation and motion tools, versus 0.108 for the learned policy.
+
+### 为什么重要 / Why it matters
+
+该报告提供了可检查的实例，展示学习式动作策略与使用工具的编程智能体如何在长程仿真中互补。
+
+The report provides inspectable evidence of how learned motor policies and tool-using coding agents can complement each other in long-horizon simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Robot-Learning-Collective/behavior-1k-solution-2026)
+
+---
+
+<a id="2026-11-10-elastic-wam-adaptive-spatiotemporal-refinement"></a>
+## [Elastic-WAM 自适应分配未来表征细化计算，降低机器人控制开销](https://arxiv.org/abs/2611.14257)
+
+**English:** [Elastic-WAM allocates future-refinement computation to reduce robot-control overhead](https://arxiv.org/abs/2611.14257)
+
+- **发布 / Published:** `2026-11-10T16:04:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14257) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `efficiency`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Elastic-WAM 学习何时停止细化预测未来、每次视频去噪推进多少，以及刷新哪些空间区域。作者报告，在仿真基准与真实长程操作中，这种按状态分配计算的方法改善了控制表现并降低推理延迟，替代固定的细化预算。
+
+Elastic-WAM learns when to stop refining predicted futures, how far to advance video denoising, and which spatial regions to refresh. The authors report improved control with lower inference latency across simulation benchmarks and real-world long-horizon manipulation, replacing a fixed refinement budget with state-dependent computation.
+
+### 技术点 / Technical points
+
+- 统一细化需求场结合共享时间基与空间幅度，通过三个监督训练阶段学习。
+  - A unified refinement field combines a shared temporal basis with spatial amplitudes and is trained in three supervised stages.
+- 项目冻结预训练 WAM，在每次稀疏更新中刷新 196 个未来 token 中的 96 个。
+  - The project uses a frozen pretrained WAM and refreshes 96 of 196 future tokens per sparse update.
+
+### 为什么重要 / Why it matters
+
+当反复视频去噪限制响应速度时，自适应想象计算预算有望提升预测式机器人策略的实用性。
+
+Adaptive imagination budgets could make predictive robot policies more practical when repeated video denoising limits response speed.
+
+### 链接 / Links
+
+[Evidence 1](https://lihaitian.com/Elastic-WAM/)
+
+---
+
+<a id="2026-11-10-google-mka-visual-knowledge-work-benchmark"></a>
+## [Google 与 Artificial Analysis 推出面向复杂视觉知识工作的 MKA 基准](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
+
+**English:** [Google and Artificial Analysis launch MKA for visually complex agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
+
+- **发布 / Published:** `2026-11-10T16:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `multimodal`, `tool-use`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google DeepMind 与 Artificial Analysis 推出 MKA：包含 200 项任务，覆盖 10 个行业和 83 种职业的视觉知识工作。智能体在统一执行环境中检查多模态文件并交付成果。正式评测集保持私有，另有 10 项独立展示任务公开。
+
+Google DeepMind and Artificial Analysis introduced MKA, a 200-task benchmark covering visual knowledge work across 10 sectors and 83 occupations. Agents inspect multimodal files and produce deliverables in a shared execution setup. The evaluation set remains private, while a separate set of 10 showcase tasks is public.
+
+### 技术点 / Technical points
+
+- 所有模型使用 Stirrup，配备相同工具、沙箱和轮次预算。
+  - All models use Stirrup with the same tools, sandbox and turn budget.
+- 专家评分细则将事实准确性权重设为 75%、视觉设计设为 25%；Google 报告专家与采用非 Google 模型的自动评审器的一致率为 96%。
+  - Expert rubrics weight factual accuracy at 75% and visual design at 25%; Google reports 96% expert agreement with its non-Google-model autorater.
+
+### 为什么重要 / Why it matters
+
+MKA 检验智能体能否利用不可替代的视觉证据并产出可用成果，扩展了附件文本提取之外的评测范围。
+
+MKA tests whether agents can use visually essential evidence and create usable work products, beyond extracting text from attachments.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/google/multimodal-knowledge-agent)
+
+---
+
 <a id="2026-11-10-gemini-robotics-25-dexterity-factory-safety"></a>
 ## [Gemini Robotics 2.5 提升灵巧操作，并公布工厂配料试点结果](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
 
@@ -31,6 +239,74 @@ Google DeepMind is rolling Gemini Robotics 2.5 out to robotics partners after ev
 此次发布将更广泛的操作技能、具体工业试点和专用安全基准结合起来；可靠性数据仍属于公司自报结果。
 
 The release connects broader manipulation skills with a concrete industrial pilot and a dedicated safety benchmark, while the reliability figures remain company-reported.
+
+---
+
+<a id="2026-11-10-dexseed-human-interaction-robot-demonstrations"></a>
+## [DexSeed 将人手与物体交互扩展为 VLA 学习所需的机器人示范](https://arxiv.org/abs/2611.14092)
+
+**English:** [DexSeed expands human hand-object interactions into robot demonstrations for VLA learning](https://arxiv.org/abs/2611.14092)
+
+- **发布 / Published:** `2026-11-10T13:52:18Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14092) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `dexterous-manipulation`, `simulation`, `synthetic-data`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+DexSeed 将人手与物体交互重定向到机器人，扩展物体几何与运动轨迹，再通过物理仿真实现可执行动作，生成灵巧操作训练数据。项目报告由 19 段人类序列生成 25,270 条机器人轨迹，并展示仅使用这些生成示范训练的 VLA 在真实机器人上执行抓取。
+
+DexSeed generates dexterous robot training data by retargeting human hand-object interactions, expanding object geometries and trajectories, and realizing the motions in physics simulation. The project reports 25,270 robot trajectories from 19 human sequences and demonstrates real-robot grasps with a VLA trained solely on the generated demonstrations.
+
+### 技术点 / Technical points
+
+- InteractionMesh 重定向在改变物体和操作位置时保留局部手与物体关系。
+  - InteractionMesh retargeting preserves local hand-object relationships while varying objects and manipulation locations.
+- 强化学习手指策略与机械臂轨迹跟踪配合，成功轨迹提供渲染观测及机械臂和手指动作。
+  - An RL finger policy operates with arm-trajectory tracking; successful rollouts supply rendered observations and arm/finger actions.
+
+### 为什么重要 / Why it matters
+
+复用人类交互数据，有望减少训练灵巧操作策略时昂贵的机器人遥操作采集。
+
+Reusing human interaction data could reduce the need for costly robot teleoperation when training dexterous policies.
+
+### 链接 / Links
+
+[Evidence 1](https://robbyant-research.github.io/DexSeed/)
+
+---
+
+<a id="2026-11-10-last05-interaction-centric-world-action"></a>
+## [LaST0.5 通过交互中心潜空间推理连接世界预测与机器人动作](https://arxiv.org/abs/2611.14048)
+
+**English:** [LaST0.5 connects world prediction to robot actions through interaction-centric latent reasoning](https://arxiv.org/abs/2611.14048)
+
+- **发布 / Published:** `2026-11-10T13:15:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14048) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `robotics`, `latent-reasoning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+LaST0.5 在世界专家与动作专家之间加入关注机器人与物体交互的潜空间专家。预印本报告使用超过 1.4 万小时机器人数据预训练，在 LIBERO 上取得 99.5% 成功率，并进行了真实机器人的长程与灵巧操作实验。
+
+LaST0.5 introduces a latent expert focused on robot-object interactions between a world expert and an action expert. The preprint reports pretraining on more than 14,000 hours of robot data, 99.5% success on LIBERO, and real-robot long-horizon and dexterous manipulation experiments.
+
+### 技术点 / Technical points
+
+- 视觉交互线索监督 Mixture-of-Transformers 架构中的紧凑潜空间。
+  - Visual interaction cues supervise a compact latent space in a Mixture-of-Transformers architecture.
+- 联合预测未来表征与任务进度，用进度一致性调整动作执行并触发未来重采样。
+  - Joint prediction of future representations and task progress adjusts execution and triggers future resampling.
+
+### 为什么重要 / Why it matters
+
+以交互为中心的表征，为全局场景预测与操作所需的局部接触细节提供了连接方式。
+
+Interaction-focused representations offer a way to bridge global scene prediction and the local contact details needed for manipulation.
 
 ---
 
@@ -67,6 +343,38 @@ It demonstrates a human-guided agent workflow whose outputs can be checked indep
 ### 链接 / Links
 
 [Evidence 1](https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf)
+
+---
+
+<a id="2026-11-10-agent-benchmarks-graded-resolution"></a>
+## [智能体基准研究发现，通过与否的评分可能掩盖实质性能差异](https://arxiv.org/abs/2611.13541)
+
+**English:** [Agent benchmark study finds pass/fail scores can hide meaningful performance differences](https://arxiv.org/abs/2611.13541)
+
+- **发布 / Published:** `2026-11-10T04:03:04Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.13541) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `evaluation`, `coding-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+一篇新预印本重新分析八个智能体基准的公开运行记录，认为部分表面上的饱和源于评分过粗。作者提出带有日期化参考锚点的连续评分，并单独报告成本；结论针对评测的区分能力，并不意味着智能体已经解决全部任务。
+
+A new preprint reanalyzes released runs from eight agent benchmarks and argues that apparent saturation can come from coarse scoring. The authors propose graded credit with dated reference anchors and separate cost reporting; the findings concern benchmark measurement rather than evidence that agents have solved all tasks.
+
+### 技术点 / Technical points
+
+- 作者分析发现，SWE-bench Verified 前十名中相邻智能体的分差小于测试套件本身的误差。
+  - On SWE-bench Verified, neighboring top-ten agents differ by less than the test suite's own errors in the authors' analysis.
+- 截断的对数比值评分保留任务的量化结果，减少二元通过评分丢失的信息。
+  - A clipped log-ratio score preserves quantitative task outcomes that binary pass/fail grading discards.
+
+### 为什么重要 / Why it matters
+
+更有区分度的评分有助于判断固定任务上的进步，再决定是否需要更难的基准。
+
+More informative scoring could help distinguish progress on fixed tasks before replacing a benchmark with harder tasks.
 
 ---
 
@@ -373,333 +681,3 @@ WM-PPO combines a learned world model with PPO’s critic to assess actions thro
 该方法探索从环境动力学提取更密集的学习信号，同时避免给部署策略增加世界模型计算。
 
 It explores extracting denser learning signals from dynamics without increasing the deployed policy’s world-model computation.
-
----
-
-<a id="2026-11-09-embodied-first-exam-agent-robot-control"></a>
-## [Embodied First Exam 在 47 种机器人上评测编码智能体](https://arxiv.org/abs/2611.12177)
-
-**English:** [Embodied First Exam evaluates coding agents across 47 robots](https://arxiv.org/abs/2611.12177)
-
-- **发布 / Published:** `2026-11-09T10:29:19Z`
-- **来源 / Source:** [Embodied First Exam authors (arXiv)](https://arxiv.org/abs/2611.12177) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `benchmark`, `robotics`, `simulation`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Embodied First Exam 提供 35 个套件中的 1,156 项任务，允许智能体直接控制机器人、编写控制代码或训练策略。作者报告，在 456 项核心任务上，八个智能体中最好的标准设置成功率为 34%；这些结果来自基准评测，不能视为广泛实体部署的证据。
-
-Embodied First Exam introduces 1,156 tasks in 35 suites for agents that control robots directly, write control code, or train policies. On 456 core tasks, the authors report a best Standard Setting success rate of 34% among eight agents; these are benchmark results rather than evidence of broad physical deployment.
-
-### 技术点 / Technical points
-
-- 标准设置仅提供传感器观测，默认禁止重置；其实时变体在智能体推理期间继续推进环境。
-  - The Standard Setting uses sensor observations and normally disallows resets; its Realtime variant keeps the environment advancing during reasoning.
-- 特权设置开放模拟器状态并允许无限重置，用于近似估计能力上限。
-  - A Privileged Setting exposes simulator state and permits unlimited resets to approximate an upper bound.
-
-### 为什么重要 / Why it matters
-
-它检验编码智能体面对具身环境的时序、感知与控制约束时还能保留多少能力。
-
-It tests whether coding-agent capabilities survive timing, sensing and control constraints in embodied environments.
-
----
-
-<a id="2026-11-09-dash-asynchronous-humanoid-vla-control"></a>
-## [DASH 将 VLA 语义推理与人形机器人高速动作控制解耦](https://arxiv.org/abs/2611.11854)
-
-**English:** [DASH separates VLA reasoning from fast humanoid action control](https://arxiv.org/abs/2611.11854)
-
-- **发布 / Published:** `2026-11-09T04:23:14Z`
-- **来源 / Source:** [DASH authors (arXiv)](https://arxiv.org/abs/2611.11854) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `latency`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-DASH 将冻结的视觉语言骨干与流匹配动作头并发运行。论文报告，在计入推理延迟的 RoboTwin 评测中，骨干规模从 0.8B 扩大至 8B 时仍能保持 20 Hz 控制，并补充了真实人形机器人的抓放测试。
-
-DASH runs a frozen vision-language backbone and a flow-matching action head concurrently. The paper reports that this preserves 20 Hz control across 0.8B–8B backbones in a latency-aware RoboTwin evaluation, with additional pick-and-place tests on a real humanoid.
-
-### 技术点 / Technical points
-
-- 动作头将延迟的语义特征与自身 ResNet 编码器提供的新图像结合。
-  - The action head combines delayed semantic features with fresh images from its own ResNet encoder.
-- 通过异步训练和自适应时间聚合处理过时特征及重叠动作块。
-  - Desynchronized training and adaptive temporal aggregation address stale features and overlapping action chunks.
-
-### 为什么重要 / Why it matters
-
-这一架构为扩大语义模型容量同时维持机器人实时响应提供了具体方法。
-
-The architecture offers a concrete way to increase semantic model capacity while preserving reactive robot control.
-
----
-
-<a id="2026-11-08-genesis-146-differentiable-robot-simulation"></a>
-## [Genesis 1.4.6 扩展可微仿真并原生兼容 PyTorch](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
-
-**English:** [Genesis 1.4.6 expands differentiable simulation and native PyTorch compatibility](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6)
-
-- **发布 / Published:** `2026-11-08T21:56:48Z`
-- **来源 / Source:** [Genesis](https://github.com/Genesis-Embodied-AI/genesis-world/releases/tag/v1.4.6) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `differentiable-simulation`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Genesis 1.4.6 更新面向机器人学习仿真的可变形体求解器与可微物理功能。维护者称可微仿真约加速三倍；该结果来自项目方报告。
-
-Genesis 1.4.6 updates deformable-body solvers and differentiable physics for robot-learning simulation. Maintainers report roughly threefold faster differentiable simulation; this is a project-reported result.
-
-### 技术点 / Technical points
-
-- 可微仿真原生兼容 PyTorch，并支持对 PD 控制目标求梯度。
-  - Differentiable simulation is natively compatible with PyTorch and supports gradients with respect to PD control targets.
-- 隐式 FEM 实体及中点积分新增可微仿真支持。
-  - Implicit FEM entities and midpoint integration gain differentiable simulation support.
-- 修复涉及接触梯度、轨迹中途设置状态和 GPU 可复现性；SAP 与 FEM 的地面改用刚体地平面。
-  - Fixes cover contact gradients, rollout setters and GPU reproducibility; SAP and FEM floors now use the rigid ground plane.
-
-### 为什么重要 / Why it matters
-
-更广的梯度支持，为机器人学习研究提供更多可通过仿真优化的控制变量与形变交互。
-
-Broader gradient support gives robot-learning researchers more control variables and deformable interactions to optimize through simulation.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/Genesis-Embodied-AI/genesis-world/releases/tags/v1.4.6)
-
----
-
-<a id="2026-11-08-open-webui-0131-tether-coding-agents"></a>
-## [Open WebUI 0.13.1 通过 Tether 接入本机编程智能体](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
-
-**English:** [Open WebUI 0.13.1 connects local coding agents through Tether](https://github.com/open-webui/open-webui/releases/tag/v0.13.1)
-
-- **发布 / Published:** `2026-11-08T11:07:53Z`
-- **来源 / Source:** [Open WebUI](https://github.com/open-webui/open-webui/releases/tag/v0.13.1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `tool-use`, `human-in-the-loop`, `desktop`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Open WebUI 0.13.1 新增连接个人电脑的 Tether，并通过模型选择器接入编程智能体，用户可在对话中审核工具请求。
-
-Open WebUI 0.13.1 adds Tether for connecting a personal computer and exposes coding agents through its model picker. Users can review tool requests within the chat.
-
-### 技术点 / Technical points
-
-- Tether 支持 macOS、Windows 和 Linux，通过出站连接接入 Open WebUI。
-  - Tether supports macOS, Windows and Linux and makes an outbound connection to Open WebUI.
-- 支持智能体的 Open Terminal 可展示 Claude Code、Codex 和 Pi；每段对话使用一个智能体。
-  - Supported Open Terminals expose Claude Code, Codex and Pi; each conversation uses one agent.
-- 可选的 Auto 权限模式使用评审模型；评审失败或不可用时请求批准。该模式默认关闭。
-  - Optional Auto permissions use a review model; failed or unavailable reviews request approval. The mode is disabled by default.
-
-### 为什么重要 / Why it matters
-
-通过浏览器访问本机智能体，使工具审批、对话与实际工作环境衔接在一起。
-
-Browser-based access to local agent work puts tool approval alongside the conversation and the actual working environment.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/open-webui/open-webui/releases/tags/v0.13.1)
-
----
-
-<a id="2026-11-08-openai-agents-sdk-alpha7-native-storage-supervision"></a>
-## [OpenAI Agents SDK alpha.7 增加应用自管存储与原生智能体监督机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
-
-**English:** [OpenAI Agents SDK alpha.7 adds application-owned storage and native-agent supervision](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7)
-
-- **发布 / Published:** `2026-11-08T07:05:11Z`
-- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `memory`, `mcp`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-OpenAI Agents SDK v0.24.0-alpha.7 增加持久化根会话、上下文与完成钩子，以及基于已观测用量的预算机制。该预发布版本还变更执行器写入默认策略和 MCP 审批模式名称。
-
-OpenAI Agents SDK v0.24.0-alpha.7 adds durable root Sessions, context and completion hooks, and observed usage budgets. This prerelease also changes executor write defaults and MCP approval-mode names.
-
-### 技术点 / Technical points
-
-- CustomStorage 可持久化根会话历史与 Python 工具结果；不确定的执行效果需要显式核对，而非自动重放。
-  - CustomStorage can persist root history and Python tool results; uncertain effects require explicit reconciliation rather than automatic replay.
-- RunBudget 在下一次请求前检查根会话用量；已放行请求可能超额，子智能体用量不计入。
-  - RunBudget checks root usage before another request; admitted requests can overshoot, and child usage is excluded.
-- 新 Environment 默认采用严格写入策略；Classic 与原生工作流仍使用各自独立的对象和检查点。
-  - New Environments default to strict write policies; Classic and native workflows retain separate objects and checkpoints.
-
-### 为什么重要 / Why it matters
-
-这些机制让持久化智能体工作流更易监督，同时明确恢复与预算约束的适用边界。
-
-These controls make persistent agent workflows easier to supervise while exposing concrete recovery and budget limits.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases/tags/v0.24.0-alpha.7)
-
----
-
-<a id="2026-11-07-qwen-code-027-parallel-child-questions"></a>
-## [Qwen Code 0.27 支持托管智能体会话并行保留多个子智能体提问](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
-
-**English:** [Qwen Code 0.27 supports concurrent child questions in managed-agent sessions](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0)
-
-- **发布 / Published:** `2026-11-07T20:45:25Z`
-- **来源 / Source:** [Qwen Code](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `multi-agent`, `human-in-the-loop`, `reliability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Qwen Code 0.27.0 允许托管智能体会话同时保留多个待答的子智能体问题，并按任意顺序回答，同时改进运行时可靠性和 GitHub 渠道筛选。
-
-Qwen Code 0.27.0 lets managed-agent sessions retain multiple pending child questions and answer them in any order. It also improves runtime reliability and GitHub channel filtering.
-
-### 技术点 / Technical points
-
-- 每个子智能体问题分别保存草稿与错误状态。
-  - Each child question keeps its own draft and error state.
-- GitHub 渠道的仓库筛选支持允许列表和阻止列表。
-  - GitHub channel repository filters support allowlists and blocklists.
-- 取消 shell 命令时保留部分输出；托管智能体更新处理死锁、快照及锁管理问题。
-  - Cancelled shell commands retain partial output; managed-agent changes address deadlocks, snapshots and lock handling.
-
-### 为什么重要 / Why it matters
-
-当多个委派任务需要人工输入时，并行澄清有助于减少协调等待。
-
-Parallel clarification reduces coordination bottlenecks when several delegated tasks need human input.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.0)
-
----
-
-<a id="2026-11-07-microsoft-agent-framework-125-mcp-discovery-scope"></a>
-## [Microsoft Agent Framework 1.25 限制 MCP 发现规模并收紧工作流授权](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
-
-**English:** [Microsoft Agent Framework 1.25 bounds MCP discovery and tightens workflow authorization](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0)
-
-- **发布 / Published:** `2026-11-07T15:52:42Z`
-- **来源 / Source:** [Microsoft Agent Framework](https://github.com/microsoft/agent-framework/releases/tag/python-1.25.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-framework`, `mcp`, `tool-use`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Microsoft 发布 Python Agent Framework 1.25.0，为 MCP 发现设置上限，支持动态审批策略，并检查工作流授权范围。此次版本含不兼容变更，要求 Python 3.11 或更新版本。
-
-Microsoft released Python Agent Framework 1.25.0 with bounded MCP discovery, dynamic approval policies and workflow scope checks. This breaking release requires Python 3.11 or later.
-
-### 技术点 / Technical points
-
-- 发现过程默认每个目录最多 100 页、1,000 项；框架负责的请求默认超时为 30 秒。
-  - Discovery defaults to 100 pages and 1,000 items per catalog; framework-owned requests default to 30-second timeouts.
-- 可调用审批策略支持按工具名称和只读属性筛选，并更新已保留工具的策略。
-  - Callable approval policies support tool-name and read-only filters and refresh policies for retained tools.
-- 模型调用前拒绝跨授权范围复用活动工作流执行器或会话；共享存储和自定义工具函数不在此检查覆盖范围内。
-  - Live workflow executor/session reuse across authorization scopes is rejected before model calls; shared storage and custom tool functions remain outside this guard.
-
-### 为什么重要 / Why it matters
-
-明确的发现预算和授权检查，更便于评估远程工具行为及多用户工作流的边界。
-
-Explicit discovery budgets and scope checks make remote-tool behavior and multi-user workflow boundaries easier to assess.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.25.0)
-
----
-
-<a id="2026-11-07-sandbox-mcp-12-windows-agent-testing"></a>
-## [sandbox-mcp 1.2 扩展面向智能体应用测试的一次性 Windows 环境](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
-
-**English:** [sandbox-mcp 1.2 expands disposable Windows environments for agent-led app testing](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0)
-
-- **发布 / Published:** `2026-11-07T06:40:44Z`
-- **来源 / Source:** [sandbox-mcp](https://github.com/shanselman/sandbox-mcp/releases/tag/v1.2.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `mcp`, `sandbox`, `testing`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-sandbox-mcp 1.2.0 为 Windows Sandbox 测试环境扩展 CLI/MCP 协同访问、录屏和经过校验的增量部署，并区分纯净机器测试结果与显式安装依赖后的运行结果。
-
-sandbox-mcp 1.2.0 extends its Windows Sandbox testing environment with coordinated CLI/MCP access, recordings and verified incremental deployment. It distinguishes clean-machine results from explicitly provisioned runs.
-
-### 技术点 / Technical points
-
-- CLI 与 MCP 共享状态，协同分配桌面操作轮次，并通过代际标识约束清理。
-  - CLI and MCP share state with cooperative desktop turns and generation-safe cleanup.
-- 传输支持认证加密 TCP 或离线邮箱，并校验启动身份、拒绝重放。
-  - Transport supports authenticated encrypted TCP or an offline mailbox, with boot identity and replay rejection.
-- 有界录屏支持 HTML 回放；依赖安装须显式启用，应用及硬件兼容性并非全面覆盖。
-  - Bounded recordings support HTML playback; dependency provisioning is explicit, and app or hardware compatibility is not universal.
-
-### 为什么重要 / Why it matters
-
-一次性桌面测试可为编程智能体提供可检查的应用行为证据，补充构建成功这一信号。
-
-Disposable desktop tests can give coding agents inspectable evidence of app behavior beyond successful builds.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/shanselman/sandbox-mcp/releases/tags/v1.2.0)
-
----
-
-<a id="2026-11-07-google-adk-214-stable-environments-evaluation"></a>
-## [Google ADK Python 2.14 将执行环境转为稳定接口，新增智能体重复评测](https://github.com/google/adk-python/releases/tag/v2.14.0)
-
-**English:** [Google ADK Python 2.14 stabilizes execution environments and adds repeated agent evaluation](https://github.com/google/adk-python/releases/tag/v2.14.0)
-
-- **发布 / Published:** `2026-11-07T00:58:18Z`
-- **来源 / Source:** [Google ADK](https://github.com/google/adk-python/releases/tag/v2.14.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-framework`, `tool-use`, `evaluation`, `sandbox`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Google 发布 ADK Python 2.14.0，将执行环境和 A2A 集成转为稳定接口，新增重复评测，并收紧技能脚本调用。时间采用 11 月 7 日的 GitHub release 发布时间；更新日志标题标注的是 11 月 4 日。
-
-Google published ADK Python 2.14.0 with stable execution environments and A2A integration, repeated evaluation, and safer skill-script invocation. The timestamp follows the GitHub release published on November 7; the changelog heading is dated November 4.
-
-### 技术点 / Technical points
-
-- Local、E2B 和 Daytona 环境接口脱离实验状态；文件读取可分块流式进行，无需将整个文件载入内存。
-  - Local, E2B and Daytona environment APIs graduate from experimental; file reads can stream chunks instead of loading entire files.
-- MultiRunConfig 和命令行并行选项支持重复运行评测案例并汇总分数或通过率；工具参数支持语义匹配。
-  - MultiRunConfig and CLI parallelism repeat evaluation cases and aggregate scores or pass rates; tool arguments support semantic matching.
-- 环境模式下的 RunSkillScriptTool 改用结构化参数和经过校验的脚本路径，替代自由格式 shell 命令，构成不兼容的接口变更。
-  - In environment mode, RunSkillScriptTool accepts structured arguments and validated script paths instead of a free-form shell command, with a breaking API change.
-
-### 为什么重要 / Why it matters
-
-稳定的环境接口与重复评测，为智能体开发提供更明确的执行边界，也更便于观察多次运行的波动。
-
-Stable environment contracts and repeated evaluations give agent builders firmer execution boundaries and better visibility into run-to-run variability.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/google/adk-python/releases/tags/v2.14.0)

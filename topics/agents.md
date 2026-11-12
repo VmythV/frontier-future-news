@@ -2,6 +2,114 @@
 
 # Agents / 智能体
 
+<a id="2026-11-11-aws-uaef-canonical-trace-agent-evaluation"></a>
+## [AWS 详解跨框架统一智能体评测系统 UAEF](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
+
+**English:** [AWS details UAEF for consistent agent evaluation across frameworks](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
+
+- **发布 / Published:** `2026-11-11T15:50:55Z`
+- **来源 / Source:** [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `evaluation`, `tool-use`, `multi-agent`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AWS 发布开源 Universal Agent Evaluation Framework 的技术介绍。UAEF 将不同框架的智能体轨迹转换为统一格式，使用覆盖七个维度的 36 项内置指标评分，并通过实验存储与基线比较帮助团队发现智能体版本间的回退。
+
+AWS published a technical overview of the open-source Universal Agent Evaluation Framework. UAEF converts native agent traces into a canonical format and applies 36 built-in metrics across seven dimensions, with experiment storage and baseline comparisons to help teams detect regressions between agent versions.
+
+### 技术点 / Technical points
+
+- 适配器支持 LangGraph、LangChain、Strands、AgentCore 和 Langfuse，并通过通用 JSON 映射接入自定义系统。
+  - Adapters support LangGraph, LangChain, Strands, AgentCore and Langfuse, with generic JSON mapping for custom systems.
+- 确定性指标与 LLM 评审指标共用评测引擎；持久化实验将元数据存于 DynamoDB、完整结果存于 S3。
+  - Deterministic and LLM-judge metrics share an engine; persisted experiments use DynamoDB metadata and S3 result storage.
+
+### 为什么重要 / Why it matters
+
+统一轨迹格式有助于在智能体更换模型、工具或实现框架后，保持回归检查的一致性。
+
+A common trace format can make regression checks more consistent when an agent's model, tools or implementation framework changes.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/awslabs/uaef)
+
+---
+
+<a id="2026-11-10-behavior-2026-single-policy-coding-agent"></a>
+## [BEHAVIOR 挑战赛报告结合百任务 VLA 与针对部分任务的编程智能体](https://arxiv.org/abs/2611.14432)
+
+**English:** [BEHAVIOR Challenge report combines a 100-task VLA with a coding agent for selected tasks](https://arxiv.org/abs/2611.14432)
+
+- **发布 / Published:** `2026-11-10T18:06:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14432) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `simulation`, `coding-agents`, `long-horizon`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+一份新技术报告介绍 Robot Learning Collective 在 BEHAVIOR 2026 中获得第九名的方案：以单个 VLA 检查点处理 100 项仿真家庭任务，并在其中 14 项上辅以编程智能体。公开提交取得 0.446 Q 和 27.3% 完整任务成功率；这些结果来自仿真。
+
+A new technical report describes Robot Learning Collective's ninth-place BEHAVIOR 2026 solution: one VLA checkpoint for 100 simulated household tasks, supplemented by a coding agent on 14 tasks. The public submission achieved 0.446 Q and 27.3% full-task success; these are simulator results.
+
+### 技术点 / Technical points
+
+- 策略基于 pi0.5，训练 20 万步，约遍历一次 2.11 亿帧示范数据。
+  - The policy builds on pi0.5 and trains for 200,000 steps, approximately one pass over 211 million demonstration frames.
+- 在选定的 14 项任务上，作者报告使用观测与运动工具的 GPT-6 Astra 平均 Q 为 0.639，学习策略为 0.108。
+  - On the selected 14 tasks, the authors report mean Q of 0.639 for GPT-6 Astra using observation and motion tools, versus 0.108 for the learned policy.
+
+### 为什么重要 / Why it matters
+
+该报告提供了可检查的实例，展示学习式动作策略与使用工具的编程智能体如何在长程仿真中互补。
+
+The report provides inspectable evidence of how learned motor policies and tool-using coding agents can complement each other in long-horizon simulation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Robot-Learning-Collective/behavior-1k-solution-2026)
+
+---
+
+<a id="2026-11-10-google-mka-visual-knowledge-work-benchmark"></a>
+## [Google 与 Artificial Analysis 推出面向复杂视觉知识工作的 MKA 基准](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
+
+**English:** [Google and Artificial Analysis launch MKA for visually complex agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
+
+- **发布 / Published:** `2026-11-10T16:00:00Z`
+- **来源 / Source:** [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `multimodal`, `tool-use`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google DeepMind 与 Artificial Analysis 推出 MKA：包含 200 项任务，覆盖 10 个行业和 83 种职业的视觉知识工作。智能体在统一执行环境中检查多模态文件并交付成果。正式评测集保持私有，另有 10 项独立展示任务公开。
+
+Google DeepMind and Artificial Analysis introduced MKA, a 200-task benchmark covering visual knowledge work across 10 sectors and 83 occupations. Agents inspect multimodal files and produce deliverables in a shared execution setup. The evaluation set remains private, while a separate set of 10 showcase tasks is public.
+
+### 技术点 / Technical points
+
+- 所有模型使用 Stirrup，配备相同工具、沙箱和轮次预算。
+  - All models use Stirrup with the same tools, sandbox and turn budget.
+- 专家评分细则将事实准确性权重设为 75%、视觉设计设为 25%；Google 报告专家与采用非 Google 模型的自动评审器的一致率为 96%。
+  - Expert rubrics weight factual accuracy at 75% and visual design at 25%; Google reports 96% expert agreement with its non-Google-model autorater.
+
+### 为什么重要 / Why it matters
+
+MKA 检验智能体能否利用不可替代的视觉证据并产出可用成果，扩展了附件文本提取之外的评测范围。
+
+MKA tests whether agents can use visually essential evidence and create usable work products, beyond extracting text from attachments.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/google/multimodal-knowledge-agent)
+
+---
+
 <a id="2026-11-10-alphaproof-code-signal-machine-code-verification"></a>
 ## [AlphaProof Code 结合智能体与 Lean 验证 Signal 实现的安全属性](https://deepmind.google/blog/introducing-alphaproof-code/)
 
@@ -35,6 +143,38 @@ It demonstrates a human-guided agent workflow whose outputs can be checked indep
 ### 链接 / Links
 
 [Evidence 1](https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf)
+
+---
+
+<a id="2026-11-10-agent-benchmarks-graded-resolution"></a>
+## [智能体基准研究发现，通过与否的评分可能掩盖实质性能差异](https://arxiv.org/abs/2611.13541)
+
+**English:** [Agent benchmark study finds pass/fail scores can hide meaningful performance differences](https://arxiv.org/abs/2611.13541)
+
+- **发布 / Published:** `2026-11-10T04:03:04Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.13541) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `evaluation`, `coding-agents`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+一篇新预印本重新分析八个智能体基准的公开运行记录，认为部分表面上的饱和源于评分过粗。作者提出带有日期化参考锚点的连续评分，并单独报告成本；结论针对评测的区分能力，并不意味着智能体已经解决全部任务。
+
+A new preprint reanalyzes released runs from eight agent benchmarks and argues that apparent saturation can come from coarse scoring. The authors propose graded credit with dated reference anchors and separate cost reporting; the findings concern benchmark measurement rather than evidence that agents have solved all tasks.
+
+### 技术点 / Technical points
+
+- 作者分析发现，SWE-bench Verified 前十名中相邻智能体的分差小于测试套件本身的误差。
+  - On SWE-bench Verified, neighboring top-ten agents differ by less than the test suite's own errors in the authors' analysis.
+- 截断的对数比值评分保留任务的量化结果，减少二元通过评分丢失的信息。
+  - A clipped log-ratio score preserves quantitative task outcomes that binary pass/fail grading discards.
+
+### 为什么重要 / Why it matters
+
+更有区分度的评分有助于判断固定任务上的进步，再决定是否需要更难的基准。
+
+More informative scoring could help distinguish progress on fixed tasks before replacing a benchmark with harder tasks.
 
 ---
 

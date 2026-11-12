@@ -2,6 +2,106 @@
 
 # World models / 世界模型
 
+<a id="2026-11-11-ntt-physics-adapter-preaction-world-model"></a>
+## [NTT 将物理适配器融入视频预测，在机器人动作前评估后果](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
+
+**English:** [NTT integrates a physics adapter into video prediction to assess robot actions before execution](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
+
+- **发布 / Published:** `2026-11-11T06:00:30Z`
+- **来源 / Source:** [NTT](https://group.ntt/en/newsrelease/2026/11/11/261111b.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `simulation`, `predictive-control`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+NTT 公布一种将视频生成与物理控制适配器结合的世界模型，在机器人执行前预测物体掉落与堆叠坍塌。NTT 报告，在小型机器人的货架装载实验中，成功率从 73.1% 提升至 92.3%。机场行李装卸是拟应用场景，计划与 Mujin 开展现场试验。
+
+NTT announced a world model that combines video generation with a physics control adapter to predict object drops and load collapse before robot execution. NTT reports shelf-loading success rising from 73.1% to 92.3% in a small-robot experiment. Airport baggage handling is an intended application, with field trials planned with Mujin.
+
+### 技术点 / Technical points
+
+- 适配器显式表示质量、位置、朝向和速度等物理量，并依据运动方程预测运动。
+  - The adapter explicitly represents quantities including mass, position, orientation and velocity, and predicts motion using equations of motion.
+- 系统先评估现有机器人控制器或 VLA 生成的多个候选计划，再选择更可能成功的动作。
+  - It evaluates multiple candidate plans from existing robot controllers or VLAs before selecting an action likely to succeed.
+
+### 为什么重要 / Why it matters
+
+结合物理结构与学习式视频预测，有望在实际执行前改善针对多样物体的动作筛选。
+
+Combining physical structure and learned video prediction could improve action screening for varied objects before costly real-world execution.
+
+---
+
+<a id="2026-11-10-elastic-wam-adaptive-spatiotemporal-refinement"></a>
+## [Elastic-WAM 自适应分配未来表征细化计算，降低机器人控制开销](https://arxiv.org/abs/2611.14257)
+
+**English:** [Elastic-WAM allocates future-refinement computation to reduce robot-control overhead](https://arxiv.org/abs/2611.14257)
+
+- **发布 / Published:** `2026-11-10T16:04:16Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14257) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `vla`, `efficiency`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Elastic-WAM 学习何时停止细化预测未来、每次视频去噪推进多少，以及刷新哪些空间区域。作者报告，在仿真基准与真实长程操作中，这种按状态分配计算的方法改善了控制表现并降低推理延迟，替代固定的细化预算。
+
+Elastic-WAM learns when to stop refining predicted futures, how far to advance video denoising, and which spatial regions to refresh. The authors report improved control with lower inference latency across simulation benchmarks and real-world long-horizon manipulation, replacing a fixed refinement budget with state-dependent computation.
+
+### 技术点 / Technical points
+
+- 统一细化需求场结合共享时间基与空间幅度，通过三个监督训练阶段学习。
+  - A unified refinement field combines a shared temporal basis with spatial amplitudes and is trained in three supervised stages.
+- 项目冻结预训练 WAM，在每次稀疏更新中刷新 196 个未来 token 中的 96 个。
+  - The project uses a frozen pretrained WAM and refreshes 96 of 196 future tokens per sparse update.
+
+### 为什么重要 / Why it matters
+
+当反复视频去噪限制响应速度时，自适应想象计算预算有望提升预测式机器人策略的实用性。
+
+Adaptive imagination budgets could make predictive robot policies more practical when repeated video denoising limits response speed.
+
+### 链接 / Links
+
+[Evidence 1](https://lihaitian.com/Elastic-WAM/)
+
+---
+
+<a id="2026-11-10-last05-interaction-centric-world-action"></a>
+## [LaST0.5 通过交互中心潜空间推理连接世界预测与机器人动作](https://arxiv.org/abs/2611.14048)
+
+**English:** [LaST0.5 connects world prediction to robot actions through interaction-centric latent reasoning](https://arxiv.org/abs/2611.14048)
+
+- **发布 / Published:** `2026-11-10T13:15:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14048) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `robotics`, `latent-reasoning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+LaST0.5 在世界专家与动作专家之间加入关注机器人与物体交互的潜空间专家。预印本报告使用超过 1.4 万小时机器人数据预训练，在 LIBERO 上取得 99.5% 成功率，并进行了真实机器人的长程与灵巧操作实验。
+
+LaST0.5 introduces a latent expert focused on robot-object interactions between a world expert and an action expert. The preprint reports pretraining on more than 14,000 hours of robot data, 99.5% success on LIBERO, and real-robot long-horizon and dexterous manipulation experiments.
+
+### 技术点 / Technical points
+
+- 视觉交互线索监督 Mixture-of-Transformers 架构中的紧凑潜空间。
+  - Visual interaction cues supervise a compact latent space in a Mixture-of-Transformers architecture.
+- 联合预测未来表征与任务进度，用进度一致性调整动作执行并触发未来重采样。
+  - Joint prediction of future representations and task progress adjusts execution and triggers future resampling.
+
+### 为什么重要 / Why it matters
+
+以交互为中心的表征，为全局场景预测与操作所需的局部接触细节提供了连接方式。
+
+Interaction-focused representations offer a way to bridge global scene prediction and the local contact details needed for manipulation.
+
+---
+
 <a id="2026-11-09-library-of-hands-frozen-world-model-adaptation"></a>
 ## [Library of Hands 冻结世界模型，仅适应动作映射](https://arxiv.org/abs/2611.12678)
 
