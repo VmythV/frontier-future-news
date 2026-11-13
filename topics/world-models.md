@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-11-11-runway-praxis-1-open-weights"></a>
+## [Runway 以 Apache 2.0 开放 Praxis-1 权重与机器人微调代码](https://runway.com/news/company-news/praxis-1-is-now-available)
+
+**English:** [Runway opens Praxis-1 weights and robot fine-tuning code under Apache 2.0](https://runway.com/news/company-news/praxis-1-is-now-available)
+
+- **发布 / Published:** `2026-11-11T15:00:00Z`
+- **来源 / Source:** [Runway](https://runway.com/news/company-news/praxis-1-is-now-available) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `open-source`, `video-pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+继 9 月预告和合作伙伴测试后，Runway 正式公开 Praxis-1。该 270 亿参数混合专家扩散 Transformer 联合预测视频与机器人动作，此次以 Apache 2.0 提供权重、推理代码及全量或 LoRA 微调代码。
+
+Runway made Praxis-1 publicly available after its September announcement and partner testing. The 27B mixture-of-experts diffusion transformer jointly predicts video and robot actions; the release includes weights, inference code and full or LoRA fine-tuning under Apache 2.0.
+
+### 技术点 / Technical points
+
+- Runway 报告在 RoboLab-120 的 1,200 个评测回合中成功率为 46.2%；该结果由提供方报告。
+  - Runway reports 46.2% success across 1,200 RoboLab-120 episodes; this is a provider-reported result.
+- 官方仓库提供单臂 DROID 与双臂 YAM 检查点、仿真评测及硬件适配说明。
+  - The official repository provides single-arm DROID and bimanual YAM checkpoints, simulation evaluation and hardware-adaptation instructions.
+
+### 为什么重要 / Why it matters
+
+公开权重和适配代码使研究者能够检验视频预训练能否迁移到自己的机器人任务。
+
+Public weights and adaptation code let researchers test whether video pretraining transfers to their own robot tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/runwayml/praxis-1-oss) · [Evidence 2](https://huggingface.co/collections/runwayml/praxis-1)
+
+---
+
 <a id="2026-11-11-ntt-physics-adapter-preaction-world-model"></a>
 ## [NTT 将物理适配器融入视频预测，在机器人动作前评估后果](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
 

@@ -2,6 +2,110 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-12-pydantic-ai-268-durable-delegation"></a>
+## [Pydantic AI 2.68 加入持久子智能体工作流与运行内用户输入](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0)
+
+**English:** [Pydantic AI 2.68 adds durable sub-agent workflows and in-run user input](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0)
+
+- **发布 / Published:** `2026-11-12T01:56:19Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `durable-execution`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Pydantic AI 发布 2.68.0，支持通过 Temporal 和 DBOS 子工作流委派子智能体，以 RequestInput 在运行中请求审批和答案，并在输出 token 截断时切换备用模型。该版本还改进了已保存委派任务的发现与恢复。
+
+Pydantic AI released 2.68.0 with sub-agent delegation through Temporal and DBOS child workflows, RequestInput for approvals and answers inside a run, and model fallback after output-token truncation. The release also improves discovery and recovery of saved delegation tasks.
+
+### 技术点 / Technical points
+
+- DelegationTasks.discover() 可发现已保存任务，单个损坏任务不再阻塞 DelegationTasks.opened()。
+  - DelegationTasks.discover() finds saved tasks, while a damaged task no longer blocks DelegationTasks.opened().
+- OutputTokenLimitExceeded 使 ModelFallback 能在 max_tokens 截断后回退；提示注入语义分类改为兼容 Temporal 的持久操作。
+  - OutputTokenLimitExceeded enables ModelFallback on max_tokens truncation; prompt-injection semantic classification becomes a durable operation compatible with Temporal.
+
+### 为什么重要 / Why it matters
+
+这些运行时控制有助于智能体工作流应对中断、委派任务，并在人类作出决定后继续执行。
+
+These runtime controls support agent workflows that must survive interruptions, delegate work and resume after human decisions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.68.0)
+
+---
+
+<a id="2026-11-11-gemini-decisions-agent-routing"></a>
+## [Google 推出 Gemini Decisions API，用于智能体的限定选项决策](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+**English:** [Google introduces Gemini Decisions API for bounded agent choices](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+- **发布 / Published:** `2026-11-11T18:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `model-routing`, `multimodal`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Google 推出 Gemini Decision 1 及 Decisions API，面向工具选择、模型路由、策略检查和上下文评分。它通过一次前向计算为候选选项评分并返回概率，可围绕共享多模态输入处理最多 1,000 个独立问题。
+
+Google introduced Gemini Decision 1 and a Decisions API for tool selection, model routing, policy checks and context grading. It scores candidate choices in one forward pass and returns probabilities, accepting up to 1,000 independent questions over shared multimodal input.
+
+### 技术点 / Technical points
+
+- API 支持是非、选项和量表评分问题，输入涵盖文本、图像、音频、视频和 PDF，输入上限为 256K token。
+  - The API supports yes/no, choice and rubric-score questions over text, images, audio, video and PDFs, with an input limit of 256K tokens.
+- Google 报告在上下文不超过 16K token 的测试中端到端延迟为 150–250 毫秒，问题数从 1 增至 100 时延迟基本持平。
+  - Google reports 150–250 ms end-to-end latency in tests with contexts up to 16K tokens and near-flat latency from one to 100 questions.
+
+### 为什么重要 / Why it matters
+
+对于结果选项固定的路由和检查，专用概率决策步骤有望降低智能体工作流的延迟。
+
+A dedicated probabilistic decision step could reduce the latency of agent routing and checks that have a fixed set of outcomes.
+
+---
+
+<a id="2026-11-11-databricks-always-on-genie"></a>
+## [Databricks 宣布常驻 Genie，结合企业上下文与动作管控](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
+
+**English:** [Databricks announces always-on Genie with enterprise context and action controls](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
+
+- **发布 / Published:** `2026-11-11T16:00:00Z`
+- **来源 / Source:** [Databricks](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `enterprise-agents`, `memory`, `tool-use`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Databricks 宣布面向持续性企业工作的 Genie 智能体，由 Genie Ontology 提供业务上下文，并通过 Unity Catalog 和 Unity Gateway 管控。新闻稿说明，新常驻 Genie 将进入预览和测试计划，此次宣布并不代表全面可用。
+
+Databricks announced a Genie agent for continuing enterprise work, using business context from Genie Ontology and controls from Unity Catalog and Unity Gateway. Its newsroom says the new always-on Genie is coming to preview and beta programs, distinguishing this announcement from general availability.
+
+### 技术点 / Technical points
+
+- 任务可按计划或事件触发，保留用户偏好并请求补充信息或审批；管理员管控工具、预算与动作追踪。
+  - Jobs can run on schedules or triggers, retain user preferences, and request input or approval; admins control tools, budgets and action tracing.
+- Databricks 与 Turing 的评测报告运行通过率为 91%，两个未具名智能体为 45% 和 58%；同一工作区中每项任务运行五次。
+  - A Databricks/Turing evaluation reports 91% run pass rate versus 45% and 58% for two unnamed agents, with five runs per task in one workspace.
+
+### 为什么重要 / Why it matters
+
+该发布将持续性智能体工作与受治理的业务知识结合；其评测提示应在比较模型之外检验上下文质量。
+
+The announcement connects persistent agent work with governed business knowledge; the reported evaluation motivates testing context quality alongside model choice.
+
+### 链接 / Links
+
+[Evidence 1](https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex) · [Evidence 2](https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens)
+
+---
+
 <a id="2026-11-11-aws-uaef-canonical-trace-agent-evaluation"></a>
 ## [AWS 详解跨框架统一智能体评测系统 UAEF](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
 
@@ -35,6 +139,42 @@ A common trace format can make regression checks more consistent when an agent's
 ### 链接 / Links
 
 [Evidence 1](https://github.com/awslabs/uaef)
+
+---
+
+<a id="2026-11-11-runway-praxis-1-open-weights"></a>
+## [Runway 以 Apache 2.0 开放 Praxis-1 权重与机器人微调代码](https://runway.com/news/company-news/praxis-1-is-now-available)
+
+**English:** [Runway opens Praxis-1 weights and robot fine-tuning code under Apache 2.0](https://runway.com/news/company-news/praxis-1-is-now-available)
+
+- **发布 / Published:** `2026-11-11T15:00:00Z`
+- **来源 / Source:** [Runway](https://runway.com/news/company-news/praxis-1-is-now-available) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `open-source`, `video-pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+继 9 月预告和合作伙伴测试后，Runway 正式公开 Praxis-1。该 270 亿参数混合专家扩散 Transformer 联合预测视频与机器人动作，此次以 Apache 2.0 提供权重、推理代码及全量或 LoRA 微调代码。
+
+Runway made Praxis-1 publicly available after its September announcement and partner testing. The 27B mixture-of-experts diffusion transformer jointly predicts video and robot actions; the release includes weights, inference code and full or LoRA fine-tuning under Apache 2.0.
+
+### 技术点 / Technical points
+
+- Runway 报告在 RoboLab-120 的 1,200 个评测回合中成功率为 46.2%；该结果由提供方报告。
+  - Runway reports 46.2% success across 1,200 RoboLab-120 episodes; this is a provider-reported result.
+- 官方仓库提供单臂 DROID 与双臂 YAM 检查点、仿真评测及硬件适配说明。
+  - The official repository provides single-arm DROID and bimanual YAM checkpoints, simulation evaluation and hardware-adaptation instructions.
+
+### 为什么重要 / Why it matters
+
+公开权重和适配代码使研究者能够检验视频预训练能否迁移到自己的机器人任务。
+
+Public weights and adaptation code let researchers test whether video pretraining transfers to their own robot tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/runwayml/praxis-1-oss) · [Evidence 2](https://huggingface.co/collections/runwayml/praxis-1)
 
 ---
 
@@ -547,137 +687,3 @@ Library of Hands identifies changes in the mapping from robot commands to applie
 它将控制器校准独立为可复用的适应层，为世界模型规划提供新的迁移思路。
 
 It isolates controller calibration as a reusable adaptation layer for world-model planning.
-
----
-
-<a id="2026-11-09-nvidia-corl-groot2-world-action-isaac-lab3"></a>
-## [NVIDIA 在 CoRL 公布 GR00T 2 世界动作模型与 Isaac Lab 3.0](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
-
-**English:** [NVIDIA announces GR00T 2 world-action models and Isaac Lab 3.0 at CoRL](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/)
-
-- **发布 / Published:** `2026-11-09T14:00:01Z`
-- **来源 / Source:** [NVIDIA](https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/) · `primary`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `tool-use`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
-
-### 摘要 / Summary
-
-NVIDIA 公布联合预测未来视频与机器人动作的 GR00T 2，并介绍 Isaac Lab 3.0 的仿真和评测更新。项目展示了智能体调度的操作任务；GR00T 2 代码计划于 12 月提供。
-
-NVIDIA announced GR00T 2, which jointly predicts future video and robot actions, alongside Isaac Lab 3.0 simulation and evaluation updates. The project demonstrates agent-directed manipulation; GR00T 2 code is scheduled for December.
-
-### 技术点 / Technical points
-
-- NVIDIA 报告在 50 项任务上零样本试验成功率为 40%，每项使用五次示范后升至 95%；其中 40 项任务在零样本条件下至少成功一次。
-  - NVIDIA reports 40% zero-shot trial success across 50 tasks, rising to 95% after five demonstrations per task; 40 tasks succeeded at least once zero-shot.
-- 推理智能体编排 GR00T 2 技能与恢复工具，由世界动作模型执行操作。
-  - A reasoning agent sequences GR00T 2 skills and recovery tools, while the world-action model handles manipulation.
-- Isaac Lab 3.0 集成 Newton 和强化后训练；NVIDIA 报告在一项灵巧操作基准中吞吐量最高提升至 2.5 倍。
-  - Isaac Lab 3.0 integrates Newton and reinforcement post-training; NVIDIA reports up to 2.5x throughput in one dexterous-manipulation benchmark.
-
-### 为什么重要 / Why it matters
-
-该公告将学习得到的物理预测、智能体编排和仿真机器人训练联系起来。
-
-The announcement connects learned physical prediction, agent orchestration and simulation-based robot training.
-
-### 链接 / Links
-
-[Evidence 1](https://research.nvidia.com/labs/gear/gr00t-2/)
-
----
-
-<a id="2026-11-09-autobuddy-proactive-task-discovery-execution"></a>
-## [AutoBuddy-Bench 分别评估主动任务发现与办公执行能力](https://arxiv.org/abs/2611.12393)
-
-**English:** [AutoBuddy-Bench separates proactive task discovery from workplace execution](https://arxiv.org/abs/2611.12393)
-
-- **发布 / Published:** `2026-11-09T13:30:18Z`
-- **来源 / Source:** [AutoBuddy authors (arXiv)](https://arxiv.org/abs/2611.12393) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `tool-use`, `memory`, `proactive-agents`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-AutoBuddy-Bench 模拟内部一致的组织环境，要求智能体从工作区记录中主动发现待办事项并完成任务。参考智能体 AutoBuddy 为发现的任务关联来源记录，再在独立的可写会话中执行。研究发现，仅凭任务发现精确率难以预测实际执行质量。
-
-AutoBuddy-Bench simulates a coherent organisation so agents must discover obligations in workspace records and then complete them. The reference AutoBuddy agent grounds discovered tasks in source records and executes them in separate writable sessions. The study finds that discovery precision alone poorly predicts execution quality.
-
-### 技术点 / Technical points
-
-- 时间图生成员工、项目、事件和工作区材料，并根据环境状态计算任务结果。
-  - A temporal graph generates employees, projects, events and workspace artefacts, with task outcomes computed from world state.
-- 较弱模型主要遗漏任务；较强模型更常在执行阶段失败，尤其是业务系统操作。
-  - Weaker models mainly miss tasks; stronger models more often fail during execution, particularly business-system operations.
-
-### 为什么重要 / Why it matters
-
-该基准衡量持续运行助手所需的从识别职责到产出结果的完整过程。
-
-The benchmark measures the full obligation-to-outcome loop needed by persistent assistants.
-
----
-
-<a id="2026-11-09-warc-mecheval-test-time-world-mechanics"></a>
-## [MechEval 与 WARC 衡量世界模型在测试时学习新游戏机制的能力](https://arxiv.org/abs/2611.12324)
-
-**English:** [MechEval and WARC measure test-time learning of unseen game mechanics](https://arxiv.org/abs/2611.12324)
-
-- **发布 / Published:** `2026-11-09T12:45:40Z`
-- **来源 / Source:** [MechEval and WARC authors (arXiv)](https://arxiv.org/abs/2611.12324) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `benchmark`, `test-time-training`, `planning`, `interactive-environments`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-论文提出 MechEval，在 20 个 ARC-AGI-3 游戏中追踪 69 种机制，并构建每次状态转移后更新的 3500 万参数世界模型 WARC。作者报告，将 WARC 接入固定探索器后，公开游戏效率得分从 0.15 升至 0.46；隐藏游戏参赛得分为 0.20。
-
-The paper introduces MechEval, which tracks 69 mechanics across 20 ARC-AGI-3 games, and WARC, a 35M-parameter world model updated after each transition. The authors report that adding WARC to a fixed explorer raises its public-game efficiency score from 0.15 to 0.46; the hidden-game entry scores 0.20.
-
-### 技术点 / Technical points
-
-- 机制级评测只对相应机制改变的单元格计算预测成绩。
-  - Mechanic-level evaluation scores predictions on the cells changed by each observed mechanic.
-- WARC 在测试时更新全部参数，可按机制被观察的次数追踪预测准确率。
-  - WARC updates all parameters at test time, allowing prediction accuracy to be tracked against the number of mechanic exposures.
-
-### 为什么重要 / Why it matters
-
-这项工作将适应所需的数据量与闭环探索表现联系起来，也显示出公开与隐藏评测之间的明显差距。
-
-It connects adaptation data requirements to closed-loop exploration performance while exposing a substantial public-to-hidden evaluation gap.
-
----
-
-<a id="2026-11-09-wm-ppo-successor-value-world-model-training"></a>
-## [WM-PPO 用预测后继状态的价值训练稀疏奖励智能体](https://arxiv.org/abs/2611.12200)
-
-**English:** [WM-PPO uses predicted successor values to train sparse-reward agents](https://arxiv.org/abs/2611.12200)
-
-- **发布 / Published:** `2026-11-09T10:59:19Z`
-- **来源 / Source:** [WM-PPO authors (arXiv)](https://arxiv.org/abs/2611.12200) · `research`
-- **分类 / Categories:** Agents / 智能体, World models / 世界模型
-- **标签 / Tags:** `reinforcement-learning`, `planning`, `latent-dynamics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-WM-PPO 将学习到的世界模型与 PPO 价值网络结合，通过预测的下一步观测评估动作。预印本报告，在真实环境交互预算相近时，ALFWorld 与 ScienceWorld 成功率分别为 87.5% 和 52.9%，PPO 基线则为 63.5% 和 39.3%。
-
-WM-PPO combines a learned world model with PPO’s critic to assess actions through predicted next observations. The preprint reports success rates of 87.5% on ALFWorld and 52.9% on ScienceWorld, versus 63.5% and 39.3% for PPO, using comparable real interaction budgets.
-
-### 技术点 / Technical points
-
-- 后继状态价值的比较提供额外策略优势信号，其均值则提供额外价值学习目标。
-  - Successor-value comparisons supply auxiliary policy advantages, while their mean supplies an auxiliary critic target.
-- 共享可靠性门控对两类信号加权；训练使用智能体自身交互，推理时仅需策略。
-  - A shared reliability gate weights both signals; training uses the agent’s own interactions and inference needs only the policy.
-
-### 为什么重要 / Why it matters
-
-该方法探索从环境动力学提取更密集的学习信号，同时避免给部署策略增加世界模型计算。
-
-It explores extracting denser learning signals from dynamics without increasing the deployed policy’s world-model computation.

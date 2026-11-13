@@ -2,6 +2,110 @@
 
 # Agents / 智能体
 
+<a id="2026-11-12-pydantic-ai-268-durable-delegation"></a>
+## [Pydantic AI 2.68 加入持久子智能体工作流与运行内用户输入](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0)
+
+**English:** [Pydantic AI 2.68 adds durable sub-agent workflows and in-run user input](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0)
+
+- **发布 / Published:** `2026-11-12T01:56:19Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `durable-execution`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Pydantic AI 发布 2.68.0，支持通过 Temporal 和 DBOS 子工作流委派子智能体，以 RequestInput 在运行中请求审批和答案，并在输出 token 截断时切换备用模型。该版本还改进了已保存委派任务的发现与恢复。
+
+Pydantic AI released 2.68.0 with sub-agent delegation through Temporal and DBOS child workflows, RequestInput for approvals and answers inside a run, and model fallback after output-token truncation. The release also improves discovery and recovery of saved delegation tasks.
+
+### 技术点 / Technical points
+
+- DelegationTasks.discover() 可发现已保存任务，单个损坏任务不再阻塞 DelegationTasks.opened()。
+  - DelegationTasks.discover() finds saved tasks, while a damaged task no longer blocks DelegationTasks.opened().
+- OutputTokenLimitExceeded 使 ModelFallback 能在 max_tokens 截断后回退；提示注入语义分类改为兼容 Temporal 的持久操作。
+  - OutputTokenLimitExceeded enables ModelFallback on max_tokens truncation; prompt-injection semantic classification becomes a durable operation compatible with Temporal.
+
+### 为什么重要 / Why it matters
+
+这些运行时控制有助于智能体工作流应对中断、委派任务，并在人类作出决定后继续执行。
+
+These runtime controls support agent workflows that must survive interruptions, delegate work and resume after human decisions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.68.0)
+
+---
+
+<a id="2026-11-11-gemini-decisions-agent-routing"></a>
+## [Google 推出 Gemini Decisions API，用于智能体的限定选项决策](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+**English:** [Google introduces Gemini Decisions API for bounded agent choices](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+
+- **发布 / Published:** `2026-11-11T18:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `model-routing`, `multimodal`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Google 推出 Gemini Decision 1 及 Decisions API，面向工具选择、模型路由、策略检查和上下文评分。它通过一次前向计算为候选选项评分并返回概率，可围绕共享多模态输入处理最多 1,000 个独立问题。
+
+Google introduced Gemini Decision 1 and a Decisions API for tool selection, model routing, policy checks and context grading. It scores candidate choices in one forward pass and returns probabilities, accepting up to 1,000 independent questions over shared multimodal input.
+
+### 技术点 / Technical points
+
+- API 支持是非、选项和量表评分问题，输入涵盖文本、图像、音频、视频和 PDF，输入上限为 256K token。
+  - The API supports yes/no, choice and rubric-score questions over text, images, audio, video and PDFs, with an input limit of 256K tokens.
+- Google 报告在上下文不超过 16K token 的测试中端到端延迟为 150–250 毫秒，问题数从 1 增至 100 时延迟基本持平。
+  - Google reports 150–250 ms end-to-end latency in tests with contexts up to 16K tokens and near-flat latency from one to 100 questions.
+
+### 为什么重要 / Why it matters
+
+对于结果选项固定的路由和检查，专用概率决策步骤有望降低智能体工作流的延迟。
+
+A dedicated probabilistic decision step could reduce the latency of agent routing and checks that have a fixed set of outcomes.
+
+---
+
+<a id="2026-11-11-databricks-always-on-genie"></a>
+## [Databricks 宣布常驻 Genie，结合企业上下文与动作管控](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
+
+**English:** [Databricks announces always-on Genie with enterprise context and action controls](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
+
+- **发布 / Published:** `2026-11-11T16:00:00Z`
+- **来源 / Source:** [Databricks](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `enterprise-agents`, `memory`, `tool-use`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+Databricks 宣布面向持续性企业工作的 Genie 智能体，由 Genie Ontology 提供业务上下文，并通过 Unity Catalog 和 Unity Gateway 管控。新闻稿说明，新常驻 Genie 将进入预览和测试计划，此次宣布并不代表全面可用。
+
+Databricks announced a Genie agent for continuing enterprise work, using business context from Genie Ontology and controls from Unity Catalog and Unity Gateway. Its newsroom says the new always-on Genie is coming to preview and beta programs, distinguishing this announcement from general availability.
+
+### 技术点 / Technical points
+
+- 任务可按计划或事件触发，保留用户偏好并请求补充信息或审批；管理员管控工具、预算与动作追踪。
+  - Jobs can run on schedules or triggers, retain user preferences, and request input or approval; admins control tools, budgets and action tracing.
+- Databricks 与 Turing 的评测报告运行通过率为 91%，两个未具名智能体为 45% 和 58%；同一工作区中每项任务运行五次。
+  - A Databricks/Turing evaluation reports 91% run pass rate versus 45% and 58% for two unnamed agents, with five runs per task in one workspace.
+
+### 为什么重要 / Why it matters
+
+该发布将持续性智能体工作与受治理的业务知识结合；其评测提示应在比较模型之外检验上下文质量。
+
+The announcement connects persistent agent work with governed business knowledge; the reported evaluation motivates testing context quality alongside model choice.
+
+### 链接 / Links
+
+[Evidence 1](https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex) · [Evidence 2](https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens)
+
+---
+
 <a id="2026-11-11-aws-uaef-canonical-trace-agent-evaluation"></a>
 ## [AWS 详解跨框架统一智能体评测系统 UAEF](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
 
