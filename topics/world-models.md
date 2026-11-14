@@ -2,6 +2,38 @@
 
 # World models / 世界模型
 
+<a id="2026-11-12-lg-dkgp-continuity-world-model-planning"></a>
+## [LG-DKGP 学习动作连续性，改进视觉世界模型规划](https://arxiv.org/abs/2611.16645)
+
+**English:** [LG-DKGP learns action continuity to improve visual world-model planning](https://arxiv.org/abs/2611.16645)
+
+- **发布 / Published:** `2026-11-12T11:18:50Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16645) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `planning`, `robotics`, `model-based-control`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+《Rethinking Actions》提出动作先验 LG-DKGP，从专家演示中学习时间结构，并由冻结的视觉世界模型评估候选未来。作者报告，其在五项仿真任务上的宏平均成功率为 87.07%，同一评测中的 INTACT 为 71.03%。
+
+Rethinking Actions introduces LG-DKGP, an action prior that learns temporal structure from expert demonstrations while a frozen visual world model evaluates proposed futures. The authors report 87.07% macro success across five simulated tasks, compared with 71.03% for INTACT in their evaluation.
+
+### 技术点 / Technical points
+
+- 神经网络续接预测结合近期与更长的动作历史，并加入时间高斯过程残差。
+  - A neural continuation combines recent and longer action history with a temporal Gaussian-process residual.
+- 搜索围绕校正后的动作均值展开，探索尺度来自训练；消融显示历史长度和规划时域的效果因任务而异。
+  - Search begins around the corrected action mean using a training-derived exploration scale; ablations show task-dependent effects of history and planning horizon.
+
+### 为什么重要 / Why it matters
+
+该研究表明，改进动作提案可能在无需重训世界模型的情况下增强规划。
+
+The work suggests that improving action proposals can strengthen planning without retraining the world model.
+
+---
+
 <a id="2026-11-11-runway-praxis-1-open-weights"></a>
 ## [Runway 以 Apache 2.0 开放 Praxis-1 权重与机器人微调代码](https://runway.com/news/company-news/praxis-1-is-now-available)
 

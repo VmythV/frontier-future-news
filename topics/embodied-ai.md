@@ -2,6 +2,134 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-12-lg-dkgp-continuity-world-model-planning"></a>
+## [LG-DKGP 学习动作连续性，改进视觉世界模型规划](https://arxiv.org/abs/2611.16645)
+
+**English:** [LG-DKGP learns action continuity to improve visual world-model planning](https://arxiv.org/abs/2611.16645)
+
+- **发布 / Published:** `2026-11-12T11:18:50Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16645) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `planning`, `robotics`, `model-based-control`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+《Rethinking Actions》提出动作先验 LG-DKGP，从专家演示中学习时间结构，并由冻结的视觉世界模型评估候选未来。作者报告，其在五项仿真任务上的宏平均成功率为 87.07%，同一评测中的 INTACT 为 71.03%。
+
+Rethinking Actions introduces LG-DKGP, an action prior that learns temporal structure from expert demonstrations while a frozen visual world model evaluates proposed futures. The authors report 87.07% macro success across five simulated tasks, compared with 71.03% for INTACT in their evaluation.
+
+### 技术点 / Technical points
+
+- 神经网络续接预测结合近期与更长的动作历史，并加入时间高斯过程残差。
+  - A neural continuation combines recent and longer action history with a temporal Gaussian-process residual.
+- 搜索围绕校正后的动作均值展开，探索尺度来自训练；消融显示历史长度和规划时域的效果因任务而异。
+  - Search begins around the corrected action mean using a training-derived exploration scale; ablations show task-dependent effects of history and planning horizon.
+
+### 为什么重要 / Why it matters
+
+该研究表明，改进动作提案可能在无需重训世界模型的情况下增强规划。
+
+The work suggests that improving action proposals can strengthen planning without retraining the world model.
+
+---
+
+<a id="2026-11-12-reins-feedback-harness-real-robot-arms"></a>
+## [Reins 为控制真实机械臂的前沿模型加入持续场景反馈](https://arxiv.org/abs/2611.16632)
+
+**English:** [Reins adds continuous scene feedback to frontier models controlling real robot arms](https://arxiv.org/abs/2611.16632)
+
+- **发布 / Published:** `2026-11-12T11:05:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16632) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `tool-use`, `manipulation`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Reins 为现成多模态模型配备 3D 感知工具和带接触反馈的动作，以控制双臂机器人。作者报告，GPT-6.1 Sol 仅使用自然语言提示、无需任务专用代码，在五项真实任务中的回合成功率为 88%；代码尚待发布。
+
+Reins equips an off-the-shelf multimodal model with 3D perception tools and contact-aware actions for a dual-arm robot. In five real-world tasks, the authors report 88% episode success with GPT-6.1 Sol using natural-language prompts and no task-specific code; code release is still planned.
+
+### 技术点 / Technical points
+
+- 动作链在首个条件失败时停止，独立的叙述模型持续观察相机并报告场景变化。
+  - Action chains stop at the first failed condition, while a separate narrator continuously watches cameras and reports scene changes.
+- 框架还可由图像构建可用于仿真的场景孪生；所报成功率仅对应受测回合。
+  - The harness also constructs simulation-ready scene twins from images; reported success is specific to the evaluated episodes.
+
+### 为什么重要 / Why it matters
+
+持续反馈与明确动作条件，为研究通用模型的长时程机器人控制提供了具体路径。
+
+Continuous feedback and explicit action conditions offer a concrete way to study long-horizon robot control with general-purpose models.
+
+---
+
+<a id="2026-11-12-alloy-multimaterial-robot-learning-engine"></a>
+## [Alloy 整合多材料求解器，并为编程智能体提供机器人学习工具](https://arxiv.org/abs/2611.16312)
+
+**English:** [Alloy combines multiple material solvers with tools for coding-agent robot learning](https://arxiv.org/abs/2611.16312)
+
+- **发布 / Published:** `2026-11-12T05:14:10Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16312) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `simulation`, `open-source`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Alloy 提出在同一场景中处理刚体、布料、线缆、液体、颗粒和软体的机器人训练物理引擎。作者报告，未接触过该引擎的编程智能体安装预发布版本后，在单块 GPU 上训练了行走、线缆操作和倾倒策略。
+
+Alloy presents a physics engine for training robots around rigid bodies, cloth, cables, liquids, granular material and soft bodies in one scene. The authors report that coding agents unfamiliar with the engine installed a prerelease and trained walking, cable-handling and pouring policies on one GPU.
+
+### 技术点 / Technical points
+
+- 引擎基于 Newton、MuJoCo Warp 和 Warp，在每个控制步内耦合不同材料的求解器。
+  - Built on Newton, MuJoCo Warp and Warp, the engine couples material-specific solvers within each control step.
+- 并行仿真世界具有物理健康等级，引擎还通过 Model Context Protocol 暴露工具。
+  - Parallel simulation worlds carry physics-health grades, and the engine exposes tools through Model Context Protocol.
+
+### 为什么重要 / Why it matters
+
+该系统为接触密集技能学习提供可检查的基础设施，并帮助区分仿真故障与策略失败。
+
+The system provides inspectable infrastructure for learning contact-rich skills and separating simulation failures from policy failures.
+
+---
+
+<a id="2026-11-12-bwm-forge-agentic-robot-scene-programming"></a>
+## [BWM-Forge 用编程智能体构建可编辑场景，生成可控机器人视频](https://arxiv.org/abs/2611.16221)
+
+**English:** [BWM-Forge uses coding agents to build editable scenes for robot video generation](https://arxiv.org/abs/2611.16221)
+
+- **发布 / Published:** `2026-11-12T03:14:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16221) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `multi-agent`, `robotics`, `simulation`, `synthetic-data`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+BWM-Forge 提出机器人视频生成流程：先由编程智能体编写 Blender 场景程序，再由视频模型补充视觉细节。技术报告在五类机器人的 15 项任务上评估该方法，重点是可编辑的几何、运动与相机控制。
+
+BWM-Forge introduces a robot-video generation pipeline in which coding agents create Blender scene programs before a video model adds visual detail. The technical report evaluates 15 tasks across five robot types, emphasizing editable geometry, motion and camera control rather than direct end-to-end video generation.
+
+### 技术点 / Technical points
+
+- 多智能体运行框架协调输入处理、场景构建、审查和渲染，经验库保存可复用规则。
+  - A multi-agent harness coordinates input processing, scene construction, review and rendering; an experience repository retains reusable rules.
+- 同一场景程序支持同步多视角和外观变化；对比的 LingBot-World 基线在动态程度评分上更高。
+  - A shared scene program supports synchronized viewpoints and appearance changes; the compared LingBot-World baseline has a higher dynamic-degree score.
+
+### 为什么重要 / Why it matters
+
+可编辑场景程序有望提高机器人合成数据流程的可控性与修改效率。
+
+Editable scene programs could make robot synthetic-data workflows easier to control and revise.
+
+---
+
 <a id="2026-11-11-runway-praxis-1-open-weights"></a>
 ## [Runway 以 Apache 2.0 开放 Praxis-1 权重与机器人微调代码](https://runway.com/news/company-news/praxis-1-is-now-available)
 

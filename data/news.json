@@ -24260,6 +24260,325 @@
       "discussion_urls": [],
       "confidence": "high",
       "score": 81
+    },
+    {
+      "id": "2026-11-12-bwm-forge-agentic-robot-scene-programming",
+      "published_at": "2026-11-12T03:14:48Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "multi-agent",
+        "robotics",
+        "simulation",
+        "synthetic-data"
+      ],
+      "title_en": "BWM-Forge uses coding agents to build editable scenes for robot video generation",
+      "title_zh": "BWM-Forge 用编程智能体构建可编辑场景，生成可控机器人视频",
+      "summary_en": "BWM-Forge introduces a robot-video generation pipeline in which coding agents create Blender scene programs before a video model adds visual detail. The technical report evaluates 15 tasks across five robot types, emphasizing editable geometry, motion and camera control rather than direct end-to-end video generation.",
+      "summary_zh": "BWM-Forge 提出机器人视频生成流程：先由编程智能体编写 Blender 场景程序，再由视频模型补充视觉细节。技术报告在五类机器人的 15 项任务上评估该方法，重点是可编辑的几何、运动与相机控制。",
+      "tech_points_en": [
+        "A multi-agent harness coordinates input processing, scene construction, review and rendering; an experience repository retains reusable rules.",
+        "A shared scene program supports synchronized viewpoints and appearance changes; the compared LingBot-World baseline has a higher dynamic-degree score."
+      ],
+      "tech_points_zh": [
+        "多智能体运行框架协调输入处理、场景构建、审查和渲染，经验库保存可复用规则。",
+        "同一场景程序支持同步多视角和外观变化；对比的 LingBot-World 基线在动态程度评分上更高。"
+      ],
+      "why_it_matters_en": "Editable scene programs could make robot synthetic-data workflows easier to control and revise.",
+      "why_it_matters_zh": "可编辑场景程序有望提高机器人合成数据流程的可控性与修改效率。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.16221",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-alloy-multimaterial-robot-learning-engine",
+      "published_at": "2026-11-12T05:14:10Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "embodied-ai",
+        "agents"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "open-source",
+        "tool-use"
+      ],
+      "title_en": "Alloy combines multiple material solvers with tools for coding-agent robot learning",
+      "title_zh": "Alloy 整合多材料求解器，并为编程智能体提供机器人学习工具",
+      "summary_en": "Alloy presents a physics engine for training robots around rigid bodies, cloth, cables, liquids, granular material and soft bodies in one scene. The authors report that coding agents unfamiliar with the engine installed a prerelease and trained walking, cable-handling and pouring policies on one GPU.",
+      "summary_zh": "Alloy 提出在同一场景中处理刚体、布料、线缆、液体、颗粒和软体的机器人训练物理引擎。作者报告，未接触过该引擎的编程智能体安装预发布版本后，在单块 GPU 上训练了行走、线缆操作和倾倒策略。",
+      "tech_points_en": [
+        "Built on Newton, MuJoCo Warp and Warp, the engine couples material-specific solvers within each control step.",
+        "Parallel simulation worlds carry physics-health grades, and the engine exposes tools through Model Context Protocol."
+      ],
+      "tech_points_zh": [
+        "引擎基于 Newton、MuJoCo Warp 和 Warp，在每个控制步内耦合不同材料的求解器。",
+        "并行仿真世界具有物理健康等级，引擎还通过 Model Context Protocol 暴露工具。"
+      ],
+      "why_it_matters_en": "The system provides inspectable infrastructure for learning contact-rich skills and separating simulation failures from policy failures.",
+      "why_it_matters_zh": "该系统为接触密集技能学习提供可检查的基础设施，并帮助区分仿真故障与策略失败。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.16312",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-singularity-bench-autonomous-ai-development",
+      "published_at": "2026-11-12T10:24:51Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding-agents",
+        "evaluation",
+        "safety"
+      ],
+      "title_en": "Singularity-Bench evaluates agents on six end-to-end AI-development tasks",
+      "title_zh": "Singularity-Bench 用六项端到端 AI 开发任务评测智能体",
+      "summary_en": "Singularity-Bench tests agents on pre-training, mid-training, post-training, inference, harness development and cluster orchestration against human-engineered systems on identical hardware. The authors evaluate 11 agent configurations and introduce Breakwater to address reward-hacking attacks against the Harbor evaluation framework.",
+      "summary_zh": "Singularity-Bench 在相同硬件上，将智能体与人工工程系统对比，覆盖预训练、中期训练、后训练、推理、运行框架开发和集群编排。作者评估了 11 种智能体配置，并提出 Breakwater 来应对针对 Harbor 评测框架的奖励作弊攻击。",
+      "tech_points_en": [
+        "The tested configurations use seven frontier models and two harnesses; Opus 5.5 with Claude Code meets or exceeds all six human baselines in this study.",
+        "Red-teaming covers nine OWASP agentic-application risk categories; Breakwater blocks the attacks tested by the authors."
+      ],
+      "tech_points_zh": [
+        "受测配置采用七个前沿模型和两种运行框架；本研究中，搭配 Claude Code 的 Opus 5.5 在六项任务上均达到或超过人工基线。",
+        "红队测试覆盖九类 OWASP 智能体应用风险，Breakwater 阻止了作者测试的攻击。"
+      ],
+      "why_it_matters_en": "The benchmark links AI-development capability measurements to evaluator integrity, with results limited to its tested tasks and attacks.",
+      "why_it_matters_zh": "该基准将 AI 开发能力测量与评测器完整性结合，结论限于其测试任务和攻击范围。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.16591",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-reins-feedback-harness-real-robot-arms",
+      "published_at": "2026-11-12T11:05:11Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "embodied-ai",
+        "agents"
+      ],
+      "tags": [
+        "robotics",
+        "tool-use",
+        "manipulation",
+        "multimodal"
+      ],
+      "title_en": "Reins adds continuous scene feedback to frontier models controlling real robot arms",
+      "title_zh": "Reins 为控制真实机械臂的前沿模型加入持续场景反馈",
+      "summary_en": "Reins equips an off-the-shelf multimodal model with 3D perception tools and contact-aware actions for a dual-arm robot. In five real-world tasks, the authors report 88% episode success with GPT-6.1 Sol using natural-language prompts and no task-specific code; code release is still planned.",
+      "summary_zh": "Reins 为现成多模态模型配备 3D 感知工具和带接触反馈的动作，以控制双臂机器人。作者报告，GPT-6.1 Sol 仅使用自然语言提示、无需任务专用代码，在五项真实任务中的回合成功率为 88%；代码尚待发布。",
+      "tech_points_en": [
+        "Action chains stop at the first failed condition, while a separate narrator continuously watches cameras and reports scene changes.",
+        "The harness also constructs simulation-ready scene twins from images; reported success is specific to the evaluated episodes."
+      ],
+      "tech_points_zh": [
+        "动作链在首个条件失败时停止，独立的叙述模型持续观察相机并报告场景变化。",
+        "框架还可由图像构建可用于仿真的场景孪生；所报成功率仅对应受测回合。"
+      ],
+      "why_it_matters_en": "Continuous feedback and explicit action conditions offer a concrete way to study long-horizon robot control with general-purpose models.",
+      "why_it_matters_zh": "持续反馈与明确动作条件，为研究通用模型的长时程机器人控制提供了具体路径。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.16632",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-lg-dkgp-continuity-world-model-planning",
+      "published_at": "2026-11-12T11:18:50Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "planning",
+        "robotics",
+        "model-based-control",
+        "simulation"
+      ],
+      "title_en": "LG-DKGP learns action continuity to improve visual world-model planning",
+      "title_zh": "LG-DKGP 学习动作连续性，改进视觉世界模型规划",
+      "summary_en": "Rethinking Actions introduces LG-DKGP, an action prior that learns temporal structure from expert demonstrations while a frozen visual world model evaluates proposed futures. The authors report 87.07% macro success across five simulated tasks, compared with 71.03% for INTACT in their evaluation.",
+      "summary_zh": "《Rethinking Actions》提出动作先验 LG-DKGP，从专家演示中学习时间结构，并由冻结的视觉世界模型评估候选未来。作者报告，其在五项仿真任务上的宏平均成功率为 87.07%，同一评测中的 INTACT 为 71.03%。",
+      "tech_points_en": [
+        "A neural continuation combines recent and longer action history with a temporal Gaussian-process residual.",
+        "Search begins around the corrected action mean using a training-derived exploration scale; ablations show task-dependent effects of history and planning horizon."
+      ],
+      "tech_points_zh": [
+        "神经网络续接预测结合近期与更长的动作历史，并加入时间高斯过程残差。",
+        "搜索围绕校正后的动作均值展开，探索尺度来自训练；消融显示历史长度和规划时域的效果因任务而异。"
+      ],
+      "why_it_matters_en": "The work suggests that improving action proposals can strengthen planning without retraining the world model.",
+      "why_it_matters_zh": "该研究表明，改进动作提案可能在无需重训世界模型的情况下增强规划。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.16645",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-livegeo-evolving-geographic-agent-benchmark",
+      "published_at": "2026-11-12T18:45:58Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "planning",
+        "tool-use",
+        "reliability"
+      ],
+      "title_en": "LiveGeo tests whether agents update decisions as geographic environments change",
+      "title_zh": "LiveGeo 检验地理环境变化后智能体能否更新决策",
+      "summary_en": "LiveGeo introduces a geographic-agent benchmark backed by GeoWorld, a platform whose external states evolve over time while retaining verifiable histories. The study finds that strong performance on static tasks does not guarantee reliable decisions when the environment changes.",
+      "summary_zh": "LiveGeo 提出由 GeoWorld 平台支撑的地理智能体基准：外部状态随时间演化，同时保留可核查的状态历史。研究发现，静态任务表现较强，并不保证环境变化后仍能可靠决策。",
+      "tech_points_en": [
+        "Tasks require agents to acquire relevant information, recheck evidence supporting earlier decisions and revise plans.",
+        "The analysis identifies difficulty turning retrieved evidence into valid decisions and keeping those decisions correct over time."
+      ],
+      "tech_points_zh": [
+        "任务要求智能体主动获取相关信息、重新核查先前决策依据，并修订计划。",
+        "分析指出，智能体难以将获取的证据转化为有效决策，也难以随时间推移维持决策正确性。"
+      ],
+      "why_it_matters_en": "The benchmark makes evidence freshness an explicit part of evaluating agent planning reliability.",
+      "why_it_matters_zh": "该基准将证据时效性明确纳入智能体规划可靠性评估。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.17267",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 79,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-12-agentssl-program-selection-semisupervised-learning",
+      "published_at": "2026-11-12T18:59:06Z",
+      "collected_at": "2026-11-14T00:04:13Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "benchmark",
+        "coding-agents",
+        "semi-supervised-learning",
+        "evaluation"
+      ],
+      "title_en": "AgentSSL finds program selection limits agents designing semi-supervised learners",
+      "title_zh": "AgentSSL 揭示智能体设计半监督学习程序时的选择瓶颈",
+      "summary_en": "AgentSSL studies coding agents that design semi-supervised learning pipelines with scarce labels and abundant unlabeled data. The authors report improvements over their strongest human-engineered baselines in eight of 12 settings, but also find that selecting programs with the available feedback metric can sharply reduce performance.",
+      "summary_zh": "AgentSSL 研究编程智能体如何在标签稀缺、无标签数据充足时设计半监督学习流程。作者报告，其在 12 种设置中的八种超过所对比的最强人工基线，但使用可用反馈指标筛选程序时，性能可能明显下降。",
+      "tech_points_en": [
+        "The method treats pipeline design as program search under limited supervision and compares methods at matched compute.",
+        "ProgramSelectBench contains 16,977 agent-generated and human-engineered programs to study unsupervised and active program selection."
+      ],
+      "tech_points_zh": [
+        "该方法将流程设计视为有限监督下的程序搜索，并在匹配计算预算下进行比较。",
+        "ProgramSelectBench 包含 16,977 个智能体生成及人工设计的程序，用于研究无监督与主动程序选择。"
+      ],
+      "why_it_matters_en": "The results distinguish finding a strong learning program from reliably identifying it with weak feedback.",
+      "why_it_matters_zh": "这些结果区分了找到优秀学习程序与依靠弱反馈可靠识别该程序这两种能力。",
+      "source": {
+        "name": "arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.17323",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
     }
   ]
 }

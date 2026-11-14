@@ -2,6 +2,230 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-12-agentssl-program-selection-semisupervised-learning"></a>
+## [AgentSSL 揭示智能体设计半监督学习程序时的选择瓶颈](https://arxiv.org/abs/2611.17323)
+
+**English:** [AgentSSL finds program selection limits agents designing semi-supervised learners](https://arxiv.org/abs/2611.17323)
+
+- **发布 / Published:** `2026-11-12T18:59:06Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.17323) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agents`, `semi-supervised-learning`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+AgentSSL 研究编程智能体如何在标签稀缺、无标签数据充足时设计半监督学习流程。作者报告，其在 12 种设置中的八种超过所对比的最强人工基线，但使用可用反馈指标筛选程序时，性能可能明显下降。
+
+AgentSSL studies coding agents that design semi-supervised learning pipelines with scarce labels and abundant unlabeled data. The authors report improvements over their strongest human-engineered baselines in eight of 12 settings, but also find that selecting programs with the available feedback metric can sharply reduce performance.
+
+### 技术点 / Technical points
+
+- 该方法将流程设计视为有限监督下的程序搜索，并在匹配计算预算下进行比较。
+  - The method treats pipeline design as program search under limited supervision and compares methods at matched compute.
+- ProgramSelectBench 包含 16,977 个智能体生成及人工设计的程序，用于研究无监督与主动程序选择。
+  - ProgramSelectBench contains 16,977 agent-generated and human-engineered programs to study unsupervised and active program selection.
+
+### 为什么重要 / Why it matters
+
+这些结果区分了找到优秀学习程序与依靠弱反馈可靠识别该程序这两种能力。
+
+The results distinguish finding a strong learning program from reliably identifying it with weak feedback.
+
+---
+
+<a id="2026-11-12-livegeo-evolving-geographic-agent-benchmark"></a>
+## [LiveGeo 检验地理环境变化后智能体能否更新决策](https://arxiv.org/abs/2611.17267)
+
+**English:** [LiveGeo tests whether agents update decisions as geographic environments change](https://arxiv.org/abs/2611.17267)
+
+- **发布 / Published:** `2026-11-12T18:45:58Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.17267) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `planning`, `tool-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+LiveGeo 提出由 GeoWorld 平台支撑的地理智能体基准：外部状态随时间演化，同时保留可核查的状态历史。研究发现，静态任务表现较强，并不保证环境变化后仍能可靠决策。
+
+LiveGeo introduces a geographic-agent benchmark backed by GeoWorld, a platform whose external states evolve over time while retaining verifiable histories. The study finds that strong performance on static tasks does not guarantee reliable decisions when the environment changes.
+
+### 技术点 / Technical points
+
+- 任务要求智能体主动获取相关信息、重新核查先前决策依据，并修订计划。
+  - Tasks require agents to acquire relevant information, recheck evidence supporting earlier decisions and revise plans.
+- 分析指出，智能体难以将获取的证据转化为有效决策，也难以随时间推移维持决策正确性。
+  - The analysis identifies difficulty turning retrieved evidence into valid decisions and keeping those decisions correct over time.
+
+### 为什么重要 / Why it matters
+
+该基准将证据时效性明确纳入智能体规划可靠性评估。
+
+The benchmark makes evidence freshness an explicit part of evaluating agent planning reliability.
+
+---
+
+<a id="2026-11-12-lg-dkgp-continuity-world-model-planning"></a>
+## [LG-DKGP 学习动作连续性，改进视觉世界模型规划](https://arxiv.org/abs/2611.16645)
+
+**English:** [LG-DKGP learns action continuity to improve visual world-model planning](https://arxiv.org/abs/2611.16645)
+
+- **发布 / Published:** `2026-11-12T11:18:50Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16645) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `planning`, `robotics`, `model-based-control`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+《Rethinking Actions》提出动作先验 LG-DKGP，从专家演示中学习时间结构，并由冻结的视觉世界模型评估候选未来。作者报告，其在五项仿真任务上的宏平均成功率为 87.07%，同一评测中的 INTACT 为 71.03%。
+
+Rethinking Actions introduces LG-DKGP, an action prior that learns temporal structure from expert demonstrations while a frozen visual world model evaluates proposed futures. The authors report 87.07% macro success across five simulated tasks, compared with 71.03% for INTACT in their evaluation.
+
+### 技术点 / Technical points
+
+- 神经网络续接预测结合近期与更长的动作历史，并加入时间高斯过程残差。
+  - A neural continuation combines recent and longer action history with a temporal Gaussian-process residual.
+- 搜索围绕校正后的动作均值展开，探索尺度来自训练；消融显示历史长度和规划时域的效果因任务而异。
+  - Search begins around the corrected action mean using a training-derived exploration scale; ablations show task-dependent effects of history and planning horizon.
+
+### 为什么重要 / Why it matters
+
+该研究表明，改进动作提案可能在无需重训世界模型的情况下增强规划。
+
+The work suggests that improving action proposals can strengthen planning without retraining the world model.
+
+---
+
+<a id="2026-11-12-reins-feedback-harness-real-robot-arms"></a>
+## [Reins 为控制真实机械臂的前沿模型加入持续场景反馈](https://arxiv.org/abs/2611.16632)
+
+**English:** [Reins adds continuous scene feedback to frontier models controlling real robot arms](https://arxiv.org/abs/2611.16632)
+
+- **发布 / Published:** `2026-11-12T11:05:11Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16632) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `tool-use`, `manipulation`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Reins 为现成多模态模型配备 3D 感知工具和带接触反馈的动作，以控制双臂机器人。作者报告，GPT-6.1 Sol 仅使用自然语言提示、无需任务专用代码，在五项真实任务中的回合成功率为 88%；代码尚待发布。
+
+Reins equips an off-the-shelf multimodal model with 3D perception tools and contact-aware actions for a dual-arm robot. In five real-world tasks, the authors report 88% episode success with GPT-6.1 Sol using natural-language prompts and no task-specific code; code release is still planned.
+
+### 技术点 / Technical points
+
+- 动作链在首个条件失败时停止，独立的叙述模型持续观察相机并报告场景变化。
+  - Action chains stop at the first failed condition, while a separate narrator continuously watches cameras and reports scene changes.
+- 框架还可由图像构建可用于仿真的场景孪生；所报成功率仅对应受测回合。
+  - The harness also constructs simulation-ready scene twins from images; reported success is specific to the evaluated episodes.
+
+### 为什么重要 / Why it matters
+
+持续反馈与明确动作条件，为研究通用模型的长时程机器人控制提供了具体路径。
+
+Continuous feedback and explicit action conditions offer a concrete way to study long-horizon robot control with general-purpose models.
+
+---
+
+<a id="2026-11-12-singularity-bench-autonomous-ai-development"></a>
+## [Singularity-Bench 用六项端到端 AI 开发任务评测智能体](https://arxiv.org/abs/2611.16591)
+
+**English:** [Singularity-Bench evaluates agents on six end-to-end AI-development tasks](https://arxiv.org/abs/2611.16591)
+
+- **发布 / Published:** `2026-11-12T10:24:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16591) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `coding-agents`, `evaluation`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Singularity-Bench 在相同硬件上，将智能体与人工工程系统对比，覆盖预训练、中期训练、后训练、推理、运行框架开发和集群编排。作者评估了 11 种智能体配置，并提出 Breakwater 来应对针对 Harbor 评测框架的奖励作弊攻击。
+
+Singularity-Bench tests agents on pre-training, mid-training, post-training, inference, harness development and cluster orchestration against human-engineered systems on identical hardware. The authors evaluate 11 agent configurations and introduce Breakwater to address reward-hacking attacks against the Harbor evaluation framework.
+
+### 技术点 / Technical points
+
+- 受测配置采用七个前沿模型和两种运行框架；本研究中，搭配 Claude Code 的 Opus 5.5 在六项任务上均达到或超过人工基线。
+  - The tested configurations use seven frontier models and two harnesses; Opus 5.5 with Claude Code meets or exceeds all six human baselines in this study.
+- 红队测试覆盖九类 OWASP 智能体应用风险，Breakwater 阻止了作者测试的攻击。
+  - Red-teaming covers nine OWASP agentic-application risk categories; Breakwater blocks the attacks tested by the authors.
+
+### 为什么重要 / Why it matters
+
+该基准将 AI 开发能力测量与评测器完整性结合，结论限于其测试任务和攻击范围。
+
+The benchmark links AI-development capability measurements to evaluator integrity, with results limited to its tested tasks and attacks.
+
+---
+
+<a id="2026-11-12-alloy-multimaterial-robot-learning-engine"></a>
+## [Alloy 整合多材料求解器，并为编程智能体提供机器人学习工具](https://arxiv.org/abs/2611.16312)
+
+**English:** [Alloy combines multiple material solvers with tools for coding-agent robot learning](https://arxiv.org/abs/2611.16312)
+
+- **发布 / Published:** `2026-11-12T05:14:10Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16312) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `simulation`, `open-source`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Alloy 提出在同一场景中处理刚体、布料、线缆、液体、颗粒和软体的机器人训练物理引擎。作者报告，未接触过该引擎的编程智能体安装预发布版本后，在单块 GPU 上训练了行走、线缆操作和倾倒策略。
+
+Alloy presents a physics engine for training robots around rigid bodies, cloth, cables, liquids, granular material and soft bodies in one scene. The authors report that coding agents unfamiliar with the engine installed a prerelease and trained walking, cable-handling and pouring policies on one GPU.
+
+### 技术点 / Technical points
+
+- 引擎基于 Newton、MuJoCo Warp 和 Warp，在每个控制步内耦合不同材料的求解器。
+  - Built on Newton, MuJoCo Warp and Warp, the engine couples material-specific solvers within each control step.
+- 并行仿真世界具有物理健康等级，引擎还通过 Model Context Protocol 暴露工具。
+  - Parallel simulation worlds carry physics-health grades, and the engine exposes tools through Model Context Protocol.
+
+### 为什么重要 / Why it matters
+
+该系统为接触密集技能学习提供可检查的基础设施，并帮助区分仿真故障与策略失败。
+
+The system provides inspectable infrastructure for learning contact-rich skills and separating simulation failures from policy failures.
+
+---
+
+<a id="2026-11-12-bwm-forge-agentic-robot-scene-programming"></a>
+## [BWM-Forge 用编程智能体构建可编辑场景，生成可控机器人视频](https://arxiv.org/abs/2611.16221)
+
+**English:** [BWM-Forge uses coding agents to build editable scenes for robot video generation](https://arxiv.org/abs/2611.16221)
+
+- **发布 / Published:** `2026-11-12T03:14:48Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.16221) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `multi-agent`, `robotics`, `simulation`, `synthetic-data`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+BWM-Forge 提出机器人视频生成流程：先由编程智能体编写 Blender 场景程序，再由视频模型补充视觉细节。技术报告在五类机器人的 15 项任务上评估该方法，重点是可编辑的几何、运动与相机控制。
+
+BWM-Forge introduces a robot-video generation pipeline in which coding agents create Blender scene programs before a video model adds visual detail. The technical report evaluates 15 tasks across five robot types, emphasizing editable geometry, motion and camera control rather than direct end-to-end video generation.
+
+### 技术点 / Technical points
+
+- 多智能体运行框架协调输入处理、场景构建、审查和渲染，经验库保存可复用规则。
+  - A multi-agent harness coordinates input processing, scene construction, review and rendering; an experience repository retains reusable rules.
+- 同一场景程序支持同步多视角和外观变化；对比的 LingBot-World 基线在动态程度评分上更高。
+  - A shared scene program supports synchronized viewpoints and appearance changes; the compared LingBot-World baseline has a higher dynamic-degree score.
+
+### 为什么重要 / Why it matters
+
+可编辑场景程序有望提高机器人合成数据流程的可控性与修改效率。
+
+Editable scene programs could make robot synthetic-data workflows easier to control and revise.
+
+---
+
 <a id="2026-11-12-pydantic-ai-268-durable-delegation"></a>
 ## [Pydantic AI 2.68 加入持久子智能体工作流与运行内用户输入](https://github.com/pydantic/pydantic-ai/releases/tag/v2.68.0)
 
@@ -447,243 +671,3 @@ LaST0.5 introduces a latent expert focused on robot-object interactions between 
 以交互为中心的表征，为全局场景预测与操作所需的局部接触细节提供了连接方式。
 
 Interaction-focused representations offer a way to bridge global scene prediction and the local contact details needed for manipulation.
-
----
-
-<a id="2026-11-10-alphaproof-code-signal-machine-code-verification"></a>
-## [AlphaProof Code 结合智能体与 Lean 验证 Signal 实现的安全属性](https://deepmind.google/blog/introducing-alphaproof-code/)
-
-**English:** [AlphaProof Code uses agents and Lean to verify Signal implementation security](https://deepmind.google/blog/introducing-alphaproof-code/)
-
-- **发布 / Published:** `2026-11-10T12:00:00Z`
-- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/introducing-alphaproof-code/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `formal-verification`, `safety`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Google DeepMind 发布 AlphaProof Code，将人工审阅的形式化规格与自主证明智能体结合。团队报告，已在机器码层面证明 libsignal 的关键安全属性，并由 Lean 检查证明。保证范围取决于获准规格与受信语义，不能涵盖部署中的所有潜在缺陷。
-
-Google DeepMind introduced AlphaProof Code, combining human-reviewed specifications with autonomous prover agents. The team reports machine-code-level proofs of key libsignal security properties, checked by Lean. The guarantees depend on the approved specifications and trusted semantics rather than covering every possible deployment flaw.
-
-### 技术点 / Technical points
-
-- 技术论文报告约 650 万行经检查的 Lean 证明，以及约 2.6 万行受信规格和 AArch64 语义。
-  - The technical paper reports about 6.5 million lines of checked Lean proofs and roughly 26,000 lines of trusted specifications and AArch64 semantics.
-- 证明涵盖 PQXDH 与 Triple Ratchet；重新引入两个已修复缺陷后，系统生成了经检查的不安全性证明。
-  - The proofs cover PQXDH and Triple Ratchet; reintroducing two previously fixed bugs produced checked proofs of insecurity.
-
-### 为什么重要 / Why it matters
-
-它展示了一种由人指导、依据明确形式化约定独立检查产出的智能体工作流。
-
-It demonstrates a human-guided agent workflow whose outputs can be checked independently against explicit formal contracts.
-
-### 链接 / Links
-
-[Evidence 1](https://deepmind.google/documents/36/Formal_Verification_of_Signal_4.pdf)
-
----
-
-<a id="2026-11-10-agent-benchmarks-graded-resolution"></a>
-## [智能体基准研究发现，通过与否的评分可能掩盖实质性能差异](https://arxiv.org/abs/2611.13541)
-
-**English:** [Agent benchmark study finds pass/fail scores can hide meaningful performance differences](https://arxiv.org/abs/2611.13541)
-
-- **发布 / Published:** `2026-11-10T04:03:04Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.13541) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `evaluation`, `coding-agents`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-一篇新预印本重新分析八个智能体基准的公开运行记录，认为部分表面上的饱和源于评分过粗。作者提出带有日期化参考锚点的连续评分，并单独报告成本；结论针对评测的区分能力，并不意味着智能体已经解决全部任务。
-
-A new preprint reanalyzes released runs from eight agent benchmarks and argues that apparent saturation can come from coarse scoring. The authors propose graded credit with dated reference anchors and separate cost reporting; the findings concern benchmark measurement rather than evidence that agents have solved all tasks.
-
-### 技术点 / Technical points
-
-- 作者分析发现，SWE-bench Verified 前十名中相邻智能体的分差小于测试套件本身的误差。
-  - On SWE-bench Verified, neighboring top-ten agents differ by less than the test suite's own errors in the authors' analysis.
-- 截断的对数比值评分保留任务的量化结果，减少二元通过评分丢失的信息。
-  - A clipped log-ratio score preserves quantitative task outcomes that binary pass/fail grading discards.
-
-### 为什么重要 / Why it matters
-
-更有区分度的评分有助于判断固定任务上的进步，再决定是否需要更难的基准。
-
-More informative scoring could help distinguish progress on fixed tasks before replacing a benchmark with harder tasks.
-
----
-
-<a id="2026-11-09-claude-code-21321-mcp-redirect-write-checks"></a>
-## [Claude Code 2.1.321 修复 MCP 重定向泄漏与文件写入权限检查](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
-
-**English:** [Claude Code 2.1.321 fixes MCP redirect leaks and file-write permission checks](https://github.com/anthropics/claude-code/releases/tag/v2.1.321)
-
-- **发布 / Published:** `2026-11-09T19:22:30Z`
-- **来源 / Source:** [Anthropic Claude Code](https://github.com/anthropics/claude-code/releases/tag/v2.1.321) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `mcp`, `safety`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Claude Code 2.1.321 将默认 Fable 模型更新为 Fable 5.2，并修复多项智能体执行边界问题。发布说明列出的修复包括跨主机 MCP OAuth 重定向、沙箱提示和目标文件检查。
-
-Claude Code 2.1.321 adds Fable 5.2 as its default Fable model and fixes several agent execution boundaries. Release notes identify cross-host MCP OAuth redirects, sandbox prompts and destination-file checks among the repaired cases.
-
-### 技术点 / Technical points
-
-- MCP OAuth 重定向不再把刷新令牌等秘密发送到另一主机。
-  - MCP OAuth redirects no longer send secrets such as refresh tokens to another host.
-- 修复覆盖只读 Bash 命令未经提示在沙箱外运行，以及文件写入检查使用错误工作目录的问题。
-  - Fixes cover a read-only Bash command escaping the sandbox without a prompt and file-write checks using the wrong working directory.
-- 复制或移动文件到目录时，拒绝规则和受保护文件提示会应用到实际目标文件。
-  - Deny rules and protected-file prompts now apply to the destination file when copying or moving into a directory.
-
-### 为什么重要 / Why it matters
-
-这些修复针对连接工具并操作本地文件的编程智能体中具体的边界失效情形。
-
-These fixes address concrete failure modes in tool-connected coding agents that operate on local files.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.321)
-
----
-
-<a id="2026-11-09-roboscript-world-in-context-manipulation-memory"></a>
-## [RoboScript 通过模拟演练形成机器人操作任务记忆](https://arxiv.org/abs/2611.12885)
-
-**English:** [RoboScript learns manipulation task memories through simulation rehearsal](https://arxiv.org/abs/2611.12885)
-
-- **发布 / Published:** `2026-11-09T18:59:45Z`
-- **来源 / Source:** [RoboScript authors (arXiv)](https://arxiv.org/abs/2611.12885) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `memory`, `simulation`, `in-context-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-RoboScript 实现 World In-Context Learning：冻结模型从单次演示出发在模拟中演练，将反馈写入任务记忆。预印本报告，在 RoboTwin 2.0 的 50 项任务上，干净与随机化设置的平均成功率为 83.4%，无需梯度更新，并展示了向实体双臂机器人的迁移。
-
-RoboScript implements World In-Context Learning: a frozen model rehearses from one demonstration in simulation and records feedback in task memory. The preprint reports 83.4% mean success across clean and randomized RoboTwin 2.0 settings over 50 tasks without gradient updates, plus transfer to a physical dual-arm robot.
-
-### 技术点 / Technical points
-
-- 模拟反馈汇总为任务记忆，在部署到新场景前固定下来。
-  - Simulation feedback is consolidated into Task Memory, which is frozen before deployment to new scenes.
-- 部署输入限于真实机器人可获取的信息，并通过跨形态记忆适配支持实体迁移。
-  - Deployment inputs are isolated to information available on a real robot; cross-embodiment memory adaptation supports physical transfer.
-
-### 为什么重要 / Why it matters
-
-它探索借助模拟器将技能存入可复用上下文，为策略权重更新之外的学习路径提供证据。
-
-It explores simulator-assisted skill acquisition through reusable context rather than policy weight updates.
-
----
-
-<a id="2026-11-09-workflowarena-executable-multi-agent-orchestration"></a>
-## [WorkflowArena 在八个专业领域评估智能体自主编排工作流](https://arxiv.org/abs/2611.12856)
-
-**English:** [WorkflowArena evaluates agent-authored workflows across eight professional domains](https://arxiv.org/abs/2611.12856)
-
-- **发布 / Published:** `2026-11-09T18:45:28Z`
-- **来源 / Source:** [WorkflowArena authors (arXiv)](https://arxiv.org/abs/2611.12856) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `benchmark`, `planning`, `workflow`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-WorkflowArena 提供 145 项长程任务，并用隐藏验证器评估综合交付物。智能体自主决定是否委派任务及如何委派，使研究者可以同时分析工作流组织方式与产出质量。对九个模型的实验表明，没有一种配置能在所有领域领先。
-
-WorkflowArena introduces 145 long-horizon tasks whose integrated deliverables are assessed by hidden verifiers. Agents decide whether and how to delegate, allowing researchers to examine workflow organisation alongside output quality. Experiments with nine models find that no single configuration leads across all domains.
-
-### 技术点 / Technical points
-
-- 任务横跨八个领域，要求从给定工作区完成相互依赖的多个组成部分。
-  - Tasks span eight domains and require interdependent components in a shared initial workspace.
-- 委派轨迹记录组织方式；固定执行模型的比较用于检验所编排工作流的贡献。
-  - Delegation traces expose organisation choices; fixed-executor comparisons test the contribution of the authored workflow.
-
-### 为什么重要 / Why it matters
-
-它让工作编排质量成为可单独检查的智能体能力，避免仅凭委派次数判断成效。
-
-It makes orchestration quality a separately inspectable agent capability instead of treating delegation volume as success.
-
----
-
-<a id="2026-11-09-lingbot-touch-tactile-encoder-checkpoints"></a>
-## [Robbyant 发布 LingBot-Touch 触觉编码器权重与推理代码](https://github.com/Robbyant/lingbot-touch)
-
-**English:** [Robbyant publishes LingBot-Touch tactile encoders and inference code](https://github.com/Robbyant/lingbot-touch)
-
-- **发布 / Published:** `2026-11-09T17:32:08Z`
-- **来源 / Source:** [Robbyant](https://github.com/Robbyant/lingbot-touch) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tactile-sensing`, `representation-learning`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Robbyant 发布 LingBot-Touch 的 Tiny、Small 权重与推理代码，支持触觉表征跨传感器和机器人手迁移。本条时间采用 Tiny 权重包的上传记录，而非推定的公告时刻。
-
-Robbyant published Tiny and Small LingBot-Touch checkpoints with inference code for transferring tactile representations across sensors and robot hands. The recorded time follows the Tiny checkpoint bundle upload, rather than an inferred announcement time.
-
-### 技术点 / Technical points
-
-- 模态专用分词器与共享的 JEPA 式 Transformer 从磁性、压阻和视触觉信号中学习表征。
-  - Modality-specific tokenizers and a shared JEPA-style Transformer learn from magnetic, piezoresistive and visuotactile signals.
-- 项目报告使用 4,983 小时触觉记录预训练，并在 26 项实机与 12 项仿真任务上评测。
-  - The project reports pretraining on 4,983 hours of tactile recordings and evaluation on 26 real-world and 12 simulated tasks.
-- Apache-2.0 权重包提供冻结的目标编码器及配套配置；推理代码和传感器适配器另行发布。
-  - Apache-2.0 bundles provide frozen target encoders and matching configurations; inference code and sensor adapters are distributed separately.
-
-### 为什么重要 / Why it matters
-
-可复用触觉特征为研究异构硬件上的接触密集控制提供了具体工具。
-
-Reusable tactile features offer a concrete route to studying contact-rich control across heterogeneous hardware.
-
-### 链接 / Links
-
-[Evidence 1](https://technology.robbyant.com/lingbot-touch) · [Evidence 2](https://huggingface.co/robbyant/lingbot-touch-tiny/commit/b149dfa8a9c6e6647ff059cd476fbf7e368cf321) · [Evidence 3](https://huggingface.co/api/models/robbyant/lingbot-touch-tiny/commits/main)
-
----
-
-<a id="2026-11-09-library-of-hands-frozen-world-model-adaptation"></a>
-## [Library of Hands 冻结世界模型，仅适应动作映射](https://arxiv.org/abs/2611.12678)
-
-**English:** [Library of Hands adapts action mappings while keeping world models frozen](https://arxiv.org/abs/2611.12678)
-
-- **发布 / Published:** `2026-11-09T16:45:11Z`
-- **来源 / Source:** [Library of Hands authors (arXiv)](https://arxiv.org/abs/2611.12678) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `planning`, `simulation`, `adaptation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Library of Hands 通过连续图像和冻结的世界模型，识别机器人指令到实际动作之间映射的变化。作者报告，在三项模拟任务中平均成功率从 28.6% 升至 62.3%。使用真实机器人数据预训练模型的测试，并不等于取得相同的实体机器人部署结果。
-
-Library of Hands identifies changes in the mapping from robot commands to applied actions using consecutive images and a frozen world model. In three simulated tasks, the authors report mean success rising from 28.6% to 62.3%. Tests with models pretrained on real robot data do not establish equivalent real-robot deployment results.
-
-### 技术点 / Technical points
-
-- 该方法寻找最能解释图像转移的动作，无需新增传感器或重新训练世界模型。
-  - The method infers the action that best explains an observed image transition without adding a sensor or retraining the world model.
-- 已识别的映射会被保存，方便在配置再次出现时直接识别。
-  - Identified mappings are stored so returning configurations can be recognised rather than learned again.
-
-### 为什么重要 / Why it matters
-
-它将控制器校准独立为可复用的适应层，为世界模型规划提供新的迁移思路。
-
-It isolates controller calibration as a reusable adaptation layer for world-model planning.
