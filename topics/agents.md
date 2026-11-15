@@ -2,6 +2,150 @@
 
 # Agents / 智能体
 
+<a id="2026-11-14-pinky-empty-app-allowlist-deny-access"></a>
+## [Pinky 修复空应用白名单此前允许访问所有应用的问题](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
+
+**English:** [Pinky fixes an empty app allowlist that previously permitted access to every app](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
+
+- **发布 / Published:** `2026-11-14T16:45:54Z`
+- **来源 / Source:** [Pinky release notes](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `phone-use`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
+
+### 摘要 / Summary
+
+Pinky 2026.1115.1 修正手机操作智能体的应用限制：当智能体设为仅允许选定应用、但名单为空时，现在无法访问任何应用；此前该配置会允许访问全部应用。
+
+Pinky 2026.1115.1 corrects its app restrictions for phone-use agents. When an agent is limited to selected apps but the list is empty, it can now access no apps; previously that configuration allowed all apps.
+
+### 技术点 / Technical points
+
+- 执行时将空的选定应用名单解释为禁止访问任何应用。
+  - The runtime now enforces an empty selected-app list as no app access.
+- 设置界面也不再允许在未选择应用时保存仅限选定应用模式。
+  - The settings interface also rejects saving selected-app mode without choosing an app.
+
+### 为什么重要 / Why it matters
+
+该修复消除了界面所示授权范围与手机操作智能体实际可访问范围之间的具体偏差。
+
+The fix closes a concrete mismatch between the displayed authorization scope and what a phone-use agent could actually access.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/DIYgod/pinky/releases/tags/v2026.1115.1)
+
+---
+
+<a id="2026-11-13-google-antigravity-teamwork-external-research-access"></a>
+## [Google 向外部科研与开发者开放 Antigravity /teamwork 和 /boost](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
+
+**English:** [Google opens Antigravity /teamwork and /boost to external researchers and developers](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
+
+- **发布 / Published:** `2026-11-13T20:47:18Z`
+- **来源 / Source:** [Google Research](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `verification`, `coding-agents`, `research`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google 宣布外部用户可通过 Antigravity /teamwork 和 /boost 使用 Gemini 4 多智能体工作流，并使用 Deep Review；同时开放申请，为 10,000 名学术研究者提供六个月最高用量档位，部分专用工作流仍待后续开放。
+
+Google describes external access to Gemini 4 multi-agent workflows through Antigravity /teamwork and /boost, alongside Deep Review. It also opens applications for 10,000 academic researchers to receive six months of its highest usage tier; some specialized workflows remain forthcoming.
+
+### 技术点 / Technical points
+
+- 专用智能体仅获得当前任务所需的文件与工具，批评和审计智能体从全新上下文检查结果。
+  - Specialized agents receive limited task-specific files and tools, while critics and auditors check results from fresh contexts.
+- 并行探索结合 Lean 4、未修改测试集及硬件计数器等外部检查；/boost 将迭代编程循环封装为命令。
+  - Parallel exploration is paired with external checks such as Lean 4, unmodified test suites and hardware counters; /boost packages an iterative coding loop.
+
+### 为什么重要 / Why it matters
+
+该设计为围绕独立验证组织长时运行智能体提供了可检查的协作模式。
+
+The design offers inspectable patterns for coordinating long-running agents around independent verification.
+
+### 链接 / Links
+
+[Evidence 1](https://research.google/blog/rss/)
+
+---
+
+<a id="2026-11-13-claude-code-21325-session-recovery-model-boundaries"></a>
+## [Claude Code 2.1.325 修复会话恢复、子智能体模型处理及执行边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.325)
+
+**English:** [Claude Code 2.1.325 repairs session recovery, subagent model handling and execution boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.325)
+
+- **发布 / Published:** `2026-11-13T20:40:01Z`
+- **来源 / Source:** [Anthropic Claude Code release notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.325) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `multi-agent`, `memory`, `safety`, `agent-runtime`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.325 修复异常退出后恢复会话丢失最近轮次，以及部分网关和 Foundry 上的上下文压缩失败问题，并修正子智能体模型处理和多项执行及权限状态错误。
+
+Claude Code 2.1.325 fixes lost recent turns after an unclean exit and context-compaction failures on some gateways and Foundry. It also corrects model handling for subagents and several execution and permission-state errors.
+
+### 技术点 / Technical points
+
+- 子智能体保留所选模型，并依据该模型限制文件读取及 MCP 结果大小，不再误用主会话模型。
+  - Subagents retain their selected model and size file reads and MCP results using that model rather than the main session model.
+- 工作目录被删除时，Shell 命令现在报错，而非退回启动目录执行；本版也修复子智能体计划获批后权限模式回退的问题。
+  - Shell commands now fail when the working directory has been deleted instead of running in the launch directory; the release also fixes permission-mode rollback after subagent plan approval.
+
+### 为什么重要 / Why it matters
+
+这些修复使恢复会话和委派编程任务更可靠地遵循已记录的上下文与执行设置。
+
+These fixes make resumed and delegated coding work more consistent with its recorded context and execution settings.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.325)
+
+---
+
+<a id="2026-11-13-microsoft-agent-framework-126-approval-provenance"></a>
+## [Microsoft Agent Framework 1.26 将审批绑定至已存储调用并限制客体执行](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0)
+
+**English:** [Microsoft Agent Framework 1.26 binds approvals to stored calls and bounds guest execution](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0)
+
+- **发布 / Published:** `2026-11-13T08:28:16Z`
+- **来源 / Source:** [Microsoft Agent Framework release notes](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `safety`, `tool-use`, `approval`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.26 加强审批与历史重放处理，支持应用自行分类上下文消息，并为 Hyperlight 客体执行加入取消机制和默认时间预算，同时为 GitHub Copilot 集成添加结构化输出。
+
+Microsoft Agent Framework Python 1.26 hardens approval and replay handling, adds application-owned message classification, and introduces cancellable Hyperlight guest execution with a default time budget. The release also adds structured outputs for its GitHub Copilot integration.
+
+### 技术点 / Technical points
+
+- 审批绑定至规范化的已存储调用及待处理会话快照；服务端历史不可用时拒绝继续执行。
+  - Approvals are bound to canonical stored calls and pending session snapshots; unavailable service-owned history causes execution to fail closed.
+- Hyperlight 客体执行默认限时 30 秒并支持取消；中断需要 0.9 或更新版本文档所列的 SDK 接口，初始化和宿主回调仍需单独限制。
+  - Hyperlight guest execution defaults to 30 seconds and supports cancellation; interruption requires the SDK API documented for version 0.9 or later, while initialization and host callbacks need separate limits.
+
+### 为什么重要 / Why it matters
+
+这些变化加强了获批操作、可信历史与受限工具执行之间的约束。
+
+The changes tighten the connection between approved actions, trustworthy history, and bounded tool execution.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.26.0)
+
+---
+
 <a id="2026-11-12-agentssl-program-selection-semisupervised-learning"></a>
 ## [AgentSSL 揭示智能体设计半监督学习程序时的选择瓶颈](https://arxiv.org/abs/2611.17323)
 

@@ -2,6 +2,150 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-14-pinky-empty-app-allowlist-deny-access"></a>
+## [Pinky 修复空应用白名单此前允许访问所有应用的问题](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
+
+**English:** [Pinky fixes an empty app allowlist that previously permitted access to every app](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
+
+- **发布 / Published:** `2026-11-14T16:45:54Z`
+- **来源 / Source:** [Pinky release notes](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `phone-use`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
+
+### 摘要 / Summary
+
+Pinky 2026.1115.1 修正手机操作智能体的应用限制：当智能体设为仅允许选定应用、但名单为空时，现在无法访问任何应用；此前该配置会允许访问全部应用。
+
+Pinky 2026.1115.1 corrects its app restrictions for phone-use agents. When an agent is limited to selected apps but the list is empty, it can now access no apps; previously that configuration allowed all apps.
+
+### 技术点 / Technical points
+
+- 执行时将空的选定应用名单解释为禁止访问任何应用。
+  - The runtime now enforces an empty selected-app list as no app access.
+- 设置界面也不再允许在未选择应用时保存仅限选定应用模式。
+  - The settings interface also rejects saving selected-app mode without choosing an app.
+
+### 为什么重要 / Why it matters
+
+该修复消除了界面所示授权范围与手机操作智能体实际可访问范围之间的具体偏差。
+
+The fix closes a concrete mismatch between the displayed authorization scope and what a phone-use agent could actually access.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/DIYgod/pinky/releases/tags/v2026.1115.1)
+
+---
+
+<a id="2026-11-13-google-antigravity-teamwork-external-research-access"></a>
+## [Google 向外部科研与开发者开放 Antigravity /teamwork 和 /boost](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
+
+**English:** [Google opens Antigravity /teamwork and /boost to external researchers and developers](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
+
+- **发布 / Published:** `2026-11-13T20:47:18Z`
+- **来源 / Source:** [Google Research](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `reasoning`, `verification`, `coding-agents`, `research`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Google 宣布外部用户可通过 Antigravity /teamwork 和 /boost 使用 Gemini 4 多智能体工作流，并使用 Deep Review；同时开放申请，为 10,000 名学术研究者提供六个月最高用量档位，部分专用工作流仍待后续开放。
+
+Google describes external access to Gemini 4 multi-agent workflows through Antigravity /teamwork and /boost, alongside Deep Review. It also opens applications for 10,000 academic researchers to receive six months of its highest usage tier; some specialized workflows remain forthcoming.
+
+### 技术点 / Technical points
+
+- 专用智能体仅获得当前任务所需的文件与工具，批评和审计智能体从全新上下文检查结果。
+  - Specialized agents receive limited task-specific files and tools, while critics and auditors check results from fresh contexts.
+- 并行探索结合 Lean 4、未修改测试集及硬件计数器等外部检查；/boost 将迭代编程循环封装为命令。
+  - Parallel exploration is paired with external checks such as Lean 4, unmodified test suites and hardware counters; /boost packages an iterative coding loop.
+
+### 为什么重要 / Why it matters
+
+该设计为围绕独立验证组织长时运行智能体提供了可检查的协作模式。
+
+The design offers inspectable patterns for coordinating long-running agents around independent verification.
+
+### 链接 / Links
+
+[Evidence 1](https://research.google/blog/rss/)
+
+---
+
+<a id="2026-11-13-claude-code-21325-session-recovery-model-boundaries"></a>
+## [Claude Code 2.1.325 修复会话恢复、子智能体模型处理及执行边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.325)
+
+**English:** [Claude Code 2.1.325 repairs session recovery, subagent model handling and execution boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.325)
+
+- **发布 / Published:** `2026-11-13T20:40:01Z`
+- **来源 / Source:** [Anthropic Claude Code release notes](https://github.com/anthropics/claude-code/releases/tag/v2.1.325) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `multi-agent`, `memory`, `safety`, `agent-runtime`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Claude Code 2.1.325 修复异常退出后恢复会话丢失最近轮次，以及部分网关和 Foundry 上的上下文压缩失败问题，并修正子智能体模型处理和多项执行及权限状态错误。
+
+Claude Code 2.1.325 fixes lost recent turns after an unclean exit and context-compaction failures on some gateways and Foundry. It also corrects model handling for subagents and several execution and permission-state errors.
+
+### 技术点 / Technical points
+
+- 子智能体保留所选模型，并依据该模型限制文件读取及 MCP 结果大小，不再误用主会话模型。
+  - Subagents retain their selected model and size file reads and MCP results using that model rather than the main session model.
+- 工作目录被删除时，Shell 命令现在报错，而非退回启动目录执行；本版也修复子智能体计划获批后权限模式回退的问题。
+  - Shell commands now fail when the working directory has been deleted instead of running in the launch directory; the release also fixes permission-mode rollback after subagent plan approval.
+
+### 为什么重要 / Why it matters
+
+这些修复使恢复会话和委派编程任务更可靠地遵循已记录的上下文与执行设置。
+
+These fixes make resumed and delegated coding work more consistent with its recorded context and execution settings.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.325)
+
+---
+
+<a id="2026-11-13-microsoft-agent-framework-126-approval-provenance"></a>
+## [Microsoft Agent Framework 1.26 将审批绑定至已存储调用并限制客体执行](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0)
+
+**English:** [Microsoft Agent Framework 1.26 binds approvals to stored calls and bounds guest execution](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0)
+
+- **发布 / Published:** `2026-11-13T08:28:16Z`
+- **来源 / Source:** [Microsoft Agent Framework release notes](https://github.com/microsoft/agent-framework/releases/tag/python-1.26.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `agent-runtime`, `safety`, `tool-use`, `approval`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Microsoft Agent Framework Python 1.26 加强审批与历史重放处理，支持应用自行分类上下文消息，并为 Hyperlight 客体执行加入取消机制和默认时间预算，同时为 GitHub Copilot 集成添加结构化输出。
+
+Microsoft Agent Framework Python 1.26 hardens approval and replay handling, adds application-owned message classification, and introduces cancellable Hyperlight guest execution with a default time budget. The release also adds structured outputs for its GitHub Copilot integration.
+
+### 技术点 / Technical points
+
+- 审批绑定至规范化的已存储调用及待处理会话快照；服务端历史不可用时拒绝继续执行。
+  - Approvals are bound to canonical stored calls and pending session snapshots; unavailable service-owned history causes execution to fail closed.
+- Hyperlight 客体执行默认限时 30 秒并支持取消；中断需要 0.9 或更新版本文档所列的 SDK 接口，初始化和宿主回调仍需单独限制。
+  - Hyperlight guest execution defaults to 30 seconds and supports cancellation; interruption requires the SDK API documented for version 0.9 or later, while initialization and host callbacks need separate limits.
+
+### 为什么重要 / Why it matters
+
+这些变化加强了获批操作、可信历史与受限工具执行之间的约束。
+
+The changes tighten the connection between approved actions, trustworthy history, and bounded tool execution.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/microsoft/agent-framework/releases/tags/python-1.26.0)
+
+---
+
 <a id="2026-11-12-agentssl-program-selection-semisupervised-learning"></a>
 ## [AgentSSL 揭示智能体设计半监督学习程序时的选择瓶颈](https://arxiv.org/abs/2611.17323)
 
@@ -535,139 +679,3 @@ Adaptive imagination budgets could make predictive robot policies more practical
 ### 链接 / Links
 
 [Evidence 1](https://lihaitian.com/Elastic-WAM/)
-
----
-
-<a id="2026-11-10-google-mka-visual-knowledge-work-benchmark"></a>
-## [Google 与 Artificial Analysis 推出面向复杂视觉知识工作的 MKA 基准](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
-
-**English:** [Google and Artificial Analysis launch MKA for visually complex agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/)
-
-- **发布 / Published:** `2026-11-10T16:00:00Z`
-- **来源 / Source:** [Google DeepMind](https://blog.google/innovation-and-ai/models-and-research/gemini-models/multimodal-knowledge-agent-benchmark/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `multimodal`, `tool-use`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Google DeepMind 与 Artificial Analysis 推出 MKA：包含 200 项任务，覆盖 10 个行业和 83 种职业的视觉知识工作。智能体在统一执行环境中检查多模态文件并交付成果。正式评测集保持私有，另有 10 项独立展示任务公开。
-
-Google DeepMind and Artificial Analysis introduced MKA, a 200-task benchmark covering visual knowledge work across 10 sectors and 83 occupations. Agents inspect multimodal files and produce deliverables in a shared execution setup. The evaluation set remains private, while a separate set of 10 showcase tasks is public.
-
-### 技术点 / Technical points
-
-- 所有模型使用 Stirrup，配备相同工具、沙箱和轮次预算。
-  - All models use Stirrup with the same tools, sandbox and turn budget.
-- 专家评分细则将事实准确性权重设为 75%、视觉设计设为 25%；Google 报告专家与采用非 Google 模型的自动评审器的一致率为 96%。
-  - Expert rubrics weight factual accuracy at 75% and visual design at 25%; Google reports 96% expert agreement with its non-Google-model autorater.
-
-### 为什么重要 / Why it matters
-
-MKA 检验智能体能否利用不可替代的视觉证据并产出可用成果，扩展了附件文本提取之外的评测范围。
-
-MKA tests whether agents can use visually essential evidence and create usable work products, beyond extracting text from attachments.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/datasets/google/multimodal-knowledge-agent)
-
----
-
-<a id="2026-11-10-gemini-robotics-25-dexterity-factory-safety"></a>
-## [Gemini Robotics 2.5 提升灵巧操作，并公布工厂配料试点结果](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
-
-**English:** [Gemini Robotics 2.5 adds dexterity and reports a factory kitting pilot](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/)
-
-- **发布 / Published:** `2026-11-10T15:00:00Z`
-- **来源 / Source:** [Google DeepMind](https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `humanoid`, `robotics`, `safety`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-Google DeepMind 在评估逾 200 项任务后，开始向机器人合作伙伴提供 Gemini Robotics 2.5。官方报告，在梅赛德斯-奔驰生产线的概念验证中，Apptronik Apollo 2 的汽车配料任务成功率为 96%。公告还推出面向机器人对抗安全评测的 ASIMOV-Jailbreak。
-
-Google DeepMind is rolling Gemini Robotics 2.5 out to robotics partners after evaluating more than 200 tasks. In a Mercedes-Benz production-line proof of concept, it reports 96% success for automotive kitting with Apptronik’s Apollo 2. The announcement also introduces ASIMOV-Jailbreak for adversarial robotics safety evaluation.
-
-### 技术点 / Technical points
-
-- 配料试点由 Gemini Robotics ER 跟踪流程，2.5 动作模型控制手部与手臂。
-  - Gemini Robotics ER tracks the workflow while the 2.5 action model controls hands and arms in the kitting pilot.
-- 推理时引导用于约束物理动作；ASIMOV-Jailbreak 中 99.5% 的抗越狱成绩属于 Gemini 4 Argon。
-  - Inference-time guidance steers physical actions; the separate ASIMOV-Jailbreak result of 99.5% resistance is attributed to Gemini 4 Argon.
-
-### 为什么重要 / Why it matters
-
-此次发布将更广泛的操作技能、具体工业试点和专用安全基准结合起来；可靠性数据仍属于公司自报结果。
-
-The release connects broader manipulation skills with a concrete industrial pilot and a dedicated safety benchmark, while the reliability figures remain company-reported.
-
----
-
-<a id="2026-11-10-dexseed-human-interaction-robot-demonstrations"></a>
-## [DexSeed 将人手与物体交互扩展为 VLA 学习所需的机器人示范](https://arxiv.org/abs/2611.14092)
-
-**English:** [DexSeed expands human hand-object interactions into robot demonstrations for VLA learning](https://arxiv.org/abs/2611.14092)
-
-- **发布 / Published:** `2026-11-10T13:52:18Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14092) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `dexterous-manipulation`, `simulation`, `synthetic-data`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-DexSeed 将人手与物体交互重定向到机器人，扩展物体几何与运动轨迹，再通过物理仿真实现可执行动作，生成灵巧操作训练数据。项目报告由 19 段人类序列生成 25,270 条机器人轨迹，并展示仅使用这些生成示范训练的 VLA 在真实机器人上执行抓取。
-
-DexSeed generates dexterous robot training data by retargeting human hand-object interactions, expanding object geometries and trajectories, and realizing the motions in physics simulation. The project reports 25,270 robot trajectories from 19 human sequences and demonstrates real-robot grasps with a VLA trained solely on the generated demonstrations.
-
-### 技术点 / Technical points
-
-- InteractionMesh 重定向在改变物体和操作位置时保留局部手与物体关系。
-  - InteractionMesh retargeting preserves local hand-object relationships while varying objects and manipulation locations.
-- 强化学习手指策略与机械臂轨迹跟踪配合，成功轨迹提供渲染观测及机械臂和手指动作。
-  - An RL finger policy operates with arm-trajectory tracking; successful rollouts supply rendered observations and arm/finger actions.
-
-### 为什么重要 / Why it matters
-
-复用人类交互数据，有望减少训练灵巧操作策略时昂贵的机器人遥操作采集。
-
-Reusing human interaction data could reduce the need for costly robot teleoperation when training dexterous policies.
-
-### 链接 / Links
-
-[Evidence 1](https://robbyant-research.github.io/DexSeed/)
-
----
-
-<a id="2026-11-10-last05-interaction-centric-world-action"></a>
-## [LaST0.5 通过交互中心潜空间推理连接世界预测与机器人动作](https://arxiv.org/abs/2611.14048)
-
-**English:** [LaST0.5 connects world prediction to robot actions through interaction-centric latent reasoning](https://arxiv.org/abs/2611.14048)
-
-- **发布 / Published:** `2026-11-10T13:15:11Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14048) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `vla`, `robotics`, `latent-reasoning`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-LaST0.5 在世界专家与动作专家之间加入关注机器人与物体交互的潜空间专家。预印本报告使用超过 1.4 万小时机器人数据预训练，在 LIBERO 上取得 99.5% 成功率，并进行了真实机器人的长程与灵巧操作实验。
-
-LaST0.5 introduces a latent expert focused on robot-object interactions between a world expert and an action expert. The preprint reports pretraining on more than 14,000 hours of robot data, 99.5% success on LIBERO, and real-robot long-horizon and dexterous manipulation experiments.
-
-### 技术点 / Technical points
-
-- 视觉交互线索监督 Mixture-of-Transformers 架构中的紧凑潜空间。
-  - Visual interaction cues supervise a compact latent space in a Mixture-of-Transformers architecture.
-- 联合预测未来表征与任务进度，用进度一致性调整动作执行并触发未来重采样。
-  - Joint prediction of future representations and task progress adjusts execution and triggers future resampling.
-
-### 为什么重要 / Why it matters
-
-以交互为中心的表征，为全局场景预测与操作所需的局部接触细节提供了连接方式。
-
-Interaction-focused representations offer a way to bridge global scene prediction and the local contact details needed for manipulation.
