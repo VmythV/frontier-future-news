@@ -2,6 +2,82 @@
 
 # Agents / 智能体
 
+<a id="2026-11-15-nativeagent-0619-memory-provenance-message-recovery"></a>
+## [NativeAgent 0.6.19 保留记忆来源并修复跨智能体回复处理](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
+
+**English:** [NativeAgent 0.6.19 preserves memory provenance and repairs cross-agent reply handling](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
+
+- **发布 / Published:** `2026-11-15T17:53:48Z`
+- **来源 / Source:** [NativeAgent release notes](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `multi-agent`, `computer-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
+
+### 摘要 / Summary
+
+NativeAgent 0.6.19 的发布说明介绍了旧记忆导入：保留最初学习时间与来源归属，避免重复导入或恢复已删除记忆。该版本还改进了智能体消息与回复的对应关系，以及应用重启后的回复恢复。
+
+NativeAgent 0.6.19 describes importing older memories while preserving their original learning dates and attribution, without reimporting duplicates or deleted memories. Its release notes also address matching replies to agent messages and recovering replies across app restarts.
+
+### 技术点 / Technical points
+
+- 导入经由智能体自身的记忆系统处理，保留原始时间与来源；重新连接其他智能体时保留其 Trust 设置。
+  - Memory imports pass through the agent’s memory system and retain original dates and attribution; reconnecting another agent preserves its Trust setting.
+- 等待中的智能体消息只接受明确对应它的回复；发送新消息不再取消前一条，关闭期间到达的回复会在重启后交付一次。
+  - A pending agent message accepts only a reply that identifies it; sending another message no longer cancels the first, and replies arriving during shutdown are handed over once after restart.
+- 计算机操作步骤中若屏幕发生变化，智能体只重新检查最初的窗口；该窗口关闭后不再操作。
+  - When the screen changes during a computer-use step, the agent rechecks only the original window and takes no action if that window has closed.
+
+### 为什么重要 / Why it matters
+
+这些改动针对持久运行助手的具体故障，包括记忆来源丢失、回复错配、重复交付和界面变化后的误操作。
+
+These changes target concrete failure modes in persistent assistants: lost provenance, crossed replies, duplicate delivery and actions against a changed interface.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.19)
+
+---
+
+<a id="2026-11-15-qwen-code-0274-managed-access-authorization"></a>
+## [Qwen Code 0.27.4 新增可控的托管会话文件访问并收紧自动模式授权判断](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
+
+**English:** [Qwen Code 0.27.4 adds gated managed-session filesystem access and tighter Auto authorization](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
+
+- **发布 / Published:** `2026-11-15T07:04:40Z`
+- **来源 / Source:** [Qwen Code release notes](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.27.4 为 Managed Agent 会话加入可选的本地目录访问和交互式终端。自动模式改为判断高风险操作是否得到明确授权，而不只是是否与用户目标相关，同时恢复 CLI 记忆管理入口。
+
+Qwen Code 0.27.4 adds opt-in local-directory access and an interactive terminal for Managed Agent sessions. It also changes Auto Mode to assess whether risky actions were explicitly authorized, rather than merely related to the user’s goal, and restores CLI memory controls.
+
+### 技术点 / Technical points
+
+- 本地文件访问通过 HTTP/SSE MCP 中继和临时目录注册实现，默认关闭并需要会话能力开关；返回的文件内容仍遵循常规工具结果持久化策略。
+  - Local-file access uses an HTTP/SSE MCP relay with temporary directory registrations; it is disabled by default and requires a session capability. Returned file contents still follow the normal durable tool-result policy.
+- 托管终端使用短期单次准入票据，连接期间保持运行环境活跃；该可选功能要求工作区 OPERATOR 角色。
+  - The managed terminal uses a short-lived, single-use admission ticket and keeps the runtime active while attached; the opt-in surface requires the workspace OPERATOR role.
+- 自动模式在破坏性或批量操作上区分明确授权与目标相关性；带类型的 SDK 接口还支持预览和管理记忆导入。
+  - Auto Mode distinguishes explicit authorization from goal relevance for destructive or bulk actions; typed SDK APIs also support previewing and managing memory imports.
+
+### 为什么重要 / Why it matters
+
+该版本扩展了托管智能体使用本地资源的方式，也更明确地约束了访问前提和高风险操作授权。
+
+The release expands how hosted agents can work with local resources while making access prerequisites and risky-action authorization more explicit.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.4) · [Evidence 2](https://github.com/QwenLM/qwen-code/pull/16844) · [Evidence 3](https://github.com/QwenLM/qwen-code/pull/16866) · [Evidence 4](https://github.com/QwenLM/qwen-code/pull/16858)
+
+---
+
 <a id="2026-11-14-pinky-empty-app-allowlist-deny-access"></a>
 ## [Pinky 修复空应用白名单此前允许访问所有应用的问题](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
 

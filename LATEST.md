@@ -2,6 +2,82 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-15-nativeagent-0619-memory-provenance-message-recovery"></a>
+## [NativeAgent 0.6.19 保留记忆来源并修复跨智能体回复处理](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
+
+**English:** [NativeAgent 0.6.19 preserves memory provenance and repairs cross-agent reply handling](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
+
+- **发布 / Published:** `2026-11-15T17:53:48Z`
+- **来源 / Source:** [NativeAgent release notes](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `multi-agent`, `computer-use`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
+
+### 摘要 / Summary
+
+NativeAgent 0.6.19 的发布说明介绍了旧记忆导入：保留最初学习时间与来源归属，避免重复导入或恢复已删除记忆。该版本还改进了智能体消息与回复的对应关系，以及应用重启后的回复恢复。
+
+NativeAgent 0.6.19 describes importing older memories while preserving their original learning dates and attribution, without reimporting duplicates or deleted memories. Its release notes also address matching replies to agent messages and recovering replies across app restarts.
+
+### 技术点 / Technical points
+
+- 导入经由智能体自身的记忆系统处理，保留原始时间与来源；重新连接其他智能体时保留其 Trust 设置。
+  - Memory imports pass through the agent’s memory system and retain original dates and attribution; reconnecting another agent preserves its Trust setting.
+- 等待中的智能体消息只接受明确对应它的回复；发送新消息不再取消前一条，关闭期间到达的回复会在重启后交付一次。
+  - A pending agent message accepts only a reply that identifies it; sending another message no longer cancels the first, and replies arriving during shutdown are handed over once after restart.
+- 计算机操作步骤中若屏幕发生变化，智能体只重新检查最初的窗口；该窗口关闭后不再操作。
+  - When the screen changes during a computer-use step, the agent rechecks only the original window and takes no action if that window has closed.
+
+### 为什么重要 / Why it matters
+
+这些改动针对持久运行助手的具体故障，包括记忆来源丢失、回复错配、重复交付和界面变化后的误操作。
+
+These changes target concrete failure modes in persistent assistants: lost provenance, crossed replies, duplicate delivery and actions against a changed interface.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.19)
+
+---
+
+<a id="2026-11-15-qwen-code-0274-managed-access-authorization"></a>
+## [Qwen Code 0.27.4 新增可控的托管会话文件访问并收紧自动模式授权判断](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
+
+**English:** [Qwen Code 0.27.4 adds gated managed-session filesystem access and tighter Auto authorization](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
+
+- **发布 / Published:** `2026-11-15T07:04:40Z`
+- **来源 / Source:** [Qwen Code release notes](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Qwen Code 0.27.4 为 Managed Agent 会话加入可选的本地目录访问和交互式终端。自动模式改为判断高风险操作是否得到明确授权，而不只是是否与用户目标相关，同时恢复 CLI 记忆管理入口。
+
+Qwen Code 0.27.4 adds opt-in local-directory access and an interactive terminal for Managed Agent sessions. It also changes Auto Mode to assess whether risky actions were explicitly authorized, rather than merely related to the user’s goal, and restores CLI memory controls.
+
+### 技术点 / Technical points
+
+- 本地文件访问通过 HTTP/SSE MCP 中继和临时目录注册实现，默认关闭并需要会话能力开关；返回的文件内容仍遵循常规工具结果持久化策略。
+  - Local-file access uses an HTTP/SSE MCP relay with temporary directory registrations; it is disabled by default and requires a session capability. Returned file contents still follow the normal durable tool-result policy.
+- 托管终端使用短期单次准入票据，连接期间保持运行环境活跃；该可选功能要求工作区 OPERATOR 角色。
+  - The managed terminal uses a short-lived, single-use admission ticket and keeps the runtime active while attached; the opt-in surface requires the workspace OPERATOR role.
+- 自动模式在破坏性或批量操作上区分明确授权与目标相关性；带类型的 SDK 接口还支持预览和管理记忆导入。
+  - Auto Mode distinguishes explicit authorization from goal relevance for destructive or bulk actions; typed SDK APIs also support previewing and managing memory imports.
+
+### 为什么重要 / Why it matters
+
+该版本扩展了托管智能体使用本地资源的方式，也更明确地约束了访问前提和高风险操作授权。
+
+The release expands how hosted agents can work with local resources while making access prerequisites and risky-action authorization more explicit.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.4) · [Evidence 2](https://github.com/QwenLM/qwen-code/pull/16844) · [Evidence 3](https://github.com/QwenLM/qwen-code/pull/16866) · [Evidence 4](https://github.com/QwenLM/qwen-code/pull/16858)
+
+---
+
 <a id="2026-11-14-pinky-empty-app-allowlist-deny-access"></a>
 ## [Pinky 修复空应用白名单此前允许访问所有应用的问题](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
 
@@ -607,75 +683,3 @@ A preprint identifies a temporal shortcut in memory-augmented VLA policies: paus
 基于事件的记忆评测有助于暴露普通连续机器人示范难以发现的脆弱进度判断。
 
 Event-based memory evaluation could expose brittle progress tracking that ordinary uninterrupted robot demonstrations miss.
-
----
-
-<a id="2026-11-10-behavior-2026-single-policy-coding-agent"></a>
-## [BEHAVIOR 挑战赛报告结合百任务 VLA 与针对部分任务的编程智能体](https://arxiv.org/abs/2611.14432)
-
-**English:** [BEHAVIOR Challenge report combines a 100-task VLA with a coding agent for selected tasks](https://arxiv.org/abs/2611.14432)
-
-- **发布 / Published:** `2026-11-10T18:06:16Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14432) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `simulation`, `coding-agents`, `long-horizon`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-一份新技术报告介绍 Robot Learning Collective 在 BEHAVIOR 2026 中获得第九名的方案：以单个 VLA 检查点处理 100 项仿真家庭任务，并在其中 14 项上辅以编程智能体。公开提交取得 0.446 Q 和 27.3% 完整任务成功率；这些结果来自仿真。
-
-A new technical report describes Robot Learning Collective's ninth-place BEHAVIOR 2026 solution: one VLA checkpoint for 100 simulated household tasks, supplemented by a coding agent on 14 tasks. The public submission achieved 0.446 Q and 27.3% full-task success; these are simulator results.
-
-### 技术点 / Technical points
-
-- 策略基于 pi0.5，训练 20 万步，约遍历一次 2.11 亿帧示范数据。
-  - The policy builds on pi0.5 and trains for 200,000 steps, approximately one pass over 211 million demonstration frames.
-- 在选定的 14 项任务上，作者报告使用观测与运动工具的 GPT-6 Astra 平均 Q 为 0.639，学习策略为 0.108。
-  - On the selected 14 tasks, the authors report mean Q of 0.639 for GPT-6 Astra using observation and motion tools, versus 0.108 for the learned policy.
-
-### 为什么重要 / Why it matters
-
-该报告提供了可检查的实例，展示学习式动作策略与使用工具的编程智能体如何在长程仿真中互补。
-
-The report provides inspectable evidence of how learned motor policies and tool-using coding agents can complement each other in long-horizon simulation.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/Robot-Learning-Collective/behavior-1k-solution-2026)
-
----
-
-<a id="2026-11-10-elastic-wam-adaptive-spatiotemporal-refinement"></a>
-## [Elastic-WAM 自适应分配未来表征细化计算，降低机器人控制开销](https://arxiv.org/abs/2611.14257)
-
-**English:** [Elastic-WAM allocates future-refinement computation to reduce robot-control overhead](https://arxiv.org/abs/2611.14257)
-
-- **发布 / Published:** `2026-11-10T16:04:16Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14257) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `vla`, `efficiency`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Elastic-WAM 学习何时停止细化预测未来、每次视频去噪推进多少，以及刷新哪些空间区域。作者报告，在仿真基准与真实长程操作中，这种按状态分配计算的方法改善了控制表现并降低推理延迟，替代固定的细化预算。
-
-Elastic-WAM learns when to stop refining predicted futures, how far to advance video denoising, and which spatial regions to refresh. The authors report improved control with lower inference latency across simulation benchmarks and real-world long-horizon manipulation, replacing a fixed refinement budget with state-dependent computation.
-
-### 技术点 / Technical points
-
-- 统一细化需求场结合共享时间基与空间幅度，通过三个监督训练阶段学习。
-  - A unified refinement field combines a shared temporal basis with spatial amplitudes and is trained in three supervised stages.
-- 项目冻结预训练 WAM，在每次稀疏更新中刷新 196 个未来 token 中的 96 个。
-  - The project uses a frozen pretrained WAM and refreshes 96 of 196 future tokens per sparse update.
-
-### 为什么重要 / Why it matters
-
-当反复视频去噪限制响应速度时，自适应想象计算预算有望提升预测式机器人策略的实用性。
-
-Adaptive imagination budgets could make predictive robot policies more practical when repeated video denoising limits response speed.
-
-### 链接 / Links
-
-[Evidence 1](https://lihaitian.com/Elastic-WAM/)
