@@ -2,6 +2,159 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-16-cloudrobo-wm12-world-prediction-robot-actions"></a>
+## [华为云发布 CloudRobo-WM1.2，结合世界预测与机器人动作生成](https://www.cls.cn/detail/2535460)
+
+**English:** [Huawei Cloud announces CloudRobo-WM1.2 for world prediction and robot actions](https://www.cls.cn/detail/2535460)
+
+- **发布 / Published:** `2026-11-16T08:02:06Z`
+- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535460) · `media`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `cross-embodiment`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+华为云发布基于昇腾训练的具身世界模型 CloudRobo-WM1.2，将预测式表征与 DualAct 动作生成结合，并宣布开源。本条时间采用财联社 11 月 16 日原创报道的发布时间，不代替尚未披露的精确发布时刻。
+
+Huawei Cloud announced CloudRobo-WM1.2, an Ascend-trained embodied world model coupling predictive representations with DualAct action generation, and announced open sourcing. The timestamp follows CLS’s original November 16 report rather than an undisclosed exact launch time.
+
+### 技术点 / Technical points
+
+- 共享的世界模型骨干网络支持预测增强表征与原生动作生成。
+  - A shared world-model backbone supports prediction-enhanced representations and native action generation.
+- 技术报道列出 PPA 多模态表征、异构数据预训练与保留本体语义的运动建模。
+  - Technical coverage identifies PPA multimodal representations, heterogeneous-data pretraining and embodiment-aware motion modeling.
+- World 与 Expert Action、Joint 与 Action-only 组成四种推理组合，用于匹配不同算力和时延需求。
+  - World versus Expert Action and Joint versus Action-only form four inference combinations for different compute and latency needs.
+
+### 为什么重要 / Why it matters
+
+该架构在昇腾训练栈上连接学习到的环境动态与物理控制，其部署效果仍需独立评估。
+
+The architecture connects learned environment dynamics with physical control on an Ascend training stack; independent deployment evaluation remains necessary.
+
+### 链接 / Links
+
+[Evidence 1](https://www.huaweicloud.com/about/live/261116.html) · [Evidence 2](https://m.ithome.com/html/1027684.htm) · [Evidence 3](https://www.cww.net.cn/article?id=616774)
+
+---
+
+<a id="2026-11-16-laya-guard-080-browser-desktop-controls"></a>
+## [Laya Guard 0.8 将本地动作检查扩展到浏览器工具与桌面点击](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
+
+**English:** [Laya Guard 0.8 extends local action checks to browser tools and desktop clicks](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
+
+- **发布 / Published:** `2026-11-16T05:00:06Z`
+- **来源 / Source:** [Laya Guard](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Laya Guard 0.8.0 增加基于工具字段的浏览器规则，以及面向电脑操作的 macOS 辅助功能检查。第二版模型加入桌面点击训练；独立的可选模型复核可将原本放行的桌面动作提升为待审。
+
+Laya Guard 0.8.0 adds field-based browser rules and macOS accessibility checks for computer-use actions. Its second model revision includes desktop clicks, while a separate optional model review can escalate otherwise allowed desktop actions for review.
+
+### 技术点 / Technical points
+
+- 浏览器规则覆盖 Claude 浏览器工具、Chrome DevTools MCP 与 Playwright MCP，并逐步检查批量调用。
+  - Browser rules cover Claude browser tools, Chrome DevTools MCP and Playwright MCP; batch calls are checked step by step.
+- 只读 macOS 辅助程序识别点击位置下的界面元素；无法读取屏幕时，点击需要复核。
+  - A read-only macOS helper identifies the UI element under a click; unreadable screens cause the click to require review.
+- 可选桌面模型只能提升为待审，不能直接阻止；Unicode 规范化会在命令原文与折叠文本之间采用更严格的判定。
+  - The optional desktop model can escalate to review but cannot block; Unicode normalization now applies the stricter verdict across original and folded command text.
+
+### 为什么重要 / Why it matters
+
+该版本将工具调用防护扩展到视觉交互，因为单凭坐标无法判断动作的实际含义。
+
+The release extends tool-call guardrails to visual interaction, where coordinates alone do not reveal an action’s meaning.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/scs0209/laya-guard/releases?per_page=3)
+
+---
+
+<a id="2026-11-16-openai-agents-sdk-alpha8-managed-approvals-budget-recovery"></a>
+## [OpenAI Agents SDK alpha.8 增加托管工具审批与保留预算用量的恢复机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
+
+**English:** [OpenAI Agents SDK alpha.8 adds managed tool approvals and budget-preserving recovery](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
+
+- **发布 / Published:** `2026-11-16T04:39:19Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK v0.24.0-alpha.8 是预发布版本，新增托管 Python 工具审批，以及恢复检查点时保留已消耗请求数或 token 预算的机制，同时扩展原生 Session 语音连接和应用自管模型客户端。
+
+OpenAI Agents SDK v0.24.0-alpha.8 is a prerelease adding managed Python tool approvals and checkpoint recovery that retains spent request or token budgets. It also expands native Session voice connections and application-owned model clients.
+
+### 技术点 / Technical points
+
+- 应用可在执行前检查工具参数并批准或拒绝调用，还可选择在当前 Session 中保留该决定。
+  - Applications can inspect tool arguments before execution and approve or reject a call, optionally retaining that decision for the Session.
+- 受支持的待执行任务检查点会保留已用预算；alpha.7 因无法执行保存的用量约束而拒绝新的带预算格式。
+  - Supported pending-run checkpoints preserve spent budgets; alpha.7 rejects the new budgeted format because it cannot enforce that saved usage.
+- 原生 Session Realtime 支持服务端 WebSocket、浏览器 WebRTC 及既有 SIP 通话；中断后执行效果不确定的工作仍需核对。
+  - Native Session Realtime supports server WebSocket, browser WebRTC and existing SIP calls; interrupted work with uncertain effects still requires reconciliation.
+
+### 为什么重要 / Why it matters
+
+审批与恢复控制有助于监督持续运行的智能体，并避免中断恢复后重置用量计数。
+
+Approval and recovery controls help supervise persistent agents without resetting their usage accounting after interruptions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases?per_page=3)
+
+---
+
+<a id="2026-11-16-qwen4-max-production-long-horizon-agents"></a>
+## [Qwen4-Max 正式上线，面向工具使用与长程智能体工作](https://www.cls.cn/detail/2535030)
+
+**English:** [Qwen4-Max enters production for tool use and long-horizon agent work](https://www.cls.cn/detail/2535030)
+
+- **发布 / Published:** `2026-11-16T02:42:50Z`
+- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535030) · `media`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `long-context`, `multimodal`, `human-in-the-loop`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+阿里巴巴正式推出 Qwen4-Max，主干参数规模为 2.4T，支持原生视觉与百万 token 上下文，重点面向专业工具使用和长程工作。本条时间采用财联社 11 月 16 日原创报道的发布时间，不推断官方公告的具体时刻。
+
+Alibaba released the production Qwen4-Max with a 2.4T-parameter backbone, native vision and a one-million-token context window, emphasizing professional tools and long-horizon work. This record uses the timestamp of CLS’s original November 16 report, not an inferred announcement time.
+
+### 技术点 / Technical points
+
+- 阿里云将正式模型列为 11 月 16 日上线，支持个人版与团队版 Token Plan，与 11 月 11 日的预览版分开列示。
+  - Alibaba Cloud lists the production model as available on November 16 through Personal and Team Token Plans, separately from the November 11 preview.
+- 模型结合原生视觉输入与长上下文处理，面向专业工作流程。
+  - The model combines native visual input with long-context processing for professional workflows.
+- 配套 Qwen-Live-Delivery-Plugin 为 Codex CLI 提供交付状态 MCP 工具、版本快照与反馈钩子；插件本身不附带模型。
+  - The companion Qwen-Live-Delivery-Plugin supplies delivery-state MCP tools, version snapshots and feedback hooks for Codex CLI; it does not bundle a model.
+
+### 为什么重要 / Why it matters
+
+此次发布扩展了面向智能体的模型选择，并提供可检查、可随时调整方向的长任务工作流程。
+
+The launch pairs a larger agent-oriented model offering with an inspectable workflow for steering long-running tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://www.ithome.com/1/027/512.htm) · [Evidence 2](https://docs.modelstudio.console.alibabacloud.com/en/model-studio/token-plan-product-updates) · [Evidence 3](https://github.com/QwenLM/Qwen-Live-Delivery-Plugin)
+[Discussion 1](https://news.ycombinator.com/item?id=50513215)
+
+---
+
 <a id="2026-11-15-nativeagent-0619-memory-provenance-message-recovery"></a>
 ## [NativeAgent 0.6.19 保留记忆来源并修复跨智能体回复处理](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
 
@@ -37,6 +190,82 @@ These changes target concrete failure modes in persistent assistants: lost prove
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.19)
+
+---
+
+<a id="2026-11-15-ag2-132-batched-decisions-token-accounting"></a>
+## [AG2 1.3.2 合并多项决策问题，并统一缓存 token 计数](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
+
+**English:** [AG2 1.3.2 batches decision questions and normalizes cached-token accounting](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
+
+- **发布 / Published:** `2026-11-15T16:37:55Z`
+- **来源 / Source:** [AG2](https://github.com/ag2ai/ag2/releases/tag/v1.3.2) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `tool-use`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AG2 1.3.2 让决策智能体在一次请求中回答针对同一输入的多项类型化问题，同时统一各提供商的缓存输入计数，并将 ACP 集成迁移到 1.0 版本。
+
+AG2 1.3.2 lets a decision agent answer several typed questions about shared input in one request. It also counts cached input consistently across providers and migrates its ACP integration to version 1.0.
+
+### 技术点 / Technical points
+
+- 扁平 dataclass、TypedDict 或 Pydantic schema 可为各字段配置问题，并返回逐字段置信度；不受支持的 schema 会在发送请求前被拒绝。
+  - Flat dataclass, TypedDict or Pydantic schemas attach a question to each field and return per-field confidence; unsupported schemas are rejected before a request.
+- Anthropic 与 Bedrock 的 prompt_tokens 现在包含缓存读写，因此既有 token 预算阈值可能更早触发。
+  - prompt_tokens now includes cache reads and writes on Anthropic and Bedrock, so existing token-budget thresholds may be reached sooner.
+- ACP 1.x 保留独立消息、资源内容和工具结果结构，不再把一轮消息压平成字符串。
+  - ACP 1.x preserves separate messages, resource content and tool-result structure instead of flattening a turn into one string.
+
+### 为什么重要 / Why it matters
+
+合并决策可减少重复输入，统一计数则让跨提供商智能体的预算更容易核对。
+
+Batching decisions reduces repeated input while consistent accounting makes mixed-provider agent budgets easier to interpret.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/ag2ai/ag2/releases/tags/v1.3.2)
+
+---
+
+<a id="2026-11-15-autogpt-0113-remote-execution-isolation"></a>
+## [AutoGPT 0.11.3 增加远程 PC 执行与更严格的沙箱隔离](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
+
+**English:** [AutoGPT 0.11.3 adds remote PC execution and tighter sandbox isolation](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
+
+- **发布 / Published:** `2026-11-15T08:59:39Z`
+- **来源 / Source:** [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `sandbox`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+AutoGPT Platform beta 0.11.3 增加远程 Local PC 执行目标，并强化智能体执行与 webhook 触发器的边界。该版本还修复了私下报告的安全问题；发布说明表示，相关公告将在修复部署到生产环境后公开。
+
+AutoGPT Platform beta 0.11.3 adds remote Local PC execution targets and strengthens boundaries around agent execution and webhook triggers. The release also fixes privately reported security issues; its notes defer the advisories until the fixes reach production.
+
+### 技术点 / Technical points
+
+- 每个 bash_exec 沙箱使用独立的 PID 与 IPC 命名空间。
+  - Each bash_exec sandbox receives its own PID and IPC namespaces.
+- 预设 webhook 触发器验证保存的密钥及签名时间戳；团队切换时的会话规则也应用于专家凭据授权。
+  - Preset webhook triggers verify stored secrets and signature timestamps; team-change session rules also apply to expert credential grants.
+- 新增远程 PC 执行目标，并修复仅有一秒宽限期的智能体计划任务被跳过的问题。
+  - The release adds remote PC execution targets and fixes skipped agent schedules with a one-second grace period.
+
+### 为什么重要 / Why it matters
+
+随着智能体工作流扩展到远程执行，这些变更增强了执行隔离与触发器认证。
+
+The changes improve isolation and trigger authentication as agent workflows expand to remote execution.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Significant-Gravitas/AutoGPT/releases?per_page=3)
 
 ---
 
@@ -479,207 +708,3 @@ These runtime controls support agent workflows that must survive interruptions, 
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/pydantic/pydantic-ai/releases/tags/v2.68.0)
-
----
-
-<a id="2026-11-11-gemini-decisions-agent-routing"></a>
-## [Google 推出 Gemini Decisions API，用于智能体的限定选项决策](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
-
-**English:** [Google introduces Gemini Decisions API for bounded agent choices](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
-
-- **发布 / Published:** `2026-11-11T18:00:00Z`
-- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `model-routing`, `multimodal`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Google 推出 Gemini Decision 1 及 Decisions API，面向工具选择、模型路由、策略检查和上下文评分。它通过一次前向计算为候选选项评分并返回概率，可围绕共享多模态输入处理最多 1,000 个独立问题。
-
-Google introduced Gemini Decision 1 and a Decisions API for tool selection, model routing, policy checks and context grading. It scores candidate choices in one forward pass and returns probabilities, accepting up to 1,000 independent questions over shared multimodal input.
-
-### 技术点 / Technical points
-
-- API 支持是非、选项和量表评分问题，输入涵盖文本、图像、音频、视频和 PDF，输入上限为 256K token。
-  - The API supports yes/no, choice and rubric-score questions over text, images, audio, video and PDFs, with an input limit of 256K tokens.
-- Google 报告在上下文不超过 16K token 的测试中端到端延迟为 150–250 毫秒，问题数从 1 增至 100 时延迟基本持平。
-  - Google reports 150–250 ms end-to-end latency in tests with contexts up to 16K tokens and near-flat latency from one to 100 questions.
-
-### 为什么重要 / Why it matters
-
-对于结果选项固定的路由和检查，专用概率决策步骤有望降低智能体工作流的延迟。
-
-A dedicated probabilistic decision step could reduce the latency of agent routing and checks that have a fixed set of outcomes.
-
----
-
-<a id="2026-11-11-databricks-always-on-genie"></a>
-## [Databricks 宣布常驻 Genie，结合企业上下文与动作管控](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
-
-**English:** [Databricks announces always-on Genie with enterprise context and action controls](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work)
-
-- **发布 / Published:** `2026-11-11T16:00:00Z`
-- **来源 / Source:** [Databricks](https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `enterprise-agents`, `memory`, `tool-use`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-Databricks 宣布面向持续性企业工作的 Genie 智能体，由 Genie Ontology 提供业务上下文，并通过 Unity Catalog 和 Unity Gateway 管控。新闻稿说明，新常驻 Genie 将进入预览和测试计划，此次宣布并不代表全面可用。
-
-Databricks announced a Genie agent for continuing enterprise work, using business context from Genie Ontology and controls from Unity Catalog and Unity Gateway. Its newsroom says the new always-on Genie is coming to preview and beta programs, distinguishing this announcement from general availability.
-
-### 技术点 / Technical points
-
-- 任务可按计划或事件触发，保留用户偏好并请求补充信息或审批；管理员管控工具、预算与动作追踪。
-  - Jobs can run on schedules or triggers, retain user preferences, and request input or approval; admins control tools, budgets and action tracing.
-- Databricks 与 Turing 的评测报告运行通过率为 91%，两个未具名智能体为 45% 和 58%；同一工作区中每项任务运行五次。
-  - A Databricks/Turing evaluation reports 91% run pass rate versus 45% and 58% for two unnamed agents, with five runs per task in one workspace.
-
-### 为什么重要 / Why it matters
-
-该发布将持续性智能体工作与受治理的业务知识结合；其评测提示应在比较模型之外检验上下文质量。
-
-The announcement connects persistent agent work with governed business knowledge; the reported evaluation motivates testing context quality alongside model choice.
-
-### 链接 / Links
-
-[Evidence 1](https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex) · [Evidence 2](https://www.databricks.com/blog/genie-genie-ontology-delivers-16-accuracy-less-half-tokens)
-
----
-
-<a id="2026-11-11-aws-uaef-canonical-trace-agent-evaluation"></a>
-## [AWS 详解跨框架统一智能体评测系统 UAEF](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
-
-**English:** [AWS details UAEF for consistent agent evaluation across frameworks](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/)
-
-- **发布 / Published:** `2026-11-11T15:50:55Z`
-- **来源 / Source:** [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/uaef-a-framework-agnostic-system-for-closed-loop-evaluation-of-ai-agents/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `evaluation`, `tool-use`, `multi-agent`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-AWS 发布开源 Universal Agent Evaluation Framework 的技术介绍。UAEF 将不同框架的智能体轨迹转换为统一格式，使用覆盖七个维度的 36 项内置指标评分，并通过实验存储与基线比较帮助团队发现智能体版本间的回退。
-
-AWS published a technical overview of the open-source Universal Agent Evaluation Framework. UAEF converts native agent traces into a canonical format and applies 36 built-in metrics across seven dimensions, with experiment storage and baseline comparisons to help teams detect regressions between agent versions.
-
-### 技术点 / Technical points
-
-- 适配器支持 LangGraph、LangChain、Strands、AgentCore 和 Langfuse，并通过通用 JSON 映射接入自定义系统。
-  - Adapters support LangGraph, LangChain, Strands, AgentCore and Langfuse, with generic JSON mapping for custom systems.
-- 确定性指标与 LLM 评审指标共用评测引擎；持久化实验将元数据存于 DynamoDB、完整结果存于 S3。
-  - Deterministic and LLM-judge metrics share an engine; persisted experiments use DynamoDB metadata and S3 result storage.
-
-### 为什么重要 / Why it matters
-
-统一轨迹格式有助于在智能体更换模型、工具或实现框架后，保持回归检查的一致性。
-
-A common trace format can make regression checks more consistent when an agent's model, tools or implementation framework changes.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/awslabs/uaef)
-
----
-
-<a id="2026-11-11-runway-praxis-1-open-weights"></a>
-## [Runway 以 Apache 2.0 开放 Praxis-1 权重与机器人微调代码](https://runway.com/news/company-news/praxis-1-is-now-available)
-
-**English:** [Runway opens Praxis-1 weights and robot fine-tuning code under Apache 2.0](https://runway.com/news/company-news/praxis-1-is-now-available)
-
-- **发布 / Published:** `2026-11-11T15:00:00Z`
-- **来源 / Source:** [Runway](https://runway.com/news/company-news/praxis-1-is-now-available) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `open-source`, `video-pretraining`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-继 9 月预告和合作伙伴测试后，Runway 正式公开 Praxis-1。该 270 亿参数混合专家扩散 Transformer 联合预测视频与机器人动作，此次以 Apache 2.0 提供权重、推理代码及全量或 LoRA 微调代码。
-
-Runway made Praxis-1 publicly available after its September announcement and partner testing. The 27B mixture-of-experts diffusion transformer jointly predicts video and robot actions; the release includes weights, inference code and full or LoRA fine-tuning under Apache 2.0.
-
-### 技术点 / Technical points
-
-- Runway 报告在 RoboLab-120 的 1,200 个评测回合中成功率为 46.2%；该结果由提供方报告。
-  - Runway reports 46.2% success across 1,200 RoboLab-120 episodes; this is a provider-reported result.
-- 官方仓库提供单臂 DROID 与双臂 YAM 检查点、仿真评测及硬件适配说明。
-  - The official repository provides single-arm DROID and bimanual YAM checkpoints, simulation evaluation and hardware-adaptation instructions.
-
-### 为什么重要 / Why it matters
-
-公开权重和适配代码使研究者能够检验视频预训练能否迁移到自己的机器人任务。
-
-Public weights and adaptation code let researchers test whether video pretraining transfers to their own robot tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/runwayml/praxis-1-oss) · [Evidence 2](https://huggingface.co/collections/runwayml/praxis-1)
-
----
-
-<a id="2026-11-11-ntt-physics-adapter-preaction-world-model"></a>
-## [NTT 将物理适配器融入视频预测，在机器人动作前评估后果](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
-
-**English:** [NTT integrates a physics adapter into video prediction to assess robot actions before execution](https://group.ntt/en/newsrelease/2026/11/11/261111b.html)
-
-- **发布 / Published:** `2026-11-11T06:00:30Z`
-- **来源 / Source:** [NTT](https://group.ntt/en/newsrelease/2026/11/11/261111b.html) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `simulation`, `predictive-control`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-NTT 公布一种将视频生成与物理控制适配器结合的世界模型，在机器人执行前预测物体掉落与堆叠坍塌。NTT 报告，在小型机器人的货架装载实验中，成功率从 73.1% 提升至 92.3%。机场行李装卸是拟应用场景，计划与 Mujin 开展现场试验。
-
-NTT announced a world model that combines video generation with a physics control adapter to predict object drops and load collapse before robot execution. NTT reports shelf-loading success rising from 73.1% to 92.3% in a small-robot experiment. Airport baggage handling is an intended application, with field trials planned with Mujin.
-
-### 技术点 / Technical points
-
-- 适配器显式表示质量、位置、朝向和速度等物理量，并依据运动方程预测运动。
-  - The adapter explicitly represents quantities including mass, position, orientation and velocity, and predicts motion using equations of motion.
-- 系统先评估现有机器人控制器或 VLA 生成的多个候选计划，再选择更可能成功的动作。
-  - It evaluates multiple candidate plans from existing robot controllers or VLAs before selecting an action likely to succeed.
-
-### 为什么重要 / Why it matters
-
-结合物理结构与学习式视频预测，有望在实际执行前改善针对多样物体的动作筛选。
-
-Combining physical structure and learned video prediction could improve action screening for varied objects before costly real-world execution.
-
----
-
-<a id="2026-11-10-memory-vla-temporal-shortcut-phantom-progress"></a>
-## [记忆增强 VLA 研究发现，暂停可能被误判为机器人已完成的工作](https://arxiv.org/abs/2611.14488)
-
-**English:** [Memory-VLA study finds pauses can be mistaken for completed robot work](https://arxiv.org/abs/2611.14488)
-
-- **发布 / Published:** `2026-11-10T18:47:57Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.14488) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `memory`, `benchmark`, `robustness`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-一篇预印本发现记忆增强 VLA 中的时间捷径：即使没有发生相关事件，暂停或手腕轻动也可能被当作任务进度。在 RoboMME 的两项计数任务上，受测已发布策略的成功次数分别从 50 次中的 47 次降至 16 次、从 44 次降至 10 次。
-
-A preprint identifies a temporal shortcut in memory-augmented VLA policies: pauses or wrist fidgets can be counted as task progress even when no relevant event occurs. On two RoboMME counting tasks, the tested released policy's successes fell from 47 to 16 and from 44 to 10 out of 50 trials.
-
-### 技术点 / Technical points
-
-- 不将中断帧存入记忆可恢复成功表现，实验据此将原因定位到记忆处理。
-  - Withholding interruption frames from memory restores success, isolating memory handling as the cause in these experiments.
-- 去掉时间编码无法修复按时间采样的记忆；按事件索引的记忆无需重训即可挽回至少一半损失。
-  - Removing time encodings does not fix time-sampled memory; event-indexed memory recovers at least half the loss without retraining.
-
-### 为什么重要 / Why it matters
-
-基于事件的记忆评测有助于暴露普通连续机器人示范难以发现的脆弱进度判断。
-
-Event-based memory evaluation could expose brittle progress tracking that ordinary uninterrupted robot demonstrations miss.

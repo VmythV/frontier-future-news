@@ -2,6 +2,121 @@
 
 # Agents / 智能体
 
+<a id="2026-11-16-laya-guard-080-browser-desktop-controls"></a>
+## [Laya Guard 0.8 将本地动作检查扩展到浏览器工具与桌面点击](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
+
+**English:** [Laya Guard 0.8 extends local action checks to browser tools and desktop clicks](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
+
+- **发布 / Published:** `2026-11-16T05:00:06Z`
+- **来源 / Source:** [Laya Guard](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `tool-use`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Laya Guard 0.8.0 增加基于工具字段的浏览器规则，以及面向电脑操作的 macOS 辅助功能检查。第二版模型加入桌面点击训练；独立的可选模型复核可将原本放行的桌面动作提升为待审。
+
+Laya Guard 0.8.0 adds field-based browser rules and macOS accessibility checks for computer-use actions. Its second model revision includes desktop clicks, while a separate optional model review can escalate otherwise allowed desktop actions for review.
+
+### 技术点 / Technical points
+
+- 浏览器规则覆盖 Claude 浏览器工具、Chrome DevTools MCP 与 Playwright MCP，并逐步检查批量调用。
+  - Browser rules cover Claude browser tools, Chrome DevTools MCP and Playwright MCP; batch calls are checked step by step.
+- 只读 macOS 辅助程序识别点击位置下的界面元素；无法读取屏幕时，点击需要复核。
+  - A read-only macOS helper identifies the UI element under a click; unreadable screens cause the click to require review.
+- 可选桌面模型只能提升为待审，不能直接阻止；Unicode 规范化会在命令原文与折叠文本之间采用更严格的判定。
+  - The optional desktop model can escalate to review but cannot block; Unicode normalization now applies the stricter verdict across original and folded command text.
+
+### 为什么重要 / Why it matters
+
+该版本将工具调用防护扩展到视觉交互，因为单凭坐标无法判断动作的实际含义。
+
+The release extends tool-call guardrails to visual interaction, where coordinates alone do not reveal an action’s meaning.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/scs0209/laya-guard/releases?per_page=3)
+
+---
+
+<a id="2026-11-16-openai-agents-sdk-alpha8-managed-approvals-budget-recovery"></a>
+## [OpenAI Agents SDK alpha.8 增加托管工具审批与保留预算用量的恢复机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
+
+**English:** [OpenAI Agents SDK alpha.8 adds managed tool approvals and budget-preserving recovery](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
+
+- **发布 / Published:** `2026-11-16T04:39:19Z`
+- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `memory`, `safety`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+OpenAI Agents SDK v0.24.0-alpha.8 是预发布版本，新增托管 Python 工具审批，以及恢复检查点时保留已消耗请求数或 token 预算的机制，同时扩展原生 Session 语音连接和应用自管模型客户端。
+
+OpenAI Agents SDK v0.24.0-alpha.8 is a prerelease adding managed Python tool approvals and checkpoint recovery that retains spent request or token budgets. It also expands native Session voice connections and application-owned model clients.
+
+### 技术点 / Technical points
+
+- 应用可在执行前检查工具参数并批准或拒绝调用，还可选择在当前 Session 中保留该决定。
+  - Applications can inspect tool arguments before execution and approve or reject a call, optionally retaining that decision for the Session.
+- 受支持的待执行任务检查点会保留已用预算；alpha.7 因无法执行保存的用量约束而拒绝新的带预算格式。
+  - Supported pending-run checkpoints preserve spent budgets; alpha.7 rejects the new budgeted format because it cannot enforce that saved usage.
+- 原生 Session Realtime 支持服务端 WebSocket、浏览器 WebRTC 及既有 SIP 通话；中断后执行效果不确定的工作仍需核对。
+  - Native Session Realtime supports server WebSocket, browser WebRTC and existing SIP calls; interrupted work with uncertain effects still requires reconciliation.
+
+### 为什么重要 / Why it matters
+
+审批与恢复控制有助于监督持续运行的智能体，并避免中断恢复后重置用量计数。
+
+Approval and recovery controls help supervise persistent agents without resetting their usage accounting after interruptions.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases?per_page=3)
+
+---
+
+<a id="2026-11-16-qwen4-max-production-long-horizon-agents"></a>
+## [Qwen4-Max 正式上线，面向工具使用与长程智能体工作](https://www.cls.cn/detail/2535030)
+
+**English:** [Qwen4-Max enters production for tool use and long-horizon agent work](https://www.cls.cn/detail/2535030)
+
+- **发布 / Published:** `2026-11-16T02:42:50Z`
+- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535030) · `media`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `long-context`, `multimodal`, `human-in-the-loop`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+阿里巴巴正式推出 Qwen4-Max，主干参数规模为 2.4T，支持原生视觉与百万 token 上下文，重点面向专业工具使用和长程工作。本条时间采用财联社 11 月 16 日原创报道的发布时间，不推断官方公告的具体时刻。
+
+Alibaba released the production Qwen4-Max with a 2.4T-parameter backbone, native vision and a one-million-token context window, emphasizing professional tools and long-horizon work. This record uses the timestamp of CLS’s original November 16 report, not an inferred announcement time.
+
+### 技术点 / Technical points
+
+- 阿里云将正式模型列为 11 月 16 日上线，支持个人版与团队版 Token Plan，与 11 月 11 日的预览版分开列示。
+  - Alibaba Cloud lists the production model as available on November 16 through Personal and Team Token Plans, separately from the November 11 preview.
+- 模型结合原生视觉输入与长上下文处理，面向专业工作流程。
+  - The model combines native visual input with long-context processing for professional workflows.
+- 配套 Qwen-Live-Delivery-Plugin 为 Codex CLI 提供交付状态 MCP 工具、版本快照与反馈钩子；插件本身不附带模型。
+  - The companion Qwen-Live-Delivery-Plugin supplies delivery-state MCP tools, version snapshots and feedback hooks for Codex CLI; it does not bundle a model.
+
+### 为什么重要 / Why it matters
+
+此次发布扩展了面向智能体的模型选择，并提供可检查、可随时调整方向的长任务工作流程。
+
+The launch pairs a larger agent-oriented model offering with an inspectable workflow for steering long-running tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://www.ithome.com/1/027/512.htm) · [Evidence 2](https://docs.modelstudio.console.alibabacloud.com/en/model-studio/token-plan-product-updates) · [Evidence 3](https://github.com/QwenLM/Qwen-Live-Delivery-Plugin)
+[Discussion 1](https://news.ycombinator.com/item?id=50513215)
+
+---
+
 <a id="2026-11-15-nativeagent-0619-memory-provenance-message-recovery"></a>
 ## [NativeAgent 0.6.19 保留记忆来源并修复跨智能体回复处理](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
 
@@ -37,6 +152,82 @@ These changes target concrete failure modes in persistent assistants: lost prove
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.19)
+
+---
+
+<a id="2026-11-15-ag2-132-batched-decisions-token-accounting"></a>
+## [AG2 1.3.2 合并多项决策问题，并统一缓存 token 计数](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
+
+**English:** [AG2 1.3.2 batches decision questions and normalizes cached-token accounting](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
+
+- **发布 / Published:** `2026-11-15T16:37:55Z`
+- **来源 / Source:** [AG2](https://github.com/ag2ai/ag2/releases/tag/v1.3.2) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `tool-use`, `observability`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+AG2 1.3.2 让决策智能体在一次请求中回答针对同一输入的多项类型化问题，同时统一各提供商的缓存输入计数，并将 ACP 集成迁移到 1.0 版本。
+
+AG2 1.3.2 lets a decision agent answer several typed questions about shared input in one request. It also counts cached input consistently across providers and migrates its ACP integration to version 1.0.
+
+### 技术点 / Technical points
+
+- 扁平 dataclass、TypedDict 或 Pydantic schema 可为各字段配置问题，并返回逐字段置信度；不受支持的 schema 会在发送请求前被拒绝。
+  - Flat dataclass, TypedDict or Pydantic schemas attach a question to each field and return per-field confidence; unsupported schemas are rejected before a request.
+- Anthropic 与 Bedrock 的 prompt_tokens 现在包含缓存读写，因此既有 token 预算阈值可能更早触发。
+  - prompt_tokens now includes cache reads and writes on Anthropic and Bedrock, so existing token-budget thresholds may be reached sooner.
+- ACP 1.x 保留独立消息、资源内容和工具结果结构，不再把一轮消息压平成字符串。
+  - ACP 1.x preserves separate messages, resource content and tool-result structure instead of flattening a turn into one string.
+
+### 为什么重要 / Why it matters
+
+合并决策可减少重复输入，统一计数则让跨提供商智能体的预算更容易核对。
+
+Batching decisions reduces repeated input while consistent accounting makes mixed-provider agent budgets easier to interpret.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/ag2ai/ag2/releases/tags/v1.3.2)
+
+---
+
+<a id="2026-11-15-autogpt-0113-remote-execution-isolation"></a>
+## [AutoGPT 0.11.3 增加远程 PC 执行与更严格的沙箱隔离](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
+
+**English:** [AutoGPT 0.11.3 adds remote PC execution and tighter sandbox isolation](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
+
+- **发布 / Published:** `2026-11-15T08:59:39Z`
+- **来源 / Source:** [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-runtime`, `tool-use`, `sandbox`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+AutoGPT Platform beta 0.11.3 增加远程 Local PC 执行目标，并强化智能体执行与 webhook 触发器的边界。该版本还修复了私下报告的安全问题；发布说明表示，相关公告将在修复部署到生产环境后公开。
+
+AutoGPT Platform beta 0.11.3 adds remote Local PC execution targets and strengthens boundaries around agent execution and webhook triggers. The release also fixes privately reported security issues; its notes defer the advisories until the fixes reach production.
+
+### 技术点 / Technical points
+
+- 每个 bash_exec 沙箱使用独立的 PID 与 IPC 命名空间。
+  - Each bash_exec sandbox receives its own PID and IPC namespaces.
+- 预设 webhook 触发器验证保存的密钥及签名时间戳；团队切换时的会话规则也应用于专家凭据授权。
+  - Preset webhook triggers verify stored secrets and signature timestamps; team-change session rules also apply to expert credential grants.
+- 新增远程 PC 执行目标，并修复仅有一秒宽限期的智能体计划任务被跳过的问题。
+  - The release adds remote PC execution targets and fixes skipped agent schedules with a one-second grace period.
+
+### 为什么重要 / Why it matters
+
+随着智能体工作流扩展到远程执行，这些变更增强了执行隔离与触发器认证。
+
+The changes improve isolation and trigger authentication as agent workflows expand to remote execution.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/Significant-Gravitas/AutoGPT/releases?per_page=3)
 
 ---
 

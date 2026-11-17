@@ -2,6 +2,44 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-16-cloudrobo-wm12-world-prediction-robot-actions"></a>
+## [华为云发布 CloudRobo-WM1.2，结合世界预测与机器人动作生成](https://www.cls.cn/detail/2535460)
+
+**English:** [Huawei Cloud announces CloudRobo-WM1.2 for world prediction and robot actions](https://www.cls.cn/detail/2535460)
+
+- **发布 / Published:** `2026-11-16T08:02:06Z`
+- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535460) · `media`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `cross-embodiment`
+- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+华为云发布基于昇腾训练的具身世界模型 CloudRobo-WM1.2，将预测式表征与 DualAct 动作生成结合，并宣布开源。本条时间采用财联社 11 月 16 日原创报道的发布时间，不代替尚未披露的精确发布时刻。
+
+Huawei Cloud announced CloudRobo-WM1.2, an Ascend-trained embodied world model coupling predictive representations with DualAct action generation, and announced open sourcing. The timestamp follows CLS’s original November 16 report rather than an undisclosed exact launch time.
+
+### 技术点 / Technical points
+
+- 共享的世界模型骨干网络支持预测增强表征与原生动作生成。
+  - A shared world-model backbone supports prediction-enhanced representations and native action generation.
+- 技术报道列出 PPA 多模态表征、异构数据预训练与保留本体语义的运动建模。
+  - Technical coverage identifies PPA multimodal representations, heterogeneous-data pretraining and embodiment-aware motion modeling.
+- World 与 Expert Action、Joint 与 Action-only 组成四种推理组合，用于匹配不同算力和时延需求。
+  - World versus Expert Action and Joint versus Action-only form four inference combinations for different compute and latency needs.
+
+### 为什么重要 / Why it matters
+
+该架构在昇腾训练栈上连接学习到的环境动态与物理控制，其部署效果仍需独立评估。
+
+The architecture connects learned environment dynamics with physical control on an Ascend training stack; independent deployment evaluation remains necessary.
+
+### 链接 / Links
+
+[Evidence 1](https://www.huaweicloud.com/about/live/261116.html) · [Evidence 2](https://m.ithome.com/html/1027684.htm) · [Evidence 3](https://www.cww.net.cn/article?id=616774)
+
+---
+
 <a id="2026-11-12-lg-dkgp-continuity-world-model-planning"></a>
 ## [LG-DKGP 学习动作连续性，改进视觉世界模型规划](https://arxiv.org/abs/2611.16645)
 
