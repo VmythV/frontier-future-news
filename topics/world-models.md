@@ -2,6 +2,102 @@
 
 # World models / 世界模型
 
+<a id="2026-11-16-lazy-mosaic-skill-effect-world-model-planning"></a>
+## [Lazy-MOSAIC 用学习到的技能效果减少操作规划中的仿真调用](https://arxiv.org/abs/2611.21517)
+
+**English:** [Lazy-MOSAIC uses learned skill outcomes to reduce manipulation-planning simulation](https://arxiv.org/abs/2611.21517)
+
+- **发布 / Published:** `2026-11-16T18:10:52Z`
+- **来源 / Source:** [Lazy-MOSAIC authors / arXiv](https://arxiv.org/abs/2611.21517) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `simulation`, `world-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+新预印本提出 Lazy-MOSAIC：先搜索预测的技能效果，再将仿真资源用于有希望的候选。作者在杂乱货架取物任务中评测并展示真机，报告规划更快、仿真调用更少，同时成功率达到或超过基线。
+
+A new preprint introduces Lazy-MOSAIC, which searches predicted skill outcomes before spending simulation on promising candidates. The authors evaluate cluttered-shelf retrieval and demonstrate a physical robot, reporting faster planning with fewer simulator calls while matching or exceeding baseline success.
+
+### 技术点 / Technical points
+
+- 学习得到的世界模型在不到一毫秒内估计技能可行性及执行后的状态。
+  - A learned world model estimates skill feasibility and resulting state in a fraction of a millisecond.
+- 预测失效时局部修复搜索，返回计划中的每项技能均经过仿真验证。
+  - Invalid predictions trigger local search repair, and every skill in the returned plan is validated in simulation.
+
+### 为什么重要 / Why it matters
+
+该方法给出用学习动力学加速机器人规划、同时保留最终计划仿真检查的具体路径。
+
+It offers a concrete way to accelerate robot planning with learned dynamics while retaining simulation checks on the final plan.
+
+---
+
+<a id="2026-11-16-lynnreal-hand-streaming-interactive-world-model"></a>
+## [LynnReal-Hand 通过流式视频生成建模手部控制的世界交互](https://arxiv.org/abs/2611.21479)
+
+**English:** [LynnReal-Hand models hand-controlled interactions with streaming video generation](https://arxiv.org/abs/2611.21479)
+
+- **发布 / Published:** `2026-11-16T17:51:44Z`
+- **来源 / Source:** [LynnReal-Hand authors / arXiv](https://arxiv.org/abs/2611.21479) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `simulation`, `interaction`, `video-generation`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+LynnReal-Hand 新预印本研究通过手部动作控制视频世界模型。作者整理了 10 万段交互片段，将交互感知训练与少步因果生成结合。其报告单张 H200 在 540p 下达到 18.03 FPS、延迟 741 毫秒；代码、数据和权重仍为计划发布。
+
+LynnReal-Hand is a new preprint on controlling video world models through hand motion. The authors curate 100,000 interaction clips and combine interaction-aware training with few-step causal generation. They report 18.03 FPS at 540p on one H200 with 741 ms latency; code, data and weights are promised for future release.
+
+### 技术点 / Technical points
+
+- 区域感知分数蒸馏结合视频与图像先验，改善交互和外观。
+  - Region-aware score distillation combines video and image priors to refine interactions and appearance.
+- Ultra-Fast-VAE 解码器降低流式生成开销，报告的优化后峰值显存为 34.89 GB。
+  - An Ultra-Fast-VAE decoder reduces streaming cost; the reported optimized peak memory is 34.89 GB.
+
+### 为什么重要 / Why it matters
+
+手部控制将交互世界生成推进到物体级干预，但响应仍存在可测量的延迟。
+
+Hand control extends interactive world generation toward object-level intervention, though responsiveness still has measurable latency.
+
+---
+
+<a id="2026-11-16-sciworldbench-paired-scientific-world-model-evaluation"></a>
+## [SciWorldBench 用成对科学干预检验视频世界模型](https://arxiv.org/abs/2611.20899)
+
+**English:** [SciWorldBench tests video world models with paired scientific interventions](https://arxiv.org/abs/2611.20899)
+
+- **发布 / Published:** `2026-11-16T11:09:07Z`
+- **来源 / Source:** [SciWorldBench authors / arXiv](https://arxiv.org/abs/2611.20899) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `physics`, `causality`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+SciWorldBench 提出成对实验：只改变一个条件，却要求出现相反的科学结果。作者对十个模型评测后发现，即使条件不同，成对生成的视频仍经常呈现相同结果。预印本表示将发布基准数据与评测代码。
+
+SciWorldBench introduces paired experiments that change one condition while requiring opposite scientific outcomes. In a ten-model evaluation, the authors find that paired generations often show the same outcome despite different conditions. The preprint says benchmark data and evaluation code will be released.
+
+### 技术点 / Technical points
+
+- 提示提供实验条件，但不告知预期结果。
+  - Prompts specify the condition while withholding the expected outcome.
+- 独立 VLM 在不查看条件文本或正确结果标签的情况下评分；只有两段结果都正确，实验对才算通过。
+  - A separate VLM judges videos without seeing condition text or the correct-outcome label; a pair passes only if both outcomes are correct.
+
+### 为什么重要 / Why it matters
+
+成对干预能够检验因果敏感性，补充视觉逼真度或单段视频评分难以揭示的问题。
+
+Paired interventions probe causal sensitivity that visual realism or isolated-video scoring can miss.
+
+---
+
 <a id="2026-11-16-cloudrobo-wm12-world-prediction-robot-actions"></a>
 ## [华为云发布 CloudRobo-WM1.2，结合世界预测与机器人动作生成](https://www.cls.cn/detail/2535460)
 

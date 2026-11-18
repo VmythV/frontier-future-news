@@ -2,6 +2,210 @@
 
 # Agents / 智能体
 
+<a id="2026-11-17-github-mdash-verified-security-fixes"></a>
+## [GitHub 与微软将 MDASH 扫描结果筛为 99 份已核验的私密安全报告](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
+
+**English:** [GitHub and Microsoft turn MDASH scans into 99 verified private security reports](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
+
+- **发布 / Published:** `2026-11-17T18:29:29Z`
+- **来源 / Source:** [GitHub](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `safety`, `tool-use`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+GitHub 披露了覆盖六个项目的试点：将微软智能体漏洞扫描、基于 Copilot 的分诊与人工核验串联。截至 11 月 15 日，99 份私密报告中的 55 项已修复，14 项修复已发布。试点使用较早的 MAI Cyber 模型，并非 MAI Cyber 2。
+
+GitHub describes a six-project pilot combining Microsoft’s agentic vulnerability scanner, Copilot-based triage and manual verification. As of November 15, maintainers had fixed 55 of 99 privately reported findings, with 14 fixes released. The pilot used the earlier MAI Cyber model, not MAI Cyber 2.
+
+### 技术点 / Technical points
+
+- AI 分诊先去重并检查有效性，再由七名 FORGE Lab 研究员复核剩余发现。
+  - AI triage removes duplicates and checks validity before seven FORGE Lab researchers review the remaining findings.
+- 私密报告包含概念验证与修复建议，最终决策仍由维护者作出。
+  - Private reports include a proof of concept and suggested fix; maintainers retain the final decision.
+
+### 为什么重要 / Why it matters
+
+试点为智能体自动化与核验结合、再交由维护者处理提供了具体实践证据。
+
+The pilot provides concrete evidence for combining agent automation with verification before asking maintainers to act.
+
+---
+
+<a id="2026-11-17-github-agent-host-protocol-session-continuity"></a>
+## [GitHub 详解 Agent Host Protocol 如何跨客户端延续智能体会话](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/)
+
+**English:** [GitHub details Agent Host Protocol for persistent sessions across clients](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/)
+
+- **发布 / Published:** `2026-11-17T18:20:40Z`
+- **来源 / Source:** [GitHub](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `open-source`, `protocol`, `memory`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+GitHub 介绍了支撑 VS Code、Copilot 应用与移动客户端会话连续性的开放协议 Agent Host Protocol。协议将客户端界面与智能体宿主分离，使会话能够在关闭窗口后继续运行，并跨设备重新连接。
+
+GitHub documents the open Agent Host Protocol underlying session continuity across VS Code, the Copilot app and mobile clients. The protocol separates client interfaces from agent hosts so sessions can survive window closures and reconnect across devices.
+
+### 技术点 / Technical points
+
+- 根、会话与聊天通道通过 reducer 维护状态，聊天更新由有序动作日志驱动。
+  - Root, session and chat channels maintain reducer-based state; an ordered action log drives chat updates.
+- 协议支持断线重连与并发客户端变更，并提供 Rust、TypeScript、Kotlin、Swift、.NET 和 Go 库。
+  - The protocol supports reconnection and concurrent client changes, with libraries in Rust, TypeScript, Kotlin, Swift, .NET and Go.
+
+### 为什么重要 / Why it matters
+
+共享会话协议有助于减少逐客户端定制集成，并让长时间运行的智能体可从多个界面访问。
+
+A shared session protocol can reduce bespoke integrations and keep long-running agents accessible from multiple interfaces.
+
+---
+
+<a id="2026-11-17-openai-gpt62-astra-sol-agent-workflows"></a>
+## [OpenAI 发布 GPT-6.2 Astra 与 Sol，面向多步骤专业任务](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
+
+**English:** [OpenAI releases GPT-6.2 Astra and Sol for multistep professional work](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
+
+- **发布 / Published:** `2026-11-17T18:00:37.118Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-gpt-6-2-astra-sol/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reasoning`, `computer-use`, `tool-use`, `benchmark`, `coding`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+OpenAI 在 ChatGPT Work、Codex 和 API 发布 GPT-6.2 Astra 与 Sol。官方报告称，Astra 在 Agents’ Last Exam 上较 GPT-6 Astra 提高 5.2 分，单任务成本不到三分之一。结果来自厂商报告；时间采用官方开发者公告的发布时间。
+
+OpenAI releases GPT-6.2 Astra and Sol in ChatGPT Work, Codex and the API. It reports Astra improving by 5.2 points over GPT-6 Astra on Agents’ Last Exam at less than one-third the task cost. These are vendor-reported results; the timestamp follows the official developer announcement.
+
+### 技术点 / Technical points
+
+- Astra 重点改进工具选择、计算机操作，以及在现有代码库中实现并测试修改。
+  - Astra emphasizes tool selection, computer use and implementing and testing changes in existing codebases.
+- OpenAI 报告两款模型均达到其网络安全 Critical 阈值，Astra 达到 AI 自我改进 High 阈值，并配套加强防护。
+  - OpenAI reports that both models meet its Critical cybersecurity threshold and Astra meets its High AI Self-improvement threshold, with additional safeguards.
+
+### 为什么重要 / Why it matters
+
+此次发布改变了官方报告中长流程专业任务智能体的能力与成本范围。
+
+The release changes the reported capability and cost envelope for agents carrying out extended professional workflows.
+
+### 链接 / Links
+
+[Evidence 1](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)
+
+---
+
+<a id="2026-11-16-claude-code-21326-team-code-mode-background-safety"></a>
+## [Claude Code 2.1.326 支持团队启用 Code Mode，并修复后台会话边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.326)
+
+**English:** [Claude Code 2.1.326 combines Code Mode with teams and repairs background-session boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.326)
+
+- **发布 / Published:** `2026-11-16T22:11:05Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.326) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `multi-agent`, `safety`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Anthropic 此版本允许在智能体团队启用时开启 Code Mode，并修复后台会话与权限呈现问题。丢失配置的 LLM 网关后，会话会在发送模型请求前停止；进程号复用也不再导致后台服务终止无关进程。
+
+Anthropic’s release enables Code Mode while agent teams are active and fixes background-session and permission-reporting failures. Sessions that lose their configured LLM gateway now stop before making a model request, while reused process IDs no longer cause the background service to terminate unrelated processes.
+
+### 技术点 / Technical points
+
+- find -delete 和 cat 重定向等删除、覆盖命令不再被概括为读取或搜索。
+  - Delete and overwrite commands such as find -delete and cat redirection are no longer summarized as reads or searches.
+- 权限规则或新增目录配置写入失败时会显示警告，不再呈现为已保存。
+  - Failed writes of permission rules or added directories now produce a warning instead of appearing to have been saved.
+
+### 为什么重要 / Why it matters
+
+这些改进有助于提高无人值守编码会话的可靠性，并便于审查有实质影响的工具操作。
+
+These changes improve the reliability of unattended coding sessions and make consequential tool actions easier to review.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.326)
+
+---
+
+<a id="2026-11-16-elite-evaluation-free-coding-agent-evolution"></a>
+## [ELITE 在演化循环内不评测候选任务结果，以改进编码智能体实现](https://arxiv.org/abs/2611.21056)
+
+**English:** [ELITE evolves coding-agent implementations without candidate task evaluation inside the loop](https://arxiv.org/abs/2611.21056)
+
+- **发布 / Published:** `2026-11-16T13:05:46Z`
+- **来源 / Source:** [ELITE authors / arXiv](https://arxiv.org/abs/2611.21056) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding`, `self-improvement`, `benchmark`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+ELITE 预印本通过整合兼容的实现改动探索编码智能体自我改进，而非按下游任务分数挑选子代。在作者的配置中，SWE-bench Pro 成绩从 60.0% 升至 85.6%；演化耗时低于 DGM 和 HGM，但最终分数也低于两者。
+
+The ELITE preprint explores coding-agent self-improvement by integrating compatible implementation changes rather than selecting children through downstream task scores. In the authors’ configurations, SWE-bench Pro performance rises from 60.0% to 85.6%, with lower evolution time than DGM and HGM but lower final scores than both.
+
+### 技术点 / Technical points
+
+- 独立改动从同一父代出发，通过程序检查识别互补、冗余和冲突机制。
+  - Independent changes start from the same parent; program inspection identifies complementary, redundant and conflicting mechanisms.
+- 演化循环使用确定性的有效性检查，最终效果仍通过下游基准衡量。
+  - The evolution loop uses deterministic validity checks, while downstream benchmarks remain necessary to measure the final result.
+
+### 为什么重要 / Why it matters
+
+该研究检验了实现层面的整合能否在不依赖任务分数选择的情况下，降低智能体自我改进的开销。
+
+The work tests whether implementation integration can reduce the cost of agent self-improvement without task-score selection.
+
+---
+
+<a id="2026-11-16-system1-agents-schema-constrained-tool-calls"></a>
+## [System 1 agents 将工具调用转为受 schema 约束的选择题决策](https://arxiv.org/abs/2611.21053)
+
+**English:** [System 1 agents turn tool calls into schema-constrained multiple-choice decisions](https://arxiv.org/abs/2611.21053)
+
+- **发布 / Published:** `2026-11-16T13:05:32Z`
+- **来源 / Source:** [System 1 agents authors / arXiv](https://arxiv.org/abs/2611.21053) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `open-source`, `benchmark`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+新预印本提出本地工具调用智能体：从请求和 schema 提供的选项中作出选择，而非生成文本。在覆盖 157 个生物医学工具的 1,952 条请求上，最佳测试配置报告正确选工具或拒绝的比例为 97.0%，最佳本地 LLM 智能体基线为 95.2%。
+
+A new preprint presents local tool-calling agents that select from request- and schema-derived options instead of generating text. On 1,952 requests across 157 biomedical tools, the best tested configuration reports 97.0% correct tool selection or refusal, versus 95.2% for the best local LLM-agent baseline.
+
+### 技术点 / Technical points
+
+- 确定性编译器构建选择题，由单次前向决策模型回答。
+  - A deterministic compiler builds the questions and a one-pass decision model answers them.
+- 研究报告测试集中的 System 1 调用没有虚构内容；这并不能证明普遍的临床可靠性。
+  - The study reports no invented content in System 1 calls within its test set; this does not establish general clinical reliability.
+
+### 为什么重要 / Why it matters
+
+对于参数约束比自由生成更重要的有限工具任务，该方法提供了可检查的替代方案。
+
+The method provides an inspectable alternative for bounded tool use where constraining arguments matters more than free-form generation.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50539789)
+
+---
+
 <a id="2026-11-16-laya-guard-080-browser-desktop-controls"></a>
 ## [Laya Guard 0.8 将本地动作检查扩展到浏览器工具与桌面点击](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
 

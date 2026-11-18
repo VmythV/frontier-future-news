@@ -25173,6 +25173,463 @@
         "technical_depth": 12,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-17-github-mdash-verified-security-fixes",
+      "published_at": "2026-11-17T18:29:29Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "safety",
+        "tool-use",
+        "evaluation"
+      ],
+      "title_en": "GitHub and Microsoft turn MDASH scans into 99 verified private security reports",
+      "title_zh": "GitHub 与微软将 MDASH 扫描结果筛为 99 份已核验的私密安全报告",
+      "summary_en": "GitHub describes a six-project pilot combining Microsoft’s agentic vulnerability scanner, Copilot-based triage and manual verification. As of November 15, maintainers had fixed 55 of 99 privately reported findings, with 14 fixes released. The pilot used the earlier MAI Cyber model, not MAI Cyber 2.",
+      "summary_zh": "GitHub 披露了覆盖六个项目的试点：将微软智能体漏洞扫描、基于 Copilot 的分诊与人工核验串联。截至 11 月 15 日，99 份私密报告中的 55 项已修复，14 项修复已发布。试点使用较早的 MAI Cyber 模型，并非 MAI Cyber 2。",
+      "tech_points_en": [
+        "AI triage removes duplicates and checks validity before seven FORGE Lab researchers review the remaining findings.",
+        "Private reports include a proof of concept and suggested fix; maintainers retain the final decision."
+      ],
+      "tech_points_zh": [
+        "AI 分诊先去重并检查有效性，再由七名 FORGE Lab 研究员复核剩余发现。",
+        "私密报告包含概念验证与修复建议，最终决策仍由维护者作出。"
+      ],
+      "why_it_matters_en": "The pilot provides concrete evidence for combining agent automation with verification before asking maintainers to act.",
+      "why_it_matters_zh": "试点为智能体自动化与核验结合、再交由维护者处理提供了具体实践证据。",
+      "source": {
+        "name": "GitHub",
+        "type": "primary",
+        "url": "https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 5
+      }
+    },
+    {
+      "id": "2026-11-17-github-agent-host-protocol-session-continuity",
+      "published_at": "2026-11-17T18:20:40Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "open-source",
+        "protocol",
+        "memory",
+        "tool-use"
+      ],
+      "title_en": "GitHub details Agent Host Protocol for persistent sessions across clients",
+      "title_zh": "GitHub 详解 Agent Host Protocol 如何跨客户端延续智能体会话",
+      "summary_en": "GitHub documents the open Agent Host Protocol underlying session continuity across VS Code, the Copilot app and mobile clients. The protocol separates client interfaces from agent hosts so sessions can survive window closures and reconnect across devices.",
+      "summary_zh": "GitHub 介绍了支撑 VS Code、Copilot 应用与移动客户端会话连续性的开放协议 Agent Host Protocol。协议将客户端界面与智能体宿主分离，使会话能够在关闭窗口后继续运行，并跨设备重新连接。",
+      "tech_points_en": [
+        "Root, session and chat channels maintain reducer-based state; an ordered action log drives chat updates.",
+        "The protocol supports reconnection and concurrent client changes, with libraries in Rust, TypeScript, Kotlin, Swift, .NET and Go."
+      ],
+      "tech_points_zh": [
+        "根、会话与聊天通道通过 reducer 维护状态，聊天更新由有序动作日志驱动。",
+        "协议支持断线重连与并发客户端变更，并提供 Rust、TypeScript、Kotlin、Swift、.NET 和 Go 库。"
+      ],
+      "why_it_matters_en": "A shared session protocol can reduce bespoke integrations and keep long-running agents accessible from multiple interfaces.",
+      "why_it_matters_zh": "共享会话协议有助于减少逐客户端定制集成，并让长时间运行的智能体可从多个界面访问。",
+      "source": {
+        "name": "GitHub",
+        "type": "primary",
+        "url": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-17-openai-gpt62-astra-sol-agent-workflows",
+      "published_at": "2026-11-17T18:00:37.118Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "reasoning",
+        "computer-use",
+        "tool-use",
+        "benchmark",
+        "coding"
+      ],
+      "title_en": "OpenAI releases GPT-6.2 Astra and Sol for multistep professional work",
+      "title_zh": "OpenAI 发布 GPT-6.2 Astra 与 Sol，面向多步骤专业任务",
+      "summary_en": "OpenAI releases GPT-6.2 Astra and Sol in ChatGPT Work, Codex and the API. It reports Astra improving by 5.2 points over GPT-6 Astra on Agents’ Last Exam at less than one-third the task cost. These are vendor-reported results; the timestamp follows the official developer announcement.",
+      "summary_zh": "OpenAI 在 ChatGPT Work、Codex 和 API 发布 GPT-6.2 Astra 与 Sol。官方报告称，Astra 在 Agents’ Last Exam 上较 GPT-6 Astra 提高 5.2 分，单任务成本不到三分之一。结果来自厂商报告；时间采用官方开发者公告的发布时间。",
+      "tech_points_en": [
+        "Astra emphasizes tool selection, computer use and implementing and testing changes in existing codebases.",
+        "OpenAI reports that both models meet its Critical cybersecurity threshold and Astra meets its High AI Self-improvement threshold, with additional safeguards."
+      ],
+      "tech_points_zh": [
+        "Astra 重点改进工具选择、计算机操作，以及在现有代码库中实现并测试修改。",
+        "OpenAI 报告两款模型均达到其网络安全 Critical 阈值，Astra 达到 AI 自我改进 High 阈值，并配套加强防护。"
+      ],
+      "why_it_matters_en": "The release changes the reported capability and cost envelope for agents carrying out extended professional workflows.",
+      "why_it_matters_zh": "此次发布改变了官方报告中长流程专业任务智能体的能力与成本范围。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 19,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-claude-code-21326-team-code-mode-background-safety",
+      "published_at": "2026-11-16T22:11:05Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding",
+        "multi-agent",
+        "safety",
+        "tool-use"
+      ],
+      "title_en": "Claude Code 2.1.326 combines Code Mode with teams and repairs background-session boundaries",
+      "title_zh": "Claude Code 2.1.326 支持团队启用 Code Mode，并修复后台会话边界",
+      "summary_en": "Anthropic’s release enables Code Mode while agent teams are active and fixes background-session and permission-reporting failures. Sessions that lose their configured LLM gateway now stop before making a model request, while reused process IDs no longer cause the background service to terminate unrelated processes.",
+      "summary_zh": "Anthropic 此版本允许在智能体团队启用时开启 Code Mode，并修复后台会话与权限呈现问题。丢失配置的 LLM 网关后，会话会在发送模型请求前停止；进程号复用也不再导致后台服务终止无关进程。",
+      "tech_points_en": [
+        "Delete and overwrite commands such as find -delete and cat redirection are no longer summarized as reads or searches.",
+        "Failed writes of permission rules or added directories now produce a warning instead of appearing to have been saved."
+      ],
+      "tech_points_zh": [
+        "find -delete 和 cat 重定向等删除、覆盖命令不再被概括为读取或搜索。",
+        "权限规则或新增目录配置写入失败时会显示警告，不再呈现为已保存。"
+      ],
+      "why_it_matters_en": "These changes improve the reliability of unattended coding sessions and make consequential tool actions easier to review.",
+      "why_it_matters_zh": "这些改进有助于提高无人值守编码会话的可靠性，并便于审查有实质影响的工具操作。",
+      "source": {
+        "name": "Anthropic",
+        "type": "primary",
+        "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.326"
+      ],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 14,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-lazy-mosaic-skill-effect-world-model-planning",
+      "published_at": "2026-11-16T18:10:52Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "planning",
+        "simulation",
+        "world-model"
+      ],
+      "title_en": "Lazy-MOSAIC uses learned skill outcomes to reduce manipulation-planning simulation",
+      "title_zh": "Lazy-MOSAIC 用学习到的技能效果减少操作规划中的仿真调用",
+      "summary_en": "A new preprint introduces Lazy-MOSAIC, which searches predicted skill outcomes before spending simulation on promising candidates. The authors evaluate cluttered-shelf retrieval and demonstrate a physical robot, reporting faster planning with fewer simulator calls while matching or exceeding baseline success.",
+      "summary_zh": "新预印本提出 Lazy-MOSAIC：先搜索预测的技能效果，再将仿真资源用于有希望的候选。作者在杂乱货架取物任务中评测并展示真机，报告规划更快、仿真调用更少，同时成功率达到或超过基线。",
+      "tech_points_en": [
+        "A learned world model estimates skill feasibility and resulting state in a fraction of a millisecond.",
+        "Invalid predictions trigger local search repair, and every skill in the returned plan is validated in simulation."
+      ],
+      "tech_points_zh": [
+        "学习得到的世界模型在不到一毫秒内估计技能可行性及执行后的状态。",
+        "预测失效时局部修复搜索，返回计划中的每项技能均经过仿真验证。"
+      ],
+      "why_it_matters_en": "It offers a concrete way to accelerate robot planning with learned dynamics while retaining simulation checks on the final plan.",
+      "why_it_matters_zh": "该方法给出用学习动力学加速机器人规划、同时保留最终计划仿真检查的具体路径。",
+      "source": {
+        "name": "Lazy-MOSAIC authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.21517",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-lynnreal-hand-streaming-interactive-world-model",
+      "published_at": "2026-11-16T17:51:44Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "simulation",
+        "interaction",
+        "video-generation",
+        "benchmark"
+      ],
+      "title_en": "LynnReal-Hand models hand-controlled interactions with streaming video generation",
+      "title_zh": "LynnReal-Hand 通过流式视频生成建模手部控制的世界交互",
+      "summary_en": "LynnReal-Hand is a new preprint on controlling video world models through hand motion. The authors curate 100,000 interaction clips and combine interaction-aware training with few-step causal generation. They report 18.03 FPS at 540p on one H200 with 741 ms latency; code, data and weights are promised for future release.",
+      "summary_zh": "LynnReal-Hand 新预印本研究通过手部动作控制视频世界模型。作者整理了 10 万段交互片段，将交互感知训练与少步因果生成结合。其报告单张 H200 在 540p 下达到 18.03 FPS、延迟 741 毫秒；代码、数据和权重仍为计划发布。",
+      "tech_points_en": [
+        "Region-aware score distillation combines video and image priors to refine interactions and appearance.",
+        "An Ultra-Fast-VAE decoder reduces streaming cost; the reported optimized peak memory is 34.89 GB."
+      ],
+      "tech_points_zh": [
+        "区域感知分数蒸馏结合视频与图像先验，改善交互和外观。",
+        "Ultra-Fast-VAE 解码器降低流式生成开销，报告的优化后峰值显存为 34.89 GB。"
+      ],
+      "why_it_matters_en": "Hand control extends interactive world generation toward object-level intervention, though responsiveness still has measurable latency.",
+      "why_it_matters_zh": "手部控制将交互世界生成推进到物体级干预，但响应仍存在可测量的延迟。",
+      "source": {
+        "name": "LynnReal-Hand authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.21479",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-elite-evaluation-free-coding-agent-evolution",
+      "published_at": "2026-11-16T13:05:46Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding",
+        "self-improvement",
+        "benchmark",
+        "reasoning"
+      ],
+      "title_en": "ELITE evolves coding-agent implementations without candidate task evaluation inside the loop",
+      "title_zh": "ELITE 在演化循环内不评测候选任务结果，以改进编码智能体实现",
+      "summary_en": "The ELITE preprint explores coding-agent self-improvement by integrating compatible implementation changes rather than selecting children through downstream task scores. In the authors’ configurations, SWE-bench Pro performance rises from 60.0% to 85.6%, with lower evolution time than DGM and HGM but lower final scores than both.",
+      "summary_zh": "ELITE 预印本通过整合兼容的实现改动探索编码智能体自我改进，而非按下游任务分数挑选子代。在作者的配置中，SWE-bench Pro 成绩从 60.0% 升至 85.6%；演化耗时低于 DGM 和 HGM，但最终分数也低于两者。",
+      "tech_points_en": [
+        "Independent changes start from the same parent; program inspection identifies complementary, redundant and conflicting mechanisms.",
+        "The evolution loop uses deterministic validity checks, while downstream benchmarks remain necessary to measure the final result."
+      ],
+      "tech_points_zh": [
+        "独立改动从同一父代出发，通过程序检查识别互补、冗余和冲突机制。",
+        "演化循环使用确定性的有效性检查，最终效果仍通过下游基准衡量。"
+      ],
+      "why_it_matters_en": "The work tests whether implementation integration can reduce the cost of agent self-improvement without task-score selection.",
+      "why_it_matters_zh": "该研究检验了实现层面的整合能否在不依赖任务分数选择的情况下，降低智能体自我改进的开销。",
+      "source": {
+        "name": "ELITE authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.21056",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-system1-agents-schema-constrained-tool-calls",
+      "published_at": "2026-11-16T13:05:32Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "open-source",
+        "benchmark",
+        "reliability"
+      ],
+      "title_en": "System 1 agents turn tool calls into schema-constrained multiple-choice decisions",
+      "title_zh": "System 1 agents 将工具调用转为受 schema 约束的选择题决策",
+      "summary_en": "A new preprint presents local tool-calling agents that select from request- and schema-derived options instead of generating text. On 1,952 requests across 157 biomedical tools, the best tested configuration reports 97.0% correct tool selection or refusal, versus 95.2% for the best local LLM-agent baseline.",
+      "summary_zh": "新预印本提出本地工具调用智能体：从请求和 schema 提供的选项中作出选择，而非生成文本。在覆盖 157 个生物医学工具的 1,952 条请求上，最佳测试配置报告正确选工具或拒绝的比例为 97.0%，最佳本地 LLM 智能体基线为 95.2%。",
+      "tech_points_en": [
+        "A deterministic compiler builds the questions and a one-pass decision model answers them.",
+        "The study reports no invented content in System 1 calls within its test set; this does not establish general clinical reliability."
+      ],
+      "tech_points_zh": [
+        "确定性编译器构建选择题，由单次前向决策模型回答。",
+        "研究报告测试集中的 System 1 调用没有虚构内容；这并不能证明普遍的临床可靠性。"
+      ],
+      "why_it_matters_en": "The method provides an inspectable alternative for bounded tool use where constraining arguments matters more than free-form generation.",
+      "why_it_matters_zh": "对于参数约束比自由生成更重要的有限工具任务，该方法提供了可检查的替代方案。",
+      "source": {
+        "name": "System 1 agents authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.21053",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50539789"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-sciworldbench-paired-scientific-world-model-evaluation",
+      "published_at": "2026-11-16T11:09:07Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "physics",
+        "causality",
+        "evaluation"
+      ],
+      "title_en": "SciWorldBench tests video world models with paired scientific interventions",
+      "title_zh": "SciWorldBench 用成对科学干预检验视频世界模型",
+      "summary_en": "SciWorldBench introduces paired experiments that change one condition while requiring opposite scientific outcomes. In a ten-model evaluation, the authors find that paired generations often show the same outcome despite different conditions. The preprint says benchmark data and evaluation code will be released.",
+      "summary_zh": "SciWorldBench 提出成对实验：只改变一个条件，却要求出现相反的科学结果。作者对十个模型评测后发现，即使条件不同，成对生成的视频仍经常呈现相同结果。预印本表示将发布基准数据与评测代码。",
+      "tech_points_en": [
+        "Prompts specify the condition while withholding the expected outcome.",
+        "A separate VLM judges videos without seeing condition text or the correct-outcome label; a pair passes only if both outcomes are correct."
+      ],
+      "tech_points_zh": [
+        "提示提供实验条件，但不告知预期结果。",
+        "独立 VLM 在不查看条件文本或正确结果标签的情况下评分；只有两段结果都正确，实验对才算通过。"
+      ],
+      "why_it_matters_en": "Paired interventions probe causal sensitivity that visual realism or isolated-video scoring can miss.",
+      "why_it_matters_zh": "成对干预能够检验因果敏感性，补充视觉逼真度或单段视频评分难以揭示的问题。",
+      "source": {
+        "name": "SciWorldBench authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.20899",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-16-lift-see-act-dense-3d-robot-pretraining",
+      "published_at": "2026-11-16T03:49:42Z",
+      "collected_at": "2026-11-18T00:04:15Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "spatial-intelligence",
+        "pretraining",
+        "manipulation"
+      ],
+      "title_en": "Lift, See, Act uses dense 3D supervision for robot-policy pretraining from human video",
+      "title_zh": "Lift, See, Act 用稠密三维监督预训练人类视频驱动的机器人策略",
+      "summary_en": "The Lift, See, Act preprint trains robot policies from human videos using intermediate features from multiple 3D foundation models. It adds geometry and interaction supervision beyond sparse hand trajectories, with authors reporting improvements in simulation and real-world manipulation. The paper lists acceptance at NeurIPS 2026.",
+      "summary_zh": "Lift, See, Act 预印本利用多个三维基础模型的中间特征，从人类视频预训练机器人策略。它在稀疏手部轨迹之外加入几何与交互监督，作者报告在仿真和真机操作中取得改进。论文注明已被 NeurIPS 2026 接收。",
+      "tech_points_en": [
+        "The Lift phase adaptively aligns shallow policy features with dense representations from 3D models.",
+        "The See phase combines depth reconstruction and hand-region attention supervision before action learning."
+      ],
+      "tech_points_zh": [
+        "Lift 阶段将策略浅层特征自适应对齐到三维模型的稠密表征。",
+        "See 阶段结合深度重建与手部区域注意力监督，为动作学习提供支持。"
+      ],
+      "why_it_matters_en": "This offers a way to extract more action-relevant supervision from human video without reducing it to sparse trajectories.",
+      "why_it_matters_zh": "该方法为从人类视频提取更多动作相关监督提供了路径，无需将信息压缩为稀疏轨迹。",
+      "source": {
+        "name": "Lift, See, Act authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.20481",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 0
+      }
     }
   ]
 }

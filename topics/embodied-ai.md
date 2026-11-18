@@ -2,6 +2,38 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-16-lazy-mosaic-skill-effect-world-model-planning"></a>
+## [Lazy-MOSAIC 用学习到的技能效果减少操作规划中的仿真调用](https://arxiv.org/abs/2611.21517)
+
+**English:** [Lazy-MOSAIC uses learned skill outcomes to reduce manipulation-planning simulation](https://arxiv.org/abs/2611.21517)
+
+- **发布 / Published:** `2026-11-16T18:10:52Z`
+- **来源 / Source:** [Lazy-MOSAIC authors / arXiv](https://arxiv.org/abs/2611.21517) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `planning`, `simulation`, `world-model`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+新预印本提出 Lazy-MOSAIC：先搜索预测的技能效果，再将仿真资源用于有希望的候选。作者在杂乱货架取物任务中评测并展示真机，报告规划更快、仿真调用更少，同时成功率达到或超过基线。
+
+A new preprint introduces Lazy-MOSAIC, which searches predicted skill outcomes before spending simulation on promising candidates. The authors evaluate cluttered-shelf retrieval and demonstrate a physical robot, reporting faster planning with fewer simulator calls while matching or exceeding baseline success.
+
+### 技术点 / Technical points
+
+- 学习得到的世界模型在不到一毫秒内估计技能可行性及执行后的状态。
+  - A learned world model estimates skill feasibility and resulting state in a fraction of a millisecond.
+- 预测失效时局部修复搜索，返回计划中的每项技能均经过仿真验证。
+  - Invalid predictions trigger local search repair, and every skill in the returned plan is validated in simulation.
+
+### 为什么重要 / Why it matters
+
+该方法给出用学习动力学加速机器人规划、同时保留最终计划仿真检查的具体路径。
+
+It offers a concrete way to accelerate robot planning with learned dynamics while retaining simulation checks on the final plan.
+
+---
+
 <a id="2026-11-16-cloudrobo-wm12-world-prediction-robot-actions"></a>
 ## [华为云发布 CloudRobo-WM1.2，结合世界预测与机器人动作生成](https://www.cls.cn/detail/2535460)
 
@@ -37,6 +69,38 @@ The architecture connects learned environment dynamics with physical control on 
 ### 链接 / Links
 
 [Evidence 1](https://www.huaweicloud.com/about/live/261116.html) · [Evidence 2](https://m.ithome.com/html/1027684.htm) · [Evidence 3](https://www.cww.net.cn/article?id=616774)
+
+---
+
+<a id="2026-11-16-lift-see-act-dense-3d-robot-pretraining"></a>
+## [Lift, See, Act 用稠密三维监督预训练人类视频驱动的机器人策略](https://arxiv.org/abs/2611.20481)
+
+**English:** [Lift, See, Act uses dense 3D supervision for robot-policy pretraining from human video](https://arxiv.org/abs/2611.20481)
+
+- **发布 / Published:** `2026-11-16T03:49:42Z`
+- **来源 / Source:** [Lift, See, Act authors / arXiv](https://arxiv.org/abs/2611.20481) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `spatial-intelligence`, `pretraining`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Lift, See, Act 预印本利用多个三维基础模型的中间特征，从人类视频预训练机器人策略。它在稀疏手部轨迹之外加入几何与交互监督，作者报告在仿真和真机操作中取得改进。论文注明已被 NeurIPS 2026 接收。
+
+The Lift, See, Act preprint trains robot policies from human videos using intermediate features from multiple 3D foundation models. It adds geometry and interaction supervision beyond sparse hand trajectories, with authors reporting improvements in simulation and real-world manipulation. The paper lists acceptance at NeurIPS 2026.
+
+### 技术点 / Technical points
+
+- Lift 阶段将策略浅层特征自适应对齐到三维模型的稠密表征。
+  - The Lift phase adaptively aligns shallow policy features with dense representations from 3D models.
+- See 阶段结合深度重建与手部区域注意力监督，为动作学习提供支持。
+  - The See phase combines depth reconstruction and hand-region attention supervision before action learning.
+
+### 为什么重要 / Why it matters
+
+该方法为从人类视频提取更多动作相关监督提供了路径，无需将信息压缩为稀疏轨迹。
+
+This offers a way to extract more action-relevant supervision from human video without reducing it to sparse trajectories.
 
 ---
 
