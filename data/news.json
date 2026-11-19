@@ -25630,6 +25630,478 @@
         "technical_depth": 13,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-18-google-gemini-4-neon-agent-evaluations",
+      "published_at": "2026-11-18T21:00:00Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "benchmark",
+        "tool-use",
+        "multi-agent"
+      ],
+      "title_en": "Google rolls out Gemini 4 Neon and reports scores for multi-step agent work",
+      "title_zh": "Google 推出 Gemini 4 Neon，公布多步智能体任务评测",
+      "summary_en": "Google began rolling out Gemini 4 Neon through the Gemini API and to paid Pro and Ultra users in Antigravity. Google reports 75.8% on Agents’ Last Exam v1.1 and 56.3% on AutomationBench, which evaluates workflow automation.",
+      "summary_zh": "Google 开始通过 Gemini API 向开发者提供 Gemini 4 Neon，Antigravity 的 Pro 和 Ultra 订阅用户也可使用。Google 报告，Neon 在 Agents’ Last Exam v1.1 中得分 75.8%，在工作流自动化评测 AutomationBench 中得分 56.3%。",
+      "tech_points_en": [
+        "Neon accepts up to one million tokens of context and offers four levels of reasoning effort.",
+        "Google’s SWE-sweep evaluation used Antigravity CLI 1.5.9, which can send subagents to inspect different parts of a repository."
+      ],
+      "tech_points_zh": [
+        "Neon 的上下文窗口为 100 万 token，推理强度有四档可选。",
+        "Google 在 SWE-sweep 评测中使用 Antigravity CLI 1.5.9，可派出子智能体检查代码库的不同部分。"
+      ],
+      "why_it_matters_en": "The published settings let developers distinguish the model’s task score from the contribution of tools such as parallel repository inspection.",
+      "why_it_matters_zh": "公开评测配置让开发者在解读模型得分时，可以考虑并行检查代码库等工具的作用。",
+      "source": {
+        "name": "Google",
+        "type": "primary",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/"
+      ],
+      "evidence_urls": [
+        "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-17-self-improvement-game-agents-written-strategies",
+      "published_at": "2026-11-17T18:57:10Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "memory",
+        "self-improvement",
+        "planning",
+        "benchmark"
+      ],
+      "title_en": "Game-playing agents devise practice tasks and carry written strategies into new games",
+      "title_zh": "游戏智能体自行设计练习，并将书面策略迁移到新游戏",
+      "summary_en": "Researchers gave a frozen language model tools to try games and edit text within a fixed compute budget. In their experiments, some models designed their own practice routines and wrote notes that improved play on unfamiliar tasks.",
+      "summary_zh": "研究人员固定语言模型的权重，让它在限定算力下试玩游戏、编辑文本。实验中，部分模型自行安排练习，并写出能改善陌生任务表现的策略笔记。",
+      "tech_points_en": [
+        "In one session, the agent wrote a Sokoban level generator and a solver to produce its own practice puzzles.",
+        "The authors tested whether the resulting text transferred across PuzzleScript games, ARC-AGI-3 and 3D navigation in MazeBench."
+      ],
+      "tech_points_zh": [
+        "在一次实验中，智能体编写了推箱子关卡生成器和求解器，为自己出练习题。",
+        "作者在 PuzzleScript 游戏、ARC-AGI-3 和 MazeBench 三维导航任务中检验了这些笔记的迁移效果。"
+      ],
+      "why_it_matters_en": "Keeping the weights fixed makes it possible to test whether a reusable written strategy accounts for gains on a new task.",
+      "why_it_matters_zh": "固定权重后，可以单独检验一份可复用的书面策略能否改善新任务表现。",
+      "source": {
+        "name": "Shobhita Sundaram, Cansu Sancaktar and Phillip Isola / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.23219",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://ssundaram21.github.io/self-org/"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-microsoft-mai-code-2-copilot",
+      "published_at": "2026-11-17T18:15:16Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "benchmark",
+        "software-engineering"
+      ],
+      "title_en": "Microsoft brings MAI Code 2 and Code 2 Flash to GitHub Copilot",
+      "title_zh": "微软在 GitHub Copilot 上推出 MAI Code 2 和 Code 2 Flash",
+      "summary_en": "Microsoft introduced two coding models in GitHub Copilot. Code 2 handles work spanning multiple files, while Flash targets frequent, smaller edits. Microsoft also opened a limited preview of Flash in Foundry.",
+      "summary_zh": "微软在 GitHub Copilot 上推出两款编程模型。Code 2 面向跨文件修改等任务，Flash 面向高频的小幅编辑。Flash 也在 Foundry 开放有限预览。",
+      "tech_points_en": [
+        "Microsoft reports that Code 2 averaged 98% of GPT-6.1 Sol’s performance at 40% of its cost across DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas and FrontierCode v1.1.",
+        "Both models accept images and text. The model card specifies limits of 922,000 input tokens and 128,000 output tokens."
+      ],
+      "tech_points_zh": [
+        "微软报告，在 DeepSWE 1.1、Terminal Bench 2.1、SWE-Atlas 和 FrontierCode v1.1 四项评测上，Code 2 的平均表现为 GPT-6.1 Sol 的 98%，成本为其 40%。",
+        "两款模型都接受图像和文本。模型卡注明输入上限为 92.2 万 token，输出上限为 12.8 万 token。"
+      ],
+      "why_it_matters_en": "The four named benchmarks give teams a concrete basis for testing whether Microsoft’s cost comparison holds on their own repository tasks.",
+      "why_it_matters_zh": "团队可以用这四项评测作为参照，在自己的代码库任务上检验微软报告的成本差异。",
+      "source": {
+        "name": "Microsoft AI",
+        "type": "primary",
+        "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://microsoft.ai/pdf/MAI-Code-2-And-MAI-Code-2-Flash-Model-Card.pdf"
+      ],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-17-tcp4d-robot-tool-trajectories",
+      "published_at": "2026-11-17T17:59:42Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "manipulation",
+        "spatial-intelligence",
+        "imitation-learning"
+      ],
+      "title_en": "TCP4D recovers robot tool motion from video and predicts the next trajectory",
+      "title_zh": "TCP4D 从单目视频还原机器人工具运动，并预测后续轨迹",
+      "summary_en": "TCP4D uses one scene representation to track a robot’s tool center point and to predict where it should move next. The tracker recovers 3D poses and gripper states from RGB video, letting the team reuse demonstrations without access to recorded robot states.",
+      "summary_zh": "TCP4D 用同一套场景表征跟踪机器人工具中心点，并预测它下一段该怎样移动。跟踪器从 RGB 视频恢复三维位姿和夹爪状态，使团队可以复用缺少机器人状态记录的演示。",
+      "tech_points_en": [
+        "The tracker starts from 2D image points. Its reported absolute trajectory error was 7.60 mm on DROID and 16.07 mm on RoboLab.",
+        "The generator combines trajectory features with the current observation and instruction. It achieved 69.19% mean success across 48 RoboTwin tasks."
+      ],
+      "tech_points_zh": [
+        "跟踪器从图像中的二维标记点开始，作者报告它在 DROID 和 RoboLab 上的绝对轨迹误差分别为 7.60 和 16.07 毫米。",
+        "生成器结合轨迹特征、当前观测和指令，在 48 项 RoboTwin 任务上取得 69.19% 的平均成功率。"
+      ],
+      "why_it_matters_en": "Representing a demonstration in tool coordinates makes the same recorded motion usable when training another robot arm.",
+      "why_it_matters_zh": "用工具位姿表示演示动作后，同一段运动记录也能为另一种机械臂提供训练数据。",
+      "source": {
+        "name": "TCP4D authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.23143",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://livioni.github.io/TCP4D/"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-anymal-world-model-walking-audit",
+      "published_at": "2026-11-17T17:36:40Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "simulation",
+        "benchmark",
+        "locomotion"
+      ],
+      "title_en": "ANYmal D audit finds that lower short-term prediction error can still yield failing walking policies",
+      "title_zh": "ANYmal D 仿真审计发现，短期预测更准的模型仍可能训练出失败的行走策略",
+      "summary_en": "Joyjeet Singh evaluated learned dynamics models for one quadruped gait. All 18 fine-tuned variants improved on the released model’s one- and eight-step predictions, yet policies trained in 13 of them failed the walking test in MuJoCo.",
+      "summary_zh": "Joyjeet Singh 针对四足机器人 ANYmal D 的一种步态评估了学习型动力学模型。18 个微调版本在一步和八步预测上都优于原版，但其中 13 个版本训练出的策略未通过 MuJoCo 行走测试。",
+      "tech_points_en": [
+        "Training on the model’s own predicted trajectories beat one-step training at a horizon of 368 steps in all ten held-out episodes.",
+        "Pruning 30% of the weights retained 90% of the original model’s one-step skill score, but only 39% at a two-second horizon."
+      ],
+      "tech_points_zh": [
+        "在全部十段留出轨迹上，预测跨度达到 368 步时，用模型自身预测轨迹训练的版本优于单步训练版本。",
+        "剪去 30% 的权重后，模型保留了原版单步预测评分的 90%，预测两秒后的状态时仅保留 39%。"
+      ],
+      "why_it_matters_en": "Testing a walking policy in a separate simulator exposed failures that short prediction checks missed. The study covers one simulated gait.",
+      "why_it_matters_zh": "把行走策略放到另一套仿真器中评测，暴露了短期预测指标遗漏的失败。结论的适用范围是仿真中的这一种步态。",
+      "source": {
+        "name": "Joyjeet Singh / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.23118",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/joyjeet-singh/rwm-robot-level"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-rfw-s-deformable-object-verification",
+      "published_at": "2026-11-17T16:49:52Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "dataset",
+        "simulation",
+        "manipulation"
+      ],
+      "title_en": "RFW-S verifies 83,365 deformable object assets with separate simulation tests",
+      "title_zh": "RFW-S 用独立仿真测试验证了 83,365 个可变形物体资产",
+      "summary_en": "The RFW-S team describes 83,365 simulated objects that passed its checks, covering 485 everyday categories. After fitting an asset’s physical parameters, the team tested how it behaved under a different interaction.",
+      "summary_zh": "RFW-S 团队报告，共有 83,365 个仿真物体通过验证，覆盖 485 个日常物品类别。团队先拟合物体的物理参数，再换一种交互方式检查它如何变形。",
+      "tech_points_en": [
+        "The collection spans soft solids, cloth sheets, shells, garments and bags. Each family receives an appropriate physical representation.",
+        "The grasping evaluation measures both task completion and object integrity. The authors also replayed fragile-object manipulations on hardware."
+      ],
+      "tech_points_zh": [
+        "数据包含软质实体、布片、壳体、衣物和袋子，建模流程按结构类型选择物理表示。",
+        "抓取评测同时衡量任务是否完成和物体是否完好。作者还在实物上重放了易损物品的操作过程。"
+      ],
+      "why_it_matters_en": "A robot can complete a grasp while crushing the object. Measuring both outcomes makes that failure visible.",
+      "why_it_matters_zh": "即使机器人成功抓起了物体，也可能已将它压坏。同时记录两种结果，评测就能捕捉这类失败。",
+      "source": {
+        "name": "RFW-S authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.23056",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://sjijs.github.io/RFW-S_website/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-cure-world-model-planning-regret",
+      "published_at": "2026-11-17T10:46:50Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "planning",
+        "model-based-control",
+        "benchmark",
+        "uncertainty"
+      ],
+      "title_en": "CURE checks whether a world model can support a planning decision",
+      "title_zh": "CURE 检验世界模型的预测能否支持规划决策",
+      "summary_en": "CURE asks how well the training data cover a planner’s candidate actions. Its diagnostic guides the choice between reweighting existing examples, sampling more predicted trajectories or collecting data for actions that are poorly represented.",
+      "summary_zh": "CURE 检查训练数据对规划器候选动作的覆盖程度，并据此决定是调整旧样本的权重、采样更多预测轨迹，还是为缺少数据的动作补采样本。",
+      "tech_points_en": [
+        "On simulated Language-Table pushing, the authors report regret of 0.06 for decisions the diagnostic marked as reliable and 0.38 for the rest.",
+        "The study also tested MuJoCo arm control. On its contact task, the corresponding values were 0.07 and 0.38."
+      ],
+      "tech_points_zh": [
+        "在 Language-Table 仿真推物任务中，作者报告通过可靠性判定的决策遗憾值为 0.06，其余决策为 0.38。",
+        "研究还测试了 MuJoCo 机械臂控制。在接触任务上，这两组决策的遗憾值分别为 0.07 和 0.38。"
+      ],
+      "why_it_matters_en": "The decision-level test helps identify when a planner needs data on a new action, even if the model already generates plausible videos.",
+      "why_it_matters_zh": "即使模型已经能生成逼真的视频，这项面向决策的检验仍能指出哪些动作需要补充数据。",
+      "source": {
+        "name": "CURE authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.22561",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-maniformer-robot-demonstration-quality",
+      "published_at": "2026-11-17T08:38:45Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "teleoperation",
+        "imitation-learning",
+        "robotics",
+        "calibration"
+      ],
+      "title_en": "Maniformer measures how teleoperation detours carry into learned robot motions",
+      "title_zh": "Maniformer 量化遥操作示教中的绕路如何影响机器人学到的动作",
+      "summary_en": "The Maniformer team assessed 25 dual-arm designs and ran controlled teleoperation and policy tests. In its real-robot experiments, fine-tuned π0.5 policies reproduced about 90% of the extra travel distance introduced by detours in demonstrations.",
+      "summary_zh": "Maniformer 团队分析了 25 种双臂机器人设计，并开展受控遥操作和策略实验。在真机测试中，微调后的 π0.5 策略复现了示教绕路所增加路程的约 90%。",
+      "tech_points_en": [
+        "Allowing operators to control body parts in parallel cut task time by 43–53% in the team’s teleoperation experiments.",
+        "In one calibration experiment, all 30 trials failed when the robot used a mismatched calibration at inference time."
+      ],
+      "tech_points_zh": [
+        "在团队的遥操作实验中，允许操作者同时控制多个身体部位，使任务耗时缩短了 43% 至 53%。",
+        "在一项标定实验中，机器人在推理时采用不匹配的标定，30 次试验全部失败。"
+      ],
+      "why_it_matters_en": "These measurements give data-collection teams concrete checks for inefficient demonstrations and calibration mismatches before they scale up recording.",
+      "why_it_matters_zh": "采集团队可以据此在扩大录制规模前，先检查示教中的多余运动，以及训练与部署时的标定是否匹配。",
+      "source": {
+        "name": "Maniformer Real-World Manipulation Team and coauthors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.22388",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-heave-ho-humanoid-coordination",
+      "published_at": "2026-11-17T06:21:03Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "embodied-ai",
+        "agents"
+      ],
+      "tags": [
+        "humanoid",
+        "multi-agent",
+        "locomotion",
+        "manipulation"
+      ],
+      "title_en": "Heave-Ho coordinates humanoid teams through speech and local observations",
+      "title_zh": "Heave-Ho 让多台人形机器人靠语音和本地观测协作",
+      "summary_en": "Heave-Ho trains whole-body controllers using two identical humanoids. Each robot acts on local observations, while a vision-language planner and spoken leader-follower cues coordinate tasks such as carrying an object through a narrow doorway.",
+      "summary_zh": "Heave-Ho 用两台同型人形机器人训练全身控制器。每台机器人依据本地观测行动，视觉语言规划器配合领队与跟随者之间的语音指令，协调搬物通过窄门等任务。",
+      "tech_points_en": [
+        "The HH-Bench simulation benchmark covers 12 tasks and includes teams of up to ten humanoids.",
+        "The project shows physical robots carrying objects together, including teams with different robot types. The robots exchange no network messages during coordination."
+      ],
+      "tech_points_zh": [
+        "HH-Bench 仿真基准包含 12 项任务，参评队伍最多由十台人形机器人组成。",
+        "项目展示了真机协同搬运，包括不同机型组队的情形。协作时机器人之间无需交换网络消息。"
+      ],
+      "why_it_matters_en": "The separation between planning and local control lets researchers test whether a coordination method still works as the size and composition of a team change.",
+      "why_it_matters_zh": "将规划与本地控制分开，研究者就能检验队伍规模和机型构成改变后，同一套协作方法是否仍然有效。",
+      "source": {
+        "name": "Heave-Ho authors / arXiv",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.22275",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://heaveho-humanoid.github.io/"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-17-deepmind-antigravity-robotics-plugin",
+      "published_at": "2026-11-17T05:06:34Z",
+      "collected_at": "2026-11-19T00:10:27Z",
+      "categories": [
+        "embodied-ai",
+        "agents"
+      ],
+      "tags": [
+        "robotics",
+        "sim-to-real",
+        "tool-use",
+        "manipulation"
+      ],
+      "title_en": "DeepMind’s Antigravity Robotics plugin takes a controller from MuJoCo to a real arm",
+      "title_zh": "DeepMind 推出 Antigravity 机器人插件，让同一套控制代码从 MuJoCo 走上真机",
+      "summary_en": "Google DeepMind published skills that let an Antigravity agent write a controller, test it in MuJoCo and run it on a robot arm. The repository shows an I2RT YAM Pro sorting cookies from a moving belt in both simulation and hardware.",
+      "summary_zh": "Google DeepMind 发布了一组供 Antigravity 智能体使用的技能，用于编写控制器、在 MuJoCo 中测试并在机械臂上运行。仓库展示了 I2RT YAM Pro 在仿真和真机上从传送带分拣饼干的同一任务。",
+      "tech_points_en": [
+        "The initial release includes hardware setup and calibration skills for I2RT YAM, SO-101 and Franka Research 3 arms.",
+        "The skills cover RGB-based object localization, motion planning, visual servoing and checks before transferring a controller to hardware."
+      ],
+      "tech_points_zh": [
+        "首版包含面向 I2RT YAM、SO-101 和 Franka Research 3 机械臂的硬件启用与标定技能。",
+        "这些技能覆盖基于 RGB 图像的物体定位、运动规划、视觉伺服，以及将控制器转到真机前的检查。"
+      ],
+      "why_it_matters_en": "The paired sorting demonstrations let developers inspect how a single controller behaves in simulation and on the physical arm.",
+      "why_it_matters_zh": "两段分拣演示让开发者可以对照观察同一套控制代码在仿真和实体机械臂上的表现。",
+      "source": {
+        "name": "Google DeepMind",
+        "type": "primary",
+        "url": "https://github.com/google-deepmind/robotics-antigravity-plugin",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50553913"
+      ],
+      "evidence_urls": [
+        "https://github.com/google-deepmind/robotics-antigravity-plugin/commit/ba5d854f47f7373e095a6c9c538f3532b30c1975"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 30,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 1
+      }
     }
   ]
 }

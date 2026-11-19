@@ -2,6 +2,74 @@
 
 # World models / 世界模型
 
+<a id="2026-11-17-anymal-world-model-walking-audit"></a>
+## [ANYmal D 仿真审计发现，短期预测更准的模型仍可能训练出失败的行走策略](https://arxiv.org/abs/2611.23118)
+
+**English:** [ANYmal D audit finds that lower short-term prediction error can still yield failing walking policies](https://arxiv.org/abs/2611.23118)
+
+- **发布 / Published:** `2026-11-17T17:36:40Z`
+- **来源 / Source:** [Joyjeet Singh / arXiv](https://arxiv.org/abs/2611.23118) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`, `locomotion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Joyjeet Singh 针对四足机器人 ANYmal D 的一种步态评估了学习型动力学模型。18 个微调版本在一步和八步预测上都优于原版，但其中 13 个版本训练出的策略未通过 MuJoCo 行走测试。
+
+Joyjeet Singh evaluated learned dynamics models for one quadruped gait. All 18 fine-tuned variants improved on the released model’s one- and eight-step predictions, yet policies trained in 13 of them failed the walking test in MuJoCo.
+
+### 技术点 / Technical points
+
+- 在全部十段留出轨迹上，预测跨度达到 368 步时，用模型自身预测轨迹训练的版本优于单步训练版本。
+  - Training on the model’s own predicted trajectories beat one-step training at a horizon of 368 steps in all ten held-out episodes.
+- 剪去 30% 的权重后，模型保留了原版单步预测评分的 90%，预测两秒后的状态时仅保留 39%。
+  - Pruning 30% of the weights retained 90% of the original model’s one-step skill score, but only 39% at a two-second horizon.
+
+### 为什么重要 / Why it matters
+
+把行走策略放到另一套仿真器中评测，暴露了短期预测指标遗漏的失败。结论的适用范围是仿真中的这一种步态。
+
+Testing a walking policy in a separate simulator exposed failures that short prediction checks missed. The study covers one simulated gait.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/joyjeet-singh/rwm-robot-level)
+
+---
+
+<a id="2026-11-17-cure-world-model-planning-regret"></a>
+## [CURE 检验世界模型的预测能否支持规划决策](https://arxiv.org/abs/2611.22561)
+
+**English:** [CURE checks whether a world model can support a planning decision](https://arxiv.org/abs/2611.22561)
+
+- **发布 / Published:** `2026-11-17T10:46:50Z`
+- **来源 / Source:** [CURE authors / arXiv](https://arxiv.org/abs/2611.22561) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `planning`, `model-based-control`, `benchmark`, `uncertainty`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CURE 检查训练数据对规划器候选动作的覆盖程度，并据此决定是调整旧样本的权重、采样更多预测轨迹，还是为缺少数据的动作补采样本。
+
+CURE asks how well the training data cover a planner’s candidate actions. Its diagnostic guides the choice between reweighting existing examples, sampling more predicted trajectories or collecting data for actions that are poorly represented.
+
+### 技术点 / Technical points
+
+- 在 Language-Table 仿真推物任务中，作者报告通过可靠性判定的决策遗憾值为 0.06，其余决策为 0.38。
+  - On simulated Language-Table pushing, the authors report regret of 0.06 for decisions the diagnostic marked as reliable and 0.38 for the rest.
+- 研究还测试了 MuJoCo 机械臂控制。在接触任务上，这两组决策的遗憾值分别为 0.07 和 0.38。
+  - The study also tested MuJoCo arm control. On its contact task, the corresponding values were 0.07 and 0.38.
+
+### 为什么重要 / Why it matters
+
+即使模型已经能生成逼真的视频，这项面向决策的检验仍能指出哪些动作需要补充数据。
+
+The decision-level test helps identify when a planner needs data on a new action, even if the model already generates plausible videos.
+
+---
+
 <a id="2026-11-16-lazy-mosaic-skill-effect-world-model-planning"></a>
 ## [Lazy-MOSAIC 用学习到的技能效果减少操作规划中的仿真调用](https://arxiv.org/abs/2611.21517)
 

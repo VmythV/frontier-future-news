@@ -2,6 +2,79 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-18-google-gemini-4-neon-agent-evaluations"></a>
+## [Google 推出 Gemini 4 Neon，公布多步智能体任务评测](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
+
+**English:** [Google rolls out Gemini 4 Neon and reports scores for multi-step agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
+
+- **发布 / Published:** `2026-11-18T21:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `tool-use`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Google 开始通过 Gemini API 向开发者提供 Gemini 4 Neon，Antigravity 的 Pro 和 Ultra 订阅用户也可使用。Google 报告，Neon 在 Agents’ Last Exam v1.1 中得分 75.8%，在工作流自动化评测 AutomationBench 中得分 56.3%。
+
+Google began rolling out Gemini 4 Neon through the Gemini API and to paid Pro and Ultra users in Antigravity. Google reports 75.8% on Agents’ Last Exam v1.1 and 56.3% on AutomationBench, which evaluates workflow automation.
+
+### 技术点 / Technical points
+
+- Neon 的上下文窗口为 100 万 token，推理强度有四档可选。
+  - Neon accepts up to one million tokens of context and offers four levels of reasoning effort.
+- Google 在 SWE-sweep 评测中使用 Antigravity CLI 1.5.9，可派出子智能体检查代码库的不同部分。
+  - Google’s SWE-sweep evaluation used Antigravity CLI 1.5.9, which can send subagents to inspect different parts of a repository.
+
+### 为什么重要 / Why it matters
+
+公开评测配置让开发者在解读模型得分时，可以考虑并行检查代码库等工具的作用。
+
+The published settings let developers distinguish the model’s task score from the contribution of tools such as parallel repository inspection.
+
+### 链接 / Links
+
+[Evidence 1](https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf)
+[Discussion 1](https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/)
+
+---
+
+<a id="2026-11-17-self-improvement-game-agents-written-strategies"></a>
+## [游戏智能体自行设计练习，并将书面策略迁移到新游戏](https://arxiv.org/abs/2611.23219)
+
+**English:** [Game-playing agents devise practice tasks and carry written strategies into new games](https://arxiv.org/abs/2611.23219)
+
+- **发布 / Published:** `2026-11-17T18:57:10Z`
+- **来源 / Source:** [Shobhita Sundaram, Cansu Sancaktar and Phillip Isola / arXiv](https://arxiv.org/abs/2611.23219) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `self-improvement`, `planning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究人员固定语言模型的权重，让它在限定算力下试玩游戏、编辑文本。实验中，部分模型自行安排练习，并写出能改善陌生任务表现的策略笔记。
+
+Researchers gave a frozen language model tools to try games and edit text within a fixed compute budget. In their experiments, some models designed their own practice routines and wrote notes that improved play on unfamiliar tasks.
+
+### 技术点 / Technical points
+
+- 在一次实验中，智能体编写了推箱子关卡生成器和求解器，为自己出练习题。
+  - In one session, the agent wrote a Sokoban level generator and a solver to produce its own practice puzzles.
+- 作者在 PuzzleScript 游戏、ARC-AGI-3 和 MazeBench 三维导航任务中检验了这些笔记的迁移效果。
+  - The authors tested whether the resulting text transferred across PuzzleScript games, ARC-AGI-3 and 3D navigation in MazeBench.
+
+### 为什么重要 / Why it matters
+
+固定权重后，可以单独检验一份可复用的书面策略能否改善新任务表现。
+
+Keeping the weights fixed makes it possible to test whether a reusable written strategy accounts for gains on a new task.
+
+### 链接 / Links
+
+[Evidence 1](https://ssundaram21.github.io/self-org/)
+
+---
+
 <a id="2026-11-17-github-mdash-verified-security-fixes"></a>
 ## [GitHub 与微软将 MDASH 扫描结果筛为 99 份已核验的私密安全报告](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
 
@@ -66,6 +139,42 @@ A shared session protocol can reduce bespoke integrations and keep long-running 
 
 ---
 
+<a id="2026-11-17-microsoft-mai-code-2-copilot"></a>
+## [微软在 GitHub Copilot 上推出 MAI Code 2 和 Code 2 Flash](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
+
+**English:** [Microsoft brings MAI Code 2 and Code 2 Flash to GitHub Copilot](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
+
+- **发布 / Published:** `2026-11-17T18:15:16Z`
+- **来源 / Source:** [Microsoft AI](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `software-engineering`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+微软在 GitHub Copilot 上推出两款编程模型。Code 2 面向跨文件修改等任务，Flash 面向高频的小幅编辑。Flash 也在 Foundry 开放有限预览。
+
+Microsoft introduced two coding models in GitHub Copilot. Code 2 handles work spanning multiple files, while Flash targets frequent, smaller edits. Microsoft also opened a limited preview of Flash in Foundry.
+
+### 技术点 / Technical points
+
+- 微软报告，在 DeepSWE 1.1、Terminal Bench 2.1、SWE-Atlas 和 FrontierCode v1.1 四项评测上，Code 2 的平均表现为 GPT-6.1 Sol 的 98%，成本为其 40%。
+  - Microsoft reports that Code 2 averaged 98% of GPT-6.1 Sol’s performance at 40% of its cost across DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas and FrontierCode v1.1.
+- 两款模型都接受图像和文本。模型卡注明输入上限为 92.2 万 token，输出上限为 12.8 万 token。
+  - Both models accept images and text. The model card specifies limits of 922,000 input tokens and 128,000 output tokens.
+
+### 为什么重要 / Why it matters
+
+团队可以用这四项评测作为参照，在自己的代码库任务上检验微软报告的成本差异。
+
+The four named benchmarks give teams a concrete basis for testing whether Microsoft’s cost comparison holds on their own repository tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://microsoft.ai/pdf/MAI-Code-2-And-MAI-Code-2-Flash-Model-Card.pdf)
+
+---
+
 <a id="2026-11-17-openai-gpt62-astra-sol-agent-workflows"></a>
 ## [OpenAI 发布 GPT-6.2 Astra 与 Sol，面向多步骤专业任务](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
 
@@ -99,6 +208,251 @@ The release changes the reported capability and cost envelope for agents carryin
 ### 链接 / Links
 
 [Evidence 1](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)
+
+---
+
+<a id="2026-11-17-tcp4d-robot-tool-trajectories"></a>
+## [TCP4D 从单目视频还原机器人工具运动，并预测后续轨迹](https://arxiv.org/abs/2611.23143)
+
+**English:** [TCP4D recovers robot tool motion from video and predicts the next trajectory](https://arxiv.org/abs/2611.23143)
+
+- **发布 / Published:** `2026-11-17T17:59:42Z`
+- **来源 / Source:** [TCP4D authors / arXiv](https://arxiv.org/abs/2611.23143) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `manipulation`, `spatial-intelligence`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+TCP4D 用同一套场景表征跟踪机器人工具中心点，并预测它下一段该怎样移动。跟踪器从 RGB 视频恢复三维位姿和夹爪状态，使团队可以复用缺少机器人状态记录的演示。
+
+TCP4D uses one scene representation to track a robot’s tool center point and to predict where it should move next. The tracker recovers 3D poses and gripper states from RGB video, letting the team reuse demonstrations without access to recorded robot states.
+
+### 技术点 / Technical points
+
+- 跟踪器从图像中的二维标记点开始，作者报告它在 DROID 和 RoboLab 上的绝对轨迹误差分别为 7.60 和 16.07 毫米。
+  - The tracker starts from 2D image points. Its reported absolute trajectory error was 7.60 mm on DROID and 16.07 mm on RoboLab.
+- 生成器结合轨迹特征、当前观测和指令，在 48 项 RoboTwin 任务上取得 69.19% 的平均成功率。
+  - The generator combines trajectory features with the current observation and instruction. It achieved 69.19% mean success across 48 RoboTwin tasks.
+
+### 为什么重要 / Why it matters
+
+用工具位姿表示演示动作后，同一段运动记录也能为另一种机械臂提供训练数据。
+
+Representing a demonstration in tool coordinates makes the same recorded motion usable when training another robot arm.
+
+### 链接 / Links
+
+[Evidence 1](https://livioni.github.io/TCP4D/)
+
+---
+
+<a id="2026-11-17-anymal-world-model-walking-audit"></a>
+## [ANYmal D 仿真审计发现，短期预测更准的模型仍可能训练出失败的行走策略](https://arxiv.org/abs/2611.23118)
+
+**English:** [ANYmal D audit finds that lower short-term prediction error can still yield failing walking policies](https://arxiv.org/abs/2611.23118)
+
+- **发布 / Published:** `2026-11-17T17:36:40Z`
+- **来源 / Source:** [Joyjeet Singh / arXiv](https://arxiv.org/abs/2611.23118) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `simulation`, `benchmark`, `locomotion`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Joyjeet Singh 针对四足机器人 ANYmal D 的一种步态评估了学习型动力学模型。18 个微调版本在一步和八步预测上都优于原版，但其中 13 个版本训练出的策略未通过 MuJoCo 行走测试。
+
+Joyjeet Singh evaluated learned dynamics models for one quadruped gait. All 18 fine-tuned variants improved on the released model’s one- and eight-step predictions, yet policies trained in 13 of them failed the walking test in MuJoCo.
+
+### 技术点 / Technical points
+
+- 在全部十段留出轨迹上，预测跨度达到 368 步时，用模型自身预测轨迹训练的版本优于单步训练版本。
+  - Training on the model’s own predicted trajectories beat one-step training at a horizon of 368 steps in all ten held-out episodes.
+- 剪去 30% 的权重后，模型保留了原版单步预测评分的 90%，预测两秒后的状态时仅保留 39%。
+  - Pruning 30% of the weights retained 90% of the original model’s one-step skill score, but only 39% at a two-second horizon.
+
+### 为什么重要 / Why it matters
+
+把行走策略放到另一套仿真器中评测，暴露了短期预测指标遗漏的失败。结论的适用范围是仿真中的这一种步态。
+
+Testing a walking policy in a separate simulator exposed failures that short prediction checks missed. The study covers one simulated gait.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/joyjeet-singh/rwm-robot-level)
+
+---
+
+<a id="2026-11-17-rfw-s-deformable-object-verification"></a>
+## [RFW-S 用独立仿真测试验证了 83,365 个可变形物体资产](https://arxiv.org/abs/2611.23056)
+
+**English:** [RFW-S verifies 83,365 deformable object assets with separate simulation tests](https://arxiv.org/abs/2611.23056)
+
+- **发布 / Published:** `2026-11-17T16:49:52Z`
+- **来源 / Source:** [RFW-S authors / arXiv](https://arxiv.org/abs/2611.23056) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dataset`, `simulation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+RFW-S 团队报告，共有 83,365 个仿真物体通过验证，覆盖 485 个日常物品类别。团队先拟合物体的物理参数，再换一种交互方式检查它如何变形。
+
+The RFW-S team describes 83,365 simulated objects that passed its checks, covering 485 everyday categories. After fitting an asset’s physical parameters, the team tested how it behaved under a different interaction.
+
+### 技术点 / Technical points
+
+- 数据包含软质实体、布片、壳体、衣物和袋子，建模流程按结构类型选择物理表示。
+  - The collection spans soft solids, cloth sheets, shells, garments and bags. Each family receives an appropriate physical representation.
+- 抓取评测同时衡量任务是否完成和物体是否完好。作者还在实物上重放了易损物品的操作过程。
+  - The grasping evaluation measures both task completion and object integrity. The authors also replayed fragile-object manipulations on hardware.
+
+### 为什么重要 / Why it matters
+
+即使机器人成功抓起了物体，也可能已将它压坏。同时记录两种结果，评测就能捕捉这类失败。
+
+A robot can complete a grasp while crushing the object. Measuring both outcomes makes that failure visible.
+
+### 链接 / Links
+
+[Evidence 1](https://sjijs.github.io/RFW-S_website/)
+
+---
+
+<a id="2026-11-17-cure-world-model-planning-regret"></a>
+## [CURE 检验世界模型的预测能否支持规划决策](https://arxiv.org/abs/2611.22561)
+
+**English:** [CURE checks whether a world model can support a planning decision](https://arxiv.org/abs/2611.22561)
+
+- **发布 / Published:** `2026-11-17T10:46:50Z`
+- **来源 / Source:** [CURE authors / arXiv](https://arxiv.org/abs/2611.22561) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `planning`, `model-based-control`, `benchmark`, `uncertainty`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+CURE 检查训练数据对规划器候选动作的覆盖程度，并据此决定是调整旧样本的权重、采样更多预测轨迹，还是为缺少数据的动作补采样本。
+
+CURE asks how well the training data cover a planner’s candidate actions. Its diagnostic guides the choice between reweighting existing examples, sampling more predicted trajectories or collecting data for actions that are poorly represented.
+
+### 技术点 / Technical points
+
+- 在 Language-Table 仿真推物任务中，作者报告通过可靠性判定的决策遗憾值为 0.06，其余决策为 0.38。
+  - On simulated Language-Table pushing, the authors report regret of 0.06 for decisions the diagnostic marked as reliable and 0.38 for the rest.
+- 研究还测试了 MuJoCo 机械臂控制。在接触任务上，这两组决策的遗憾值分别为 0.07 和 0.38。
+  - The study also tested MuJoCo arm control. On its contact task, the corresponding values were 0.07 and 0.38.
+
+### 为什么重要 / Why it matters
+
+即使模型已经能生成逼真的视频，这项面向决策的检验仍能指出哪些动作需要补充数据。
+
+The decision-level test helps identify when a planner needs data on a new action, even if the model already generates plausible videos.
+
+---
+
+<a id="2026-11-17-maniformer-robot-demonstration-quality"></a>
+## [Maniformer 量化遥操作示教中的绕路如何影响机器人学到的动作](https://arxiv.org/abs/2611.22388)
+
+**English:** [Maniformer measures how teleoperation detours carry into learned robot motions](https://arxiv.org/abs/2611.22388)
+
+- **发布 / Published:** `2026-11-17T08:38:45Z`
+- **来源 / Source:** [Maniformer Real-World Manipulation Team and coauthors / arXiv](https://arxiv.org/abs/2611.22388) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `teleoperation`, `imitation-learning`, `robotics`, `calibration`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Maniformer 团队分析了 25 种双臂机器人设计，并开展受控遥操作和策略实验。在真机测试中，微调后的 π0.5 策略复现了示教绕路所增加路程的约 90%。
+
+The Maniformer team assessed 25 dual-arm designs and ran controlled teleoperation and policy tests. In its real-robot experiments, fine-tuned π0.5 policies reproduced about 90% of the extra travel distance introduced by detours in demonstrations.
+
+### 技术点 / Technical points
+
+- 在团队的遥操作实验中，允许操作者同时控制多个身体部位，使任务耗时缩短了 43% 至 53%。
+  - Allowing operators to control body parts in parallel cut task time by 43–53% in the team’s teleoperation experiments.
+- 在一项标定实验中，机器人在推理时采用不匹配的标定，30 次试验全部失败。
+  - In one calibration experiment, all 30 trials failed when the robot used a mismatched calibration at inference time.
+
+### 为什么重要 / Why it matters
+
+采集团队可以据此在扩大录制规模前，先检查示教中的多余运动，以及训练与部署时的标定是否匹配。
+
+These measurements give data-collection teams concrete checks for inefficient demonstrations and calibration mismatches before they scale up recording.
+
+---
+
+<a id="2026-11-17-heave-ho-humanoid-coordination"></a>
+## [Heave-Ho 让多台人形机器人靠语音和本地观测协作](https://arxiv.org/abs/2611.22275)
+
+**English:** [Heave-Ho coordinates humanoid teams through speech and local observations](https://arxiv.org/abs/2611.22275)
+
+- **发布 / Published:** `2026-11-17T06:21:03Z`
+- **来源 / Source:** [Heave-Ho authors / arXiv](https://arxiv.org/abs/2611.22275) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `humanoid`, `multi-agent`, `locomotion`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Heave-Ho 用两台同型人形机器人训练全身控制器。每台机器人依据本地观测行动，视觉语言规划器配合领队与跟随者之间的语音指令，协调搬物通过窄门等任务。
+
+Heave-Ho trains whole-body controllers using two identical humanoids. Each robot acts on local observations, while a vision-language planner and spoken leader-follower cues coordinate tasks such as carrying an object through a narrow doorway.
+
+### 技术点 / Technical points
+
+- HH-Bench 仿真基准包含 12 项任务，参评队伍最多由十台人形机器人组成。
+  - The HH-Bench simulation benchmark covers 12 tasks and includes teams of up to ten humanoids.
+- 项目展示了真机协同搬运，包括不同机型组队的情形。协作时机器人之间无需交换网络消息。
+  - The project shows physical robots carrying objects together, including teams with different robot types. The robots exchange no network messages during coordination.
+
+### 为什么重要 / Why it matters
+
+将规划与本地控制分开，研究者就能检验队伍规模和机型构成改变后，同一套协作方法是否仍然有效。
+
+The separation between planning and local control lets researchers test whether a coordination method still works as the size and composition of a team change.
+
+### 链接 / Links
+
+[Evidence 1](https://heaveho-humanoid.github.io/)
+
+---
+
+<a id="2026-11-17-deepmind-antigravity-robotics-plugin"></a>
+## [DeepMind 推出 Antigravity 机器人插件，让同一套控制代码从 MuJoCo 走上真机](https://github.com/google-deepmind/robotics-antigravity-plugin)
+
+**English:** [DeepMind’s Antigravity Robotics plugin takes a controller from MuJoCo to a real arm](https://github.com/google-deepmind/robotics-antigravity-plugin)
+
+- **发布 / Published:** `2026-11-17T05:06:34Z`
+- **来源 / Source:** [Google DeepMind](https://github.com/google-deepmind/robotics-antigravity-plugin) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `sim-to-real`, `tool-use`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布了一组供 Antigravity 智能体使用的技能，用于编写控制器、在 MuJoCo 中测试并在机械臂上运行。仓库展示了 I2RT YAM Pro 在仿真和真机上从传送带分拣饼干的同一任务。
+
+Google DeepMind published skills that let an Antigravity agent write a controller, test it in MuJoCo and run it on a robot arm. The repository shows an I2RT YAM Pro sorting cookies from a moving belt in both simulation and hardware.
+
+### 技术点 / Technical points
+
+- 首版包含面向 I2RT YAM、SO-101 和 Franka Research 3 机械臂的硬件启用与标定技能。
+  - The initial release includes hardware setup and calibration skills for I2RT YAM, SO-101 and Franka Research 3 arms.
+- 这些技能覆盖基于 RGB 图像的物体定位、运动规划、视觉伺服，以及将控制器转到真机前的检查。
+  - The skills cover RGB-based object localization, motion planning, visual servoing and checks before transferring a controller to hardware.
+
+### 为什么重要 / Why it matters
+
+两段分拣演示让开发者可以对照观察同一套控制代码在仿真和实体机械臂上的表现。
+
+The paired sorting demonstrations let developers inspect how a single controller behaves in simulation and on the physical arm.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/google-deepmind/robotics-antigravity-plugin/commit/ba5d854f47f7373e095a6c9c538f3532b30c1975)
+[Discussion 1](https://news.ycombinator.com/item?id=50553913)
 
 ---
 
@@ -337,374 +691,3 @@ The architecture connects learned environment dynamics with physical control on 
 ### 链接 / Links
 
 [Evidence 1](https://www.huaweicloud.com/about/live/261116.html) · [Evidence 2](https://m.ithome.com/html/1027684.htm) · [Evidence 3](https://www.cww.net.cn/article?id=616774)
-
----
-
-<a id="2026-11-16-laya-guard-080-browser-desktop-controls"></a>
-## [Laya Guard 0.8 将本地动作检查扩展到浏览器工具与桌面点击](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
-
-**English:** [Laya Guard 0.8 extends local action checks to browser tools and desktop clicks](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0)
-
-- **发布 / Published:** `2026-11-16T05:00:06Z`
-- **来源 / Source:** [Laya Guard](https://github.com/scs0209/laya-guard/releases/tag/v0.8.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `tool-use`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Laya Guard 0.8.0 增加基于工具字段的浏览器规则，以及面向电脑操作的 macOS 辅助功能检查。第二版模型加入桌面点击训练；独立的可选模型复核可将原本放行的桌面动作提升为待审。
-
-Laya Guard 0.8.0 adds field-based browser rules and macOS accessibility checks for computer-use actions. Its second model revision includes desktop clicks, while a separate optional model review can escalate otherwise allowed desktop actions for review.
-
-### 技术点 / Technical points
-
-- 浏览器规则覆盖 Claude 浏览器工具、Chrome DevTools MCP 与 Playwright MCP，并逐步检查批量调用。
-  - Browser rules cover Claude browser tools, Chrome DevTools MCP and Playwright MCP; batch calls are checked step by step.
-- 只读 macOS 辅助程序识别点击位置下的界面元素；无法读取屏幕时，点击需要复核。
-  - A read-only macOS helper identifies the UI element under a click; unreadable screens cause the click to require review.
-- 可选桌面模型只能提升为待审，不能直接阻止；Unicode 规范化会在命令原文与折叠文本之间采用更严格的判定。
-  - The optional desktop model can escalate to review but cannot block; Unicode normalization now applies the stricter verdict across original and folded command text.
-
-### 为什么重要 / Why it matters
-
-该版本将工具调用防护扩展到视觉交互，因为单凭坐标无法判断动作的实际含义。
-
-The release extends tool-call guardrails to visual interaction, where coordinates alone do not reveal an action’s meaning.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/scs0209/laya-guard/releases?per_page=3)
-
----
-
-<a id="2026-11-16-openai-agents-sdk-alpha8-managed-approvals-budget-recovery"></a>
-## [OpenAI Agents SDK alpha.8 增加托管工具审批与保留预算用量的恢复机制](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
-
-**English:** [OpenAI Agents SDK alpha.8 adds managed tool approvals and budget-preserving recovery](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8)
-
-- **发布 / Published:** `2026-11-16T04:39:19Z`
-- **来源 / Source:** [OpenAI Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.8) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `tool-use`, `memory`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-OpenAI Agents SDK v0.24.0-alpha.8 是预发布版本，新增托管 Python 工具审批，以及恢复检查点时保留已消耗请求数或 token 预算的机制，同时扩展原生 Session 语音连接和应用自管模型客户端。
-
-OpenAI Agents SDK v0.24.0-alpha.8 is a prerelease adding managed Python tool approvals and checkpoint recovery that retains spent request or token budgets. It also expands native Session voice connections and application-owned model clients.
-
-### 技术点 / Technical points
-
-- 应用可在执行前检查工具参数并批准或拒绝调用，还可选择在当前 Session 中保留该决定。
-  - Applications can inspect tool arguments before execution and approve or reject a call, optionally retaining that decision for the Session.
-- 受支持的待执行任务检查点会保留已用预算；alpha.7 因无法执行保存的用量约束而拒绝新的带预算格式。
-  - Supported pending-run checkpoints preserve spent budgets; alpha.7 rejects the new budgeted format because it cannot enforce that saved usage.
-- 原生 Session Realtime 支持服务端 WebSocket、浏览器 WebRTC 及既有 SIP 通话；中断后执行效果不确定的工作仍需核对。
-  - Native Session Realtime supports server WebSocket, browser WebRTC and existing SIP calls; interrupted work with uncertain effects still requires reconciliation.
-
-### 为什么重要 / Why it matters
-
-审批与恢复控制有助于监督持续运行的智能体，并避免中断恢复后重置用量计数。
-
-Approval and recovery controls help supervise persistent agents without resetting their usage accounting after interruptions.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openai/openai-agents-python/releases?per_page=3)
-
----
-
-<a id="2026-11-16-lift-see-act-dense-3d-robot-pretraining"></a>
-## [Lift, See, Act 用稠密三维监督预训练人类视频驱动的机器人策略](https://arxiv.org/abs/2611.20481)
-
-**English:** [Lift, See, Act uses dense 3D supervision for robot-policy pretraining from human video](https://arxiv.org/abs/2611.20481)
-
-- **发布 / Published:** `2026-11-16T03:49:42Z`
-- **来源 / Source:** [Lift, See, Act authors / arXiv](https://arxiv.org/abs/2611.20481) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `spatial-intelligence`, `pretraining`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Lift, See, Act 预印本利用多个三维基础模型的中间特征，从人类视频预训练机器人策略。它在稀疏手部轨迹之外加入几何与交互监督，作者报告在仿真和真机操作中取得改进。论文注明已被 NeurIPS 2026 接收。
-
-The Lift, See, Act preprint trains robot policies from human videos using intermediate features from multiple 3D foundation models. It adds geometry and interaction supervision beyond sparse hand trajectories, with authors reporting improvements in simulation and real-world manipulation. The paper lists acceptance at NeurIPS 2026.
-
-### 技术点 / Technical points
-
-- Lift 阶段将策略浅层特征自适应对齐到三维模型的稠密表征。
-  - The Lift phase adaptively aligns shallow policy features with dense representations from 3D models.
-- See 阶段结合深度重建与手部区域注意力监督，为动作学习提供支持。
-  - The See phase combines depth reconstruction and hand-region attention supervision before action learning.
-
-### 为什么重要 / Why it matters
-
-该方法为从人类视频提取更多动作相关监督提供了路径，无需将信息压缩为稀疏轨迹。
-
-This offers a way to extract more action-relevant supervision from human video without reducing it to sparse trajectories.
-
----
-
-<a id="2026-11-16-qwen4-max-production-long-horizon-agents"></a>
-## [Qwen4-Max 正式上线，面向工具使用与长程智能体工作](https://www.cls.cn/detail/2535030)
-
-**English:** [Qwen4-Max enters production for tool use and long-horizon agent work](https://www.cls.cn/detail/2535030)
-
-- **发布 / Published:** `2026-11-16T02:42:50Z`
-- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535030) · `media`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `long-context`, `multimodal`, `human-in-the-loop`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-阿里巴巴正式推出 Qwen4-Max，主干参数规模为 2.4T，支持原生视觉与百万 token 上下文，重点面向专业工具使用和长程工作。本条时间采用财联社 11 月 16 日原创报道的发布时间，不推断官方公告的具体时刻。
-
-Alibaba released the production Qwen4-Max with a 2.4T-parameter backbone, native vision and a one-million-token context window, emphasizing professional tools and long-horizon work. This record uses the timestamp of CLS’s original November 16 report, not an inferred announcement time.
-
-### 技术点 / Technical points
-
-- 阿里云将正式模型列为 11 月 16 日上线，支持个人版与团队版 Token Plan，与 11 月 11 日的预览版分开列示。
-  - Alibaba Cloud lists the production model as available on November 16 through Personal and Team Token Plans, separately from the November 11 preview.
-- 模型结合原生视觉输入与长上下文处理，面向专业工作流程。
-  - The model combines native visual input with long-context processing for professional workflows.
-- 配套 Qwen-Live-Delivery-Plugin 为 Codex CLI 提供交付状态 MCP 工具、版本快照与反馈钩子；插件本身不附带模型。
-  - The companion Qwen-Live-Delivery-Plugin supplies delivery-state MCP tools, version snapshots and feedback hooks for Codex CLI; it does not bundle a model.
-
-### 为什么重要 / Why it matters
-
-此次发布扩展了面向智能体的模型选择，并提供可检查、可随时调整方向的长任务工作流程。
-
-The launch pairs a larger agent-oriented model offering with an inspectable workflow for steering long-running tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://www.ithome.com/1/027/512.htm) · [Evidence 2](https://docs.modelstudio.console.alibabacloud.com/en/model-studio/token-plan-product-updates) · [Evidence 3](https://github.com/QwenLM/Qwen-Live-Delivery-Plugin)
-[Discussion 1](https://news.ycombinator.com/item?id=50513215)
-
----
-
-<a id="2026-11-15-nativeagent-0619-memory-provenance-message-recovery"></a>
-## [NativeAgent 0.6.19 保留记忆来源并修复跨智能体回复处理](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
-
-**English:** [NativeAgent 0.6.19 preserves memory provenance and repairs cross-agent reply handling](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19)
-
-- **发布 / Published:** `2026-11-15T17:53:48Z`
-- **来源 / Source:** [NativeAgent release notes](https://github.com/embwl0x/native-agent/releases/tag/v0.6.19) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `multi-agent`, `computer-use`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
-
-### 摘要 / Summary
-
-NativeAgent 0.6.19 的发布说明介绍了旧记忆导入：保留最初学习时间与来源归属，避免重复导入或恢复已删除记忆。该版本还改进了智能体消息与回复的对应关系，以及应用重启后的回复恢复。
-
-NativeAgent 0.6.19 describes importing older memories while preserving their original learning dates and attribution, without reimporting duplicates or deleted memories. Its release notes also address matching replies to agent messages and recovering replies across app restarts.
-
-### 技术点 / Technical points
-
-- 导入经由智能体自身的记忆系统处理，保留原始时间与来源；重新连接其他智能体时保留其 Trust 设置。
-  - Memory imports pass through the agent’s memory system and retain original dates and attribution; reconnecting another agent preserves its Trust setting.
-- 等待中的智能体消息只接受明确对应它的回复；发送新消息不再取消前一条，关闭期间到达的回复会在重启后交付一次。
-  - A pending agent message accepts only a reply that identifies it; sending another message no longer cancels the first, and replies arriving during shutdown are handed over once after restart.
-- 计算机操作步骤中若屏幕发生变化，智能体只重新检查最初的窗口；该窗口关闭后不再操作。
-  - When the screen changes during a computer-use step, the agent rechecks only the original window and takes no action if that window has closed.
-
-### 为什么重要 / Why it matters
-
-这些改动针对持久运行助手的具体故障，包括记忆来源丢失、回复错配、重复交付和界面变化后的误操作。
-
-These changes target concrete failure modes in persistent assistants: lost provenance, crossed replies, duplicate delivery and actions against a changed interface.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/embwl0x/native-agent/releases/tags/v0.6.19)
-
----
-
-<a id="2026-11-15-ag2-132-batched-decisions-token-accounting"></a>
-## [AG2 1.3.2 合并多项决策问题，并统一缓存 token 计数](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
-
-**English:** [AG2 1.3.2 batches decision questions and normalizes cached-token accounting](https://github.com/ag2ai/ag2/releases/tag/v1.3.2)
-
-- **发布 / Published:** `2026-11-15T16:37:55Z`
-- **来源 / Source:** [AG2](https://github.com/ag2ai/ag2/releases/tag/v1.3.2) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `tool-use`, `observability`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-AG2 1.3.2 让决策智能体在一次请求中回答针对同一输入的多项类型化问题，同时统一各提供商的缓存输入计数，并将 ACP 集成迁移到 1.0 版本。
-
-AG2 1.3.2 lets a decision agent answer several typed questions about shared input in one request. It also counts cached input consistently across providers and migrates its ACP integration to version 1.0.
-
-### 技术点 / Technical points
-
-- 扁平 dataclass、TypedDict 或 Pydantic schema 可为各字段配置问题，并返回逐字段置信度；不受支持的 schema 会在发送请求前被拒绝。
-  - Flat dataclass, TypedDict or Pydantic schemas attach a question to each field and return per-field confidence; unsupported schemas are rejected before a request.
-- Anthropic 与 Bedrock 的 prompt_tokens 现在包含缓存读写，因此既有 token 预算阈值可能更早触发。
-  - prompt_tokens now includes cache reads and writes on Anthropic and Bedrock, so existing token-budget thresholds may be reached sooner.
-- ACP 1.x 保留独立消息、资源内容和工具结果结构，不再把一轮消息压平成字符串。
-  - ACP 1.x preserves separate messages, resource content and tool-result structure instead of flattening a turn into one string.
-
-### 为什么重要 / Why it matters
-
-合并决策可减少重复输入，统一计数则让跨提供商智能体的预算更容易核对。
-
-Batching decisions reduces repeated input while consistent accounting makes mixed-provider agent budgets easier to interpret.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/ag2ai/ag2/releases/tags/v1.3.2)
-
----
-
-<a id="2026-11-15-autogpt-0113-remote-execution-isolation"></a>
-## [AutoGPT 0.11.3 增加远程 PC 执行与更严格的沙箱隔离](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
-
-**English:** [AutoGPT 0.11.3 adds remote PC execution and tighter sandbox isolation](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3)
-
-- **发布 / Published:** `2026-11-15T08:59:39Z`
-- **来源 / Source:** [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT/releases/tag/autogpt-platform-beta-v0.11.3) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-runtime`, `tool-use`, `sandbox`, `safety`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-AutoGPT Platform beta 0.11.3 增加远程 Local PC 执行目标，并强化智能体执行与 webhook 触发器的边界。该版本还修复了私下报告的安全问题；发布说明表示，相关公告将在修复部署到生产环境后公开。
-
-AutoGPT Platform beta 0.11.3 adds remote Local PC execution targets and strengthens boundaries around agent execution and webhook triggers. The release also fixes privately reported security issues; its notes defer the advisories until the fixes reach production.
-
-### 技术点 / Technical points
-
-- 每个 bash_exec 沙箱使用独立的 PID 与 IPC 命名空间。
-  - Each bash_exec sandbox receives its own PID and IPC namespaces.
-- 预设 webhook 触发器验证保存的密钥及签名时间戳；团队切换时的会话规则也应用于专家凭据授权。
-  - Preset webhook triggers verify stored secrets and signature timestamps; team-change session rules also apply to expert credential grants.
-- 新增远程 PC 执行目标，并修复仅有一秒宽限期的智能体计划任务被跳过的问题。
-  - The release adds remote PC execution targets and fixes skipped agent schedules with a one-second grace period.
-
-### 为什么重要 / Why it matters
-
-随着智能体工作流扩展到远程执行，这些变更增强了执行隔离与触发器认证。
-
-The changes improve isolation and trigger authentication as agent workflows expand to remote execution.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/Significant-Gravitas/AutoGPT/releases?per_page=3)
-
----
-
-<a id="2026-11-15-qwen-code-0274-managed-access-authorization"></a>
-## [Qwen Code 0.27.4 新增可控的托管会话文件访问并收紧自动模式授权判断](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
-
-**English:** [Qwen Code 0.27.4 adds gated managed-session filesystem access and tighter Auto authorization](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4)
-
-- **发布 / Published:** `2026-11-15T07:04:40Z`
-- **来源 / Source:** [Qwen Code release notes](https://github.com/QwenLM/qwen-code/releases/tag/v0.27.4) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `memory`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
-
-### 摘要 / Summary
-
-Qwen Code 0.27.4 为 Managed Agent 会话加入可选的本地目录访问和交互式终端。自动模式改为判断高风险操作是否得到明确授权，而不只是是否与用户目标相关，同时恢复 CLI 记忆管理入口。
-
-Qwen Code 0.27.4 adds opt-in local-directory access and an interactive terminal for Managed Agent sessions. It also changes Auto Mode to assess whether risky actions were explicitly authorized, rather than merely related to the user’s goal, and restores CLI memory controls.
-
-### 技术点 / Technical points
-
-- 本地文件访问通过 HTTP/SSE MCP 中继和临时目录注册实现，默认关闭并需要会话能力开关；返回的文件内容仍遵循常规工具结果持久化策略。
-  - Local-file access uses an HTTP/SSE MCP relay with temporary directory registrations; it is disabled by default and requires a session capability. Returned file contents still follow the normal durable tool-result policy.
-- 托管终端使用短期单次准入票据，连接期间保持运行环境活跃；该可选功能要求工作区 OPERATOR 角色。
-  - The managed terminal uses a short-lived, single-use admission ticket and keeps the runtime active while attached; the opt-in surface requires the workspace OPERATOR role.
-- 自动模式在破坏性或批量操作上区分明确授权与目标相关性；带类型的 SDK 接口还支持预览和管理记忆导入。
-  - Auto Mode distinguishes explicit authorization from goal relevance for destructive or bulk actions; typed SDK APIs also support previewing and managing memory imports.
-
-### 为什么重要 / Why it matters
-
-该版本扩展了托管智能体使用本地资源的方式，也更明确地约束了访问前提和高风险操作授权。
-
-The release expands how hosted agents can work with local resources while making access prerequisites and risky-action authorization more explicit.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/QwenLM/qwen-code/releases/tags/v0.27.4) · [Evidence 2](https://github.com/QwenLM/qwen-code/pull/16844) · [Evidence 3](https://github.com/QwenLM/qwen-code/pull/16866) · [Evidence 4](https://github.com/QwenLM/qwen-code/pull/16858)
-
----
-
-<a id="2026-11-14-pinky-empty-app-allowlist-deny-access"></a>
-## [Pinky 修复空应用白名单此前允许访问所有应用的问题](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
-
-**English:** [Pinky fixes an empty app allowlist that previously permitted access to every app](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1)
-
-- **发布 / Published:** `2026-11-14T16:45:54Z`
-- **来源 / Source:** [Pinky release notes](https://github.com/DIYgod/pinky/releases/tag/v2026.1115.1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `phone-use`, `tool-use`, `safety`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `71/100`
-
-### 摘要 / Summary
-
-Pinky 2026.1115.1 修正手机操作智能体的应用限制：当智能体设为仅允许选定应用、但名单为空时，现在无法访问任何应用；此前该配置会允许访问全部应用。
-
-Pinky 2026.1115.1 corrects its app restrictions for phone-use agents. When an agent is limited to selected apps but the list is empty, it can now access no apps; previously that configuration allowed all apps.
-
-### 技术点 / Technical points
-
-- 执行时将空的选定应用名单解释为禁止访问任何应用。
-  - The runtime now enforces an empty selected-app list as no app access.
-- 设置界面也不再允许在未选择应用时保存仅限选定应用模式。
-  - The settings interface also rejects saving selected-app mode without choosing an app.
-
-### 为什么重要 / Why it matters
-
-该修复消除了界面所示授权范围与手机操作智能体实际可访问范围之间的具体偏差。
-
-The fix closes a concrete mismatch between the displayed authorization scope and what a phone-use agent could actually access.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/DIYgod/pinky/releases/tags/v2026.1115.1)
-
----
-
-<a id="2026-11-13-google-antigravity-teamwork-external-research-access"></a>
-## [Google 向外部科研与开发者开放 Antigravity /teamwork 和 /boost](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
-
-**English:** [Google opens Antigravity /teamwork and /boost to external researchers and developers](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/)
-
-- **发布 / Published:** `2026-11-13T20:47:18Z`
-- **来源 / Source:** [Google Research](https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `reasoning`, `verification`, `coding-agents`, `research`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Google 宣布外部用户可通过 Antigravity /teamwork 和 /boost 使用 Gemini 4 多智能体工作流，并使用 Deep Review；同时开放申请，为 10,000 名学术研究者提供六个月最高用量档位，部分专用工作流仍待后续开放。
-
-Google describes external access to Gemini 4 multi-agent workflows through Antigravity /teamwork and /boost, alongside Deep Review. It also opens applications for 10,000 academic researchers to receive six months of its highest usage tier; some specialized workflows remain forthcoming.
-
-### 技术点 / Technical points
-
-- 专用智能体仅获得当前任务所需的文件与工具，批评和审计智能体从全新上下文检查结果。
-  - Specialized agents receive limited task-specific files and tools, while critics and auditors check results from fresh contexts.
-- 并行探索结合 Lean 4、未修改测试集及硬件计数器等外部检查；/boost 将迭代编程循环封装为命令。
-  - Parallel exploration is paired with external checks such as Lean 4, unmodified test suites and hardware counters; /boost packages an iterative coding loop.
-
-### 为什么重要 / Why it matters
-
-该设计为围绕独立验证组织长时运行智能体提供了可检查的协作模式。
-
-The design offers inspectable patterns for coordinating long-running agents around independent verification.
-
-### 链接 / Links
-
-[Evidence 1](https://research.google/blog/rss/)

@@ -2,6 +2,79 @@
 
 # Agents / 智能体
 
+<a id="2026-11-18-google-gemini-4-neon-agent-evaluations"></a>
+## [Google 推出 Gemini 4 Neon，公布多步智能体任务评测](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
+
+**English:** [Google rolls out Gemini 4 Neon and reports scores for multi-step agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
+
+- **发布 / Published:** `2026-11-18T21:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `tool-use`, `multi-agent`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Google 开始通过 Gemini API 向开发者提供 Gemini 4 Neon，Antigravity 的 Pro 和 Ultra 订阅用户也可使用。Google 报告，Neon 在 Agents’ Last Exam v1.1 中得分 75.8%，在工作流自动化评测 AutomationBench 中得分 56.3%。
+
+Google began rolling out Gemini 4 Neon through the Gemini API and to paid Pro and Ultra users in Antigravity. Google reports 75.8% on Agents’ Last Exam v1.1 and 56.3% on AutomationBench, which evaluates workflow automation.
+
+### 技术点 / Technical points
+
+- Neon 的上下文窗口为 100 万 token，推理强度有四档可选。
+  - Neon accepts up to one million tokens of context and offers four levels of reasoning effort.
+- Google 在 SWE-sweep 评测中使用 Antigravity CLI 1.5.9，可派出子智能体检查代码库的不同部分。
+  - Google’s SWE-sweep evaluation used Antigravity CLI 1.5.9, which can send subagents to inspect different parts of a repository.
+
+### 为什么重要 / Why it matters
+
+公开评测配置让开发者在解读模型得分时，可以考虑并行检查代码库等工具的作用。
+
+The published settings let developers distinguish the model’s task score from the contribution of tools such as parallel repository inspection.
+
+### 链接 / Links
+
+[Evidence 1](https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf)
+[Discussion 1](https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/)
+
+---
+
+<a id="2026-11-17-self-improvement-game-agents-written-strategies"></a>
+## [游戏智能体自行设计练习，并将书面策略迁移到新游戏](https://arxiv.org/abs/2611.23219)
+
+**English:** [Game-playing agents devise practice tasks and carry written strategies into new games](https://arxiv.org/abs/2611.23219)
+
+- **发布 / Published:** `2026-11-17T18:57:10Z`
+- **来源 / Source:** [Shobhita Sundaram, Cansu Sancaktar and Phillip Isola / arXiv](https://arxiv.org/abs/2611.23219) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `memory`, `self-improvement`, `planning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究人员固定语言模型的权重，让它在限定算力下试玩游戏、编辑文本。实验中，部分模型自行安排练习，并写出能改善陌生任务表现的策略笔记。
+
+Researchers gave a frozen language model tools to try games and edit text within a fixed compute budget. In their experiments, some models designed their own practice routines and wrote notes that improved play on unfamiliar tasks.
+
+### 技术点 / Technical points
+
+- 在一次实验中，智能体编写了推箱子关卡生成器和求解器，为自己出练习题。
+  - In one session, the agent wrote a Sokoban level generator and a solver to produce its own practice puzzles.
+- 作者在 PuzzleScript 游戏、ARC-AGI-3 和 MazeBench 三维导航任务中检验了这些笔记的迁移效果。
+  - The authors tested whether the resulting text transferred across PuzzleScript games, ARC-AGI-3 and 3D navigation in MazeBench.
+
+### 为什么重要 / Why it matters
+
+固定权重后，可以单独检验一份可复用的书面策略能否改善新任务表现。
+
+Keeping the weights fixed makes it possible to test whether a reusable written strategy accounts for gains on a new task.
+
+### 链接 / Links
+
+[Evidence 1](https://ssundaram21.github.io/self-org/)
+
+---
+
 <a id="2026-11-17-github-mdash-verified-security-fixes"></a>
 ## [GitHub 与微软将 MDASH 扫描结果筛为 99 份已核验的私密安全报告](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
 
@@ -66,6 +139,42 @@ A shared session protocol can reduce bespoke integrations and keep long-running 
 
 ---
 
+<a id="2026-11-17-microsoft-mai-code-2-copilot"></a>
+## [微软在 GitHub Copilot 上推出 MAI Code 2 和 Code 2 Flash](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
+
+**English:** [Microsoft brings MAI Code 2 and Code 2 Flash to GitHub Copilot](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
+
+- **发布 / Published:** `2026-11-17T18:15:16Z`
+- **来源 / Source:** [Microsoft AI](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `software-engineering`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+微软在 GitHub Copilot 上推出两款编程模型。Code 2 面向跨文件修改等任务，Flash 面向高频的小幅编辑。Flash 也在 Foundry 开放有限预览。
+
+Microsoft introduced two coding models in GitHub Copilot. Code 2 handles work spanning multiple files, while Flash targets frequent, smaller edits. Microsoft also opened a limited preview of Flash in Foundry.
+
+### 技术点 / Technical points
+
+- 微软报告，在 DeepSWE 1.1、Terminal Bench 2.1、SWE-Atlas 和 FrontierCode v1.1 四项评测上，Code 2 的平均表现为 GPT-6.1 Sol 的 98%，成本为其 40%。
+  - Microsoft reports that Code 2 averaged 98% of GPT-6.1 Sol’s performance at 40% of its cost across DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas and FrontierCode v1.1.
+- 两款模型都接受图像和文本。模型卡注明输入上限为 92.2 万 token，输出上限为 12.8 万 token。
+  - Both models accept images and text. The model card specifies limits of 922,000 input tokens and 128,000 output tokens.
+
+### 为什么重要 / Why it matters
+
+团队可以用这四项评测作为参照，在自己的代码库任务上检验微软报告的成本差异。
+
+The four named benchmarks give teams a concrete basis for testing whether Microsoft’s cost comparison holds on their own repository tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://microsoft.ai/pdf/MAI-Code-2-And-MAI-Code-2-Flash-Model-Card.pdf)
+
+---
+
 <a id="2026-11-17-openai-gpt62-astra-sol-agent-workflows"></a>
 ## [OpenAI 发布 GPT-6.2 Astra 与 Sol，面向多步骤专业任务](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
 
@@ -99,6 +208,79 @@ The release changes the reported capability and cost envelope for agents carryin
 ### 链接 / Links
 
 [Evidence 1](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)
+
+---
+
+<a id="2026-11-17-heave-ho-humanoid-coordination"></a>
+## [Heave-Ho 让多台人形机器人靠语音和本地观测协作](https://arxiv.org/abs/2611.22275)
+
+**English:** [Heave-Ho coordinates humanoid teams through speech and local observations](https://arxiv.org/abs/2611.22275)
+
+- **发布 / Published:** `2026-11-17T06:21:03Z`
+- **来源 / Source:** [Heave-Ho authors / arXiv](https://arxiv.org/abs/2611.22275) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `humanoid`, `multi-agent`, `locomotion`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Heave-Ho 用两台同型人形机器人训练全身控制器。每台机器人依据本地观测行动，视觉语言规划器配合领队与跟随者之间的语音指令，协调搬物通过窄门等任务。
+
+Heave-Ho trains whole-body controllers using two identical humanoids. Each robot acts on local observations, while a vision-language planner and spoken leader-follower cues coordinate tasks such as carrying an object through a narrow doorway.
+
+### 技术点 / Technical points
+
+- HH-Bench 仿真基准包含 12 项任务，参评队伍最多由十台人形机器人组成。
+  - The HH-Bench simulation benchmark covers 12 tasks and includes teams of up to ten humanoids.
+- 项目展示了真机协同搬运，包括不同机型组队的情形。协作时机器人之间无需交换网络消息。
+  - The project shows physical robots carrying objects together, including teams with different robot types. The robots exchange no network messages during coordination.
+
+### 为什么重要 / Why it matters
+
+将规划与本地控制分开，研究者就能检验队伍规模和机型构成改变后，同一套协作方法是否仍然有效。
+
+The separation between planning and local control lets researchers test whether a coordination method still works as the size and composition of a team change.
+
+### 链接 / Links
+
+[Evidence 1](https://heaveho-humanoid.github.io/)
+
+---
+
+<a id="2026-11-17-deepmind-antigravity-robotics-plugin"></a>
+## [DeepMind 推出 Antigravity 机器人插件，让同一套控制代码从 MuJoCo 走上真机](https://github.com/google-deepmind/robotics-antigravity-plugin)
+
+**English:** [DeepMind’s Antigravity Robotics plugin takes a controller from MuJoCo to a real arm](https://github.com/google-deepmind/robotics-antigravity-plugin)
+
+- **发布 / Published:** `2026-11-17T05:06:34Z`
+- **来源 / Source:** [Google DeepMind](https://github.com/google-deepmind/robotics-antigravity-plugin) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `sim-to-real`, `tool-use`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Google DeepMind 发布了一组供 Antigravity 智能体使用的技能，用于编写控制器、在 MuJoCo 中测试并在机械臂上运行。仓库展示了 I2RT YAM Pro 在仿真和真机上从传送带分拣饼干的同一任务。
+
+Google DeepMind published skills that let an Antigravity agent write a controller, test it in MuJoCo and run it on a robot arm. The repository shows an I2RT YAM Pro sorting cookies from a moving belt in both simulation and hardware.
+
+### 技术点 / Technical points
+
+- 首版包含面向 I2RT YAM、SO-101 和 Franka Research 3 机械臂的硬件启用与标定技能。
+  - The initial release includes hardware setup and calibration skills for I2RT YAM, SO-101 and Franka Research 3 arms.
+- 这些技能覆盖基于 RGB 图像的物体定位、运动规划、视觉伺服，以及将控制器转到真机前的检查。
+  - The skills cover RGB-based object localization, motion planning, visual servoing and checks before transferring a controller to hardware.
+
+### 为什么重要 / Why it matters
+
+两段分拣演示让开发者可以对照观察同一套控制代码在仿真和实体机械臂上的表现。
+
+The paired sorting demonstrations let developers inspect how a single controller behaves in simulation and on the physical arm.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/google-deepmind/robotics-antigravity-plugin/commit/ba5d854f47f7373e095a6c9c538f3532b30c1975)
+[Discussion 1](https://news.ycombinator.com/item?id=50553913)
 
 ---
 
