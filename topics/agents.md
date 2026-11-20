@@ -2,6 +2,38 @@
 
 # Agents / 智能体
 
+<a id="2026-11-19-google-gemini-mac-background-computer-use"></a>
+## [Gemini Mac 版可在后台窗口操作桌面应用和网页](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
+
+**English:** [Gemini for Mac can operate desktop apps and websites in a background window](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
+
+- **发布 / Published:** `2026-11-19T17:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `desktop-automation`, `human-oversight`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Google 开始向美国符合条件的 Google AI Plus、Pro 和 Ultra 订阅用户推出 Mac 版电脑操作功能。用户可以把跨本地文档、桌面软件和网页的任务交给 Gemini，例如从 PDF 提取包裹信息并填写运费表单。
+
+Google began rolling out computer use to eligible Google AI Plus, Pro and Ultra subscribers in the US. Users can give Gemini a task that spans local documents, desktop software and websites, such as copying package details from a PDF into a shipping form.
+
+### 技术点 / Technical points
+
+- Gemini 在独立窗口中操作。用户可以在对话中查看操作过程、暂停任务、选择允许访问的应用，并确认关键步骤。
+  - Gemini uses a separate window. Users can follow its actions in chat, pause the task, choose which apps it can open and approve key steps.
+- 首批支持成年用户的个人账号，使用语言为英语，设备须搭载 Apple 芯片并运行 macOS 15 或更高版本。
+  - The initial rollout is in English for adult personal accounts on Apple Silicon Macs running macOS 15 or later.
+
+### 为什么重要 / Why it matters
+
+用户可以继续用主光标处理自己的工作，同时监督跨应用任务的执行。
+
+A user can keep working with the main cursor while supervising a multi-app task as it runs.
+
+---
+
 <a id="2026-11-18-google-gemini-4-neon-agent-evaluations"></a>
 ## [Google 推出 Gemini 4 Neon，公布多步智能体任务评测](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
@@ -36,6 +68,115 @@ The published settings let developers distinguish the model’s task score from 
 
 [Evidence 1](https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf)
 [Discussion 1](https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/)
+
+---
+
+<a id="2026-11-18-openhagen-worlds-budgeted-scientific-discovery-agents"></a>
+## [Openhagen Worlds 检验智能体如何使用有限的实验预算](https://arxiv.org/abs/2611.24711)
+
+**English:** [Openhagen Worlds tests how agents spend a limited experiment budget](https://arxiv.org/abs/2611.24711)
+
+- **发布 / Published:** `2026-11-18T16:36:18Z`
+- **来源 / Source:** [Openhagen Worlds authors / arXiv](https://arxiv.org/abs/2611.24711) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `scientific-discovery`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Openhagen Worlds 评估智能体能否设计实验并根据结果推断隐藏答案。基准包含 27 类环境，涵盖模拟物理实验和逻辑谜题。作者用脚本求解器和走捷径的策略校准了 178 个难度等级。
+
+Openhagen Worlds evaluates whether agents can design experiments and infer a hidden answer from the results. Its 27 environment families include simulated physics experiments and logic puzzles, with 178 difficulty levels calibrated against scripted solvers and shortcut strategies.
+
+### 技术点 / Technical points
+
+- 每次观测都附有评分规则。智能体在预算内选择实验，最终提交答案，由确定性验证器核对。
+  - Each observation includes the scoring rule. An agent spends its experiment budget before committing to an answer that a deterministic verifier checks.
+- 在留出的 84 个高难度实例中，DeepSeek V4.1 Flash 在默认推理强度下解出 32 个，在最高强度下解出 57 个，作为参照的脚本求解器解出 79 个。
+  - On 84 held-out frontier instances, DeepSeek V4.1 Flash solved 32 at default reasoning effort and 57 at maximum effort. A scripted oracle solved 79.
+
+### 为什么重要 / Why it matters
+
+用走捷径的策略作为校准参照，有助于检验智能体选择有信息量的实验是否真的提高了解题概率。
+
+Calibrating against shortcut strategies helps test whether choosing informative experiments actually changes an agent’s chance of solving a task.
+
+### 链接 / Links
+
+[Evidence 1](https://eval.openhagen.ai)
+
+---
+
+<a id="2026-11-18-rsibench-infra-end-to-end-agent-optimization"></a>
+## [RSIBench-Infra 检验编程智能体能否加速完整的训练和推理任务](https://arxiv.org/abs/2611.24395)
+
+**English:** [RSIBench-Infra measures whether coding agents speed up whole training and inference jobs](https://arxiv.org/abs/2611.24395)
+
+- **发布 / Published:** `2026-11-18T13:29:44Z`
+- **来源 / Source:** [RSIBench-Infra authors / arXiv](https://arxiv.org/abs/2611.24395) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `inference`, `training-infrastructure`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+RSIBench-Infra 用 16 项推理负载和 4 项训练负载测试编程智能体。智能体从可运行的配置出发，可以跨软件层级优化。测试部署使用英伟达 GPU 或昇腾 NPU，规模最多达 32 个加速器。
+
+RSIBench-Infra tests coding agents on 16 inference workloads and four training workloads. Agents start with working configurations and can change multiple layers of the software stack. The deployments use NVIDIA GPUs or Ascend NPUs and scale to 32 accelerators.
+
+### 技术点 / Technical points
+
+- 智能体以容器镜像层提交修改，由单独的评测在满足各任务质量要求的前提下测量端到端速度。
+  - Agents submit their changes as container image layers. A separate evaluation measures end-to-end speed under each task’s quality requirements.
+- 作者报告，66.2% 的任务结果经验证取得了超过 1.10 倍的加速比。
+  - The authors report a validated speedup above 1.10× in 66.2% of task results.
+
+### 为什么重要 / Why it matters
+
+测量完整负载的耗时，可以判断智能体对局部代码的修改能否加快基础设施团队实际运行的作业。
+
+The full-workload timing reveals whether an agent’s local changes improve the job that an infrastructure team actually runs.
+
+### 链接 / Links
+
+[Evidence 1](https://rsibench-infra.github.io/)
+
+---
+
+<a id="2026-11-18-openai-coding-agents-research-task-completion"></a>
+## [OpenAI 披露编程智能体独立完成内部研究任务的比例](https://openai.com/index/research-acceleration-jagged-frontier/)
+
+**English:** [OpenAI measures which internal research tasks coding agents complete on their own](https://openai.com/index/research-acceleration-jagged-frontier/)
+
+- **发布 / Published:** `2026-11-18T08:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/research-acceleration-jagged-frontier/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `evaluation`, `research-automation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+OpenAI 估算，从 3 月到 10 月，在原本需要研究人员工作 2 至 4 小时的委派任务中，编程智能体无需人工介入的成功率从 23% 升至 46%。在原本需 4 至 8 小时的任务中，这一比例从 13% 升至 35%。
+
+OpenAI estimates that from March to October, its coding agents’ unaided success rate rose from 23% to 46% on delegated tasks that researchers would need two to four hours to do. Over the same period, the estimate for four-to-eight-hour tasks rose from 13% to 35%.
+
+### 技术点 / Technical points
+
+- 在 8 月 1 日至 10 月 18 日的分任务统计中，监控训练运行的估计成功率为 79%，编写推理与服务代码为 25%。
+  - In the August 1–October 18 task breakdown, the estimated success rate was 79% for monitoring training runs and 25% for writing inference and serving code.
+- OpenAI 指出，即使预计工时相同，研究人员选择委派的任务类型也可能随时间变化。
+  - OpenAI notes that the mix of work researchers chose to delegate may have shifted even within a given task-duration group.
+
+### 为什么重要 / Why it matters
+
+这份分项统计展示了在一家实验室的研究流程中，哪些工作智能体较能独立完成，哪些仍常需要人介入。
+
+The breakdown shows which parts of one lab’s research workflow agents can carry through independently and where human involvement is still common.
+
+### 链接 / Links
+
+[Evidence 1](https://openai.com/news/rss.xml)
+[Discussion 1](https://news.ycombinator.com/item?id=50567765)
 
 ---
 

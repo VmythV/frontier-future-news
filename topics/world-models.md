@@ -2,6 +2,178 @@
 
 # World models / 世界模型
 
+<a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
+## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
+
+**English:** [Z-sight predicts future visual features alongside humanoid actions](https://arxiv.org/abs/2611.24940)
+
+- **发布 / Published:** `2026-11-18T18:59:38Z`
+- **来源 / Source:** [Z-sight authors / arXiv](https://arxiv.org/abs/2611.24940) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `humanoid`, `latent-dynamics`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Z-sight 在机器人原本用于感知的视觉特征空间中预测场景变化。作者在宇树 G1 真机上测试了六项任务，Z-sight 在 60 次试验中成功 44 次，对照方法中表现最好的 Fast-WAM 成功 32 次。
+
+Z-sight predicts how a scene will change in the visual feature space the robot already uses for perception. In the authors’ tests on a physical Unitree G1, it completed 44 of 60 trials across six tasks, compared with 32 for the strongest baseline, Fast-WAM.
+
+### 技术点 / Technical points
+
+- 两个模块对预测的空间特征和连续动作联合去噪，策略无需渲染未来视频帧即可利用预测结果。
+  - Two components jointly denoise predicted spatial features and continuous actions. The policy can use its prediction without rendering future video frames.
+- 六项真机任务各测试十次。作者报告，每个动作片段的推理耗时为 110 毫秒。
+  - Each of the six hardware tasks was tested ten times. The authors report an inference time of 110 milliseconds per action chunk.
+
+### 为什么重要 / Why it matters
+
+真机试验检验了在人形机器人推理时间有限的条件下，预测未来场景结构能否帮助它完成多步动作。
+
+The hardware trials test whether predicting future scene structure can help a humanoid carry out multi-step movements within a short inference budget.
+
+### 链接 / Links
+
+[Evidence 1](https://junjieye.com/Z-sight/)
+
+---
+
+<a id="2026-11-18-doppel-rendered-robot-motion-video-world-model"></a>
+## [Doppel 用机器人预定动作的渲染图预测物体运动](https://arxiv.org/abs/2611.24925)
+
+**English:** [Doppel uses renders of planned body motion to predict how objects will move](https://arxiv.org/abs/2611.24925)
+
+- **发布 / Published:** `2026-11-18T18:52:28Z`
+- **来源 / Source:** [Doppel authors / arXiv](https://arxiv.org/abs/2611.24925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `video-prediction`, `cross-embodiment`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Doppel 将机器人预定动作按相机视角渲染，把渲染图和数值动作一同输入视频世界模型。作者用约 600 小时的视频训练了一个共享模型，数据覆盖八种机器人和人体形态。
+
+Doppel gives a video world model a camera-aligned rendering of the robot’s planned movement along with its numerical actions. The authors trained a shared model on about 600 hours of video spanning eight robot and human body configurations.
+
+### 技术点 / Technical points
+
+- 对于缺少相机位姿的数据集，作者先恢复相机位姿，再将渲染出的机器人与实拍场景对齐。
+  - For datasets missing camera poses, the authors recovered them and aligned the rendered body with the recorded scene.
+- 在三个机械臂数据集上，与仅输入数值动作的基线相比，模型在留出轨迹和分布外测试中的峰值信噪比分别提高了 1.00 和 1.20 分贝。
+  - Across three robot-arm datasets, the model gained 1.00 dB in peak signal-to-noise ratio on held-out trajectories and 1.20 dB in out-of-distribution tests over action-only baselines.
+
+### 为什么重要 / Why it matters
+
+渲染图为不同形态的身体提供了描述预定动作的统一方式，使同一模型可以学习动作对周围物体的影响。
+
+Rendering gives different bodies a common visual description of a planned move, so a shared model can learn its effects on surrounding objects.
+
+### 链接 / Links
+
+[Evidence 1](https://doppelwm.github.io/)
+
+---
+
+<a id="2026-11-18-worldruler-persistent-rules-interactive-worlds"></a>
+## [WorldRuler 让交互场景在存档和读档后保留规则与物体状态](https://arxiv.org/abs/2611.24869)
+
+**English:** [WorldRuler carries rules and object state across saved interactive scenes](https://arxiv.org/abs/2611.24869)
+
+- **发布 / Published:** `2026-11-18T18:20:39Z`
+- **来源 / Source:** [WorldRuler authors / arXiv](https://arxiv.org/abs/2611.24869) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `interactive-simulation`, `video-generation`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+WorldRuler 将视频生成器与可执行的三维图相连，图中记录规则、依赖关系和物体状态。规则作用于画面外的物体时，系统保存其状态，用于决定物体进入视野时的样子。
+
+WorldRuler links a video generator to an executable 3D graph of rules, dependencies and object states. When a rule affects an off-screen object, its stored state guides how that object appears once it enters view.
+
+### 技术点 / Technical points
+
+- 系统将规则图与世界状态一起存取，并把规则中提到的物体与视频里的具体对象对应起来。
+  - The system saves and restores the graph together with the world state, and matches objects referenced in a rule to instances in the video.
+- 作者利用 GTA V 和 Habitat 构建了 RuleVerse，记录状态变化与事件，其中包括物体首次出现在画面之前就已发生的变化。
+  - The authors built RuleVerse with GTA V and Habitat. It records state changes and events, including effects that precede an object’s first appearance.
+
+### 为什么重要 / Why it matters
+
+这些场景能检验生成的世界能否在玩家视野中断后，仍然保留此前动作造成的后果。
+
+These cases test whether a generated world can preserve the consequences of an action across a gap in what the player sees.
+
+---
+
+<a id="2026-11-18-diwali-human-video-latent-action-robot-learning"></a>
+## [DiWALI 从人类示范视频中学习操作技能，再用世界模型改进策略](https://arxiv.org/abs/2611.24836)
+
+**English:** [DiWALI learns manipulation skills from human video and refines them in a world model](https://arxiv.org/abs/2611.24836)
+
+- **发布 / Published:** `2026-11-18T18:03:14Z`
+- **来源 / Source:** [DiWALI authors / arXiv](https://arxiv.org/abs/2611.24836) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `manipulation`, `latent-actions`, `imitation-learning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DiWALI 根据相邻视频帧的变化，从人类和机器人的自由交互中推断潜在动作。另一个用机器人数据训练的解码器将潜在动作转换为机器人指令，让没有指令标注的人类技能示范也能用于训练。
+
+DiWALI uses changes between video frames to infer latent actions from human and robot play. A separate decoder trained on robot data maps those actions to robot commands, so human skill demonstrations can supply training examples without command labels.
+
+### 技术点 / Technical points
+
+- 框架先根据人类示范中推断出的动作训练扩散策略，再利用世界模型生成的轨迹进行强化学习。
+  - The framework first fits a diffusion policy to inferred actions from human demonstrations, then uses reinforcement learning on trajectories generated by the world model.
+- 作者报告，在真机实验中，主要从人类示范学到的技能，在世界模型中进一步训练后有所改善。该模型同时利用了人类和机器人各自的自由交互数据。
+  - In physical robot experiments, the authors report that training inside a model learned from both human and robot play further improved skills learned mainly from human demonstrations.
+
+### 为什么重要 / Why it matters
+
+人类视频既能提供操作示范，也能用于学习机器人策略练习所需的环境模型。
+
+Human video can supply both skill examples and data for learning the environment in which a robot policy practices.
+
+### 链接 / Links
+
+[Evidence 1](https://diwali.cs.uni-freiburg.de/)
+
+---
+
+<a id="2026-11-18-jepa-counterfactual-actions-hidden-disturbances"></a>
+## [JEPA 世界模型利用已观察到的结果估计另一动作的后果](https://arxiv.org/abs/2611.24778)
+
+**English:** [JEPA world models use an observed outcome to estimate what another action would have done](https://arxiv.org/abs/2611.24778)
+
+- **发布 / Published:** `2026-11-18T17:24:00Z`
+- **来源 / Source:** [Randall Balestriero, Yann LeCun and Kerda Varaku / arXiv](https://arxiv.org/abs/2611.24778) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-dynamics`, `counterfactual-reasoning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+研究者考察了在同一隐藏扰动下改用另一动作可能产生的结果。在动作和扰动分别施力、时间步较短的条件下，作者用模型对两种动作的预测之差来修正已观察到的结果。
+
+A study tests whether a world model can predict what a different action would have done under the same hidden disturbance. For short transitions where the action and disturbance act as separate forces, the authors correct the observed outcome using the model’s predicted difference between the two actions.
+
+### 技术点 / Technical points
+
+- 该修正直接使用现有模型和观测到的状态转移，无需重新训练。推导也指出了适用边界，包括动力学不连续、扰动按比例改变控制输入等情形。
+  - The correction uses the existing model and the observed transition without retraining. The derivation identifies limits, including discontinuities and disturbances that scale the applied command.
+- 作者报告，在四个以图像为观测的仿真系统上，反事实预测的决定系数 R² 从 0.38–0.46 提高到 0.86–0.96。
+  - On four simulated systems observed through images, the authors report that counterfactual R² rose from 0.38–0.46 to 0.86–0.96.
+
+### 为什么重要 / Why it matters
+
+研究者可以据此复盘仿真中一次失败的动作，比较其他动作在当时同一扰动下可能产生的结果。
+
+This gives researchers a way to revisit a failed simulated action while holding the disturbance responsible for that particular outcome fixed.
+
+---
+
 <a id="2026-11-17-anymal-world-model-walking-audit"></a>
 ## [ANYmal D 仿真审计发现，短期预测更准的模型仍可能训练出失败的行走策略](https://arxiv.org/abs/2611.23118)
 

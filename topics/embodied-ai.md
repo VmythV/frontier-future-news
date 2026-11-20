@@ -2,6 +2,150 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
+## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
+
+**English:** [Z-sight predicts future visual features alongside humanoid actions](https://arxiv.org/abs/2611.24940)
+
+- **发布 / Published:** `2026-11-18T18:59:38Z`
+- **来源 / Source:** [Z-sight authors / arXiv](https://arxiv.org/abs/2611.24940) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `humanoid`, `latent-dynamics`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Z-sight 在机器人原本用于感知的视觉特征空间中预测场景变化。作者在宇树 G1 真机上测试了六项任务，Z-sight 在 60 次试验中成功 44 次，对照方法中表现最好的 Fast-WAM 成功 32 次。
+
+Z-sight predicts how a scene will change in the visual feature space the robot already uses for perception. In the authors’ tests on a physical Unitree G1, it completed 44 of 60 trials across six tasks, compared with 32 for the strongest baseline, Fast-WAM.
+
+### 技术点 / Technical points
+
+- 两个模块对预测的空间特征和连续动作联合去噪，策略无需渲染未来视频帧即可利用预测结果。
+  - Two components jointly denoise predicted spatial features and continuous actions. The policy can use its prediction without rendering future video frames.
+- 六项真机任务各测试十次。作者报告，每个动作片段的推理耗时为 110 毫秒。
+  - Each of the six hardware tasks was tested ten times. The authors report an inference time of 110 milliseconds per action chunk.
+
+### 为什么重要 / Why it matters
+
+真机试验检验了在人形机器人推理时间有限的条件下，预测未来场景结构能否帮助它完成多步动作。
+
+The hardware trials test whether predicting future scene structure can help a humanoid carry out multi-step movements within a short inference budget.
+
+### 链接 / Links
+
+[Evidence 1](https://junjieye.com/Z-sight/)
+
+---
+
+<a id="2026-11-18-grana-compositional-robot-progress-reward"></a>
+## [Grana 衡量机器人在多步任务中完成了哪些步骤、又在哪一步退回](https://arxiv.org/abs/2611.24926)
+
+**English:** [Grana tracks which steps a robot keeps or loses during a long task](https://arxiv.org/abs/2611.24926)
+
+- **发布 / Published:** `2026-11-18T18:53:53Z`
+- **来源 / Source:** [Grana authors / arXiv](https://arxiv.org/abs/2611.24926) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `manipulation`, `reward-model`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Grana 分别估计机器人在当前子任务上的进度，以及先前步骤已经完成的部分。例如，零件插入失败会拉低奖励，但之前装好的部件仍计入总进度。
+
+Grana estimates progress on the current subtask and gives separate credit for earlier steps. If a robot fails to insert a part, the reward can fall without erasing credit for assembly it already completed.
+
+### 技术点 / Technical points
+
+- 作者根据子任务边界和动作质量标注生成进度标签，并用 200 项以短任务为主的操作任务预训练模型。
+  - The authors derived progress targets from subtask boundaries and annotations of action quality, then pretrained the model on 200 mostly short tasks.
+- 团队将模型适配到五项长任务，并在真机上用其奖励进行强化学习，以及通过模型预测控制选择动作。
+  - They adapted it to five longer tasks and used its rewards on real robots for reinforcement learning and for choosing actions with model predictive control.
+
+### 为什么重要 / Why it matters
+
+同一进度信号既能引导控制器重试，也能保留机器人此前完成的工作。
+
+The same progress signal can guide a controller through a retry while accounting for work the robot has already done.
+
+### 链接 / Links
+
+[Evidence 1](https://research.nvidia.com/labs/gear/grana/)
+
+---
+
+<a id="2026-11-18-doppel-rendered-robot-motion-video-world-model"></a>
+## [Doppel 用机器人预定动作的渲染图预测物体运动](https://arxiv.org/abs/2611.24925)
+
+**English:** [Doppel uses renders of planned body motion to predict how objects will move](https://arxiv.org/abs/2611.24925)
+
+- **发布 / Published:** `2026-11-18T18:52:28Z`
+- **来源 / Source:** [Doppel authors / arXiv](https://arxiv.org/abs/2611.24925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `video-prediction`, `cross-embodiment`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Doppel 将机器人预定动作按相机视角渲染，把渲染图和数值动作一同输入视频世界模型。作者用约 600 小时的视频训练了一个共享模型，数据覆盖八种机器人和人体形态。
+
+Doppel gives a video world model a camera-aligned rendering of the robot’s planned movement along with its numerical actions. The authors trained a shared model on about 600 hours of video spanning eight robot and human body configurations.
+
+### 技术点 / Technical points
+
+- 对于缺少相机位姿的数据集，作者先恢复相机位姿，再将渲染出的机器人与实拍场景对齐。
+  - For datasets missing camera poses, the authors recovered them and aligned the rendered body with the recorded scene.
+- 在三个机械臂数据集上，与仅输入数值动作的基线相比，模型在留出轨迹和分布外测试中的峰值信噪比分别提高了 1.00 和 1.20 分贝。
+  - Across three robot-arm datasets, the model gained 1.00 dB in peak signal-to-noise ratio on held-out trajectories and 1.20 dB in out-of-distribution tests over action-only baselines.
+
+### 为什么重要 / Why it matters
+
+渲染图为不同形态的身体提供了描述预定动作的统一方式，使同一模型可以学习动作对周围物体的影响。
+
+Rendering gives different bodies a common visual description of a planned move, so a shared model can learn its effects on surrounding objects.
+
+### 链接 / Links
+
+[Evidence 1](https://doppelwm.github.io/)
+
+---
+
+<a id="2026-11-18-diwali-human-video-latent-action-robot-learning"></a>
+## [DiWALI 从人类示范视频中学习操作技能，再用世界模型改进策略](https://arxiv.org/abs/2611.24836)
+
+**English:** [DiWALI learns manipulation skills from human video and refines them in a world model](https://arxiv.org/abs/2611.24836)
+
+- **发布 / Published:** `2026-11-18T18:03:14Z`
+- **来源 / Source:** [DiWALI authors / arXiv](https://arxiv.org/abs/2611.24836) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `manipulation`, `latent-actions`, `imitation-learning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DiWALI 根据相邻视频帧的变化，从人类和机器人的自由交互中推断潜在动作。另一个用机器人数据训练的解码器将潜在动作转换为机器人指令，让没有指令标注的人类技能示范也能用于训练。
+
+DiWALI uses changes between video frames to infer latent actions from human and robot play. A separate decoder trained on robot data maps those actions to robot commands, so human skill demonstrations can supply training examples without command labels.
+
+### 技术点 / Technical points
+
+- 框架先根据人类示范中推断出的动作训练扩散策略，再利用世界模型生成的轨迹进行强化学习。
+  - The framework first fits a diffusion policy to inferred actions from human demonstrations, then uses reinforcement learning on trajectories generated by the world model.
+- 作者报告，在真机实验中，主要从人类示范学到的技能，在世界模型中进一步训练后有所改善。该模型同时利用了人类和机器人各自的自由交互数据。
+  - In physical robot experiments, the authors report that training inside a model learned from both human and robot play further improved skills learned mainly from human demonstrations.
+
+### 为什么重要 / Why it matters
+
+人类视频既能提供操作示范，也能用于学习机器人策略练习所需的环境模型。
+
+Human video can supply both skill examples and data for learning the environment in which a robot policy practices.
+
+### 链接 / Links
+
+[Evidence 1](https://diwali.cs.uni-freiburg.de/)
+
+---
+
 <a id="2026-11-17-tcp4d-robot-tool-trajectories"></a>
 ## [TCP4D 从单目视频还原机器人工具运动，并预测后续轨迹](https://arxiv.org/abs/2611.23143)
 

@@ -2,6 +2,38 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-19-google-gemini-mac-background-computer-use"></a>
+## [Gemini Mac 版可在后台窗口操作桌面应用和网页](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
+
+**English:** [Gemini for Mac can operate desktop apps and websites in a background window](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
+
+- **发布 / Published:** `2026-11-19T17:00:00Z`
+- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `desktop-automation`, `human-oversight`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Google 开始向美国符合条件的 Google AI Plus、Pro 和 Ultra 订阅用户推出 Mac 版电脑操作功能。用户可以把跨本地文档、桌面软件和网页的任务交给 Gemini，例如从 PDF 提取包裹信息并填写运费表单。
+
+Google began rolling out computer use to eligible Google AI Plus, Pro and Ultra subscribers in the US. Users can give Gemini a task that spans local documents, desktop software and websites, such as copying package details from a PDF into a shipping form.
+
+### 技术点 / Technical points
+
+- Gemini 在独立窗口中操作。用户可以在对话中查看操作过程、暂停任务、选择允许访问的应用，并确认关键步骤。
+  - Gemini uses a separate window. Users can follow its actions in chat, pause the task, choose which apps it can open and approve key steps.
+- 首批支持成年用户的个人账号，使用语言为英语，设备须搭载 Apple 芯片并运行 macOS 15 或更高版本。
+  - The initial rollout is in English for adult personal accounts on Apple Silicon Macs running macOS 15 or later.
+
+### 为什么重要 / Why it matters
+
+用户可以继续用主光标处理自己的工作，同时监督跨应用任务的执行。
+
+A user can keep working with the main cursor while supervising a multi-app task as it runs.
+
+---
+
 <a id="2026-11-18-google-gemini-4-neon-agent-evaluations"></a>
 ## [Google 推出 Gemini 4 Neon，公布多步智能体任务评测](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
 
@@ -36,6 +68,323 @@ The published settings let developers distinguish the model’s task score from 
 
 [Evidence 1](https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf)
 [Discussion 1](https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/)
+
+---
+
+<a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
+## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
+
+**English:** [Z-sight predicts future visual features alongside humanoid actions](https://arxiv.org/abs/2611.24940)
+
+- **发布 / Published:** `2026-11-18T18:59:38Z`
+- **来源 / Source:** [Z-sight authors / arXiv](https://arxiv.org/abs/2611.24940) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `humanoid`, `latent-dynamics`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Z-sight 在机器人原本用于感知的视觉特征空间中预测场景变化。作者在宇树 G1 真机上测试了六项任务，Z-sight 在 60 次试验中成功 44 次，对照方法中表现最好的 Fast-WAM 成功 32 次。
+
+Z-sight predicts how a scene will change in the visual feature space the robot already uses for perception. In the authors’ tests on a physical Unitree G1, it completed 44 of 60 trials across six tasks, compared with 32 for the strongest baseline, Fast-WAM.
+
+### 技术点 / Technical points
+
+- 两个模块对预测的空间特征和连续动作联合去噪，策略无需渲染未来视频帧即可利用预测结果。
+  - Two components jointly denoise predicted spatial features and continuous actions. The policy can use its prediction without rendering future video frames.
+- 六项真机任务各测试十次。作者报告，每个动作片段的推理耗时为 110 毫秒。
+  - Each of the six hardware tasks was tested ten times. The authors report an inference time of 110 milliseconds per action chunk.
+
+### 为什么重要 / Why it matters
+
+真机试验检验了在人形机器人推理时间有限的条件下，预测未来场景结构能否帮助它完成多步动作。
+
+The hardware trials test whether predicting future scene structure can help a humanoid carry out multi-step movements within a short inference budget.
+
+### 链接 / Links
+
+[Evidence 1](https://junjieye.com/Z-sight/)
+
+---
+
+<a id="2026-11-18-grana-compositional-robot-progress-reward"></a>
+## [Grana 衡量机器人在多步任务中完成了哪些步骤、又在哪一步退回](https://arxiv.org/abs/2611.24926)
+
+**English:** [Grana tracks which steps a robot keeps or loses during a long task](https://arxiv.org/abs/2611.24926)
+
+- **发布 / Published:** `2026-11-18T18:53:53Z`
+- **来源 / Source:** [Grana authors / arXiv](https://arxiv.org/abs/2611.24926) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `manipulation`, `reward-model`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Grana 分别估计机器人在当前子任务上的进度，以及先前步骤已经完成的部分。例如，零件插入失败会拉低奖励，但之前装好的部件仍计入总进度。
+
+Grana estimates progress on the current subtask and gives separate credit for earlier steps. If a robot fails to insert a part, the reward can fall without erasing credit for assembly it already completed.
+
+### 技术点 / Technical points
+
+- 作者根据子任务边界和动作质量标注生成进度标签，并用 200 项以短任务为主的操作任务预训练模型。
+  - The authors derived progress targets from subtask boundaries and annotations of action quality, then pretrained the model on 200 mostly short tasks.
+- 团队将模型适配到五项长任务，并在真机上用其奖励进行强化学习，以及通过模型预测控制选择动作。
+  - They adapted it to five longer tasks and used its rewards on real robots for reinforcement learning and for choosing actions with model predictive control.
+
+### 为什么重要 / Why it matters
+
+同一进度信号既能引导控制器重试，也能保留机器人此前完成的工作。
+
+The same progress signal can guide a controller through a retry while accounting for work the robot has already done.
+
+### 链接 / Links
+
+[Evidence 1](https://research.nvidia.com/labs/gear/grana/)
+
+---
+
+<a id="2026-11-18-doppel-rendered-robot-motion-video-world-model"></a>
+## [Doppel 用机器人预定动作的渲染图预测物体运动](https://arxiv.org/abs/2611.24925)
+
+**English:** [Doppel uses renders of planned body motion to predict how objects will move](https://arxiv.org/abs/2611.24925)
+
+- **发布 / Published:** `2026-11-18T18:52:28Z`
+- **来源 / Source:** [Doppel authors / arXiv](https://arxiv.org/abs/2611.24925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `video-prediction`, `cross-embodiment`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Doppel 将机器人预定动作按相机视角渲染，把渲染图和数值动作一同输入视频世界模型。作者用约 600 小时的视频训练了一个共享模型，数据覆盖八种机器人和人体形态。
+
+Doppel gives a video world model a camera-aligned rendering of the robot’s planned movement along with its numerical actions. The authors trained a shared model on about 600 hours of video spanning eight robot and human body configurations.
+
+### 技术点 / Technical points
+
+- 对于缺少相机位姿的数据集，作者先恢复相机位姿，再将渲染出的机器人与实拍场景对齐。
+  - For datasets missing camera poses, the authors recovered them and aligned the rendered body with the recorded scene.
+- 在三个机械臂数据集上，与仅输入数值动作的基线相比，模型在留出轨迹和分布外测试中的峰值信噪比分别提高了 1.00 和 1.20 分贝。
+  - Across three robot-arm datasets, the model gained 1.00 dB in peak signal-to-noise ratio on held-out trajectories and 1.20 dB in out-of-distribution tests over action-only baselines.
+
+### 为什么重要 / Why it matters
+
+渲染图为不同形态的身体提供了描述预定动作的统一方式，使同一模型可以学习动作对周围物体的影响。
+
+Rendering gives different bodies a common visual description of a planned move, so a shared model can learn its effects on surrounding objects.
+
+### 链接 / Links
+
+[Evidence 1](https://doppelwm.github.io/)
+
+---
+
+<a id="2026-11-18-worldruler-persistent-rules-interactive-worlds"></a>
+## [WorldRuler 让交互场景在存档和读档后保留规则与物体状态](https://arxiv.org/abs/2611.24869)
+
+**English:** [WorldRuler carries rules and object state across saved interactive scenes](https://arxiv.org/abs/2611.24869)
+
+- **发布 / Published:** `2026-11-18T18:20:39Z`
+- **来源 / Source:** [WorldRuler authors / arXiv](https://arxiv.org/abs/2611.24869) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `interactive-simulation`, `video-generation`, `dataset`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+WorldRuler 将视频生成器与可执行的三维图相连，图中记录规则、依赖关系和物体状态。规则作用于画面外的物体时，系统保存其状态，用于决定物体进入视野时的样子。
+
+WorldRuler links a video generator to an executable 3D graph of rules, dependencies and object states. When a rule affects an off-screen object, its stored state guides how that object appears once it enters view.
+
+### 技术点 / Technical points
+
+- 系统将规则图与世界状态一起存取，并把规则中提到的物体与视频里的具体对象对应起来。
+  - The system saves and restores the graph together with the world state, and matches objects referenced in a rule to instances in the video.
+- 作者利用 GTA V 和 Habitat 构建了 RuleVerse，记录状态变化与事件，其中包括物体首次出现在画面之前就已发生的变化。
+  - The authors built RuleVerse with GTA V and Habitat. It records state changes and events, including effects that precede an object’s first appearance.
+
+### 为什么重要 / Why it matters
+
+这些场景能检验生成的世界能否在玩家视野中断后，仍然保留此前动作造成的后果。
+
+These cases test whether a generated world can preserve the consequences of an action across a gap in what the player sees.
+
+---
+
+<a id="2026-11-18-diwali-human-video-latent-action-robot-learning"></a>
+## [DiWALI 从人类示范视频中学习操作技能，再用世界模型改进策略](https://arxiv.org/abs/2611.24836)
+
+**English:** [DiWALI learns manipulation skills from human video and refines them in a world model](https://arxiv.org/abs/2611.24836)
+
+- **发布 / Published:** `2026-11-18T18:03:14Z`
+- **来源 / Source:** [DiWALI authors / arXiv](https://arxiv.org/abs/2611.24836) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `manipulation`, `latent-actions`, `imitation-learning`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+DiWALI 根据相邻视频帧的变化，从人类和机器人的自由交互中推断潜在动作。另一个用机器人数据训练的解码器将潜在动作转换为机器人指令，让没有指令标注的人类技能示范也能用于训练。
+
+DiWALI uses changes between video frames to infer latent actions from human and robot play. A separate decoder trained on robot data maps those actions to robot commands, so human skill demonstrations can supply training examples without command labels.
+
+### 技术点 / Technical points
+
+- 框架先根据人类示范中推断出的动作训练扩散策略，再利用世界模型生成的轨迹进行强化学习。
+  - The framework first fits a diffusion policy to inferred actions from human demonstrations, then uses reinforcement learning on trajectories generated by the world model.
+- 作者报告，在真机实验中，主要从人类示范学到的技能，在世界模型中进一步训练后有所改善。该模型同时利用了人类和机器人各自的自由交互数据。
+  - In physical robot experiments, the authors report that training inside a model learned from both human and robot play further improved skills learned mainly from human demonstrations.
+
+### 为什么重要 / Why it matters
+
+人类视频既能提供操作示范，也能用于学习机器人策略练习所需的环境模型。
+
+Human video can supply both skill examples and data for learning the environment in which a robot policy practices.
+
+### 链接 / Links
+
+[Evidence 1](https://diwali.cs.uni-freiburg.de/)
+
+---
+
+<a id="2026-11-18-jepa-counterfactual-actions-hidden-disturbances"></a>
+## [JEPA 世界模型利用已观察到的结果估计另一动作的后果](https://arxiv.org/abs/2611.24778)
+
+**English:** [JEPA world models use an observed outcome to estimate what another action would have done](https://arxiv.org/abs/2611.24778)
+
+- **发布 / Published:** `2026-11-18T17:24:00Z`
+- **来源 / Source:** [Randall Balestriero, Yann LeCun and Kerda Varaku / arXiv](https://arxiv.org/abs/2611.24778) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-dynamics`, `counterfactual-reasoning`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+研究者考察了在同一隐藏扰动下改用另一动作可能产生的结果。在动作和扰动分别施力、时间步较短的条件下，作者用模型对两种动作的预测之差来修正已观察到的结果。
+
+A study tests whether a world model can predict what a different action would have done under the same hidden disturbance. For short transitions where the action and disturbance act as separate forces, the authors correct the observed outcome using the model’s predicted difference between the two actions.
+
+### 技术点 / Technical points
+
+- 该修正直接使用现有模型和观测到的状态转移，无需重新训练。推导也指出了适用边界，包括动力学不连续、扰动按比例改变控制输入等情形。
+  - The correction uses the existing model and the observed transition without retraining. The derivation identifies limits, including discontinuities and disturbances that scale the applied command.
+- 作者报告，在四个以图像为观测的仿真系统上，反事实预测的决定系数 R² 从 0.38–0.46 提高到 0.86–0.96。
+  - On four simulated systems observed through images, the authors report that counterfactual R² rose from 0.38–0.46 to 0.86–0.96.
+
+### 为什么重要 / Why it matters
+
+研究者可以据此复盘仿真中一次失败的动作，比较其他动作在当时同一扰动下可能产生的结果。
+
+This gives researchers a way to revisit a failed simulated action while holding the disturbance responsible for that particular outcome fixed.
+
+---
+
+<a id="2026-11-18-openhagen-worlds-budgeted-scientific-discovery-agents"></a>
+## [Openhagen Worlds 检验智能体如何使用有限的实验预算](https://arxiv.org/abs/2611.24711)
+
+**English:** [Openhagen Worlds tests how agents spend a limited experiment budget](https://arxiv.org/abs/2611.24711)
+
+- **发布 / Published:** `2026-11-18T16:36:18Z`
+- **来源 / Source:** [Openhagen Worlds authors / arXiv](https://arxiv.org/abs/2611.24711) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `scientific-discovery`, `reasoning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Openhagen Worlds 评估智能体能否设计实验并根据结果推断隐藏答案。基准包含 27 类环境，涵盖模拟物理实验和逻辑谜题。作者用脚本求解器和走捷径的策略校准了 178 个难度等级。
+
+Openhagen Worlds evaluates whether agents can design experiments and infer a hidden answer from the results. Its 27 environment families include simulated physics experiments and logic puzzles, with 178 difficulty levels calibrated against scripted solvers and shortcut strategies.
+
+### 技术点 / Technical points
+
+- 每次观测都附有评分规则。智能体在预算内选择实验，最终提交答案，由确定性验证器核对。
+  - Each observation includes the scoring rule. An agent spends its experiment budget before committing to an answer that a deterministic verifier checks.
+- 在留出的 84 个高难度实例中，DeepSeek V4.1 Flash 在默认推理强度下解出 32 个，在最高强度下解出 57 个，作为参照的脚本求解器解出 79 个。
+  - On 84 held-out frontier instances, DeepSeek V4.1 Flash solved 32 at default reasoning effort and 57 at maximum effort. A scripted oracle solved 79.
+
+### 为什么重要 / Why it matters
+
+用走捷径的策略作为校准参照，有助于检验智能体选择有信息量的实验是否真的提高了解题概率。
+
+Calibrating against shortcut strategies helps test whether choosing informative experiments actually changes an agent’s chance of solving a task.
+
+### 链接 / Links
+
+[Evidence 1](https://eval.openhagen.ai)
+
+---
+
+<a id="2026-11-18-rsibench-infra-end-to-end-agent-optimization"></a>
+## [RSIBench-Infra 检验编程智能体能否加速完整的训练和推理任务](https://arxiv.org/abs/2611.24395)
+
+**English:** [RSIBench-Infra measures whether coding agents speed up whole training and inference jobs](https://arxiv.org/abs/2611.24395)
+
+- **发布 / Published:** `2026-11-18T13:29:44Z`
+- **来源 / Source:** [RSIBench-Infra authors / arXiv](https://arxiv.org/abs/2611.24395) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `inference`, `training-infrastructure`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+RSIBench-Infra 用 16 项推理负载和 4 项训练负载测试编程智能体。智能体从可运行的配置出发，可以跨软件层级优化。测试部署使用英伟达 GPU 或昇腾 NPU，规模最多达 32 个加速器。
+
+RSIBench-Infra tests coding agents on 16 inference workloads and four training workloads. Agents start with working configurations and can change multiple layers of the software stack. The deployments use NVIDIA GPUs or Ascend NPUs and scale to 32 accelerators.
+
+### 技术点 / Technical points
+
+- 智能体以容器镜像层提交修改，由单独的评测在满足各任务质量要求的前提下测量端到端速度。
+  - Agents submit their changes as container image layers. A separate evaluation measures end-to-end speed under each task’s quality requirements.
+- 作者报告，66.2% 的任务结果经验证取得了超过 1.10 倍的加速比。
+  - The authors report a validated speedup above 1.10× in 66.2% of task results.
+
+### 为什么重要 / Why it matters
+
+测量完整负载的耗时，可以判断智能体对局部代码的修改能否加快基础设施团队实际运行的作业。
+
+The full-workload timing reveals whether an agent’s local changes improve the job that an infrastructure team actually runs.
+
+### 链接 / Links
+
+[Evidence 1](https://rsibench-infra.github.io/)
+
+---
+
+<a id="2026-11-18-openai-coding-agents-research-task-completion"></a>
+## [OpenAI 披露编程智能体独立完成内部研究任务的比例](https://openai.com/index/research-acceleration-jagged-frontier/)
+
+**English:** [OpenAI measures which internal research tasks coding agents complete on their own](https://openai.com/index/research-acceleration-jagged-frontier/)
+
+- **发布 / Published:** `2026-11-18T08:00:00Z`
+- **来源 / Source:** [OpenAI](https://openai.com/index/research-acceleration-jagged-frontier/) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `evaluation`, `research-automation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+OpenAI 估算，从 3 月到 10 月，在原本需要研究人员工作 2 至 4 小时的委派任务中，编程智能体无需人工介入的成功率从 23% 升至 46%。在原本需 4 至 8 小时的任务中，这一比例从 13% 升至 35%。
+
+OpenAI estimates that from March to October, its coding agents’ unaided success rate rose from 23% to 46% on delegated tasks that researchers would need two to four hours to do. Over the same period, the estimate for four-to-eight-hour tasks rose from 13% to 35%.
+
+### 技术点 / Technical points
+
+- 在 8 月 1 日至 10 月 18 日的分任务统计中，监控训练运行的估计成功率为 79%，编写推理与服务代码为 25%。
+  - In the August 1–October 18 task breakdown, the estimated success rate was 79% for monitoring training runs and 25% for writing inference and serving code.
+- OpenAI 指出，即使预计工时相同，研究人员选择委派的任务类型也可能随时间变化。
+  - OpenAI notes that the mix of work researchers chose to delegate may have shifted even within a given task-duration group.
+
+### 为什么重要 / Why it matters
+
+这份分项统计展示了在一家实验室的研究流程中，哪些工作智能体较能独立完成，哪些仍常需要人介入。
+
+The breakdown shows which parts of one lab’s research workflow agents can carry through independently and where human involvement is still common.
+
+### 链接 / Links
+
+[Evidence 1](https://openai.com/news/rss.xml)
+[Discussion 1](https://news.ycombinator.com/item?id=50567765)
 
 ---
 
@@ -348,346 +697,3 @@ CURE asks how well the training data cover a planner’s candidate actions. Its 
 即使模型已经能生成逼真的视频，这项面向决策的检验仍能指出哪些动作需要补充数据。
 
 The decision-level test helps identify when a planner needs data on a new action, even if the model already generates plausible videos.
-
----
-
-<a id="2026-11-17-maniformer-robot-demonstration-quality"></a>
-## [Maniformer 量化遥操作示教中的绕路如何影响机器人学到的动作](https://arxiv.org/abs/2611.22388)
-
-**English:** [Maniformer measures how teleoperation detours carry into learned robot motions](https://arxiv.org/abs/2611.22388)
-
-- **发布 / Published:** `2026-11-17T08:38:45Z`
-- **来源 / Source:** [Maniformer Real-World Manipulation Team and coauthors / arXiv](https://arxiv.org/abs/2611.22388) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `teleoperation`, `imitation-learning`, `robotics`, `calibration`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Maniformer 团队分析了 25 种双臂机器人设计，并开展受控遥操作和策略实验。在真机测试中，微调后的 π0.5 策略复现了示教绕路所增加路程的约 90%。
-
-The Maniformer team assessed 25 dual-arm designs and ran controlled teleoperation and policy tests. In its real-robot experiments, fine-tuned π0.5 policies reproduced about 90% of the extra travel distance introduced by detours in demonstrations.
-
-### 技术点 / Technical points
-
-- 在团队的遥操作实验中，允许操作者同时控制多个身体部位，使任务耗时缩短了 43% 至 53%。
-  - Allowing operators to control body parts in parallel cut task time by 43–53% in the team’s teleoperation experiments.
-- 在一项标定实验中，机器人在推理时采用不匹配的标定，30 次试验全部失败。
-  - In one calibration experiment, all 30 trials failed when the robot used a mismatched calibration at inference time.
-
-### 为什么重要 / Why it matters
-
-采集团队可以据此在扩大录制规模前，先检查示教中的多余运动，以及训练与部署时的标定是否匹配。
-
-These measurements give data-collection teams concrete checks for inefficient demonstrations and calibration mismatches before they scale up recording.
-
----
-
-<a id="2026-11-17-heave-ho-humanoid-coordination"></a>
-## [Heave-Ho 让多台人形机器人靠语音和本地观测协作](https://arxiv.org/abs/2611.22275)
-
-**English:** [Heave-Ho coordinates humanoid teams through speech and local observations](https://arxiv.org/abs/2611.22275)
-
-- **发布 / Published:** `2026-11-17T06:21:03Z`
-- **来源 / Source:** [Heave-Ho authors / arXiv](https://arxiv.org/abs/2611.22275) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
-- **标签 / Tags:** `humanoid`, `multi-agent`, `locomotion`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Heave-Ho 用两台同型人形机器人训练全身控制器。每台机器人依据本地观测行动，视觉语言规划器配合领队与跟随者之间的语音指令，协调搬物通过窄门等任务。
-
-Heave-Ho trains whole-body controllers using two identical humanoids. Each robot acts on local observations, while a vision-language planner and spoken leader-follower cues coordinate tasks such as carrying an object through a narrow doorway.
-
-### 技术点 / Technical points
-
-- HH-Bench 仿真基准包含 12 项任务，参评队伍最多由十台人形机器人组成。
-  - The HH-Bench simulation benchmark covers 12 tasks and includes teams of up to ten humanoids.
-- 项目展示了真机协同搬运，包括不同机型组队的情形。协作时机器人之间无需交换网络消息。
-  - The project shows physical robots carrying objects together, including teams with different robot types. The robots exchange no network messages during coordination.
-
-### 为什么重要 / Why it matters
-
-将规划与本地控制分开，研究者就能检验队伍规模和机型构成改变后，同一套协作方法是否仍然有效。
-
-The separation between planning and local control lets researchers test whether a coordination method still works as the size and composition of a team change.
-
-### 链接 / Links
-
-[Evidence 1](https://heaveho-humanoid.github.io/)
-
----
-
-<a id="2026-11-17-deepmind-antigravity-robotics-plugin"></a>
-## [DeepMind 推出 Antigravity 机器人插件，让同一套控制代码从 MuJoCo 走上真机](https://github.com/google-deepmind/robotics-antigravity-plugin)
-
-**English:** [DeepMind’s Antigravity Robotics plugin takes a controller from MuJoCo to a real arm](https://github.com/google-deepmind/robotics-antigravity-plugin)
-
-- **发布 / Published:** `2026-11-17T05:06:34Z`
-- **来源 / Source:** [Google DeepMind](https://github.com/google-deepmind/robotics-antigravity-plugin) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
-- **标签 / Tags:** `robotics`, `sim-to-real`, `tool-use`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Google DeepMind 发布了一组供 Antigravity 智能体使用的技能，用于编写控制器、在 MuJoCo 中测试并在机械臂上运行。仓库展示了 I2RT YAM Pro 在仿真和真机上从传送带分拣饼干的同一任务。
-
-Google DeepMind published skills that let an Antigravity agent write a controller, test it in MuJoCo and run it on a robot arm. The repository shows an I2RT YAM Pro sorting cookies from a moving belt in both simulation and hardware.
-
-### 技术点 / Technical points
-
-- 首版包含面向 I2RT YAM、SO-101 和 Franka Research 3 机械臂的硬件启用与标定技能。
-  - The initial release includes hardware setup and calibration skills for I2RT YAM, SO-101 and Franka Research 3 arms.
-- 这些技能覆盖基于 RGB 图像的物体定位、运动规划、视觉伺服，以及将控制器转到真机前的检查。
-  - The skills cover RGB-based object localization, motion planning, visual servoing and checks before transferring a controller to hardware.
-
-### 为什么重要 / Why it matters
-
-两段分拣演示让开发者可以对照观察同一套控制代码在仿真和实体机械臂上的表现。
-
-The paired sorting demonstrations let developers inspect how a single controller behaves in simulation and on the physical arm.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/google-deepmind/robotics-antigravity-plugin/commit/ba5d854f47f7373e095a6c9c538f3532b30c1975)
-[Discussion 1](https://news.ycombinator.com/item?id=50553913)
-
----
-
-<a id="2026-11-16-claude-code-21326-team-code-mode-background-safety"></a>
-## [Claude Code 2.1.326 支持团队启用 Code Mode，并修复后台会话边界](https://github.com/anthropics/claude-code/releases/tag/v2.1.326)
-
-**English:** [Claude Code 2.1.326 combines Code Mode with teams and repairs background-session boundaries](https://github.com/anthropics/claude-code/releases/tag/v2.1.326)
-
-- **发布 / Published:** `2026-11-16T22:11:05Z`
-- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.326) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding`, `multi-agent`, `safety`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Anthropic 此版本允许在智能体团队启用时开启 Code Mode，并修复后台会话与权限呈现问题。丢失配置的 LLM 网关后，会话会在发送模型请求前停止；进程号复用也不再导致后台服务终止无关进程。
-
-Anthropic’s release enables Code Mode while agent teams are active and fixes background-session and permission-reporting failures. Sessions that lose their configured LLM gateway now stop before making a model request, while reused process IDs no longer cause the background service to terminate unrelated processes.
-
-### 技术点 / Technical points
-
-- find -delete 和 cat 重定向等删除、覆盖命令不再被概括为读取或搜索。
-  - Delete and overwrite commands such as find -delete and cat redirection are no longer summarized as reads or searches.
-- 权限规则或新增目录配置写入失败时会显示警告，不再呈现为已保存。
-  - Failed writes of permission rules or added directories now produce a warning instead of appearing to have been saved.
-
-### 为什么重要 / Why it matters
-
-这些改进有助于提高无人值守编码会话的可靠性，并便于审查有实质影响的工具操作。
-
-These changes improve the reliability of unattended coding sessions and make consequential tool actions easier to review.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/anthropics/claude-code/releases/tags/v2.1.326)
-
----
-
-<a id="2026-11-16-lazy-mosaic-skill-effect-world-model-planning"></a>
-## [Lazy-MOSAIC 用学习到的技能效果减少操作规划中的仿真调用](https://arxiv.org/abs/2611.21517)
-
-**English:** [Lazy-MOSAIC uses learned skill outcomes to reduce manipulation-planning simulation](https://arxiv.org/abs/2611.21517)
-
-- **发布 / Published:** `2026-11-16T18:10:52Z`
-- **来源 / Source:** [Lazy-MOSAIC authors / arXiv](https://arxiv.org/abs/2611.21517) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `planning`, `simulation`, `world-model`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-新预印本提出 Lazy-MOSAIC：先搜索预测的技能效果，再将仿真资源用于有希望的候选。作者在杂乱货架取物任务中评测并展示真机，报告规划更快、仿真调用更少，同时成功率达到或超过基线。
-
-A new preprint introduces Lazy-MOSAIC, which searches predicted skill outcomes before spending simulation on promising candidates. The authors evaluate cluttered-shelf retrieval and demonstrate a physical robot, reporting faster planning with fewer simulator calls while matching or exceeding baseline success.
-
-### 技术点 / Technical points
-
-- 学习得到的世界模型在不到一毫秒内估计技能可行性及执行后的状态。
-  - A learned world model estimates skill feasibility and resulting state in a fraction of a millisecond.
-- 预测失效时局部修复搜索，返回计划中的每项技能均经过仿真验证。
-  - Invalid predictions trigger local search repair, and every skill in the returned plan is validated in simulation.
-
-### 为什么重要 / Why it matters
-
-该方法给出用学习动力学加速机器人规划、同时保留最终计划仿真检查的具体路径。
-
-It offers a concrete way to accelerate robot planning with learned dynamics while retaining simulation checks on the final plan.
-
----
-
-<a id="2026-11-16-lynnreal-hand-streaming-interactive-world-model"></a>
-## [LynnReal-Hand 通过流式视频生成建模手部控制的世界交互](https://arxiv.org/abs/2611.21479)
-
-**English:** [LynnReal-Hand models hand-controlled interactions with streaming video generation](https://arxiv.org/abs/2611.21479)
-
-- **发布 / Published:** `2026-11-16T17:51:44Z`
-- **来源 / Source:** [LynnReal-Hand authors / arXiv](https://arxiv.org/abs/2611.21479) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `simulation`, `interaction`, `video-generation`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-LynnReal-Hand 新预印本研究通过手部动作控制视频世界模型。作者整理了 10 万段交互片段，将交互感知训练与少步因果生成结合。其报告单张 H200 在 540p 下达到 18.03 FPS、延迟 741 毫秒；代码、数据和权重仍为计划发布。
-
-LynnReal-Hand is a new preprint on controlling video world models through hand motion. The authors curate 100,000 interaction clips and combine interaction-aware training with few-step causal generation. They report 18.03 FPS at 540p on one H200 with 741 ms latency; code, data and weights are promised for future release.
-
-### 技术点 / Technical points
-
-- 区域感知分数蒸馏结合视频与图像先验，改善交互和外观。
-  - Region-aware score distillation combines video and image priors to refine interactions and appearance.
-- Ultra-Fast-VAE 解码器降低流式生成开销，报告的优化后峰值显存为 34.89 GB。
-  - An Ultra-Fast-VAE decoder reduces streaming cost; the reported optimized peak memory is 34.89 GB.
-
-### 为什么重要 / Why it matters
-
-手部控制将交互世界生成推进到物体级干预，但响应仍存在可测量的延迟。
-
-Hand control extends interactive world generation toward object-level intervention, though responsiveness still has measurable latency.
-
----
-
-<a id="2026-11-16-elite-evaluation-free-coding-agent-evolution"></a>
-## [ELITE 在演化循环内不评测候选任务结果，以改进编码智能体实现](https://arxiv.org/abs/2611.21056)
-
-**English:** [ELITE evolves coding-agent implementations without candidate task evaluation inside the loop](https://arxiv.org/abs/2611.21056)
-
-- **发布 / Published:** `2026-11-16T13:05:46Z`
-- **来源 / Source:** [ELITE authors / arXiv](https://arxiv.org/abs/2611.21056) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding`, `self-improvement`, `benchmark`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-ELITE 预印本通过整合兼容的实现改动探索编码智能体自我改进，而非按下游任务分数挑选子代。在作者的配置中，SWE-bench Pro 成绩从 60.0% 升至 85.6%；演化耗时低于 DGM 和 HGM，但最终分数也低于两者。
-
-The ELITE preprint explores coding-agent self-improvement by integrating compatible implementation changes rather than selecting children through downstream task scores. In the authors’ configurations, SWE-bench Pro performance rises from 60.0% to 85.6%, with lower evolution time than DGM and HGM but lower final scores than both.
-
-### 技术点 / Technical points
-
-- 独立改动从同一父代出发，通过程序检查识别互补、冗余和冲突机制。
-  - Independent changes start from the same parent; program inspection identifies complementary, redundant and conflicting mechanisms.
-- 演化循环使用确定性的有效性检查，最终效果仍通过下游基准衡量。
-  - The evolution loop uses deterministic validity checks, while downstream benchmarks remain necessary to measure the final result.
-
-### 为什么重要 / Why it matters
-
-该研究检验了实现层面的整合能否在不依赖任务分数选择的情况下，降低智能体自我改进的开销。
-
-The work tests whether implementation integration can reduce the cost of agent self-improvement without task-score selection.
-
----
-
-<a id="2026-11-16-system1-agents-schema-constrained-tool-calls"></a>
-## [System 1 agents 将工具调用转为受 schema 约束的选择题决策](https://arxiv.org/abs/2611.21053)
-
-**English:** [System 1 agents turn tool calls into schema-constrained multiple-choice decisions](https://arxiv.org/abs/2611.21053)
-
-- **发布 / Published:** `2026-11-16T13:05:32Z`
-- **来源 / Source:** [System 1 agents authors / arXiv](https://arxiv.org/abs/2611.21053) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `open-source`, `benchmark`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-新预印本提出本地工具调用智能体：从请求和 schema 提供的选项中作出选择，而非生成文本。在覆盖 157 个生物医学工具的 1,952 条请求上，最佳测试配置报告正确选工具或拒绝的比例为 97.0%，最佳本地 LLM 智能体基线为 95.2%。
-
-A new preprint presents local tool-calling agents that select from request- and schema-derived options instead of generating text. On 1,952 requests across 157 biomedical tools, the best tested configuration reports 97.0% correct tool selection or refusal, versus 95.2% for the best local LLM-agent baseline.
-
-### 技术点 / Technical points
-
-- 确定性编译器构建选择题，由单次前向决策模型回答。
-  - A deterministic compiler builds the questions and a one-pass decision model answers them.
-- 研究报告测试集中的 System 1 调用没有虚构内容；这并不能证明普遍的临床可靠性。
-  - The study reports no invented content in System 1 calls within its test set; this does not establish general clinical reliability.
-
-### 为什么重要 / Why it matters
-
-对于参数约束比自由生成更重要的有限工具任务，该方法提供了可检查的替代方案。
-
-The method provides an inspectable alternative for bounded tool use where constraining arguments matters more than free-form generation.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=50539789)
-
----
-
-<a id="2026-11-16-sciworldbench-paired-scientific-world-model-evaluation"></a>
-## [SciWorldBench 用成对科学干预检验视频世界模型](https://arxiv.org/abs/2611.20899)
-
-**English:** [SciWorldBench tests video world models with paired scientific interventions](https://arxiv.org/abs/2611.20899)
-
-- **发布 / Published:** `2026-11-16T11:09:07Z`
-- **来源 / Source:** [SciWorldBench authors / arXiv](https://arxiv.org/abs/2611.20899) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `physics`, `causality`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-SciWorldBench 提出成对实验：只改变一个条件，却要求出现相反的科学结果。作者对十个模型评测后发现，即使条件不同，成对生成的视频仍经常呈现相同结果。预印本表示将发布基准数据与评测代码。
-
-SciWorldBench introduces paired experiments that change one condition while requiring opposite scientific outcomes. In a ten-model evaluation, the authors find that paired generations often show the same outcome despite different conditions. The preprint says benchmark data and evaluation code will be released.
-
-### 技术点 / Technical points
-
-- 提示提供实验条件，但不告知预期结果。
-  - Prompts specify the condition while withholding the expected outcome.
-- 独立 VLM 在不查看条件文本或正确结果标签的情况下评分；只有两段结果都正确，实验对才算通过。
-  - A separate VLM judges videos without seeing condition text or the correct-outcome label; a pair passes only if both outcomes are correct.
-
-### 为什么重要 / Why it matters
-
-成对干预能够检验因果敏感性，补充视觉逼真度或单段视频评分难以揭示的问题。
-
-Paired interventions probe causal sensitivity that visual realism or isolated-video scoring can miss.
-
----
-
-<a id="2026-11-16-cloudrobo-wm12-world-prediction-robot-actions"></a>
-## [华为云发布 CloudRobo-WM1.2，结合世界预测与机器人动作生成](https://www.cls.cn/detail/2535460)
-
-**English:** [Huawei Cloud announces CloudRobo-WM1.2 for world prediction and robot actions](https://www.cls.cn/detail/2535460)
-
-- **发布 / Published:** `2026-11-16T08:02:06Z`
-- **来源 / Source:** [CLS / STAR Market Daily](https://www.cls.cn/detail/2535460) · `media`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `simulation`, `cross-embodiment`
-- **可信度 / Confidence:** `medium` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-华为云发布基于昇腾训练的具身世界模型 CloudRobo-WM1.2，将预测式表征与 DualAct 动作生成结合，并宣布开源。本条时间采用财联社 11 月 16 日原创报道的发布时间，不代替尚未披露的精确发布时刻。
-
-Huawei Cloud announced CloudRobo-WM1.2, an Ascend-trained embodied world model coupling predictive representations with DualAct action generation, and announced open sourcing. The timestamp follows CLS’s original November 16 report rather than an undisclosed exact launch time.
-
-### 技术点 / Technical points
-
-- 共享的世界模型骨干网络支持预测增强表征与原生动作生成。
-  - A shared world-model backbone supports prediction-enhanced representations and native action generation.
-- 技术报道列出 PPA 多模态表征、异构数据预训练与保留本体语义的运动建模。
-  - Technical coverage identifies PPA multimodal representations, heterogeneous-data pretraining and embodiment-aware motion modeling.
-- World 与 Expert Action、Joint 与 Action-only 组成四种推理组合，用于匹配不同算力和时延需求。
-  - World versus Expert Action and Joint versus Action-only form four inference combinations for different compute and latency needs.
-
-### 为什么重要 / Why it matters
-
-该架构在昇腾训练栈上连接学习到的环境动态与物理控制，其部署效果仍需独立评估。
-
-The architecture connects learned environment dynamics with physical control on an Ascend training stack; independent deployment evaluation remains necessary.
-
-### 链接 / Links
-
-[Evidence 1](https://www.huaweicloud.com/about/live/261116.html) · [Evidence 2](https://m.ithome.com/html/1027684.htm) · [Evidence 3](https://www.cww.net.cn/article?id=616774)
