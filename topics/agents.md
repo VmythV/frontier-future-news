@@ -2,6 +2,115 @@
 
 # Agents / 智能体
 
+<a id="2026-11-20-signal-mobile-agent-screen-privacy"></a>
+## [Signal 限制应用内截图，减少手机 AI 助手读取聊天内容的机会](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
+
+**English:** [Signal restricts screenshots to limit mobile AI assistants’ access to chats](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
+
+- **发布 / Published:** `2026-11-20T09:31:33.019Z`
+- **来源 / Source:** [Signal](https://bsky.app/profile/signal.org/post/3n2qboicngk2z) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `privacy`, `safety`, `mobile`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Signal 宣布调整 iOS 27 和部分 Android 设备的截图设置。iPhone 默认开启保护。在支持检测的 Android 设备上，Signal 首次发现助手尝试读屏时，会自动开启保护。
+
+Signal announced new screenshot defaults for iOS 27 and supported Android devices. On iPhone the protection starts enabled. On Android, Signal activates it the first time it detects an assistant trying to read the screen.
+
+### 技术点 / Technical points
+
+- 这项变更适用于 iOS 27 上的 Signal 8.37 及后续版本，以及受支持 Android 设备上的 Signal 8.35.1 及后续版本。
+  - The rollout applies to Signal 8.37 or later on iOS 27 and Signal 8.35.1 or later on supported Android devices.
+- 用户可在设置中恢复截图。Signal 说明，这项保护只覆盖屏幕捕获，设备数据还可能经其他途径被读取。
+  - Users can restore screenshots in settings. Signal says the restriction covers screen capture and leaves other possible routes to data on the device outside its scope.
+
+### 为什么重要 / Why it matters
+
+当系统级智能体也能通过截图读取聊天时，应用阻止它读屏的做法会直接影响用户自己的截图功能。
+
+The change shows how protecting a conversation from an operating-system agent can also affect a feature people use themselves.
+
+### 链接 / Links
+
+[Evidence 1](https://signal.org/blog/protecting-your-privacy/) · [Evidence 2](https://support.signal.org/hc/en-us/articles/11338514641306-Screen-security-blocking-Google-Gemini-and-Siri-AI)
+[Discussion 1](https://news.ycombinator.com/item?id=50572348)
+
+---
+
+<a id="2026-11-20-codex-0171-remote-noninteractive-sessions"></a>
+## [Codex 0.171.0 支持在远端启动和恢复非交互式编程会话](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
+
+**English:** [Codex 0.171.0 can start and resume unattended sessions on a remote server](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
+
+- **发布 / Published:** `2026-11-20T00:44:47Z`
+- **来源 / Source:** [OpenAI Codex](https://github.com/openai/codex/releases/tag/rust-v0.171.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+OpenAI 为 Codex 命令行客户端增加了远程执行功能。新版还默认启用终端工作区，可在主对话旁查看子智能体的执行记录。
+
+OpenAI added remote execution to the Codex command-line client. The release also enables a terminal workspace that shows subagent transcripts alongside the main conversation.
+
+### 技术点 / Technical points
+
+- codex exec 的远程选项可连接已有的应用服务器，启动非交互式会话，也可恢复此前的会话。
+  - The new remote option for codex exec connects to an existing app server to start a noninteractive session or resume an earlier one.
+- 用户切换或恢复会话时，草稿、排队消息和中断的输入都会保留在原来的对话线程中。
+  - When a user switches or resumes sessions, drafts, queued messages and interrupted input stay with the thread where they originated.
+
+### 为什么重要 / Why it matters
+
+自动化程序可以重新接入已有的编程会话，操作者也能在终端查看分派给子智能体的工作。
+
+An automation runner can reconnect to an existing coding session while an operator uses the terminal to inspect delegated work.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/codex/releases/tags/rust-v0.171.0)
+
+---
+
+<a id="2026-11-19-agentrobocritic-action-level-robot-control"></a>
+## [AgentRoboCritic 逐步核对智能体的动作意图和机器人执行结果](https://arxiv.org/abs/2611.26613)
+
+**English:** [AgentRoboCritic compares each robot action with the agent’s stated intent](https://arxiv.org/abs/2611.26613)
+
+- **发布 / Published:** `2026-11-19T18:57:25Z`
+- **来源 / Source:** [Yiyang Du et al. (arXiv)](https://arxiv.org/abs/2611.26613) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+研究团队在 12 个操作基准上，要求智能体说明每个底层动作想达到的目标，再由评估模型将意图与实际结果对照，辨别抓取落空、对位不准等错误。
+
+Across 12 manipulation benchmarks, the team asked an agent to state what each low-level action should achieve. A critic compared that intent with the observed outcome and identified failures such as missed grasps or poor alignment.
+
+### 技术点 / Technical points
+
+- 团队发布了 12,844 个动作的标注，并用 400 个人工标注动作检验评估模型。
+  - The team released annotations for 12,844 actions and used 400 human-labeled actions to check the critic.
+- 在作者的评测中，微调使 Muse-Glimmer-30B 识别失败类型的准确率从 32.58% 升至 74.24%。
+  - Fine-tuning Muse-Glimmer-30B raised its accuracy at identifying failure types from 32.58% to 74.24% in the authors’ evaluation.
+
+### 为什么重要 / Why it matters
+
+逐动作标注能定位机器人从哪一步开始偏离目标，以及控制它的智能体后来是否纠正了错误。
+
+Action-level labels show where a robot first deviated from its goal and whether the controlling agent recovered later.
+
+### 链接 / Links
+
+[Evidence 1](https://adu2021.github.io/blog/AgentRoboCritic/)
+
+---
+
 <a id="2026-11-19-google-gemini-mac-background-computer-use"></a>
 ## [Gemini Mac 版可在后台窗口操作桌面应用和网页](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
 
@@ -31,6 +140,78 @@ Google began rolling out computer use to eligible Google AI Plus, Pro and Ultra 
 用户可以继续用主光标处理自己的工作，同时监督跨应用任务的执行。
 
 A user can keep working with the main cursor while supervising a multi-app task as it runs.
+
+---
+
+<a id="2026-11-19-autoragbench-agents-build-retrieval-systems"></a>
+## [AutoRAGBench 让编程智能体用六小时从零构建检索增强系统](https://arxiv.org/abs/2611.25582)
+
+**English:** [AutoRAGBench gives coding agents six hours to build a retrieval system](https://arxiv.org/abs/2611.25582)
+
+- **发布 / Published:** `2026-11-19T06:26:28Z`
+- **来源 / Source:** [Hang Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25582) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `retrieval-augmented-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+AutoRAGBench 向智能体提供语料和任务，由其自行设计和实现检索流程。在九项任务上，GPT-6.1 Sol 与 Codex CLI 的组合取得了九种参测配置中的最高平均分。
+
+AutoRAGBench gives agents a corpus and a task but leaves the retrieval pipeline for them to design and implement. Across nine tasks, GPT-6.1 Sol with Codex CLI earned the highest average score among the nine configurations tested.
+
+### 技术点 / Technical points
+
+- 每次构建可用六小时和一块 H800 GPU，测试集放在开发容器之外。
+  - Each build gets six hours and one H800 GPU. The test set stays outside the development container.
+- 领先配置平均得到 56.1 分。研究者在每项任务上选取表现最好、经过适配的人工设计方法，所得组合基线为 44.4 分。
+  - The leading configuration scored 56.1 points on average. A composite baseline that took the best adapted human-designed method for each task scored 44.4.
+
+### 为什么重要 / Why it matters
+
+这套基准可以衡量智能体在固定开发预算内能交付怎样的检索系统。
+
+The benchmark measures the quality of a retrieval system an agent can deliver within a fixed development budget.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZhanGHanG9991/AutoRAGBench)
+
+---
+
+<a id="2026-11-19-appsci-bench-agent-building-reliability"></a>
+## [AppSci-Bench 检验模型能否从业务需求出发，反复构建可靠的智能体](https://arxiv.org/abs/2611.25360)
+
+**English:** [AppSci-Bench tests whether models can build reliable agents from stakeholder requirements](https://arxiv.org/abs/2611.25360)
+
+- **发布 / Published:** `2026-11-19T01:58:31Z`
+- **来源 / Source:** [Sanjari Srivastava et al. (arXiv)](https://arxiv.org/abs/2611.25360) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-development`, `benchmark`, `evaluation`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+AppSci-Bench 要求模型向需求方提问、了解可用系统，并为七个业务领域构建智能体。每个领域都有一套构建者无法查看的独立测试。
+
+AppSci-Bench asks models to interview stakeholders, explore the available systems and build agents for seven business domains. Each domain has a separate evaluation suite that the builder cannot see.
+
+### 技术点 / Technical points
+
+- 任务涵盖合规审查、演示文稿生成等流程。构建者可在迭代过程中自行设计测试。
+  - Tasks cover workflows such as compliance review and presentation generation. Builders can design their own checks as they iterate.
+- 对每个留出测试用例，评测先取三次独立构建中的最低分，再求平均。Claude Opus 5.0 以 59.1% 在七个参测模型中居首。
+  - For each held-out case, the metric takes the lowest score across three independent builds before averaging. Claude Opus 5.0 led the seven tested models at 59.1%.
+
+### 为什么重要 / Why it matters
+
+重复构建可以检验，模型面对同一组需求时，能否稳定地交付可用的智能体。
+
+Repeated builds reveal how consistently a model turns the same requirements into a working agent.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/sanjari-orb/appsci-bench)
 
 ---
 

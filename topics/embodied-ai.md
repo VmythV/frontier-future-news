@@ -2,6 +2,178 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-19-agentrobocritic-action-level-robot-control"></a>
+## [AgentRoboCritic 逐步核对智能体的动作意图和机器人执行结果](https://arxiv.org/abs/2611.26613)
+
+**English:** [AgentRoboCritic compares each robot action with the agent’s stated intent](https://arxiv.org/abs/2611.26613)
+
+- **发布 / Published:** `2026-11-19T18:57:25Z`
+- **来源 / Source:** [Yiyang Du et al. (arXiv)](https://arxiv.org/abs/2611.26613) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+研究团队在 12 个操作基准上，要求智能体说明每个底层动作想达到的目标，再由评估模型将意图与实际结果对照，辨别抓取落空、对位不准等错误。
+
+Across 12 manipulation benchmarks, the team asked an agent to state what each low-level action should achieve. A critic compared that intent with the observed outcome and identified failures such as missed grasps or poor alignment.
+
+### 技术点 / Technical points
+
+- 团队发布了 12,844 个动作的标注，并用 400 个人工标注动作检验评估模型。
+  - The team released annotations for 12,844 actions and used 400 human-labeled actions to check the critic.
+- 在作者的评测中，微调使 Muse-Glimmer-30B 识别失败类型的准确率从 32.58% 升至 74.24%。
+  - Fine-tuning Muse-Glimmer-30B raised its accuracy at identifying failure types from 32.58% to 74.24% in the authors’ evaluation.
+
+### 为什么重要 / Why it matters
+
+逐动作标注能定位机器人从哪一步开始偏离目标，以及控制它的智能体后来是否纠正了错误。
+
+Action-level labels show where a robot first deviated from its goal and whether the controlling agent recovered later.
+
+### 链接 / Links
+
+[Evidence 1](https://adu2021.github.io/blog/AgentRoboCritic/)
+
+---
+
+<a id="2026-11-19-phydex-robot-throwing-physics-benchmark"></a>
+## [PhyDEX 用投放任务检验机器人能否把物体送到臂展之外](https://arxiv.org/abs/2611.26565)
+
+**English:** [PhyDEX tests whether robot policies can throw objects beyond arm’s reach](https://arxiv.org/abs/2611.26565)
+
+- **发布 / Published:** `2026-11-19T18:33:43Z`
+- **来源 / Source:** [Hao Vo et al. (arXiv)](https://arxiv.org/abs/2611.26565) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `dataset`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PhyDEX 改变物体的质量、重心和摩擦条件，要求机器人将其抛至目标位置。GR00T N1.7、DynamicVLA 和 ForceVLA 三种策略在基准上的总体成功率均低于 3%。
+
+PhyDEX varies object mass, center of mass and friction in tasks where a robot must throw an object to a target. GR00T N1.7, DynamicVLA and ForceVLA each succeeded on fewer than 3% of benchmark trials overall.
+
+### 技术点 / Technical points
+
+- 基准包含约 3.5 万条轨迹，覆盖 9 项任务和 100 个场景，其中包括目标移动的试验。
+  - The benchmark contains about 35,000 trajectories spanning nine tasks and 100 scenes, including trials with moving targets.
+- 多数失败发生在物体出手之前。作者还测试了向策略提供物体真实物理属性后，表现会如何变化。
+  - Most failures occurred before release. The authors also tested what changes when a policy receives the object’s true physical properties.
+
+### 为什么重要 / Why it matters
+
+把出手前后的失败分开统计，有助于区分基本操作失误和对物体飞行轨迹的误判。
+
+Separating failures before and after release helps distinguish basic manipulation problems from errors in predicting an object’s flight.
+
+---
+
+<a id="2026-11-19-safi-robot-mid-task-safe-stopping"></a>
+## [SAFI 训练机器人中途停手并保持夹持](https://arxiv.org/abs/2611.26239)
+
+**English:** [SAFI trains robot policies to stop mid-task while holding an object](https://arxiv.org/abs/2611.26239)
+
+- **发布 / Published:** `2026-11-19T15:14:55Z`
+- **来源 / Source:** [Zheyuan Liu et al. (arXiv)](https://arxiv.org/abs/2611.26239) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `safety`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+作者研究了机器人在禁做任务执行到一半时由另一策略接管的情况。对于适合停在原位的任务，SAFI 训练机械臂停止移动，并让夹爪保持夹持。
+
+The authors studied what happens when a robot policy takes over partway through a prohibited task. For tasks where holding position is appropriate, SAFI teaches the arm to stop moving and the gripper to maintain its hold.
+
+### 技术点 / Technical points
+
+- 团队用两类示范调整 OpenVLA-OFT，一类展示如何停止，另一类展示机器人应继续执行的任务。
+  - The team adapted OpenVLA-OFT using both examples of how to stop and demonstrations of tasks the robot should still carry out.
+- 在所测 LIBERO 仿真任务中，接管后仍完成禁做任务的比例从原策略的 99.7% 降至 SAFI 的 1.3%。团队在这些 SAFI 试验中未记录到物理事故。
+  - On the tested LIBERO simulations, the share of prohibited tasks completed after takeover fell from 99.7% with the original policy to 1.3% with SAFI. The team recorded no physical incidents with SAFI in those trials.
+
+### 为什么重要 / Why it matters
+
+把物体掉落与任务完成情况一并记录，可以检验停止动作本身是否造成了问题。
+
+Tracking dropped objects as well as task completion gives evaluators a way to tell whether stopping itself caused a problem.
+
+### 链接 / Links
+
+[Evidence 1](https://franciscoliu.github.io/SAFI/)
+
+---
+
+<a id="2026-11-19-affect-action-sensitive-world-model-evaluation"></a>
+## [AFFECT 训练世界模型预测机器人动作细微变化的后果](https://arxiv.org/abs/2611.25980)
+
+**English:** [AFFECT trains world models to predict the consequences of small action changes](https://arxiv.org/abs/2611.25980)
+
+- **发布 / Published:** `2026-11-19T12:03:05Z`
+- **来源 / Source:** [John Won et al. (arXiv)](https://arxiv.org/abs/2611.25980) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `policy-evaluation`, `model-based-planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+AFFECT 训练视频世界模型，使动作受到扰动时预测的画面变化更接近机器人实录。在 DROID 上，作者发现，经过这项训练后，DreamDojo 预测的策略成功率与真机结果更为一致。
+
+AFFECT trains a video world model to reproduce the visual changes seen when a robot action is perturbed. On DROID, the authors found that DreamDojo’s simulated policy success rates tracked real-robot results more closely after this training.
+
+### 技术点 / Technical points
+
+- 训练时施加的动作扰动在相邻时刻彼此相关，已有记录即可用于学习，无需从完全相同的初始状态反复试验。
+  - The training objective uses action perturbations that persist across nearby time steps. It can learn from recordings without repeating each trial from an identical starting state.
+- 在 DROID 上，DreamDojo 预测的策略成功率与真机成功率之间的皮尔逊相关系数从 0.47 升至 0.79。
+  - For DreamDojo on DROID, the Pearson correlation between predicted and real policy success rates rose from 0.47 to 0.79.
+
+### 为什么重要 / Why it matters
+
+把模型中的策略表现与真机结果对照，可以检验模拟器能否用于比较不同的机器人控制策略。
+
+Agreement with real policy outcomes gives robotics teams a direct test of whether a simulator can help compare candidate controllers.
+
+---
+
+<a id="2026-11-19-echo-humanoid-control-under-changing-loads"></a>
+## [ECHO 利用近期交互调整人形机器人的全身控制，适应负载变化](https://arxiv.org/abs/2611.25778)
+
+**English:** [ECHO uses recent interactions to adapt humanoid control to changing loads](https://arxiv.org/abs/2611.25778)
+
+- **发布 / Published:** `2026-11-19T09:11:24Z`
+- **来源 / Source:** [Xingyi Wang et al. (arXiv)](https://arxiv.org/abs/2611.25778) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `whole-body-control`, `robotics`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ECHO 根据近期交互判断机器人对动作的实际响应，再据此修正预训练控制器。作者在宇树 G1 上演示了全身遥操作，以及负载变化后的动作调整。
+
+ECHO adapts a pretrained humanoid controller by inferring how the robot responds from its recent interactions. The authors demonstrated whole-body teleoperation and adaptation to payload changes on a Unitree G1.
+
+### 技术点 / Technical points
+
+- 基础控制器在同一预训练阶段兼顾特定动作的强化练习和多种动作的学习。
+  - A single pretraining stage mixes targeted practice with a broad range of motions to establish the base controller.
+- 单独的模块根据交互历史修正基础控制器的输出，部署时模型参数保持固定。
+  - A separate module uses interaction history to correct the base controller’s output. The deployed model keeps its parameters fixed.
+
+### 为什么重要 / Why it matters
+
+G1 实验检验了同一套控制器能否在机器人负重变化时保持原有动作技能。
+
+The G1 experiments test whether one controller can preserve motion skills as the load it carries changes.
+
+### 链接 / Links
+
+[Evidence 1](https://mwondering.github.io/echo-bfm/)
+
+---
+
 <a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
 ## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
 

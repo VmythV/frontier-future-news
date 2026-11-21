@@ -2,6 +2,74 @@
 
 # World models / 世界模型
 
+<a id="2026-11-19-affect-action-sensitive-world-model-evaluation"></a>
+## [AFFECT 训练世界模型预测机器人动作细微变化的后果](https://arxiv.org/abs/2611.25980)
+
+**English:** [AFFECT trains world models to predict the consequences of small action changes](https://arxiv.org/abs/2611.25980)
+
+- **发布 / Published:** `2026-11-19T12:03:05Z`
+- **来源 / Source:** [John Won et al. (arXiv)](https://arxiv.org/abs/2611.25980) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `policy-evaluation`, `model-based-planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+AFFECT 训练视频世界模型，使动作受到扰动时预测的画面变化更接近机器人实录。在 DROID 上，作者发现，经过这项训练后，DreamDojo 预测的策略成功率与真机结果更为一致。
+
+AFFECT trains a video world model to reproduce the visual changes seen when a robot action is perturbed. On DROID, the authors found that DreamDojo’s simulated policy success rates tracked real-robot results more closely after this training.
+
+### 技术点 / Technical points
+
+- 训练时施加的动作扰动在相邻时刻彼此相关，已有记录即可用于学习，无需从完全相同的初始状态反复试验。
+  - The training objective uses action perturbations that persist across nearby time steps. It can learn from recordings without repeating each trial from an identical starting state.
+- 在 DROID 上，DreamDojo 预测的策略成功率与真机成功率之间的皮尔逊相关系数从 0.47 升至 0.79。
+  - For DreamDojo on DROID, the Pearson correlation between predicted and real policy success rates rose from 0.47 to 0.79.
+
+### 为什么重要 / Why it matters
+
+把模型中的策略表现与真机结果对照，可以检验模拟器能否用于比较不同的机器人控制策略。
+
+Agreement with real policy outcomes gives robotics teams a direct test of whether a simulator can help compare candidate controllers.
+
+---
+
+<a id="2026-11-19-fast-jepa-dynagoal-latent-planning"></a>
+## [Fast-JEPA 直接评估整段动作，缩短世界模型的规划时间](https://arxiv.org/abs/2611.25927)
+
+**English:** [Fast-JEPA scores whole action sequences to reduce planning time](https://arxiv.org/abs/2611.25927)
+
+- **发布 / Published:** `2026-11-19T11:09:58Z`
+- **来源 / Source:** [Yao Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25927) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-dynamics`, `model-based-planning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Fast-JEPA 先给出一个指向目标的初始方案，再在细化阶段直接预测每段候选动作的结果。作者还提出 DynaGoal，检验环境条件改变或动作必须限时执行时，规划器的表现。
+
+Fast-JEPA first proposes a plan aimed at the goal, then predicts the outcome of each candidate action sequence in one pass during refinement. The authors also introduced DynaGoal to test plans when conditions change or actions must meet deadlines.
+
+### 技术点 / Technical points
+
+- 在 PushT、Reacher、Cube 和 TwoRoom 四项任务上，作者报告平均成功率为 96.5%，规划速度为 INTACT 的 2.41 倍。
+  - Across PushT, Reacher, Cube and TwoRoom, the authors report 96.5% average success and a 2.41-fold planning speedup over INTACT.
+- Fast-JEPA 在 DynaGoal-Shift 和 DynaGoal-Deadline 上的平均成功率分别为 73.83% 和 87.67%。
+  - Fast-JEPA averaged 73.83% success on DynaGoal-Shift and 87.67% on DynaGoal-Deadline.
+
+### 为什么重要 / Why it matters
+
+限时测试可以检验世界模型能否在需要行动之前给出可用方案。
+
+The deadline tests make it possible to measure whether a world model produces a usable plan in time to act.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Sofilyzia/Fast-JEPA)
+
+---
+
 <a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
 ## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
 

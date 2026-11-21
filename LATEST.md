@@ -2,6 +2,147 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-20-signal-mobile-agent-screen-privacy"></a>
+## [Signal 限制应用内截图，减少手机 AI 助手读取聊天内容的机会](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
+
+**English:** [Signal restricts screenshots to limit mobile AI assistants’ access to chats](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
+
+- **发布 / Published:** `2026-11-20T09:31:33.019Z`
+- **来源 / Source:** [Signal](https://bsky.app/profile/signal.org/post/3n2qboicngk2z) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `privacy`, `safety`, `mobile`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Signal 宣布调整 iOS 27 和部分 Android 设备的截图设置。iPhone 默认开启保护。在支持检测的 Android 设备上，Signal 首次发现助手尝试读屏时，会自动开启保护。
+
+Signal announced new screenshot defaults for iOS 27 and supported Android devices. On iPhone the protection starts enabled. On Android, Signal activates it the first time it detects an assistant trying to read the screen.
+
+### 技术点 / Technical points
+
+- 这项变更适用于 iOS 27 上的 Signal 8.37 及后续版本，以及受支持 Android 设备上的 Signal 8.35.1 及后续版本。
+  - The rollout applies to Signal 8.37 or later on iOS 27 and Signal 8.35.1 or later on supported Android devices.
+- 用户可在设置中恢复截图。Signal 说明，这项保护只覆盖屏幕捕获，设备数据还可能经其他途径被读取。
+  - Users can restore screenshots in settings. Signal says the restriction covers screen capture and leaves other possible routes to data on the device outside its scope.
+
+### 为什么重要 / Why it matters
+
+当系统级智能体也能通过截图读取聊天时，应用阻止它读屏的做法会直接影响用户自己的截图功能。
+
+The change shows how protecting a conversation from an operating-system agent can also affect a feature people use themselves.
+
+### 链接 / Links
+
+[Evidence 1](https://signal.org/blog/protecting-your-privacy/) · [Evidence 2](https://support.signal.org/hc/en-us/articles/11338514641306-Screen-security-blocking-Google-Gemini-and-Siri-AI)
+[Discussion 1](https://news.ycombinator.com/item?id=50572348)
+
+---
+
+<a id="2026-11-20-codex-0171-remote-noninteractive-sessions"></a>
+## [Codex 0.171.0 支持在远端启动和恢复非交互式编程会话](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
+
+**English:** [Codex 0.171.0 can start and resume unattended sessions on a remote server](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
+
+- **发布 / Published:** `2026-11-20T00:44:47Z`
+- **来源 / Source:** [OpenAI Codex](https://github.com/openai/codex/releases/tag/rust-v0.171.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+OpenAI 为 Codex 命令行客户端增加了远程执行功能。新版还默认启用终端工作区，可在主对话旁查看子智能体的执行记录。
+
+OpenAI added remote execution to the Codex command-line client. The release also enables a terminal workspace that shows subagent transcripts alongside the main conversation.
+
+### 技术点 / Technical points
+
+- codex exec 的远程选项可连接已有的应用服务器，启动非交互式会话，也可恢复此前的会话。
+  - The new remote option for codex exec connects to an existing app server to start a noninteractive session or resume an earlier one.
+- 用户切换或恢复会话时，草稿、排队消息和中断的输入都会保留在原来的对话线程中。
+  - When a user switches or resumes sessions, drafts, queued messages and interrupted input stay with the thread where they originated.
+
+### 为什么重要 / Why it matters
+
+自动化程序可以重新接入已有的编程会话，操作者也能在终端查看分派给子智能体的工作。
+
+An automation runner can reconnect to an existing coding session while an operator uses the terminal to inspect delegated work.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/openai/codex/releases/tags/rust-v0.171.0)
+
+---
+
+<a id="2026-11-19-agentrobocritic-action-level-robot-control"></a>
+## [AgentRoboCritic 逐步核对智能体的动作意图和机器人执行结果](https://arxiv.org/abs/2611.26613)
+
+**English:** [AgentRoboCritic compares each robot action with the agent’s stated intent](https://arxiv.org/abs/2611.26613)
+
+- **发布 / Published:** `2026-11-19T18:57:25Z`
+- **来源 / Source:** [Yiyang Du et al. (arXiv)](https://arxiv.org/abs/2611.26613) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+研究团队在 12 个操作基准上，要求智能体说明每个底层动作想达到的目标，再由评估模型将意图与实际结果对照，辨别抓取落空、对位不准等错误。
+
+Across 12 manipulation benchmarks, the team asked an agent to state what each low-level action should achieve. A critic compared that intent with the observed outcome and identified failures such as missed grasps or poor alignment.
+
+### 技术点 / Technical points
+
+- 团队发布了 12,844 个动作的标注，并用 400 个人工标注动作检验评估模型。
+  - The team released annotations for 12,844 actions and used 400 human-labeled actions to check the critic.
+- 在作者的评测中，微调使 Muse-Glimmer-30B 识别失败类型的准确率从 32.58% 升至 74.24%。
+  - Fine-tuning Muse-Glimmer-30B raised its accuracy at identifying failure types from 32.58% to 74.24% in the authors’ evaluation.
+
+### 为什么重要 / Why it matters
+
+逐动作标注能定位机器人从哪一步开始偏离目标，以及控制它的智能体后来是否纠正了错误。
+
+Action-level labels show where a robot first deviated from its goal and whether the controlling agent recovered later.
+
+### 链接 / Links
+
+[Evidence 1](https://adu2021.github.io/blog/AgentRoboCritic/)
+
+---
+
+<a id="2026-11-19-phydex-robot-throwing-physics-benchmark"></a>
+## [PhyDEX 用投放任务检验机器人能否把物体送到臂展之外](https://arxiv.org/abs/2611.26565)
+
+**English:** [PhyDEX tests whether robot policies can throw objects beyond arm’s reach](https://arxiv.org/abs/2611.26565)
+
+- **发布 / Published:** `2026-11-19T18:33:43Z`
+- **来源 / Source:** [Hao Vo et al. (arXiv)](https://arxiv.org/abs/2611.26565) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `dataset`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PhyDEX 改变物体的质量、重心和摩擦条件，要求机器人将其抛至目标位置。GR00T N1.7、DynamicVLA 和 ForceVLA 三种策略在基准上的总体成功率均低于 3%。
+
+PhyDEX varies object mass, center of mass and friction in tasks where a robot must throw an object to a target. GR00T N1.7, DynamicVLA and ForceVLA each succeeded on fewer than 3% of benchmark trials overall.
+
+### 技术点 / Technical points
+
+- 基准包含约 3.5 万条轨迹，覆盖 9 项任务和 100 个场景，其中包括目标移动的试验。
+  - The benchmark contains about 35,000 trajectories spanning nine tasks and 100 scenes, including trials with moving targets.
+- 多数失败发生在物体出手之前。作者还测试了向策略提供物体真实物理属性后，表现会如何变化。
+  - Most failures occurred before release. The authors also tested what changes when a policy receives the object’s true physical properties.
+
+### 为什么重要 / Why it matters
+
+把出手前后的失败分开统计，有助于区分基本操作失误和对物体飞行轨迹的误判。
+
+Separating failures before and after release helps distinguish basic manipulation problems from errors in predicting an object’s flight.
+
+---
+
 <a id="2026-11-19-google-gemini-mac-background-computer-use"></a>
 ## [Gemini Mac 版可在后台窗口操作桌面应用和网页](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
 
@@ -31,6 +172,218 @@ Google began rolling out computer use to eligible Google AI Plus, Pro and Ultra 
 用户可以继续用主光标处理自己的工作，同时监督跨应用任务的执行。
 
 A user can keep working with the main cursor while supervising a multi-app task as it runs.
+
+---
+
+<a id="2026-11-19-safi-robot-mid-task-safe-stopping"></a>
+## [SAFI 训练机器人中途停手并保持夹持](https://arxiv.org/abs/2611.26239)
+
+**English:** [SAFI trains robot policies to stop mid-task while holding an object](https://arxiv.org/abs/2611.26239)
+
+- **发布 / Published:** `2026-11-19T15:14:55Z`
+- **来源 / Source:** [Zheyuan Liu et al. (arXiv)](https://arxiv.org/abs/2611.26239) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `safety`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+作者研究了机器人在禁做任务执行到一半时由另一策略接管的情况。对于适合停在原位的任务，SAFI 训练机械臂停止移动，并让夹爪保持夹持。
+
+The authors studied what happens when a robot policy takes over partway through a prohibited task. For tasks where holding position is appropriate, SAFI teaches the arm to stop moving and the gripper to maintain its hold.
+
+### 技术点 / Technical points
+
+- 团队用两类示范调整 OpenVLA-OFT，一类展示如何停止，另一类展示机器人应继续执行的任务。
+  - The team adapted OpenVLA-OFT using both examples of how to stop and demonstrations of tasks the robot should still carry out.
+- 在所测 LIBERO 仿真任务中，接管后仍完成禁做任务的比例从原策略的 99.7% 降至 SAFI 的 1.3%。团队在这些 SAFI 试验中未记录到物理事故。
+  - On the tested LIBERO simulations, the share of prohibited tasks completed after takeover fell from 99.7% with the original policy to 1.3% with SAFI. The team recorded no physical incidents with SAFI in those trials.
+
+### 为什么重要 / Why it matters
+
+把物体掉落与任务完成情况一并记录，可以检验停止动作本身是否造成了问题。
+
+Tracking dropped objects as well as task completion gives evaluators a way to tell whether stopping itself caused a problem.
+
+### 链接 / Links
+
+[Evidence 1](https://franciscoliu.github.io/SAFI/)
+
+---
+
+<a id="2026-11-19-affect-action-sensitive-world-model-evaluation"></a>
+## [AFFECT 训练世界模型预测机器人动作细微变化的后果](https://arxiv.org/abs/2611.25980)
+
+**English:** [AFFECT trains world models to predict the consequences of small action changes](https://arxiv.org/abs/2611.25980)
+
+- **发布 / Published:** `2026-11-19T12:03:05Z`
+- **来源 / Source:** [John Won et al. (arXiv)](https://arxiv.org/abs/2611.25980) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-model`, `robotics`, `policy-evaluation`, `model-based-planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+AFFECT 训练视频世界模型，使动作受到扰动时预测的画面变化更接近机器人实录。在 DROID 上，作者发现，经过这项训练后，DreamDojo 预测的策略成功率与真机结果更为一致。
+
+AFFECT trains a video world model to reproduce the visual changes seen when a robot action is perturbed. On DROID, the authors found that DreamDojo’s simulated policy success rates tracked real-robot results more closely after this training.
+
+### 技术点 / Technical points
+
+- 训练时施加的动作扰动在相邻时刻彼此相关，已有记录即可用于学习，无需从完全相同的初始状态反复试验。
+  - The training objective uses action perturbations that persist across nearby time steps. It can learn from recordings without repeating each trial from an identical starting state.
+- 在 DROID 上，DreamDojo 预测的策略成功率与真机成功率之间的皮尔逊相关系数从 0.47 升至 0.79。
+  - For DreamDojo on DROID, the Pearson correlation between predicted and real policy success rates rose from 0.47 to 0.79.
+
+### 为什么重要 / Why it matters
+
+把模型中的策略表现与真机结果对照，可以检验模拟器能否用于比较不同的机器人控制策略。
+
+Agreement with real policy outcomes gives robotics teams a direct test of whether a simulator can help compare candidate controllers.
+
+---
+
+<a id="2026-11-19-fast-jepa-dynagoal-latent-planning"></a>
+## [Fast-JEPA 直接评估整段动作，缩短世界模型的规划时间](https://arxiv.org/abs/2611.25927)
+
+**English:** [Fast-JEPA scores whole action sequences to reduce planning time](https://arxiv.org/abs/2611.25927)
+
+- **发布 / Published:** `2026-11-19T11:09:58Z`
+- **来源 / Source:** [Yao Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25927) · `research`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `latent-dynamics`, `model-based-planning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Fast-JEPA 先给出一个指向目标的初始方案，再在细化阶段直接预测每段候选动作的结果。作者还提出 DynaGoal，检验环境条件改变或动作必须限时执行时，规划器的表现。
+
+Fast-JEPA first proposes a plan aimed at the goal, then predicts the outcome of each candidate action sequence in one pass during refinement. The authors also introduced DynaGoal to test plans when conditions change or actions must meet deadlines.
+
+### 技术点 / Technical points
+
+- 在 PushT、Reacher、Cube 和 TwoRoom 四项任务上，作者报告平均成功率为 96.5%，规划速度为 INTACT 的 2.41 倍。
+  - Across PushT, Reacher, Cube and TwoRoom, the authors report 96.5% average success and a 2.41-fold planning speedup over INTACT.
+- Fast-JEPA 在 DynaGoal-Shift 和 DynaGoal-Deadline 上的平均成功率分别为 73.83% 和 87.67%。
+  - Fast-JEPA averaged 73.83% success on DynaGoal-Shift and 87.67% on DynaGoal-Deadline.
+
+### 为什么重要 / Why it matters
+
+限时测试可以检验世界模型能否在需要行动之前给出可用方案。
+
+The deadline tests make it possible to measure whether a world model produces a usable plan in time to act.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Sofilyzia/Fast-JEPA)
+
+---
+
+<a id="2026-11-19-echo-humanoid-control-under-changing-loads"></a>
+## [ECHO 利用近期交互调整人形机器人的全身控制，适应负载变化](https://arxiv.org/abs/2611.25778)
+
+**English:** [ECHO uses recent interactions to adapt humanoid control to changing loads](https://arxiv.org/abs/2611.25778)
+
+- **发布 / Published:** `2026-11-19T09:11:24Z`
+- **来源 / Source:** [Xingyi Wang et al. (arXiv)](https://arxiv.org/abs/2611.25778) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `whole-body-control`, `robotics`, `adaptation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ECHO 根据近期交互判断机器人对动作的实际响应，再据此修正预训练控制器。作者在宇树 G1 上演示了全身遥操作，以及负载变化后的动作调整。
+
+ECHO adapts a pretrained humanoid controller by inferring how the robot responds from its recent interactions. The authors demonstrated whole-body teleoperation and adaptation to payload changes on a Unitree G1.
+
+### 技术点 / Technical points
+
+- 基础控制器在同一预训练阶段兼顾特定动作的强化练习和多种动作的学习。
+  - A single pretraining stage mixes targeted practice with a broad range of motions to establish the base controller.
+- 单独的模块根据交互历史修正基础控制器的输出，部署时模型参数保持固定。
+  - A separate module uses interaction history to correct the base controller’s output. The deployed model keeps its parameters fixed.
+
+### 为什么重要 / Why it matters
+
+G1 实验检验了同一套控制器能否在机器人负重变化时保持原有动作技能。
+
+The G1 experiments test whether one controller can preserve motion skills as the load it carries changes.
+
+### 链接 / Links
+
+[Evidence 1](https://mwondering.github.io/echo-bfm/)
+
+---
+
+<a id="2026-11-19-autoragbench-agents-build-retrieval-systems"></a>
+## [AutoRAGBench 让编程智能体用六小时从零构建检索增强系统](https://arxiv.org/abs/2611.25582)
+
+**English:** [AutoRAGBench gives coding agents six hours to build a retrieval system](https://arxiv.org/abs/2611.25582)
+
+- **发布 / Published:** `2026-11-19T06:26:28Z`
+- **来源 / Source:** [Hang Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25582) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `retrieval-augmented-generation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+AutoRAGBench 向智能体提供语料和任务，由其自行设计和实现检索流程。在九项任务上，GPT-6.1 Sol 与 Codex CLI 的组合取得了九种参测配置中的最高平均分。
+
+AutoRAGBench gives agents a corpus and a task but leaves the retrieval pipeline for them to design and implement. Across nine tasks, GPT-6.1 Sol with Codex CLI earned the highest average score among the nine configurations tested.
+
+### 技术点 / Technical points
+
+- 每次构建可用六小时和一块 H800 GPU，测试集放在开发容器之外。
+  - Each build gets six hours and one H800 GPU. The test set stays outside the development container.
+- 领先配置平均得到 56.1 分。研究者在每项任务上选取表现最好、经过适配的人工设计方法，所得组合基线为 44.4 分。
+  - The leading configuration scored 56.1 points on average. A composite baseline that took the best adapted human-designed method for each task scored 44.4.
+
+### 为什么重要 / Why it matters
+
+这套基准可以衡量智能体在固定开发预算内能交付怎样的检索系统。
+
+The benchmark measures the quality of a retrieval system an agent can deliver within a fixed development budget.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZhanGHanG9991/AutoRAGBench)
+
+---
+
+<a id="2026-11-19-appsci-bench-agent-building-reliability"></a>
+## [AppSci-Bench 检验模型能否从业务需求出发，反复构建可靠的智能体](https://arxiv.org/abs/2611.25360)
+
+**English:** [AppSci-Bench tests whether models can build reliable agents from stakeholder requirements](https://arxiv.org/abs/2611.25360)
+
+- **发布 / Published:** `2026-11-19T01:58:31Z`
+- **来源 / Source:** [Sanjari Srivastava et al. (arXiv)](https://arxiv.org/abs/2611.25360) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-development`, `benchmark`, `evaluation`, `reliability`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+AppSci-Bench 要求模型向需求方提问、了解可用系统，并为七个业务领域构建智能体。每个领域都有一套构建者无法查看的独立测试。
+
+AppSci-Bench asks models to interview stakeholders, explore the available systems and build agents for seven business domains. Each domain has a separate evaluation suite that the builder cannot see.
+
+### 技术点 / Technical points
+
+- 任务涵盖合规审查、演示文稿生成等流程。构建者可在迭代过程中自行设计测试。
+  - Tasks cover workflows such as compliance review and presentation generation. Builders can design their own checks as they iterate.
+- 对每个留出测试用例，评测先取三次独立构建中的最低分，再求平均。Claude Opus 5.0 以 59.1% 在七个参测模型中居首。
+  - For each held-out case, the metric takes the lowest score across three independent builds before averaging. Claude Opus 5.0 led the seven tested models at 59.1%.
+
+### 为什么重要 / Why it matters
+
+重复构建可以检验，模型面对同一组需求时，能否稳定地交付可用的智能体。
+
+Repeated builds reveal how consistently a model turns the same requirements into a working agent.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/sanjari-orb/appsci-bench)
 
 ---
 
@@ -348,352 +701,3 @@ The full-workload timing reveals whether an agent’s local changes improve the 
 ### 链接 / Links
 
 [Evidence 1](https://rsibench-infra.github.io/)
-
----
-
-<a id="2026-11-18-openai-coding-agents-research-task-completion"></a>
-## [OpenAI 披露编程智能体独立完成内部研究任务的比例](https://openai.com/index/research-acceleration-jagged-frontier/)
-
-**English:** [OpenAI measures which internal research tasks coding agents complete on their own](https://openai.com/index/research-acceleration-jagged-frontier/)
-
-- **发布 / Published:** `2026-11-18T08:00:00Z`
-- **来源 / Source:** [OpenAI](https://openai.com/index/research-acceleration-jagged-frontier/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `evaluation`, `research-automation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-OpenAI 估算，从 3 月到 10 月，在原本需要研究人员工作 2 至 4 小时的委派任务中，编程智能体无需人工介入的成功率从 23% 升至 46%。在原本需 4 至 8 小时的任务中，这一比例从 13% 升至 35%。
-
-OpenAI estimates that from March to October, its coding agents’ unaided success rate rose from 23% to 46% on delegated tasks that researchers would need two to four hours to do. Over the same period, the estimate for four-to-eight-hour tasks rose from 13% to 35%.
-
-### 技术点 / Technical points
-
-- 在 8 月 1 日至 10 月 18 日的分任务统计中，监控训练运行的估计成功率为 79%，编写推理与服务代码为 25%。
-  - In the August 1–October 18 task breakdown, the estimated success rate was 79% for monitoring training runs and 25% for writing inference and serving code.
-- OpenAI 指出，即使预计工时相同，研究人员选择委派的任务类型也可能随时间变化。
-  - OpenAI notes that the mix of work researchers chose to delegate may have shifted even within a given task-duration group.
-
-### 为什么重要 / Why it matters
-
-这份分项统计展示了在一家实验室的研究流程中，哪些工作智能体较能独立完成，哪些仍常需要人介入。
-
-The breakdown shows which parts of one lab’s research workflow agents can carry through independently and where human involvement is still common.
-
-### 链接 / Links
-
-[Evidence 1](https://openai.com/news/rss.xml)
-[Discussion 1](https://news.ycombinator.com/item?id=50567765)
-
----
-
-<a id="2026-11-17-self-improvement-game-agents-written-strategies"></a>
-## [游戏智能体自行设计练习，并将书面策略迁移到新游戏](https://arxiv.org/abs/2611.23219)
-
-**English:** [Game-playing agents devise practice tasks and carry written strategies into new games](https://arxiv.org/abs/2611.23219)
-
-- **发布 / Published:** `2026-11-17T18:57:10Z`
-- **来源 / Source:** [Shobhita Sundaram, Cansu Sancaktar and Phillip Isola / arXiv](https://arxiv.org/abs/2611.23219) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `memory`, `self-improvement`, `planning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-研究人员固定语言模型的权重，让它在限定算力下试玩游戏、编辑文本。实验中，部分模型自行安排练习，并写出能改善陌生任务表现的策略笔记。
-
-Researchers gave a frozen language model tools to try games and edit text within a fixed compute budget. In their experiments, some models designed their own practice routines and wrote notes that improved play on unfamiliar tasks.
-
-### 技术点 / Technical points
-
-- 在一次实验中，智能体编写了推箱子关卡生成器和求解器，为自己出练习题。
-  - In one session, the agent wrote a Sokoban level generator and a solver to produce its own practice puzzles.
-- 作者在 PuzzleScript 游戏、ARC-AGI-3 和 MazeBench 三维导航任务中检验了这些笔记的迁移效果。
-  - The authors tested whether the resulting text transferred across PuzzleScript games, ARC-AGI-3 and 3D navigation in MazeBench.
-
-### 为什么重要 / Why it matters
-
-固定权重后，可以单独检验一份可复用的书面策略能否改善新任务表现。
-
-Keeping the weights fixed makes it possible to test whether a reusable written strategy accounts for gains on a new task.
-
-### 链接 / Links
-
-[Evidence 1](https://ssundaram21.github.io/self-org/)
-
----
-
-<a id="2026-11-17-github-mdash-verified-security-fixes"></a>
-## [GitHub 与微软将 MDASH 扫描结果筛为 99 份已核验的私密安全报告](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
-
-**English:** [GitHub and Microsoft turn MDASH scans into 99 verified private security reports](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/)
-
-- **发布 / Published:** `2026-11-17T18:29:29Z`
-- **来源 / Source:** [GitHub](https://github.blog/open-source/maintainers/maintainers-dont-need-more-ai-bug-reports-they-need-fixes/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `safety`, `tool-use`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-GitHub 披露了覆盖六个项目的试点：将微软智能体漏洞扫描、基于 Copilot 的分诊与人工核验串联。截至 11 月 15 日，99 份私密报告中的 55 项已修复，14 项修复已发布。试点使用较早的 MAI Cyber 模型，并非 MAI Cyber 2。
-
-GitHub describes a six-project pilot combining Microsoft’s agentic vulnerability scanner, Copilot-based triage and manual verification. As of November 15, maintainers had fixed 55 of 99 privately reported findings, with 14 fixes released. The pilot used the earlier MAI Cyber model, not MAI Cyber 2.
-
-### 技术点 / Technical points
-
-- AI 分诊先去重并检查有效性，再由七名 FORGE Lab 研究员复核剩余发现。
-  - AI triage removes duplicates and checks validity before seven FORGE Lab researchers review the remaining findings.
-- 私密报告包含概念验证与修复建议，最终决策仍由维护者作出。
-  - Private reports include a proof of concept and suggested fix; maintainers retain the final decision.
-
-### 为什么重要 / Why it matters
-
-试点为智能体自动化与核验结合、再交由维护者处理提供了具体实践证据。
-
-The pilot provides concrete evidence for combining agent automation with verification before asking maintainers to act.
-
----
-
-<a id="2026-11-17-github-agent-host-protocol-session-continuity"></a>
-## [GitHub 详解 Agent Host Protocol 如何跨客户端延续智能体会话](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/)
-
-**English:** [GitHub details Agent Host Protocol for persistent sessions across clients](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/)
-
-- **发布 / Published:** `2026-11-17T18:20:40Z`
-- **来源 / Source:** [GitHub](https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `open-source`, `protocol`, `memory`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-GitHub 介绍了支撑 VS Code、Copilot 应用与移动客户端会话连续性的开放协议 Agent Host Protocol。协议将客户端界面与智能体宿主分离，使会话能够在关闭窗口后继续运行，并跨设备重新连接。
-
-GitHub documents the open Agent Host Protocol underlying session continuity across VS Code, the Copilot app and mobile clients. The protocol separates client interfaces from agent hosts so sessions can survive window closures and reconnect across devices.
-
-### 技术点 / Technical points
-
-- 根、会话与聊天通道通过 reducer 维护状态，聊天更新由有序动作日志驱动。
-  - Root, session and chat channels maintain reducer-based state; an ordered action log drives chat updates.
-- 协议支持断线重连与并发客户端变更，并提供 Rust、TypeScript、Kotlin、Swift、.NET 和 Go 库。
-  - The protocol supports reconnection and concurrent client changes, with libraries in Rust, TypeScript, Kotlin, Swift, .NET and Go.
-
-### 为什么重要 / Why it matters
-
-共享会话协议有助于减少逐客户端定制集成，并让长时间运行的智能体可从多个界面访问。
-
-A shared session protocol can reduce bespoke integrations and keep long-running agents accessible from multiple interfaces.
-
----
-
-<a id="2026-11-17-microsoft-mai-code-2-copilot"></a>
-## [微软在 GitHub Copilot 上推出 MAI Code 2 和 Code 2 Flash](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
-
-**English:** [Microsoft brings MAI Code 2 and Code 2 Flash to GitHub Copilot](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/)
-
-- **发布 / Published:** `2026-11-17T18:15:16Z`
-- **来源 / Source:** [Microsoft AI](https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `software-engineering`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-微软在 GitHub Copilot 上推出两款编程模型。Code 2 面向跨文件修改等任务，Flash 面向高频的小幅编辑。Flash 也在 Foundry 开放有限预览。
-
-Microsoft introduced two coding models in GitHub Copilot. Code 2 handles work spanning multiple files, while Flash targets frequent, smaller edits. Microsoft also opened a limited preview of Flash in Foundry.
-
-### 技术点 / Technical points
-
-- 微软报告，在 DeepSWE 1.1、Terminal Bench 2.1、SWE-Atlas 和 FrontierCode v1.1 四项评测上，Code 2 的平均表现为 GPT-6.1 Sol 的 98%，成本为其 40%。
-  - Microsoft reports that Code 2 averaged 98% of GPT-6.1 Sol’s performance at 40% of its cost across DeepSWE 1.1, Terminal Bench 2.1, SWE-Atlas and FrontierCode v1.1.
-- 两款模型都接受图像和文本。模型卡注明输入上限为 92.2 万 token，输出上限为 12.8 万 token。
-  - Both models accept images and text. The model card specifies limits of 922,000 input tokens and 128,000 output tokens.
-
-### 为什么重要 / Why it matters
-
-团队可以用这四项评测作为参照，在自己的代码库任务上检验微软报告的成本差异。
-
-The four named benchmarks give teams a concrete basis for testing whether Microsoft’s cost comparison holds on their own repository tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://microsoft.ai/pdf/MAI-Code-2-And-MAI-Code-2-Flash-Model-Card.pdf)
-
----
-
-<a id="2026-11-17-openai-gpt62-astra-sol-agent-workflows"></a>
-## [OpenAI 发布 GPT-6.2 Astra 与 Sol，面向多步骤专业任务](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
-
-**English:** [OpenAI releases GPT-6.2 Astra and Sol for multistep professional work](https://openai.com/index/introducing-gpt-6-2-astra-sol/)
-
-- **发布 / Published:** `2026-11-17T18:00:37.118Z`
-- **来源 / Source:** [OpenAI](https://openai.com/index/introducing-gpt-6-2-astra-sol/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reasoning`, `computer-use`, `tool-use`, `benchmark`, `coding`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-OpenAI 在 ChatGPT Work、Codex 和 API 发布 GPT-6.2 Astra 与 Sol。官方报告称，Astra 在 Agents’ Last Exam 上较 GPT-6 Astra 提高 5.2 分，单任务成本不到三分之一。结果来自厂商报告；时间采用官方开发者公告的发布时间。
-
-OpenAI releases GPT-6.2 Astra and Sol in ChatGPT Work, Codex and the API. It reports Astra improving by 5.2 points over GPT-6 Astra on Agents’ Last Exam at less than one-third the task cost. These are vendor-reported results; the timestamp follows the official developer announcement.
-
-### 技术点 / Technical points
-
-- Astra 重点改进工具选择、计算机操作，以及在现有代码库中实现并测试修改。
-  - Astra emphasizes tool selection, computer use and implementing and testing changes in existing codebases.
-- OpenAI 报告两款模型均达到其网络安全 Critical 阈值，Astra 达到 AI 自我改进 High 阈值，并配套加强防护。
-  - OpenAI reports that both models meet its Critical cybersecurity threshold and Astra meets its High AI Self-improvement threshold, with additional safeguards.
-
-### 为什么重要 / Why it matters
-
-此次发布改变了官方报告中长流程专业任务智能体的能力与成本范围。
-
-The release changes the reported capability and cost envelope for agents carrying out extended professional workflows.
-
-### 链接 / Links
-
-[Evidence 1](https://community.openai.com/t/gpt-6-2-astra-and-sol-are-now-available/1417531)
-
----
-
-<a id="2026-11-17-tcp4d-robot-tool-trajectories"></a>
-## [TCP4D 从单目视频还原机器人工具运动，并预测后续轨迹](https://arxiv.org/abs/2611.23143)
-
-**English:** [TCP4D recovers robot tool motion from video and predicts the next trajectory](https://arxiv.org/abs/2611.23143)
-
-- **发布 / Published:** `2026-11-17T17:59:42Z`
-- **来源 / Source:** [TCP4D authors / arXiv](https://arxiv.org/abs/2611.23143) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `manipulation`, `spatial-intelligence`, `imitation-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-TCP4D 用同一套场景表征跟踪机器人工具中心点，并预测它下一段该怎样移动。跟踪器从 RGB 视频恢复三维位姿和夹爪状态，使团队可以复用缺少机器人状态记录的演示。
-
-TCP4D uses one scene representation to track a robot’s tool center point and to predict where it should move next. The tracker recovers 3D poses and gripper states from RGB video, letting the team reuse demonstrations without access to recorded robot states.
-
-### 技术点 / Technical points
-
-- 跟踪器从图像中的二维标记点开始，作者报告它在 DROID 和 RoboLab 上的绝对轨迹误差分别为 7.60 和 16.07 毫米。
-  - The tracker starts from 2D image points. Its reported absolute trajectory error was 7.60 mm on DROID and 16.07 mm on RoboLab.
-- 生成器结合轨迹特征、当前观测和指令，在 48 项 RoboTwin 任务上取得 69.19% 的平均成功率。
-  - The generator combines trajectory features with the current observation and instruction. It achieved 69.19% mean success across 48 RoboTwin tasks.
-
-### 为什么重要 / Why it matters
-
-用工具位姿表示演示动作后，同一段运动记录也能为另一种机械臂提供训练数据。
-
-Representing a demonstration in tool coordinates makes the same recorded motion usable when training another robot arm.
-
-### 链接 / Links
-
-[Evidence 1](https://livioni.github.io/TCP4D/)
-
----
-
-<a id="2026-11-17-anymal-world-model-walking-audit"></a>
-## [ANYmal D 仿真审计发现，短期预测更准的模型仍可能训练出失败的行走策略](https://arxiv.org/abs/2611.23118)
-
-**English:** [ANYmal D audit finds that lower short-term prediction error can still yield failing walking policies](https://arxiv.org/abs/2611.23118)
-
-- **发布 / Published:** `2026-11-17T17:36:40Z`
-- **来源 / Source:** [Joyjeet Singh / arXiv](https://arxiv.org/abs/2611.23118) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `simulation`, `benchmark`, `locomotion`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Joyjeet Singh 针对四足机器人 ANYmal D 的一种步态评估了学习型动力学模型。18 个微调版本在一步和八步预测上都优于原版，但其中 13 个版本训练出的策略未通过 MuJoCo 行走测试。
-
-Joyjeet Singh evaluated learned dynamics models for one quadruped gait. All 18 fine-tuned variants improved on the released model’s one- and eight-step predictions, yet policies trained in 13 of them failed the walking test in MuJoCo.
-
-### 技术点 / Technical points
-
-- 在全部十段留出轨迹上，预测跨度达到 368 步时，用模型自身预测轨迹训练的版本优于单步训练版本。
-  - Training on the model’s own predicted trajectories beat one-step training at a horizon of 368 steps in all ten held-out episodes.
-- 剪去 30% 的权重后，模型保留了原版单步预测评分的 90%，预测两秒后的状态时仅保留 39%。
-  - Pruning 30% of the weights retained 90% of the original model’s one-step skill score, but only 39% at a two-second horizon.
-
-### 为什么重要 / Why it matters
-
-把行走策略放到另一套仿真器中评测，暴露了短期预测指标遗漏的失败。结论的适用范围是仿真中的这一种步态。
-
-Testing a walking policy in a separate simulator exposed failures that short prediction checks missed. The study covers one simulated gait.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/joyjeet-singh/rwm-robot-level)
-
----
-
-<a id="2026-11-17-rfw-s-deformable-object-verification"></a>
-## [RFW-S 用独立仿真测试验证了 83,365 个可变形物体资产](https://arxiv.org/abs/2611.23056)
-
-**English:** [RFW-S verifies 83,365 deformable object assets with separate simulation tests](https://arxiv.org/abs/2611.23056)
-
-- **发布 / Published:** `2026-11-17T16:49:52Z`
-- **来源 / Source:** [RFW-S authors / arXiv](https://arxiv.org/abs/2611.23056) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `dataset`, `simulation`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-RFW-S 团队报告，共有 83,365 个仿真物体通过验证，覆盖 485 个日常物品类别。团队先拟合物体的物理参数，再换一种交互方式检查它如何变形。
-
-The RFW-S team describes 83,365 simulated objects that passed its checks, covering 485 everyday categories. After fitting an asset’s physical parameters, the team tested how it behaved under a different interaction.
-
-### 技术点 / Technical points
-
-- 数据包含软质实体、布片、壳体、衣物和袋子，建模流程按结构类型选择物理表示。
-  - The collection spans soft solids, cloth sheets, shells, garments and bags. Each family receives an appropriate physical representation.
-- 抓取评测同时衡量任务是否完成和物体是否完好。作者还在实物上重放了易损物品的操作过程。
-  - The grasping evaluation measures both task completion and object integrity. The authors also replayed fragile-object manipulations on hardware.
-
-### 为什么重要 / Why it matters
-
-即使机器人成功抓起了物体，也可能已将它压坏。同时记录两种结果，评测就能捕捉这类失败。
-
-A robot can complete a grasp while crushing the object. Measuring both outcomes makes that failure visible.
-
-### 链接 / Links
-
-[Evidence 1](https://sjijs.github.io/RFW-S_website/)
-
----
-
-<a id="2026-11-17-cure-world-model-planning-regret"></a>
-## [CURE 检验世界模型的预测能否支持规划决策](https://arxiv.org/abs/2611.22561)
-
-**English:** [CURE checks whether a world model can support a planning decision](https://arxiv.org/abs/2611.22561)
-
-- **发布 / Published:** `2026-11-17T10:46:50Z`
-- **来源 / Source:** [CURE authors / arXiv](https://arxiv.org/abs/2611.22561) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `planning`, `model-based-control`, `benchmark`, `uncertainty`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-CURE 检查训练数据对规划器候选动作的覆盖程度，并据此决定是调整旧样本的权重、采样更多预测轨迹，还是为缺少数据的动作补采样本。
-
-CURE asks how well the training data cover a planner’s candidate actions. Its diagnostic guides the choice between reweighting existing examples, sampling more predicted trajectories or collecting data for actions that are poorly represented.
-
-### 技术点 / Technical points
-
-- 在 Language-Table 仿真推物任务中，作者报告通过可靠性判定的决策遗憾值为 0.06，其余决策为 0.38。
-  - On simulated Language-Table pushing, the authors report regret of 0.06 for decisions the diagnostic marked as reliable and 0.38 for the rest.
-- 研究还测试了 MuJoCo 机械臂控制。在接触任务上，这两组决策的遗憾值分别为 0.07 和 0.38。
-  - The study also tested MuJoCo arm control. On its contact task, the corresponding values were 0.07 and 0.38.
-
-### 为什么重要 / Why it matters
-
-即使模型已经能生成逼真的视频，这项面向决策的检验仍能指出哪些动作需要补充数据。
-
-The decision-level test helps identify when a planner needs data on a new action, even if the model already generates plausible videos.
