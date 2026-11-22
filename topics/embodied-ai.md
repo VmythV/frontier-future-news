@@ -2,6 +2,187 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-21-handworldbench-hand-object-training-corpus"></a>
+## [HandWorldBench 发布两万段手与物体交互的训练视频](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+**English:** [HandWorldBench releases 20,000 training clips of hand–object interaction](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+- **发布 / Published:** `2026-11-21T17:33:12Z`
+- **来源 / Source:** [EmbodiedCity](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `dataset`, `robotics`, `dexterous-manipulation`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+EmbodiedCity 发布了与 HandWorldBench 的 500 个评测样例配套的训练集，将人手、仿真灵巧手和 TI5 真机的操作视频汇集在一起，用于学习手部动作如何改变物体状态。
+
+EmbodiedCity released the training corpus that accompanies HandWorldBench’s 500 evaluation cases. It brings human hands, simulated dexterous hands and a physical TI5 robot into one dataset for modeling how hand actions change objects.
+
+### 技术点 / Technical points
+
+- 语料包含 10,000 段第一人称人手视频、6,000 段仿真视频和 4,000 段 TI5 真机视频。
+  - The corpus contains 10,000 first-person human clips, 6,000 simulation clips and 4,000 clips from the TI5 robot.
+- 每段视频均配有按时间对齐的动作描述、相机标注，以及逐帧的二维和三维手部关节标注。
+  - Each clip includes time-aligned descriptions, camera annotations and per-frame 2D and 3D hand joint annotations.
+
+### 为什么重要 / Why it matters
+
+统一标注使研究者可以检验，从人手或仿真动作中学到的模型能否预测真实灵巧手与物体的交互。
+
+The common annotations let researchers compare how well a model trained on human or simulated motions predicts interactions by a real dexterous hand.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
+
+---
+
+<a id="2026-11-21-ode-policy-maniskill3-robomimic-evaluation"></a>
+## [ODE Policy 新增 ManiSkill3 与 robomimic 评测，覆盖 12 项操作任务](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
+
+**English:** [ODE Policy adds ManiSkill3 and robomimic evaluations across twelve manipulation tasks](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
+
+- **发布 / Published:** `2026-11-21T00:32:14Z`
+- **来源 / Source:** [ODE Policy team](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `imitation-learning`, `benchmark`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+ODE Policy 团队发布了覆盖 8 项 ManiSkill3 任务和 4 项 robomimic 任务的训练与评测流程，并在两套任务上将动作预测模型与流匹配基线 FM-DiT 进行比较。
+
+The ODE Policy team published training and evaluation pipelines for eight ManiSkill3 tasks and four robomimic tasks. It compared its robot action predictor with the FM-DiT flow-matching baseline on both suites.
+
+### 技术点 / Technical points
+
+- 训练 50 轮后，ODE Policy 与 FM-DiT 在 ManiSkill3 上每个动作片段的推理时间分别为 5.7 和 55.0 毫秒，在 robomimic 上分别为 12.3 和 68.1 毫秒。
+  - At epoch 50, inference per action chunk took 5.7 ms for ODE Policy and 55.0 ms for FM-DiT on ManiSkill3. On robomimic the times were 12.3 and 68.1 ms.
+- 团队使用一个训练随机种子，每个检查点在每项任务上测试 100 回合。每种方法在同一套任务中共用一个模型。
+  - The team used one training seed and tested each checkpoint on 100 episodes per task. Each method used one model for all tasks within a suite.
+
+### 为什么重要 / Why it matters
+
+公开的评测流程让研究者可以更换随机种子和操作任务，检验推理速度优势能否复现。
+
+The released pipelines let researchers check whether the reported inference-speed gains hold under other seeds and manipulation tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/NTUMARS/ODE-POLICY/commits/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f)
+
+---
+
+<a id="2026-11-20-twopass-robot-video-prediction-checkpoints"></a>
+## [TwoPass 发布 Bridge 与 Language Table 权重，四次网络调用即可预测一段操作视频](https://huggingface.co/Junjun2333/TwoPass)
+
+**English:** [TwoPass releases Bridge and Language Table checkpoints for four-call video prediction](https://huggingface.co/Junjun2333/TwoPass)
+
+- **发布 / Published:** `2026-11-20T07:25:25Z`
+- **来源 / Source:** [TwoPass team](https://huggingface.co/Junjun2333/TwoPass) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `video-prediction`, `world-model`, `robot-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+TwoPass 团队发布了分别面向 Bridge 和 Language Table 的两个机器人视频预测模型。模型接收起始画面与计划动作，通过修正自己的初步预测生成后续视频片段。
+
+The TwoPass team completed its release of two robot video predictors. Given a starting frame and planned actions, each model predicts a video chunk by refining its own earlier estimate.
+
+### 技术点 / Technical points
+
+- 每次细化既更新求解结果，也给下一步提供草稿。作者评估了每个视频片段仅调用四次网络的设置。
+  - Each refinement produces both a solver update and the draft for the next step. The authors evaluate a setting with four network evaluations per chunk.
+- 两份下载文件都包含完整模型权重，分别由 Wan2.2-TI2V-5B 在对应数据集上微调得到。
+  - The two downloads contain full model weights fine-tuned from Wan2.2-TI2V-5B for the respective datasets.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这些权重检验，在预测动作后果的推理预算很小时，模型还能保留多少物体运动细节。
+
+The checkpoints let researchers test how much object-motion detail survives when a robot has a small inference budget for predicting an action’s outcome.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Junjun2333/TwoPass/commit/e8a39c7487a3f3e6782116c8bcab0e88f1a449ab) · [Evidence 2](https://arxiv.org/abs/2611.25553)
+
+---
+
+<a id="2026-11-20-fastrua-overlaps-planning-and-robot-motion"></a>
+## [FastRUA 让规划与运动并行，缩短双臂机器人真机任务耗时](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+**English:** [FastRUA overlaps planning and motion to shorten real-robot tasks](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+- **发布 / Published:** `2026-11-20T01:45:42Z`
+- **来源 / Source:** [Hao AI Lab, UC San Diego](https://fastrua.ai/blog/2026-11-realtime-rua/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `latency`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+加州大学圣迭戈分校 Hao AI Lab 调整了 GPT-6 Astra 智能体调度两条 YAM 机械臂的方式。在模型不变的情况下，成功完成的叠毛巾试验中位耗时从约 18 分钟降至约 6 分钟。
+
+UC San Diego’s Hao AI Lab changed how a GPT-6 Astra agent schedules work on two YAM arms. With the same model, the median time for completed towel folds fell from about 18 minutes to about six.
+
+### 技术点 / Technical points
+
+- 机械臂执行已排队的动作时，模型可以规划下一步。团队还减少了工具调用往返，缩短了等待新回复的时间。
+  - The arms execute queued motions while the model plans the next ones. Fewer tool round trips also reduce the time spent waiting for a new response.
+- 在杯子操作任务中，机械臂运动时间占比从 24% 升至 84%。团队测得从观察到据此执行动作仍有约 5 秒延迟。
+  - On a cup task, the arms were in motion for 84% of elapsed time, up from 24%. The team still measured about five seconds between observation and action.
+
+### 为什么重要 / Why it matters
+
+按真机实际耗时评估，可以发现模拟器在等待智能体推理时暂停计时所掩盖的空闲时间。
+
+Measuring elapsed time on hardware reveals idle periods that a simulator can hide by pausing while the agent thinks.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/haoailab/status/2123593596918235515) · [Evidence 2](https://github.com/fast-rua/making-rua-fast)
+[Discussion 1](https://news.ycombinator.com/item?id=50594822)
+
+---
+
+<a id="2026-11-20-dreamfar-bimanual-world-model-weights"></a>
+## [DreamFAR 发布双臂机器人世界模型权重和 10 个起始场景](https://huggingface.co/Amazon-FAR/dreamfar)
+
+**English:** [DreamFAR releases weights and ten starting scenes for bimanual robot simulation](https://huggingface.co/Amazon-FAR/dreamfar)
+
+- **发布 / Published:** `2026-11-20T00:50:45Z`
+- **来源 / Source:** [DreamFAR team](https://huggingface.co/Amazon-FAR/dreamfar) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `video-prediction`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DreamFAR 团队发布了图像编码器、动力学模型权重和 10 个留出场景。研究者可以从同一场景出发，改变双臂机器人的动作指令，比较模型对物体运动的预测。
+
+The DreamFAR team released its image tokenizer, dynamics checkpoint and ten held-out scenes. Starting from one of these scenes, researchers can vary the robot’s commands and compare how the model predicts the objects will move.
+
+### 技术点 / Technical points
+
+- 动力学模型使用机器人遥操作数据训练。作者报告其在商用 GPU 上的生成速度为每秒 10 帧。
+  - The dynamics model learned from robot teleoperation data. The authors report generating ten frames per second on a commercial GPU.
+- 发布包包含动作与状态的归一化参数，以及 YAM 双臂工作站的运动学模型。
+  - The release includes action and state normalization parameters and a kinematic model of the YAM bimanual station.
+
+### 为什么重要 / Why it matters
+
+统一的起始场景和权重让研究者能在同一套动力学模型下比较不同动作序列。
+
+Shared starting scenes and weights make it possible to compare competing action sequences under the same learned dynamics.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Amazon-FAR/dreamfar/commit/e74c8f113cf89c4232420a132f22f0ba7cb0760c) · [Evidence 2](https://arxiv.org/abs/2611.22001)
+
+---
+
 <a id="2026-11-19-agentrobocritic-action-level-robot-control"></a>
 ## [AgentRoboCritic 逐步核对智能体的动作意图和机器人执行结果](https://arxiv.org/abs/2611.26613)
 

@@ -2,6 +2,186 @@
 
 # World models / 世界模型
 
+<a id="2026-11-21-nopebench-world-model-collision-evaluation"></a>
+## [NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停](https://huggingface.co/datasets/PeterDAI/NoPeBench)
+
+**English:** [NoPeBench tests when video world models walk through walls or stop on clear paths](https://huggingface.co/datasets/PeterDAI/NoPeBench)
+
+- **发布 / Published:** `2026-11-21T18:13:25Z`
+- **来源 / Source:** [NoPeWorld team](https://huggingface.co/datasets/PeterDAI/NoPeBench) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `simulation`, `world-model`, `physical-consistency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+NoPeWorld 团队发布交互式视频模型碰撞评测集，并提供适配六个冻结模型的轻量预测头。评测同时检验模型能否阻止穿过实体障碍的动作，以及能否在前方畅通时继续执行指令。
+
+The NoPeWorld team released a benchmark for collision behavior in interactive video models, alongside lightweight prediction heads for six frozen models. It tests whether a model blocks motion through solid objects while still following safe commands.
+
+### 技术点 / Technical points
+
+- 闭环测试包含 100 条朝向障碍物的路线和 50 条畅通路线。另一项任务从单幅图像开始，并涵盖移动障碍物。
+  - The closed-loop test pairs 100 obstacle-bound routes with 50 clear routes. A separate task starts from single images and includes moving obstacles.
+- 团队报告，在六个模型上加装预测头后，闭环测试视频中出现穿透现象的比例平均从 74% 降至 16%。
+  - Across six models, the team reports that adding its heads reduced the share of closed-loop test videos showing penetration from 74% to 16%.
+
+### 为什么重要 / Why it matters
+
+畅通路线提供了对照，可以区分模型是学会了避开障碍，还是只要停止移动就能取得好成绩。
+
+Including clear paths makes it possible to distinguish a model that respects obstacles from one that simply stops moving.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/PeterDAI/NoPeBench/commit/e388b6482a81c6d128b9e02d2dfaf1ff26777dcc) · [Evidence 2](https://huggingface.co/PeterDAI/NoPeWorld)
+
+---
+
+<a id="2026-11-21-handworldbench-hand-object-training-corpus"></a>
+## [HandWorldBench 发布两万段手与物体交互的训练视频](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+**English:** [HandWorldBench releases 20,000 training clips of hand–object interaction](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+- **发布 / Published:** `2026-11-21T17:33:12Z`
+- **来源 / Source:** [EmbodiedCity](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `dataset`, `robotics`, `dexterous-manipulation`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+EmbodiedCity 发布了与 HandWorldBench 的 500 个评测样例配套的训练集，将人手、仿真灵巧手和 TI5 真机的操作视频汇集在一起，用于学习手部动作如何改变物体状态。
+
+EmbodiedCity released the training corpus that accompanies HandWorldBench’s 500 evaluation cases. It brings human hands, simulated dexterous hands and a physical TI5 robot into one dataset for modeling how hand actions change objects.
+
+### 技术点 / Technical points
+
+- 语料包含 10,000 段第一人称人手视频、6,000 段仿真视频和 4,000 段 TI5 真机视频。
+  - The corpus contains 10,000 first-person human clips, 6,000 simulation clips and 4,000 clips from the TI5 robot.
+- 每段视频均配有按时间对齐的动作描述、相机标注，以及逐帧的二维和三维手部关节标注。
+  - Each clip includes time-aligned descriptions, camera annotations and per-frame 2D and 3D hand joint annotations.
+
+### 为什么重要 / Why it matters
+
+统一标注使研究者可以检验，从人手或仿真动作中学到的模型能否预测真实灵巧手与物体的交互。
+
+The common annotations let researchers compare how well a model trained on human or simulated motions predicts interactions by a real dexterous hand.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
+
+---
+
+<a id="2026-11-20-gamewm-bidirectional-game-interaction-weights"></a>
+## [GameWM 发布双向模型权重，可根据游戏引擎渲染交互画面](https://huggingface.co/binghe-sjtu/GameWM)
+
+**English:** [GameWM releases bidirectional weights for rendering game interactions](https://huggingface.co/binghe-sjtu/GameWM)
+
+- **发布 / Published:** `2026-11-20T08:57:04Z`
+- **来源 / Source:** [GameWM team](https://huggingface.co/binghe-sjtu/GameWM) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `simulation`, `video-generation`, `world-model`, `game-environments`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+GameWM 发布了基于三种骨干网络的双向模型权重。游戏引擎先按规则计算交互结果和镜头，生成粗略视频，再由学习模型生成角色动作和场景的视觉细节。
+
+GameWM released bidirectional checkpoints for three backbones. Its game engine supplies a coarse video that fixes the rules, camera and outcome of an interaction, while the learned model generates its visual details.
+
+### 技术点 / Technical points
+
+- 权重覆盖 MiniMax-H3-33B、Wan2.2-14B 和 Wan2.2-5B。每种骨干都提供可接收角色正面、侧面和背面参考图的版本。
+  - The release covers MiniMax-H3-33B, Wan2.2-14B and Wan2.2-5B. Each has a variant that accepts front, side and back views of a character.
+- 此次发布的 BD 和 BD-Sheet 两种权重均采用双向生成，每段视频需要 30 步采样。
+  - The published BD and BD-Sheet checkpoints generate clips bidirectionally in 30 sampling steps.
+
+### 为什么重要 / Why it matters
+
+引擎固定交互结果后，开发者就能比较同一种游戏机制在不同角色与画面中的呈现方式。
+
+A fixed engine outcome gives developers a way to test different visual realizations of the same game mechanic.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/binghe-sjtu/GameWM/commit/94db12725afcbfc028caf1bcd35ee271dfce4526) · [Evidence 2](https://arxiv.org/abs/2611.19247)
+
+---
+
+<a id="2026-11-20-twopass-robot-video-prediction-checkpoints"></a>
+## [TwoPass 发布 Bridge 与 Language Table 权重，四次网络调用即可预测一段操作视频](https://huggingface.co/Junjun2333/TwoPass)
+
+**English:** [TwoPass releases Bridge and Language Table checkpoints for four-call video prediction](https://huggingface.co/Junjun2333/TwoPass)
+
+- **发布 / Published:** `2026-11-20T07:25:25Z`
+- **来源 / Source:** [TwoPass team](https://huggingface.co/Junjun2333/TwoPass) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `video-prediction`, `world-model`, `robot-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+TwoPass 团队发布了分别面向 Bridge 和 Language Table 的两个机器人视频预测模型。模型接收起始画面与计划动作，通过修正自己的初步预测生成后续视频片段。
+
+The TwoPass team completed its release of two robot video predictors. Given a starting frame and planned actions, each model predicts a video chunk by refining its own earlier estimate.
+
+### 技术点 / Technical points
+
+- 每次细化既更新求解结果，也给下一步提供草稿。作者评估了每个视频片段仅调用四次网络的设置。
+  - Each refinement produces both a solver update and the draft for the next step. The authors evaluate a setting with four network evaluations per chunk.
+- 两份下载文件都包含完整模型权重，分别由 Wan2.2-TI2V-5B 在对应数据集上微调得到。
+  - The two downloads contain full model weights fine-tuned from Wan2.2-TI2V-5B for the respective datasets.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这些权重检验，在预测动作后果的推理预算很小时，模型还能保留多少物体运动细节。
+
+The checkpoints let researchers test how much object-motion detail survives when a robot has a small inference budget for predicting an action’s outcome.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Junjun2333/TwoPass/commit/e8a39c7487a3f3e6782116c8bcab0e88f1a449ab) · [Evidence 2](https://arxiv.org/abs/2611.25553)
+
+---
+
+<a id="2026-11-20-dreamfar-bimanual-world-model-weights"></a>
+## [DreamFAR 发布双臂机器人世界模型权重和 10 个起始场景](https://huggingface.co/Amazon-FAR/dreamfar)
+
+**English:** [DreamFAR releases weights and ten starting scenes for bimanual robot simulation](https://huggingface.co/Amazon-FAR/dreamfar)
+
+- **发布 / Published:** `2026-11-20T00:50:45Z`
+- **来源 / Source:** [DreamFAR team](https://huggingface.co/Amazon-FAR/dreamfar) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `video-prediction`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DreamFAR 团队发布了图像编码器、动力学模型权重和 10 个留出场景。研究者可以从同一场景出发，改变双臂机器人的动作指令，比较模型对物体运动的预测。
+
+The DreamFAR team released its image tokenizer, dynamics checkpoint and ten held-out scenes. Starting from one of these scenes, researchers can vary the robot’s commands and compare how the model predicts the objects will move.
+
+### 技术点 / Technical points
+
+- 动力学模型使用机器人遥操作数据训练。作者报告其在商用 GPU 上的生成速度为每秒 10 帧。
+  - The dynamics model learned from robot teleoperation data. The authors report generating ten frames per second on a commercial GPU.
+- 发布包包含动作与状态的归一化参数，以及 YAM 双臂工作站的运动学模型。
+  - The release includes action and state normalization parameters and a kinematic model of the YAM bimanual station.
+
+### 为什么重要 / Why it matters
+
+统一的起始场景和权重让研究者能在同一套动力学模型下比较不同动作序列。
+
+Shared starting scenes and weights make it possible to compare competing action sequences under the same learned dynamics.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Amazon-FAR/dreamfar/commit/e74c8f113cf89c4232420a132f22f0ba7cb0760c) · [Evidence 2](https://arxiv.org/abs/2611.22001)
+
+---
+
 <a id="2026-11-19-affect-action-sensitive-world-model-evaluation"></a>
 ## [AFFECT 训练世界模型预测机器人动作细微变化的后果](https://arxiv.org/abs/2611.25980)
 

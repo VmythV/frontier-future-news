@@ -2,6 +2,218 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-21-nopebench-world-model-collision-evaluation"></a>
+## [NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停](https://huggingface.co/datasets/PeterDAI/NoPeBench)
+
+**English:** [NoPeBench tests when video world models walk through walls or stop on clear paths](https://huggingface.co/datasets/PeterDAI/NoPeBench)
+
+- **发布 / Published:** `2026-11-21T18:13:25Z`
+- **来源 / Source:** [NoPeWorld team](https://huggingface.co/datasets/PeterDAI/NoPeBench) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `benchmark`, `simulation`, `world-model`, `physical-consistency`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+NoPeWorld 团队发布交互式视频模型碰撞评测集，并提供适配六个冻结模型的轻量预测头。评测同时检验模型能否阻止穿过实体障碍的动作，以及能否在前方畅通时继续执行指令。
+
+The NoPeWorld team released a benchmark for collision behavior in interactive video models, alongside lightweight prediction heads for six frozen models. It tests whether a model blocks motion through solid objects while still following safe commands.
+
+### 技术点 / Technical points
+
+- 闭环测试包含 100 条朝向障碍物的路线和 50 条畅通路线。另一项任务从单幅图像开始，并涵盖移动障碍物。
+  - The closed-loop test pairs 100 obstacle-bound routes with 50 clear routes. A separate task starts from single images and includes moving obstacles.
+- 团队报告，在六个模型上加装预测头后，闭环测试视频中出现穿透现象的比例平均从 74% 降至 16%。
+  - Across six models, the team reports that adding its heads reduced the share of closed-loop test videos showing penetration from 74% to 16%.
+
+### 为什么重要 / Why it matters
+
+畅通路线提供了对照，可以区分模型是学会了避开障碍，还是只要停止移动就能取得好成绩。
+
+Including clear paths makes it possible to distinguish a model that respects obstacles from one that simply stops moving.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/PeterDAI/NoPeBench/commit/e388b6482a81c6d128b9e02d2dfaf1ff26777dcc) · [Evidence 2](https://huggingface.co/PeterDAI/NoPeWorld)
+
+---
+
+<a id="2026-11-21-handworldbench-hand-object-training-corpus"></a>
+## [HandWorldBench 发布两万段手与物体交互的训练视频](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+**English:** [HandWorldBench releases 20,000 training clips of hand–object interaction](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
+
+- **发布 / Published:** `2026-11-21T17:33:12Z`
+- **来源 / Source:** [EmbodiedCity](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `dataset`, `robotics`, `dexterous-manipulation`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+EmbodiedCity 发布了与 HandWorldBench 的 500 个评测样例配套的训练集，将人手、仿真灵巧手和 TI5 真机的操作视频汇集在一起，用于学习手部动作如何改变物体状态。
+
+EmbodiedCity released the training corpus that accompanies HandWorldBench’s 500 evaluation cases. It brings human hands, simulated dexterous hands and a physical TI5 robot into one dataset for modeling how hand actions change objects.
+
+### 技术点 / Technical points
+
+- 语料包含 10,000 段第一人称人手视频、6,000 段仿真视频和 4,000 段 TI5 真机视频。
+  - The corpus contains 10,000 first-person human clips, 6,000 simulation clips and 4,000 clips from the TI5 robot.
+- 每段视频均配有按时间对齐的动作描述、相机标注，以及逐帧的二维和三维手部关节标注。
+  - Each clip includes time-aligned descriptions, camera annotations and per-frame 2D and 3D hand joint annotations.
+
+### 为什么重要 / Why it matters
+
+统一标注使研究者可以检验，从人手或仿真动作中学到的模型能否预测真实灵巧手与物体的交互。
+
+The common annotations let researchers compare how well a model trained on human or simulated motions predicts interactions by a real dexterous hand.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
+
+---
+
+<a id="2026-11-21-ode-policy-maniskill3-robomimic-evaluation"></a>
+## [ODE Policy 新增 ManiSkill3 与 robomimic 评测，覆盖 12 项操作任务](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
+
+**English:** [ODE Policy adds ManiSkill3 and robomimic evaluations across twelve manipulation tasks](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
+
+- **发布 / Published:** `2026-11-21T00:32:14Z`
+- **来源 / Source:** [ODE Policy team](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `imitation-learning`, `benchmark`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+ODE Policy 团队发布了覆盖 8 项 ManiSkill3 任务和 4 项 robomimic 任务的训练与评测流程，并在两套任务上将动作预测模型与流匹配基线 FM-DiT 进行比较。
+
+The ODE Policy team published training and evaluation pipelines for eight ManiSkill3 tasks and four robomimic tasks. It compared its robot action predictor with the FM-DiT flow-matching baseline on both suites.
+
+### 技术点 / Technical points
+
+- 训练 50 轮后，ODE Policy 与 FM-DiT 在 ManiSkill3 上每个动作片段的推理时间分别为 5.7 和 55.0 毫秒，在 robomimic 上分别为 12.3 和 68.1 毫秒。
+  - At epoch 50, inference per action chunk took 5.7 ms for ODE Policy and 55.0 ms for FM-DiT on ManiSkill3. On robomimic the times were 12.3 and 68.1 ms.
+- 团队使用一个训练随机种子，每个检查点在每项任务上测试 100 回合。每种方法在同一套任务中共用一个模型。
+  - The team used one training seed and tested each checkpoint on 100 episodes per task. Each method used one model for all tasks within a suite.
+
+### 为什么重要 / Why it matters
+
+公开的评测流程让研究者可以更换随机种子和操作任务，检验推理速度优势能否复现。
+
+The released pipelines let researchers check whether the reported inference-speed gains hold under other seeds and manipulation tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://api.github.com/repos/NTUMARS/ODE-POLICY/commits/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f)
+
+---
+
+<a id="2026-11-20-claude-code-21330-concurrent-worktree-reliability"></a>
+## [Claude Code 2.1.330 修复并发会话误删工作树、过早关闭共享工具的问题](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
+
+**English:** [Claude Code 2.1.330 fixes premature worktree deletion and shared tool shutdown](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
+
+- **发布 / Published:** `2026-11-20T22:32:56Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.330) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `multi-agent`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+Anthropic 修复了 Claude Code 中两种过早清理资源的问题。退出工作树时可能误删其他会话仍在使用的目录，子智能体结束时也可能关闭其他智能体仍在使用的 MCP 服务。
+
+Anthropic fixed two resource-lifetime problems in Claude Code. Exiting a worktree could delete it while another session was still working there, and a subagent finishing could shut down an MCP server still serving other agents.
+
+### 技术点 / Technical points
+
+- 工作树修复同时覆盖 ExitWorktree 工具和交互式退出对话框。
+  - The worktree fix covers both the ExitWorktree tool and the interactive exit dialog.
+- 该版本还修复了多个任务同时更新时，依赖关系和元数据可能丢失的问题。
+  - The release also fixes lost task dependencies and metadata when several task updates run concurrently.
+
+### 为什么重要 / Why it matters
+
+这些修复降低了多个编码智能体共享仓库或服务时，中途丢失编辑内容或工具连接的风险。
+
+These fixes protect active edits and tool access when several coding agents share a repository or service.
+
+---
+
+<a id="2026-11-20-openai-agents-sdk-python-codex-core-preview"></a>
+## [OpenAI 在 Python Agents SDK 预览版中加入进程内 Codex 后端](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
+
+**English:** [OpenAI previews an in-process Codex provider for the Python Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
+
+- **发布 / Published:** `2026-11-20T20:51:28Z`
+- **来源 / Source:** [OpenAI](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `runtime`, `coding-agents`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+OpenAI 发布 1.0.0-alpha.1 预览版，开发者可按次为智能体选择 Codex。Python 安装包内嵌 Codex Core，工具调用、智能体间的任务交接和流式回复沿用 SDK 的 Runner 接口。
+
+OpenAI’s 1.0.0-alpha.1 release lets developers select Codex for an individual agent run. The preview embeds Codex Core in the Python wheel and keeps the SDK’s existing runner interface for tools, handoffs and streamed responses.
+
+### 技术点 / Technical points
+
+- Python 进程通过 PyO3 直接调用 Rust 核心，省去了单独启动 app-server 和经由 JSON-RPC 往返的开销。
+  - The Python process calls the Rust core through PyO3, avoiding a separate app-server process and its JSON-RPC round trips.
+- 多次调用可共享线程管理器，每次调用会创建新线程。应用可通过 SDK 会话在调用之间保留对话历史。
+  - Calls can share one thread manager, but each starts a fresh thread. Applications use an SDK session to carry conversation history across calls.
+
+### 为什么重要 / Why it matters
+
+开发者可以在现有多智能体工作流中试用 Codex，并继续使用原有的应用工具和会话管理方式。
+
+Developers can test Codex in an existing multi-agent workflow while keeping the same application-level tools and session handling.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/openai/openai-agents-python/blob/87e8f533c3b457fe632a5eb38ac42590d7f4d9fc/docs/models/codex.md)
+
+---
+
+<a id="2026-11-20-cloudflare-agents-sdk-tools-wait-for-signals"></a>
+## [Cloudflare Agents SDK 支持工具挂起等待，智能体可在此期间休眠](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
+
+**English:** [Cloudflare Agents SDK lets tools wait for a signal while their agent sleeps](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
+
+- **发布 / Published:** `2026-11-20T15:56:33Z`
+- **来源 / Source:** [Cloudflare](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `multi-agent`, `runtime`, `human-in-the-loop`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Cloudflare 在 Agents SDK 0.34.0 中集成 Pi 1.6。工具可以挂起，等待人工批准、到达截止时间或其他会话完成，承载智能体的 Durable Object 在此期间可以休眠。
+
+Cloudflare integrated Pi 1.6 into Agents SDK 0.34.0. A tool can pause until a person approves an action, a deadline passes or another session finishes, letting the underlying Durable Object hibernate.
+
+### 技术点 / Technical points
+
+- 挂起的工具会释放当前调用，收到信号或到达截止时间后，运行时会再次调用该工具。
+  - A parked tool releases the active invocation. A signal or deadline causes the harness to invoke the tool again.
+- 应用可以用已有对话记录初始化会话，也可以在回答中断时保留已排队的输入。
+  - Applications can seed a new session with an existing transcript and preserve queued input when an answer is interrupted.
+
+### 为什么重要 / Why it matters
+
+长任务可以等待数小时才收到决定，等待期间无需持续占用调用，也无需应用反复查询审批结果。
+
+A long-running workflow can spend hours waiting for a decision without tying up an active invocation or requiring the application to poll for approval.
+
+### 链接 / Links
+
+[Evidence 1](https://developers.cloudflare.com/changelog/post/2026-11-20-pi-harness-pi-1-6/)
+
+---
+
 <a id="2026-11-20-signal-mobile-agent-screen-privacy"></a>
 ## [Signal 限制应用内截图，减少手机 AI 助手读取聊天内容的机会](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
 
@@ -36,6 +248,151 @@ The change shows how protecting a conversation from an operating-system agent ca
 
 [Evidence 1](https://signal.org/blog/protecting-your-privacy/) · [Evidence 2](https://support.signal.org/hc/en-us/articles/11338514641306-Screen-security-blocking-Google-Gemini-and-Siri-AI)
 [Discussion 1](https://news.ycombinator.com/item?id=50572348)
+
+---
+
+<a id="2026-11-20-gamewm-bidirectional-game-interaction-weights"></a>
+## [GameWM 发布双向模型权重，可根据游戏引擎渲染交互画面](https://huggingface.co/binghe-sjtu/GameWM)
+
+**English:** [GameWM releases bidirectional weights for rendering game interactions](https://huggingface.co/binghe-sjtu/GameWM)
+
+- **发布 / Published:** `2026-11-20T08:57:04Z`
+- **来源 / Source:** [GameWM team](https://huggingface.co/binghe-sjtu/GameWM) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `simulation`, `video-generation`, `world-model`, `game-environments`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+GameWM 发布了基于三种骨干网络的双向模型权重。游戏引擎先按规则计算交互结果和镜头，生成粗略视频，再由学习模型生成角色动作和场景的视觉细节。
+
+GameWM released bidirectional checkpoints for three backbones. Its game engine supplies a coarse video that fixes the rules, camera and outcome of an interaction, while the learned model generates its visual details.
+
+### 技术点 / Technical points
+
+- 权重覆盖 MiniMax-H3-33B、Wan2.2-14B 和 Wan2.2-5B。每种骨干都提供可接收角色正面、侧面和背面参考图的版本。
+  - The release covers MiniMax-H3-33B, Wan2.2-14B and Wan2.2-5B. Each has a variant that accepts front, side and back views of a character.
+- 此次发布的 BD 和 BD-Sheet 两种权重均采用双向生成，每段视频需要 30 步采样。
+  - The published BD and BD-Sheet checkpoints generate clips bidirectionally in 30 sampling steps.
+
+### 为什么重要 / Why it matters
+
+引擎固定交互结果后，开发者就能比较同一种游戏机制在不同角色与画面中的呈现方式。
+
+A fixed engine outcome gives developers a way to test different visual realizations of the same game mechanic.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/binghe-sjtu/GameWM/commit/94db12725afcbfc028caf1bcd35ee271dfce4526) · [Evidence 2](https://arxiv.org/abs/2611.19247)
+
+---
+
+<a id="2026-11-20-twopass-robot-video-prediction-checkpoints"></a>
+## [TwoPass 发布 Bridge 与 Language Table 权重，四次网络调用即可预测一段操作视频](https://huggingface.co/Junjun2333/TwoPass)
+
+**English:** [TwoPass releases Bridge and Language Table checkpoints for four-call video prediction](https://huggingface.co/Junjun2333/TwoPass)
+
+- **发布 / Published:** `2026-11-20T07:25:25Z`
+- **来源 / Source:** [TwoPass team](https://huggingface.co/Junjun2333/TwoPass) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `video-prediction`, `world-model`, `robot-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+TwoPass 团队发布了分别面向 Bridge 和 Language Table 的两个机器人视频预测模型。模型接收起始画面与计划动作，通过修正自己的初步预测生成后续视频片段。
+
+The TwoPass team completed its release of two robot video predictors. Given a starting frame and planned actions, each model predicts a video chunk by refining its own earlier estimate.
+
+### 技术点 / Technical points
+
+- 每次细化既更新求解结果，也给下一步提供草稿。作者评估了每个视频片段仅调用四次网络的设置。
+  - Each refinement produces both a solver update and the draft for the next step. The authors evaluate a setting with four network evaluations per chunk.
+- 两份下载文件都包含完整模型权重，分别由 Wan2.2-TI2V-5B 在对应数据集上微调得到。
+  - The two downloads contain full model weights fine-tuned from Wan2.2-TI2V-5B for the respective datasets.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这些权重检验，在预测动作后果的推理预算很小时，模型还能保留多少物体运动细节。
+
+The checkpoints let researchers test how much object-motion detail survives when a robot has a small inference budget for predicting an action’s outcome.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Junjun2333/TwoPass/commit/e8a39c7487a3f3e6782116c8bcab0e88f1a449ab) · [Evidence 2](https://arxiv.org/abs/2611.25553)
+
+---
+
+<a id="2026-11-20-fastrua-overlaps-planning-and-robot-motion"></a>
+## [FastRUA 让规划与运动并行，缩短双臂机器人真机任务耗时](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+**English:** [FastRUA overlaps planning and motion to shorten real-robot tasks](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+- **发布 / Published:** `2026-11-20T01:45:42Z`
+- **来源 / Source:** [Hao AI Lab, UC San Diego](https://fastrua.ai/blog/2026-11-realtime-rua/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `latency`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+加州大学圣迭戈分校 Hao AI Lab 调整了 GPT-6 Astra 智能体调度两条 YAM 机械臂的方式。在模型不变的情况下，成功完成的叠毛巾试验中位耗时从约 18 分钟降至约 6 分钟。
+
+UC San Diego’s Hao AI Lab changed how a GPT-6 Astra agent schedules work on two YAM arms. With the same model, the median time for completed towel folds fell from about 18 minutes to about six.
+
+### 技术点 / Technical points
+
+- 机械臂执行已排队的动作时，模型可以规划下一步。团队还减少了工具调用往返，缩短了等待新回复的时间。
+  - The arms execute queued motions while the model plans the next ones. Fewer tool round trips also reduce the time spent waiting for a new response.
+- 在杯子操作任务中，机械臂运动时间占比从 24% 升至 84%。团队测得从观察到据此执行动作仍有约 5 秒延迟。
+  - On a cup task, the arms were in motion for 84% of elapsed time, up from 24%. The team still measured about five seconds between observation and action.
+
+### 为什么重要 / Why it matters
+
+按真机实际耗时评估，可以发现模拟器在等待智能体推理时暂停计时所掩盖的空闲时间。
+
+Measuring elapsed time on hardware reveals idle periods that a simulator can hide by pausing while the agent thinks.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/haoailab/status/2123593596918235515) · [Evidence 2](https://github.com/fast-rua/making-rua-fast)
+[Discussion 1](https://news.ycombinator.com/item?id=50594822)
+
+---
+
+<a id="2026-11-20-dreamfar-bimanual-world-model-weights"></a>
+## [DreamFAR 发布双臂机器人世界模型权重和 10 个起始场景](https://huggingface.co/Amazon-FAR/dreamfar)
+
+**English:** [DreamFAR releases weights and ten starting scenes for bimanual robot simulation](https://huggingface.co/Amazon-FAR/dreamfar)
+
+- **发布 / Published:** `2026-11-20T00:50:45Z`
+- **来源 / Source:** [DreamFAR team](https://huggingface.co/Amazon-FAR/dreamfar) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `video-prediction`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DreamFAR 团队发布了图像编码器、动力学模型权重和 10 个留出场景。研究者可以从同一场景出发，改变双臂机器人的动作指令，比较模型对物体运动的预测。
+
+The DreamFAR team released its image tokenizer, dynamics checkpoint and ten held-out scenes. Starting from one of these scenes, researchers can vary the robot’s commands and compare how the model predicts the objects will move.
+
+### 技术点 / Technical points
+
+- 动力学模型使用机器人遥操作数据训练。作者报告其在商用 GPU 上的生成速度为每秒 10 帧。
+  - The dynamics model learned from robot teleoperation data. The authors report generating ten frames per second on a commercial GPU.
+- 发布包包含动作与状态的归一化参数，以及 YAM 双臂工作站的运动学模型。
+  - The release includes action and state normalization parameters and a kinematic model of the YAM bimanual station.
+
+### 为什么重要 / Why it matters
+
+统一的起始场景和权重让研究者能在同一套动力学模型下比较不同动作序列。
+
+Shared starting scenes and weights make it possible to compare competing action sequences under the same learned dynamics.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Amazon-FAR/dreamfar/commit/e74c8f113cf89c4232420a132f22f0ba7cb0760c) · [Evidence 2](https://arxiv.org/abs/2611.22001)
 
 ---
 
@@ -348,356 +705,3 @@ The benchmark measures the quality of a retrieval system an agent can deliver wi
 ### 链接 / Links
 
 [Evidence 1](https://github.com/ZhanGHanG9991/AutoRAGBench)
-
----
-
-<a id="2026-11-19-appsci-bench-agent-building-reliability"></a>
-## [AppSci-Bench 检验模型能否从业务需求出发，反复构建可靠的智能体](https://arxiv.org/abs/2611.25360)
-
-**English:** [AppSci-Bench tests whether models can build reliable agents from stakeholder requirements](https://arxiv.org/abs/2611.25360)
-
-- **发布 / Published:** `2026-11-19T01:58:31Z`
-- **来源 / Source:** [Sanjari Srivastava et al. (arXiv)](https://arxiv.org/abs/2611.25360) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `agent-development`, `benchmark`, `evaluation`, `reliability`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-AppSci-Bench 要求模型向需求方提问、了解可用系统，并为七个业务领域构建智能体。每个领域都有一套构建者无法查看的独立测试。
-
-AppSci-Bench asks models to interview stakeholders, explore the available systems and build agents for seven business domains. Each domain has a separate evaluation suite that the builder cannot see.
-
-### 技术点 / Technical points
-
-- 任务涵盖合规审查、演示文稿生成等流程。构建者可在迭代过程中自行设计测试。
-  - Tasks cover workflows such as compliance review and presentation generation. Builders can design their own checks as they iterate.
-- 对每个留出测试用例，评测先取三次独立构建中的最低分，再求平均。Claude Opus 5.0 以 59.1% 在七个参测模型中居首。
-  - For each held-out case, the metric takes the lowest score across three independent builds before averaging. Claude Opus 5.0 led the seven tested models at 59.1%.
-
-### 为什么重要 / Why it matters
-
-重复构建可以检验，模型面对同一组需求时，能否稳定地交付可用的智能体。
-
-Repeated builds reveal how consistently a model turns the same requirements into a working agent.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/sanjari-orb/appsci-bench)
-
----
-
-<a id="2026-11-18-google-gemini-4-neon-agent-evaluations"></a>
-## [Google 推出 Gemini 4 Neon，公布多步智能体任务评测](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
-
-**English:** [Google rolls out Gemini 4 Neon and reports scores for multi-step agent work](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/)
-
-- **发布 / Published:** `2026-11-18T21:00:00Z`
-- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `tool-use`, `multi-agent`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Google 开始通过 Gemini API 向开发者提供 Gemini 4 Neon，Antigravity 的 Pro 和 Ultra 订阅用户也可使用。Google 报告，Neon 在 Agents’ Last Exam v1.1 中得分 75.8%，在工作流自动化评测 AutomationBench 中得分 56.3%。
-
-Google began rolling out Gemini 4 Neon through the Gemini API and to paid Pro and Ultra users in Antigravity. Google reports 75.8% on Agents’ Last Exam v1.1 and 56.3% on AutomationBench, which evaluates workflow automation.
-
-### 技术点 / Technical points
-
-- Neon 的上下文窗口为 100 万 token，推理强度有四档可选。
-  - Neon accepts up to one million tokens of context and offers four levels of reasoning effort.
-- Google 在 SWE-sweep 评测中使用 Antigravity CLI 1.5.9，可派出子智能体检查代码库的不同部分。
-  - Google’s SWE-sweep evaluation used Antigravity CLI 1.5.9, which can send subagents to inspect different parts of a repository.
-
-### 为什么重要 / Why it matters
-
-公开评测配置让开发者在解读模型得分时，可以考虑并行检查代码库等工具的作用。
-
-The published settings let developers distinguish the model’s task score from the contribution of tools such as parallel repository inspection.
-
-### 链接 / Links
-
-[Evidence 1](https://storage.googleapis.com/deepmind-media/gemini/gemini_4_neon_model_evaluation.pdf)
-[Discussion 1](https://www.reddit.com/r/singularity/comments/1xzrjzx/introducing_gemini_4_neon/)
-
----
-
-<a id="2026-11-18-z-sight-latent-foresight-humanoid-control"></a>
-## [Z-sight 同时预测未来视觉特征和人形机器人动作](https://arxiv.org/abs/2611.24940)
-
-**English:** [Z-sight predicts future visual features alongside humanoid actions](https://arxiv.org/abs/2611.24940)
-
-- **发布 / Published:** `2026-11-18T18:59:38Z`
-- **来源 / Source:** [Z-sight authors / arXiv](https://arxiv.org/abs/2611.24940) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `vla`, `humanoid`, `latent-dynamics`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-Z-sight 在机器人原本用于感知的视觉特征空间中预测场景变化。作者在宇树 G1 真机上测试了六项任务，Z-sight 在 60 次试验中成功 44 次，对照方法中表现最好的 Fast-WAM 成功 32 次。
-
-Z-sight predicts how a scene will change in the visual feature space the robot already uses for perception. In the authors’ tests on a physical Unitree G1, it completed 44 of 60 trials across six tasks, compared with 32 for the strongest baseline, Fast-WAM.
-
-### 技术点 / Technical points
-
-- 两个模块对预测的空间特征和连续动作联合去噪，策略无需渲染未来视频帧即可利用预测结果。
-  - Two components jointly denoise predicted spatial features and continuous actions. The policy can use its prediction without rendering future video frames.
-- 六项真机任务各测试十次。作者报告，每个动作片段的推理耗时为 110 毫秒。
-  - Each of the six hardware tasks was tested ten times. The authors report an inference time of 110 milliseconds per action chunk.
-
-### 为什么重要 / Why it matters
-
-真机试验检验了在人形机器人推理时间有限的条件下，预测未来场景结构能否帮助它完成多步动作。
-
-The hardware trials test whether predicting future scene structure can help a humanoid carry out multi-step movements within a short inference budget.
-
-### 链接 / Links
-
-[Evidence 1](https://junjieye.com/Z-sight/)
-
----
-
-<a id="2026-11-18-grana-compositional-robot-progress-reward"></a>
-## [Grana 衡量机器人在多步任务中完成了哪些步骤、又在哪一步退回](https://arxiv.org/abs/2611.24926)
-
-**English:** [Grana tracks which steps a robot keeps or loses during a long task](https://arxiv.org/abs/2611.24926)
-
-- **发布 / Published:** `2026-11-18T18:53:53Z`
-- **来源 / Source:** [Grana authors / arXiv](https://arxiv.org/abs/2611.24926) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `manipulation`, `reward-model`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Grana 分别估计机器人在当前子任务上的进度，以及先前步骤已经完成的部分。例如，零件插入失败会拉低奖励，但之前装好的部件仍计入总进度。
-
-Grana estimates progress on the current subtask and gives separate credit for earlier steps. If a robot fails to insert a part, the reward can fall without erasing credit for assembly it already completed.
-
-### 技术点 / Technical points
-
-- 作者根据子任务边界和动作质量标注生成进度标签，并用 200 项以短任务为主的操作任务预训练模型。
-  - The authors derived progress targets from subtask boundaries and annotations of action quality, then pretrained the model on 200 mostly short tasks.
-- 团队将模型适配到五项长任务，并在真机上用其奖励进行强化学习，以及通过模型预测控制选择动作。
-  - They adapted it to five longer tasks and used its rewards on real robots for reinforcement learning and for choosing actions with model predictive control.
-
-### 为什么重要 / Why it matters
-
-同一进度信号既能引导控制器重试，也能保留机器人此前完成的工作。
-
-The same progress signal can guide a controller through a retry while accounting for work the robot has already done.
-
-### 链接 / Links
-
-[Evidence 1](https://research.nvidia.com/labs/gear/grana/)
-
----
-
-<a id="2026-11-18-doppel-rendered-robot-motion-video-world-model"></a>
-## [Doppel 用机器人预定动作的渲染图预测物体运动](https://arxiv.org/abs/2611.24925)
-
-**English:** [Doppel uses renders of planned body motion to predict how objects will move](https://arxiv.org/abs/2611.24925)
-
-- **发布 / Published:** `2026-11-18T18:52:28Z`
-- **来源 / Source:** [Doppel authors / arXiv](https://arxiv.org/abs/2611.24925) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `video-prediction`, `cross-embodiment`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Doppel 将机器人预定动作按相机视角渲染，把渲染图和数值动作一同输入视频世界模型。作者用约 600 小时的视频训练了一个共享模型，数据覆盖八种机器人和人体形态。
-
-Doppel gives a video world model a camera-aligned rendering of the robot’s planned movement along with its numerical actions. The authors trained a shared model on about 600 hours of video spanning eight robot and human body configurations.
-
-### 技术点 / Technical points
-
-- 对于缺少相机位姿的数据集，作者先恢复相机位姿，再将渲染出的机器人与实拍场景对齐。
-  - For datasets missing camera poses, the authors recovered them and aligned the rendered body with the recorded scene.
-- 在三个机械臂数据集上，与仅输入数值动作的基线相比，模型在留出轨迹和分布外测试中的峰值信噪比分别提高了 1.00 和 1.20 分贝。
-  - Across three robot-arm datasets, the model gained 1.00 dB in peak signal-to-noise ratio on held-out trajectories and 1.20 dB in out-of-distribution tests over action-only baselines.
-
-### 为什么重要 / Why it matters
-
-渲染图为不同形态的身体提供了描述预定动作的统一方式，使同一模型可以学习动作对周围物体的影响。
-
-Rendering gives different bodies a common visual description of a planned move, so a shared model can learn its effects on surrounding objects.
-
-### 链接 / Links
-
-[Evidence 1](https://doppelwm.github.io/)
-
----
-
-<a id="2026-11-18-worldruler-persistent-rules-interactive-worlds"></a>
-## [WorldRuler 让交互场景在存档和读档后保留规则与物体状态](https://arxiv.org/abs/2611.24869)
-
-**English:** [WorldRuler carries rules and object state across saved interactive scenes](https://arxiv.org/abs/2611.24869)
-
-- **发布 / Published:** `2026-11-18T18:20:39Z`
-- **来源 / Source:** [WorldRuler authors / arXiv](https://arxiv.org/abs/2611.24869) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `interactive-simulation`, `video-generation`, `dataset`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-WorldRuler 将视频生成器与可执行的三维图相连，图中记录规则、依赖关系和物体状态。规则作用于画面外的物体时，系统保存其状态，用于决定物体进入视野时的样子。
-
-WorldRuler links a video generator to an executable 3D graph of rules, dependencies and object states. When a rule affects an off-screen object, its stored state guides how that object appears once it enters view.
-
-### 技术点 / Technical points
-
-- 系统将规则图与世界状态一起存取，并把规则中提到的物体与视频里的具体对象对应起来。
-  - The system saves and restores the graph together with the world state, and matches objects referenced in a rule to instances in the video.
-- 作者利用 GTA V 和 Habitat 构建了 RuleVerse，记录状态变化与事件，其中包括物体首次出现在画面之前就已发生的变化。
-  - The authors built RuleVerse with GTA V and Habitat. It records state changes and events, including effects that precede an object’s first appearance.
-
-### 为什么重要 / Why it matters
-
-这些场景能检验生成的世界能否在玩家视野中断后，仍然保留此前动作造成的后果。
-
-These cases test whether a generated world can preserve the consequences of an action across a gap in what the player sees.
-
----
-
-<a id="2026-11-18-diwali-human-video-latent-action-robot-learning"></a>
-## [DiWALI 从人类示范视频中学习操作技能，再用世界模型改进策略](https://arxiv.org/abs/2611.24836)
-
-**English:** [DiWALI learns manipulation skills from human video and refines them in a world model](https://arxiv.org/abs/2611.24836)
-
-- **发布 / Published:** `2026-11-18T18:03:14Z`
-- **来源 / Source:** [DiWALI authors / arXiv](https://arxiv.org/abs/2611.24836) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `manipulation`, `latent-actions`, `imitation-learning`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-DiWALI 根据相邻视频帧的变化，从人类和机器人的自由交互中推断潜在动作。另一个用机器人数据训练的解码器将潜在动作转换为机器人指令，让没有指令标注的人类技能示范也能用于训练。
-
-DiWALI uses changes between video frames to infer latent actions from human and robot play. A separate decoder trained on robot data maps those actions to robot commands, so human skill demonstrations can supply training examples without command labels.
-
-### 技术点 / Technical points
-
-- 框架先根据人类示范中推断出的动作训练扩散策略，再利用世界模型生成的轨迹进行强化学习。
-  - The framework first fits a diffusion policy to inferred actions from human demonstrations, then uses reinforcement learning on trajectories generated by the world model.
-- 作者报告，在真机实验中，主要从人类示范学到的技能，在世界模型中进一步训练后有所改善。该模型同时利用了人类和机器人各自的自由交互数据。
-  - In physical robot experiments, the authors report that training inside a model learned from both human and robot play further improved skills learned mainly from human demonstrations.
-
-### 为什么重要 / Why it matters
-
-人类视频既能提供操作示范，也能用于学习机器人策略练习所需的环境模型。
-
-Human video can supply both skill examples and data for learning the environment in which a robot policy practices.
-
-### 链接 / Links
-
-[Evidence 1](https://diwali.cs.uni-freiburg.de/)
-
----
-
-<a id="2026-11-18-jepa-counterfactual-actions-hidden-disturbances"></a>
-## [JEPA 世界模型利用已观察到的结果估计另一动作的后果](https://arxiv.org/abs/2611.24778)
-
-**English:** [JEPA world models use an observed outcome to estimate what another action would have done](https://arxiv.org/abs/2611.24778)
-
-- **发布 / Published:** `2026-11-18T17:24:00Z`
-- **来源 / Source:** [Randall Balestriero, Yann LeCun and Kerda Varaku / arXiv](https://arxiv.org/abs/2611.24778) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `latent-dynamics`, `counterfactual-reasoning`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-研究者考察了在同一隐藏扰动下改用另一动作可能产生的结果。在动作和扰动分别施力、时间步较短的条件下，作者用模型对两种动作的预测之差来修正已观察到的结果。
-
-A study tests whether a world model can predict what a different action would have done under the same hidden disturbance. For short transitions where the action and disturbance act as separate forces, the authors correct the observed outcome using the model’s predicted difference between the two actions.
-
-### 技术点 / Technical points
-
-- 该修正直接使用现有模型和观测到的状态转移，无需重新训练。推导也指出了适用边界，包括动力学不连续、扰动按比例改变控制输入等情形。
-  - The correction uses the existing model and the observed transition without retraining. The derivation identifies limits, including discontinuities and disturbances that scale the applied command.
-- 作者报告，在四个以图像为观测的仿真系统上，反事实预测的决定系数 R² 从 0.38–0.46 提高到 0.86–0.96。
-  - On four simulated systems observed through images, the authors report that counterfactual R² rose from 0.38–0.46 to 0.86–0.96.
-
-### 为什么重要 / Why it matters
-
-研究者可以据此复盘仿真中一次失败的动作，比较其他动作在当时同一扰动下可能产生的结果。
-
-This gives researchers a way to revisit a failed simulated action while holding the disturbance responsible for that particular outcome fixed.
-
----
-
-<a id="2026-11-18-openhagen-worlds-budgeted-scientific-discovery-agents"></a>
-## [Openhagen Worlds 检验智能体如何使用有限的实验预算](https://arxiv.org/abs/2611.24711)
-
-**English:** [Openhagen Worlds tests how agents spend a limited experiment budget](https://arxiv.org/abs/2611.24711)
-
-- **发布 / Published:** `2026-11-18T16:36:18Z`
-- **来源 / Source:** [Openhagen Worlds authors / arXiv](https://arxiv.org/abs/2611.24711) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `scientific-discovery`, `reasoning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-Openhagen Worlds 评估智能体能否设计实验并根据结果推断隐藏答案。基准包含 27 类环境，涵盖模拟物理实验和逻辑谜题。作者用脚本求解器和走捷径的策略校准了 178 个难度等级。
-
-Openhagen Worlds evaluates whether agents can design experiments and infer a hidden answer from the results. Its 27 environment families include simulated physics experiments and logic puzzles, with 178 difficulty levels calibrated against scripted solvers and shortcut strategies.
-
-### 技术点 / Technical points
-
-- 每次观测都附有评分规则。智能体在预算内选择实验，最终提交答案，由确定性验证器核对。
-  - Each observation includes the scoring rule. An agent spends its experiment budget before committing to an answer that a deterministic verifier checks.
-- 在留出的 84 个高难度实例中，DeepSeek V4.1 Flash 在默认推理强度下解出 32 个，在最高强度下解出 57 个，作为参照的脚本求解器解出 79 个。
-  - On 84 held-out frontier instances, DeepSeek V4.1 Flash solved 32 at default reasoning effort and 57 at maximum effort. A scripted oracle solved 79.
-
-### 为什么重要 / Why it matters
-
-用走捷径的策略作为校准参照，有助于检验智能体选择有信息量的实验是否真的提高了解题概率。
-
-Calibrating against shortcut strategies helps test whether choosing informative experiments actually changes an agent’s chance of solving a task.
-
-### 链接 / Links
-
-[Evidence 1](https://eval.openhagen.ai)
-
----
-
-<a id="2026-11-18-rsibench-infra-end-to-end-agent-optimization"></a>
-## [RSIBench-Infra 检验编程智能体能否加速完整的训练和推理任务](https://arxiv.org/abs/2611.24395)
-
-**English:** [RSIBench-Infra measures whether coding agents speed up whole training and inference jobs](https://arxiv.org/abs/2611.24395)
-
-- **发布 / Published:** `2026-11-18T13:29:44Z`
-- **来源 / Source:** [RSIBench-Infra authors / arXiv](https://arxiv.org/abs/2611.24395) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `inference`, `training-infrastructure`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-RSIBench-Infra 用 16 项推理负载和 4 项训练负载测试编程智能体。智能体从可运行的配置出发，可以跨软件层级优化。测试部署使用英伟达 GPU 或昇腾 NPU，规模最多达 32 个加速器。
-
-RSIBench-Infra tests coding agents on 16 inference workloads and four training workloads. Agents start with working configurations and can change multiple layers of the software stack. The deployments use NVIDIA GPUs or Ascend NPUs and scale to 32 accelerators.
-
-### 技术点 / Technical points
-
-- 智能体以容器镜像层提交修改，由单独的评测在满足各任务质量要求的前提下测量端到端速度。
-  - Agents submit their changes as container image layers. A separate evaluation measures end-to-end speed under each task’s quality requirements.
-- 作者报告，66.2% 的任务结果经验证取得了超过 1.10 倍的加速比。
-  - The authors report a validated speedup above 1.10× in 66.2% of task results.
-
-### 为什么重要 / Why it matters
-
-测量完整负载的耗时，可以判断智能体对局部代码的修改能否加快基础设施团队实际运行的作业。
-
-The full-workload timing reveals whether an agent’s local changes improve the job that an infrastructure team actually runs.
-
-### 链接 / Links
-
-[Evidence 1](https://rsibench-infra.github.io/)

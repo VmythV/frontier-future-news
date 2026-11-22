@@ -27033,6 +27033,487 @@
         "technical_depth": 14,
         "traction": 0
       }
+    },
+    {
+      "id": "2026-11-20-dreamfar-bimanual-world-model-weights",
+      "published_at": "2026-11-20T00:50:45Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-model",
+        "video-prediction",
+        "bimanual-manipulation"
+      ],
+      "title_en": "DreamFAR releases weights and ten starting scenes for bimanual robot simulation",
+      "title_zh": "DreamFAR 发布双臂机器人世界模型权重和 10 个起始场景",
+      "summary_en": "The DreamFAR team released its image tokenizer, dynamics checkpoint and ten held-out scenes. Starting from one of these scenes, researchers can vary the robot’s commands and compare how the model predicts the objects will move.",
+      "summary_zh": "DreamFAR 团队发布了图像编码器、动力学模型权重和 10 个留出场景。研究者可以从同一场景出发，改变双臂机器人的动作指令，比较模型对物体运动的预测。",
+      "tech_points_en": [
+        "The dynamics model learned from robot teleoperation data. The authors report generating ten frames per second on a commercial GPU.",
+        "The release includes action and state normalization parameters and a kinematic model of the YAM bimanual station."
+      ],
+      "tech_points_zh": [
+        "动力学模型使用机器人遥操作数据训练。作者报告其在商用 GPU 上的生成速度为每秒 10 帧。",
+        "发布包包含动作与状态的归一化参数，以及 YAM 双臂工作站的运动学模型。"
+      ],
+      "why_it_matters_en": "Shared starting scenes and weights make it possible to compare competing action sequences under the same learned dynamics.",
+      "why_it_matters_zh": "统一的起始场景和权重让研究者能在同一套动力学模型下比较不同动作序列。",
+      "source": {
+        "name": "DreamFAR team",
+        "type": "primary",
+        "url": "https://huggingface.co/Amazon-FAR/dreamfar",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/Amazon-FAR/dreamfar/commit/e74c8f113cf89c4232420a132f22f0ba7cb0760c",
+        "https://arxiv.org/abs/2611.22001"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-20-fastrua-overlaps-planning-and-robot-motion",
+      "published_at": "2026-11-20T01:45:42Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "tool-use",
+        "latency",
+        "bimanual-manipulation"
+      ],
+      "title_en": "FastRUA overlaps planning and motion to shorten real-robot tasks",
+      "title_zh": "FastRUA 让规划与运动并行，缩短双臂机器人真机任务耗时",
+      "summary_en": "UC San Diego’s Hao AI Lab changed how a GPT-6 Astra agent schedules work on two YAM arms. With the same model, the median time for completed towel folds fell from about 18 minutes to about six.",
+      "summary_zh": "加州大学圣迭戈分校 Hao AI Lab 调整了 GPT-6 Astra 智能体调度两条 YAM 机械臂的方式。在模型不变的情况下，成功完成的叠毛巾试验中位耗时从约 18 分钟降至约 6 分钟。",
+      "tech_points_en": [
+        "The arms execute queued motions while the model plans the next ones. Fewer tool round trips also reduce the time spent waiting for a new response.",
+        "On a cup task, the arms were in motion for 84% of elapsed time, up from 24%. The team still measured about five seconds between observation and action."
+      ],
+      "tech_points_zh": [
+        "机械臂执行已排队的动作时，模型可以规划下一步。团队还减少了工具调用往返，缩短了等待新回复的时间。",
+        "在杯子操作任务中，机械臂运动时间占比从 24% 升至 84%。团队测得从观察到据此执行动作仍有约 5 秒延迟。"
+      ],
+      "why_it_matters_en": "Measuring elapsed time on hardware reveals idle periods that a simulator can hide by pausing while the agent thinks.",
+      "why_it_matters_zh": "按真机实际耗时评估，可以发现模拟器在等待智能体推理时暂停计时所掩盖的空闲时间。",
+      "source": {
+        "name": "Hao AI Lab, UC San Diego",
+        "type": "primary",
+        "url": "https://fastrua.ai/blog/2026-11-realtime-rua/",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50594822"
+      ],
+      "evidence_urls": [
+        "https://x.com/haoailab/status/2123593596918235515",
+        "https://github.com/fast-rua/making-rua-fast"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-20-twopass-robot-video-prediction-checkpoints",
+      "published_at": "2026-11-20T07:25:25Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "video-prediction",
+        "world-model",
+        "robot-manipulation"
+      ],
+      "title_en": "TwoPass releases Bridge and Language Table checkpoints for four-call video prediction",
+      "title_zh": "TwoPass 发布 Bridge 与 Language Table 权重，四次网络调用即可预测一段操作视频",
+      "summary_en": "The TwoPass team completed its release of two robot video predictors. Given a starting frame and planned actions, each model predicts a video chunk by refining its own earlier estimate.",
+      "summary_zh": "TwoPass 团队发布了分别面向 Bridge 和 Language Table 的两个机器人视频预测模型。模型接收起始画面与计划动作，通过修正自己的初步预测生成后续视频片段。",
+      "tech_points_en": [
+        "Each refinement produces both a solver update and the draft for the next step. The authors evaluate a setting with four network evaluations per chunk.",
+        "The two downloads contain full model weights fine-tuned from Wan2.2-TI2V-5B for the respective datasets."
+      ],
+      "tech_points_zh": [
+        "每次细化既更新求解结果，也给下一步提供草稿。作者评估了每个视频片段仅调用四次网络的设置。",
+        "两份下载文件都包含完整模型权重，分别由 Wan2.2-TI2V-5B 在对应数据集上微调得到。"
+      ],
+      "why_it_matters_en": "The checkpoints let researchers test how much object-motion detail survives when a robot has a small inference budget for predicting an action’s outcome.",
+      "why_it_matters_zh": "研究者可以用这些权重检验，在预测动作后果的推理预算很小时，模型还能保留多少物体运动细节。",
+      "source": {
+        "name": "TwoPass team",
+        "type": "primary",
+        "url": "https://huggingface.co/Junjun2333/TwoPass",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/Junjun2333/TwoPass/commit/e8a39c7487a3f3e6782116c8bcab0e88f1a449ab",
+        "https://arxiv.org/abs/2611.25553"
+      ],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-20-gamewm-bidirectional-game-interaction-weights",
+      "published_at": "2026-11-20T08:57:04Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "simulation",
+        "video-generation",
+        "world-model",
+        "game-environments"
+      ],
+      "title_en": "GameWM releases bidirectional weights for rendering game interactions",
+      "title_zh": "GameWM 发布双向模型权重，可根据游戏引擎渲染交互画面",
+      "summary_en": "GameWM released bidirectional checkpoints for three backbones. Its game engine supplies a coarse video that fixes the rules, camera and outcome of an interaction, while the learned model generates its visual details.",
+      "summary_zh": "GameWM 发布了基于三种骨干网络的双向模型权重。游戏引擎先按规则计算交互结果和镜头，生成粗略视频，再由学习模型生成角色动作和场景的视觉细节。",
+      "tech_points_en": [
+        "The release covers MiniMax-H3-33B, Wan2.2-14B and Wan2.2-5B. Each has a variant that accepts front, side and back views of a character.",
+        "The published BD and BD-Sheet checkpoints generate clips bidirectionally in 30 sampling steps."
+      ],
+      "tech_points_zh": [
+        "权重覆盖 MiniMax-H3-33B、Wan2.2-14B 和 Wan2.2-5B。每种骨干都提供可接收角色正面、侧面和背面参考图的版本。",
+        "此次发布的 BD 和 BD-Sheet 两种权重均采用双向生成，每段视频需要 30 步采样。"
+      ],
+      "why_it_matters_en": "A fixed engine outcome gives developers a way to test different visual realizations of the same game mechanic.",
+      "why_it_matters_zh": "引擎固定交互结果后，开发者就能比较同一种游戏机制在不同角色与画面中的呈现方式。",
+      "source": {
+        "name": "GameWM team",
+        "type": "primary",
+        "url": "https://huggingface.co/binghe-sjtu/GameWM",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/binghe-sjtu/GameWM/commit/94db12725afcbfc028caf1bcd35ee271dfce4526",
+        "https://arxiv.org/abs/2611.19247"
+      ],
+      "confidence": "high",
+      "score": 81,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-20-cloudflare-agents-sdk-tools-wait-for-signals",
+      "published_at": "2026-11-20T15:56:33Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "tool-use",
+        "multi-agent",
+        "runtime",
+        "human-in-the-loop"
+      ],
+      "title_en": "Cloudflare Agents SDK lets tools wait for a signal while their agent sleeps",
+      "title_zh": "Cloudflare Agents SDK 支持工具挂起等待，智能体可在此期间休眠",
+      "summary_en": "Cloudflare integrated Pi 1.6 into Agents SDK 0.34.0. A tool can pause until a person approves an action, a deadline passes or another session finishes, letting the underlying Durable Object hibernate.",
+      "summary_zh": "Cloudflare 在 Agents SDK 0.34.0 中集成 Pi 1.6。工具可以挂起，等待人工批准、到达截止时间或其他会话完成，承载智能体的 Durable Object 在此期间可以休眠。",
+      "tech_points_en": [
+        "A parked tool releases the active invocation. A signal or deadline causes the harness to invoke the tool again.",
+        "Applications can seed a new session with an existing transcript and preserve queued input when an answer is interrupted."
+      ],
+      "tech_points_zh": [
+        "挂起的工具会释放当前调用，收到信号或到达截止时间后，运行时会再次调用该工具。",
+        "应用可以用已有对话记录初始化会话，也可以在回答中断时保留已排队的输入。"
+      ],
+      "why_it_matters_en": "A long-running workflow can spend hours waiting for a decision without tying up an active invocation or requiring the application to poll for approval.",
+      "why_it_matters_zh": "长任务可以等待数小时才收到决定，等待期间无需持续占用调用，也无需应用反复查询审批结果。",
+      "source": {
+        "name": "Cloudflare",
+        "type": "primary",
+        "url": "https://github.com/cloudflare/agents/releases/tag/agents%400.34.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://developers.cloudflare.com/changelog/post/2026-11-20-pi-harness-pi-1-6/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-20-openai-agents-sdk-python-codex-core-preview",
+      "published_at": "2026-11-20T20:51:28Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "runtime",
+        "coding-agents",
+        "tool-use",
+        "open-source"
+      ],
+      "title_en": "OpenAI previews an in-process Codex provider for the Python Agents SDK",
+      "title_zh": "OpenAI 在 Python Agents SDK 预览版中加入进程内 Codex 后端",
+      "summary_en": "OpenAI’s 1.0.0-alpha.1 release lets developers select Codex for an individual agent run. The preview embeds Codex Core in the Python wheel and keeps the SDK’s existing runner interface for tools, handoffs and streamed responses.",
+      "summary_zh": "OpenAI 发布 1.0.0-alpha.1 预览版，开发者可按次为智能体选择 Codex。Python 安装包内嵌 Codex Core，工具调用、智能体间的任务交接和流式回复沿用 SDK 的 Runner 接口。",
+      "tech_points_en": [
+        "The Python process calls the Rust core through PyO3, avoiding a separate app-server process and its JSON-RPC round trips.",
+        "Calls can share one thread manager, but each starts a fresh thread. Applications use an SDK session to carry conversation history across calls."
+      ],
+      "tech_points_zh": [
+        "Python 进程通过 PyO3 直接调用 Rust 核心，省去了单独启动 app-server 和经由 JSON-RPC 往返的开销。",
+        "多次调用可共享线程管理器，每次调用会创建新线程。应用可通过 SDK 会话在调用之间保留对话历史。"
+      ],
+      "why_it_matters_en": "Developers can test Codex in an existing multi-agent workflow while keeping the same application-level tools and session handling.",
+      "why_it_matters_zh": "开发者可以在现有多智能体工作流中试用 Codex，并继续使用原有的应用工具和会话管理方式。",
+      "source": {
+        "name": "OpenAI",
+        "type": "primary",
+        "url": "https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://github.com/openai/openai-agents-python/blob/87e8f533c3b457fe632a5eb38ac42590d7f4d9fc/docs/models/codex.md"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-20-claude-code-21330-concurrent-worktree-reliability",
+      "published_at": "2026-11-20T22:32:56Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agents",
+        "multi-agent",
+        "reliability",
+        "tool-use"
+      ],
+      "title_en": "Claude Code 2.1.330 fixes premature worktree deletion and shared tool shutdown",
+      "title_zh": "Claude Code 2.1.330 修复并发会话误删工作树、过早关闭共享工具的问题",
+      "summary_en": "Anthropic fixed two resource-lifetime problems in Claude Code. Exiting a worktree could delete it while another session was still working there, and a subagent finishing could shut down an MCP server still serving other agents.",
+      "summary_zh": "Anthropic 修复了 Claude Code 中两种过早清理资源的问题。退出工作树时可能误删其他会话仍在使用的目录，子智能体结束时也可能关闭其他智能体仍在使用的 MCP 服务。",
+      "tech_points_en": [
+        "The worktree fix covers both the ExitWorktree tool and the interactive exit dialog.",
+        "The release also fixes lost task dependencies and metadata when several task updates run concurrently."
+      ],
+      "tech_points_zh": [
+        "工作树修复同时覆盖 ExitWorktree 工具和交互式退出对话框。",
+        "该版本还修复了多个任务同时更新时，依赖关系和元数据可能丢失的问题。"
+      ],
+      "why_it_matters_en": "These fixes protect active edits and tool access when several coding agents share a repository or service.",
+      "why_it_matters_zh": "这些修复降低了多个编码智能体共享仓库或服务时，中途丢失编辑内容或工具连接的风险。",
+      "source": {
+        "name": "Anthropic",
+        "type": "primary",
+        "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 75,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 24,
+        "novelty": 11,
+        "technical_depth": 12,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-21-ode-policy-maniskill3-robomimic-evaluation",
+      "published_at": "2026-11-21T00:32:14Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "imitation-learning",
+        "benchmark",
+        "simulation"
+      ],
+      "title_en": "ODE Policy adds ManiSkill3 and robomimic evaluations across twelve manipulation tasks",
+      "title_zh": "ODE Policy 新增 ManiSkill3 与 robomimic 评测，覆盖 12 项操作任务",
+      "summary_en": "The ODE Policy team published training and evaluation pipelines for eight ManiSkill3 tasks and four robomimic tasks. It compared its robot action predictor with the FM-DiT flow-matching baseline on both suites.",
+      "summary_zh": "ODE Policy 团队发布了覆盖 8 项 ManiSkill3 任务和 4 项 robomimic 任务的训练与评测流程，并在两套任务上将动作预测模型与流匹配基线 FM-DiT 进行比较。",
+      "tech_points_en": [
+        "At epoch 50, inference per action chunk took 5.7 ms for ODE Policy and 55.0 ms for FM-DiT on ManiSkill3. On robomimic the times were 12.3 and 68.1 ms.",
+        "The team used one training seed and tested each checkpoint on 100 episodes per task. Each method used one model for all tasks within a suite."
+      ],
+      "tech_points_zh": [
+        "训练 50 轮后，ODE Policy 与 FM-DiT 在 ManiSkill3 上每个动作片段的推理时间分别为 5.7 和 55.0 毫秒，在 robomimic 上分别为 12.3 和 68.1 毫秒。",
+        "团队使用一个训练随机种子，每个检查点在每项任务上测试 100 回合。每种方法在同一套任务中共用一个模型。"
+      ],
+      "why_it_matters_en": "The released pipelines let researchers check whether the reported inference-speed gains hold under other seeds and manipulation tasks.",
+      "why_it_matters_zh": "公开的评测流程让研究者可以更换随机种子和操作任务，检验推理速度优势能否复现。",
+      "source": {
+        "name": "ODE Policy team",
+        "type": "primary",
+        "url": "https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://api.github.com/repos/NTUMARS/ODE-POLICY/commits/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f"
+      ],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 27,
+        "evidence": 24,
+        "novelty": 13,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-21-handworldbench-hand-object-training-corpus",
+      "published_at": "2026-11-21T17:33:12Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "dataset",
+        "robotics",
+        "dexterous-manipulation",
+        "video-prediction"
+      ],
+      "title_en": "HandWorldBench releases 20,000 training clips of hand–object interaction",
+      "title_zh": "HandWorldBench 发布两万段手与物体交互的训练视频",
+      "summary_en": "EmbodiedCity released the training corpus that accompanies HandWorldBench’s 500 evaluation cases. It brings human hands, simulated dexterous hands and a physical TI5 robot into one dataset for modeling how hand actions change objects.",
+      "summary_zh": "EmbodiedCity 发布了与 HandWorldBench 的 500 个评测样例配套的训练集，将人手、仿真灵巧手和 TI5 真机的操作视频汇集在一起，用于学习手部动作如何改变物体状态。",
+      "tech_points_en": [
+        "The corpus contains 10,000 first-person human clips, 6,000 simulation clips and 4,000 clips from the TI5 robot.",
+        "Each clip includes time-aligned descriptions, camera annotations and per-frame 2D and 3D hand joint annotations."
+      ],
+      "tech_points_zh": [
+        "语料包含 10,000 段第一人称人手视频、6,000 段仿真视频和 4,000 段 TI5 真机视频。",
+        "每段视频均配有按时间对齐的动作描述、相机标注，以及逐帧的二维和三维手部关节标注。"
+      ],
+      "why_it_matters_en": "The common annotations let researchers compare how well a model trained on human or simulated motions predicts interactions by a real dexterous hand.",
+      "why_it_matters_zh": "统一标注使研究者可以检验，从人手或仿真动作中学到的模型能否预测真实灵巧手与物体的交互。",
+      "source": {
+        "name": "EmbodiedCity",
+        "type": "primary",
+        "url": "https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e",
+        "https://huggingface.co/datasets/EmbodiedCity/HandWorldBench",
+        "https://arxiv.org/abs/2611.24731"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-21-nopebench-world-model-collision-evaluation",
+      "published_at": "2026-11-21T18:13:25Z",
+      "collected_at": "2026-11-22T00:09:08Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "benchmark",
+        "simulation",
+        "world-model",
+        "physical-consistency"
+      ],
+      "title_en": "NoPeBench tests when video world models walk through walls or stop on clear paths",
+      "title_zh": "NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停",
+      "summary_en": "The NoPeWorld team released a benchmark for collision behavior in interactive video models, alongside lightweight prediction heads for six frozen models. It tests whether a model blocks motion through solid objects while still following safe commands.",
+      "summary_zh": "NoPeWorld 团队发布交互式视频模型碰撞评测集，并提供适配六个冻结模型的轻量预测头。评测同时检验模型能否阻止穿过实体障碍的动作，以及能否在前方畅通时继续执行指令。",
+      "tech_points_en": [
+        "The closed-loop test pairs 100 obstacle-bound routes with 50 clear routes. A separate task starts from single images and includes moving obstacles.",
+        "Across six models, the team reports that adding its heads reduced the share of closed-loop test videos showing penetration from 74% to 16%."
+      ],
+      "tech_points_zh": [
+        "闭环测试包含 100 条朝向障碍物的路线和 50 条畅通路线。另一项任务从单幅图像开始，并涵盖移动障碍物。",
+        "团队报告，在六个模型上加装预测头后，闭环测试视频中出现穿透现象的比例平均从 74% 降至 16%。"
+      ],
+      "why_it_matters_en": "Including clear paths makes it possible to distinguish a model that respects obstacles from one that simply stops moving.",
+      "why_it_matters_zh": "畅通路线提供了对照，可以区分模型是学会了避开障碍，还是只要停止移动就能取得好成绩。",
+      "source": {
+        "name": "NoPeWorld team",
+        "type": "primary",
+        "url": "https://huggingface.co/datasets/PeterDAI/NoPeBench",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/datasets/PeterDAI/NoPeBench/commit/e388b6482a81c6d128b9e02d2dfaf1ff26777dcc",
+        "https://huggingface.co/PeterDAI/NoPeWorld"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 1
+      }
     }
   ]
 }

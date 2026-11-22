@@ -2,6 +2,110 @@
 
 # Agents / 智能体
 
+<a id="2026-11-20-claude-code-21330-concurrent-worktree-reliability"></a>
+## [Claude Code 2.1.330 修复并发会话误删工作树、过早关闭共享工具的问题](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
+
+**English:** [Claude Code 2.1.330 fixes premature worktree deletion and shared tool shutdown](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
+
+- **发布 / Published:** `2026-11-20T22:32:56Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.330) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `multi-agent`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+Anthropic 修复了 Claude Code 中两种过早清理资源的问题。退出工作树时可能误删其他会话仍在使用的目录，子智能体结束时也可能关闭其他智能体仍在使用的 MCP 服务。
+
+Anthropic fixed two resource-lifetime problems in Claude Code. Exiting a worktree could delete it while another session was still working there, and a subagent finishing could shut down an MCP server still serving other agents.
+
+### 技术点 / Technical points
+
+- 工作树修复同时覆盖 ExitWorktree 工具和交互式退出对话框。
+  - The worktree fix covers both the ExitWorktree tool and the interactive exit dialog.
+- 该版本还修复了多个任务同时更新时，依赖关系和元数据可能丢失的问题。
+  - The release also fixes lost task dependencies and metadata when several task updates run concurrently.
+
+### 为什么重要 / Why it matters
+
+这些修复降低了多个编码智能体共享仓库或服务时，中途丢失编辑内容或工具连接的风险。
+
+These fixes protect active edits and tool access when several coding agents share a repository or service.
+
+---
+
+<a id="2026-11-20-openai-agents-sdk-python-codex-core-preview"></a>
+## [OpenAI 在 Python Agents SDK 预览版中加入进程内 Codex 后端](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
+
+**English:** [OpenAI previews an in-process Codex provider for the Python Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
+
+- **发布 / Published:** `2026-11-20T20:51:28Z`
+- **来源 / Source:** [OpenAI](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `runtime`, `coding-agents`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+OpenAI 发布 1.0.0-alpha.1 预览版，开发者可按次为智能体选择 Codex。Python 安装包内嵌 Codex Core，工具调用、智能体间的任务交接和流式回复沿用 SDK 的 Runner 接口。
+
+OpenAI’s 1.0.0-alpha.1 release lets developers select Codex for an individual agent run. The preview embeds Codex Core in the Python wheel and keeps the SDK’s existing runner interface for tools, handoffs and streamed responses.
+
+### 技术点 / Technical points
+
+- Python 进程通过 PyO3 直接调用 Rust 核心，省去了单独启动 app-server 和经由 JSON-RPC 往返的开销。
+  - The Python process calls the Rust core through PyO3, avoiding a separate app-server process and its JSON-RPC round trips.
+- 多次调用可共享线程管理器，每次调用会创建新线程。应用可通过 SDK 会话在调用之间保留对话历史。
+  - Calls can share one thread manager, but each starts a fresh thread. Applications use an SDK session to carry conversation history across calls.
+
+### 为什么重要 / Why it matters
+
+开发者可以在现有多智能体工作流中试用 Codex，并继续使用原有的应用工具和会话管理方式。
+
+Developers can test Codex in an existing multi-agent workflow while keeping the same application-level tools and session handling.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/openai/openai-agents-python/blob/87e8f533c3b457fe632a5eb38ac42590d7f4d9fc/docs/models/codex.md)
+
+---
+
+<a id="2026-11-20-cloudflare-agents-sdk-tools-wait-for-signals"></a>
+## [Cloudflare Agents SDK 支持工具挂起等待，智能体可在此期间休眠](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
+
+**English:** [Cloudflare Agents SDK lets tools wait for a signal while their agent sleeps](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
+
+- **发布 / Published:** `2026-11-20T15:56:33Z`
+- **来源 / Source:** [Cloudflare](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `multi-agent`, `runtime`, `human-in-the-loop`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Cloudflare 在 Agents SDK 0.34.0 中集成 Pi 1.6。工具可以挂起，等待人工批准、到达截止时间或其他会话完成，承载智能体的 Durable Object 在此期间可以休眠。
+
+Cloudflare integrated Pi 1.6 into Agents SDK 0.34.0. A tool can pause until a person approves an action, a deadline passes or another session finishes, letting the underlying Durable Object hibernate.
+
+### 技术点 / Technical points
+
+- 挂起的工具会释放当前调用，收到信号或到达截止时间后，运行时会再次调用该工具。
+  - A parked tool releases the active invocation. A signal or deadline causes the harness to invoke the tool again.
+- 应用可以用已有对话记录初始化会话，也可以在回答中断时保留已排队的输入。
+  - Applications can seed a new session with an existing transcript and preserve queued input when an answer is interrupted.
+
+### 为什么重要 / Why it matters
+
+长任务可以等待数小时才收到决定，等待期间无需持续占用调用，也无需应用反复查询审批结果。
+
+A long-running workflow can spend hours waiting for a decision without tying up an active invocation or requiring the application to poll for approval.
+
+### 链接 / Links
+
+[Evidence 1](https://developers.cloudflare.com/changelog/post/2026-11-20-pi-harness-pi-1-6/)
+
+---
+
 <a id="2026-11-20-signal-mobile-agent-screen-privacy"></a>
 ## [Signal 限制应用内截图，减少手机 AI 助手读取聊天内容的机会](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
 
@@ -36,6 +140,43 @@ The change shows how protecting a conversation from an operating-system agent ca
 
 [Evidence 1](https://signal.org/blog/protecting-your-privacy/) · [Evidence 2](https://support.signal.org/hc/en-us/articles/11338514641306-Screen-security-blocking-Google-Gemini-and-Siri-AI)
 [Discussion 1](https://news.ycombinator.com/item?id=50572348)
+
+---
+
+<a id="2026-11-20-fastrua-overlaps-planning-and-robot-motion"></a>
+## [FastRUA 让规划与运动并行，缩短双臂机器人真机任务耗时](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+**English:** [FastRUA overlaps planning and motion to shorten real-robot tasks](https://fastrua.ai/blog/2026-11-realtime-rua/)
+
+- **发布 / Published:** `2026-11-20T01:45:42Z`
+- **来源 / Source:** [Hao AI Lab, UC San Diego](https://fastrua.ai/blog/2026-11-realtime-rua/) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `tool-use`, `latency`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+加州大学圣迭戈分校 Hao AI Lab 调整了 GPT-6 Astra 智能体调度两条 YAM 机械臂的方式。在模型不变的情况下，成功完成的叠毛巾试验中位耗时从约 18 分钟降至约 6 分钟。
+
+UC San Diego’s Hao AI Lab changed how a GPT-6 Astra agent schedules work on two YAM arms. With the same model, the median time for completed towel folds fell from about 18 minutes to about six.
+
+### 技术点 / Technical points
+
+- 机械臂执行已排队的动作时，模型可以规划下一步。团队还减少了工具调用往返，缩短了等待新回复的时间。
+  - The arms execute queued motions while the model plans the next ones. Fewer tool round trips also reduce the time spent waiting for a new response.
+- 在杯子操作任务中，机械臂运动时间占比从 24% 升至 84%。团队测得从观察到据此执行动作仍有约 5 秒延迟。
+  - On a cup task, the arms were in motion for 84% of elapsed time, up from 24%. The team still measured about five seconds between observation and action.
+
+### 为什么重要 / Why it matters
+
+按真机实际耗时评估，可以发现模拟器在等待智能体推理时暂停计时所掩盖的空闲时间。
+
+Measuring elapsed time on hardware reveals idle periods that a simulator can hide by pausing while the agent thinks.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/haoailab/status/2123593596918235515) · [Evidence 2](https://github.com/fast-rua/making-rua-fast)
+[Discussion 1](https://news.ycombinator.com/item?id=50594822)
 
 ---
 
