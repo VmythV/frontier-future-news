@@ -2,6 +2,222 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-22-localcode-0543-inkling-metal-inference"></a>
+## [LocalCode 0.5.43 让 Inkling 2 Mini 的量化专家在苹果 GPU 上运行](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
+
+**English:** [LocalCode 0.5.43 runs Inkling 2 Mini’s quantized experts on Apple GPUs](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
+
+- **发布 / Published:** `2026-11-22T15:43:38Z`
+- **来源 / Source:** [LocalCode project](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `local-inference`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+本地编程智能体 LocalCode 为 Unsloth 量化版 Inkling 2 Mini 的 NVFP4 专家权重加入 Metal 算子，使其内置推理引擎可以把这些权重留在苹果 GPU 上计算。
+
+The local coding agent LocalCode added Metal kernels for the NVFP4 experts in Unsloth’s Inkling 2 Mini quantizations. The change lets its bundled inference engine keep these weights on the GPU during a coding session.
+
+### 技术点 / Technical points
+
+- 据维护者说明，旧后端即便在日志中显示所有层都已转移到 GPU，仍会将约 11 GB 的专家权重留在 CPU 上。
+  - The maintainer says the earlier backend left about 11 GB of expert weights on the CPU even when its log reported all layers on the GPU.
+- 维护者报告，在 128K 上下文长度下，带状注意力把 GPU 工作内存从 13.1 GB 降至 6.2 GB。这里统计的是推理工作内存，模型权重另计。
+  - The maintainer reports that banded attention reduced GPU working memory from 13.1 GB to 6.2 GB at a 128K context length. This figure measures working memory separately from model weights.
+
+### 为什么重要 / Why it matters
+
+本地编程会话中的长源码和工具输出会占用上下文，这项改动可减少处理这些内容所需的 GPU 工作内存。
+
+Long source files and tool results consume context in a local coding session. The reported savings make that context less costly in GPU memory.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50604540)
+
+---
+
+<a id="2026-11-22-paper-url-agent-opencode-9b-weights-traces"></a>
+## [用于查找论文项目链接的 9B OpenCode 智能体公布权重与评测轨迹](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
+
+**English:** [A 9B OpenCode agent for finding paper links ships with its evaluation traces](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
+
+- **发布 / Published:** `2026-11-22T15:15:05Z`
+- **来源 / Source:** [Niels Rogge](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `agent-evaluation`, `dataset`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Niels Rogge 发布了基于 Qwen3.5-9B 的合并权重，训练样本来自经过核验的 OpenCode 执行轨迹，任务是查找论文的代码仓库和项目主页。配套数据集记录了工具调用、返回结果以及对最终链接的核验。
+
+Niels Rogge published a merged Qwen3.5-9B checkpoint trained on verified OpenCode runs that find papers’ code repositories and project pages. The accompanying dataset includes the agent’s tool calls, their results and checks on the links it returned.
+
+### 技术点 / Technical points
+
+- 评测档案分别提供监督微调、使用 GRPO 适配器和教师模型的运行记录，并区分常规和困难测试集。
+  - The evaluation archive separates supervised runs, runs using a GRPO adapter, and teacher runs. It includes standard and hard test sets.
+- 作者公布的 GRPO 适配器结果显示，常规测试有 187/220 个样例完全匹配，困难测试有 98/175 个完全匹配。
+  - The author’s GRPO-adapter results record exact matches on 187 of 220 standard cases and 98 of 175 hard cases.
+
+### 为什么重要 / Why it matters
+
+借助执行轨迹，研究者可以区分智能体是没找到来源，还是找到了来源却在提交链接时出错。
+
+The traces let researchers distinguish errors in finding a source from errors in reporting the links after a successful search.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged/commit/c6a75132da2acc4246aa4023dc23aff9d88eaad9) · [Evidence 2](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval) · [Evidence 3](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test-summary.json) · [Evidence 4](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test_hard-summary.json)
+
+---
+
+<a id="2026-11-22-go2-quadruped-motion-forecast-checkpoints"></a>
+## [Gödel Machines 发布 25 个预测宇树 Go2 运动的模型权重](https://huggingface.co/GoedelMachines/go2-world-models)
+
+**English:** [Gödel Machines releases 25 checkpoints for forecasting Unitree Go2 motion](https://huggingface.co/GoedelMachines/go2-world-models)
+
+- **发布 / Published:** `2026-11-22T14:00:38Z`
+- **来源 / Source:** [Gödel Machines](https://huggingface.co/GoedelMachines/go2-world-models) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `quadruped`, `dynamics`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+这组模型根据给定的关节指令，以 50 Hz 预测机身与关节的 30 个状态量。其中 20 个权重还需要未来各时刻位姿对应的地形扫描，另有 5 个经过适配，只需已有的传感器记录和关节指令。
+
+The models predict 30 body and joint measurements at 50 Hz from proposed joint commands. Twenty checkpoints also require terrain scans at future poses. Five adapted models can make forecasts using the robot’s sensor history and commands alone.
+
+### 技术点 / Technical points
+
+- 输出包括机身角速度、机身坐标系中的向上方向，以及 12 个关节各自的角度和速度。
+  - Outputs include body angular velocity, the up direction in the body frame, and the angles and velocities of all twelve joints.
+- 作者报告，最大的适配模型在同一台 Go2 的 9 段平地实机记录上，预测 3 秒后关节角的均方根误差为 0.0641 弧度。
+  - For its adapted flagship, the author reports a three-second joint-angle RMSE of 0.0641 radians on nine recordings from one Go2 on a flat floor.
+
+### 为什么重要 / Why it matters
+
+两套输入条件便于研究者检验，只靠机身传感器和动作指令预测四足机器人运动时，预测精度会发生怎样的变化。
+
+The two input settings make it possible to test how much of a quadruped’s motion can be predicted when future terrain observations are unavailable.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/GoedelMachines/go2-world-models/commit/9fc67fc970e8ab128660cd1487b7677b322a964c) · [Evidence 2](https://github.com/Go2WorldModels/go2worldmodels.github.io)
+
+---
+
+<a id="2026-11-22-dynamicvla-libero-plus-robustness-results"></a>
+## [DynamicVLA 公布鲁棒性评测，成功率从 LIBERO 的 95.5% 降至 LIBERO-Plus 的 61.4%](https://huggingface.co/hzxie/dynamic-vla-LIBERO)
+
+**English:** [DynamicVLA reports a drop from 95.5% on LIBERO to 61.4% on LIBERO-Plus](https://huggingface.co/hzxie/dynamic-vla-LIBERO)
+
+- **发布 / Published:** `2026-11-22T07:47:31Z`
+- **来源 / Source:** [DynamicVLA team](https://huggingface.co/hzxie/dynamic-vla-LIBERO) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+DynamicVLA 团队发布了针对 LIBERO 微调的权重，并在未用 LIBERO-Plus 数据训练的情况下，测试了它在 10,030 个任务变体上的表现。团队报告，模型在四组标准任务上的平均成功率为 95.5%，在变体上为 61.4%。
+
+The DynamicVLA team released its LIBERO checkpoint and evaluated it on 10,030 LIBERO-Plus variants without further training. The reported success rate was 61.4% across the variants, compared with 95.5% on the four standard LIBERO suites.
+
+### 技术点 / Technical points
+
+- 标准评测对每个任务运行 50 次，鲁棒性评测覆盖七类扰动，每个已登记变体运行一次。
+  - The standard evaluation used 50 episodes per task. The robustness evaluation ran each registered variant once across seven types of perturbation.
+- 在相机设置变化和光照变化两类测试中，成功率分别为 38.5% 和 87.2%。
+  - The policy succeeded on 38.5% of camera perturbations and 87.2% of lighting perturbations.
+
+### 为什么重要 / Why it matters
+
+按扰动类型拆分后，相机设置变化暴露出的弱点就很清楚，这是标准任务的平均分难以反映的。
+
+The breakdown identifies camera changes as a concrete failure case that the standard-suite average can conceal.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/397436358d1c863b9fcea512e088239baf8ee9be) · [Evidence 2](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/7694412adfb1ee230b3116f036b39063d7470ab1)
+
+---
+
+<a id="2026-11-22-browser-use-108-cached-run-evaluation"></a>
+## [Browser Use 1.0.8 评估任务结果时可复用浏览器智能体的提示缓存](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
+
+**English:** [Browser Use 1.0.8 reuses the browser agent’s prompt cache for evaluation](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
+
+- **发布 / Published:** `2026-11-22T03:30:41Z`
+- **来源 / Source:** [Browser Use](https://github.com/browser-use/browser-use/releases/tag/1.0.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `browser-use`, `evaluation`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Browser Use 将结果评估接在浏览器会话的最后一轮。由于评估请求沿用了原会话的消息前缀，模型服务商可以复用缓存，减少长任务轨迹的重复计费。
+
+Browser Use now asks the evaluator to judge the result in one more turn of the browser session. Keeping the same message prefix lets a provider reuse cached input when evaluating a long run.
+
+### 技术点 / Technical points
+
+- 评估请求包含待判断的问题和最终页面。若回复格式不符、模型调用工具或请求报错，系统会另发评估请求。
+  - The evaluator receives the final page alongside its question. A malformed verdict, a tool call or an error triggers a separate evaluation request.
+- 达到步数上限时，若推理模型拒绝强制调用收尾工具，智能体会再试一次，仅提供提交结果的工具，让模型自行选择。
+  - If a reasoning model rejects a forced final tool call at the step limit, the agent retries once with only the delivery tools available and tool choice set to automatic.
+
+### 为什么重要 / Why it matters
+
+团队可以保留对任务结果的逐次评估，同时减少将长轨迹重新送入模型的开销。
+
+Teams can retain end-of-run evaluation while reducing the cost of sending long traces back through a model.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/browser-use/browser-use/pull/6457) · [Evidence 2](https://github.com/browser-use/browser-use/pull/6453)
+
+---
+
+<a id="2026-11-22-sana-robot-ar-hybrid-memory-weights"></a>
+## [SANA-Robot-AR 发布联合预测机器人动作与未来视频的模型权重](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
+
+**English:** [SANA-Robot-AR releases weights for predicting robot actions and future video](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
+
+- **发布 / Published:** `2026-11-22T02:46:16Z`
+- **来源 / Source:** [SANA team](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `memory`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SANA 团队发布了 45 亿参数的预训练权重，以及针对 RoboDojo、RoboTwin 2.0 和 LIBERO 微调的三个策略。模型根据多视角画面、机器人自身状态和指令，同时预测接下来 32 个控制步的动作和相应视频。
+
+The SANA team released a 4.5-billion-parameter pretrained checkpoint and policies tuned for RoboDojo, RoboTwin 2.0 and LIBERO. Given several camera views, the robot’s state and an instruction, the model predicts 32 control steps alongside the resulting video.
+
+### 技术点 / Technical points
+
+- 注意力层保留首帧和最近的片段，Gated DeltaNet 则把此前的视觉历史压缩成固定大小的状态。
+  - Attention retains the first frame and a recent window. A Gated DeltaNet compresses the earlier visual history into a fixed-size state.
+- 预训练权重可用新机器人的示范数据继续微调；三个专用策略可直接作为仿真评测的起点。
+  - The base checkpoint is intended for fine-tuning on demonstrations from a new robot. The three task-specific checkpoints provide starting points for simulation evaluations.
+
+### 为什么重要 / Why it matters
+
+固定的记忆开销让策略在长任务中也能利用较早的观测，而内存需求不会随任务时长持续增长。
+
+A fixed memory budget lets a manipulation policy use earlier observations even as a task grows longer.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain/commit/486387da56e8374a9602cfbee3670808d099401a) · [Evidence 2](https://nvlabs.github.io/Sana/Robot/)
+
+---
+
 <a id="2026-11-21-nopebench-world-model-collision-evaluation"></a>
 ## [NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停](https://huggingface.co/datasets/PeterDAI/NoPeBench)
 
@@ -71,6 +287,78 @@ The common annotations let researchers compare how well a model trained on human
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
+
+---
+
+<a id="2026-11-21-ouroboros-065-browser-playtests"></a>
+## [Ouroboros 0.65.0 让编程智能体在浏览器中复测静态应用的用户操作](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
+
+**English:** [Ouroboros 0.65.0 lets its coding agent play back a user’s path through a static app](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
+
+- **发布 / Published:** `2026-11-21T16:16:31Z`
+- **来源 / Source:** [Ouroboros project](https://github.com/Q00/ouroboros/releases/tag/v0.65.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `browser-use`, `evaluation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Ouroboros 为符合条件的静态网页应用增加了交付前的浏览器检查。审查智能体先编排新用户的操作步骤，再由 Chromium 执行；编程智能体可根据截图和控制台错误修改应用。
+
+Ouroboros added a browser check to the final review of eligible static web apps. A reviewer plans a first-time user’s interactions, Chromium runs them, and the coding agent receives screenshots and console errors it can use to repair the app.
+
+### 技术点 / Technical points
+
+- 每个测试脚本最多包含 40 步操作、截取 8 张画面。修复过程中，编程智能体可请求重放同一组操作。
+  - A test script can contain up to 40 steps and capture up to eight screenshots. During repairs, the worker can request a replay of the same interactions.
+- 首版支持无需构建或单独启动应用服务器的静态页面，运行条件包括受支持的非 Windows 主机和 Chromium 系浏览器。
+  - The initial release covers static pages that need no build step or application server, on supported non-Windows hosts with a Chromium-family browser.
+
+### 为什么重要 / Why it matters
+
+把同一组操作在修改前后各执行一次，智能体就能检查画面或交互上的故障是否已经消失。
+
+Replaying the same actions before and after an edit lets an agent check whether a visible rendering or interaction defect actually disappeared.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Q00/ouroboros/pull/3091)
+
+---
+
+<a id="2026-11-21-wall-wm-2-robodojo-preview-weights"></a>
+## [自变量机器人发布用于 RoboDojo 训练的 WALL-WM 2.0 预览权重](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
+
+**English:** [X Square Robot releases the WALL-WM 2.0 preview used to start RoboDojo training](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
+
+- **发布 / Published:** `2026-11-21T14:42:01Z`
+- **来源 / Source:** [X Square Robot](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+自变量机器人公开了 RoboDojo 训练所用的预训练起点，并提供模型配置和动作、状态的归一化统计量。团队说明，这份预览权重与计划中的完整版主要区别在于训练迭代次数。
+
+X Square Robot published the pretrained checkpoint it uses to initialize RoboDojo training, along with the model configuration and action and state normalization statistics. The team says the preview differs from the planned full release mainly in the number of training iterations.
+
+### 技术点 / Technical points
+
+- 配置文件将双臂动作分为 32 步一段，涵盖两侧末端执行器的相对位置、旋转和夹爪指令。
+  - The configuration predicts 32-step chunks for both arms, including relative end-effector positions, rotations and gripper commands.
+- 模型卡指定使用 Qwen3.5-9B 的分词器和对话模板。
+  - The model card specifies the tokenizer and chat template from Qwen3.5-9B.
+
+### 为什么重要 / Why it matters
+
+权重和配套的归一化参数为双臂策略提供了共同起点，方便研究者比较不同的 RoboDojo 训练方法。
+
+The checkpoint and its normalization statistics give researchers a common starting point for comparing how they train dual-arm policies in RoboDojo.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/commit/fdd4874767857352bfd681a8069705fdfbc4a63d) · [Evidence 2](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/blob/fdd4874767857352bfd681a8069705fdfbc4a63d/config.yml)
 
 ---
 
@@ -429,279 +717,3 @@ An automation runner can reconnect to an existing coding session while an operat
 ### 链接 / Links
 
 [Evidence 1](https://api.github.com/repos/openai/codex/releases/tags/rust-v0.171.0)
-
----
-
-<a id="2026-11-19-agentrobocritic-action-level-robot-control"></a>
-## [AgentRoboCritic 逐步核对智能体的动作意图和机器人执行结果](https://arxiv.org/abs/2611.26613)
-
-**English:** [AgentRoboCritic compares each robot action with the agent’s stated intent](https://arxiv.org/abs/2611.26613)
-
-- **发布 / Published:** `2026-11-19T18:57:25Z`
-- **来源 / Source:** [Yiyang Du et al. (arXiv)](https://arxiv.org/abs/2611.26613) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `benchmark`, `dataset`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-研究团队在 12 个操作基准上，要求智能体说明每个底层动作想达到的目标，再由评估模型将意图与实际结果对照，辨别抓取落空、对位不准等错误。
-
-Across 12 manipulation benchmarks, the team asked an agent to state what each low-level action should achieve. A critic compared that intent with the observed outcome and identified failures such as missed grasps or poor alignment.
-
-### 技术点 / Technical points
-
-- 团队发布了 12,844 个动作的标注，并用 400 个人工标注动作检验评估模型。
-  - The team released annotations for 12,844 actions and used 400 human-labeled actions to check the critic.
-- 在作者的评测中，微调使 Muse-Glimmer-30B 识别失败类型的准确率从 32.58% 升至 74.24%。
-  - Fine-tuning Muse-Glimmer-30B raised its accuracy at identifying failure types from 32.58% to 74.24% in the authors’ evaluation.
-
-### 为什么重要 / Why it matters
-
-逐动作标注能定位机器人从哪一步开始偏离目标，以及控制它的智能体后来是否纠正了错误。
-
-Action-level labels show where a robot first deviated from its goal and whether the controlling agent recovered later.
-
-### 链接 / Links
-
-[Evidence 1](https://adu2021.github.io/blog/AgentRoboCritic/)
-
----
-
-<a id="2026-11-19-phydex-robot-throwing-physics-benchmark"></a>
-## [PhyDEX 用投放任务检验机器人能否把物体送到臂展之外](https://arxiv.org/abs/2611.26565)
-
-**English:** [PhyDEX tests whether robot policies can throw objects beyond arm’s reach](https://arxiv.org/abs/2611.26565)
-
-- **发布 / Published:** `2026-11-19T18:33:43Z`
-- **来源 / Source:** [Hao Vo et al. (arXiv)](https://arxiv.org/abs/2611.26565) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `dataset`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-PhyDEX 改变物体的质量、重心和摩擦条件，要求机器人将其抛至目标位置。GR00T N1.7、DynamicVLA 和 ForceVLA 三种策略在基准上的总体成功率均低于 3%。
-
-PhyDEX varies object mass, center of mass and friction in tasks where a robot must throw an object to a target. GR00T N1.7, DynamicVLA and ForceVLA each succeeded on fewer than 3% of benchmark trials overall.
-
-### 技术点 / Technical points
-
-- 基准包含约 3.5 万条轨迹，覆盖 9 项任务和 100 个场景，其中包括目标移动的试验。
-  - The benchmark contains about 35,000 trajectories spanning nine tasks and 100 scenes, including trials with moving targets.
-- 多数失败发生在物体出手之前。作者还测试了向策略提供物体真实物理属性后，表现会如何变化。
-  - Most failures occurred before release. The authors also tested what changes when a policy receives the object’s true physical properties.
-
-### 为什么重要 / Why it matters
-
-把出手前后的失败分开统计，有助于区分基本操作失误和对物体飞行轨迹的误判。
-
-Separating failures before and after release helps distinguish basic manipulation problems from errors in predicting an object’s flight.
-
----
-
-<a id="2026-11-19-google-gemini-mac-background-computer-use"></a>
-## [Gemini Mac 版可在后台窗口操作桌面应用和网页](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
-
-**English:** [Gemini for Mac can operate desktop apps and websites in a background window](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/)
-
-- **发布 / Published:** `2026-11-19T17:00:00Z`
-- **来源 / Source:** [Google](https://blog.google/innovation-and-ai/products/gemini-app/computer-use-mac/) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `desktop-automation`, `human-oversight`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Google 开始向美国符合条件的 Google AI Plus、Pro 和 Ultra 订阅用户推出 Mac 版电脑操作功能。用户可以把跨本地文档、桌面软件和网页的任务交给 Gemini，例如从 PDF 提取包裹信息并填写运费表单。
-
-Google began rolling out computer use to eligible Google AI Plus, Pro and Ultra subscribers in the US. Users can give Gemini a task that spans local documents, desktop software and websites, such as copying package details from a PDF into a shipping form.
-
-### 技术点 / Technical points
-
-- Gemini 在独立窗口中操作。用户可以在对话中查看操作过程、暂停任务、选择允许访问的应用，并确认关键步骤。
-  - Gemini uses a separate window. Users can follow its actions in chat, pause the task, choose which apps it can open and approve key steps.
-- 首批支持成年用户的个人账号，使用语言为英语，设备须搭载 Apple 芯片并运行 macOS 15 或更高版本。
-  - The initial rollout is in English for adult personal accounts on Apple Silicon Macs running macOS 15 or later.
-
-### 为什么重要 / Why it matters
-
-用户可以继续用主光标处理自己的工作，同时监督跨应用任务的执行。
-
-A user can keep working with the main cursor while supervising a multi-app task as it runs.
-
----
-
-<a id="2026-11-19-safi-robot-mid-task-safe-stopping"></a>
-## [SAFI 训练机器人中途停手并保持夹持](https://arxiv.org/abs/2611.26239)
-
-**English:** [SAFI trains robot policies to stop mid-task while holding an object](https://arxiv.org/abs/2611.26239)
-
-- **发布 / Published:** `2026-11-19T15:14:55Z`
-- **来源 / Source:** [Zheyuan Liu et al. (arXiv)](https://arxiv.org/abs/2611.26239) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `robotics`, `safety`, `imitation-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-作者研究了机器人在禁做任务执行到一半时由另一策略接管的情况。对于适合停在原位的任务，SAFI 训练机械臂停止移动，并让夹爪保持夹持。
-
-The authors studied what happens when a robot policy takes over partway through a prohibited task. For tasks where holding position is appropriate, SAFI teaches the arm to stop moving and the gripper to maintain its hold.
-
-### 技术点 / Technical points
-
-- 团队用两类示范调整 OpenVLA-OFT，一类展示如何停止，另一类展示机器人应继续执行的任务。
-  - The team adapted OpenVLA-OFT using both examples of how to stop and demonstrations of tasks the robot should still carry out.
-- 在所测 LIBERO 仿真任务中，接管后仍完成禁做任务的比例从原策略的 99.7% 降至 SAFI 的 1.3%。团队在这些 SAFI 试验中未记录到物理事故。
-  - On the tested LIBERO simulations, the share of prohibited tasks completed after takeover fell from 99.7% with the original policy to 1.3% with SAFI. The team recorded no physical incidents with SAFI in those trials.
-
-### 为什么重要 / Why it matters
-
-把物体掉落与任务完成情况一并记录，可以检验停止动作本身是否造成了问题。
-
-Tracking dropped objects as well as task completion gives evaluators a way to tell whether stopping itself caused a problem.
-
-### 链接 / Links
-
-[Evidence 1](https://franciscoliu.github.io/SAFI/)
-
----
-
-<a id="2026-11-19-affect-action-sensitive-world-model-evaluation"></a>
-## [AFFECT 训练世界模型预测机器人动作细微变化的后果](https://arxiv.org/abs/2611.25980)
-
-**English:** [AFFECT trains world models to predict the consequences of small action changes](https://arxiv.org/abs/2611.25980)
-
-- **发布 / Published:** `2026-11-19T12:03:05Z`
-- **来源 / Source:** [John Won et al. (arXiv)](https://arxiv.org/abs/2611.25980) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-model`, `robotics`, `policy-evaluation`, `model-based-planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-AFFECT 训练视频世界模型，使动作受到扰动时预测的画面变化更接近机器人实录。在 DROID 上，作者发现，经过这项训练后，DreamDojo 预测的策略成功率与真机结果更为一致。
-
-AFFECT trains a video world model to reproduce the visual changes seen when a robot action is perturbed. On DROID, the authors found that DreamDojo’s simulated policy success rates tracked real-robot results more closely after this training.
-
-### 技术点 / Technical points
-
-- 训练时施加的动作扰动在相邻时刻彼此相关，已有记录即可用于学习，无需从完全相同的初始状态反复试验。
-  - The training objective uses action perturbations that persist across nearby time steps. It can learn from recordings without repeating each trial from an identical starting state.
-- 在 DROID 上，DreamDojo 预测的策略成功率与真机成功率之间的皮尔逊相关系数从 0.47 升至 0.79。
-  - For DreamDojo on DROID, the Pearson correlation between predicted and real policy success rates rose from 0.47 to 0.79.
-
-### 为什么重要 / Why it matters
-
-把模型中的策略表现与真机结果对照，可以检验模拟器能否用于比较不同的机器人控制策略。
-
-Agreement with real policy outcomes gives robotics teams a direct test of whether a simulator can help compare candidate controllers.
-
----
-
-<a id="2026-11-19-fast-jepa-dynagoal-latent-planning"></a>
-## [Fast-JEPA 直接评估整段动作，缩短世界模型的规划时间](https://arxiv.org/abs/2611.25927)
-
-**English:** [Fast-JEPA scores whole action sequences to reduce planning time](https://arxiv.org/abs/2611.25927)
-
-- **发布 / Published:** `2026-11-19T11:09:58Z`
-- **来源 / Source:** [Yao Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25927) · `research`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `latent-dynamics`, `model-based-planning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Fast-JEPA 先给出一个指向目标的初始方案，再在细化阶段直接预测每段候选动作的结果。作者还提出 DynaGoal，检验环境条件改变或动作必须限时执行时，规划器的表现。
-
-Fast-JEPA first proposes a plan aimed at the goal, then predicts the outcome of each candidate action sequence in one pass during refinement. The authors also introduced DynaGoal to test plans when conditions change or actions must meet deadlines.
-
-### 技术点 / Technical points
-
-- 在 PushT、Reacher、Cube 和 TwoRoom 四项任务上，作者报告平均成功率为 96.5%，规划速度为 INTACT 的 2.41 倍。
-  - Across PushT, Reacher, Cube and TwoRoom, the authors report 96.5% average success and a 2.41-fold planning speedup over INTACT.
-- Fast-JEPA 在 DynaGoal-Shift 和 DynaGoal-Deadline 上的平均成功率分别为 73.83% 和 87.67%。
-  - Fast-JEPA averaged 73.83% success on DynaGoal-Shift and 87.67% on DynaGoal-Deadline.
-
-### 为什么重要 / Why it matters
-
-限时测试可以检验世界模型能否在需要行动之前给出可用方案。
-
-The deadline tests make it possible to measure whether a world model produces a usable plan in time to act.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/Sofilyzia/Fast-JEPA)
-
----
-
-<a id="2026-11-19-echo-humanoid-control-under-changing-loads"></a>
-## [ECHO 利用近期交互调整人形机器人的全身控制，适应负载变化](https://arxiv.org/abs/2611.25778)
-
-**English:** [ECHO uses recent interactions to adapt humanoid control to changing loads](https://arxiv.org/abs/2611.25778)
-
-- **发布 / Published:** `2026-11-19T09:11:24Z`
-- **来源 / Source:** [Xingyi Wang et al. (arXiv)](https://arxiv.org/abs/2611.25778) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `humanoid`, `whole-body-control`, `robotics`, `adaptation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-ECHO 根据近期交互判断机器人对动作的实际响应，再据此修正预训练控制器。作者在宇树 G1 上演示了全身遥操作，以及负载变化后的动作调整。
-
-ECHO adapts a pretrained humanoid controller by inferring how the robot responds from its recent interactions. The authors demonstrated whole-body teleoperation and adaptation to payload changes on a Unitree G1.
-
-### 技术点 / Technical points
-
-- 基础控制器在同一预训练阶段兼顾特定动作的强化练习和多种动作的学习。
-  - A single pretraining stage mixes targeted practice with a broad range of motions to establish the base controller.
-- 单独的模块根据交互历史修正基础控制器的输出，部署时模型参数保持固定。
-  - A separate module uses interaction history to correct the base controller’s output. The deployed model keeps its parameters fixed.
-
-### 为什么重要 / Why it matters
-
-G1 实验检验了同一套控制器能否在机器人负重变化时保持原有动作技能。
-
-The G1 experiments test whether one controller can preserve motion skills as the load it carries changes.
-
-### 链接 / Links
-
-[Evidence 1](https://mwondering.github.io/echo-bfm/)
-
----
-
-<a id="2026-11-19-autoragbench-agents-build-retrieval-systems"></a>
-## [AutoRAGBench 让编程智能体用六小时从零构建检索增强系统](https://arxiv.org/abs/2611.25582)
-
-**English:** [AutoRAGBench gives coding agents six hours to build a retrieval system](https://arxiv.org/abs/2611.25582)
-
-- **发布 / Published:** `2026-11-19T06:26:28Z`
-- **来源 / Source:** [Hang Zhang et al. (arXiv)](https://arxiv.org/abs/2611.25582) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `retrieval-augmented-generation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-AutoRAGBench 向智能体提供语料和任务，由其自行设计和实现检索流程。在九项任务上，GPT-6.1 Sol 与 Codex CLI 的组合取得了九种参测配置中的最高平均分。
-
-AutoRAGBench gives agents a corpus and a task but leaves the retrieval pipeline for them to design and implement. Across nine tasks, GPT-6.1 Sol with Codex CLI earned the highest average score among the nine configurations tested.
-
-### 技术点 / Technical points
-
-- 每次构建可用六小时和一块 H800 GPU，测试集放在开发容器之外。
-  - Each build gets six hours and one H800 GPU. The test set stays outside the development container.
-- 领先配置平均得到 56.1 分。研究者在每项任务上选取表现最好、经过适配的人工设计方法，所得组合基线为 44.4 分。
-  - The leading configuration scored 56.1 points on average. A composite baseline that took the best adapted human-designed method for each task scored 44.4.
-
-### 为什么重要 / Why it matters
-
-这套基准可以衡量智能体在固定开发预算内能交付怎样的检索系统。
-
-The benchmark measures the quality of a retrieval system an agent can deliver within a fixed development budget.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/ZhanGHanG9991/AutoRAGBench)

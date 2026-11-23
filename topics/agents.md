@@ -2,6 +2,150 @@
 
 # Agents / 智能体
 
+<a id="2026-11-22-localcode-0543-inkling-metal-inference"></a>
+## [LocalCode 0.5.43 让 Inkling 2 Mini 的量化专家在苹果 GPU 上运行](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
+
+**English:** [LocalCode 0.5.43 runs Inkling 2 Mini’s quantized experts on Apple GPUs](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
+
+- **发布 / Published:** `2026-11-22T15:43:38Z`
+- **来源 / Source:** [LocalCode project](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `local-inference`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `73/100`
+
+### 摘要 / Summary
+
+本地编程智能体 LocalCode 为 Unsloth 量化版 Inkling 2 Mini 的 NVFP4 专家权重加入 Metal 算子，使其内置推理引擎可以把这些权重留在苹果 GPU 上计算。
+
+The local coding agent LocalCode added Metal kernels for the NVFP4 experts in Unsloth’s Inkling 2 Mini quantizations. The change lets its bundled inference engine keep these weights on the GPU during a coding session.
+
+### 技术点 / Technical points
+
+- 据维护者说明，旧后端即便在日志中显示所有层都已转移到 GPU，仍会将约 11 GB 的专家权重留在 CPU 上。
+  - The maintainer says the earlier backend left about 11 GB of expert weights on the CPU even when its log reported all layers on the GPU.
+- 维护者报告，在 128K 上下文长度下，带状注意力把 GPU 工作内存从 13.1 GB 降至 6.2 GB。这里统计的是推理工作内存，模型权重另计。
+  - The maintainer reports that banded attention reduced GPU working memory from 13.1 GB to 6.2 GB at a 128K context length. This figure measures working memory separately from model weights.
+
+### 为什么重要 / Why it matters
+
+本地编程会话中的长源码和工具输出会占用上下文，这项改动可减少处理这些内容所需的 GPU 工作内存。
+
+Long source files and tool results consume context in a local coding session. The reported savings make that context less costly in GPU memory.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50604540)
+
+---
+
+<a id="2026-11-22-paper-url-agent-opencode-9b-weights-traces"></a>
+## [用于查找论文项目链接的 9B OpenCode 智能体公布权重与评测轨迹](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
+
+**English:** [A 9B OpenCode agent for finding paper links ships with its evaluation traces](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
+
+- **发布 / Published:** `2026-11-22T15:15:05Z`
+- **来源 / Source:** [Niels Rogge](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `agent-evaluation`, `dataset`, `post-training`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
+
+### 摘要 / Summary
+
+Niels Rogge 发布了基于 Qwen3.5-9B 的合并权重，训练样本来自经过核验的 OpenCode 执行轨迹，任务是查找论文的代码仓库和项目主页。配套数据集记录了工具调用、返回结果以及对最终链接的核验。
+
+Niels Rogge published a merged Qwen3.5-9B checkpoint trained on verified OpenCode runs that find papers’ code repositories and project pages. The accompanying dataset includes the agent’s tool calls, their results and checks on the links it returned.
+
+### 技术点 / Technical points
+
+- 评测档案分别提供监督微调、使用 GRPO 适配器和教师模型的运行记录，并区分常规和困难测试集。
+  - The evaluation archive separates supervised runs, runs using a GRPO adapter, and teacher runs. It includes standard and hard test sets.
+- 作者公布的 GRPO 适配器结果显示，常规测试有 187/220 个样例完全匹配，困难测试有 98/175 个完全匹配。
+  - The author’s GRPO-adapter results record exact matches on 187 of 220 standard cases and 98 of 175 hard cases.
+
+### 为什么重要 / Why it matters
+
+借助执行轨迹，研究者可以区分智能体是没找到来源，还是找到了来源却在提交链接时出错。
+
+The traces let researchers distinguish errors in finding a source from errors in reporting the links after a successful search.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged/commit/c6a75132da2acc4246aa4023dc23aff9d88eaad9) · [Evidence 2](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval) · [Evidence 3](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test-summary.json) · [Evidence 4](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test_hard-summary.json)
+
+---
+
+<a id="2026-11-22-browser-use-108-cached-run-evaluation"></a>
+## [Browser Use 1.0.8 评估任务结果时可复用浏览器智能体的提示缓存](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
+
+**English:** [Browser Use 1.0.8 reuses the browser agent’s prompt cache for evaluation](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
+
+- **发布 / Published:** `2026-11-22T03:30:41Z`
+- **来源 / Source:** [Browser Use](https://github.com/browser-use/browser-use/releases/tag/1.0.8) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `browser-use`, `evaluation`, `reliability`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
+
+### 摘要 / Summary
+
+Browser Use 将结果评估接在浏览器会话的最后一轮。由于评估请求沿用了原会话的消息前缀，模型服务商可以复用缓存，减少长任务轨迹的重复计费。
+
+Browser Use now asks the evaluator to judge the result in one more turn of the browser session. Keeping the same message prefix lets a provider reuse cached input when evaluating a long run.
+
+### 技术点 / Technical points
+
+- 评估请求包含待判断的问题和最终页面。若回复格式不符、模型调用工具或请求报错，系统会另发评估请求。
+  - The evaluator receives the final page alongside its question. A malformed verdict, a tool call or an error triggers a separate evaluation request.
+- 达到步数上限时，若推理模型拒绝强制调用收尾工具，智能体会再试一次，仅提供提交结果的工具，让模型自行选择。
+  - If a reasoning model rejects a forced final tool call at the step limit, the agent retries once with only the delivery tools available and tool choice set to automatic.
+
+### 为什么重要 / Why it matters
+
+团队可以保留对任务结果的逐次评估，同时减少将长轨迹重新送入模型的开销。
+
+Teams can retain end-of-run evaluation while reducing the cost of sending long traces back through a model.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/browser-use/browser-use/pull/6457) · [Evidence 2](https://github.com/browser-use/browser-use/pull/6453)
+
+---
+
+<a id="2026-11-21-ouroboros-065-browser-playtests"></a>
+## [Ouroboros 0.65.0 让编程智能体在浏览器中复测静态应用的用户操作](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
+
+**English:** [Ouroboros 0.65.0 lets its coding agent play back a user’s path through a static app](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
+
+- **发布 / Published:** `2026-11-21T16:16:31Z`
+- **来源 / Source:** [Ouroboros project](https://github.com/Q00/ouroboros/releases/tag/v0.65.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `browser-use`, `evaluation`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+Ouroboros 为符合条件的静态网页应用增加了交付前的浏览器检查。审查智能体先编排新用户的操作步骤，再由 Chromium 执行；编程智能体可根据截图和控制台错误修改应用。
+
+Ouroboros added a browser check to the final review of eligible static web apps. A reviewer plans a first-time user’s interactions, Chromium runs them, and the coding agent receives screenshots and console errors it can use to repair the app.
+
+### 技术点 / Technical points
+
+- 每个测试脚本最多包含 40 步操作、截取 8 张画面。修复过程中，编程智能体可请求重放同一组操作。
+  - A test script can contain up to 40 steps and capture up to eight screenshots. During repairs, the worker can request a replay of the same interactions.
+- 首版支持无需构建或单独启动应用服务器的静态页面，运行条件包括受支持的非 Windows 主机和 Chromium 系浏览器。
+  - The initial release covers static pages that need no build step or application server, on supported non-Windows hosts with a Chromium-family browser.
+
+### 为什么重要 / Why it matters
+
+把同一组操作在修改前后各执行一次，智能体就能检查画面或交互上的故障是否已经消失。
+
+Replaying the same actions before and after an edit lets an agent check whether a visible rendering or interaction defect actually disappeared.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/Q00/ouroboros/pull/3091)
+
+---
+
 <a id="2026-11-20-claude-code-21330-concurrent-worktree-reliability"></a>
 ## [Claude Code 2.1.330 修复并发会话误删工作树、过早关闭共享工具的问题](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
 

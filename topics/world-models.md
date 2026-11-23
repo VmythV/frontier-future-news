@@ -2,6 +2,78 @@
 
 # World models / 世界模型
 
+<a id="2026-11-22-go2-quadruped-motion-forecast-checkpoints"></a>
+## [Gödel Machines 发布 25 个预测宇树 Go2 运动的模型权重](https://huggingface.co/GoedelMachines/go2-world-models)
+
+**English:** [Gödel Machines releases 25 checkpoints for forecasting Unitree Go2 motion](https://huggingface.co/GoedelMachines/go2-world-models)
+
+- **发布 / Published:** `2026-11-22T14:00:38Z`
+- **来源 / Source:** [Gödel Machines](https://huggingface.co/GoedelMachines/go2-world-models) · `primary`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `quadruped`, `dynamics`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+这组模型根据给定的关节指令，以 50 Hz 预测机身与关节的 30 个状态量。其中 20 个权重还需要未来各时刻位姿对应的地形扫描，另有 5 个经过适配，只需已有的传感器记录和关节指令。
+
+The models predict 30 body and joint measurements at 50 Hz from proposed joint commands. Twenty checkpoints also require terrain scans at future poses. Five adapted models can make forecasts using the robot’s sensor history and commands alone.
+
+### 技术点 / Technical points
+
+- 输出包括机身角速度、机身坐标系中的向上方向，以及 12 个关节各自的角度和速度。
+  - Outputs include body angular velocity, the up direction in the body frame, and the angles and velocities of all twelve joints.
+- 作者报告，最大的适配模型在同一台 Go2 的 9 段平地实机记录上，预测 3 秒后关节角的均方根误差为 0.0641 弧度。
+  - For its adapted flagship, the author reports a three-second joint-angle RMSE of 0.0641 radians on nine recordings from one Go2 on a flat floor.
+
+### 为什么重要 / Why it matters
+
+两套输入条件便于研究者检验，只靠机身传感器和动作指令预测四足机器人运动时，预测精度会发生怎样的变化。
+
+The two input settings make it possible to test how much of a quadruped’s motion can be predicted when future terrain observations are unavailable.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/GoedelMachines/go2-world-models/commit/9fc67fc970e8ab128660cd1487b7677b322a964c) · [Evidence 2](https://github.com/Go2WorldModels/go2worldmodels.github.io)
+
+---
+
+<a id="2026-11-22-sana-robot-ar-hybrid-memory-weights"></a>
+## [SANA-Robot-AR 发布联合预测机器人动作与未来视频的模型权重](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
+
+**English:** [SANA-Robot-AR releases weights for predicting robot actions and future video](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
+
+- **发布 / Published:** `2026-11-22T02:46:16Z`
+- **来源 / Source:** [SANA team](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `memory`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+SANA 团队发布了 45 亿参数的预训练权重，以及针对 RoboDojo、RoboTwin 2.0 和 LIBERO 微调的三个策略。模型根据多视角画面、机器人自身状态和指令，同时预测接下来 32 个控制步的动作和相应视频。
+
+The SANA team released a 4.5-billion-parameter pretrained checkpoint and policies tuned for RoboDojo, RoboTwin 2.0 and LIBERO. Given several camera views, the robot’s state and an instruction, the model predicts 32 control steps alongside the resulting video.
+
+### 技术点 / Technical points
+
+- 注意力层保留首帧和最近的片段，Gated DeltaNet 则把此前的视觉历史压缩成固定大小的状态。
+  - Attention retains the first frame and a recent window. A Gated DeltaNet compresses the earlier visual history into a fixed-size state.
+- 预训练权重可用新机器人的示范数据继续微调；三个专用策略可直接作为仿真评测的起点。
+  - The base checkpoint is intended for fine-tuning on demonstrations from a new robot. The three task-specific checkpoints provide starting points for simulation evaluations.
+
+### 为什么重要 / Why it matters
+
+固定的记忆开销让策略在长任务中也能利用较早的观测，而内存需求不会随任务时长持续增长。
+
+A fixed memory budget lets a manipulation policy use earlier observations even as a task grows longer.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain/commit/486387da56e8374a9602cfbee3670808d099401a) · [Evidence 2](https://nvlabs.github.io/Sana/Robot/)
+
+---
+
 <a id="2026-11-21-nopebench-world-model-collision-evaluation"></a>
 ## [NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停](https://huggingface.co/datasets/PeterDAI/NoPeBench)
 
@@ -71,6 +143,42 @@ The common annotations let researchers compare how well a model trained on human
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
+
+---
+
+<a id="2026-11-21-wall-wm-2-robodojo-preview-weights"></a>
+## [自变量机器人发布用于 RoboDojo 训练的 WALL-WM 2.0 预览权重](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
+
+**English:** [X Square Robot releases the WALL-WM 2.0 preview used to start RoboDojo training](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
+
+- **发布 / Published:** `2026-11-21T14:42:01Z`
+- **来源 / Source:** [X Square Robot](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-action-model`, `bimanual-manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+自变量机器人公开了 RoboDojo 训练所用的预训练起点，并提供模型配置和动作、状态的归一化统计量。团队说明，这份预览权重与计划中的完整版主要区别在于训练迭代次数。
+
+X Square Robot published the pretrained checkpoint it uses to initialize RoboDojo training, along with the model configuration and action and state normalization statistics. The team says the preview differs from the planned full release mainly in the number of training iterations.
+
+### 技术点 / Technical points
+
+- 配置文件将双臂动作分为 32 步一段，涵盖两侧末端执行器的相对位置、旋转和夹爪指令。
+  - The configuration predicts 32-step chunks for both arms, including relative end-effector positions, rotations and gripper commands.
+- 模型卡指定使用 Qwen3.5-9B 的分词器和对话模板。
+  - The model card specifies the tokenizer and chat template from Qwen3.5-9B.
+
+### 为什么重要 / Why it matters
+
+权重和配套的归一化参数为双臂策略提供了共同起点，方便研究者比较不同的 RoboDojo 训练方法。
+
+The checkpoint and its normalization statistics give researchers a common starting point for comparing how they train dual-arm policies in RoboDojo.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/commit/fdd4874767857352bfd681a8069705fdfbc4a63d) · [Evidence 2](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/blob/fdd4874767857352bfd681a8069705fdfbc4a63d/config.yml)
 
 ---
 
