@@ -2,6 +2,114 @@
 
 # World models / 世界模型
 
+<a id="2026-11-23-fomo-fd-surgical-robot-failure-detection-weights"></a>
+## [FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败](https://huggingface.co/Januxes/FoMoFD-models)
+
+**English:** [FoMo-FD releases world-model weights for detecting surgical robot task failures](https://huggingface.co/Januxes/FoMoFD-models)
+
+- **发布 / Published:** `2026-11-23T17:43:21Z`
+- **来源 / Source:** [FoMo-FD team](https://huggingface.co/Januxes/FoMoFD-models) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `failure-detection`, `flow-matching`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+FoMo-FD 团队公开了在四项手术机器人研究任务中用于检测操作失败的世界模型权重和对照模型。发布内容包括固定相机与腕部相机的视觉编码器，以及用于回放任务的模仿学习策略。
+
+The FoMo-FD team released the world-model checkpoints and comparison models used to study failure detection in four surgical robot research tasks. The release includes visual encoders for both fixed and wrist-mounted cameras, along with imitation policies for replaying the tasks.
+
+### 技术点 / Technical points
+
+- 同一份流匹配世界模型权重支持三种失败评分方法。评测在二十种失败模式下比较不同的监测方法。
+  - The same flow-matching world-model checkpoint supports three failure scores. The evaluation compares monitors across twenty failure modes.
+- 项目以标注的失败起点为基准比较检测延迟，并根据允许的误报率校准阈值。
+  - The project compares detection delays relative to the annotated onset of a failure, with thresholds calibrated to a false-alarm budget.
+
+### 为什么重要 / Why it matters
+
+研究者可在给定误报率预算下，对同一段失败记录比较不同监测方法从失败发生到发出警报需要多长时间。
+
+The released models make it possible to compare how early different monitors flag the same recorded failure at a given false-alarm budget.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011) · [Evidence 2](https://janusmaple.github.io/FoMoFD/)
+
+---
+
+<a id="2026-11-23-persistworld-streaming-occupancy-forecast-weights"></a>
+## [PersistWorld 发布权重，用连续摄像画面预测未来三维空间占用](https://huggingface.co/ZiAnwang/PersistWorld)
+
+**English:** [PersistWorld releases weights for forecasting 3D occupancy from streaming cameras](https://huggingface.co/ZiAnwang/PersistWorld)
+
+- **发布 / Published:** `2026-11-23T11:42:12Z`
+- **来源 / Source:** [PersistWorld team](https://huggingface.co/ZiAnwang/PersistWorld) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `occupancy-forecasting`, `spatial-memory`, `scene-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PersistWorld 团队发布模型权重，可随摄像头画面的到来持续更新行车场景的三维状态，并从同一状态预测未来 1 至 8 秒内哪些空间将被占用。
+
+The PersistWorld team released a checkpoint that keeps a 3D record of a driving scene as camera frames arrive. It can query the same learned state to predict which parts of the scene will be occupied one to eight seconds ahead.
+
+### 技术点 / Technical points
+
+- 新观测被写入固定在场景中的网格。预测时，模型将网格副本推演到指定时刻，再从车辆坐标系读取结果。
+  - New observations are written into a grid anchored to the scene. For a forecast, the model evolves a copy of the grid to the requested time and reads it in the vehicle's coordinate frame.
+- 团队报告，在 Occ3D-nuScenes 验证集上，1 至 3 秒和 1 至 8 秒预测区间的平均交并比（mIoU）分别为 28.72 和 23.86。
+  - On the Occ3D-nuScenes validation set, the team reports a mean intersection over union of 28.72 over one to three seconds and 23.86 over one to eight seconds.
+
+### 为什么重要 / Why it matters
+
+研究者可用这组权重检验，当摄像头位置发生变化时，保留先前观测到的几何结构对预测有多大帮助。
+
+The checkpoint lets researchers examine how retaining previously seen geometry affects predictions as the camera moves.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/ZiAnwang/PersistWorld/commit/aad1341e4ccd42b2eda12f0ef647a243baf660a1) · [Evidence 2](https://wangzian828.github.io/PersistWorld/)
+
+---
+
+<a id="2026-11-23-ponderpounce-wm-robot-visual-forecasting"></a>
+## [PonderPounce-WM 用未来画面特征训练机器人策略](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+**English:** [PonderPounce-WM trains a robot policy to anticipate visual changes](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+- **发布 / Published:** `2026-11-23T06:57:56Z`
+- **来源 / Source:** [PonderPounce team](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `robotics`, `visual-prediction`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+PonderPounce 团队发布了学习预测机器人摄像头画面变化的模型权重。在相同训练数据规模下，作者报告新模型在 RoboMME 上三次评测平均得分为 67.42%，原版为 60.83%。
+
+The PonderPounce team released a checkpoint that learns to predict how a robot's camera view will change. On RoboMME, the authors report a three-run mean of 67.42%, versus 60.83% for PonderPounce at the same training-data scale.
+
+### 技术点 / Technical points
+
+- 三个预测词元分别估计 0.5 秒、1 秒和 2 秒后的视觉特征变化。另一个词元为动作策略汇总当前指令和观测历史。
+  - Three prediction tokens estimate changes in camera features at 0.5, 1 and 2 seconds. A separate token summarizes the current instruction and observation history for the action policy.
+- 动作策略从推理模型只接收汇总词元，每次预测 20 步关节角。
+  - The action policy receives only the summary token from the reasoning model and predicts 20 joint-angle steps at a time.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这组权重检验，学习预测视觉变化能否帮助机器人完成依赖早先观测的操作。
+
+The released weights let researchers test whether learning to forecast visual changes helps with manipulation that depends on earlier observations.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME/commit/792c4398c16dd3dba01a46aa34283c614a61ff3b) · [Evidence 2](https://github.com/worv-ai/PonderPounce)
+
+---
+
 <a id="2026-11-22-go2-quadruped-motion-forecast-checkpoints"></a>
 ## [Gödel Machines 发布 25 个预测宇树 Go2 运动的模型权重](https://huggingface.co/GoedelMachines/go2-world-models)
 

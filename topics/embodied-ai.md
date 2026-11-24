@@ -2,6 +2,150 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-23-fomo-fd-surgical-robot-failure-detection-weights"></a>
+## [FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败](https://huggingface.co/Januxes/FoMoFD-models)
+
+**English:** [FoMo-FD releases world-model weights for detecting surgical robot task failures](https://huggingface.co/Januxes/FoMoFD-models)
+
+- **发布 / Published:** `2026-11-23T17:43:21Z`
+- **来源 / Source:** [FoMo-FD team](https://huggingface.co/Januxes/FoMoFD-models) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `failure-detection`, `flow-matching`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+FoMo-FD 团队公开了在四项手术机器人研究任务中用于检测操作失败的世界模型权重和对照模型。发布内容包括固定相机与腕部相机的视觉编码器，以及用于回放任务的模仿学习策略。
+
+The FoMo-FD team released the world-model checkpoints and comparison models used to study failure detection in four surgical robot research tasks. The release includes visual encoders for both fixed and wrist-mounted cameras, along with imitation policies for replaying the tasks.
+
+### 技术点 / Technical points
+
+- 同一份流匹配世界模型权重支持三种失败评分方法。评测在二十种失败模式下比较不同的监测方法。
+  - The same flow-matching world-model checkpoint supports three failure scores. The evaluation compares monitors across twenty failure modes.
+- 项目以标注的失败起点为基准比较检测延迟，并根据允许的误报率校准阈值。
+  - The project compares detection delays relative to the annotated onset of a failure, with thresholds calibrated to a false-alarm budget.
+
+### 为什么重要 / Why it matters
+
+研究者可在给定误报率预算下，对同一段失败记录比较不同监测方法从失败发生到发出警报需要多长时间。
+
+The released models make it possible to compare how early different monitors flag the same recorded failure at a given false-alarm budget.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011) · [Evidence 2](https://janusmaple.github.io/FoMoFD/)
+
+---
+
+<a id="2026-11-23-robouniverse-coding-agent-robot-controllers"></a>
+## [RoboUniverse 发布为仿真机器人编写控制程序的智能体](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+**English:** [RoboUniverse releases a coding agent that writes controllers for simulated robots](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+- **发布 / Published:** `2026-11-23T15:25:08Z`
+- **来源 / Source:** [Einsia](https://huggingface.co/Einsia/RoboUniverse-35B-A3B) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `coding-agent`, `robotics`, `simulation`, `tool-use`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Einsia 发布了 RoboUniverse-35B-A3B。这款编程智能体用 RoboUniverse-10K 中成功完成操作的轨迹微调，在 Claude Code 中查看摄像头画面、编写 Python 控制程序并在 Isaac Sim 中运行。
+
+Einsia released RoboUniverse-35B-A3B, a coding agent fine-tuned on successful manipulation trajectories from RoboUniverse-10K. Running inside Claude Code, the model inspects camera views, writes Python controllers and tries them in Isaac Sim.
+
+### 技术点 / Technical points
+
+- 模型基于 Qwen3.6-35B-A3B，训练样本包含智能体在仿真环境中调用工具的过程。
+  - The model is based on Qwen3.6-35B-A3B. Its training examples include the agent's interactions with tools in the simulation environment.
+- 智能体可以查询场景并向仿真机器人发送动作。每次任务执行结束后，由独立的校验程序评分。
+  - The agent can inspect the scene and send actions to the simulated robot. A separate verifier scores each episode after execution.
+
+### 为什么重要 / Why it matters
+
+研究者可以利用公开权重，检验智能体能否根据视觉观测编写可实际运行的机器人控制程序。
+
+The model weights give researchers a way to test whether an agent can turn visual observations into a working robot controller.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Einsia/RoboUniverse-35B-A3B/commit/c0e3455b05bf29ac1ce86eac77a95e442b6e93c8) · [Evidence 2](https://huggingface.co/datasets/Einsia/RoboUniverse-10K)
+
+---
+
+<a id="2026-11-23-roboinf-robot-instruction-fidelity-runner"></a>
+## [RoboInF 开源评测工具，检验机器人是否按指定步骤操作](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f)
+
+**English:** [RoboInF releases a runner for testing whether robots follow manipulation instructions](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f)
+
+- **发布 / Published:** `2026-11-23T08:39:04Z`
+- **来源 / Source:** [RoboInF team](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `manipulation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+上海交通大学与同济大学研究者公开了 RoboInF 评测工具和四种策略接口。每项任务从相同的仿真场景出发，只改变指令，检验机器人是否按指定路线、顺序或接触部位完成操作。
+
+Shanghai Jiao Tong University and Tongji University researchers released RoboInF's evaluation runner and four policy interfaces. Each task starts from the same simulated scene so that changing only the instruction can reveal whether the robot follows a requested route, order or contact point.
+
+### 技术点 / Technical points
+
+- 八项任务各有 6 至 12 种指令变体。例如，机器人要按不同指令沿不同路线抵达同一终点。
+  - Each of eight tasks has six to twelve instruction variants. For example, a robot can reach the same destination by different routes.
+- 评测分别统计目标完成率和联合成功率，后者还要求满足指令规定的全部约束。
+  - The evaluator reports goal completion separately from joint success, which also requires meeting every applicable instruction constraint.
+
+### 为什么重要 / Why it matters
+
+即使把正确的物体送到指定位置，机器人也可能忽略过程要求。这些对照任务能测出此类偏差。
+
+A robot can finish with the right object in the right place while ignoring the user's directions. The paired trials make that failure measurable.
+
+### 链接 / Links
+
+[Evidence 1](https://sjtu-deepvisionlab.github.io/RoboInF/) · [Evidence 2](https://api.github.com/repos/SJTU-DeepVisionLab/RoboInF/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+
+---
+
+<a id="2026-11-23-ponderpounce-wm-robot-visual-forecasting"></a>
+## [PonderPounce-WM 用未来画面特征训练机器人策略](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+**English:** [PonderPounce-WM trains a robot policy to anticipate visual changes](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+- **发布 / Published:** `2026-11-23T06:57:56Z`
+- **来源 / Source:** [PonderPounce team](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `robotics`, `visual-prediction`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+PonderPounce 团队发布了学习预测机器人摄像头画面变化的模型权重。在相同训练数据规模下，作者报告新模型在 RoboMME 上三次评测平均得分为 67.42%，原版为 60.83%。
+
+The PonderPounce team released a checkpoint that learns to predict how a robot's camera view will change. On RoboMME, the authors report a three-run mean of 67.42%, versus 60.83% for PonderPounce at the same training-data scale.
+
+### 技术点 / Technical points
+
+- 三个预测词元分别估计 0.5 秒、1 秒和 2 秒后的视觉特征变化。另一个词元为动作策略汇总当前指令和观测历史。
+  - Three prediction tokens estimate changes in camera features at 0.5, 1 and 2 seconds. A separate token summarizes the current instruction and observation history for the action policy.
+- 动作策略从推理模型只接收汇总词元，每次预测 20 步关节角。
+  - The action policy receives only the summary token from the reasoning model and predicts 20 joint-angle steps at a time.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这组权重检验，学习预测视觉变化能否帮助机器人完成依赖早先观测的操作。
+
+The released weights let researchers test whether learning to forecast visual changes helps with manipulation that depends on earlier observations.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME/commit/792c4398c16dd3dba01a46aa34283c614a61ff3b) · [Evidence 2](https://github.com/worv-ai/PonderPounce)
+
+---
+
 <a id="2026-11-22-go2-quadruped-motion-forecast-checkpoints"></a>
 ## [Gödel Machines 发布 25 个预测宇树 Go2 运动的模型权重](https://huggingface.co/GoedelMachines/go2-world-models)
 
@@ -71,6 +215,42 @@ The breakdown identifies camera changes as a concrete failure case that the stan
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/397436358d1c863b9fcea512e088239baf8ee9be) · [Evidence 2](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/7694412adfb1ee230b3116f036b39063d7470ab1)
+
+---
+
+<a id="2026-11-22-freshvla-two-timescale-robot-manipulation"></a>
+## [FreshVLA 用两种时间尺度学习抓取与搬运](https://freshvla.github.io/)
+
+**English:** [FreshVLA shows how two timescales of motion can guide robot manipulation](https://freshvla.github.io/)
+
+- **发布 / Published:** `2026-11-22T05:05:13Z`
+- **来源 / Source:** [FreshVLA team](https://freshvla.github.io/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `manipulation`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+FreshVLA 团队在项目页公开论文与 Flexiv 机械臂演示。模型从视频中分别学习一个动作阶段的整体进展和其中的细微调整，再用机器人示范把两者对应到控制指令。
+
+The FreshVLA team published its paper and Flexiv robot demonstrations on a project page. The model learns both the progress of an action and the smaller movements within it from video, then uses robot demonstrations to connect them to control.
+
+### 技术点 / Technical points
+
+- 时间高通滤波突出画面中发生变化的区域。策略通过流匹配，同时学习生成机器人指令和两种时间尺度的潜在动作。
+  - A temporal high-pass filter highlights changing image regions. A flow-matching policy learns to generate robot commands alongside the two latent motion signals.
+- 在 LIBERO-Long 上，作者报告双时间尺度的连续动作表示取得 98.0% 成功率，单层连续表示为 93.0%。
+  - On LIBERO-Long, the authors report 98.0% success with two continuous latent streams, compared with 93.0% for a single continuous layer.
+
+### 为什么重要 / Why it matters
+
+这组对照实验量化了单独表示细微动作对长程操作任务的帮助。
+
+The comparison isolates how much a separate representation of fine motion contributes on long manipulation tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://freshvla.github.io/assets/FreshVLA.pdf) · [Evidence 2](https://api.github.com/repos/FreshVLA/freshvla.github.io/deployments/7974202525/statuses/22836529216)
 
 ---
 

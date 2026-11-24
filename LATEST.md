@@ -2,6 +2,328 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-23-anthropic-claude-ship-pull-request-agents"></a>
+## [Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批](https://claude.com/resources/articles/introducing-claude-ship)
+
+**English:** [Anthropic launches Claude Ship beta for pull request fixes and approvals](https://claude.com/resources/articles/introducing-claude-ship)
+
+- **发布 / Published:** `2026-11-23T20:13:04Z`
+- **来源 / Source:** [Anthropic](https://claude.com/resources/articles/introducing-claude-ship) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `code-review`, `multi-agent`, `human-oversight`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Anthropic 宣布面向 Claude Team 和 Enterprise 用户的 GitHub 仓库推出 Claude Ship 测试版。它将 Code Review 与两个新智能体相连，由 PR Steward 处理修复，再由 Claude Approvals 依据团队策略决定哪些改动可获批准。
+
+Anthropic announced Claude Ship in beta for GitHub repositories on Claude Team and Enterprise plans. It connects Code Review with two new agents, PR Steward for repairs and Claude Approvals for deciding which changes can proceed under a team's policy.
+
+### 技术点 / Technical points
+
+- PR Steward 可处理持续集成检查失败、合并冲突和评审意见。推送修复后，它会说明修改内容及撤销方法。
+  - PR Steward can address failing CI checks, merge conflicts and review comments. After pushing a fix, it explains what changed and how to undo it.
+- 团队将审批策略保存在仓库中，可以允许常规改动自动获批，并指定哪些情况必须由人工评审。
+  - Teams store their approval policy in the repository. It can permit automatic approval for routine changes and require a human reviewer in specified cases.
+
+### 为什么重要 / Why it matters
+
+团队可以分别决定谁来修复改动，以及哪些改动可以自动通过评审。
+
+The workflow gives teams separate controls over who repairs a change and which changes can pass review automatically.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/ClaudeDevs/status/2124959436640858475) · [Evidence 2](https://claude.com/product/claude-ship)
+[Discussion 1](https://news.ycombinator.com/item?id=50618513)
+
+---
+
+<a id="2026-11-23-fomo-fd-surgical-robot-failure-detection-weights"></a>
+## [FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败](https://huggingface.co/Januxes/FoMoFD-models)
+
+**English:** [FoMo-FD releases world-model weights for detecting surgical robot task failures](https://huggingface.co/Januxes/FoMoFD-models)
+
+- **发布 / Published:** `2026-11-23T17:43:21Z`
+- **来源 / Source:** [FoMo-FD team](https://huggingface.co/Januxes/FoMoFD-models) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `robotics`, `world-model`, `failure-detection`, `flow-matching`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+FoMo-FD 团队公开了在四项手术机器人研究任务中用于检测操作失败的世界模型权重和对照模型。发布内容包括固定相机与腕部相机的视觉编码器，以及用于回放任务的模仿学习策略。
+
+The FoMo-FD team released the world-model checkpoints and comparison models used to study failure detection in four surgical robot research tasks. The release includes visual encoders for both fixed and wrist-mounted cameras, along with imitation policies for replaying the tasks.
+
+### 技术点 / Technical points
+
+- 同一份流匹配世界模型权重支持三种失败评分方法。评测在二十种失败模式下比较不同的监测方法。
+  - The same flow-matching world-model checkpoint supports three failure scores. The evaluation compares monitors across twenty failure modes.
+- 项目以标注的失败起点为基准比较检测延迟，并根据允许的误报率校准阈值。
+  - The project compares detection delays relative to the annotated onset of a failure, with thresholds calibrated to a false-alarm budget.
+
+### 为什么重要 / Why it matters
+
+研究者可在给定误报率预算下，对同一段失败记录比较不同监测方法从失败发生到发出警报需要多长时间。
+
+The released models make it possible to compare how early different monitors flag the same recorded failure at a given false-alarm budget.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011) · [Evidence 2](https://janusmaple.github.io/FoMoFD/)
+
+---
+
+<a id="2026-11-23-hls-inference-server-coding-benchmark-code"></a>
+## [HLS 公开评测代码，让编程智能体从零构建推理服务器](https://github.com/humanityslastsystem/hls)
+
+**English:** [HLS publishes its benchmark code for agents that build inference servers](https://github.com/humanityslastsystem/hls)
+
+- **发布 / Published:** `2026-11-23T16:26:31Z`
+- **来源 / Source:** [Humanity's Last System team](https://github.com/humanityslastsystem/hls) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `long-horizon`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Humanity's Last System 团队在 11 月 20 日介绍基准后，公开了包含七项任务的评测代码。智能体根据目标模型、GPU 配置和工作负载构建推理服务器，评测同时检验服务输出的正确性和运行速度。
+
+The Humanity's Last System team published the code for its seven-task benchmark after describing it on November 20. An agent receives a target model, GPU hardware and workload, then builds a server whose output and speed are evaluated together.
+
+### 技术点 / Technical points
+
+- 任务最长可运行 36 小时，最多使用八张 H200。提交的服务器会在全新容器中处理带有时序信息的任务负载。
+  - Tasks allow up to 36 hours and up to eight H200 GPUs. The submitted server runs in a fresh container against the task's timed workload.
+- 评分程序将输出与参考实现比对。未通过正确性检查的提交记零分。
+  - The scorer checks outputs against a reference implementation. A submission that fails that check receives zero regardless of its speed.
+
+### 为什么重要 / Why it matters
+
+对最终运行的服务评分，可以检验编程智能体能否在长时间优化中兼顾性能和正确性。
+
+Scoring the final running service tests whether a coding agent can sustain optimization work without sacrificing correctness.
+
+### 链接 / Links
+
+[Evidence 1](https://hlsbench.com/blog/introducing-hls) · [Evidence 2](https://api.github.com/repos/humanityslastsystem/hls/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+[Discussion 1](https://news.ycombinator.com/item?id=50618188)
+
+---
+
+<a id="2026-11-23-robouniverse-coding-agent-robot-controllers"></a>
+## [RoboUniverse 发布为仿真机器人编写控制程序的智能体](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+**English:** [RoboUniverse releases a coding agent that writes controllers for simulated robots](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+- **发布 / Published:** `2026-11-23T15:25:08Z`
+- **来源 / Source:** [Einsia](https://huggingface.co/Einsia/RoboUniverse-35B-A3B) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `coding-agent`, `robotics`, `simulation`, `tool-use`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Einsia 发布了 RoboUniverse-35B-A3B。这款编程智能体用 RoboUniverse-10K 中成功完成操作的轨迹微调，在 Claude Code 中查看摄像头画面、编写 Python 控制程序并在 Isaac Sim 中运行。
+
+Einsia released RoboUniverse-35B-A3B, a coding agent fine-tuned on successful manipulation trajectories from RoboUniverse-10K. Running inside Claude Code, the model inspects camera views, writes Python controllers and tries them in Isaac Sim.
+
+### 技术点 / Technical points
+
+- 模型基于 Qwen3.6-35B-A3B，训练样本包含智能体在仿真环境中调用工具的过程。
+  - The model is based on Qwen3.6-35B-A3B. Its training examples include the agent's interactions with tools in the simulation environment.
+- 智能体可以查询场景并向仿真机器人发送动作。每次任务执行结束后，由独立的校验程序评分。
+  - The agent can inspect the scene and send actions to the simulated robot. A separate verifier scores each episode after execution.
+
+### 为什么重要 / Why it matters
+
+研究者可以利用公开权重，检验智能体能否根据视觉观测编写可实际运行的机器人控制程序。
+
+The model weights give researchers a way to test whether an agent can turn visual observations into a working robot controller.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Einsia/RoboUniverse-35B-A3B/commit/c0e3455b05bf29ac1ce86eac77a95e442b6e93c8) · [Evidence 2](https://huggingface.co/datasets/Einsia/RoboUniverse-10K)
+
+---
+
+<a id="2026-11-23-persistworld-streaming-occupancy-forecast-weights"></a>
+## [PersistWorld 发布权重，用连续摄像画面预测未来三维空间占用](https://huggingface.co/ZiAnwang/PersistWorld)
+
+**English:** [PersistWorld releases weights for forecasting 3D occupancy from streaming cameras](https://huggingface.co/ZiAnwang/PersistWorld)
+
+- **发布 / Published:** `2026-11-23T11:42:12Z`
+- **来源 / Source:** [PersistWorld team](https://huggingface.co/ZiAnwang/PersistWorld) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `occupancy-forecasting`, `spatial-memory`, `scene-dynamics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+PersistWorld 团队发布模型权重，可随摄像头画面的到来持续更新行车场景的三维状态，并从同一状态预测未来 1 至 8 秒内哪些空间将被占用。
+
+The PersistWorld team released a checkpoint that keeps a 3D record of a driving scene as camera frames arrive. It can query the same learned state to predict which parts of the scene will be occupied one to eight seconds ahead.
+
+### 技术点 / Technical points
+
+- 新观测被写入固定在场景中的网格。预测时，模型将网格副本推演到指定时刻，再从车辆坐标系读取结果。
+  - New observations are written into a grid anchored to the scene. For a forecast, the model evolves a copy of the grid to the requested time and reads it in the vehicle's coordinate frame.
+- 团队报告，在 Occ3D-nuScenes 验证集上，1 至 3 秒和 1 至 8 秒预测区间的平均交并比（mIoU）分别为 28.72 和 23.86。
+  - On the Occ3D-nuScenes validation set, the team reports a mean intersection over union of 28.72 over one to three seconds and 23.86 over one to eight seconds.
+
+### 为什么重要 / Why it matters
+
+研究者可用这组权重检验，当摄像头位置发生变化时，保留先前观测到的几何结构对预测有多大帮助。
+
+The checkpoint lets researchers examine how retaining previously seen geometry affects predictions as the camera moves.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/ZiAnwang/PersistWorld/commit/aad1341e4ccd42b2eda12f0ef647a243baf660a1) · [Evidence 2](https://wangzian828.github.io/PersistWorld/)
+
+---
+
+<a id="2026-11-23-mm-coding-computer-use-vision-on-demand"></a>
+## [MM-Coding 公开五套实验框架，比较桌面智能体何时需要看屏幕](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337)
+
+**English:** [MM-Coding releases five ways to test when a desktop agent needs vision](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337)
+
+- **发布 / Published:** `2026-11-23T11:09:21Z`
+- **来源 / Source:** [MM-Coding team](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `coding-agent`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+MM-Coding 团队公开了五套桌面智能体实验框架，可改变模型观察屏幕和执行操作的方式。作者报告，在三个基准上，通过程序执行操作、按需查看图像的方案，比图形界面智能体平均任务得分高 11.1 分，输入词元用量为后者的 61.7%。
+
+The MM-Coding team released five desktop-agent setups that vary how a model sees the screen and takes action. Across three benchmarks, the authors report that acting through programs and requesting images as needed gained 11.1 points in average task score over a GUI agent while using 61.7% as many input tokens.
+
+### 技术点 / Technical points
+
+- 各方案共用策略模型、桌面任务、评分方法和 500 次模型调用预算，覆盖逐步截图的键鼠操作以及按需查看图像的程序执行等方式。
+  - The setups share the policy model, desktop tasks, scoring and budget of 500 model calls. They range from mouse and keyboard control with screenshots at every step to program execution with on-demand vision.
+- 公开的评测程序支持 OSWorld 2.0、WeaveBench 和 Agents' Last Exam。
+  - The released runners cover OSWorld 2.0, WeaveBench and Agents' Last Exam.
+
+### 为什么重要 / Why it matters
+
+固定模型和调用预算后，研究者可以单独测量操作接口对桌面任务表现的影响。
+
+Holding the model and budget fixed makes it possible to test how much desktop performance depends on the action interface.
+
+### 链接 / Links
+
+[Evidence 1](https://openenvision.org/Rethinking-CUA-Vision/) · [Evidence 2](https://api.github.com/repos/OpenEnvision/MM-Coding/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+
+---
+
+<a id="2026-11-23-opencode-240-browser-and-event-automations"></a>
+## [OpenCode 2.4.0 支持与智能体共用浏览器，并按事件触发任务](https://github.com/anomalyco/opencode/releases/tag/v2.4.0)
+
+**English:** [OpenCode 2.4.0 adds a shared browser and event-triggered agent tasks](https://github.com/anomalyco/opencode/releases/tag/v2.4.0)
+
+- **发布 / Published:** `2026-11-23T09:22:21Z`
+- **来源 / Source:** [OpenCode](https://github.com/anomalyco/opencode/releases/tag/v2.4.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `browser-use`, `automation`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+OpenCode 在桌面端加入了能保留会话的浏览器。开发者从聊天窗口打开网页后，可以让编程智能体读取或操作同一标签页。该版本还支持由已连接的 MCP 服务器发出事件来触发自动任务。
+
+OpenCode added a persistent browser to its desktop app. A developer can open a page from chat and have the coding agent read or operate the same tab. The release also allows scheduled work to start when a connected MCP server emits an event.
+
+### 技术点 / Technical points
+
+- 重启后浏览器保留标签页，也支持导入已有浏览器配置。浏览器权限规则可以禁止智能体调用浏览器。
+  - The browser retains tabs across restarts and supports importing an existing browser profile. A browser permission rule can block all agent browser calls.
+- 定时器或 MCP 事件可触发提示词、脚本或预设的 Shell 命令。对于 Shell 命令，系统会记录每次运行的输出和退出码。
+  - An automation can run a prompt, script or fixed shell command on a timer or MCP event. Shell-command automations record the output and exit code for each run.
+
+### 为什么重要 / Why it matters
+
+开发者能让智能体直接查看正在调试的页面状态，包括需要保持登录才能复现的交互。
+
+The shared tab lets developers point the agent at the exact page state they are debugging, including interactions that require a signed-in session.
+
+---
+
+<a id="2026-11-23-roboinf-robot-instruction-fidelity-runner"></a>
+## [RoboInF 开源评测工具，检验机器人是否按指定步骤操作](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f)
+
+**English:** [RoboInF releases a runner for testing whether robots follow manipulation instructions](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f)
+
+- **发布 / Published:** `2026-11-23T08:39:04Z`
+- **来源 / Source:** [RoboInF team](https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `benchmark`, `manipulation`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+上海交通大学与同济大学研究者公开了 RoboInF 评测工具和四种策略接口。每项任务从相同的仿真场景出发，只改变指令，检验机器人是否按指定路线、顺序或接触部位完成操作。
+
+Shanghai Jiao Tong University and Tongji University researchers released RoboInF's evaluation runner and four policy interfaces. Each task starts from the same simulated scene so that changing only the instruction can reveal whether the robot follows a requested route, order or contact point.
+
+### 技术点 / Technical points
+
+- 八项任务各有 6 至 12 种指令变体。例如，机器人要按不同指令沿不同路线抵达同一终点。
+  - Each of eight tasks has six to twelve instruction variants. For example, a robot can reach the same destination by different routes.
+- 评测分别统计目标完成率和联合成功率，后者还要求满足指令规定的全部约束。
+  - The evaluator reports goal completion separately from joint success, which also requires meeting every applicable instruction constraint.
+
+### 为什么重要 / Why it matters
+
+即使把正确的物体送到指定位置，机器人也可能忽略过程要求。这些对照任务能测出此类偏差。
+
+A robot can finish with the right object in the right place while ignoring the user's directions. The paired trials make that failure measurable.
+
+### 链接 / Links
+
+[Evidence 1](https://sjtu-deepvisionlab.github.io/RoboInF/) · [Evidence 2](https://api.github.com/repos/SJTU-DeepVisionLab/RoboInF/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+
+---
+
+<a id="2026-11-23-ponderpounce-wm-robot-visual-forecasting"></a>
+## [PonderPounce-WM 用未来画面特征训练机器人策略](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+**English:** [PonderPounce-WM trains a robot policy to anticipate visual changes](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
+
+- **发布 / Published:** `2026-11-23T06:57:56Z`
+- **来源 / Source:** [PonderPounce team](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `vla`, `robotics`, `visual-prediction`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+PonderPounce 团队发布了学习预测机器人摄像头画面变化的模型权重。在相同训练数据规模下，作者报告新模型在 RoboMME 上三次评测平均得分为 67.42%，原版为 60.83%。
+
+The PonderPounce team released a checkpoint that learns to predict how a robot's camera view will change. On RoboMME, the authors report a three-run mean of 67.42%, versus 60.83% for PonderPounce at the same training-data scale.
+
+### 技术点 / Technical points
+
+- 三个预测词元分别估计 0.5 秒、1 秒和 2 秒后的视觉特征变化。另一个词元为动作策略汇总当前指令和观测历史。
+  - Three prediction tokens estimate changes in camera features at 0.5, 1 and 2 seconds. A separate token summarizes the current instruction and observation history for the action policy.
+- 动作策略从推理模型只接收汇总词元，每次预测 20 步关节角。
+  - The action policy receives only the summary token from the reasoning model and predicts 20 joint-angle steps at a time.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这组权重检验，学习预测视觉变化能否帮助机器人完成依赖早先观测的操作。
+
+The released weights let researchers test whether learning to forecast visual changes helps with manipulation that depends on earlier observations.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME/commit/792c4398c16dd3dba01a46aa34283c614a61ff3b) · [Evidence 2](https://github.com/worv-ai/PonderPounce)
+
+---
+
 <a id="2026-11-22-localcode-0543-inkling-metal-inference"></a>
 ## [LocalCode 0.5.43 让 Inkling 2 Mini 的量化专家在苹果 GPU 上运行](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
 
@@ -143,6 +465,42 @@ The breakdown identifies camera changes as a concrete failure case that the stan
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/397436358d1c863b9fcea512e088239baf8ee9be) · [Evidence 2](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/7694412adfb1ee230b3116f036b39063d7470ab1)
+
+---
+
+<a id="2026-11-22-freshvla-two-timescale-robot-manipulation"></a>
+## [FreshVLA 用两种时间尺度学习抓取与搬运](https://freshvla.github.io/)
+
+**English:** [FreshVLA shows how two timescales of motion can guide robot manipulation](https://freshvla.github.io/)
+
+- **发布 / Published:** `2026-11-22T05:05:13Z`
+- **来源 / Source:** [FreshVLA team](https://freshvla.github.io/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `manipulation`, `imitation-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+FreshVLA 团队在项目页公开论文与 Flexiv 机械臂演示。模型从视频中分别学习一个动作阶段的整体进展和其中的细微调整，再用机器人示范把两者对应到控制指令。
+
+The FreshVLA team published its paper and Flexiv robot demonstrations on a project page. The model learns both the progress of an action and the smaller movements within it from video, then uses robot demonstrations to connect them to control.
+
+### 技术点 / Technical points
+
+- 时间高通滤波突出画面中发生变化的区域。策略通过流匹配，同时学习生成机器人指令和两种时间尺度的潜在动作。
+  - A temporal high-pass filter highlights changing image regions. A flow-matching policy learns to generate robot commands alongside the two latent motion signals.
+- 在 LIBERO-Long 上，作者报告双时间尺度的连续动作表示取得 98.0% 成功率，单层连续表示为 93.0%。
+  - On LIBERO-Long, the authors report 98.0% success with two continuous latent streams, compared with 93.0% for a single continuous layer.
+
+### 为什么重要 / Why it matters
+
+这组对照实验量化了单独表示细微动作对长程操作任务的帮助。
+
+The comparison isolates how much a separate representation of fine motion contributes on long manipulation tasks.
+
+### 链接 / Links
+
+[Evidence 1](https://freshvla.github.io/assets/FreshVLA.pdf) · [Evidence 2](https://api.github.com/repos/FreshVLA/freshvla.github.io/deployments/7974202525/statuses/22836529216)
 
 ---
 
@@ -359,361 +717,3 @@ The checkpoint and its normalization statistics give researchers a common starti
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/commit/fdd4874767857352bfd681a8069705fdfbc4a63d) · [Evidence 2](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/blob/fdd4874767857352bfd681a8069705fdfbc4a63d/config.yml)
-
----
-
-<a id="2026-11-21-ode-policy-maniskill3-robomimic-evaluation"></a>
-## [ODE Policy 新增 ManiSkill3 与 robomimic 评测，覆盖 12 项操作任务](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
-
-**English:** [ODE Policy adds ManiSkill3 and robomimic evaluations across twelve manipulation tasks](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md)
-
-- **发布 / Published:** `2026-11-21T00:32:14Z`
-- **来源 / Source:** [ODE Policy team](https://github.com/NTUMARS/ODE-POLICY/blob/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f/README.md) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `imitation-learning`, `benchmark`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
-
-### 摘要 / Summary
-
-ODE Policy 团队发布了覆盖 8 项 ManiSkill3 任务和 4 项 robomimic 任务的训练与评测流程，并在两套任务上将动作预测模型与流匹配基线 FM-DiT 进行比较。
-
-The ODE Policy team published training and evaluation pipelines for eight ManiSkill3 tasks and four robomimic tasks. It compared its robot action predictor with the FM-DiT flow-matching baseline on both suites.
-
-### 技术点 / Technical points
-
-- 训练 50 轮后，ODE Policy 与 FM-DiT 在 ManiSkill3 上每个动作片段的推理时间分别为 5.7 和 55.0 毫秒，在 robomimic 上分别为 12.3 和 68.1 毫秒。
-  - At epoch 50, inference per action chunk took 5.7 ms for ODE Policy and 55.0 ms for FM-DiT on ManiSkill3. On robomimic the times were 12.3 and 68.1 ms.
-- 团队使用一个训练随机种子，每个检查点在每项任务上测试 100 回合。每种方法在同一套任务中共用一个模型。
-  - The team used one training seed and tested each checkpoint on 100 episodes per task. Each method used one model for all tasks within a suite.
-
-### 为什么重要 / Why it matters
-
-公开的评测流程让研究者可以更换随机种子和操作任务，检验推理速度优势能否复现。
-
-The released pipelines let researchers check whether the reported inference-speed gains hold under other seeds and manipulation tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/NTUMARS/ODE-POLICY/commits/e0a33b4cae07abeed024a6db7a5ba6d9dc338d7f)
-
----
-
-<a id="2026-11-20-claude-code-21330-concurrent-worktree-reliability"></a>
-## [Claude Code 2.1.330 修复并发会话误删工作树、过早关闭共享工具的问题](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
-
-**English:** [Claude Code 2.1.330 fixes premature worktree deletion and shared tool shutdown](https://github.com/anthropics/claude-code/releases/tag/v2.1.330)
-
-- **发布 / Published:** `2026-11-20T22:32:56Z`
-- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.330) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agents`, `multi-agent`, `reliability`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
-
-### 摘要 / Summary
-
-Anthropic 修复了 Claude Code 中两种过早清理资源的问题。退出工作树时可能误删其他会话仍在使用的目录，子智能体结束时也可能关闭其他智能体仍在使用的 MCP 服务。
-
-Anthropic fixed two resource-lifetime problems in Claude Code. Exiting a worktree could delete it while another session was still working there, and a subagent finishing could shut down an MCP server still serving other agents.
-
-### 技术点 / Technical points
-
-- 工作树修复同时覆盖 ExitWorktree 工具和交互式退出对话框。
-  - The worktree fix covers both the ExitWorktree tool and the interactive exit dialog.
-- 该版本还修复了多个任务同时更新时，依赖关系和元数据可能丢失的问题。
-  - The release also fixes lost task dependencies and metadata when several task updates run concurrently.
-
-### 为什么重要 / Why it matters
-
-这些修复降低了多个编码智能体共享仓库或服务时，中途丢失编辑内容或工具连接的风险。
-
-These fixes protect active edits and tool access when several coding agents share a repository or service.
-
----
-
-<a id="2026-11-20-openai-agents-sdk-python-codex-core-preview"></a>
-## [OpenAI 在 Python Agents SDK 预览版中加入进程内 Codex 后端](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
-
-**English:** [OpenAI previews an in-process Codex provider for the Python Agents SDK](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1)
-
-- **发布 / Published:** `2026-11-20T20:51:28Z`
-- **来源 / Source:** [OpenAI](https://github.com/openai/openai-agents-python/releases/tag/v1.0.0-alpha.1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `runtime`, `coding-agents`, `tool-use`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-OpenAI 发布 1.0.0-alpha.1 预览版，开发者可按次为智能体选择 Codex。Python 安装包内嵌 Codex Core，工具调用、智能体间的任务交接和流式回复沿用 SDK 的 Runner 接口。
-
-OpenAI’s 1.0.0-alpha.1 release lets developers select Codex for an individual agent run. The preview embeds Codex Core in the Python wheel and keeps the SDK’s existing runner interface for tools, handoffs and streamed responses.
-
-### 技术点 / Technical points
-
-- Python 进程通过 PyO3 直接调用 Rust 核心，省去了单独启动 app-server 和经由 JSON-RPC 往返的开销。
-  - The Python process calls the Rust core through PyO3, avoiding a separate app-server process and its JSON-RPC round trips.
-- 多次调用可共享线程管理器，每次调用会创建新线程。应用可通过 SDK 会话在调用之间保留对话历史。
-  - Calls can share one thread manager, but each starts a fresh thread. Applications use an SDK session to carry conversation history across calls.
-
-### 为什么重要 / Why it matters
-
-开发者可以在现有多智能体工作流中试用 Codex，并继续使用原有的应用工具和会话管理方式。
-
-Developers can test Codex in an existing multi-agent workflow while keeping the same application-level tools and session handling.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/openai/openai-agents-python/blob/87e8f533c3b457fe632a5eb38ac42590d7f4d9fc/docs/models/codex.md)
-
----
-
-<a id="2026-11-20-cloudflare-agents-sdk-tools-wait-for-signals"></a>
-## [Cloudflare Agents SDK 支持工具挂起等待，智能体可在此期间休眠](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
-
-**English:** [Cloudflare Agents SDK lets tools wait for a signal while their agent sleeps](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0)
-
-- **发布 / Published:** `2026-11-20T15:56:33Z`
-- **来源 / Source:** [Cloudflare](https://github.com/cloudflare/agents/releases/tag/agents%400.34.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `multi-agent`, `runtime`, `human-in-the-loop`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-Cloudflare 在 Agents SDK 0.34.0 中集成 Pi 1.6。工具可以挂起，等待人工批准、到达截止时间或其他会话完成，承载智能体的 Durable Object 在此期间可以休眠。
-
-Cloudflare integrated Pi 1.6 into Agents SDK 0.34.0. A tool can pause until a person approves an action, a deadline passes or another session finishes, letting the underlying Durable Object hibernate.
-
-### 技术点 / Technical points
-
-- 挂起的工具会释放当前调用，收到信号或到达截止时间后，运行时会再次调用该工具。
-  - A parked tool releases the active invocation. A signal or deadline causes the harness to invoke the tool again.
-- 应用可以用已有对话记录初始化会话，也可以在回答中断时保留已排队的输入。
-  - Applications can seed a new session with an existing transcript and preserve queued input when an answer is interrupted.
-
-### 为什么重要 / Why it matters
-
-长任务可以等待数小时才收到决定，等待期间无需持续占用调用，也无需应用反复查询审批结果。
-
-A long-running workflow can spend hours waiting for a decision without tying up an active invocation or requiring the application to poll for approval.
-
-### 链接 / Links
-
-[Evidence 1](https://developers.cloudflare.com/changelog/post/2026-11-20-pi-harness-pi-1-6/)
-
----
-
-<a id="2026-11-20-signal-mobile-agent-screen-privacy"></a>
-## [Signal 限制应用内截图，减少手机 AI 助手读取聊天内容的机会](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
-
-**English:** [Signal restricts screenshots to limit mobile AI assistants’ access to chats](https://bsky.app/profile/signal.org/post/3n2qboicngk2z)
-
-- **发布 / Published:** `2026-11-20T09:31:33.019Z`
-- **来源 / Source:** [Signal](https://bsky.app/profile/signal.org/post/3n2qboicngk2z) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `computer-use`, `privacy`, `safety`, `mobile`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Signal 宣布调整 iOS 27 和部分 Android 设备的截图设置。iPhone 默认开启保护。在支持检测的 Android 设备上，Signal 首次发现助手尝试读屏时，会自动开启保护。
-
-Signal announced new screenshot defaults for iOS 27 and supported Android devices. On iPhone the protection starts enabled. On Android, Signal activates it the first time it detects an assistant trying to read the screen.
-
-### 技术点 / Technical points
-
-- 这项变更适用于 iOS 27 上的 Signal 8.37 及后续版本，以及受支持 Android 设备上的 Signal 8.35.1 及后续版本。
-  - The rollout applies to Signal 8.37 or later on iOS 27 and Signal 8.35.1 or later on supported Android devices.
-- 用户可在设置中恢复截图。Signal 说明，这项保护只覆盖屏幕捕获，设备数据还可能经其他途径被读取。
-  - Users can restore screenshots in settings. Signal says the restriction covers screen capture and leaves other possible routes to data on the device outside its scope.
-
-### 为什么重要 / Why it matters
-
-当系统级智能体也能通过截图读取聊天时，应用阻止它读屏的做法会直接影响用户自己的截图功能。
-
-The change shows how protecting a conversation from an operating-system agent can also affect a feature people use themselves.
-
-### 链接 / Links
-
-[Evidence 1](https://signal.org/blog/protecting-your-privacy/) · [Evidence 2](https://support.signal.org/hc/en-us/articles/11338514641306-Screen-security-blocking-Google-Gemini-and-Siri-AI)
-[Discussion 1](https://news.ycombinator.com/item?id=50572348)
-
----
-
-<a id="2026-11-20-gamewm-bidirectional-game-interaction-weights"></a>
-## [GameWM 发布双向模型权重，可根据游戏引擎渲染交互画面](https://huggingface.co/binghe-sjtu/GameWM)
-
-**English:** [GameWM releases bidirectional weights for rendering game interactions](https://huggingface.co/binghe-sjtu/GameWM)
-
-- **发布 / Published:** `2026-11-20T08:57:04Z`
-- **来源 / Source:** [GameWM team](https://huggingface.co/binghe-sjtu/GameWM) · `primary`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `simulation`, `video-generation`, `world-model`, `game-environments`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-GameWM 发布了基于三种骨干网络的双向模型权重。游戏引擎先按规则计算交互结果和镜头，生成粗略视频，再由学习模型生成角色动作和场景的视觉细节。
-
-GameWM released bidirectional checkpoints for three backbones. Its game engine supplies a coarse video that fixes the rules, camera and outcome of an interaction, while the learned model generates its visual details.
-
-### 技术点 / Technical points
-
-- 权重覆盖 MiniMax-H3-33B、Wan2.2-14B 和 Wan2.2-5B。每种骨干都提供可接收角色正面、侧面和背面参考图的版本。
-  - The release covers MiniMax-H3-33B, Wan2.2-14B and Wan2.2-5B. Each has a variant that accepts front, side and back views of a character.
-- 此次发布的 BD 和 BD-Sheet 两种权重均采用双向生成，每段视频需要 30 步采样。
-  - The published BD and BD-Sheet checkpoints generate clips bidirectionally in 30 sampling steps.
-
-### 为什么重要 / Why it matters
-
-引擎固定交互结果后，开发者就能比较同一种游戏机制在不同角色与画面中的呈现方式。
-
-A fixed engine outcome gives developers a way to test different visual realizations of the same game mechanic.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/binghe-sjtu/GameWM/commit/94db12725afcbfc028caf1bcd35ee271dfce4526) · [Evidence 2](https://arxiv.org/abs/2611.19247)
-
----
-
-<a id="2026-11-20-twopass-robot-video-prediction-checkpoints"></a>
-## [TwoPass 发布 Bridge 与 Language Table 权重，四次网络调用即可预测一段操作视频](https://huggingface.co/Junjun2333/TwoPass)
-
-**English:** [TwoPass releases Bridge and Language Table checkpoints for four-call video prediction](https://huggingface.co/Junjun2333/TwoPass)
-
-- **发布 / Published:** `2026-11-20T07:25:25Z`
-- **来源 / Source:** [TwoPass team](https://huggingface.co/Junjun2333/TwoPass) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `video-prediction`, `world-model`, `robot-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-TwoPass 团队发布了分别面向 Bridge 和 Language Table 的两个机器人视频预测模型。模型接收起始画面与计划动作，通过修正自己的初步预测生成后续视频片段。
-
-The TwoPass team completed its release of two robot video predictors. Given a starting frame and planned actions, each model predicts a video chunk by refining its own earlier estimate.
-
-### 技术点 / Technical points
-
-- 每次细化既更新求解结果，也给下一步提供草稿。作者评估了每个视频片段仅调用四次网络的设置。
-  - Each refinement produces both a solver update and the draft for the next step. The authors evaluate a setting with four network evaluations per chunk.
-- 两份下载文件都包含完整模型权重，分别由 Wan2.2-TI2V-5B 在对应数据集上微调得到。
-  - The two downloads contain full model weights fine-tuned from Wan2.2-TI2V-5B for the respective datasets.
-
-### 为什么重要 / Why it matters
-
-研究者可以用这些权重检验，在预测动作后果的推理预算很小时，模型还能保留多少物体运动细节。
-
-The checkpoints let researchers test how much object-motion detail survives when a robot has a small inference budget for predicting an action’s outcome.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/Junjun2333/TwoPass/commit/e8a39c7487a3f3e6782116c8bcab0e88f1a449ab) · [Evidence 2](https://arxiv.org/abs/2611.25553)
-
----
-
-<a id="2026-11-20-fastrua-overlaps-planning-and-robot-motion"></a>
-## [FastRUA 让规划与运动并行，缩短双臂机器人真机任务耗时](https://fastrua.ai/blog/2026-11-realtime-rua/)
-
-**English:** [FastRUA overlaps planning and motion to shorten real-robot tasks](https://fastrua.ai/blog/2026-11-realtime-rua/)
-
-- **发布 / Published:** `2026-11-20T01:45:42Z`
-- **来源 / Source:** [Hao AI Lab, UC San Diego](https://fastrua.ai/blog/2026-11-realtime-rua/) · `primary`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `tool-use`, `latency`, `bimanual-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-加州大学圣迭戈分校 Hao AI Lab 调整了 GPT-6 Astra 智能体调度两条 YAM 机械臂的方式。在模型不变的情况下，成功完成的叠毛巾试验中位耗时从约 18 分钟降至约 6 分钟。
-
-UC San Diego’s Hao AI Lab changed how a GPT-6 Astra agent schedules work on two YAM arms. With the same model, the median time for completed towel folds fell from about 18 minutes to about six.
-
-### 技术点 / Technical points
-
-- 机械臂执行已排队的动作时，模型可以规划下一步。团队还减少了工具调用往返，缩短了等待新回复的时间。
-  - The arms execute queued motions while the model plans the next ones. Fewer tool round trips also reduce the time spent waiting for a new response.
-- 在杯子操作任务中，机械臂运动时间占比从 24% 升至 84%。团队测得从观察到据此执行动作仍有约 5 秒延迟。
-  - On a cup task, the arms were in motion for 84% of elapsed time, up from 24%. The team still measured about five seconds between observation and action.
-
-### 为什么重要 / Why it matters
-
-按真机实际耗时评估，可以发现模拟器在等待智能体推理时暂停计时所掩盖的空闲时间。
-
-Measuring elapsed time on hardware reveals idle periods that a simulator can hide by pausing while the agent thinks.
-
-### 链接 / Links
-
-[Evidence 1](https://x.com/haoailab/status/2123593596918235515) · [Evidence 2](https://github.com/fast-rua/making-rua-fast)
-[Discussion 1](https://news.ycombinator.com/item?id=50594822)
-
----
-
-<a id="2026-11-20-dreamfar-bimanual-world-model-weights"></a>
-## [DreamFAR 发布双臂机器人世界模型权重和 10 个起始场景](https://huggingface.co/Amazon-FAR/dreamfar)
-
-**English:** [DreamFAR releases weights and ten starting scenes for bimanual robot simulation](https://huggingface.co/Amazon-FAR/dreamfar)
-
-- **发布 / Published:** `2026-11-20T00:50:45Z`
-- **来源 / Source:** [DreamFAR team](https://huggingface.co/Amazon-FAR/dreamfar) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-model`, `video-prediction`, `bimanual-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-DreamFAR 团队发布了图像编码器、动力学模型权重和 10 个留出场景。研究者可以从同一场景出发，改变双臂机器人的动作指令，比较模型对物体运动的预测。
-
-The DreamFAR team released its image tokenizer, dynamics checkpoint and ten held-out scenes. Starting from one of these scenes, researchers can vary the robot’s commands and compare how the model predicts the objects will move.
-
-### 技术点 / Technical points
-
-- 动力学模型使用机器人遥操作数据训练。作者报告其在商用 GPU 上的生成速度为每秒 10 帧。
-  - The dynamics model learned from robot teleoperation data. The authors report generating ten frames per second on a commercial GPU.
-- 发布包包含动作与状态的归一化参数，以及 YAM 双臂工作站的运动学模型。
-  - The release includes action and state normalization parameters and a kinematic model of the YAM bimanual station.
-
-### 为什么重要 / Why it matters
-
-统一的起始场景和权重让研究者能在同一套动力学模型下比较不同动作序列。
-
-Shared starting scenes and weights make it possible to compare competing action sequences under the same learned dynamics.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/Amazon-FAR/dreamfar/commit/e74c8f113cf89c4232420a132f22f0ba7cb0760c) · [Evidence 2](https://arxiv.org/abs/2611.22001)
-
----
-
-<a id="2026-11-20-codex-0171-remote-noninteractive-sessions"></a>
-## [Codex 0.171.0 支持在远端启动和恢复非交互式编程会话](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
-
-**English:** [Codex 0.171.0 can start and resume unattended sessions on a remote server](https://github.com/openai/codex/releases/tag/rust-v0.171.0)
-
-- **发布 / Published:** `2026-11-20T00:44:47Z`
-- **来源 / Source:** [OpenAI Codex](https://github.com/openai/codex/releases/tag/rust-v0.171.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `agent-runtime`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-OpenAI 为 Codex 命令行客户端增加了远程执行功能。新版还默认启用终端工作区，可在主对话旁查看子智能体的执行记录。
-
-OpenAI added remote execution to the Codex command-line client. The release also enables a terminal workspace that shows subagent transcripts alongside the main conversation.
-
-### 技术点 / Technical points
-
-- codex exec 的远程选项可连接已有的应用服务器，启动非交互式会话，也可恢复此前的会话。
-  - The new remote option for codex exec connects to an existing app server to start a noninteractive session or resume an earlier one.
-- 用户切换或恢复会话时，草稿、排队消息和中断的输入都会保留在原来的对话线程中。
-  - When a user switches or resumes sessions, drafts, queued messages and interrupted input stay with the thread where they originated.
-
-### 为什么重要 / Why it matters
-
-自动化程序可以重新接入已有的编程会话，操作者也能在终端查看分派给子智能体的工作。
-
-An automation runner can reconnect to an existing coding session while an operator uses the terminal to inspect delegated work.
-
-### 链接 / Links
-
-[Evidence 1](https://api.github.com/repos/openai/codex/releases/tags/rust-v0.171.0)

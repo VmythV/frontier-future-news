@@ -27899,6 +27899,492 @@
         "technical_depth": 12,
         "traction": 1
       }
+    },
+    {
+      "id": "2026-11-22-freshvla-two-timescale-robot-manipulation",
+      "published_at": "2026-11-22T05:05:13Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "robotics",
+        "manipulation",
+        "imitation-learning"
+      ],
+      "title_en": "FreshVLA shows how two timescales of motion can guide robot manipulation",
+      "title_zh": "FreshVLA 用两种时间尺度学习抓取与搬运",
+      "summary_en": "The FreshVLA team published its paper and Flexiv robot demonstrations on a project page. The model learns both the progress of an action and the smaller movements within it from video, then uses robot demonstrations to connect them to control.",
+      "summary_zh": "FreshVLA 团队在项目页公开论文与 Flexiv 机械臂演示。模型从视频中分别学习一个动作阶段的整体进展和其中的细微调整，再用机器人示范把两者对应到控制指令。",
+      "tech_points_en": [
+        "A temporal high-pass filter highlights changing image regions. A flow-matching policy learns to generate robot commands alongside the two latent motion signals.",
+        "On LIBERO-Long, the authors report 98.0% success with two continuous latent streams, compared with 93.0% for a single continuous layer."
+      ],
+      "tech_points_zh": [
+        "时间高通滤波突出画面中发生变化的区域。策略通过流匹配，同时学习生成机器人指令和两种时间尺度的潜在动作。",
+        "在 LIBERO-Long 上，作者报告双时间尺度的连续动作表示取得 98.0% 成功率，单层连续表示为 93.0%。"
+      ],
+      "why_it_matters_en": "The comparison isolates how much a separate representation of fine motion contributes on long manipulation tasks.",
+      "why_it_matters_zh": "这组对照实验量化了单独表示细微动作对长程操作任务的帮助。",
+      "source": {
+        "name": "FreshVLA team",
+        "type": "primary",
+        "url": "https://freshvla.github.io/",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://freshvla.github.io/assets/FreshVLA.pdf",
+        "https://api.github.com/repos/FreshVLA/freshvla.github.io/deployments/7974202525/statuses/22836529216"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-ponderpounce-wm-robot-visual-forecasting",
+      "published_at": "2026-11-23T06:57:56Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "vla",
+        "robotics",
+        "visual-prediction",
+        "benchmark"
+      ],
+      "title_en": "PonderPounce-WM trains a robot policy to anticipate visual changes",
+      "title_zh": "PonderPounce-WM 用未来画面特征训练机器人策略",
+      "summary_en": "The PonderPounce team released a checkpoint that learns to predict how a robot's camera view will change. On RoboMME, the authors report a three-run mean of 67.42%, versus 60.83% for PonderPounce at the same training-data scale.",
+      "summary_zh": "PonderPounce 团队发布了学习预测机器人摄像头画面变化的模型权重。在相同训练数据规模下，作者报告新模型在 RoboMME 上三次评测平均得分为 67.42%，原版为 60.83%。",
+      "tech_points_en": [
+        "Three prediction tokens estimate changes in camera features at 0.5, 1 and 2 seconds. A separate token summarizes the current instruction and observation history for the action policy.",
+        "The action policy receives only the summary token from the reasoning model and predicts 20 joint-angle steps at a time."
+      ],
+      "tech_points_zh": [
+        "三个预测词元分别估计 0.5 秒、1 秒和 2 秒后的视觉特征变化。另一个词元为动作策略汇总当前指令和观测历史。",
+        "动作策略从推理模型只接收汇总词元，每次预测 20 步关节角。"
+      ],
+      "why_it_matters_en": "The released weights let researchers test whether learning to forecast visual changes helps with manipulation that depends on earlier observations.",
+      "why_it_matters_zh": "研究者可以用这组权重检验，学习预测视觉变化能否帮助机器人完成依赖早先观测的操作。",
+      "source": {
+        "name": "PonderPounce team",
+        "type": "primary",
+        "url": "https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME/commit/792c4398c16dd3dba01a46aa34283c614a61ff3b",
+        "https://github.com/worv-ai/PonderPounce"
+      ],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-roboinf-robot-instruction-fidelity-runner",
+      "published_at": "2026-11-23T08:39:04Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "benchmark",
+        "manipulation",
+        "open-source"
+      ],
+      "title_en": "RoboInF releases a runner for testing whether robots follow manipulation instructions",
+      "title_zh": "RoboInF 开源评测工具，检验机器人是否按指定步骤操作",
+      "summary_en": "Shanghai Jiao Tong University and Tongji University researchers released RoboInF's evaluation runner and four policy interfaces. Each task starts from the same simulated scene so that changing only the instruction can reveal whether the robot follows a requested route, order or contact point.",
+      "summary_zh": "上海交通大学与同济大学研究者公开了 RoboInF 评测工具和四种策略接口。每项任务从相同的仿真场景出发，只改变指令，检验机器人是否按指定路线、顺序或接触部位完成操作。",
+      "tech_points_en": [
+        "Each of eight tasks has six to twelve instruction variants. For example, a robot can reach the same destination by different routes.",
+        "The evaluator reports goal completion separately from joint success, which also requires meeting every applicable instruction constraint."
+      ],
+      "tech_points_zh": [
+        "八项任务各有 6 至 12 种指令变体。例如，机器人要按不同指令沿不同路线抵达同一终点。",
+        "评测分别统计目标完成率和联合成功率，后者还要求满足指令规定的全部约束。"
+      ],
+      "why_it_matters_en": "A robot can finish with the right object in the right place while ignoring the user's directions. The paired trials make that failure measurable.",
+      "why_it_matters_zh": "即使把正确的物体送到指定位置，机器人也可能忽略过程要求。这些对照任务能测出此类偏差。",
+      "source": {
+        "name": "RoboInF team",
+        "type": "primary",
+        "url": "https://github.com/SJTU-DeepVisionLab/RoboInF/commit/612967d36900173bda817198db577a2506b0a79f",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://sjtu-deepvisionlab.github.io/RoboInF/",
+        "https://api.github.com/repos/SJTU-DeepVisionLab/RoboInF/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-opencode-240-browser-and-event-automations",
+      "published_at": "2026-11-23T09:22:21Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "browser-use",
+        "automation",
+        "tool-use",
+        "open-source"
+      ],
+      "title_en": "OpenCode 2.4.0 adds a shared browser and event-triggered agent tasks",
+      "title_zh": "OpenCode 2.4.0 支持与智能体共用浏览器，并按事件触发任务",
+      "summary_en": "OpenCode added a persistent browser to its desktop app. A developer can open a page from chat and have the coding agent read or operate the same tab. The release also allows scheduled work to start when a connected MCP server emits an event.",
+      "summary_zh": "OpenCode 在桌面端加入了能保留会话的浏览器。开发者从聊天窗口打开网页后，可以让编程智能体读取或操作同一标签页。该版本还支持由已连接的 MCP 服务器发出事件来触发自动任务。",
+      "tech_points_en": [
+        "The browser retains tabs across restarts and supports importing an existing browser profile. A browser permission rule can block all agent browser calls.",
+        "An automation can run a prompt, script or fixed shell command on a timer or MCP event. Shell-command automations record the output and exit code for each run."
+      ],
+      "tech_points_zh": [
+        "重启后浏览器保留标签页，也支持导入已有浏览器配置。浏览器权限规则可以禁止智能体调用浏览器。",
+        "定时器或 MCP 事件可触发提示词、脚本或预设的 Shell 命令。对于 Shell 命令，系统会记录每次运行的输出和退出码。"
+      ],
+      "why_it_matters_en": "The shared tab lets developers point the agent at the exact page state they are debugging, including interactions that require a signed-in session.",
+      "why_it_matters_zh": "开发者能让智能体直接查看正在调试的页面状态，包括需要保持登录才能复现的交互。",
+      "source": {
+        "name": "OpenCode",
+        "type": "primary",
+        "url": "https://github.com/anomalyco/opencode/releases/tag/v2.4.0",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 80,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 12,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-mm-coding-computer-use-vision-on-demand",
+      "published_at": "2026-11-23T11:09:21Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "computer-use",
+        "coding-agent",
+        "benchmark",
+        "open-source"
+      ],
+      "title_en": "MM-Coding releases five ways to test when a desktop agent needs vision",
+      "title_zh": "MM-Coding 公开五套实验框架，比较桌面智能体何时需要看屏幕",
+      "summary_en": "The MM-Coding team released five desktop-agent setups that vary how a model sees the screen and takes action. Across three benchmarks, the authors report that acting through programs and requesting images as needed gained 11.1 points in average task score over a GUI agent while using 61.7% as many input tokens.",
+      "summary_zh": "MM-Coding 团队公开了五套桌面智能体实验框架，可改变模型观察屏幕和执行操作的方式。作者报告，在三个基准上，通过程序执行操作、按需查看图像的方案，比图形界面智能体平均任务得分高 11.1 分，输入词元用量为后者的 61.7%。",
+      "tech_points_en": [
+        "The setups share the policy model, desktop tasks, scoring and budget of 500 model calls. They range from mouse and keyboard control with screenshots at every step to program execution with on-demand vision.",
+        "The released runners cover OSWorld 2.0, WeaveBench and Agents' Last Exam."
+      ],
+      "tech_points_zh": [
+        "各方案共用策略模型、桌面任务、评分方法和 500 次模型调用预算，覆盖逐步截图的键鼠操作以及按需查看图像的程序执行等方式。",
+        "公开的评测程序支持 OSWorld 2.0、WeaveBench 和 Agents' Last Exam。"
+      ],
+      "why_it_matters_en": "Holding the model and budget fixed makes it possible to test how much desktop performance depends on the action interface.",
+      "why_it_matters_zh": "固定模型和调用预算后，研究者可以单独测量操作接口对桌面任务表现的影响。",
+      "source": {
+        "name": "MM-Coding team",
+        "type": "primary",
+        "url": "https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://openenvision.org/Rethinking-CUA-Vision/",
+        "https://api.github.com/repos/OpenEnvision/MM-Coding/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-persistworld-streaming-occupancy-forecast-weights",
+      "published_at": "2026-11-23T11:42:12Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "world-models"
+      ],
+      "tags": [
+        "occupancy-forecasting",
+        "spatial-memory",
+        "scene-dynamics"
+      ],
+      "title_en": "PersistWorld releases weights for forecasting 3D occupancy from streaming cameras",
+      "title_zh": "PersistWorld 发布权重，用连续摄像画面预测未来三维空间占用",
+      "summary_en": "The PersistWorld team released a checkpoint that keeps a 3D record of a driving scene as camera frames arrive. It can query the same learned state to predict which parts of the scene will be occupied one to eight seconds ahead.",
+      "summary_zh": "PersistWorld 团队发布模型权重，可随摄像头画面的到来持续更新行车场景的三维状态，并从同一状态预测未来 1 至 8 秒内哪些空间将被占用。",
+      "tech_points_en": [
+        "New observations are written into a grid anchored to the scene. For a forecast, the model evolves a copy of the grid to the requested time and reads it in the vehicle's coordinate frame.",
+        "On the Occ3D-nuScenes validation set, the team reports a mean intersection over union of 28.72 over one to three seconds and 23.86 over one to eight seconds."
+      ],
+      "tech_points_zh": [
+        "新观测被写入固定在场景中的网格。预测时，模型将网格副本推演到指定时刻，再从车辆坐标系读取结果。",
+        "团队报告，在 Occ3D-nuScenes 验证集上，1 至 3 秒和 1 至 8 秒预测区间的平均交并比（mIoU）分别为 28.72 和 23.86。"
+      ],
+      "why_it_matters_en": "The checkpoint lets researchers examine how retaining previously seen geometry affects predictions as the camera moves.",
+      "why_it_matters_zh": "研究者可用这组权重检验，当摄像头位置发生变化时，保留先前观测到的几何结构对预测有多大帮助。",
+      "source": {
+        "name": "PersistWorld team",
+        "type": "primary",
+        "url": "https://huggingface.co/ZiAnwang/PersistWorld",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/ZiAnwang/PersistWorld/commit/aad1341e4ccd42b2eda12f0ef647a243baf660a1",
+        "https://wangzian828.github.io/PersistWorld/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-robouniverse-coding-agent-robot-controllers",
+      "published_at": "2026-11-23T15:25:08Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "coding-agent",
+        "robotics",
+        "simulation",
+        "tool-use",
+        "manipulation"
+      ],
+      "title_en": "RoboUniverse releases a coding agent that writes controllers for simulated robots",
+      "title_zh": "RoboUniverse 发布为仿真机器人编写控制程序的智能体",
+      "summary_en": "Einsia released RoboUniverse-35B-A3B, a coding agent fine-tuned on successful manipulation trajectories from RoboUniverse-10K. Running inside Claude Code, the model inspects camera views, writes Python controllers and tries them in Isaac Sim.",
+      "summary_zh": "Einsia 发布了 RoboUniverse-35B-A3B。这款编程智能体用 RoboUniverse-10K 中成功完成操作的轨迹微调，在 Claude Code 中查看摄像头画面、编写 Python 控制程序并在 Isaac Sim 中运行。",
+      "tech_points_en": [
+        "The model is based on Qwen3.6-35B-A3B. Its training examples include the agent's interactions with tools in the simulation environment.",
+        "The agent can inspect the scene and send actions to the simulated robot. A separate verifier scores each episode after execution."
+      ],
+      "tech_points_zh": [
+        "模型基于 Qwen3.6-35B-A3B，训练样本包含智能体在仿真环境中调用工具的过程。",
+        "智能体可以查询场景并向仿真机器人发送动作。每次任务执行结束后，由独立的校验程序评分。"
+      ],
+      "why_it_matters_en": "The model weights give researchers a way to test whether an agent can turn visual observations into a working robot controller.",
+      "why_it_matters_zh": "研究者可以利用公开权重，检验智能体能否根据视觉观测编写可实际运行的机器人控制程序。",
+      "source": {
+        "name": "Einsia",
+        "type": "primary",
+        "url": "https://huggingface.co/Einsia/RoboUniverse-35B-A3B",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/Einsia/RoboUniverse-35B-A3B/commit/c0e3455b05bf29ac1ce86eac77a95e442b6e93c8",
+        "https://huggingface.co/datasets/Einsia/RoboUniverse-10K"
+      ],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-hls-inference-server-coding-benchmark-code",
+      "published_at": "2026-11-23T16:26:31Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "benchmark",
+        "long-horizon",
+        "open-source"
+      ],
+      "title_en": "HLS publishes its benchmark code for agents that build inference servers",
+      "title_zh": "HLS 公开评测代码，让编程智能体从零构建推理服务器",
+      "summary_en": "The Humanity's Last System team published the code for its seven-task benchmark after describing it on November 20. An agent receives a target model, GPU hardware and workload, then builds a server whose output and speed are evaluated together.",
+      "summary_zh": "Humanity's Last System 团队在 11 月 20 日介绍基准后，公开了包含七项任务的评测代码。智能体根据目标模型、GPU 配置和工作负载构建推理服务器，评测同时检验服务输出的正确性和运行速度。",
+      "tech_points_en": [
+        "Tasks allow up to 36 hours and up to eight H200 GPUs. The submitted server runs in a fresh container against the task's timed workload.",
+        "The scorer checks outputs against a reference implementation. A submission that fails that check receives zero regardless of its speed."
+      ],
+      "tech_points_zh": [
+        "任务最长可运行 36 小时，最多使用八张 H200。提交的服务器会在全新容器中处理带有时序信息的任务负载。",
+        "评分程序将输出与参考实现比对。未通过正确性检查的提交记零分。"
+      ],
+      "why_it_matters_en": "Scoring the final running service tests whether a coding agent can sustain optimization work without sacrificing correctness.",
+      "why_it_matters_zh": "对最终运行的服务评分，可以检验编程智能体能否在长时间优化中兼顾性能和正确性。",
+      "source": {
+        "name": "Humanity's Last System team",
+        "type": "primary",
+        "url": "https://github.com/humanityslastsystem/hls",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50618188"
+      ],
+      "evidence_urls": [
+        "https://hlsbench.com/blog/introducing-hls",
+        "https://api.github.com/repos/humanityslastsystem/hls/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 15,
+        "traction": 1
+      }
+    },
+    {
+      "id": "2026-11-23-fomo-fd-surgical-robot-failure-detection-weights",
+      "published_at": "2026-11-23T17:43:21Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "embodied-ai",
+        "world-models"
+      ],
+      "tags": [
+        "robotics",
+        "world-model",
+        "failure-detection",
+        "flow-matching",
+        "benchmark"
+      ],
+      "title_en": "FoMo-FD releases world-model weights for detecting surgical robot task failures",
+      "title_zh": "FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败",
+      "summary_en": "The FoMo-FD team released the world-model checkpoints and comparison models used to study failure detection in four surgical robot research tasks. The release includes visual encoders for both fixed and wrist-mounted cameras, along with imitation policies for replaying the tasks.",
+      "summary_zh": "FoMo-FD 团队公开了在四项手术机器人研究任务中用于检测操作失败的世界模型权重和对照模型。发布内容包括固定相机与腕部相机的视觉编码器，以及用于回放任务的模仿学习策略。",
+      "tech_points_en": [
+        "The same flow-matching world-model checkpoint supports three failure scores. The evaluation compares monitors across twenty failure modes.",
+        "The project compares detection delays relative to the annotated onset of a failure, with thresholds calibrated to a false-alarm budget."
+      ],
+      "tech_points_zh": [
+        "同一份流匹配世界模型权重支持三种失败评分方法。评测在二十种失败模式下比较不同的监测方法。",
+        "项目以标注的失败起点为基准比较检测延迟，并根据允许的误报率校准阈值。"
+      ],
+      "why_it_matters_en": "The released models make it possible to compare how early different monitors flag the same recorded failure at a given false-alarm budget.",
+      "why_it_matters_zh": "研究者可在给定误报率预算下，对同一段失败记录比较不同监测方法从失败发生到发出警报需要多长时间。",
+      "source": {
+        "name": "FoMo-FD team",
+        "type": "primary",
+        "url": "https://huggingface.co/Januxes/FoMoFD-models",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011",
+        "https://janusmaple.github.io/FoMoFD/"
+      ],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 15,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-anthropic-claude-ship-pull-request-agents",
+      "published_at": "2026-11-23T20:13:04Z",
+      "collected_at": "2026-11-24T00:07:52Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "code-review",
+        "multi-agent",
+        "human-oversight"
+      ],
+      "title_en": "Anthropic launches Claude Ship beta for pull request fixes and approvals",
+      "title_zh": "Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批",
+      "summary_en": "Anthropic announced Claude Ship in beta for GitHub repositories on Claude Team and Enterprise plans. It connects Code Review with two new agents, PR Steward for repairs and Claude Approvals for deciding which changes can proceed under a team's policy.",
+      "summary_zh": "Anthropic 宣布面向 Claude Team 和 Enterprise 用户的 GitHub 仓库推出 Claude Ship 测试版。它将 Code Review 与两个新智能体相连，由 PR Steward 处理修复，再由 Claude Approvals 依据团队策略决定哪些改动可获批准。",
+      "tech_points_en": [
+        "PR Steward can address failing CI checks, merge conflicts and review comments. After pushing a fix, it explains what changed and how to undo it.",
+        "Teams store their approval policy in the repository. It can permit automatic approval for routine changes and require a human reviewer in specified cases."
+      ],
+      "tech_points_zh": [
+        "PR Steward 可处理持续集成检查失败、合并冲突和评审意见。推送修复后，它会说明修改内容及撤销方法。",
+        "团队将审批策略保存在仓库中，可以允许常规改动自动获批，并指定哪些情况必须由人工评审。"
+      ],
+      "why_it_matters_en": "The workflow gives teams separate controls over who repairs a change and which changes can pass review automatically.",
+      "why_it_matters_zh": "团队可以分别决定谁来修复改动，以及哪些改动可以自动通过评审。",
+      "source": {
+        "name": "Anthropic",
+        "type": "primary",
+        "url": "https://claude.com/resources/articles/introducing-claude-ship",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50618513"
+      ],
+      "evidence_urls": [
+        "https://x.com/ClaudeDevs/status/2124959436640858475",
+        "https://claude.com/product/claude-ship"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 13,
+        "traction": 3
+      }
     }
   ]
 }

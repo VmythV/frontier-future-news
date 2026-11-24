@@ -2,6 +2,184 @@
 
 # Agents / 智能体
 
+<a id="2026-11-23-anthropic-claude-ship-pull-request-agents"></a>
+## [Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批](https://claude.com/resources/articles/introducing-claude-ship)
+
+**English:** [Anthropic launches Claude Ship beta for pull request fixes and approvals](https://claude.com/resources/articles/introducing-claude-ship)
+
+- **发布 / Published:** `2026-11-23T20:13:04Z`
+- **来源 / Source:** [Anthropic](https://claude.com/resources/articles/introducing-claude-ship) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `code-review`, `multi-agent`, `human-oversight`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Anthropic 宣布面向 Claude Team 和 Enterprise 用户的 GitHub 仓库推出 Claude Ship 测试版。它将 Code Review 与两个新智能体相连，由 PR Steward 处理修复，再由 Claude Approvals 依据团队策略决定哪些改动可获批准。
+
+Anthropic announced Claude Ship in beta for GitHub repositories on Claude Team and Enterprise plans. It connects Code Review with two new agents, PR Steward for repairs and Claude Approvals for deciding which changes can proceed under a team's policy.
+
+### 技术点 / Technical points
+
+- PR Steward 可处理持续集成检查失败、合并冲突和评审意见。推送修复后，它会说明修改内容及撤销方法。
+  - PR Steward can address failing CI checks, merge conflicts and review comments. After pushing a fix, it explains what changed and how to undo it.
+- 团队将审批策略保存在仓库中，可以允许常规改动自动获批，并指定哪些情况必须由人工评审。
+  - Teams store their approval policy in the repository. It can permit automatic approval for routine changes and require a human reviewer in specified cases.
+
+### 为什么重要 / Why it matters
+
+团队可以分别决定谁来修复改动，以及哪些改动可以自动通过评审。
+
+The workflow gives teams separate controls over who repairs a change and which changes can pass review automatically.
+
+### 链接 / Links
+
+[Evidence 1](https://x.com/ClaudeDevs/status/2124959436640858475) · [Evidence 2](https://claude.com/product/claude-ship)
+[Discussion 1](https://news.ycombinator.com/item?id=50618513)
+
+---
+
+<a id="2026-11-23-hls-inference-server-coding-benchmark-code"></a>
+## [HLS 公开评测代码，让编程智能体从零构建推理服务器](https://github.com/humanityslastsystem/hls)
+
+**English:** [HLS publishes its benchmark code for agents that build inference servers](https://github.com/humanityslastsystem/hls)
+
+- **发布 / Published:** `2026-11-23T16:26:31Z`
+- **来源 / Source:** [Humanity's Last System team](https://github.com/humanityslastsystem/hls) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `benchmark`, `long-horizon`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Humanity's Last System 团队在 11 月 20 日介绍基准后，公开了包含七项任务的评测代码。智能体根据目标模型、GPU 配置和工作负载构建推理服务器，评测同时检验服务输出的正确性和运行速度。
+
+The Humanity's Last System team published the code for its seven-task benchmark after describing it on November 20. An agent receives a target model, GPU hardware and workload, then builds a server whose output and speed are evaluated together.
+
+### 技术点 / Technical points
+
+- 任务最长可运行 36 小时，最多使用八张 H200。提交的服务器会在全新容器中处理带有时序信息的任务负载。
+  - Tasks allow up to 36 hours and up to eight H200 GPUs. The submitted server runs in a fresh container against the task's timed workload.
+- 评分程序将输出与参考实现比对。未通过正确性检查的提交记零分。
+  - The scorer checks outputs against a reference implementation. A submission that fails that check receives zero regardless of its speed.
+
+### 为什么重要 / Why it matters
+
+对最终运行的服务评分，可以检验编程智能体能否在长时间优化中兼顾性能和正确性。
+
+Scoring the final running service tests whether a coding agent can sustain optimization work without sacrificing correctness.
+
+### 链接 / Links
+
+[Evidence 1](https://hlsbench.com/blog/introducing-hls) · [Evidence 2](https://api.github.com/repos/humanityslastsystem/hls/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+[Discussion 1](https://news.ycombinator.com/item?id=50618188)
+
+---
+
+<a id="2026-11-23-robouniverse-coding-agent-robot-controllers"></a>
+## [RoboUniverse 发布为仿真机器人编写控制程序的智能体](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+**English:** [RoboUniverse releases a coding agent that writes controllers for simulated robots](https://huggingface.co/Einsia/RoboUniverse-35B-A3B)
+
+- **发布 / Published:** `2026-11-23T15:25:08Z`
+- **来源 / Source:** [Einsia](https://huggingface.co/Einsia/RoboUniverse-35B-A3B) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `coding-agent`, `robotics`, `simulation`, `tool-use`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Einsia 发布了 RoboUniverse-35B-A3B。这款编程智能体用 RoboUniverse-10K 中成功完成操作的轨迹微调，在 Claude Code 中查看摄像头画面、编写 Python 控制程序并在 Isaac Sim 中运行。
+
+Einsia released RoboUniverse-35B-A3B, a coding agent fine-tuned on successful manipulation trajectories from RoboUniverse-10K. Running inside Claude Code, the model inspects camera views, writes Python controllers and tries them in Isaac Sim.
+
+### 技术点 / Technical points
+
+- 模型基于 Qwen3.6-35B-A3B，训练样本包含智能体在仿真环境中调用工具的过程。
+  - The model is based on Qwen3.6-35B-A3B. Its training examples include the agent's interactions with tools in the simulation environment.
+- 智能体可以查询场景并向仿真机器人发送动作。每次任务执行结束后，由独立的校验程序评分。
+  - The agent can inspect the scene and send actions to the simulated robot. A separate verifier scores each episode after execution.
+
+### 为什么重要 / Why it matters
+
+研究者可以利用公开权重，检验智能体能否根据视觉观测编写可实际运行的机器人控制程序。
+
+The model weights give researchers a way to test whether an agent can turn visual observations into a working robot controller.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/Einsia/RoboUniverse-35B-A3B/commit/c0e3455b05bf29ac1ce86eac77a95e442b6e93c8) · [Evidence 2](https://huggingface.co/datasets/Einsia/RoboUniverse-10K)
+
+---
+
+<a id="2026-11-23-mm-coding-computer-use-vision-on-demand"></a>
+## [MM-Coding 公开五套实验框架，比较桌面智能体何时需要看屏幕](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337)
+
+**English:** [MM-Coding releases five ways to test when a desktop agent needs vision](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337)
+
+- **发布 / Published:** `2026-11-23T11:09:21Z`
+- **来源 / Source:** [MM-Coding team](https://github.com/OpenEnvision/MM-Coding/commit/e567fdaa6bf5b3d9f75a693d8f74ea6a93d38337) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `coding-agent`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+MM-Coding 团队公开了五套桌面智能体实验框架，可改变模型观察屏幕和执行操作的方式。作者报告，在三个基准上，通过程序执行操作、按需查看图像的方案，比图形界面智能体平均任务得分高 11.1 分，输入词元用量为后者的 61.7%。
+
+The MM-Coding team released five desktop-agent setups that vary how a model sees the screen and takes action. Across three benchmarks, the authors report that acting through programs and requesting images as needed gained 11.1 points in average task score over a GUI agent while using 61.7% as many input tokens.
+
+### 技术点 / Technical points
+
+- 各方案共用策略模型、桌面任务、评分方法和 500 次模型调用预算，覆盖逐步截图的键鼠操作以及按需查看图像的程序执行等方式。
+  - The setups share the policy model, desktop tasks, scoring and budget of 500 model calls. They range from mouse and keyboard control with screenshots at every step to program execution with on-demand vision.
+- 公开的评测程序支持 OSWorld 2.0、WeaveBench 和 Agents' Last Exam。
+  - The released runners cover OSWorld 2.0, WeaveBench and Agents' Last Exam.
+
+### 为什么重要 / Why it matters
+
+固定模型和调用预算后，研究者可以单独测量操作接口对桌面任务表现的影响。
+
+Holding the model and budget fixed makes it possible to test how much desktop performance depends on the action interface.
+
+### 链接 / Links
+
+[Evidence 1](https://openenvision.org/Rethinking-CUA-Vision/) · [Evidence 2](https://api.github.com/repos/OpenEnvision/MM-Coding/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
+
+---
+
+<a id="2026-11-23-opencode-240-browser-and-event-automations"></a>
+## [OpenCode 2.4.0 支持与智能体共用浏览器，并按事件触发任务](https://github.com/anomalyco/opencode/releases/tag/v2.4.0)
+
+**English:** [OpenCode 2.4.0 adds a shared browser and event-triggered agent tasks](https://github.com/anomalyco/opencode/releases/tag/v2.4.0)
+
+- **发布 / Published:** `2026-11-23T09:22:21Z`
+- **来源 / Source:** [OpenCode](https://github.com/anomalyco/opencode/releases/tag/v2.4.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `browser-use`, `automation`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `80/100`
+
+### 摘要 / Summary
+
+OpenCode 在桌面端加入了能保留会话的浏览器。开发者从聊天窗口打开网页后，可以让编程智能体读取或操作同一标签页。该版本还支持由已连接的 MCP 服务器发出事件来触发自动任务。
+
+OpenCode added a persistent browser to its desktop app. A developer can open a page from chat and have the coding agent read or operate the same tab. The release also allows scheduled work to start when a connected MCP server emits an event.
+
+### 技术点 / Technical points
+
+- 重启后浏览器保留标签页，也支持导入已有浏览器配置。浏览器权限规则可以禁止智能体调用浏览器。
+  - The browser retains tabs across restarts and supports importing an existing browser profile. A browser permission rule can block all agent browser calls.
+- 定时器或 MCP 事件可触发提示词、脚本或预设的 Shell 命令。对于 Shell 命令，系统会记录每次运行的输出和退出码。
+  - An automation can run a prompt, script or fixed shell command on a timer or MCP event. Shell-command automations record the output and exit code for each run.
+
+### 为什么重要 / Why it matters
+
+开发者能让智能体直接查看正在调试的页面状态，包括需要保持登录才能复现的交互。
+
+The shared tab lets developers point the agent at the exact page state they are debugging, including interactions that require a signed-in session.
+
+---
+
 <a id="2026-11-22-localcode-0543-inkling-metal-inference"></a>
 ## [LocalCode 0.5.43 让 Inkling 2 Mini 的量化专家在苹果 GPU 上运行](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
 
