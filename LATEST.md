@@ -2,6 +2,79 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-24-google-workspace-agent-tools-ga"></a>
+## [Google Workspace 开始向用户正式推出智能体用 MCP 服务器和命令行工具](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
+
+**English:** [Google Workspace begins general rollout of its MCP servers and CLI for agents](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
+
+- **发布 / Published:** `2026-11-24T17:02:59.959Z`
+- **来源 / Source:** [Google Workspace Updates](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mcp`, `tool-use`, `human-oversight`, `audit-logging`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Google 宣布托管的 Workspace MCP 服务器和官方命令行工具进入正式可用阶段。智能体跨 Gmail、Drive 或日历等应用操作时，管理员可以为影响较大的动作设置确认规则，并审查活动记录。
+
+Google announced general availability for its hosted Workspace MCP servers and official CLI. Administrators can set confirmation rules for consequential actions and review activity as agents work across applications such as Gmail, Drive and Calendar.
+
+### 技术点 / Technical points
+
+- 云端智能体可以调用覆盖八项 Workspace 服务的托管工具。终端智能体可以在运行时发现命令，并以限定的权限范围登录。
+  - Cloud agents can call hosted tools across eight Workspace services. Terminal-based agents can discover CLI commands at runtime and sign in with limited scopes.
+- Google 计划用两周时间向快速发布和定期发布两类客户域推出这些工具、确认策略和审计控制。
+  - Google scheduled a two-week rollout for the tools, confirmation policies and audit controls across its rapid and scheduled release domains.
+
+### 为什么重要 / Why it matters
+
+当智能体为完成一项任务而调用多个 Workspace 服务时，组织可以统一应用自己的审批策略，并追查具体动作。
+
+Organizations can apply their own approval policies and inspect actions when an agent uses several Workspace services in one task.
+
+### 链接 / Links
+
+[Evidence 1](https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace)
+[Discussion 1](https://news.ycombinator.com/item?id=50635826)
+
+---
+
+<a id="2026-11-24-cognition-swe-2-1-coding-model"></a>
+## [Cognition 发布 SWE-2.1，报告终端与代码库任务得分提升](https://cognition.com/blog/swe-2-1)
+
+**English:** [Cognition releases SWE-2.1 and reports gains on terminal and repository tasks](https://cognition.com/blog/swe-2-1)
+
+- **发布 / Published:** `2026-11-24T16:00:00Z`
+- **来源 / Source:** [Cognition](https://cognition.com/blog/swe-2-1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Cognition 以 Kimi K3 为基础，通过强化学习训练 SWE-2.1，任务覆盖短流程和需要多步执行的工作。在公司的评测中，新模型在 Terminal-Bench 4.1 上得到 50.0 分，前代 SWE-2 为 24.2 分。
+
+Cognition trained SWE-2.1 on Kimi K3 with reinforcement learning across short and extended workflows. In the company’s evaluation the new model scored 50.0 on Terminal-Bench 4.1, up from 24.2 for SWE-2.
+
+### 技术点 / Technical points
+
+- 在 FrontierCode 2.0 上，Cognition 报告 SWE-2.1 得分为 41.3，SWE-2 为 24.1。
+  - On FrontierCode 2.0, the company reports a score of 41.3 for SWE-2.1 and 24.1 for SWE-2.
+- Cognition 使用 Devin CLI 运行自家的 SWE 模型，并用模拟时钟限制评测时长。
+  - Cognition used the Devin CLI harness for its SWE models and applied a simulated clock to time-limit benchmark runs.
+
+### 为什么重要 / Why it matters
+
+两代模型在相同智能体运行框架下的成绩，为开发者判断这一版的编程能力变化提供了参照。
+
+Scores for both generations under the same agent harness give developers a reference for the change in coding performance.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50633450)
+
+---
+
 <a id="2026-11-23-anthropic-claude-ship-pull-request-agents"></a>
 ## [Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批](https://claude.com/resources/articles/introducing-claude-ship)
 
@@ -36,6 +109,78 @@ The workflow gives teams separate controls over who repairs a change and which c
 
 [Evidence 1](https://x.com/ClaudeDevs/status/2124959436640858475) · [Evidence 2](https://claude.com/product/claude-ship)
 [Discussion 1](https://news.ycombinator.com/item?id=50618513)
+
+---
+
+<a id="2026-11-23-acap-asynchronous-robot-control"></a>
+## [ACAP 让多个编程智能体并行控制同一台机器人的不同部位](https://arxiv.org/abs/2611.31205)
+
+**English:** [ACAP lets coding agents control different parts of one robot concurrently](https://arxiv.org/abs/2611.31205)
+
+- **发布 / Published:** `2026-11-23T18:52:19Z`
+- **来源 / Source:** [ACAP authors (arXiv)](https://arxiv.org/abs/2611.31205) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `multi-agent`, `robotics`, `manipulation`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ACAP 将机械臂与夹爪、移动底盘等控制单元交给持续运行的编程智能体。协调智能体可以让各单元独立行动，同步彼此依赖的步骤，也能在任务需要时接管控制。
+
+ACAP assigns persistent coding agents to units such as an arm and gripper or a mobile base. A coordinating agent can let them work independently, synchronize interdependent steps or take over control when a task requires it.
+
+### 技术点 / Technical points
+
+- 在覆盖 25 种任务与平台组合的 72 次真机运行中，ACAP 比单智能体控制器降低了 28.2% 的按任务均衡计算的时间成本。
+  - Across 72 real-robot runs in 25 combinations of tasks and platforms, ACAP cut task-balanced time cost by 28.2% against a single-agent controller.
+- 在全部 8 种需要协作的设置中，允许调整控制权的方案平均时间成本均低于固定分工方案。
+  - In all eight settings that required collaboration, average time cost was lower with flexible control assignment than with fixed assignments.
+
+### 为什么重要 / Why it matters
+
+这组实验量化了机器人在保持联动动作协调的同时，并行执行独立步骤能节省多少时间。
+
+The experiments quantify how much time a robot can save by overlapping independent work while still coordinating coupled motions.
+
+### 链接 / Links
+
+[Evidence 1](https://projects.zxhezexin.com/acap/)
+
+---
+
+<a id="2026-11-23-vita-wam-single-step-action-generation"></a>
+## [VITA-WAM 用一步流匹配生成机器人动作序列](https://arxiv.org/abs/2611.31195)
+
+**English:** [VITA-WAM generates a robot action sequence in one flow step](https://arxiv.org/abs/2611.31195)
+
+- **发布 / Published:** `2026-11-23T18:46:15Z`
+- **来源 / Source:** [VITA-WAM authors (arXiv)](https://arxiv.org/abs/2611.31195) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `flow-matching`, `robotics`, `inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+VITA-WAM 在世界动作模型中，直接将视觉、语言和机器人自身状态的特征转换为动作。研究者在训练时对齐观测与动作的表示，减少生成一段控制指令所需的迭代步数。
+
+VITA-WAM learns to transform visual, language and robot-state features directly into actions within a world-action model. Aligning the observation and action representations during training reduces the number of steps needed to produce a command sequence.
+
+### 技术点 / Technical points
+
+- 在作者使用 RTX 4090 的编译优化测试中，生成一段含 32 个动作的序列用时 55.67 毫秒，FastWAM 用时 116.65 毫秒。
+  - In the authors’ compiled RTX 4090 test, generating a 32-action sequence took 55.67 milliseconds, compared with 116.65 for FastWAM.
+- 在 LIBERO-Plus 仿真基准上，单步模型的成功率比十步 FastWAM 基线高 21.47 个百分点。
+  - On the simulated LIBERO-Plus benchmark, the one-step model exceeded the ten-step FastWAM baseline by 21.47 percentage points in success rate.
+
+### 为什么重要 / Why it matters
+
+对控制器设计者来说，这两项测试可以一起看出策略多快能更新动作，以及在这一速度下能多可靠地完成任务。
+
+The measured latency and simulation results let control designers weigh how often a policy can update against how reliably it completes a task.
+
+### 链接 / Links
+
+[Evidence 1](https://ucd-dare.github.io/VITA-WAM/)
 
 ---
 
@@ -75,6 +220,78 @@ The released models make it possible to compare how early different monitors fla
 
 ---
 
+<a id="2026-11-23-ai2-robotrack-manipulation-point-tracking"></a>
+## [Ai2 发布 RoboTrack，评测真实操作视频中的点跟踪](https://huggingface.co/blog/allenai/robotrack)
+
+**English:** [Ai2 releases RoboTrack to test point tracking during real manipulation](https://huggingface.co/blog/allenai/robotrack)
+
+- **发布 / Published:** `2026-11-23T17:20:37.168Z`
+- **来源 / Source:** [Allen Institute for AI](https://huggingface.co/blog/allenai/robotrack) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dataset`, `benchmark`, `visual-tracking`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+Ai2 发布了带人工标注的操作视频基准、合成训练数据和两个跟踪模型。基准用实拍片段检验跟踪器能否在手、夹爪或物体移动和被遮挡时，持续定位同一个点。
+
+Ai2 paired an annotated manipulation benchmark with synthetic training data and two tracking models. On real footage, the benchmark tests whether a tracker can keep following a hand, gripper or object through motion and occlusion.
+
+### 技术点 / Technical points
+
+- RoboTrack-Bench 的 307 段视频包含 2,522 条经人工核验的点轨迹，覆盖第一人称和外部相机视角。
+  - RoboTrack-Bench contains 2,522 human-verified point tracks across 307 videos, including first-person and external views.
+- Ai2 在 MolmoSpaces 中生成训练轨迹。两个适配后的跟踪器在三项机器人基准上的平均跟踪得分都高于各自的基础模型。
+  - Ai2 generated training tracks in MolmoSpaces. Its two adapted trackers each improved their mean tracking score across three robotics benchmarks over the respective starting model.
+
+### 为什么重要 / Why it matters
+
+跟踪运动物体上的同一个点，可以具体检验机器人执行抓取时所依赖的视觉反馈。
+
+Tracking a point on a moving object provides a concrete test of the visual feedback a robot can use during a grasp.
+
+### 链接 / Links
+
+[Evidence 1](https://robotrack.allen.ai)
+
+---
+
+<a id="2026-11-23-worldleague-physical-agency-benchmark"></a>
+## [WorldLeague 用 60 项仿真机器人任务衡量智能体的实际完成进度](https://arxiv.org/abs/2611.30989)
+
+**English:** [WorldLeague measures how far agents get toward 60 simulated robot goals](https://arxiv.org/abs/2611.30989)
+
+- **发布 / Published:** `2026-11-23T16:44:19Z`
+- **来源 / Source:** [xML Lab, National University of Singapore (arXiv)](https://arxiv.org/abs/2611.30989) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `simulation`, `planning`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+WorldLeague 让 13 个系统在仿真中探索场景、重排物品或应对环境变化，再根据机器人实际走出的轨迹评分。Claude Fable 5.2 完整达成 13 项任务目标，平均进度得分最高，为 28.58/100。
+
+WorldLeague compares 13 systems on tasks that require exploration, rearranging objects or adapting to changes. It scores the resulting robot trajectory. Claude Fable 5.2 completed 13 goals and had the highest mean progress score, 28.58 out of 100.
+
+### 技术点 / Technical points
+
+- 视觉语言模型选择目标和移动方式，视觉语言动作模型和世界动作模型则使用各自的控制接口。
+  - Vision-language models choose targets and motions, while vision-language-action and world-action models use their own controls.
+- 在视觉语言模型答对全部收尾问题的回合中，仍有 71.8% 在物理目标上得零分。
+  - Among episodes in which vision-language models answered all final questions correctly, 71.8% still earned zero progress toward the physical goal.
+
+### 为什么重要 / Why it matters
+
+按轨迹评分可以比较使用不同控制接口的智能体，也能识别答对问题却没有完成动作的情况。
+
+Trajectory scoring makes it possible to compare agents with different controls and see when correct answers coincide with an unfinished task.
+
+### 链接 / Links
+
+[Evidence 1](https://xyangzhou.github.io/WorldLeague/)
+
+---
+
 <a id="2026-11-23-hls-inference-server-coding-benchmark-code"></a>
 ## [HLS 公开评测代码，让编程智能体从零构建推理服务器](https://github.com/humanityslastsystem/hls)
 
@@ -109,6 +326,42 @@ Scoring the final running service tests whether a coding agent can sustain optim
 
 [Evidence 1](https://hlsbench.com/blog/introducing-hls) · [Evidence 2](https://api.github.com/repos/humanityslastsystem/hls/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
 [Discussion 1](https://news.ycombinator.com/item?id=50618188)
+
+---
+
+<a id="2026-11-23-native-lam-video-to-robot-actions"></a>
+## [Native LAM 从视频世界模型中提取潜在动作，用于训练机器人策略](https://arxiv.org/abs/2611.30898)
+
+**English:** [Native LAM extracts latent actions from a video world model to train robot policies](https://arxiv.org/abs/2611.30898)
+
+- **发布 / Published:** `2026-11-23T16:01:06Z`
+- **来源 / Source:** [PAW Team (arXiv)](https://arxiv.org/abs/2611.30898) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `latent-actions`, `robotics`, `vla`, `pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Native LAM 用同一个预训练视频模型推断两次观测之间发生了什么动作，并预测该动作的效果。作者随后用提取出的动作训练 PAWlicy，使缺少统一控制指令的视频也能用于学习机器人策略。
+
+Native LAM uses one pretrained video model to infer what motion connects two observations and to predict its effect. The authors then used those inferred actions to teach PAWlicy from videos that lack compatible robot commands.
+
+### 技术点 / Technical points
+
+- 研究者用运动不同的成对样例训练一组可学习向量，让它们在两个预测步骤之间传递运动信息。
+  - Paired examples with different motions train a small set of learned vectors to carry the dynamics between the two prediction steps.
+- 在作者使用域随机化示范的实验中，3.8B 参数的 PAWlicy 在 RoboTwin 2.0 上达到 93.6% 的平均成功率。
+  - The 3.8B PAWlicy achieved 93.6% mean success on RoboTwin 2.0 in the authors’ experiment with domain-randomized demonstrations.
+
+### 为什么重要 / Why it matters
+
+共享的运动表示让策略训练可以同时利用人类操作视频和控制接口不同的机器人录像。
+
+A shared motion representation gives policy training a way to use both human videos and recordings from robots with different controls.
+
+### 链接 / Links
+
+[Evidence 1](https://pawteam-eai.github.io/native-lam/)
 
 ---
 
@@ -288,6 +541,78 @@ A robot can finish with the right object in the right place while ignoring the u
 
 ---
 
+<a id="2026-11-23-swe-gym-verified-reward-audit"></a>
+## [SWE-Gym-Verified 审核 1,087 项编程任务中用于给智能体打分的测试](https://arxiv.org/abs/2611.30207)
+
+**English:** [SWE-Gym-Verified audits the tests that reward coding agents on 1,087 tasks](https://arxiv.org/abs/2611.30207)
+
+- **发布 / Published:** `2026-11-23T07:45:13Z`
+- **来源 / Source:** [SWE-Gym-Verified authors (arXiv)](https://arxiv.org/abs/2611.30207) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `reinforcement-learning`, `dataset`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究者实际运行候选补丁，检查 SWE-Gym 的测试能否正确判分。在一个 9B 模型多次尝试均未解出的任务中，74% 含有会误拒正确补丁的测试。在该模型有时能解出的任务中，这一比例为 20%。
+
+Researchers ran candidate fixes to check whether SWE-Gym tests assigned the right rewards. Among the tasks a 9B model never solved in their trials, 74% had a test that rejected a correct patch. The share was 20% on tasks it sometimes solved.
+
+### 技术点 / Technical points
+
+- 公开数据集包含审核结论，以及可通过实际运行复核结论的补丁。
+  - The released dataset includes audit verdicts and patches that can be run to reproduce the findings.
+- 在匹配训练集规模和难度后，使用审核后数据训练的模型在 SWE-bench Verified 和 SWE-bench Pro 留出任务上分别提高了 2.4 分和 2.7 分。
+  - With training sets matched for size and difficulty, auditing improved held-out scores by 2.4 points on SWE-bench Verified and 2.7 on SWE-bench Pro.
+
+### 为什么重要 / Why it matters
+
+审核测试能揭示编程智能体失分的原因，帮助研究者发现那些将正确修复判错的训练任务。
+
+Checking the tests can distinguish a hard engineering task from one that penalizes an agent for a correct fix.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Arist12/SWE-Gym-Verified)
+
+---
+
+<a id="2026-11-23-x-square-wall-oss-1-real-robot-evaluation"></a>
+## [自变量发布 WALL-OSS-1.0，在 312 项真机任务上报告 55.1% 的零样本成功率](https://www.globenewswire.com/news-release/2026/11/23/3408046/0/en/x-square-robot-introduces-wall-oss-1-0-understand-more-act-better-a-native-foundation-model-for-the-physical-world.html)
+
+**English:** [X Square Robot reports 55.1% zero-shot success across 312 real-robot tasks with WALL-OSS-1.0](https://www.globenewswire.com/news-release/2026/11/23/3408046/0/en/x-square-robot-introduces-wall-oss-1-0-understand-more-act-better-a-native-foundation-model-for-the-physical-world.html)
+
+- **发布 / Published:** `2026-11-23T07:44:46Z`
+- **来源 / Source:** [X Square Robot (GlobeNewswire)](https://www.globenewswire.com/news-release/2026/11/23/3408046/0/en/x-square-robot-introduces-wall-oss-1-0-understand-more-act-better-a-native-foundation-model-for-the-physical-world.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `manipulation`, `pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+自变量发布视觉语言动作模型 WALL-OSS-1.0，在预训练阶段就引入机器人轨迹。评测者自行挑选任务，让预训练策略面对陌生物体和指令，并且不提供任务专属示范。
+
+X Square Robot introduced a vision-language-action model that learns from robot trajectories during pretraining. The team evaluated the pretrained policy on tasks chosen by evaluators, using unfamiliar objects and instructions without task-specific demonstrations.
+
+### 技术点 / Technical points
+
+- 预训练将机器人动作编码为离散词元，与图像和语言数据共同训练，再由基于流匹配的动作专家生成连续控制指令。
+  - Pretraining represents robot motion as discrete tokens alongside visual and language data. A flow-matching action expert generates continuous commands.
+- 团队按任务指令汇总 377 次评测，得到 312 项独立任务，涵盖双臂协调和工具使用。
+  - The team grouped 377 evaluations by instruction to obtain 312 distinct tasks, including bimanual coordination and tool use.
+
+### 为什么重要 / Why it matters
+
+这组开放式真机评测衡量了在为新任务采集示范之前，预训练策略已经能够完成哪些操作。
+
+The open-ended evaluation measures how much manipulation skill is already usable before collecting demonstrations for a new task.
+
+### 链接 / Links
+
+[Evidence 1](https://x2robot.com/blog/wall-oss-1) · [Evidence 2](https://investor.wedbush.com/wedbush/article/gnwcq-2026-11-23-x-square-robot-introduces-wall-oss-10-understand-more-act-better-a-native-foundation-model-for-the-physical-world)
+
+---
+
 <a id="2026-11-23-ponderpounce-wm-robot-visual-forecasting"></a>
 ## [PonderPounce-WM 用未来画面特征训练机器人策略](https://huggingface.co/worv-ai/PonderPounce-WM-9B-RoboMME)
 
@@ -324,6 +649,42 @@ The released weights let researchers test whether learning to forecast visual ch
 
 ---
 
+<a id="2026-11-23-motion-mamba-2-humanoid-control"></a>
+## [Motion Mamba 2.0 让宇树 G1 在指令切换时接续已有动作](https://arxiv.org/abs/2611.29897)
+
+**English:** [Motion Mamba 2.0 carries motion history across changing instructions on a Unitree G1](https://arxiv.org/abs/2611.29897)
+
+- **发布 / Published:** `2026-11-23T01:51:57Z`
+- **来源 / Source:** [Motion Mamba 2.0 authors (arXiv)](https://arxiv.org/abs/2611.29897) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `locomotion`, `motion-generation`, `memory`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+研究团队在宇树 G1 上演示了机器人按不同文字指令连续完成动作，并响应方向输入。模型在生成每一段新动作时，都能读取压缩后的运动历史。
+
+The authors demonstrated a Unitree G1 linking several text-guided movements and responding to directional input. The generator keeps a compact record of earlier motion as it produces each new segment.
+
+### 技术点 / Technical points
+
+- 模型先预测根节点的运动轨迹，再据此生成身体其余部位的动作。
+  - The model predicts the root trajectory and uses it to guide the movement of the rest of the body.
+- 在 RTX 4090 上，执行优化将生成一个完整动作窗口的中位耗时从 1,685 毫秒降至 276 毫秒。
+  - On an RTX 4090, execution optimizations cut the median time to generate a complete motion window from 1,685 to 276 milliseconds.
+
+### 为什么重要 / Why it matters
+
+保留身体到达当前姿态的过程，有助于控制器把连续下达的指令衔接成流畅的动作。
+
+Remembering how the body reached its current pose helps a controller join successive instructions into a continuous movement.
+
+### 链接 / Links
+
+[Evidence 1](https://aigeeksgroup.github.io/MotionMamba2.0/)
+
+---
+
 <a id="2026-11-22-localcode-0543-inkling-metal-inference"></a>
 ## [LocalCode 0.5.43 让 Inkling 2 Mini 的量化专家在苹果 GPU 上运行](https://github.com/mjwsolo/localcode/releases/tag/v0.5.43)
 
@@ -357,363 +718,3 @@ Long source files and tool results consume context in a local coding session. Th
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50604540)
-
----
-
-<a id="2026-11-22-paper-url-agent-opencode-9b-weights-traces"></a>
-## [用于查找论文项目链接的 9B OpenCode 智能体公布权重与评测轨迹](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
-
-**English:** [A 9B OpenCode agent for finding paper links ships with its evaluation traces](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged)
-
-- **发布 / Published:** `2026-11-22T15:15:05Z`
-- **来源 / Source:** [Niels Rogge](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `tool-use`, `agent-evaluation`, `dataset`, `post-training`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `76/100`
-
-### 摘要 / Summary
-
-Niels Rogge 发布了基于 Qwen3.5-9B 的合并权重，训练样本来自经过核验的 OpenCode 执行轨迹，任务是查找论文的代码仓库和项目主页。配套数据集记录了工具调用、返回结果以及对最终链接的核验。
-
-Niels Rogge published a merged Qwen3.5-9B checkpoint trained on verified OpenCode runs that find papers’ code repositories and project pages. The accompanying dataset includes the agent’s tool calls, their results and checks on the links it returned.
-
-### 技术点 / Technical points
-
-- 评测档案分别提供监督微调、使用 GRPO 适配器和教师模型的运行记录，并区分常规和困难测试集。
-  - The evaluation archive separates supervised runs, runs using a GRPO adapter, and teacher runs. It includes standard and hard test sets.
-- 作者公布的 GRPO 适配器结果显示，常规测试有 187/220 个样例完全匹配，困难测试有 98/175 个完全匹配。
-  - The author’s GRPO-adapter results record exact matches on 187 of 220 standard cases and 98 of 175 hard cases.
-
-### 为什么重要 / Why it matters
-
-借助执行轨迹，研究者可以区分智能体是没找到来源，还是找到了来源却在提交链接时出错。
-
-The traces let researchers distinguish errors in finding a source from errors in reporting the links after a successful search.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/nielsr/qwen35-9b-url-agent-v3-grpo-merged/commit/c6a75132da2acc4246aa4023dc23aff9d88eaad9) · [Evidence 2](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval) · [Evidence 3](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test-summary.json) · [Evidence 4](https://huggingface.co/datasets/nielsr/qwen35-9b-url-agent-v3-eval/blob/main/sft-grpo/test_hard-summary.json)
-
----
-
-<a id="2026-11-22-go2-quadruped-motion-forecast-checkpoints"></a>
-## [Gödel Machines 发布 25 个预测宇树 Go2 运动的模型权重](https://huggingface.co/GoedelMachines/go2-world-models)
-
-**English:** [Gödel Machines releases 25 checkpoints for forecasting Unitree Go2 motion](https://huggingface.co/GoedelMachines/go2-world-models)
-
-- **发布 / Published:** `2026-11-22T14:00:38Z`
-- **来源 / Source:** [Gödel Machines](https://huggingface.co/GoedelMachines/go2-world-models) · `primary`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `quadruped`, `dynamics`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-这组模型根据给定的关节指令，以 50 Hz 预测机身与关节的 30 个状态量。其中 20 个权重还需要未来各时刻位姿对应的地形扫描，另有 5 个经过适配，只需已有的传感器记录和关节指令。
-
-The models predict 30 body and joint measurements at 50 Hz from proposed joint commands. Twenty checkpoints also require terrain scans at future poses. Five adapted models can make forecasts using the robot’s sensor history and commands alone.
-
-### 技术点 / Technical points
-
-- 输出包括机身角速度、机身坐标系中的向上方向，以及 12 个关节各自的角度和速度。
-  - Outputs include body angular velocity, the up direction in the body frame, and the angles and velocities of all twelve joints.
-- 作者报告，最大的适配模型在同一台 Go2 的 9 段平地实机记录上，预测 3 秒后关节角的均方根误差为 0.0641 弧度。
-  - For its adapted flagship, the author reports a three-second joint-angle RMSE of 0.0641 radians on nine recordings from one Go2 on a flat floor.
-
-### 为什么重要 / Why it matters
-
-两套输入条件便于研究者检验，只靠机身传感器和动作指令预测四足机器人运动时，预测精度会发生怎样的变化。
-
-The two input settings make it possible to test how much of a quadruped’s motion can be predicted when future terrain observations are unavailable.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/GoedelMachines/go2-world-models/commit/9fc67fc970e8ab128660cd1487b7677b322a964c) · [Evidence 2](https://github.com/Go2WorldModels/go2worldmodels.github.io)
-
----
-
-<a id="2026-11-22-dynamicvla-libero-plus-robustness-results"></a>
-## [DynamicVLA 公布鲁棒性评测，成功率从 LIBERO 的 95.5% 降至 LIBERO-Plus 的 61.4%](https://huggingface.co/hzxie/dynamic-vla-LIBERO)
-
-**English:** [DynamicVLA reports a drop from 95.5% on LIBERO to 61.4% on LIBERO-Plus](https://huggingface.co/hzxie/dynamic-vla-LIBERO)
-
-- **发布 / Published:** `2026-11-22T07:47:31Z`
-- **来源 / Source:** [DynamicVLA team](https://huggingface.co/hzxie/dynamic-vla-LIBERO) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `vla`, `benchmark`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-DynamicVLA 团队发布了针对 LIBERO 微调的权重，并在未用 LIBERO-Plus 数据训练的情况下，测试了它在 10,030 个任务变体上的表现。团队报告，模型在四组标准任务上的平均成功率为 95.5%，在变体上为 61.4%。
-
-The DynamicVLA team released its LIBERO checkpoint and evaluated it on 10,030 LIBERO-Plus variants without further training. The reported success rate was 61.4% across the variants, compared with 95.5% on the four standard LIBERO suites.
-
-### 技术点 / Technical points
-
-- 标准评测对每个任务运行 50 次，鲁棒性评测覆盖七类扰动，每个已登记变体运行一次。
-  - The standard evaluation used 50 episodes per task. The robustness evaluation ran each registered variant once across seven types of perturbation.
-- 在相机设置变化和光照变化两类测试中，成功率分别为 38.5% 和 87.2%。
-  - The policy succeeded on 38.5% of camera perturbations and 87.2% of lighting perturbations.
-
-### 为什么重要 / Why it matters
-
-按扰动类型拆分后，相机设置变化暴露出的弱点就很清楚，这是标准任务的平均分难以反映的。
-
-The breakdown identifies camera changes as a concrete failure case that the standard-suite average can conceal.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/397436358d1c863b9fcea512e088239baf8ee9be) · [Evidence 2](https://huggingface.co/hzxie/dynamic-vla-LIBERO/commit/7694412adfb1ee230b3116f036b39063d7470ab1)
-
----
-
-<a id="2026-11-22-freshvla-two-timescale-robot-manipulation"></a>
-## [FreshVLA 用两种时间尺度学习抓取与搬运](https://freshvla.github.io/)
-
-**English:** [FreshVLA shows how two timescales of motion can guide robot manipulation](https://freshvla.github.io/)
-
-- **发布 / Published:** `2026-11-22T05:05:13Z`
-- **来源 / Source:** [FreshVLA team](https://freshvla.github.io/) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `vla`, `robotics`, `manipulation`, `imitation-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-FreshVLA 团队在项目页公开论文与 Flexiv 机械臂演示。模型从视频中分别学习一个动作阶段的整体进展和其中的细微调整，再用机器人示范把两者对应到控制指令。
-
-The FreshVLA team published its paper and Flexiv robot demonstrations on a project page. The model learns both the progress of an action and the smaller movements within it from video, then uses robot demonstrations to connect them to control.
-
-### 技术点 / Technical points
-
-- 时间高通滤波突出画面中发生变化的区域。策略通过流匹配，同时学习生成机器人指令和两种时间尺度的潜在动作。
-  - A temporal high-pass filter highlights changing image regions. A flow-matching policy learns to generate robot commands alongside the two latent motion signals.
-- 在 LIBERO-Long 上，作者报告双时间尺度的连续动作表示取得 98.0% 成功率，单层连续表示为 93.0%。
-  - On LIBERO-Long, the authors report 98.0% success with two continuous latent streams, compared with 93.0% for a single continuous layer.
-
-### 为什么重要 / Why it matters
-
-这组对照实验量化了单独表示细微动作对长程操作任务的帮助。
-
-The comparison isolates how much a separate representation of fine motion contributes on long manipulation tasks.
-
-### 链接 / Links
-
-[Evidence 1](https://freshvla.github.io/assets/FreshVLA.pdf) · [Evidence 2](https://api.github.com/repos/FreshVLA/freshvla.github.io/deployments/7974202525/statuses/22836529216)
-
----
-
-<a id="2026-11-22-browser-use-108-cached-run-evaluation"></a>
-## [Browser Use 1.0.8 评估任务结果时可复用浏览器智能体的提示缓存](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
-
-**English:** [Browser Use 1.0.8 reuses the browser agent’s prompt cache for evaluation](https://github.com/browser-use/browser-use/releases/tag/1.0.8)
-
-- **发布 / Published:** `2026-11-22T03:30:41Z`
-- **来源 / Source:** [Browser Use](https://github.com/browser-use/browser-use/releases/tag/1.0.8) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `browser-use`, `evaluation`, `reliability`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `78/100`
-
-### 摘要 / Summary
-
-Browser Use 将结果评估接在浏览器会话的最后一轮。由于评估请求沿用了原会话的消息前缀，模型服务商可以复用缓存，减少长任务轨迹的重复计费。
-
-Browser Use now asks the evaluator to judge the result in one more turn of the browser session. Keeping the same message prefix lets a provider reuse cached input when evaluating a long run.
-
-### 技术点 / Technical points
-
-- 评估请求包含待判断的问题和最终页面。若回复格式不符、模型调用工具或请求报错，系统会另发评估请求。
-  - The evaluator receives the final page alongside its question. A malformed verdict, a tool call or an error triggers a separate evaluation request.
-- 达到步数上限时，若推理模型拒绝强制调用收尾工具，智能体会再试一次，仅提供提交结果的工具，让模型自行选择。
-  - If a reasoning model rejects a forced final tool call at the step limit, the agent retries once with only the delivery tools available and tool choice set to automatic.
-
-### 为什么重要 / Why it matters
-
-团队可以保留对任务结果的逐次评估，同时减少将长轨迹重新送入模型的开销。
-
-Teams can retain end-of-run evaluation while reducing the cost of sending long traces back through a model.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/browser-use/browser-use/pull/6457) · [Evidence 2](https://github.com/browser-use/browser-use/pull/6453)
-
----
-
-<a id="2026-11-22-sana-robot-ar-hybrid-memory-weights"></a>
-## [SANA-Robot-AR 发布联合预测机器人动作与未来视频的模型权重](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
-
-**English:** [SANA-Robot-AR releases weights for predicting robot actions and future video](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain)
-
-- **发布 / Published:** `2026-11-22T02:46:16Z`
-- **来源 / Source:** [SANA team](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `memory`, `manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-SANA 团队发布了 45 亿参数的预训练权重，以及针对 RoboDojo、RoboTwin 2.0 和 LIBERO 微调的三个策略。模型根据多视角画面、机器人自身状态和指令，同时预测接下来 32 个控制步的动作和相应视频。
-
-The SANA team released a 4.5-billion-parameter pretrained checkpoint and policies tuned for RoboDojo, RoboTwin 2.0 and LIBERO. Given several camera views, the robot’s state and an instruction, the model predicts 32 control steps alongside the resulting video.
-
-### 技术点 / Technical points
-
-- 注意力层保留首帧和最近的片段，Gated DeltaNet 则把此前的视觉历史压缩成固定大小的状态。
-  - Attention retains the first frame and a recent window. A Gated DeltaNet compresses the earlier visual history into a fixed-size state.
-- 预训练权重可用新机器人的示范数据继续微调；三个专用策略可直接作为仿真评测的起点。
-  - The base checkpoint is intended for fine-tuning on demonstrations from a new robot. The three task-specific checkpoints provide starting points for simulation evaluations.
-
-### 为什么重要 / Why it matters
-
-固定的记忆开销让策略在长任务中也能利用较早的观测，而内存需求不会随任务时长持续增长。
-
-A fixed memory budget lets a manipulation policy use earlier observations even as a task grows longer.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/Efficient-Large-Model/SANA-Robot-AR-Pretrain/commit/486387da56e8374a9602cfbee3670808d099401a) · [Evidence 2](https://nvlabs.github.io/Sana/Robot/)
-
----
-
-<a id="2026-11-21-nopebench-world-model-collision-evaluation"></a>
-## [NoPeBench 检验视频世界模型何时会穿墙、何时会在畅通路线上误停](https://huggingface.co/datasets/PeterDAI/NoPeBench)
-
-**English:** [NoPeBench tests when video world models walk through walls or stop on clear paths](https://huggingface.co/datasets/PeterDAI/NoPeBench)
-
-- **发布 / Published:** `2026-11-21T18:13:25Z`
-- **来源 / Source:** [NoPeWorld team](https://huggingface.co/datasets/PeterDAI/NoPeBench) · `primary`
-- **分类 / Categories:** World models / 世界模型
-- **标签 / Tags:** `benchmark`, `simulation`, `world-model`, `physical-consistency`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-NoPeWorld 团队发布交互式视频模型碰撞评测集，并提供适配六个冻结模型的轻量预测头。评测同时检验模型能否阻止穿过实体障碍的动作，以及能否在前方畅通时继续执行指令。
-
-The NoPeWorld team released a benchmark for collision behavior in interactive video models, alongside lightweight prediction heads for six frozen models. It tests whether a model blocks motion through solid objects while still following safe commands.
-
-### 技术点 / Technical points
-
-- 闭环测试包含 100 条朝向障碍物的路线和 50 条畅通路线。另一项任务从单幅图像开始，并涵盖移动障碍物。
-  - The closed-loop test pairs 100 obstacle-bound routes with 50 clear routes. A separate task starts from single images and includes moving obstacles.
-- 团队报告，在六个模型上加装预测头后，闭环测试视频中出现穿透现象的比例平均从 74% 降至 16%。
-  - Across six models, the team reports that adding its heads reduced the share of closed-loop test videos showing penetration from 74% to 16%.
-
-### 为什么重要 / Why it matters
-
-畅通路线提供了对照，可以区分模型是学会了避开障碍，还是只要停止移动就能取得好成绩。
-
-Including clear paths makes it possible to distinguish a model that respects obstacles from one that simply stops moving.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/datasets/PeterDAI/NoPeBench/commit/e388b6482a81c6d128b9e02d2dfaf1ff26777dcc) · [Evidence 2](https://huggingface.co/PeterDAI/NoPeWorld)
-
----
-
-<a id="2026-11-21-handworldbench-hand-object-training-corpus"></a>
-## [HandWorldBench 发布两万段手与物体交互的训练视频](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
-
-**English:** [HandWorldBench releases 20,000 training clips of hand–object interaction](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus)
-
-- **发布 / Published:** `2026-11-21T17:33:12Z`
-- **来源 / Source:** [EmbodiedCity](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `dataset`, `robotics`, `dexterous-manipulation`, `video-prediction`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-EmbodiedCity 发布了与 HandWorldBench 的 500 个评测样例配套的训练集，将人手、仿真灵巧手和 TI5 真机的操作视频汇集在一起，用于学习手部动作如何改变物体状态。
-
-EmbodiedCity released the training corpus that accompanies HandWorldBench’s 500 evaluation cases. It brings human hands, simulated dexterous hands and a physical TI5 robot into one dataset for modeling how hand actions change objects.
-
-### 技术点 / Technical points
-
-- 语料包含 10,000 段第一人称人手视频、6,000 段仿真视频和 4,000 段 TI5 真机视频。
-  - The corpus contains 10,000 first-person human clips, 6,000 simulation clips and 4,000 clips from the TI5 robot.
-- 每段视频均配有按时间对齐的动作描述、相机标注，以及逐帧的二维和三维手部关节标注。
-  - Each clip includes time-aligned descriptions, camera annotations and per-frame 2D and 3D hand joint annotations.
-
-### 为什么重要 / Why it matters
-
-统一标注使研究者可以检验，从人手或仿真动作中学到的模型能否预测真实灵巧手与物体的交互。
-
-The common annotations let researchers compare how well a model trained on human or simulated motions predicts interactions by a real dexterous hand.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench-Corpus/commit/906e7d2f8fd2d7e6f750c5671255c96d9d5d805e) · [Evidence 2](https://huggingface.co/datasets/EmbodiedCity/HandWorldBench) · [Evidence 3](https://arxiv.org/abs/2611.24731)
-
----
-
-<a id="2026-11-21-ouroboros-065-browser-playtests"></a>
-## [Ouroboros 0.65.0 让编程智能体在浏览器中复测静态应用的用户操作](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
-
-**English:** [Ouroboros 0.65.0 lets its coding agent play back a user’s path through a static app](https://github.com/Q00/ouroboros/releases/tag/v0.65.0)
-
-- **发布 / Published:** `2026-11-21T16:16:31Z`
-- **来源 / Source:** [Ouroboros project](https://github.com/Q00/ouroboros/releases/tag/v0.65.0) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agents`, `browser-use`, `evaluation`, `tool-use`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-Ouroboros 为符合条件的静态网页应用增加了交付前的浏览器检查。审查智能体先编排新用户的操作步骤，再由 Chromium 执行；编程智能体可根据截图和控制台错误修改应用。
-
-Ouroboros added a browser check to the final review of eligible static web apps. A reviewer plans a first-time user’s interactions, Chromium runs them, and the coding agent receives screenshots and console errors it can use to repair the app.
-
-### 技术点 / Technical points
-
-- 每个测试脚本最多包含 40 步操作、截取 8 张画面。修复过程中，编程智能体可请求重放同一组操作。
-  - A test script can contain up to 40 steps and capture up to eight screenshots. During repairs, the worker can request a replay of the same interactions.
-- 首版支持无需构建或单独启动应用服务器的静态页面，运行条件包括受支持的非 Windows 主机和 Chromium 系浏览器。
-  - The initial release covers static pages that need no build step or application server, on supported non-Windows hosts with a Chromium-family browser.
-
-### 为什么重要 / Why it matters
-
-把同一组操作在修改前后各执行一次，智能体就能检查画面或交互上的故障是否已经消失。
-
-Replaying the same actions before and after an edit lets an agent check whether a visible rendering or interaction defect actually disappeared.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/Q00/ouroboros/pull/3091)
-
----
-
-<a id="2026-11-21-wall-wm-2-robodojo-preview-weights"></a>
-## [自变量机器人发布用于 RoboDojo 训练的 WALL-WM 2.0 预览权重](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
-
-**English:** [X Square Robot releases the WALL-WM 2.0 preview used to start RoboDojo training](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo)
-
-- **发布 / Published:** `2026-11-21T14:42:01Z`
-- **来源 / Source:** [X Square Robot](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-action-model`, `bimanual-manipulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
-
-### 摘要 / Summary
-
-自变量机器人公开了 RoboDojo 训练所用的预训练起点，并提供模型配置和动作、状态的归一化统计量。团队说明，这份预览权重与计划中的完整版主要区别在于训练迭代次数。
-
-X Square Robot published the pretrained checkpoint it uses to initialize RoboDojo training, along with the model configuration and action and state normalization statistics. The team says the preview differs from the planned full release mainly in the number of training iterations.
-
-### 技术点 / Technical points
-
-- 配置文件将双臂动作分为 32 步一段，涵盖两侧末端执行器的相对位置、旋转和夹爪指令。
-  - The configuration predicts 32-step chunks for both arms, including relative end-effector positions, rotations and gripper commands.
-- 模型卡指定使用 Qwen3.5-9B 的分词器和对话模板。
-  - The model card specifies the tokenizer and chat template from Qwen3.5-9B.
-
-### 为什么重要 / Why it matters
-
-权重和配套的归一化参数为双臂策略提供了共同起点，方便研究者比较不同的 RoboDojo 训练方法。
-
-The checkpoint and its normalization statistics give researchers a common starting point for comparing how they train dual-arm policies in RoboDojo.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/commit/fdd4874767857352bfd681a8069705fdfbc4a63d) · [Evidence 2](https://huggingface.co/x-square-robot/wall-wm-2.0-robodojo/blob/fdd4874767857352bfd681a8069705fdfbc4a63d/config.yml)

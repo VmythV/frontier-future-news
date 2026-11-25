@@ -28385,6 +28385,482 @@
         "technical_depth": 13,
         "traction": 3
       }
+    },
+    {
+      "id": "2026-11-23-motion-mamba-2-humanoid-control",
+      "published_at": "2026-11-23T01:51:57Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "humanoid",
+        "locomotion",
+        "motion-generation",
+        "memory"
+      ],
+      "title_en": "Motion Mamba 2.0 carries motion history across changing instructions on a Unitree G1",
+      "title_zh": "Motion Mamba 2.0 让宇树 G1 在指令切换时接续已有动作",
+      "summary_en": "The authors demonstrated a Unitree G1 linking several text-guided movements and responding to directional input. The generator keeps a compact record of earlier motion as it produces each new segment.",
+      "summary_zh": "研究团队在宇树 G1 上演示了机器人按不同文字指令连续完成动作，并响应方向输入。模型在生成每一段新动作时，都能读取压缩后的运动历史。",
+      "tech_points_en": [
+        "The model predicts the root trajectory and uses it to guide the movement of the rest of the body.",
+        "On an RTX 4090, execution optimizations cut the median time to generate a complete motion window from 1,685 to 276 milliseconds."
+      ],
+      "tech_points_zh": [
+        "模型先预测根节点的运动轨迹，再据此生成身体其余部位的动作。",
+        "在 RTX 4090 上，执行优化将生成一个完整动作窗口的中位耗时从 1,685 毫秒降至 276 毫秒。"
+      ],
+      "why_it_matters_en": "Remembering how the body reached its current pose helps a controller join successive instructions into a continuous movement.",
+      "why_it_matters_zh": "保留身体到达当前姿态的过程，有助于控制器把连续下达的指令衔接成流畅的动作。",
+      "source": {
+        "name": "Motion Mamba 2.0 authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.29897",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://aigeeksgroup.github.io/MotionMamba2.0/"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 24,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 4
+      }
+    },
+    {
+      "id": "2026-11-23-x-square-wall-oss-1-real-robot-evaluation",
+      "published_at": "2026-11-23T07:44:46Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "vla",
+        "robotics",
+        "manipulation",
+        "pretraining"
+      ],
+      "title_en": "X Square Robot reports 55.1% zero-shot success across 312 real-robot tasks with WALL-OSS-1.0",
+      "title_zh": "自变量发布 WALL-OSS-1.0，在 312 项真机任务上报告 55.1% 的零样本成功率",
+      "summary_en": "X Square Robot introduced a vision-language-action model that learns from robot trajectories during pretraining. The team evaluated the pretrained policy on tasks chosen by evaluators, using unfamiliar objects and instructions without task-specific demonstrations.",
+      "summary_zh": "自变量发布视觉语言动作模型 WALL-OSS-1.0，在预训练阶段就引入机器人轨迹。评测者自行挑选任务，让预训练策略面对陌生物体和指令，并且不提供任务专属示范。",
+      "tech_points_en": [
+        "Pretraining represents robot motion as discrete tokens alongside visual and language data. A flow-matching action expert generates continuous commands.",
+        "The team grouped 377 evaluations by instruction to obtain 312 distinct tasks, including bimanual coordination and tool use."
+      ],
+      "tech_points_zh": [
+        "预训练将机器人动作编码为离散词元，与图像和语言数据共同训练，再由基于流匹配的动作专家生成连续控制指令。",
+        "团队按任务指令汇总 377 次评测，得到 312 项独立任务，涵盖双臂协调和工具使用。"
+      ],
+      "why_it_matters_en": "The open-ended evaluation measures how much manipulation skill is already usable before collecting demonstrations for a new task.",
+      "why_it_matters_zh": "这组开放式真机评测衡量了在为新任务采集示范之前，预训练策略已经能够完成哪些操作。",
+      "source": {
+        "name": "X Square Robot (GlobeNewswire)",
+        "type": "primary",
+        "url": "https://www.globenewswire.com/news-release/2026/11/23/3408046/0/en/x-square-robot-introduces-wall-oss-1-0-understand-more-act-better-a-native-foundation-model-for-the-physical-world.html",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://x2robot.com/blog/wall-oss-1",
+        "https://investor.wedbush.com/wedbush/article/gnwcq-2026-11-23-x-square-robot-introduces-wall-oss-10-understand-more-act-better-a-native-foundation-model-for-the-physical-world"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-23-swe-gym-verified-reward-audit",
+      "published_at": "2026-11-23T07:45:13Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "reinforcement-learning",
+        "dataset",
+        "evaluation"
+      ],
+      "title_en": "SWE-Gym-Verified audits the tests that reward coding agents on 1,087 tasks",
+      "title_zh": "SWE-Gym-Verified 审核 1,087 项编程任务中用于给智能体打分的测试",
+      "summary_en": "Researchers ran candidate fixes to check whether SWE-Gym tests assigned the right rewards. Among the tasks a 9B model never solved in their trials, 74% had a test that rejected a correct patch. The share was 20% on tasks it sometimes solved.",
+      "summary_zh": "研究者实际运行候选补丁，检查 SWE-Gym 的测试能否正确判分。在一个 9B 模型多次尝试均未解出的任务中，74% 含有会误拒正确补丁的测试。在该模型有时能解出的任务中，这一比例为 20%。",
+      "tech_points_en": [
+        "The released dataset includes audit verdicts and patches that can be run to reproduce the findings.",
+        "With training sets matched for size and difficulty, auditing improved held-out scores by 2.4 points on SWE-bench Verified and 2.7 on SWE-bench Pro."
+      ],
+      "tech_points_zh": [
+        "公开数据集包含审核结论，以及可通过实际运行复核结论的补丁。",
+        "在匹配训练集规模和难度后，使用审核后数据训练的模型在 SWE-bench Verified 和 SWE-bench Pro 留出任务上分别提高了 2.4 分和 2.7 分。"
+      ],
+      "why_it_matters_en": "Checking the tests can distinguish a hard engineering task from one that penalizes an agent for a correct fix.",
+      "why_it_matters_zh": "审核测试能揭示编程智能体失分的原因，帮助研究者发现那些将正确修复判错的训练任务。",
+      "source": {
+        "name": "SWE-Gym-Verified authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.30207",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://huggingface.co/datasets/Arist12/SWE-Gym-Verified"
+      ],
+      "confidence": "high",
+      "score": 85,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 16,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-23-native-lam-video-to-robot-actions",
+      "published_at": "2026-11-23T16:01:06Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "latent-actions",
+        "robotics",
+        "vla",
+        "pretraining"
+      ],
+      "title_en": "Native LAM extracts latent actions from a video world model to train robot policies",
+      "title_zh": "Native LAM 从视频世界模型中提取潜在动作，用于训练机器人策略",
+      "summary_en": "Native LAM uses one pretrained video model to infer what motion connects two observations and to predict its effect. The authors then used those inferred actions to teach PAWlicy from videos that lack compatible robot commands.",
+      "summary_zh": "Native LAM 用同一个预训练视频模型推断两次观测之间发生了什么动作，并预测该动作的效果。作者随后用提取出的动作训练 PAWlicy，使缺少统一控制指令的视频也能用于学习机器人策略。",
+      "tech_points_en": [
+        "Paired examples with different motions train a small set of learned vectors to carry the dynamics between the two prediction steps.",
+        "The 3.8B PAWlicy achieved 93.6% mean success on RoboTwin 2.0 in the authors’ experiment with domain-randomized demonstrations."
+      ],
+      "tech_points_zh": [
+        "研究者用运动不同的成对样例训练一组可学习向量，让它们在两个预测步骤之间传递运动信息。",
+        "在作者使用域随机化示范的实验中，3.8B 参数的 PAWlicy 在 RoboTwin 2.0 上达到 93.6% 的平均成功率。"
+      ],
+      "why_it_matters_en": "A shared motion representation gives policy training a way to use both human videos and recordings from robots with different controls.",
+      "why_it_matters_zh": "共享的运动表示让策略训练可以同时利用人类操作视频和控制接口不同的机器人录像。",
+      "source": {
+        "name": "PAW Team (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.30898",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://pawteam-eai.github.io/native-lam/"
+      ],
+      "confidence": "high",
+      "score": 87,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 18,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-23-worldleague-physical-agency-benchmark",
+      "published_at": "2026-11-23T16:44:19Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "benchmark",
+        "simulation",
+        "planning",
+        "robotics"
+      ],
+      "title_en": "WorldLeague measures how far agents get toward 60 simulated robot goals",
+      "title_zh": "WorldLeague 用 60 项仿真机器人任务衡量智能体的实际完成进度",
+      "summary_en": "WorldLeague compares 13 systems on tasks that require exploration, rearranging objects or adapting to changes. It scores the resulting robot trajectory. Claude Fable 5.2 completed 13 goals and had the highest mean progress score, 28.58 out of 100.",
+      "summary_zh": "WorldLeague 让 13 个系统在仿真中探索场景、重排物品或应对环境变化，再根据机器人实际走出的轨迹评分。Claude Fable 5.2 完整达成 13 项任务目标，平均进度得分最高，为 28.58/100。",
+      "tech_points_en": [
+        "Vision-language models choose targets and motions, while vision-language-action and world-action models use their own controls.",
+        "Among episodes in which vision-language models answered all final questions correctly, 71.8% still earned zero progress toward the physical goal."
+      ],
+      "tech_points_zh": [
+        "视觉语言模型选择目标和移动方式，视觉语言动作模型和世界动作模型则使用各自的控制接口。",
+        "在视觉语言模型答对全部收尾问题的回合中，仍有 71.8% 在物理目标上得零分。"
+      ],
+      "why_it_matters_en": "Trajectory scoring makes it possible to compare agents with different controls and see when correct answers coincide with an unfinished task.",
+      "why_it_matters_zh": "按轨迹评分可以比较使用不同控制接口的智能体，也能识别答对问题却没有完成动作的情况。",
+      "source": {
+        "name": "xML Lab, National University of Singapore (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.30989",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://xyangzhou.github.io/WorldLeague/"
+      ],
+      "confidence": "high",
+      "score": 88,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 3
+      }
+    },
+    {
+      "id": "2026-11-23-ai2-robotrack-manipulation-point-tracking",
+      "published_at": "2026-11-23T17:20:37.168Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "embodied-ai"
+      ],
+      "tags": [
+        "robotics",
+        "dataset",
+        "benchmark",
+        "visual-tracking"
+      ],
+      "title_en": "Ai2 releases RoboTrack to test point tracking during real manipulation",
+      "title_zh": "Ai2 发布 RoboTrack，评测真实操作视频中的点跟踪",
+      "summary_en": "Ai2 paired an annotated manipulation benchmark with synthetic training data and two tracking models. On real footage, the benchmark tests whether a tracker can keep following a hand, gripper or object through motion and occlusion.",
+      "summary_zh": "Ai2 发布了带人工标注的操作视频基准、合成训练数据和两个跟踪模型。基准用实拍片段检验跟踪器能否在手、夹爪或物体移动和被遮挡时，持续定位同一个点。",
+      "tech_points_en": [
+        "RoboTrack-Bench contains 2,522 human-verified point tracks across 307 videos, including first-person and external views.",
+        "Ai2 generated training tracks in MolmoSpaces. Its two adapted trackers each improved their mean tracking score across three robotics benchmarks over the respective starting model."
+      ],
+      "tech_points_zh": [
+        "RoboTrack-Bench 的 307 段视频包含 2,522 条经人工核验的点轨迹，覆盖第一人称和外部相机视角。",
+        "Ai2 在 MolmoSpaces 中生成训练轨迹。两个适配后的跟踪器在三项机器人基准上的平均跟踪得分都高于各自的基础模型。"
+      ],
+      "why_it_matters_en": "Tracking a point on a moving object provides a concrete test of the visual feedback a robot can use during a grasp.",
+      "why_it_matters_zh": "跟踪运动物体上的同一个点，可以具体检验机器人执行抓取时所依赖的视觉反馈。",
+      "source": {
+        "name": "Allen Institute for AI",
+        "type": "primary",
+        "url": "https://huggingface.co/blog/allenai/robotrack",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://robotrack.allen.ai"
+      ],
+      "confidence": "high",
+      "score": 86,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-23-vita-wam-single-step-action-generation",
+      "published_at": "2026-11-23T18:46:15Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "world-models",
+        "embodied-ai"
+      ],
+      "tags": [
+        "world-action-model",
+        "flow-matching",
+        "robotics",
+        "inference"
+      ],
+      "title_en": "VITA-WAM generates a robot action sequence in one flow step",
+      "title_zh": "VITA-WAM 用一步流匹配生成机器人动作序列",
+      "summary_en": "VITA-WAM learns to transform visual, language and robot-state features directly into actions within a world-action model. Aligning the observation and action representations during training reduces the number of steps needed to produce a command sequence.",
+      "summary_zh": "VITA-WAM 在世界动作模型中，直接将视觉、语言和机器人自身状态的特征转换为动作。研究者在训练时对齐观测与动作的表示，减少生成一段控制指令所需的迭代步数。",
+      "tech_points_en": [
+        "In the authors’ compiled RTX 4090 test, generating a 32-action sequence took 55.67 milliseconds, compared with 116.65 for FastWAM.",
+        "On the simulated LIBERO-Plus benchmark, the one-step model exceeded the ten-step FastWAM baseline by 21.47 percentage points in success rate."
+      ],
+      "tech_points_zh": [
+        "在作者使用 RTX 4090 的编译优化测试中，生成一段含 32 个动作的序列用时 55.67 毫秒，FastWAM 用时 116.65 毫秒。",
+        "在 LIBERO-Plus 仿真基准上，单步模型的成功率比十步 FastWAM 基线高 21.47 个百分点。"
+      ],
+      "why_it_matters_en": "The measured latency and simulation results let control designers weigh how often a policy can update against how reliably it completes a task.",
+      "why_it_matters_zh": "对控制器设计者来说，这两项测试可以一起看出策略多快能更新动作，以及在这一速度下能多可靠地完成任务。",
+      "source": {
+        "name": "VITA-WAM authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.31195",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://ucd-dare.github.io/VITA-WAM/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-23-acap-asynchronous-robot-control",
+      "published_at": "2026-11-23T18:52:19Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "agents",
+        "embodied-ai"
+      ],
+      "tags": [
+        "multi-agent",
+        "robotics",
+        "manipulation",
+        "planning"
+      ],
+      "title_en": "ACAP lets coding agents control different parts of one robot concurrently",
+      "title_zh": "ACAP 让多个编程智能体并行控制同一台机器人的不同部位",
+      "summary_en": "ACAP assigns persistent coding agents to units such as an arm and gripper or a mobile base. A coordinating agent can let them work independently, synchronize interdependent steps or take over control when a task requires it.",
+      "summary_zh": "ACAP 将机械臂与夹爪、移动底盘等控制单元交给持续运行的编程智能体。协调智能体可以让各单元独立行动，同步彼此依赖的步骤，也能在任务需要时接管控制。",
+      "tech_points_en": [
+        "Across 72 real-robot runs in 25 combinations of tasks and platforms, ACAP cut task-balanced time cost by 28.2% against a single-agent controller.",
+        "In all eight settings that required collaboration, average time cost was lower with flexible control assignment than with fixed assignments."
+      ],
+      "tech_points_zh": [
+        "在覆盖 25 种任务与平台组合的 72 次真机运行中，ACAP 比单智能体控制器降低了 28.2% 的按任务均衡计算的时间成本。",
+        "在全部 8 种需要协作的设置中，允许调整控制权的方案平均时间成本均低于固定分工方案。"
+      ],
+      "why_it_matters_en": "The experiments quantify how much time a robot can save by overlapping independent work while still coordinating coupled motions.",
+      "why_it_matters_zh": "这组实验量化了机器人在保持联动动作协调的同时，并行执行独立步骤能节省多少时间。",
+      "source": {
+        "name": "ACAP authors (arXiv)",
+        "type": "research",
+        "url": "https://arxiv.org/abs/2611.31205",
+        "language": "en"
+      },
+      "discussion_urls": [],
+      "evidence_urls": [
+        "https://projects.zxhezexin.com/acap/"
+      ],
+      "confidence": "high",
+      "score": 84,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 24,
+        "novelty": 17,
+        "technical_depth": 14,
+        "traction": 0
+      }
+    },
+    {
+      "id": "2026-11-24-cognition-swe-2-1-coding-model",
+      "published_at": "2026-11-24T16:00:00Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "coding-agent",
+        "reinforcement-learning",
+        "benchmark"
+      ],
+      "title_en": "Cognition releases SWE-2.1 and reports gains on terminal and repository tasks",
+      "title_zh": "Cognition 发布 SWE-2.1，报告终端与代码库任务得分提升",
+      "summary_en": "Cognition trained SWE-2.1 on Kimi K3 with reinforcement learning across short and extended workflows. In the company’s evaluation the new model scored 50.0 on Terminal-Bench 4.1, up from 24.2 for SWE-2.",
+      "summary_zh": "Cognition 以 Kimi K3 为基础，通过强化学习训练 SWE-2.1，任务覆盖短流程和需要多步执行的工作。在公司的评测中，新模型在 Terminal-Bench 4.1 上得到 50.0 分，前代 SWE-2 为 24.2 分。",
+      "tech_points_en": [
+        "On FrontierCode 2.0, the company reports a score of 41.3 for SWE-2.1 and 24.1 for SWE-2.",
+        "Cognition used the Devin CLI harness for its SWE models and applied a simulated clock to time-limit benchmark runs."
+      ],
+      "tech_points_zh": [
+        "在 FrontierCode 2.0 上，Cognition 报告 SWE-2.1 得分为 41.3，SWE-2 为 24.1。",
+        "Cognition 使用 Devin CLI 运行自家的 SWE 模型，并用模拟时钟限制评测时长。"
+      ],
+      "why_it_matters_en": "Scores for both generations under the same agent harness give developers a reference for the change in coding performance.",
+      "why_it_matters_zh": "两代模型在相同智能体运行框架下的成绩，为开发者判断这一版的编程能力变化提供了参照。",
+      "source": {
+        "name": "Cognition",
+        "type": "primary",
+        "url": "https://cognition.com/blog/swe-2-1",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50633450"
+      ],
+      "evidence_urls": [],
+      "confidence": "high",
+      "score": 83,
+      "score_breakdown": {
+        "relevance": 29,
+        "evidence": 23,
+        "novelty": 16,
+        "technical_depth": 13,
+        "traction": 2
+      }
+    },
+    {
+      "id": "2026-11-24-google-workspace-agent-tools-ga",
+      "published_at": "2026-11-24T17:02:59.959Z",
+      "collected_at": "2026-11-25T00:06:10Z",
+      "categories": [
+        "agents"
+      ],
+      "tags": [
+        "mcp",
+        "tool-use",
+        "human-oversight",
+        "audit-logging"
+      ],
+      "title_en": "Google Workspace begins general rollout of its MCP servers and CLI for agents",
+      "title_zh": "Google Workspace 开始向用户正式推出智能体用 MCP 服务器和命令行工具",
+      "summary_en": "Google announced general availability for its hosted Workspace MCP servers and official CLI. Administrators can set confirmation rules for consequential actions and review activity as agents work across applications such as Gmail, Drive and Calendar.",
+      "summary_zh": "Google 宣布托管的 Workspace MCP 服务器和官方命令行工具进入正式可用阶段。智能体跨 Gmail、Drive 或日历等应用操作时，管理员可以为影响较大的动作设置确认规则，并审查活动记录。",
+      "tech_points_en": [
+        "Cloud agents can call hosted tools across eight Workspace services. Terminal-based agents can discover CLI commands at runtime and sign in with limited scopes.",
+        "Google scheduled a two-week rollout for the tools, confirmation policies and audit controls across its rapid and scheduled release domains."
+      ],
+      "tech_points_zh": [
+        "云端智能体可以调用覆盖八项 Workspace 服务的托管工具。终端智能体可以在运行时发现命令，并以限定的权限范围登录。",
+        "Google 计划用两周时间向快速发布和定期发布两类客户域推出这些工具、确认策略和审计控制。"
+      ],
+      "why_it_matters_en": "Organizations can apply their own approval policies and inspect actions when an agent uses several Workspace services in one task.",
+      "why_it_matters_zh": "当智能体为完成一项任务而调用多个 Workspace 服务时，组织可以统一应用自己的审批策略，并追查具体动作。",
+      "source": {
+        "name": "Google Workspace Updates",
+        "type": "primary",
+        "url": "https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html",
+        "language": "en"
+      },
+      "discussion_urls": [
+        "https://news.ycombinator.com/item?id=50635826"
+      ],
+      "evidence_urls": [
+        "https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace"
+      ],
+      "confidence": "high",
+      "score": 82,
+      "score_breakdown": {
+        "relevance": 28,
+        "evidence": 25,
+        "novelty": 15,
+        "technical_depth": 12,
+        "traction": 2
+      }
     }
   ]
 }

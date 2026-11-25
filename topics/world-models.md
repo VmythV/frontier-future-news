@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-11-23-vita-wam-single-step-action-generation"></a>
+## [VITA-WAM 用一步流匹配生成机器人动作序列](https://arxiv.org/abs/2611.31195)
+
+**English:** [VITA-WAM generates a robot action sequence in one flow step](https://arxiv.org/abs/2611.31195)
+
+- **发布 / Published:** `2026-11-23T18:46:15Z`
+- **来源 / Source:** [VITA-WAM authors (arXiv)](https://arxiv.org/abs/2611.31195) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `flow-matching`, `robotics`, `inference`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+VITA-WAM 在世界动作模型中，直接将视觉、语言和机器人自身状态的特征转换为动作。研究者在训练时对齐观测与动作的表示，减少生成一段控制指令所需的迭代步数。
+
+VITA-WAM learns to transform visual, language and robot-state features directly into actions within a world-action model. Aligning the observation and action representations during training reduces the number of steps needed to produce a command sequence.
+
+### 技术点 / Technical points
+
+- 在作者使用 RTX 4090 的编译优化测试中，生成一段含 32 个动作的序列用时 55.67 毫秒，FastWAM 用时 116.65 毫秒。
+  - In the authors’ compiled RTX 4090 test, generating a 32-action sequence took 55.67 milliseconds, compared with 116.65 for FastWAM.
+- 在 LIBERO-Plus 仿真基准上，单步模型的成功率比十步 FastWAM 基线高 21.47 个百分点。
+  - On the simulated LIBERO-Plus benchmark, the one-step model exceeded the ten-step FastWAM baseline by 21.47 percentage points in success rate.
+
+### 为什么重要 / Why it matters
+
+对控制器设计者来说，这两项测试可以一起看出策略多快能更新动作，以及在这一速度下能多可靠地完成任务。
+
+The measured latency and simulation results let control designers weigh how often a policy can update against how reliably it completes a task.
+
+### 链接 / Links
+
+[Evidence 1](https://ucd-dare.github.io/VITA-WAM/)
+
+---
+
 <a id="2026-11-23-fomo-fd-surgical-robot-failure-detection-weights"></a>
 ## [FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败](https://huggingface.co/Januxes/FoMoFD-models)
 
@@ -35,6 +71,42 @@ The released models make it possible to compare how early different monitors fla
 ### 链接 / Links
 
 [Evidence 1](https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011) · [Evidence 2](https://janusmaple.github.io/FoMoFD/)
+
+---
+
+<a id="2026-11-23-native-lam-video-to-robot-actions"></a>
+## [Native LAM 从视频世界模型中提取潜在动作，用于训练机器人策略](https://arxiv.org/abs/2611.30898)
+
+**English:** [Native LAM extracts latent actions from a video world model to train robot policies](https://arxiv.org/abs/2611.30898)
+
+- **发布 / Published:** `2026-11-23T16:01:06Z`
+- **来源 / Source:** [PAW Team (arXiv)](https://arxiv.org/abs/2611.30898) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `latent-actions`, `robotics`, `vla`, `pretraining`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
+
+### 摘要 / Summary
+
+Native LAM 用同一个预训练视频模型推断两次观测之间发生了什么动作，并预测该动作的效果。作者随后用提取出的动作训练 PAWlicy，使缺少统一控制指令的视频也能用于学习机器人策略。
+
+Native LAM uses one pretrained video model to infer what motion connects two observations and to predict its effect. The authors then used those inferred actions to teach PAWlicy from videos that lack compatible robot commands.
+
+### 技术点 / Technical points
+
+- 研究者用运动不同的成对样例训练一组可学习向量，让它们在两个预测步骤之间传递运动信息。
+  - Paired examples with different motions train a small set of learned vectors to carry the dynamics between the two prediction steps.
+- 在作者使用域随机化示范的实验中，3.8B 参数的 PAWlicy 在 RoboTwin 2.0 上达到 93.6% 的平均成功率。
+  - The 3.8B PAWlicy achieved 93.6% mean success on RoboTwin 2.0 in the authors’ experiment with domain-randomized demonstrations.
+
+### 为什么重要 / Why it matters
+
+共享的运动表示让策略训练可以同时利用人类操作视频和控制接口不同的机器人录像。
+
+A shared motion representation gives policy training a way to use both human videos and recordings from robots with different controls.
+
+### 链接 / Links
+
+[Evidence 1](https://pawteam-eai.github.io/native-lam/)
 
 ---
 

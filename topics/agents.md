@@ -2,6 +2,79 @@
 
 # Agents / 智能体
 
+<a id="2026-11-24-google-workspace-agent-tools-ga"></a>
+## [Google Workspace 开始向用户正式推出智能体用 MCP 服务器和命令行工具](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
+
+**English:** [Google Workspace begins general rollout of its MCP servers and CLI for agents](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
+
+- **发布 / Published:** `2026-11-24T17:02:59.959Z`
+- **来源 / Source:** [Google Workspace Updates](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mcp`, `tool-use`, `human-oversight`, `audit-logging`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Google 宣布托管的 Workspace MCP 服务器和官方命令行工具进入正式可用阶段。智能体跨 Gmail、Drive 或日历等应用操作时，管理员可以为影响较大的动作设置确认规则，并审查活动记录。
+
+Google announced general availability for its hosted Workspace MCP servers and official CLI. Administrators can set confirmation rules for consequential actions and review activity as agents work across applications such as Gmail, Drive and Calendar.
+
+### 技术点 / Technical points
+
+- 云端智能体可以调用覆盖八项 Workspace 服务的托管工具。终端智能体可以在运行时发现命令，并以限定的权限范围登录。
+  - Cloud agents can call hosted tools across eight Workspace services. Terminal-based agents can discover CLI commands at runtime and sign in with limited scopes.
+- Google 计划用两周时间向快速发布和定期发布两类客户域推出这些工具、确认策略和审计控制。
+  - Google scheduled a two-week rollout for the tools, confirmation policies and audit controls across its rapid and scheduled release domains.
+
+### 为什么重要 / Why it matters
+
+当智能体为完成一项任务而调用多个 Workspace 服务时，组织可以统一应用自己的审批策略，并追查具体动作。
+
+Organizations can apply their own approval policies and inspect actions when an agent uses several Workspace services in one task.
+
+### 链接 / Links
+
+[Evidence 1](https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace)
+[Discussion 1](https://news.ycombinator.com/item?id=50635826)
+
+---
+
+<a id="2026-11-24-cognition-swe-2-1-coding-model"></a>
+## [Cognition 发布 SWE-2.1，报告终端与代码库任务得分提升](https://cognition.com/blog/swe-2-1)
+
+**English:** [Cognition releases SWE-2.1 and reports gains on terminal and repository tasks](https://cognition.com/blog/swe-2-1)
+
+- **发布 / Published:** `2026-11-24T16:00:00Z`
+- **来源 / Source:** [Cognition](https://cognition.com/blog/swe-2-1) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `reinforcement-learning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+Cognition 以 Kimi K3 为基础，通过强化学习训练 SWE-2.1，任务覆盖短流程和需要多步执行的工作。在公司的评测中，新模型在 Terminal-Bench 4.1 上得到 50.0 分，前代 SWE-2 为 24.2 分。
+
+Cognition trained SWE-2.1 on Kimi K3 with reinforcement learning across short and extended workflows. In the company’s evaluation the new model scored 50.0 on Terminal-Bench 4.1, up from 24.2 for SWE-2.
+
+### 技术点 / Technical points
+
+- 在 FrontierCode 2.0 上，Cognition 报告 SWE-2.1 得分为 41.3，SWE-2 为 24.1。
+  - On FrontierCode 2.0, the company reports a score of 41.3 for SWE-2.1 and 24.1 for SWE-2.
+- Cognition 使用 Devin CLI 运行自家的 SWE 模型，并用模拟时钟限制评测时长。
+  - Cognition used the Devin CLI harness for its SWE models and applied a simulated clock to time-limit benchmark runs.
+
+### 为什么重要 / Why it matters
+
+两代模型在相同智能体运行框架下的成绩，为开发者判断这一版的编程能力变化提供了参照。
+
+Scores for both generations under the same agent harness give developers a reference for the change in coding performance.
+
+### 链接 / Links
+
+[Discussion 1](https://news.ycombinator.com/item?id=50633450)
+
+---
+
 <a id="2026-11-23-anthropic-claude-ship-pull-request-agents"></a>
 ## [Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批](https://claude.com/resources/articles/introducing-claude-ship)
 
@@ -36,6 +109,78 @@ The workflow gives teams separate controls over who repairs a change and which c
 
 [Evidence 1](https://x.com/ClaudeDevs/status/2124959436640858475) · [Evidence 2](https://claude.com/product/claude-ship)
 [Discussion 1](https://news.ycombinator.com/item?id=50618513)
+
+---
+
+<a id="2026-11-23-acap-asynchronous-robot-control"></a>
+## [ACAP 让多个编程智能体并行控制同一台机器人的不同部位](https://arxiv.org/abs/2611.31205)
+
+**English:** [ACAP lets coding agents control different parts of one robot concurrently](https://arxiv.org/abs/2611.31205)
+
+- **发布 / Published:** `2026-11-23T18:52:19Z`
+- **来源 / Source:** [ACAP authors (arXiv)](https://arxiv.org/abs/2611.31205) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `multi-agent`, `robotics`, `manipulation`, `planning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+ACAP 将机械臂与夹爪、移动底盘等控制单元交给持续运行的编程智能体。协调智能体可以让各单元独立行动，同步彼此依赖的步骤，也能在任务需要时接管控制。
+
+ACAP assigns persistent coding agents to units such as an arm and gripper or a mobile base. A coordinating agent can let them work independently, synchronize interdependent steps or take over control when a task requires it.
+
+### 技术点 / Technical points
+
+- 在覆盖 25 种任务与平台组合的 72 次真机运行中，ACAP 比单智能体控制器降低了 28.2% 的按任务均衡计算的时间成本。
+  - Across 72 real-robot runs in 25 combinations of tasks and platforms, ACAP cut task-balanced time cost by 28.2% against a single-agent controller.
+- 在全部 8 种需要协作的设置中，允许调整控制权的方案平均时间成本均低于固定分工方案。
+  - In all eight settings that required collaboration, average time cost was lower with flexible control assignment than with fixed assignments.
+
+### 为什么重要 / Why it matters
+
+这组实验量化了机器人在保持联动动作协调的同时，并行执行独立步骤能节省多少时间。
+
+The experiments quantify how much time a robot can save by overlapping independent work while still coordinating coupled motions.
+
+### 链接 / Links
+
+[Evidence 1](https://projects.zxhezexin.com/acap/)
+
+---
+
+<a id="2026-11-23-worldleague-physical-agency-benchmark"></a>
+## [WorldLeague 用 60 项仿真机器人任务衡量智能体的实际完成进度](https://arxiv.org/abs/2611.30989)
+
+**English:** [WorldLeague measures how far agents get toward 60 simulated robot goals](https://arxiv.org/abs/2611.30989)
+
+- **发布 / Published:** `2026-11-23T16:44:19Z`
+- **来源 / Source:** [xML Lab, National University of Singapore (arXiv)](https://arxiv.org/abs/2611.30989) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `simulation`, `planning`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+WorldLeague 让 13 个系统在仿真中探索场景、重排物品或应对环境变化，再根据机器人实际走出的轨迹评分。Claude Fable 5.2 完整达成 13 项任务目标，平均进度得分最高，为 28.58/100。
+
+WorldLeague compares 13 systems on tasks that require exploration, rearranging objects or adapting to changes. It scores the resulting robot trajectory. Claude Fable 5.2 completed 13 goals and had the highest mean progress score, 28.58 out of 100.
+
+### 技术点 / Technical points
+
+- 视觉语言模型选择目标和移动方式，视觉语言动作模型和世界动作模型则使用各自的控制接口。
+  - Vision-language models choose targets and motions, while vision-language-action and world-action models use their own controls.
+- 在视觉语言模型答对全部收尾问题的回合中，仍有 71.8% 在物理目标上得零分。
+  - Among episodes in which vision-language models answered all final questions correctly, 71.8% still earned zero progress toward the physical goal.
+
+### 为什么重要 / Why it matters
+
+按轨迹评分可以比较使用不同控制接口的智能体，也能识别答对问题却没有完成动作的情况。
+
+Trajectory scoring makes it possible to compare agents with different controls and see when correct answers coincide with an unfinished task.
+
+### 链接 / Links
+
+[Evidence 1](https://xyangzhou.github.io/WorldLeague/)
 
 ---
 
@@ -177,6 +322,42 @@ OpenCode added a persistent browser to its desktop app. A developer can open a p
 开发者能让智能体直接查看正在调试的页面状态，包括需要保持登录才能复现的交互。
 
 The shared tab lets developers point the agent at the exact page state they are debugging, including interactions that require a signed-in session.
+
+---
+
+<a id="2026-11-23-swe-gym-verified-reward-audit"></a>
+## [SWE-Gym-Verified 审核 1,087 项编程任务中用于给智能体打分的测试](https://arxiv.org/abs/2611.30207)
+
+**English:** [SWE-Gym-Verified audits the tests that reward coding agents on 1,087 tasks](https://arxiv.org/abs/2611.30207)
+
+- **发布 / Published:** `2026-11-23T07:45:13Z`
+- **来源 / Source:** [SWE-Gym-Verified authors (arXiv)](https://arxiv.org/abs/2611.30207) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agent`, `reinforcement-learning`, `dataset`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+研究者实际运行候选补丁，检查 SWE-Gym 的测试能否正确判分。在一个 9B 模型多次尝试均未解出的任务中，74% 含有会误拒正确补丁的测试。在该模型有时能解出的任务中，这一比例为 20%。
+
+Researchers ran candidate fixes to check whether SWE-Gym tests assigned the right rewards. Among the tasks a 9B model never solved in their trials, 74% had a test that rejected a correct patch. The share was 20% on tasks it sometimes solved.
+
+### 技术点 / Technical points
+
+- 公开数据集包含审核结论，以及可通过实际运行复核结论的补丁。
+  - The released dataset includes audit verdicts and patches that can be run to reproduce the findings.
+- 在匹配训练集规模和难度后，使用审核后数据训练的模型在 SWE-bench Verified 和 SWE-bench Pro 留出任务上分别提高了 2.4 分和 2.7 分。
+  - With training sets matched for size and difficulty, auditing improved held-out scores by 2.4 points on SWE-bench Verified and 2.7 on SWE-bench Pro.
+
+### 为什么重要 / Why it matters
+
+审核测试能揭示编程智能体失分的原因，帮助研究者发现那些将正确修复判错的训练任务。
+
+Checking the tests can distinguish a hard engineering task from one that penalizes an agent for a correct fix.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Arist12/SWE-Gym-Verified)
 
 ---
 
