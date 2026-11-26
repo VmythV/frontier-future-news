@@ -2,6 +2,106 @@
 
 # World models / 世界模型
 
+<a id="2026-11-24-simpwm-tests-whether-robot-video-follows-simulation"></a>
+## [SimPWM 用冻结物体的实验检验机器人视频预测是否遵循仿真状态](https://arxiv.org/abs/2611.32786)
+
+**English:** [SimPWM freezes simulated objects to test whether robot video predictions follow them](https://arxiv.org/abs/2611.32786)
+
+- **发布 / Published:** `2026-11-24T15:14:07Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32786) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `video-prediction`, `simulation`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+SimPWM 同时输出机器人操作的视频预测和驱动预测的仿真状态。作者让机械臂保持原来的动作，同时在仿真中固定物体，观察生成的视频是否仍显示物体被提起。
+
+SimPWM returns a predicted manipulation video alongside the simulator state used to condition it. The authors kept the recorded arm motion and froze objects in the simulator, then checked whether the video still showed a lift.
+
+### 技术点 / Technical points
+
+- 系统从标定相机的首帧构建场景，用三维模型表示机械臂，用点表示夹爪可能接触的物体。
+  - The system builds the scene from the first frame of a calibrated camera, using a 3D model for the robot and points for objects the gripper may touch.
+- 在刚性物体测试中，固定物体使 MiniMax-H3 的视频提起率从 42% 降到 10%，而用相同样本训练的 LTX-2.3 从 57% 降到 49%。
+  - On rigid objects, freezing the simulated objects reduced the share of videos showing a lift from 42% to 10% for MiniMax-H3 and from 57% to 49% for LTX-2.3 trained on the same examples.
+
+### 为什么重要 / Why it matters
+
+对照仿真状态和视频可以发现看似合理、实际却与物体运动矛盾的抓取预测。
+
+Comparing the video with an explicit state exposes plausible-looking grasps that contradict the specified object motion.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/TingtingLiao/SimPWM)
+
+---
+
+<a id="2026-11-24-diffgr00t-humanoid-execution-aware-training"></a>
+## [DiffGR00T 用全身动作的执行误差训练人形机器人策略](https://arxiv.org/abs/2611.32665)
+
+**English:** [DiffGR00T uses whole-body execution errors to train a humanoid policy](https://arxiv.org/abs/2611.32665)
+
+- **发布 / Published:** `2026-11-24T14:15:38Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32665) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
+- **标签 / Tags:** `humanoid`, `vla`, `whole-body-control`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+DiffGR00T 把 GR00T N1.7 的动作生成模块与 SONIC 全身控制器连接起来。在 HumanoidArena 的四项仿真任务中，作者报告平均成功率由监督训练基线的 59.2% 提升至 71.7%。
+
+DiffGR00T connects the action generator in GR00T N1.7 to the SONIC whole-body controller. Across four HumanoidArena simulation tasks, the authors report 71.7% mean success, up from 59.2% for the supervised baseline.
+
+### 技术点 / Technical points
+
+- 训练时，学习得到的世界模型根据动作预测身体状态的变化，提供可求导的多步执行过程。
+  - During training, a learned model predicts how the body will respond to actions and supplies a differentiable path across multiple steps.
+- 训练期间保持 SONIC 参数固定，使执行误差的梯度穿过控制器和动作采样器，更新上层策略的动作输出模块。
+  - SONIC stays frozen while gradients from execution errors pass through the controller and action sampler to update the high-level action head.
+
+### 为什么重要 / Why it matters
+
+这种训练让上层策略能够从控制器实际跟踪动作时积累的偏差中学习。
+
+The high-level policy can learn from tracking errors that accumulate when a whole-body controller tries to execute its proposed motion.
+
+---
+
+<a id="2026-11-24-dexwac-dexterous-robot-world-actor-critic"></a>
+## [DexWAC 让灵巧操作策略预测动作后果并评估动作价值](https://arxiv.org/abs/2611.32654)
+
+**English:** [DexWAC learns to predict and value the consequences of dexterous robot actions](https://arxiv.org/abs/2611.32654)
+
+- **发布 / Published:** `2026-11-24T14:09:49Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32654) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `world-action-model`, `dexterous-manipulation`, `reinforcement-learning`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+DexWAC 用同一批机器人示范联合训练动作策略、世界模型和价值评估器。作者报告，在两项真机任务上，其平均成功率为 75%，对照模型 π₀.₅ 为 45%。
+
+DexWAC trains a policy, a world model and a critic together on robot demonstrations. The authors report 75% mean success on two physical robot tasks, compared with 45% for π₀.₅.
+
+### 技术点 / Technical points
+
+- 世界模型为一段动作预测结束时的视觉特征、机器人自身状态、奖励以及任务是否继续，省去逐帧生成中间视频的计算。
+  - For each action chunk the model predicts the final visual features and robot state, the reward and whether the episode continues. It can construct a transition without rendering intermediate frames.
+- 用真实执行数据调整世界模型和价值评估器后，作者分别测试了在预测轨迹上优化策略、按估值筛选候选动作两种方法。
+  - After adapting the world model and critic on real rollouts, the team evaluated two ways to improve action choice, training the policy on imagined trajectories and ranking candidate actions with the critic.
+
+### 为什么重要 / Why it matters
+
+机器人可以用同一模型预判一段动作的结果，并估计这个结果有多大帮助。
+
+The shared model lets a controller estimate both the outcome of a proposed movement and how much that outcome advances the task.
+
+---
+
 <a id="2026-11-23-vita-wam-single-step-action-generation"></a>
 ## [VITA-WAM 用一步流匹配生成机器人动作序列](https://arxiv.org/abs/2611.31195)
 

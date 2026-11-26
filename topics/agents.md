@@ -2,6 +2,110 @@
 
 # Agents / 智能体
 
+<a id="2026-11-25-claude-code-21332-loads-skills-from-mcp-servers"></a>
+## [Claude Code 2.1.332 开始支持从 MCP 服务器加载技能](https://github.com/anthropics/claude-code/releases/tag/v2.1.332)
+
+**English:** [Claude Code 2.1.332 adds beta support for skills from MCP servers](https://github.com/anthropics/claude-code/releases/tag/v2.1.332)
+
+- **发布 / Published:** `2026-11-25T01:32:14Z`
+- **来源 / Source:** [Anthropic](https://github.com/anthropics/claude-code/releases/tag/v2.1.332) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `mcp`, `agent-skills`, `coding-agents`, `tool-use`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `74/100`
+
+### 摘要 / Summary
+
+Anthropic 在 Claude Code 2.1.332 中加入对 MCP 服务器技能的测试版支持。开发者可以在斜杠菜单中选择服务器提供的技能，并控制技能加载时触发的命令。
+
+Anthropic added beta support for MCP-hosted skills in Claude Code 2.1.332. Developers can select a server's skills from the slash menu and control which commands may execute while a skill loads.
+
+### 技术点 / Technical points
+
+- 菜单用服务器名作为技能名称的前缀，帮助用户识别每项技能的来源。
+  - Server-provided skills appear under a name that combines the server and skill, making their origin visible in the menu.
+- 新增的 PreSkillShellCommand 钩子在加载过程中运行，可在内嵌 shell 命令执行前将其拒绝。
+  - The new PreSkillShellCommand hook runs during loading and can deny an inline shell command before it executes.
+
+### 为什么重要 / Why it matters
+
+团队可以集中提供编码技能，也可以在技能加载时检查其中请求执行的命令。
+
+Teams can distribute coding skills centrally and inspect commands requested during skill loading.
+
+---
+
+<a id="2026-11-24-pydantic-ai-native-desktop-computer-use"></a>
+## [Pydantic AI 2.74.0 加入跨模型的桌面操作接口](https://github.com/pydantic/pydantic-ai/releases/tag/v2.74.0)
+
+**English:** [Pydantic AI 2.74.0 adds a shared desktop interface for computer-use agents](https://github.com/pydantic/pydantic-ai/releases/tag/v2.74.0)
+
+- **发布 / Published:** `2026-11-24T23:22:14Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.74.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `agent-runtime`, `tool-use`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+Pydantic AI 新增桌面操作能力。模型发出鼠标和键盘动作，运行框架在工作区的桌面上按顺序执行，再将截图交回模型。
+
+Pydantic AI added desktop control to its agent harness. The model sends mouse and keyboard actions, the harness executes them in order on the workspace display, and the model receives a screenshot.
+
+### 技术点 / Technical points
+
+- 该版本将统一接口接到 OpenAI、Anthropic 和 Google 的原生桌面工具，并为 Docker、Daytona 和 E2B 等后端增加桌面支持。
+  - The release maps the interface to native computer tools from OpenAI, Anthropic and Google and adds desktop support to backends including Docker, Daytona and E2B.
+- 如果桌面大小已不同于模型最近收到的截图，运行框架会拒绝带坐标的动作，并让模型重新截图。
+  - If the display size has changed since the last screenshot, the harness rejects coordinate-based actions and prompts the model to take another screenshot.
+
+### 为什么重要 / Why it matters
+
+开发者可以在不同模型和桌面环境之间复用操作流程，同时避免窗口尺寸变化后按旧坐标点击。
+
+Developers can reuse a desktop workflow across model providers and backends while avoiding clicks based on outdated screen dimensions.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/11037)
+
+---
+
+<a id="2026-11-24-delegent-small-model-subtasks-for-coding-and-search"></a>
+## [Delegent 让本地小模型分担代码调查和检索，降低前沿模型调用成本](https://arxiv.org/abs/2611.33098)
+
+**English:** [Delegent cuts frontier-model costs by delegating coding and search subtasks](https://arxiv.org/abs/2611.33098)
+
+- **发布 / Published:** `2026-11-24T18:34:40Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.33098) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `multi-agent`, `coding-agents`, `search`, `inference-cost`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
+
+### 摘要 / Summary
+
+Delegent 在 Claude Code 上让前沿模型负责整体任务，把查找代码、运行测试或搜索语料等有明确边界的工作交给本地小模型。作者分别测量了长程编程和智能体搜索的成本与任务表现。
+
+Delegent keeps the frontier model in charge of a Claude Code session and hands bounded work such as code inspection, test execution and corpus search to a local model. The authors measured task performance and frontier-model costs on long-horizon coding and agentic search.
+
+### 技术点 / Technical points
+
+- 搭配 27B FP8 小模型时，作者报告编程和搜索的前沿模型成本分别下降 67% 和 59%，两项评测的任务表现均得以维持。
+  - With a 27B FP8 helper, the authors report 67% lower frontier-model costs on coding and 59% lower costs on search while maintaining performance on the evaluations.
+- 将主要编码工作留给前沿模型、把辅助工作交给 2B 本地模型，也使编程任务的前沿模型成本下降了 66%。
+  - Keeping the main implementation work with the frontier model and delegating supporting work to a local 2B model also cut frontier-model coding costs by 66%.
+
+### 为什么重要 / Why it matters
+
+结果给出了具体的分工依据，团队可据此权衡本地算力开销与节省的前沿模型调用费用。
+
+The measurements give teams a basis for weighing local compute costs against the frontier-model calls saved by delegation.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/castorini/delegent)
+
+---
+
 <a id="2026-11-24-google-workspace-agent-tools-ga"></a>
 ## [Google Workspace 开始向用户正式推出智能体用 MCP 服务器和命令行工具](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
 
@@ -39,6 +143,79 @@ Organizations can apply their own approval policies and inspect actions when an 
 
 ---
 
+<a id="2026-11-24-shellbench-everyday-agent-reliability"></a>
+## [ShellBench 用 100 项日常任务比较模型和智能体运行框架](https://arxiv.org/abs/2611.32946)
+
+**English:** [ShellBench compares models and agent harnesses on 100 everyday tasks](https://arxiv.org/abs/2611.32946)
+
+- **发布 / Published:** `2026-11-24T16:48:06Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32946) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `agent-evaluation`, `reliability`, `safety`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
+
+### 摘要 / Summary
+
+ShellBench 让智能体在包含邮件、表格和其他可能相互矛盾的资料中完成日常工作。研究涵盖 12 个模型、5 种运行框架和 53,100 次执行，单次通过率最高的模型为 GPT-6 Astra，跨框架平均为 62.5%。
+
+ShellBench tests agents on everyday work involving emails, spreadsheets and other records that may conflict. The study covers 12 models, five harnesses and 53,100 runs. GPT-6 Astra led with a 62.5% single-attempt pass rate averaged across harnesses.
+
+### 技术点 / Technical points
+
+- 90 项任务按评分细则检查正确性和安全性，全部必需条件通过才算成功。另有 10 项任务由代码测试。
+  - For 90 tasks, every required rubric criterion must pass, including applicable safety checks. Ten other tasks use code-based tests.
+- GPT-6.1 Sol 的通过率为 61.4%，按研究使用的价格估算，每次尝试的 token 成本约为 GPT-6 Astra 的六分之一。
+  - GPT-6.1 Sol passed 61.4% of attempts at roughly one-sixth of GPT-6 Astra's estimated token cost per attempt under the study's pricing.
+
+### 为什么重要 / Why it matters
+
+同一任务跨模型和运行框架重复执行，能同时衡量日常工作的完成率和成本。
+
+Running the same tasks across models and harnesses lets teams compare the likelihood and cost of completing an everyday workflow.
+
+### 链接 / Links
+
+[Evidence 1](https://openclaw.ai/blog/shellbench)
+[Discussion 1](https://news.ycombinator.com/item?id=50639601)
+
+---
+
+<a id="2026-11-24-rlvb-trains-visual-agents-to-seek-enough-evidence"></a>
+## [RLVB 根据证据是否充分训练视觉智能体决定何时作答](https://arxiv.org/abs/2611.32884)
+
+**English:** [RLVB trains visual agents to decide when they have enough evidence](https://arxiv.org/abs/2611.32884)
+
+- **发布 / Published:** `2026-11-24T16:17:51Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32884) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `reinforcement-learning`, `active-perception`, `reasoning`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+在只能看到局部场景的任务中，RLVB 由模拟器计算当前观测还支持哪些答案。训练时，证据不足则奖励继续探索，证据充分则奖励作答。
+
+RLVB uses the simulator to determine which answers remain consistent with a visual agent's partial observations. Training rewards further exploration while the evidence is ambiguous and rewards committing once the evidence is sufficient.
+
+### 技术点 / Technical points
+
+- 作者同时提出 Pro Worlds 视觉谜题，智能体通过移动观察窗口收集线索。
+  - The authors introduce Pro Worlds, a set of visual puzzles in which agents move a viewing window to gather clues.
+- 三种视觉语言模型在三项基准的九种组合中均超过各自的基础模型，其中两项基准未用于训练。
+  - The trained agents outperformed their respective base models in all nine combinations of three vision-language models and three benchmarks. Two benchmarks were held out of training.
+
+### 为什么重要 / Why it matters
+
+在有明确证据标准的环境里，训练过程可以区分碰巧猜对和观察充分后答对。
+
+In environments with an explicit evidence criterion, training can distinguish a lucky answer from one supported by the observations.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/richmondsin/pro-worlds)
+
+---
+
 <a id="2026-11-24-cognition-swe-2-1-coding-model"></a>
 ## [Cognition 发布 SWE-2.1，报告终端与代码库任务得分提升](https://cognition.com/blog/swe-2-1)
 
@@ -72,6 +249,42 @@ Scores for both generations under the same agent harness give developers a refer
 ### 链接 / Links
 
 [Discussion 1](https://news.ycombinator.com/item?id=50633450)
+
+---
+
+<a id="2026-11-24-iclworld-rule-following-across-computers-and-robots"></a>
+## [ICLWorld 用临时规则测试智能体操作电脑和机器人的能力](https://arxiv.org/abs/2611.32649)
+
+**English:** [ICLWorld tests whether agents can apply new rules on computers and robots](https://arxiv.org/abs/2611.32649)
+
+- **发布 / Published:** `2026-11-24T14:07:17Z`
+- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32649) · `research`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `in-context-learning`, `computer-use`, `robotics`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
+
+### 摘要 / Summary
+
+ICLWorld 在 30 个环境中设计了 160 项任务，每项任务都有三个规则版本。智能体先阅读说明或观看示范，再按当次给出的规则完成操作。
+
+ICLWorld introduces 160 tasks across 30 environments. Each task has three rule variants. Agents receive the current rules as text or a video demonstration and then carry them out.
+
+### 技术点 / Technical points
+
+- 作者录制了 630 段示范视频，分别测试智能体能否复现示范、应对新实例，以及迁移到未见环境。
+  - The authors recorded 630 demonstrations and tested agents on reproducing them, handling new instances and transferring to unseen environments.
+- Claude Opus 5.5 和 GPT-6 Astra 的电脑任务成功率分别为 82% 和 76%，在机器人任务中分别为 27% 和 26%。
+  - Claude Opus 5.5 and GPT-6 Astra succeeded on 82% and 76% of computer-use runs, respectively. Their robot-use success rates were 27% and 26%.
+
+### 为什么重要 / Why it matters
+
+改变同一任务的规则，可以检验智能体是否真正根据本次示范调整动作。
+
+Varying the rules within a task tests whether an agent changes its actions in response to the particular demonstration.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ICLWorld/ICLWorld)
 
 ---
 
