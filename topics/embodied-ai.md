@@ -2,6 +2,150 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-25-roboevo2-robot-policy-learning-from-repairs"></a>
+## [RoboEvo² 用编程智能体找到的纠错动作训练机器人策略](https://arxiv.org/abs/2611.34675)
+
+**English:** [RoboEvo² trains robot policies on fixes found by a coding agent](https://arxiv.org/abs/2611.34675)
+
+- **发布 / Published:** `2026-11-25T16:39:10Z`
+- **来源 / Source:** [RoboEvo² authors (arXiv)](https://arxiv.org/abs/2611.34675) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `coding-agents`, `policy-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+RoboEvo² 把机器人失误交给编程智能体寻找纠正方法，再用验证有效的动作训练控制策略。作者报告，在没有新增人工演示的情况下，策略单独运行时在 LIBERO-PRO 上的成功率从 11.0% 升至 84.1%。
+
+RoboEvo² uses failed robot attempts to guide a coding agent toward better actions, then trains the control policy on verified corrections. Without additional human demonstrations, standalone policy success on LIBERO-PRO rose from 11.0% to 84.1% in the authors’ experiments.
+
+### 技术点 / Technical points
+
+- 编程智能体将验证成功的操作存为可复用的技能。控制策略还会比较从同一状态出发的成功与失败尝试。
+  - The coding agent stores successful procedures as reusable skills. The controller also learns from pairs of successful and failed attempts that start from the same state.
+- 编程智能体与控制策略协作时，在 LIBERO-PRO 上的成功率达到 90.5%。
+  - With the coding agent and policy working together, success reached 90.5% on LIBERO-PRO.
+
+### 为什么重要 / Why it matters
+
+让控制策略独立受测，可以衡量机器人学会了多少纠错动作，以及哪些动作仍需要编程智能体介入。
+
+Testing the controller on its own shows how much of the repair process the robot can learn to perform without calling the coding agent again.
+
+### 链接 / Links
+
+[Evidence 1](https://kaiknower.github.io/RoboEvo2/)
+
+---
+
+<a id="2026-11-25-worldphy-robot-video-physical-plausibility"></a>
+## [WorldPhy 从六个物理维度评估世界模型生成的机器人视频](https://arxiv.org/abs/2611.34130)
+
+**English:** [WorldPhy checks whether generated robot videos obey six physical constraints](https://arxiv.org/abs/2611.34130)
+
+- **发布 / Published:** `2026-11-25T10:30:48Z`
+- **来源 / Source:** [WorldPhy authors (arXiv)](https://arxiv.org/abs/2611.34130) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `learned-physics`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+WorldPhy 为 300 张起始图像配上操作指令，用来评测视频世界模型。作者评测了 13 个模型。视频既要符合指令，也要通过六项物理检查，其中包括物体是否相互穿透，以及运动能否由接触解释。
+
+WorldPhy pairs 300 starting images with manipulation instructions to test video world models. The authors evaluated 13 models. Each video must follow the instruction and pass all six physical checks, including whether objects pass through one another and whether contact explains their movement.
+
+### 技术点 / Technical points
+
+- WorldPhyReward 从超过 1.2 万条人工标注中学习，对每个维度分别给出判断和理由。
+  - WorldPhyReward learns from more than 12,000 human annotations and returns a separate decision and explanation for each dimension.
+- 任务覆盖单臂和双臂操作，包含外部相机、腕部相机和头部相机视角。
+  - The tasks include single- and dual-arm manipulation viewed from external, wrist or head cameras.
+
+### 为什么重要 / Why it matters
+
+逐项评分可以指出，看似完成的操作是否依赖物体穿透等不可能发生的交互。
+
+A per-dimension score reveals when an apparently successful manipulation depends on a physically impossible interaction.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/chuziyuan139/WorldPhy)
+
+---
+
+<a id="2026-11-25-worldreforge-failed-grasp-dynamics"></a>
+## [WorldReforge 用抓取失误训练世界模型预测物体运动](https://arxiv.org/abs/2611.33925)
+
+**English:** [WorldReforge trains robot world models to predict what happens after a grasp misses](https://arxiv.org/abs/2611.33925)
+
+- **发布 / Published:** `2026-11-25T07:45:51Z`
+- **来源 / Source:** [WorldReforge authors (arXiv)](https://arxiv.org/abs/2611.33925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `world-model`, `simulation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+夹爪闭合得太晚，可能会把物体推开。WorldReforge 用 6.2 万条仿真轨迹训练世界模型，让它预测抓取动作稍有偏差时物体会怎样移动。作者报告，采用该方法后，Cosmos3 Nano 的物体轨迹误差整体降低了 28.2%。
+
+A gripper that closes too late may push an object instead of lifting it. WorldReforge uses 62,000 simulated trajectories to teach a world model how such small changes in a grasp alter the object's path. On Cosmos3 Nano the authors report a 28.2% reduction in overall object trajectory error.
+
+### 技术点 / Technical points
+
+- 仿真器改变抓取的位置、朝向和闭合时机，并记录物体位姿与接触状态。
+  - The simulator varies grasp position, orientation and closing time and records the object's pose and contact state.
+- 一项训练信号提高接触区域的重建权重，另一项让模型跨帧追踪物体表面的同一点。
+  - One training signal emphasizes reconstruction at contact regions. Another tracks the same points on an object's surface across frames.
+
+### 为什么重要 / Why it matters
+
+规划器比较两种抓法时，需要判断手部动作的差异何时会改变物体的运动。
+
+A planner comparing two candidate grasps needs to predict when their effects on the object will diverge.
+
+### 链接 / Links
+
+[Evidence 1](https://aim-uofa.github.io/WorldReforge/)
+
+---
+
+<a id="2026-11-25-dexengine-arm-hand-trajectories"></a>
+## [DexEngine 将人手操作演示转成机械臂与灵巧手可执行的轨迹](https://arxiv.org/abs/2611.33579)
+
+**English:** [DexEngine turns human hand movements into trajectories a robot arm and hand can execute](https://arxiv.org/abs/2611.33579)
+
+- **发布 / Published:** `2026-11-25T00:46:23Z`
+- **来源 / Source:** [DexEngine authors (arXiv)](https://arxiv.org/abs/2611.33579) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dexterous-manipulation`, `dataset`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DexEngine 将人手与物体的交互记录适配到四种灵巧手。它先把操作放到机械臂可及的位置，再在物理仿真中校正手臂和手的联合动作。作者报告，用校正后的数据训练，策略能更好地完成操作。
+
+DexEngine adapts recorded hand–object interactions to four robot hands. It places each interaction within reach of the arm, then corrects the combined motion in a physics simulator. The authors report that these corrections improved the resulting manipulation policies.
+
+### 技术点 / Technical points
+
+- 残差强化学习策略会修正映射后的动作，使机械臂移动时，灵巧手仍能维持与物体的接触。
+  - A residual reinforcement learning policy adjusts the retargeted motion so that the hand can maintain contact as the arm moves.
+- 论文使用了九个人类演示数据集。作者的数据卡列出可再分发的 59,594 条轨迹，来自其中六个数据集。
+  - The paper draws on nine human datasets. The authors’ data card lists 59,594 redistributable trajectories derived from six of them.
+
+### 为什么重要 / Why it matters
+
+让模型学习手臂和手的联合动作，可以在同一条演示里保留可达范围和接触约束。
+
+Training on a hand and its attached arm gives the policy examples that respect both reach and contact constraints.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Wongyun/DexEngine)
+
+---
+
 <a id="2026-11-24-robodojo-mirror-robot-reflection-benchmark"></a>
 ## [RoboDojo-Mirror 测出镜面反射对机器人操作成功率的影响](https://arxiv.org/abs/2611.33010)
 

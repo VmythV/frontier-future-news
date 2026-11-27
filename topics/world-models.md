@@ -2,6 +2,112 @@
 
 # World models / 世界模型
 
+<a id="2026-11-25-graph-anchors-latent-world-model-planning"></a>
+## [Graph Anchors 利用已记录的状态转移，让冻结的世界模型规划远期目标](https://arxiv.org/abs/2611.34509)
+
+**English:** [Graph Anchors uses recorded transitions to plan toward distant goals with a frozen world model](https://arxiv.org/abs/2611.34509)
+
+- **发布 / Published:** `2026-11-25T14:58:31Z`
+- **来源 / Source:** [Graph Anchors authors (arXiv)](https://arxiv.org/abs/2611.34509) · `research`
+- **分类 / Categories:** World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `planning`, `latent-dynamics`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Graph Anchors 用世界模型的训练帧建起稀疏图，把远期目标拆成路径上的邻近目标，让模型每次只判断短距离内的进展。作者报告，在同一个冻结的 LeWM 上，PointMaze-Large 的成功率从 8% 升至 87%，Push-T 从 5% 升至 71%。
+
+Graph Anchors builds a sparse graph from a world model’s training frames. Its planner follows a path through nearby targets, so the model only has to judge progress over short distances. With the same frozen LeWM, the authors report that success rose from 8% to 87% on PointMaze-Large and from 5% to 71% on Push-T.
+
+### 技术点 / Technical points
+
+- 规划器沿最短路径选择几步之内的节点，当机器人接触物体时，会优先沿用数据中实际发生过的状态转移。
+  - The planner chooses a node a few moves ahead on the shortest path and favors recorded transitions when the robot is in contact with an object.
+
+### 为什么重要 / Why it matters
+
+实验量化了仅改变中间目标的选法，在固定模型权重的情况下能给长程规划带来多大改善。
+
+The experiments show how much long-horizon performance can change when the planner changes its intermediate targets while keeping model weights fixed.
+
+### 链接 / Links
+
+[Evidence 1](https://syed-nazmus-sakib.github.io/graph-anchors/)
+
+---
+
+<a id="2026-11-25-worldphy-robot-video-physical-plausibility"></a>
+## [WorldPhy 从六个物理维度评估世界模型生成的机器人视频](https://arxiv.org/abs/2611.34130)
+
+**English:** [WorldPhy checks whether generated robot videos obey six physical constraints](https://arxiv.org/abs/2611.34130)
+
+- **发布 / Published:** `2026-11-25T10:30:48Z`
+- **来源 / Source:** [WorldPhy authors (arXiv)](https://arxiv.org/abs/2611.34130) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `learned-physics`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+WorldPhy 为 300 张起始图像配上操作指令，用来评测视频世界模型。作者评测了 13 个模型。视频既要符合指令，也要通过六项物理检查，其中包括物体是否相互穿透，以及运动能否由接触解释。
+
+WorldPhy pairs 300 starting images with manipulation instructions to test video world models. The authors evaluated 13 models. Each video must follow the instruction and pass all six physical checks, including whether objects pass through one another and whether contact explains their movement.
+
+### 技术点 / Technical points
+
+- WorldPhyReward 从超过 1.2 万条人工标注中学习，对每个维度分别给出判断和理由。
+  - WorldPhyReward learns from more than 12,000 human annotations and returns a separate decision and explanation for each dimension.
+- 任务覆盖单臂和双臂操作，包含外部相机、腕部相机和头部相机视角。
+  - The tasks include single- and dual-arm manipulation viewed from external, wrist or head cameras.
+
+### 为什么重要 / Why it matters
+
+逐项评分可以指出，看似完成的操作是否依赖物体穿透等不可能发生的交互。
+
+A per-dimension score reveals when an apparently successful manipulation depends on a physically impossible interaction.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/chuziyuan139/WorldPhy)
+
+---
+
+<a id="2026-11-25-worldreforge-failed-grasp-dynamics"></a>
+## [WorldReforge 用抓取失误训练世界模型预测物体运动](https://arxiv.org/abs/2611.33925)
+
+**English:** [WorldReforge trains robot world models to predict what happens after a grasp misses](https://arxiv.org/abs/2611.33925)
+
+- **发布 / Published:** `2026-11-25T07:45:51Z`
+- **来源 / Source:** [WorldReforge authors (arXiv)](https://arxiv.org/abs/2611.33925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `world-model`, `simulation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+夹爪闭合得太晚，可能会把物体推开。WorldReforge 用 6.2 万条仿真轨迹训练世界模型，让它预测抓取动作稍有偏差时物体会怎样移动。作者报告，采用该方法后，Cosmos3 Nano 的物体轨迹误差整体降低了 28.2%。
+
+A gripper that closes too late may push an object instead of lifting it. WorldReforge uses 62,000 simulated trajectories to teach a world model how such small changes in a grasp alter the object's path. On Cosmos3 Nano the authors report a 28.2% reduction in overall object trajectory error.
+
+### 技术点 / Technical points
+
+- 仿真器改变抓取的位置、朝向和闭合时机，并记录物体位姿与接触状态。
+  - The simulator varies grasp position, orientation and closing time and records the object's pose and contact state.
+- 一项训练信号提高接触区域的重建权重，另一项让模型跨帧追踪物体表面的同一点。
+  - One training signal emphasizes reconstruction at contact regions. Another tracks the same points on an object's surface across frames.
+
+### 为什么重要 / Why it matters
+
+规划器比较两种抓法时，需要判断手部动作的差异何时会改变物体的运动。
+
+A planner comparing two candidate grasps needs to predict when their effects on the object will diverge.
+
+### 链接 / Links
+
+[Evidence 1](https://aim-uofa.github.io/WorldReforge/)
+
+---
+
 <a id="2026-11-24-simpwm-tests-whether-robot-video-follows-simulation"></a>
 ## [SimPWM 用冻结物体的实验检验机器人视频预测是否遵循仿真状态](https://arxiv.org/abs/2611.32786)
 

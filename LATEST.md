@@ -2,6 +2,320 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-26-pydantic-ai-276-realtime-tool-discovery"></a>
+## [Pydantic AI 2.76.0 支持实时智能体在会话途中发现工具](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
+
+**English:** [Pydantic AI 2.76.0 lets realtime agents discover tools during a live session](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
+
+- **发布 / Published:** `2026-11-26T23:49:06Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `realtime`, `agent-framework`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+在 Pydantic AI 2.76.0 中，使用兼容模型的实时智能体可以在同一次会话里发现并调用延迟加载的工具。运行时会先发送更新后的工具列表，再返回发现结果，让模型得知工具时就能调用它。
+
+In Pydantic AI 2.76.0, a realtime agent on a compatible model can discover a deferred tool and call it within the same session. The runtime sends the updated tool list before the result that tells the model what it found.
+
+### 技术点 / Technical points
+
+- 加载一组能力、搜索延迟加载的工具，或在工具结果里返回新工具，都可以更新模型可调用的工具集合。
+  - Loading a capability, searching for deferred tools or returning tools from another tool can update which tools the model can call.
+- 模型配置必须声明支持会话内更新工具。运行时把发现结果记入会话历史，并更新重连时使用的配置。
+  - The model profile must enable mid-session tool updates. The runtime records discoveries in session history and updates the configuration used on reconnect.
+
+### 为什么重要 / Why it matters
+
+语音智能体可以从少量工具开始，在对话涉及专门任务时再引入相应操作。
+
+A voice agent can start with a small tool list and bring in specialized actions when the conversation turns to them.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/12440)
+
+---
+
+<a id="2026-11-25-coding-agent-patch-necessity-study"></a>
+## [研究逐块回退编程智能体的补丁，检验哪些修改影响任务测试](https://arxiv.org/abs/2611.34875)
+
+**English:** [Study tests which edits in successful coding-agent patches actually affect task tests](https://arxiv.org/abs/2611.34875)
+
+- **发布 / Published:** `2026-11-25T18:37:06Z`
+- **来源 / Source:** [Delta Residue Attribution study authors (arXiv)](https://arxiv.org/abs/2611.34875) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `benchmark`, `reliability`, `software-engineering`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+研究者分析了 18 个模型通过 GitHub Copilot CLI 在 SWE-bench Verified 和 DeepSWE 上成功完成任务的 7,660 次运行。相比开发者补丁，智能体在前一个基准上多出的修改有 61% 用于添加测试，在后一个基准上则有 58% 属于代码改动。
+
+Researchers analyzed 7,660 successful GitHub Copilot CLI runs from 18 models on SWE-bench Verified and DeepSWE. On SWE-bench Verified, 61% of the extra edits relative to developer patches added tests. On DeepSWE, 58% of the extra edits were code changes.
+
+### 技术点 / Technical points
+
+- Delta Residue Attribution 将补丁中的每个修改块追溯到产生它的步骤，逐块回退并重新运行任务测试。
+  - Delta Residue Attribution traces each block of a patch to the step that produced it, reverts that block and reruns the task tests.
+- 在 SWE-bench Verified 上，智能体补丁中平均有 11% 的代码修改块在回退后仍能通过任务测试。
+  - On SWE-bench Verified, an average of 11% of an agent patch’s code blocks could be reverted without losing the passing result.
+
+### 为什么重要 / Why it matters
+
+在任务通过率之外，这一指标可以帮助评估者估算成功补丁给代码审查带来了多少额外工作。
+
+Reviewers can use this measurement alongside task success to estimate how much extra code a passing patch leaves them to inspect.
+
+---
+
+<a id="2026-11-25-drbench-pro-research-agent-knowledge-coverage"></a>
+## [DRBench Pro 分别衡量研究智能体报告的覆盖广度与深度](https://arxiv.org/abs/2611.34852)
+
+**English:** [DRBench Pro measures how broadly and deeply research agents cover a question](https://arxiv.org/abs/2611.34852)
+
+- **发布 / Published:** `2026-11-25T18:25:30Z`
+- **来源 / Source:** [DRBench Pro authors (arXiv)](https://arxiv.org/abs/2611.34852) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `deep-research`, `benchmark`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DRBench Pro 依据知识树中的关系评估研究报告，既检查智能体涉及了哪些主要方向，也检查它沿每个方向探究了多深。在覆盖 24 个领域的 144 道题上，16 个受测智能体中最高的综合覆盖率为 57.04%。
+
+DRBench Pro scores reports against relations in a knowledge tree. It asks whether an agent covers the main lines of inquiry and how far it follows each one. Across 144 questions in 24 domains, the highest overall coverage among 16 evaluated agents was 57.04%.
+
+### 技术点 / Technical points
+
+- 作者根据维基百科中的知识关系构建了 44,102 条评分标准。智能体只看到研究问题，知识树留给评估器使用。
+  - The authors built 44,102 scoring criteria from Wikipedia relations. Agents see the research question while the evaluator retains the tree.
+- 综合覆盖率取广度与深度两项得分的几何平均值。
+  - The overall metric is the geometric mean of breadth and depth.
+
+### 为什么重要 / Why it matters
+
+分开看两项得分，有助于判断报告是漏掉了整个研究方向，还是虽有提及却没有深入探究。
+
+The two component scores reveal whether a report misses an entire line of inquiry or mentions it without exploring the supporting evidence.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZJU-REAL/DRBenchPro)
+
+---
+
+<a id="2026-11-25-real2simlab-coding-agent-simulation-evaluation"></a>
+## [Real2SimLab 在六个基准上评测编程智能体写出的仿真程序](https://arxiv.org/abs/2611.34849)
+
+**English:** [Real2SimLab evaluates simulation programs written by coding agents across six benchmarks](https://arxiv.org/abs/2611.34849)
+
+- **发布 / Published:** `2026-11-25T18:23:41Z`
+- **来源 / Source:** [Real2SimLab authors (arXiv)](https://arxiv.org/abs/2611.34849) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `simulation`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Real2SimLab 运行根据真实录像编写的仿真程序，再把输出交给各基准原有的评分器。平台支持 47 种编程智能体和五种其他方法，为六个基准提供了统一的评测入口。
+
+Real2SimLab runs simulation programs produced from real recordings and passes the results to each benchmark’s own scorer. The platform supports 47 coding agents and five other methods across six benchmarks, giving researchers a common way to run these evaluations.
+
+### 技术点 / Technical points
+
+- 构造训练数据时，流水线先排除已出现在基准中的录像，再生成仿真程序。
+  - Its training-data pipeline removes recordings already present in the benchmarks before generating programs.
+- 训练样本的奖励和评测分数由同一套代码计算。
+  - The same scoring code supplies training rewards and evaluation scores.
+
+### 为什么重要 / Why it matters
+
+研究人员可以用多个基准比较新方法，省去为每种方法重新接入各套评分流程的工作。
+
+A new method can be compared across several benchmarks without its authors rebuilding each scoring pipeline.
+
+### 链接 / Links
+
+[Evidence 1](https://real2simhub.github.io/)
+
+---
+
+<a id="2026-11-25-roboevo2-robot-policy-learning-from-repairs"></a>
+## [RoboEvo² 用编程智能体找到的纠错动作训练机器人策略](https://arxiv.org/abs/2611.34675)
+
+**English:** [RoboEvo² trains robot policies on fixes found by a coding agent](https://arxiv.org/abs/2611.34675)
+
+- **发布 / Published:** `2026-11-25T16:39:10Z`
+- **来源 / Source:** [RoboEvo² authors (arXiv)](https://arxiv.org/abs/2611.34675) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `coding-agents`, `policy-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+RoboEvo² 把机器人失误交给编程智能体寻找纠正方法，再用验证有效的动作训练控制策略。作者报告，在没有新增人工演示的情况下，策略单独运行时在 LIBERO-PRO 上的成功率从 11.0% 升至 84.1%。
+
+RoboEvo² uses failed robot attempts to guide a coding agent toward better actions, then trains the control policy on verified corrections. Without additional human demonstrations, standalone policy success on LIBERO-PRO rose from 11.0% to 84.1% in the authors’ experiments.
+
+### 技术点 / Technical points
+
+- 编程智能体将验证成功的操作存为可复用的技能。控制策略还会比较从同一状态出发的成功与失败尝试。
+  - The coding agent stores successful procedures as reusable skills. The controller also learns from pairs of successful and failed attempts that start from the same state.
+- 编程智能体与控制策略协作时，在 LIBERO-PRO 上的成功率达到 90.5%。
+  - With the coding agent and policy working together, success reached 90.5% on LIBERO-PRO.
+
+### 为什么重要 / Why it matters
+
+让控制策略独立受测，可以衡量机器人学会了多少纠错动作，以及哪些动作仍需要编程智能体介入。
+
+Testing the controller on its own shows how much of the repair process the robot can learn to perform without calling the coding agent again.
+
+### 链接 / Links
+
+[Evidence 1](https://kaiknower.github.io/RoboEvo2/)
+
+---
+
+<a id="2026-11-25-graph-anchors-latent-world-model-planning"></a>
+## [Graph Anchors 利用已记录的状态转移，让冻结的世界模型规划远期目标](https://arxiv.org/abs/2611.34509)
+
+**English:** [Graph Anchors uses recorded transitions to plan toward distant goals with a frozen world model](https://arxiv.org/abs/2611.34509)
+
+- **发布 / Published:** `2026-11-25T14:58:31Z`
+- **来源 / Source:** [Graph Anchors authors (arXiv)](https://arxiv.org/abs/2611.34509) · `research`
+- **分类 / Categories:** World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `planning`, `latent-dynamics`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Graph Anchors 用世界模型的训练帧建起稀疏图，把远期目标拆成路径上的邻近目标，让模型每次只判断短距离内的进展。作者报告，在同一个冻结的 LeWM 上，PointMaze-Large 的成功率从 8% 升至 87%，Push-T 从 5% 升至 71%。
+
+Graph Anchors builds a sparse graph from a world model’s training frames. Its planner follows a path through nearby targets, so the model only has to judge progress over short distances. With the same frozen LeWM, the authors report that success rose from 8% to 87% on PointMaze-Large and from 5% to 71% on Push-T.
+
+### 技术点 / Technical points
+
+- 规划器沿最短路径选择几步之内的节点，当机器人接触物体时，会优先沿用数据中实际发生过的状态转移。
+  - The planner chooses a node a few moves ahead on the shortest path and favors recorded transitions when the robot is in contact with an object.
+
+### 为什么重要 / Why it matters
+
+实验量化了仅改变中间目标的选法，在固定模型权重的情况下能给长程规划带来多大改善。
+
+The experiments show how much long-horizon performance can change when the planner changes its intermediate targets while keeping model weights fixed.
+
+### 链接 / Links
+
+[Evidence 1](https://syed-nazmus-sakib.github.io/graph-anchors/)
+
+---
+
+<a id="2026-11-25-egousebench-changing-context-computer-agents"></a>
+## [EgoUseBench 测试电脑智能体能否随用户所见调整任务](https://arxiv.org/abs/2611.34466)
+
+**English:** [EgoUseBench tests whether computer agents can revise a task as the user’s surroundings change](https://arxiv.org/abs/2611.34466)
+
+- **发布 / Published:** `2026-11-25T14:36:38Z`
+- **来源 / Source:** [EgoUseBench authors (arXiv)](https://arxiv.org/abs/2611.34466) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+EgoUseBench 用超过 74 小时的第一视角影像构建了 693 项电脑操作任务。在受测模型中，需要根据持续传入的画面行动时，平均成功率比只接收明确指令时相对下降了 26.3%。
+
+EgoUseBench uses more than 74 hours of first-person footage to build 693 computer-use tasks. Across the models tested, average success was 26.3% lower in relative terms when agents had to act on streaming observations than when they received explicit instructions alone.
+
+### 技术点 / Technical points
+
+- 三种设置分别只给出指令、在执行前提供录像，或在执行过程中持续提供新画面。
+  - Three settings supply instructions alone, a recording before execution, or observations that arrive while the agent acts.
+- 基准分别记录用户看到的内容、用户的要求和网站当前状态。
+  - The benchmark tracks what the user has seen, what they require and the current website state separately.
+
+### 为什么重要 / Why it matters
+
+这套任务能检验新信息出现后，智能体的网页操作是否仍符合用户意图。
+
+It tests whether a web action still serves the user's intent after new information arrives mid-task.
+
+---
+
+<a id="2026-11-25-worldphy-robot-video-physical-plausibility"></a>
+## [WorldPhy 从六个物理维度评估世界模型生成的机器人视频](https://arxiv.org/abs/2611.34130)
+
+**English:** [WorldPhy checks whether generated robot videos obey six physical constraints](https://arxiv.org/abs/2611.34130)
+
+- **发布 / Published:** `2026-11-25T10:30:48Z`
+- **来源 / Source:** [WorldPhy authors (arXiv)](https://arxiv.org/abs/2611.34130) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `benchmark`, `robotics`, `learned-physics`, `video-prediction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+WorldPhy 为 300 张起始图像配上操作指令，用来评测视频世界模型。作者评测了 13 个模型。视频既要符合指令，也要通过六项物理检查，其中包括物体是否相互穿透，以及运动能否由接触解释。
+
+WorldPhy pairs 300 starting images with manipulation instructions to test video world models. The authors evaluated 13 models. Each video must follow the instruction and pass all six physical checks, including whether objects pass through one another and whether contact explains their movement.
+
+### 技术点 / Technical points
+
+- WorldPhyReward 从超过 1.2 万条人工标注中学习，对每个维度分别给出判断和理由。
+  - WorldPhyReward learns from more than 12,000 human annotations and returns a separate decision and explanation for each dimension.
+- 任务覆盖单臂和双臂操作，包含外部相机、腕部相机和头部相机视角。
+  - The tasks include single- and dual-arm manipulation viewed from external, wrist or head cameras.
+
+### 为什么重要 / Why it matters
+
+逐项评分可以指出，看似完成的操作是否依赖物体穿透等不可能发生的交互。
+
+A per-dimension score reveals when an apparently successful manipulation depends on a physically impossible interaction.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/chuziyuan139/WorldPhy)
+
+---
+
+<a id="2026-11-25-worldreforge-failed-grasp-dynamics"></a>
+## [WorldReforge 用抓取失误训练世界模型预测物体运动](https://arxiv.org/abs/2611.33925)
+
+**English:** [WorldReforge trains robot world models to predict what happens after a grasp misses](https://arxiv.org/abs/2611.33925)
+
+- **发布 / Published:** `2026-11-25T07:45:51Z`
+- **来源 / Source:** [WorldReforge authors (arXiv)](https://arxiv.org/abs/2611.33925) · `research`
+- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `world-model`, `simulation`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `89/100`
+
+### 摘要 / Summary
+
+夹爪闭合得太晚，可能会把物体推开。WorldReforge 用 6.2 万条仿真轨迹训练世界模型，让它预测抓取动作稍有偏差时物体会怎样移动。作者报告，采用该方法后，Cosmos3 Nano 的物体轨迹误差整体降低了 28.2%。
+
+A gripper that closes too late may push an object instead of lifting it. WorldReforge uses 62,000 simulated trajectories to teach a world model how such small changes in a grasp alter the object's path. On Cosmos3 Nano the authors report a 28.2% reduction in overall object trajectory error.
+
+### 技术点 / Technical points
+
+- 仿真器改变抓取的位置、朝向和闭合时机，并记录物体位姿与接触状态。
+  - The simulator varies grasp position, orientation and closing time and records the object's pose and contact state.
+- 一项训练信号提高接触区域的重建权重，另一项让模型跨帧追踪物体表面的同一点。
+  - One training signal emphasizes reconstruction at contact regions. Another tracks the same points on an object's surface across frames.
+
+### 为什么重要 / Why it matters
+
+规划器比较两种抓法时，需要判断手部动作的差异何时会改变物体的运动。
+
+A planner comparing two candidate grasps needs to predict when their effects on the object will diverge.
+
+### 链接 / Links
+
+[Evidence 1](https://aim-uofa.github.io/WorldReforge/)
+
+---
+
 <a id="2026-11-25-claude-code-21332-loads-skills-from-mcp-servers"></a>
 ## [Claude Code 2.1.332 开始支持从 MCP 服务器加载技能](https://github.com/anthropics/claude-code/releases/tag/v2.1.332)
 
@@ -31,6 +345,42 @@ Anthropic added beta support for MCP-hosted skills in Claude Code 2.1.332. Devel
 团队可以集中提供编码技能，也可以在技能加载时检查其中请求执行的命令。
 
 Teams can distribute coding skills centrally and inspect commands requested during skill loading.
+
+---
+
+<a id="2026-11-25-dexengine-arm-hand-trajectories"></a>
+## [DexEngine 将人手操作演示转成机械臂与灵巧手可执行的轨迹](https://arxiv.org/abs/2611.33579)
+
+**English:** [DexEngine turns human hand movements into trajectories a robot arm and hand can execute](https://arxiv.org/abs/2611.33579)
+
+- **发布 / Published:** `2026-11-25T00:46:23Z`
+- **来源 / Source:** [DexEngine authors (arXiv)](https://arxiv.org/abs/2611.33579) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `dexterous-manipulation`, `dataset`, `simulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+DexEngine 将人手与物体的交互记录适配到四种灵巧手。它先把操作放到机械臂可及的位置，再在物理仿真中校正手臂和手的联合动作。作者报告，用校正后的数据训练，策略能更好地完成操作。
+
+DexEngine adapts recorded hand–object interactions to four robot hands. It places each interaction within reach of the arm, then corrects the combined motion in a physics simulator. The authors report that these corrections improved the resulting manipulation policies.
+
+### 技术点 / Technical points
+
+- 残差强化学习策略会修正映射后的动作，使机械臂移动时，灵巧手仍能维持与物体的接触。
+  - A residual reinforcement learning policy adjusts the retargeted motion so that the hand can maintain contact as the arm moves.
+- 论文使用了九个人类演示数据集。作者的数据卡列出可再分发的 59,594 条轨迹，来自其中六个数据集。
+  - The paper draws on nine human datasets. The authors’ data card lists 59,594 redistributable trajectories derived from six of them.
+
+### 为什么重要 / Why it matters
+
+让模型学习手臂和手的联合动作，可以在同一条演示里保留可达范围和接触约束。
+
+Training on a hand and its attached arm gives the policy examples that respect both reach and contact constraints.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Wongyun/DexEngine)
 
 ---
 
@@ -353,361 +703,3 @@ DiffGR00T connects the action generator in GR00T N1.7 to the SONIC whole-body co
 这种训练让上层策略能够从控制器实际跟踪动作时积累的偏差中学习。
 
 The high-level policy can learn from tracking errors that accumulate when a whole-body controller tries to execute its proposed motion.
-
----
-
-<a id="2026-11-24-dexwac-dexterous-robot-world-actor-critic"></a>
-## [DexWAC 让灵巧操作策略预测动作后果并评估动作价值](https://arxiv.org/abs/2611.32654)
-
-**English:** [DexWAC learns to predict and value the consequences of dexterous robot actions](https://arxiv.org/abs/2611.32654)
-
-- **发布 / Published:** `2026-11-24T14:09:49Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32654) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-action-model`, `dexterous-manipulation`, `reinforcement-learning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-DexWAC 用同一批机器人示范联合训练动作策略、世界模型和价值评估器。作者报告，在两项真机任务上，其平均成功率为 75%，对照模型 π₀.₅ 为 45%。
-
-DexWAC trains a policy, a world model and a critic together on robot demonstrations. The authors report 75% mean success on two physical robot tasks, compared with 45% for π₀.₅.
-
-### 技术点 / Technical points
-
-- 世界模型为一段动作预测结束时的视觉特征、机器人自身状态、奖励以及任务是否继续，省去逐帧生成中间视频的计算。
-  - For each action chunk the model predicts the final visual features and robot state, the reward and whether the episode continues. It can construct a transition without rendering intermediate frames.
-- 用真实执行数据调整世界模型和价值评估器后，作者分别测试了在预测轨迹上优化策略、按估值筛选候选动作两种方法。
-  - After adapting the world model and critic on real rollouts, the team evaluated two ways to improve action choice, training the policy on imagined trajectories and ranking candidate actions with the critic.
-
-### 为什么重要 / Why it matters
-
-机器人可以用同一模型预判一段动作的结果，并估计这个结果有多大帮助。
-
-The shared model lets a controller estimate both the outcome of a proposed movement and how much that outcome advances the task.
-
----
-
-<a id="2026-11-24-iclworld-rule-following-across-computers-and-robots"></a>
-## [ICLWorld 用临时规则测试智能体操作电脑和机器人的能力](https://arxiv.org/abs/2611.32649)
-
-**English:** [ICLWorld tests whether agents can apply new rules on computers and robots](https://arxiv.org/abs/2611.32649)
-
-- **发布 / Published:** `2026-11-24T14:07:17Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32649) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `benchmark`, `in-context-learning`, `computer-use`, `robotics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-ICLWorld 在 30 个环境中设计了 160 项任务，每项任务都有三个规则版本。智能体先阅读说明或观看示范，再按当次给出的规则完成操作。
-
-ICLWorld introduces 160 tasks across 30 environments. Each task has three rule variants. Agents receive the current rules as text or a video demonstration and then carry them out.
-
-### 技术点 / Technical points
-
-- 作者录制了 630 段示范视频，分别测试智能体能否复现示范、应对新实例，以及迁移到未见环境。
-  - The authors recorded 630 demonstrations and tested agents on reproducing them, handling new instances and transferring to unseen environments.
-- Claude Opus 5.5 和 GPT-6 Astra 的电脑任务成功率分别为 82% 和 76%，在机器人任务中分别为 27% 和 26%。
-  - Claude Opus 5.5 and GPT-6 Astra succeeded on 82% and 76% of computer-use runs, respectively. Their robot-use success rates were 27% and 26%.
-
-### 为什么重要 / Why it matters
-
-改变同一任务的规则，可以检验智能体是否真正根据本次示范调整动作。
-
-Varying the rules within a task tests whether an agent changes its actions in response to the particular demonstration.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/ICLWorld/ICLWorld)
-
----
-
-<a id="2026-11-23-anthropic-claude-ship-pull-request-agents"></a>
-## [Anthropic 发布 Claude Ship 测试版，可修复拉取请求并按策略审批](https://claude.com/resources/articles/introducing-claude-ship)
-
-**English:** [Anthropic launches Claude Ship beta for pull request fixes and approvals](https://claude.com/resources/articles/introducing-claude-ship)
-
-- **发布 / Published:** `2026-11-23T20:13:04Z`
-- **来源 / Source:** [Anthropic](https://claude.com/resources/articles/introducing-claude-ship) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `code-review`, `multi-agent`, `human-oversight`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Anthropic 宣布面向 Claude Team 和 Enterprise 用户的 GitHub 仓库推出 Claude Ship 测试版。它将 Code Review 与两个新智能体相连，由 PR Steward 处理修复，再由 Claude Approvals 依据团队策略决定哪些改动可获批准。
-
-Anthropic announced Claude Ship in beta for GitHub repositories on Claude Team and Enterprise plans. It connects Code Review with two new agents, PR Steward for repairs and Claude Approvals for deciding which changes can proceed under a team's policy.
-
-### 技术点 / Technical points
-
-- PR Steward 可处理持续集成检查失败、合并冲突和评审意见。推送修复后，它会说明修改内容及撤销方法。
-  - PR Steward can address failing CI checks, merge conflicts and review comments. After pushing a fix, it explains what changed and how to undo it.
-- 团队将审批策略保存在仓库中，可以允许常规改动自动获批，并指定哪些情况必须由人工评审。
-  - Teams store their approval policy in the repository. It can permit automatic approval for routine changes and require a human reviewer in specified cases.
-
-### 为什么重要 / Why it matters
-
-团队可以分别决定谁来修复改动，以及哪些改动可以自动通过评审。
-
-The workflow gives teams separate controls over who repairs a change and which changes can pass review automatically.
-
-### 链接 / Links
-
-[Evidence 1](https://x.com/ClaudeDevs/status/2124959436640858475) · [Evidence 2](https://claude.com/product/claude-ship)
-[Discussion 1](https://news.ycombinator.com/item?id=50618513)
-
----
-
-<a id="2026-11-23-acap-asynchronous-robot-control"></a>
-## [ACAP 让多个编程智能体并行控制同一台机器人的不同部位](https://arxiv.org/abs/2611.31205)
-
-**English:** [ACAP lets coding agents control different parts of one robot concurrently](https://arxiv.org/abs/2611.31205)
-
-- **发布 / Published:** `2026-11-23T18:52:19Z`
-- **来源 / Source:** [ACAP authors (arXiv)](https://arxiv.org/abs/2611.31205) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `multi-agent`, `robotics`, `manipulation`, `planning`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-ACAP 将机械臂与夹爪、移动底盘等控制单元交给持续运行的编程智能体。协调智能体可以让各单元独立行动，同步彼此依赖的步骤，也能在任务需要时接管控制。
-
-ACAP assigns persistent coding agents to units such as an arm and gripper or a mobile base. A coordinating agent can let them work independently, synchronize interdependent steps or take over control when a task requires it.
-
-### 技术点 / Technical points
-
-- 在覆盖 25 种任务与平台组合的 72 次真机运行中，ACAP 比单智能体控制器降低了 28.2% 的按任务均衡计算的时间成本。
-  - Across 72 real-robot runs in 25 combinations of tasks and platforms, ACAP cut task-balanced time cost by 28.2% against a single-agent controller.
-- 在全部 8 种需要协作的设置中，允许调整控制权的方案平均时间成本均低于固定分工方案。
-  - In all eight settings that required collaboration, average time cost was lower with flexible control assignment than with fixed assignments.
-
-### 为什么重要 / Why it matters
-
-这组实验量化了机器人在保持联动动作协调的同时，并行执行独立步骤能节省多少时间。
-
-The experiments quantify how much time a robot can save by overlapping independent work while still coordinating coupled motions.
-
-### 链接 / Links
-
-[Evidence 1](https://projects.zxhezexin.com/acap/)
-
----
-
-<a id="2026-11-23-vita-wam-single-step-action-generation"></a>
-## [VITA-WAM 用一步流匹配生成机器人动作序列](https://arxiv.org/abs/2611.31195)
-
-**English:** [VITA-WAM generates a robot action sequence in one flow step](https://arxiv.org/abs/2611.31195)
-
-- **发布 / Published:** `2026-11-23T18:46:15Z`
-- **来源 / Source:** [VITA-WAM authors (arXiv)](https://arxiv.org/abs/2611.31195) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `world-action-model`, `flow-matching`, `robotics`, `inference`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
-
-### 摘要 / Summary
-
-VITA-WAM 在世界动作模型中，直接将视觉、语言和机器人自身状态的特征转换为动作。研究者在训练时对齐观测与动作的表示，减少生成一段控制指令所需的迭代步数。
-
-VITA-WAM learns to transform visual, language and robot-state features directly into actions within a world-action model. Aligning the observation and action representations during training reduces the number of steps needed to produce a command sequence.
-
-### 技术点 / Technical points
-
-- 在作者使用 RTX 4090 的编译优化测试中，生成一段含 32 个动作的序列用时 55.67 毫秒，FastWAM 用时 116.65 毫秒。
-  - In the authors’ compiled RTX 4090 test, generating a 32-action sequence took 55.67 milliseconds, compared with 116.65 for FastWAM.
-- 在 LIBERO-Plus 仿真基准上，单步模型的成功率比十步 FastWAM 基线高 21.47 个百分点。
-  - On the simulated LIBERO-Plus benchmark, the one-step model exceeded the ten-step FastWAM baseline by 21.47 percentage points in success rate.
-
-### 为什么重要 / Why it matters
-
-对控制器设计者来说，这两项测试可以一起看出策略多快能更新动作，以及在这一速度下能多可靠地完成任务。
-
-The measured latency and simulation results let control designers weigh how often a policy can update against how reliably it completes a task.
-
-### 链接 / Links
-
-[Evidence 1](https://ucd-dare.github.io/VITA-WAM/)
-
----
-
-<a id="2026-11-23-fomo-fd-surgical-robot-failure-detection-weights"></a>
-## [FoMo-FD 发布世界模型权重，用于检测手术机器人操作失败](https://huggingface.co/Januxes/FoMoFD-models)
-
-**English:** [FoMo-FD releases world-model weights for detecting surgical robot task failures](https://huggingface.co/Januxes/FoMoFD-models)
-
-- **发布 / Published:** `2026-11-23T17:43:21Z`
-- **来源 / Source:** [FoMo-FD team](https://huggingface.co/Januxes/FoMoFD-models) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `robotics`, `world-model`, `failure-detection`, `flow-matching`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-FoMo-FD 团队公开了在四项手术机器人研究任务中用于检测操作失败的世界模型权重和对照模型。发布内容包括固定相机与腕部相机的视觉编码器，以及用于回放任务的模仿学习策略。
-
-The FoMo-FD team released the world-model checkpoints and comparison models used to study failure detection in four surgical robot research tasks. The release includes visual encoders for both fixed and wrist-mounted cameras, along with imitation policies for replaying the tasks.
-
-### 技术点 / Technical points
-
-- 同一份流匹配世界模型权重支持三种失败评分方法。评测在二十种失败模式下比较不同的监测方法。
-  - The same flow-matching world-model checkpoint supports three failure scores. The evaluation compares monitors across twenty failure modes.
-- 项目以标注的失败起点为基准比较检测延迟，并根据允许的误报率校准阈值。
-  - The project compares detection delays relative to the annotated onset of a failure, with thresholds calibrated to a false-alarm budget.
-
-### 为什么重要 / Why it matters
-
-研究者可在给定误报率预算下，对同一段失败记录比较不同监测方法从失败发生到发出警报需要多长时间。
-
-The released models make it possible to compare how early different monitors flag the same recorded failure at a given false-alarm budget.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/Januxes/FoMoFD-models/commit/adeb528c5514087d7203949bc1be000a52946011) · [Evidence 2](https://janusmaple.github.io/FoMoFD/)
-
----
-
-<a id="2026-11-23-ai2-robotrack-manipulation-point-tracking"></a>
-## [Ai2 发布 RoboTrack，评测真实操作视频中的点跟踪](https://huggingface.co/blog/allenai/robotrack)
-
-**English:** [Ai2 releases RoboTrack to test point tracking during real manipulation](https://huggingface.co/blog/allenai/robotrack)
-
-- **发布 / Published:** `2026-11-23T17:20:37.168Z`
-- **来源 / Source:** [Allen Institute for AI](https://huggingface.co/blog/allenai/robotrack) · `primary`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `dataset`, `benchmark`, `visual-tracking`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `86/100`
-
-### 摘要 / Summary
-
-Ai2 发布了带人工标注的操作视频基准、合成训练数据和两个跟踪模型。基准用实拍片段检验跟踪器能否在手、夹爪或物体移动和被遮挡时，持续定位同一个点。
-
-Ai2 paired an annotated manipulation benchmark with synthetic training data and two tracking models. On real footage, the benchmark tests whether a tracker can keep following a hand, gripper or object through motion and occlusion.
-
-### 技术点 / Technical points
-
-- RoboTrack-Bench 的 307 段视频包含 2,522 条经人工核验的点轨迹，覆盖第一人称和外部相机视角。
-  - RoboTrack-Bench contains 2,522 human-verified point tracks across 307 videos, including first-person and external views.
-- Ai2 在 MolmoSpaces 中生成训练轨迹。两个适配后的跟踪器在三项机器人基准上的平均跟踪得分都高于各自的基础模型。
-  - Ai2 generated training tracks in MolmoSpaces. Its two adapted trackers each improved their mean tracking score across three robotics benchmarks over the respective starting model.
-
-### 为什么重要 / Why it matters
-
-跟踪运动物体上的同一个点，可以具体检验机器人执行抓取时所依赖的视觉反馈。
-
-Tracking a point on a moving object provides a concrete test of the visual feedback a robot can use during a grasp.
-
-### 链接 / Links
-
-[Evidence 1](https://robotrack.allen.ai)
-
----
-
-<a id="2026-11-23-worldleague-physical-agency-benchmark"></a>
-## [WorldLeague 用 60 项仿真机器人任务衡量智能体的实际完成进度](https://arxiv.org/abs/2611.30989)
-
-**English:** [WorldLeague measures how far agents get toward 60 simulated robot goals](https://arxiv.org/abs/2611.30989)
-
-- **发布 / Published:** `2026-11-23T16:44:19Z`
-- **来源 / Source:** [xML Lab, National University of Singapore (arXiv)](https://arxiv.org/abs/2611.30989) · `research`
-- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
-- **标签 / Tags:** `benchmark`, `simulation`, `planning`, `robotics`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
-
-### 摘要 / Summary
-
-WorldLeague 让 13 个系统在仿真中探索场景、重排物品或应对环境变化，再根据机器人实际走出的轨迹评分。Claude Fable 5.2 完整达成 13 项任务目标，平均进度得分最高，为 28.58/100。
-
-WorldLeague compares 13 systems on tasks that require exploration, rearranging objects or adapting to changes. It scores the resulting robot trajectory. Claude Fable 5.2 completed 13 goals and had the highest mean progress score, 28.58 out of 100.
-
-### 技术点 / Technical points
-
-- 视觉语言模型选择目标和移动方式，视觉语言动作模型和世界动作模型则使用各自的控制接口。
-  - Vision-language models choose targets and motions, while vision-language-action and world-action models use their own controls.
-- 在视觉语言模型答对全部收尾问题的回合中，仍有 71.8% 在物理目标上得零分。
-  - Among episodes in which vision-language models answered all final questions correctly, 71.8% still earned zero progress toward the physical goal.
-
-### 为什么重要 / Why it matters
-
-按轨迹评分可以比较使用不同控制接口的智能体，也能识别答对问题却没有完成动作的情况。
-
-Trajectory scoring makes it possible to compare agents with different controls and see when correct answers coincide with an unfinished task.
-
-### 链接 / Links
-
-[Evidence 1](https://xyangzhou.github.io/WorldLeague/)
-
----
-
-<a id="2026-11-23-hls-inference-server-coding-benchmark-code"></a>
-## [HLS 公开评测代码，让编程智能体从零构建推理服务器](https://github.com/humanityslastsystem/hls)
-
-**English:** [HLS publishes its benchmark code for agents that build inference servers](https://github.com/humanityslastsystem/hls)
-
-- **发布 / Published:** `2026-11-23T16:26:31Z`
-- **来源 / Source:** [Humanity's Last System team](https://github.com/humanityslastsystem/hls) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `benchmark`, `long-horizon`, `open-source`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Humanity's Last System 团队在 11 月 20 日介绍基准后，公开了包含七项任务的评测代码。智能体根据目标模型、GPU 配置和工作负载构建推理服务器，评测同时检验服务输出的正确性和运行速度。
-
-The Humanity's Last System team published the code for its seven-task benchmark after describing it on November 20. An agent receives a target model, GPU hardware and workload, then builds a server whose output and speed are evaluated together.
-
-### 技术点 / Technical points
-
-- 任务最长可运行 36 小时，最多使用八张 H200。提交的服务器会在全新容器中处理带有时序信息的任务负载。
-  - Tasks allow up to 36 hours and up to eight H200 GPUs. The submitted server runs in a fresh container against the task's timed workload.
-- 评分程序将输出与参考实现比对。未通过正确性检查的提交记零分。
-  - The scorer checks outputs against a reference implementation. A submission that fails that check receives zero regardless of its speed.
-
-### 为什么重要 / Why it matters
-
-对最终运行的服务评分，可以检验编程智能体能否在长时间优化中兼顾性能和正确性。
-
-Scoring the final running service tests whether a coding agent can sustain optimization work without sacrificing correctness.
-
-### 链接 / Links
-
-[Evidence 1](https://hlsbench.com/blog/introducing-hls) · [Evidence 2](https://api.github.com/repos/humanityslastsystem/hls/activity?ref=refs%2Fheads%2Fmain&activity_type=branch_creation)
-[Discussion 1](https://news.ycombinator.com/item?id=50618188)
-
----
-
-<a id="2026-11-23-native-lam-video-to-robot-actions"></a>
-## [Native LAM 从视频世界模型中提取潜在动作，用于训练机器人策略](https://arxiv.org/abs/2611.30898)
-
-**English:** [Native LAM extracts latent actions from a video world model to train robot policies](https://arxiv.org/abs/2611.30898)
-
-- **发布 / Published:** `2026-11-23T16:01:06Z`
-- **来源 / Source:** [PAW Team (arXiv)](https://arxiv.org/abs/2611.30898) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `latent-actions`, `robotics`, `vla`, `pretraining`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `87/100`
-
-### 摘要 / Summary
-
-Native LAM 用同一个预训练视频模型推断两次观测之间发生了什么动作，并预测该动作的效果。作者随后用提取出的动作训练 PAWlicy，使缺少统一控制指令的视频也能用于学习机器人策略。
-
-Native LAM uses one pretrained video model to infer what motion connects two observations and to predict its effect. The authors then used those inferred actions to teach PAWlicy from videos that lack compatible robot commands.
-
-### 技术点 / Technical points
-
-- 研究者用运动不同的成对样例训练一组可学习向量，让它们在两个预测步骤之间传递运动信息。
-  - Paired examples with different motions train a small set of learned vectors to carry the dynamics between the two prediction steps.
-- 在作者使用域随机化示范的实验中，3.8B 参数的 PAWlicy 在 RoboTwin 2.0 上达到 93.6% 的平均成功率。
-  - The 3.8B PAWlicy achieved 93.6% mean success on RoboTwin 2.0 in the authors’ experiment with domain-randomized demonstrations.
-
-### 为什么重要 / Why it matters
-
-共享的运动表示让策略训练可以同时利用人类操作视频和控制接口不同的机器人录像。
-
-A shared motion representation gives policy training a way to use both human videos and recordings from robots with different controls.
-
-### 链接 / Links
-
-[Evidence 1](https://pawteam-eai.github.io/native-lam/)

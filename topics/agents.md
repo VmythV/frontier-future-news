@@ -2,6 +2,248 @@
 
 # Agents / 智能体
 
+<a id="2026-11-26-pydantic-ai-276-realtime-tool-discovery"></a>
+## [Pydantic AI 2.76.0 支持实时智能体在会话途中发现工具](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
+
+**English:** [Pydantic AI 2.76.0 lets realtime agents discover tools during a live session](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
+
+- **发布 / Published:** `2026-11-26T23:49:06Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `tool-use`, `realtime`, `agent-framework`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+在 Pydantic AI 2.76.0 中，使用兼容模型的实时智能体可以在同一次会话里发现并调用延迟加载的工具。运行时会先发送更新后的工具列表，再返回发现结果，让模型得知工具时就能调用它。
+
+In Pydantic AI 2.76.0, a realtime agent on a compatible model can discover a deferred tool and call it within the same session. The runtime sends the updated tool list before the result that tells the model what it found.
+
+### 技术点 / Technical points
+
+- 加载一组能力、搜索延迟加载的工具，或在工具结果里返回新工具，都可以更新模型可调用的工具集合。
+  - Loading a capability, searching for deferred tools or returning tools from another tool can update which tools the model can call.
+- 模型配置必须声明支持会话内更新工具。运行时把发现结果记入会话历史，并更新重连时使用的配置。
+  - The model profile must enable mid-session tool updates. The runtime records discoveries in session history and updates the configuration used on reconnect.
+
+### 为什么重要 / Why it matters
+
+语音智能体可以从少量工具开始，在对话涉及专门任务时再引入相应操作。
+
+A voice agent can start with a small tool list and bring in specialized actions when the conversation turns to them.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/12440)
+
+---
+
+<a id="2026-11-25-coding-agent-patch-necessity-study"></a>
+## [研究逐块回退编程智能体的补丁，检验哪些修改影响任务测试](https://arxiv.org/abs/2611.34875)
+
+**English:** [Study tests which edits in successful coding-agent patches actually affect task tests](https://arxiv.org/abs/2611.34875)
+
+- **发布 / Published:** `2026-11-25T18:37:06Z`
+- **来源 / Source:** [Delta Residue Attribution study authors (arXiv)](https://arxiv.org/abs/2611.34875) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `benchmark`, `reliability`, `software-engineering`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
+
+### 摘要 / Summary
+
+研究者分析了 18 个模型通过 GitHub Copilot CLI 在 SWE-bench Verified 和 DeepSWE 上成功完成任务的 7,660 次运行。相比开发者补丁，智能体在前一个基准上多出的修改有 61% 用于添加测试，在后一个基准上则有 58% 属于代码改动。
+
+Researchers analyzed 7,660 successful GitHub Copilot CLI runs from 18 models on SWE-bench Verified and DeepSWE. On SWE-bench Verified, 61% of the extra edits relative to developer patches added tests. On DeepSWE, 58% of the extra edits were code changes.
+
+### 技术点 / Technical points
+
+- Delta Residue Attribution 将补丁中的每个修改块追溯到产生它的步骤，逐块回退并重新运行任务测试。
+  - Delta Residue Attribution traces each block of a patch to the step that produced it, reverts that block and reruns the task tests.
+- 在 SWE-bench Verified 上，智能体补丁中平均有 11% 的代码修改块在回退后仍能通过任务测试。
+  - On SWE-bench Verified, an average of 11% of an agent patch’s code blocks could be reverted without losing the passing result.
+
+### 为什么重要 / Why it matters
+
+在任务通过率之外，这一指标可以帮助评估者估算成功补丁给代码审查带来了多少额外工作。
+
+Reviewers can use this measurement alongside task success to estimate how much extra code a passing patch leaves them to inspect.
+
+---
+
+<a id="2026-11-25-drbench-pro-research-agent-knowledge-coverage"></a>
+## [DRBench Pro 分别衡量研究智能体报告的覆盖广度与深度](https://arxiv.org/abs/2611.34852)
+
+**English:** [DRBench Pro measures how broadly and deeply research agents cover a question](https://arxiv.org/abs/2611.34852)
+
+- **发布 / Published:** `2026-11-25T18:25:30Z`
+- **来源 / Source:** [DRBench Pro authors (arXiv)](https://arxiv.org/abs/2611.34852) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `deep-research`, `benchmark`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+DRBench Pro 依据知识树中的关系评估研究报告，既检查智能体涉及了哪些主要方向，也检查它沿每个方向探究了多深。在覆盖 24 个领域的 144 道题上，16 个受测智能体中最高的综合覆盖率为 57.04%。
+
+DRBench Pro scores reports against relations in a knowledge tree. It asks whether an agent covers the main lines of inquiry and how far it follows each one. Across 144 questions in 24 domains, the highest overall coverage among 16 evaluated agents was 57.04%.
+
+### 技术点 / Technical points
+
+- 作者根据维基百科中的知识关系构建了 44,102 条评分标准。智能体只看到研究问题，知识树留给评估器使用。
+  - The authors built 44,102 scoring criteria from Wikipedia relations. Agents see the research question while the evaluator retains the tree.
+- 综合覆盖率取广度与深度两项得分的几何平均值。
+  - The overall metric is the geometric mean of breadth and depth.
+
+### 为什么重要 / Why it matters
+
+分开看两项得分，有助于判断报告是漏掉了整个研究方向，还是虽有提及却没有深入探究。
+
+The two component scores reveal whether a report misses an entire line of inquiry or mentions it without exploring the supporting evidence.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/ZJU-REAL/DRBenchPro)
+
+---
+
+<a id="2026-11-25-real2simlab-coding-agent-simulation-evaluation"></a>
+## [Real2SimLab 在六个基准上评测编程智能体写出的仿真程序](https://arxiv.org/abs/2611.34849)
+
+**English:** [Real2SimLab evaluates simulation programs written by coding agents across six benchmarks](https://arxiv.org/abs/2611.34849)
+
+- **发布 / Published:** `2026-11-25T18:23:41Z`
+- **来源 / Source:** [Real2SimLab authors (arXiv)](https://arxiv.org/abs/2611.34849) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `coding-agents`, `simulation`, `benchmark`, `open-source`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+Real2SimLab 运行根据真实录像编写的仿真程序，再把输出交给各基准原有的评分器。平台支持 47 种编程智能体和五种其他方法，为六个基准提供了统一的评测入口。
+
+Real2SimLab runs simulation programs produced from real recordings and passes the results to each benchmark’s own scorer. The platform supports 47 coding agents and five other methods across six benchmarks, giving researchers a common way to run these evaluations.
+
+### 技术点 / Technical points
+
+- 构造训练数据时，流水线先排除已出现在基准中的录像，再生成仿真程序。
+  - Its training-data pipeline removes recordings already present in the benchmarks before generating programs.
+- 训练样本的奖励和评测分数由同一套代码计算。
+  - The same scoring code supplies training rewards and evaluation scores.
+
+### 为什么重要 / Why it matters
+
+研究人员可以用多个基准比较新方法，省去为每种方法重新接入各套评分流程的工作。
+
+A new method can be compared across several benchmarks without its authors rebuilding each scoring pipeline.
+
+### 链接 / Links
+
+[Evidence 1](https://real2simhub.github.io/)
+
+---
+
+<a id="2026-11-25-roboevo2-robot-policy-learning-from-repairs"></a>
+## [RoboEvo² 用编程智能体找到的纠错动作训练机器人策略](https://arxiv.org/abs/2611.34675)
+
+**English:** [RoboEvo² trains robot policies on fixes found by a coding agent](https://arxiv.org/abs/2611.34675)
+
+- **发布 / Published:** `2026-11-25T16:39:10Z`
+- **来源 / Source:** [RoboEvo² authors (arXiv)](https://arxiv.org/abs/2611.34675) · `research`
+- **分类 / Categories:** Embodied AI / 具身智能, Agents / 智能体
+- **标签 / Tags:** `robotics`, `coding-agents`, `policy-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `88/100`
+
+### 摘要 / Summary
+
+RoboEvo² 把机器人失误交给编程智能体寻找纠正方法，再用验证有效的动作训练控制策略。作者报告，在没有新增人工演示的情况下，策略单独运行时在 LIBERO-PRO 上的成功率从 11.0% 升至 84.1%。
+
+RoboEvo² uses failed robot attempts to guide a coding agent toward better actions, then trains the control policy on verified corrections. Without additional human demonstrations, standalone policy success on LIBERO-PRO rose from 11.0% to 84.1% in the authors’ experiments.
+
+### 技术点 / Technical points
+
+- 编程智能体将验证成功的操作存为可复用的技能。控制策略还会比较从同一状态出发的成功与失败尝试。
+  - The coding agent stores successful procedures as reusable skills. The controller also learns from pairs of successful and failed attempts that start from the same state.
+- 编程智能体与控制策略协作时，在 LIBERO-PRO 上的成功率达到 90.5%。
+  - With the coding agent and policy working together, success reached 90.5% on LIBERO-PRO.
+
+### 为什么重要 / Why it matters
+
+让控制策略独立受测，可以衡量机器人学会了多少纠错动作，以及哪些动作仍需要编程智能体介入。
+
+Testing the controller on its own shows how much of the repair process the robot can learn to perform without calling the coding agent again.
+
+### 链接 / Links
+
+[Evidence 1](https://kaiknower.github.io/RoboEvo2/)
+
+---
+
+<a id="2026-11-25-graph-anchors-latent-world-model-planning"></a>
+## [Graph Anchors 利用已记录的状态转移，让冻结的世界模型规划远期目标](https://arxiv.org/abs/2611.34509)
+
+**English:** [Graph Anchors uses recorded transitions to plan toward distant goals with a frozen world model](https://arxiv.org/abs/2611.34509)
+
+- **发布 / Published:** `2026-11-25T14:58:31Z`
+- **来源 / Source:** [Graph Anchors authors (arXiv)](https://arxiv.org/abs/2611.34509) · `research`
+- **分类 / Categories:** World models / 世界模型, Agents / 智能体
+- **标签 / Tags:** `planning`, `latent-dynamics`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
+
+### 摘要 / Summary
+
+Graph Anchors 用世界模型的训练帧建起稀疏图，把远期目标拆成路径上的邻近目标，让模型每次只判断短距离内的进展。作者报告，在同一个冻结的 LeWM 上，PointMaze-Large 的成功率从 8% 升至 87%，Push-T 从 5% 升至 71%。
+
+Graph Anchors builds a sparse graph from a world model’s training frames. Its planner follows a path through nearby targets, so the model only has to judge progress over short distances. With the same frozen LeWM, the authors report that success rose from 8% to 87% on PointMaze-Large and from 5% to 71% on Push-T.
+
+### 技术点 / Technical points
+
+- 规划器沿最短路径选择几步之内的节点，当机器人接触物体时，会优先沿用数据中实际发生过的状态转移。
+  - The planner chooses a node a few moves ahead on the shortest path and favors recorded transitions when the robot is in contact with an object.
+
+### 为什么重要 / Why it matters
+
+实验量化了仅改变中间目标的选法，在固定模型权重的情况下能给长程规划带来多大改善。
+
+The experiments show how much long-horizon performance can change when the planner changes its intermediate targets while keeping model weights fixed.
+
+### 链接 / Links
+
+[Evidence 1](https://syed-nazmus-sakib.github.io/graph-anchors/)
+
+---
+
+<a id="2026-11-25-egousebench-changing-context-computer-agents"></a>
+## [EgoUseBench 测试电脑智能体能否随用户所见调整任务](https://arxiv.org/abs/2611.34466)
+
+**English:** [EgoUseBench tests whether computer agents can revise a task as the user’s surroundings change](https://arxiv.org/abs/2611.34466)
+
+- **发布 / Published:** `2026-11-25T14:36:38Z`
+- **来源 / Source:** [EgoUseBench authors (arXiv)](https://arxiv.org/abs/2611.34466) · `research`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `computer-use`, `benchmark`, `multimodal`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+EgoUseBench 用超过 74 小时的第一视角影像构建了 693 项电脑操作任务。在受测模型中，需要根据持续传入的画面行动时，平均成功率比只接收明确指令时相对下降了 26.3%。
+
+EgoUseBench uses more than 74 hours of first-person footage to build 693 computer-use tasks. Across the models tested, average success was 26.3% lower in relative terms when agents had to act on streaming observations than when they received explicit instructions alone.
+
+### 技术点 / Technical points
+
+- 三种设置分别只给出指令、在执行前提供录像，或在执行过程中持续提供新画面。
+  - Three settings supply instructions alone, a recording before execution, or observations that arrive while the agent acts.
+- 基准分别记录用户看到的内容、用户的要求和网站当前状态。
+  - The benchmark tracks what the user has seen, what they require and the current website state separately.
+
+### 为什么重要 / Why it matters
+
+这套任务能检验新信息出现后，智能体的网页操作是否仍符合用户意图。
+
+It tests whether a web action still serves the user's intent after new information arrives mid-task.
+
+---
+
 <a id="2026-11-25-claude-code-21332-loads-skills-from-mcp-servers"></a>
 ## [Claude Code 2.1.332 开始支持从 MCP 服务器加载技能](https://github.com/anthropics/claude-code/releases/tag/v2.1.332)
 
