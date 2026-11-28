@@ -2,6 +2,150 @@
 
 # Latest frontier AI news / 最新前沿 AI 新闻
 
+<a id="2026-11-27-pydantic-ai-277-history-compaction"></a>
+## [Pydantic AI 2.77 支持应用在智能体运行中请求并跟踪对话压缩](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0)
+
+**English:** [Pydantic AI 2.77 lets applications request and observe conversation compaction](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0)
+
+- **发布 / Published:** `2026-11-27T23:32:31Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `context-management`, `open-source`, `event-streaming`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.77 允许应用在智能体运行期间请求压缩对话历史。开发者可以通过钩子处理压缩逻辑，并从事件流中获知压缩何时开始、何时结束。
+
+Pydantic AI 2.77 gives applications a way to request a shorter conversation history during a run. A capability hook handles compaction, and the event stream reports when it starts and ends.
+
+### 技术点 / Technical points
+
+- 运行上下文提供 request_compaction() 接口，应用可通过 compact_history() 钩子实现自己的压缩策略。
+  - The run context exposes request_compaction(), and a compact_history() hook can implement the application’s compression strategy.
+- 自动摘要收到异常模型响应时，默认回退机制可以恢复，让父任务继续运行。
+  - The default fallback chain can recover from an unexpected model response during automatic summarization and keep the parent run active.
+
+### 为什么重要 / Why it matters
+
+排查上下文遗漏或长任务停滞时，应用可以在运行记录中定位对话压缩发生的环节。
+
+Applications can now locate a compaction step in a run trace when investigating lost context or a stalled long-running task.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/11454)
+
+---
+
+<a id="2026-11-27-rl2-vla-fractal-steering-weights"></a>
+## [RL²-VLA 发布 Fractal 权重，可在推理时引导冻结的机器人策略](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal)
+
+**English:** [RL²-VLA releases its Fractal checkpoint for steering a frozen robot policy](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal)
+
+- **发布 / Published:** `2026-11-27T15:58:56Z`
+- **来源 / Source:** [RL²-VLA](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `reinforcement-learning`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `70/100`
+
+### 摘要 / Summary
+
+RL²-VLA 团队发布了 Fractal 版 QAM 引导策略及其训练配置。该方法利用视觉语言动作模型内部的动作特征训练单独的控制器，在预计基础策略会失败时介入。
+
+The RL²-VLA team released its Fractal QAM steering policy and training settings. The method learns a separate controller from a vision-language-action model’s internal action features and uses it when the base policy is predicted to fail.
+
+### 技术点 / Technical points
+
+- 公开配置显示，该引导策略使用一百万步离线训练，在线训练步数为零。
+  - The published configuration specifies one million offline training steps and zero online steps for the steering policy.
+- 推理时，控制器将学到的调整量与冻结模型生成动作的流速度结合。
+  - During inference the controller combines its learned adjustment with the frozen model’s action-generation flow.
+
+### 为什么重要 / Why it matters
+
+有了这份权重，研究者可以直接在 Fractal 上测试选择性干预的效果，省去重新训练引导策略的成本。
+
+The checkpoint lets researchers test selective intervention on Fractal using an already trained controller.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal/commit/93bbd8b27d7e64ecfed389b4a868391bb16f5c3b) · [Evidence 2](https://arxiv.org/abs/2607.26991)
+
+---
+
+<a id="2026-11-27-xpeng-iron-guangzhou-auto-show-deployment"></a>
+## [小鹏在广州车展部署八台 IRON 人形机器人接待观众](https://www.xiaopeng.com/news/company_news/5627.html)
+
+**English:** [XPENG puts eight IRON humanoids to work with visitors at the Guangzhou Auto Show](https://www.xiaopeng.com/news/company_news/5627.html)
+
+- **发布 / Published:** `2026-11-27T03:09:52Z`
+- **来源 / Source:** [小鹏汽车](https://www.xiaopeng.com/news/company_news/5627.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `multimodal`, `human-robot-interaction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `72/100`
+
+### 摘要 / Summary
+
+小鹏在广州车展展台部署了八台 IRON 人形机器人。据公司介绍，它们承担迎宾、展区导览和车辆讲解等工作。小鹏计划在 2027 年第一季度让 IRON 进入部分门店试岗。
+
+XPENG deployed eight IRON humanoid robots at its Guangzhou Auto Show booth. The company says the robots welcomed visitors, guided them around the exhibit and answered questions about vehicles. It plans to trial IRON in selected stores in early 2027.
+
+### 技术点 / Technical points
+
+- 据小鹏介绍，IRON VLM 支持多语言交互，结合联网信息与本地记忆为观众讲解车辆。
+  - XPENG says its IRON VLM combines multilingual interaction, online information and local memory to support vehicle explanations.
+- 机器人配备三颗图灵芯片，在本机运行模型和全身运动控制，机身共有 76 个自由度。
+  - Three onboard Turing chips support model inference and whole-body motion control on a robot with 76 degrees of freedom.
+
+### 为什么重要 / Why it matters
+
+这次公开部署把多台机器人带到需要接待顾客、回答产品问题的现场，为后续门店试岗提供了观察场景。
+
+The public exhibit puts a group of service robots in contact with visitors asking product questions, ahead of the planned retail trial.
+
+### 链接 / Links
+
+[Evidence 1](https://www.globenewswire.com/news-release/2026/11/27/3411092/0/en/xpeng-accelerates-global-physical-ai-expansion-at-the-2026-guangzhou-international-automobile-exhibition.html)
+
+---
+
+<a id="2026-11-27-ree-research-agent-task-release"></a>
+## [REE 公开 100 项科研智能体任务，每项配有可运行的专家基线](https://huggingface.co/datasets/Tokenwave-AI/REE)
+
+**English:** [REE releases 100 research tasks with runnable expert baselines for AI agents](https://huggingface.co/datasets/Tokenwave-AI/REE)
+
+- **发布 / Published:** `2026-11-27T01:06:23Z`
+- **来源 / Source:** [REE / TokenWave](https://huggingface.co/datasets/Tokenwave-AI/REE) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `dataset`, `research-agents`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Research Entrance Exam 团队公开了来自 23 个领域的 100 项开放式问题。每项任务提供可运行的起始方案和开发数据，智能体最多有 12 小时开展实验，改进方案在留出样例上的得分。
+
+The Research Entrance Exam team released 100 open-ended problems drawn from 23 domains. Each gives an agent a working solution and development data, then allows up to 12 hours of experiments to improve its score on held-out cases.
+
+### 技术点 / Technical points
+
+- 每项任务都附有可运行的专家方法，并用相同的留出样例评测，便于将智能体相对起始方案的改进与公开参照进行比较。
+  - Each task includes a runnable expert method evaluated on the same held-out instances, so gains over the starter can be compared with a public reference.
+- 作者对每个智能体在每项任务上运行一次。Claude Opus 5.5 在 86 项任务上超过专家基线，GPT-6.1 Sol 在 81 项上超过基线。
+  - In the authors’ evaluation with one run per task, Claude Opus 5.5 scored above the expert baseline on 86 tasks and GPT-6.1 Sol on 81.
+
+### 为什么重要 / Why it matters
+
+其他团队可以使用这些任务，检验智能体能否在固定时间内改进已有科研方法，也能复现与专家基线的逐项比较。
+
+The task files let other teams test whether an agent can improve an existing scientific method under a fixed time budget and reproduce the paired comparison.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Tokenwave-AI/REE/commit/7f50cd1331c4ee890ed76598b3969a4d12109a45) · [Evidence 2](https://arxiv.org/abs/2611.34646)
+
+---
+
 <a id="2026-11-26-pydantic-ai-276-realtime-tool-discovery"></a>
 ## [Pydantic AI 2.76.0 支持实时智能体在会话途中发现工具](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
 
@@ -35,6 +179,150 @@ A voice agent can start with a small tool list and bring in specialized actions 
 ### 链接 / Links
 
 [Evidence 1](https://github.com/pydantic/pydantic-ai/pull/12440)
+
+---
+
+<a id="2026-11-26-dda-vla-robotwin-visual-shift-checkpoints"></a>
+## [DDA-VLA 发布模型权重，可测试场景外观变化对机器人操作的影响](https://huggingface.co/cognaclee/DDA-VLA)
+
+**English:** [DDA-VLA releases checkpoints for testing robot policies under visual changes](https://huggingface.co/cognaclee/DDA-VLA)
+
+- **发布 / Published:** `2026-11-26T17:02:20Z`
+- **来源 / Source:** [DDA-VLA](https://huggingface.co/cognaclee/DDA-VLA) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `domain-adaptation`, `benchmark`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+DDA-VLA 发布代码和模型权重，用于研究视觉输入变化对同一操作任务的影响。训练数据成对渲染 RoboTwin 2.0 中相同的物理状态，改变光照、纹理或相机设置。
+
+DDA-VLA released code and checkpoints that separate changes in a robot’s visual input from changes in the task. The RoboTwin 2.0 training pairs show the same physical state with different lighting, textures or camera settings.
+
+### 技术点 / Technical points
+
+- 适配器根据指令，把视觉特征映射回参考场景的特征空间。动作模型据此一次预测 16 步动作。
+  - An instruction-conditioned adapter maps visual features back toward the reference domain. The action model uses those features to predict 16 steps at a time.
+- 每段示范生成十种外观变体时，作者报告，在外观变化条件下，利用回合首帧的版本成功率为 52.3%，同样使用两个域训练、未加适配器的对照组为 29.8%。这项仿真测试覆盖 47 个任务。
+  - With ten altered renders per demonstration, the team reports 52.3% success under visual shifts for the variant using the episode’s first observed frame, versus 29.8% for joint training on both domains without the adapter. The simulation test covered 47 tasks.
+
+### 为什么重要 / Why it matters
+
+研究者可以利用配对示范和对照模型，检验操作失败有多少源于相机看到的画面变化。
+
+The matched demonstrations and released controls make it possible to isolate how much of a policy’s failure is caused by a change in what the camera sees.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/cognaclee/DDA-VLA/commit/cb74706f2feec906bef247500a9f6e7abb28f5e8)
+
+---
+
+<a id="2026-11-26-agentmem-four-benchmark-evaluation-release"></a>
+## [AgentMem 发布训练代码，为四个机器人记忆基准提供统一评测工具](https://github.com/utomm/AgentMem-Action-Model)
+
+**English:** [AgentMem releases training code and a common evaluation tool for four robot memory benchmarks](https://github.com/utomm/AgentMem-Action-Model)
+
+- **发布 / Published:** `2026-11-26T13:06:40Z`
+- **来源 / Source:** [AgentMem](https://github.com/utomm/AgentMem-Action-Model) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `memory`, `robotics`, `vla`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+AgentMem 发布了视觉语言智能体的训练代码，可将智能体与动作模型配合，在四个操作基准上运行。智能体负责记住此前的步骤，并指示动作模型下一步该做什么。
+
+AgentMem released code to train its vision-language agent and run it with an action model on four manipulation benchmarks. The agent keeps track of earlier steps and tells the action model what to do next.
+
+### 技术点 / Technical points
+
+- 同一评测工具支持 RoboMME、RMBench、RoboDojo-Mem 和 LIBERO-Mem，并分别处理各基准的观测与动作格式。
+  - The evaluation tool supports RoboMME, RMBench, RoboDojo-Mem and LIBERO-Mem with benchmark-specific observation and action handling.
+- 智能体可以发出子任务描述，并在图像上标注抓取、放置或移动位置。动作策略根据 RGB 画面执行，不负责保存回合内的历史。
+  - The agent can send a subtask description and optional image-plane hints for grasping, placing or moving. The RGB action policy executes the motion without carrying memory across the episode.
+
+### 为什么重要 / Why it matters
+
+这套实现便于研究者检查任务进度是否被记住，以及动作模型是否正确执行了指示。
+
+A common implementation makes it easier to test which failures come from remembering a task and which come from translating the instructions into movement.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/utomm/AgentMem-Action-Model/commit/aa69ff13ec3d23830b67f193cda48de75862b884) · [Evidence 2](https://arxiv.org/abs/2609.11308)
+
+---
+
+<a id="2026-11-26-volvo-hexagon-aeon-ghent-imitation-learning"></a>
+## [沃尔沃在根特工厂训练 AEON 人形机器人将零件放入工装夹具](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/)
+
+**English:** [Volvo trains Hexagon’s AEON to place parts into fixtures at its Ghent plant](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/)
+
+- **发布 / Published:** `2026-11-26T08:00:00Z`
+- **来源 / Source:** [Volvo Cars](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `imitation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+沃尔沃汽车和海克斯康正在比利时根特工厂训练 AEON。首项任务是让机器人通过模仿示范，学习把零件准确放入两套工装夹具。沃尔沃计划于 2027 年上半年开展工厂试点。
+
+Volvo Cars and Hexagon are training AEON at Volvo’s Ghent plant in Belgium. Its first task is to learn from demonstrations how to position components precisely in two fixtures. Volvo plans a factory pilot in the first half of 2027.
+
+### 技术点 / Technical points
+
+- AEON 采用轮式底盘，通过相机和其他传感器定位、操作零件，额定载荷为 10 千克。
+  - AEON moves on wheels, uses cameras and other sensors to locate and handle parts, and has a 10 kg payload.
+- 团队计划逐步验证更多零件的搬放，再加入产区内移动以及与现有自动化设备配合的任务。
+  - The team plans to add more types of parts, movement across the production area and interaction with existing automation as it validates each step.
+
+### 为什么重要 / Why it matters
+
+在扩大机器人的生产职责前，团队可以先用两套实际工装检验它能否学会精确放置零件。
+
+The two fixtures give the team a specific placement task to validate on the factory floor before assigning the robot a wider production role.
+
+### 链接 / Links
+
+[Evidence 1](https://news.cision.com/volvo-cars-global/r/volvo-cars-trains-hexagon-robotics--humanoids-for-manufacturing%2Cc4429415)
+
+---
+
+<a id="2026-11-26-shownow-eight-future-world-model-weights"></a>
+## [ShowNow 发布 5B 世界模型权重，可提前生成八种玩家操作的后续画面](https://huggingface.co/songyiren/ShowNow-5B-8F)
+
+**English:** [ShowNow releases a 5B world model that prepares eight possible responses to player input](https://huggingface.co/songyiren/ShowNow-5B-8F)
+
+- **发布 / Published:** `2026-11-26T06:37:38Z`
+- **来源 / Source:** [ShowNow](https://huggingface.co/songyiren/ShowNow-5B-8F) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `interactive-simulation`, `latency`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ShowNow 发布了面向 ViZDoom 的推理权重和三组演示输入。模型在视频播放时，从同一段近期画面出发，提前生成八种操作对应的后续画面。玩家做出动作后，系统就能选取相应的一段播放。
+
+ShowNow released inference weights and three demo inputs for its ViZDoom model. While video plays, the model uses the same recent frames to prepare eight continuations. When the player acts, the system can display the matching one.
+
+### 技术点 / Technical points
+
+- 每次生成覆盖四帧视频。团队在单张 80 GB H100 上测试了同时准备八种后续画面的配置。
+  - Each generation step covers four video frames. The team tested the eight-way setup on a single 80 GB H100.
+- 这版权重针对八种离散操作。作者指出，同时触发多种操作或长时间连续生成都可能降低画面一致性。
+  - The checkpoint targets eight discrete controls. The authors report that simultaneous inputs and long sequences can reduce visual consistency.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这套权重调整玩家输入前的预计算量，测量这一选择对响应时间和画面质量的影响。
+
+The weights let researchers vary how much work happens before input arrives and measure the effect on response time and visual quality.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/songyiren/ShowNow-5B-8F/commit/41767c196c7930751491ceb0f6d5ca47859a32fa) · [Evidence 2](https://arxiv.org/abs/2611.34693)
 
 ---
 
@@ -417,289 +705,3 @@ Developers can reuse a desktop workflow across model providers and backends whil
 ### 链接 / Links
 
 [Evidence 1](https://github.com/pydantic/pydantic-ai/pull/11037)
-
----
-
-<a id="2026-11-24-delegent-small-model-subtasks-for-coding-and-search"></a>
-## [Delegent 让本地小模型分担代码调查和检索，降低前沿模型调用成本](https://arxiv.org/abs/2611.33098)
-
-**English:** [Delegent cuts frontier-model costs by delegating coding and search subtasks](https://arxiv.org/abs/2611.33098)
-
-- **发布 / Published:** `2026-11-24T18:34:40Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.33098) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `multi-agent`, `coding-agents`, `search`, `inference-cost`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-Delegent 在 Claude Code 上让前沿模型负责整体任务，把查找代码、运行测试或搜索语料等有明确边界的工作交给本地小模型。作者分别测量了长程编程和智能体搜索的成本与任务表现。
-
-Delegent keeps the frontier model in charge of a Claude Code session and hands bounded work such as code inspection, test execution and corpus search to a local model. The authors measured task performance and frontier-model costs on long-horizon coding and agentic search.
-
-### 技术点 / Technical points
-
-- 搭配 27B FP8 小模型时，作者报告编程和搜索的前沿模型成本分别下降 67% 和 59%，两项评测的任务表现均得以维持。
-  - With a 27B FP8 helper, the authors report 67% lower frontier-model costs on coding and 59% lower costs on search while maintaining performance on the evaluations.
-- 将主要编码工作留给前沿模型、把辅助工作交给 2B 本地模型，也使编程任务的前沿模型成本下降了 66%。
-  - Keeping the main implementation work with the frontier model and delegating supporting work to a local 2B model also cut frontier-model coding costs by 66%.
-
-### 为什么重要 / Why it matters
-
-结果给出了具体的分工依据，团队可据此权衡本地算力开销与节省的前沿模型调用费用。
-
-The measurements give teams a basis for weighing local compute costs against the frontier-model calls saved by delegation.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/castorini/delegent)
-
----
-
-<a id="2026-11-24-robodojo-mirror-robot-reflection-benchmark"></a>
-## [RoboDojo-Mirror 测出镜面反射对机器人操作成功率的影响](https://arxiv.org/abs/2611.33010)
-
-**English:** [RoboDojo-Mirror measures how reflections affect robot manipulation](https://arxiv.org/abs/2611.33010)
-
-- **发布 / Published:** `2026-11-24T17:32:00Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.33010) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能
-- **标签 / Tags:** `benchmark`, `robotics`, `manipulation`, `visual-grounding`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-研究人员保持任务目标、成功标准和策略权重相同，比较无镜面、单镜面、双镜面和镜面桌面四种场景。五种机器人策略在三种带镜面的条件下总体成功率都下降。
-
-The team tested five robot policies with the same objectives, success criteria and model weights across four settings, adding one mirror, two mirrors or a mirrored tabletop to a mirror-free baseline. Each reflective setting lowered aggregate success for all five policies.
-
-### 技术点 / Technical points
-
-- 作者以形状相同的非反光板作对照。镜面特有的失败中，有 50% 至 88% 未记录到机器人与面板发生接触。
-  - Nonreflective panels of the same geometry served as controls. In 50% to 88% of mirror-specific failures, no contact between the robot and panel was recorded.
-- π₀.₅ 和 FastWAM 的真机实验也观察到，竖直镜面和镜面桌面均降低了总体成功率。
-  - Physical robot tests with π₀.₅ and FastWAM also showed lower aggregate success with an upright mirror or mirrored tabletop.
-
-### 为什么重要 / Why it matters
-
-通过比较两类面板，研究人员可以区分机械臂受障碍物阻挡和策略误判物体位置这两类困难。
-
-The matched panels help distinguish difficulty avoiding a physical obstruction from difficulty locating the real object in the image.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/iPPLab/robodojo-mirror)
-
----
-
-<a id="2026-11-24-google-workspace-agent-tools-ga"></a>
-## [Google Workspace 开始向用户正式推出智能体用 MCP 服务器和命令行工具](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
-
-**English:** [Google Workspace begins general rollout of its MCP servers and CLI for agents](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html)
-
-- **发布 / Published:** `2026-11-24T17:02:59.959Z`
-- **来源 / Source:** [Google Workspace Updates](https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `mcp`, `tool-use`, `human-oversight`, `audit-logging`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `82/100`
-
-### 摘要 / Summary
-
-Google 宣布托管的 Workspace MCP 服务器和官方命令行工具进入正式可用阶段。智能体跨 Gmail、Drive 或日历等应用操作时，管理员可以为影响较大的动作设置确认规则，并审查活动记录。
-
-Google announced general availability for its hosted Workspace MCP servers and official CLI. Administrators can set confirmation rules for consequential actions and review activity as agents work across applications such as Gmail, Drive and Calendar.
-
-### 技术点 / Technical points
-
-- 云端智能体可以调用覆盖八项 Workspace 服务的托管工具。终端智能体可以在运行时发现命令，并以限定的权限范围登录。
-  - Cloud agents can call hosted tools across eight Workspace services. Terminal-based agents can discover CLI commands at runtime and sign in with limited scopes.
-- Google 计划用两周时间向快速发布和定期发布两类客户域推出这些工具、确认策略和审计控制。
-  - Google scheduled a two-week rollout for the tools, confirmation policies and audit controls across its rapid and scheduled release domains.
-
-### 为什么重要 / Why it matters
-
-当智能体为完成一项任务而调用多个 Workspace 服务时，组织可以统一应用自己的审批策略，并追查具体动作。
-
-Organizations can apply their own approval policies and inspect actions when an agent uses several Workspace services in one task.
-
-### 链接 / Links
-
-[Evidence 1](https://workspace.google.com/blog/product-announcements/built-for-trust-and-control-new-ai-agent-protections-and-developer-tools-in-google-workspace)
-[Discussion 1](https://news.ycombinator.com/item?id=50635826)
-
----
-
-<a id="2026-11-24-shellbench-everyday-agent-reliability"></a>
-## [ShellBench 用 100 项日常任务比较模型和智能体运行框架](https://arxiv.org/abs/2611.32946)
-
-**English:** [ShellBench compares models and agent harnesses on 100 everyday tasks](https://arxiv.org/abs/2611.32946)
-
-- **发布 / Published:** `2026-11-24T16:48:06Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32946) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `benchmark`, `agent-evaluation`, `reliability`, `safety`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `90/100`
-
-### 摘要 / Summary
-
-ShellBench 让智能体在包含邮件、表格和其他可能相互矛盾的资料中完成日常工作。研究涵盖 12 个模型、5 种运行框架和 53,100 次执行，单次通过率最高的模型为 GPT-6 Astra，跨框架平均为 62.5%。
-
-ShellBench tests agents on everyday work involving emails, spreadsheets and other records that may conflict. The study covers 12 models, five harnesses and 53,100 runs. GPT-6 Astra led with a 62.5% single-attempt pass rate averaged across harnesses.
-
-### 技术点 / Technical points
-
-- 90 项任务按评分细则检查正确性和安全性，全部必需条件通过才算成功。另有 10 项任务由代码测试。
-  - For 90 tasks, every required rubric criterion must pass, including applicable safety checks. Ten other tasks use code-based tests.
-- GPT-6.1 Sol 的通过率为 61.4%，按研究使用的价格估算，每次尝试的 token 成本约为 GPT-6 Astra 的六分之一。
-  - GPT-6.1 Sol passed 61.4% of attempts at roughly one-sixth of GPT-6 Astra's estimated token cost per attempt under the study's pricing.
-
-### 为什么重要 / Why it matters
-
-同一任务跨模型和运行框架重复执行，能同时衡量日常工作的完成率和成本。
-
-Running the same tasks across models and harnesses lets teams compare the likelihood and cost of completing an everyday workflow.
-
-### 链接 / Links
-
-[Evidence 1](https://openclaw.ai/blog/shellbench)
-[Discussion 1](https://news.ycombinator.com/item?id=50639601)
-
----
-
-<a id="2026-11-24-rlvb-trains-visual-agents-to-seek-enough-evidence"></a>
-## [RLVB 根据证据是否充分训练视觉智能体决定何时作答](https://arxiv.org/abs/2611.32884)
-
-**English:** [RLVB trains visual agents to decide when they have enough evidence](https://arxiv.org/abs/2611.32884)
-
-- **发布 / Published:** `2026-11-24T16:17:51Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32884) · `research`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `reinforcement-learning`, `active-perception`, `reasoning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-在只能看到局部场景的任务中，RLVB 由模拟器计算当前观测还支持哪些答案。训练时，证据不足则奖励继续探索，证据充分则奖励作答。
-
-RLVB uses the simulator to determine which answers remain consistent with a visual agent's partial observations. Training rewards further exploration while the evidence is ambiguous and rewards committing once the evidence is sufficient.
-
-### 技术点 / Technical points
-
-- 作者同时提出 Pro Worlds 视觉谜题，智能体通过移动观察窗口收集线索。
-  - The authors introduce Pro Worlds, a set of visual puzzles in which agents move a viewing window to gather clues.
-- 三种视觉语言模型在三项基准的九种组合中均超过各自的基础模型，其中两项基准未用于训练。
-  - The trained agents outperformed their respective base models in all nine combinations of three vision-language models and three benchmarks. Two benchmarks were held out of training.
-
-### 为什么重要 / Why it matters
-
-在有明确证据标准的环境里，训练过程可以区分碰巧猜对和观察充分后答对。
-
-In environments with an explicit evidence criterion, training can distinguish a lucky answer from one supported by the observations.
-
-### 链接 / Links
-
-[Evidence 1](https://huggingface.co/datasets/richmondsin/pro-worlds)
-
----
-
-<a id="2026-11-24-cognition-swe-2-1-coding-model"></a>
-## [Cognition 发布 SWE-2.1，报告终端与代码库任务得分提升](https://cognition.com/blog/swe-2-1)
-
-**English:** [Cognition releases SWE-2.1 and reports gains on terminal and repository tasks](https://cognition.com/blog/swe-2-1)
-
-- **发布 / Published:** `2026-11-24T16:00:00Z`
-- **来源 / Source:** [Cognition](https://cognition.com/blog/swe-2-1) · `primary`
-- **分类 / Categories:** Agents / 智能体
-- **标签 / Tags:** `coding-agent`, `reinforcement-learning`, `benchmark`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
-
-### 摘要 / Summary
-
-Cognition 以 Kimi K3 为基础，通过强化学习训练 SWE-2.1，任务覆盖短流程和需要多步执行的工作。在公司的评测中，新模型在 Terminal-Bench 4.1 上得到 50.0 分，前代 SWE-2 为 24.2 分。
-
-Cognition trained SWE-2.1 on Kimi K3 with reinforcement learning across short and extended workflows. In the company’s evaluation the new model scored 50.0 on Terminal-Bench 4.1, up from 24.2 for SWE-2.
-
-### 技术点 / Technical points
-
-- 在 FrontierCode 2.0 上，Cognition 报告 SWE-2.1 得分为 41.3，SWE-2 为 24.1。
-  - On FrontierCode 2.0, the company reports a score of 41.3 for SWE-2.1 and 24.1 for SWE-2.
-- Cognition 使用 Devin CLI 运行自家的 SWE 模型，并用模拟时钟限制评测时长。
-  - Cognition used the Devin CLI harness for its SWE models and applied a simulated clock to time-limit benchmark runs.
-
-### 为什么重要 / Why it matters
-
-两代模型在相同智能体运行框架下的成绩，为开发者判断这一版的编程能力变化提供了参照。
-
-Scores for both generations under the same agent harness give developers a reference for the change in coding performance.
-
-### 链接 / Links
-
-[Discussion 1](https://news.ycombinator.com/item?id=50633450)
-
----
-
-<a id="2026-11-24-simpwm-tests-whether-robot-video-follows-simulation"></a>
-## [SimPWM 用冻结物体的实验检验机器人视频预测是否遵循仿真状态](https://arxiv.org/abs/2611.32786)
-
-**English:** [SimPWM freezes simulated objects to test whether robot video predictions follow them](https://arxiv.org/abs/2611.32786)
-
-- **发布 / Published:** `2026-11-24T15:14:07Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32786) · `research`
-- **分类 / Categories:** World models / 世界模型, Embodied AI / 具身智能
-- **标签 / Tags:** `robotics`, `video-prediction`, `simulation`, `evaluation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `85/100`
-
-### 摘要 / Summary
-
-SimPWM 同时输出机器人操作的视频预测和驱动预测的仿真状态。作者让机械臂保持原来的动作，同时在仿真中固定物体，观察生成的视频是否仍显示物体被提起。
-
-SimPWM returns a predicted manipulation video alongside the simulator state used to condition it. The authors kept the recorded arm motion and froze objects in the simulator, then checked whether the video still showed a lift.
-
-### 技术点 / Technical points
-
-- 系统从标定相机的首帧构建场景，用三维模型表示机械臂，用点表示夹爪可能接触的物体。
-  - The system builds the scene from the first frame of a calibrated camera, using a 3D model for the robot and points for objects the gripper may touch.
-- 在刚性物体测试中，固定物体使 MiniMax-H3 的视频提起率从 42% 降到 10%，而用相同样本训练的 LTX-2.3 从 57% 降到 49%。
-  - On rigid objects, freezing the simulated objects reduced the share of videos showing a lift from 42% to 10% for MiniMax-H3 and from 57% to 49% for LTX-2.3 trained on the same examples.
-
-### 为什么重要 / Why it matters
-
-对照仿真状态和视频可以发现看似合理、实际却与物体运动矛盾的抓取预测。
-
-Comparing the video with an explicit state exposes plausible-looking grasps that contradict the specified object motion.
-
-### 链接 / Links
-
-[Evidence 1](https://github.com/TingtingLiao/SimPWM)
-
----
-
-<a id="2026-11-24-diffgr00t-humanoid-execution-aware-training"></a>
-## [DiffGR00T 用全身动作的执行误差训练人形机器人策略](https://arxiv.org/abs/2611.32665)
-
-**English:** [DiffGR00T uses whole-body execution errors to train a humanoid policy](https://arxiv.org/abs/2611.32665)
-
-- **发布 / Published:** `2026-11-24T14:15:38Z`
-- **来源 / Source:** [arXiv](https://arxiv.org/abs/2611.32665) · `research`
-- **分类 / Categories:** Embodied AI / 具身智能, World models / 世界模型
-- **标签 / Tags:** `humanoid`, `vla`, `whole-body-control`, `simulation`
-- **可信度 / Confidence:** `high` · **评分 / Score:** `81/100`
-
-### 摘要 / Summary
-
-DiffGR00T 把 GR00T N1.7 的动作生成模块与 SONIC 全身控制器连接起来。在 HumanoidArena 的四项仿真任务中，作者报告平均成功率由监督训练基线的 59.2% 提升至 71.7%。
-
-DiffGR00T connects the action generator in GR00T N1.7 to the SONIC whole-body controller. Across four HumanoidArena simulation tasks, the authors report 71.7% mean success, up from 59.2% for the supervised baseline.
-
-### 技术点 / Technical points
-
-- 训练时，学习得到的世界模型根据动作预测身体状态的变化，提供可求导的多步执行过程。
-  - During training, a learned model predicts how the body will respond to actions and supplies a differentiable path across multiple steps.
-- 训练期间保持 SONIC 参数固定，使执行误差的梯度穿过控制器和动作采样器，更新上层策略的动作输出模块。
-  - SONIC stays frozen while gradients from execution errors pass through the controller and action sampler to update the high-level action head.
-
-### 为什么重要 / Why it matters
-
-这种训练让上层策略能够从控制器实际跟踪动作时积累的偏差中学习。
-
-The high-level policy can learn from tracking errors that accumulate when a whole-body controller tries to execute its proposed motion.

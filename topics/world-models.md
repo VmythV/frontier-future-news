@@ -2,6 +2,42 @@
 
 # World models / 世界模型
 
+<a id="2026-11-26-shownow-eight-future-world-model-weights"></a>
+## [ShowNow 发布 5B 世界模型权重，可提前生成八种玩家操作的后续画面](https://huggingface.co/songyiren/ShowNow-5B-8F)
+
+**English:** [ShowNow releases a 5B world model that prepares eight possible responses to player input](https://huggingface.co/songyiren/ShowNow-5B-8F)
+
+- **发布 / Published:** `2026-11-26T06:37:38Z`
+- **来源 / Source:** [ShowNow](https://huggingface.co/songyiren/ShowNow-5B-8F) · `primary`
+- **分类 / Categories:** World models / 世界模型
+- **标签 / Tags:** `interactive-simulation`, `latency`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `83/100`
+
+### 摘要 / Summary
+
+ShowNow 发布了面向 ViZDoom 的推理权重和三组演示输入。模型在视频播放时，从同一段近期画面出发，提前生成八种操作对应的后续画面。玩家做出动作后，系统就能选取相应的一段播放。
+
+ShowNow released inference weights and three demo inputs for its ViZDoom model. While video plays, the model uses the same recent frames to prepare eight continuations. When the player acts, the system can display the matching one.
+
+### 技术点 / Technical points
+
+- 每次生成覆盖四帧视频。团队在单张 80 GB H100 上测试了同时准备八种后续画面的配置。
+  - Each generation step covers four video frames. The team tested the eight-way setup on a single 80 GB H100.
+- 这版权重针对八种离散操作。作者指出，同时触发多种操作或长时间连续生成都可能降低画面一致性。
+  - The checkpoint targets eight discrete controls. The authors report that simultaneous inputs and long sequences can reduce visual consistency.
+
+### 为什么重要 / Why it matters
+
+研究者可以用这套权重调整玩家输入前的预计算量，测量这一选择对响应时间和画面质量的影响。
+
+The weights let researchers vary how much work happens before input arrives and measure the effect on response time and visual quality.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/songyiren/ShowNow-5B-8F/commit/41767c196c7930751491ceb0f6d5ca47859a32fa) · [Evidence 2](https://arxiv.org/abs/2611.34693)
+
+---
+
 <a id="2026-11-25-graph-anchors-latent-world-model-planning"></a>
 ## [Graph Anchors 利用已记录的状态转移，让冻结的世界模型规划远期目标](https://arxiv.org/abs/2611.34509)
 

@@ -2,6 +2,186 @@
 
 # Embodied AI / 具身智能
 
+<a id="2026-11-27-rl2-vla-fractal-steering-weights"></a>
+## [RL²-VLA 发布 Fractal 权重，可在推理时引导冻结的机器人策略](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal)
+
+**English:** [RL²-VLA releases its Fractal checkpoint for steering a frozen robot policy](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal)
+
+- **发布 / Published:** `2026-11-27T15:58:56Z`
+- **来源 / Source:** [RL²-VLA](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `reinforcement-learning`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `70/100`
+
+### 摘要 / Summary
+
+RL²-VLA 团队发布了 Fractal 版 QAM 引导策略及其训练配置。该方法利用视觉语言动作模型内部的动作特征训练单独的控制器，在预计基础策略会失败时介入。
+
+The RL²-VLA team released its Fractal QAM steering policy and training settings. The method learns a separate controller from a vision-language-action model’s internal action features and uses it when the base policy is predicted to fail.
+
+### 技术点 / Technical points
+
+- 公开配置显示，该引导策略使用一百万步离线训练，在线训练步数为零。
+  - The published configuration specifies one million offline training steps and zero online steps for the steering policy.
+- 推理时，控制器将学到的调整量与冻结模型生成动作的流速度结合。
+  - During inference the controller combines its learned adjustment with the frozen model’s action-generation flow.
+
+### 为什么重要 / Why it matters
+
+有了这份权重，研究者可以直接在 Fractal 上测试选择性干预的效果，省去重新训练引导策略的成本。
+
+The checkpoint lets researchers test selective intervention on Fractal using an already trained controller.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/rl2-vla/rl2-vla-qam-fractal/commit/93bbd8b27d7e64ecfed389b4a868391bb16f5c3b) · [Evidence 2](https://arxiv.org/abs/2607.26991)
+
+---
+
+<a id="2026-11-27-xpeng-iron-guangzhou-auto-show-deployment"></a>
+## [小鹏在广州车展部署八台 IRON 人形机器人接待观众](https://www.xiaopeng.com/news/company_news/5627.html)
+
+**English:** [XPENG puts eight IRON humanoids to work with visitors at the Guangzhou Auto Show](https://www.xiaopeng.com/news/company_news/5627.html)
+
+- **发布 / Published:** `2026-11-27T03:09:52Z`
+- **来源 / Source:** [小鹏汽车](https://www.xiaopeng.com/news/company_news/5627.html) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `humanoid`, `robotics`, `multimodal`, `human-robot-interaction`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `72/100`
+
+### 摘要 / Summary
+
+小鹏在广州车展展台部署了八台 IRON 人形机器人。据公司介绍，它们承担迎宾、展区导览和车辆讲解等工作。小鹏计划在 2027 年第一季度让 IRON 进入部分门店试岗。
+
+XPENG deployed eight IRON humanoid robots at its Guangzhou Auto Show booth. The company says the robots welcomed visitors, guided them around the exhibit and answered questions about vehicles. It plans to trial IRON in selected stores in early 2027.
+
+### 技术点 / Technical points
+
+- 据小鹏介绍，IRON VLM 支持多语言交互，结合联网信息与本地记忆为观众讲解车辆。
+  - XPENG says its IRON VLM combines multilingual interaction, online information and local memory to support vehicle explanations.
+- 机器人配备三颗图灵芯片，在本机运行模型和全身运动控制，机身共有 76 个自由度。
+  - Three onboard Turing chips support model inference and whole-body motion control on a robot with 76 degrees of freedom.
+
+### 为什么重要 / Why it matters
+
+这次公开部署把多台机器人带到需要接待顾客、回答产品问题的现场，为后续门店试岗提供了观察场景。
+
+The public exhibit puts a group of service robots in contact with visitors asking product questions, ahead of the planned retail trial.
+
+### 链接 / Links
+
+[Evidence 1](https://www.globenewswire.com/news-release/2026/11/27/3411092/0/en/xpeng-accelerates-global-physical-ai-expansion-at-the-2026-guangzhou-international-automobile-exhibition.html)
+
+---
+
+<a id="2026-11-26-dda-vla-robotwin-visual-shift-checkpoints"></a>
+## [DDA-VLA 发布模型权重，可测试场景外观变化对机器人操作的影响](https://huggingface.co/cognaclee/DDA-VLA)
+
+**English:** [DDA-VLA releases checkpoints for testing robot policies under visual changes](https://huggingface.co/cognaclee/DDA-VLA)
+
+- **发布 / Published:** `2026-11-26T17:02:20Z`
+- **来源 / Source:** [DDA-VLA](https://huggingface.co/cognaclee/DDA-VLA) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `vla`, `robotics`, `domain-adaptation`, `benchmark`, `open-weights`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+DDA-VLA 发布代码和模型权重，用于研究视觉输入变化对同一操作任务的影响。训练数据成对渲染 RoboTwin 2.0 中相同的物理状态，改变光照、纹理或相机设置。
+
+DDA-VLA released code and checkpoints that separate changes in a robot’s visual input from changes in the task. The RoboTwin 2.0 training pairs show the same physical state with different lighting, textures or camera settings.
+
+### 技术点 / Technical points
+
+- 适配器根据指令，把视觉特征映射回参考场景的特征空间。动作模型据此一次预测 16 步动作。
+  - An instruction-conditioned adapter maps visual features back toward the reference domain. The action model uses those features to predict 16 steps at a time.
+- 每段示范生成十种外观变体时，作者报告，在外观变化条件下，利用回合首帧的版本成功率为 52.3%，同样使用两个域训练、未加适配器的对照组为 29.8%。这项仿真测试覆盖 47 个任务。
+  - With ten altered renders per demonstration, the team reports 52.3% success under visual shifts for the variant using the episode’s first observed frame, versus 29.8% for joint training on both domains without the adapter. The simulation test covered 47 tasks.
+
+### 为什么重要 / Why it matters
+
+研究者可以利用配对示范和对照模型，检验操作失败有多少源于相机看到的画面变化。
+
+The matched demonstrations and released controls make it possible to isolate how much of a policy’s failure is caused by a change in what the camera sees.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/cognaclee/DDA-VLA/commit/cb74706f2feec906bef247500a9f6e7abb28f5e8)
+
+---
+
+<a id="2026-11-26-agentmem-four-benchmark-evaluation-release"></a>
+## [AgentMem 发布训练代码，为四个机器人记忆基准提供统一评测工具](https://github.com/utomm/AgentMem-Action-Model)
+
+**English:** [AgentMem releases training code and a common evaluation tool for four robot memory benchmarks](https://github.com/utomm/AgentMem-Action-Model)
+
+- **发布 / Published:** `2026-11-26T13:06:40Z`
+- **来源 / Source:** [AgentMem](https://github.com/utomm/AgentMem-Action-Model) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `memory`, `robotics`, `vla`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+AgentMem 发布了视觉语言智能体的训练代码，可将智能体与动作模型配合，在四个操作基准上运行。智能体负责记住此前的步骤，并指示动作模型下一步该做什么。
+
+AgentMem released code to train its vision-language agent and run it with an action model on four manipulation benchmarks. The agent keeps track of earlier steps and tells the action model what to do next.
+
+### 技术点 / Technical points
+
+- 同一评测工具支持 RoboMME、RMBench、RoboDojo-Mem 和 LIBERO-Mem，并分别处理各基准的观测与动作格式。
+  - The evaluation tool supports RoboMME, RMBench, RoboDojo-Mem and LIBERO-Mem with benchmark-specific observation and action handling.
+- 智能体可以发出子任务描述，并在图像上标注抓取、放置或移动位置。动作策略根据 RGB 画面执行，不负责保存回合内的历史。
+  - The agent can send a subtask description and optional image-plane hints for grasping, placing or moving. The RGB action policy executes the motion without carrying memory across the episode.
+
+### 为什么重要 / Why it matters
+
+这套实现便于研究者检查任务进度是否被记住，以及动作模型是否正确执行了指示。
+
+A common implementation makes it easier to test which failures come from remembering a task and which come from translating the instructions into movement.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/utomm/AgentMem-Action-Model/commit/aa69ff13ec3d23830b67f193cda48de75862b884) · [Evidence 2](https://arxiv.org/abs/2609.11308)
+
+---
+
+<a id="2026-11-26-volvo-hexagon-aeon-ghent-imitation-learning"></a>
+## [沃尔沃在根特工厂训练 AEON 人形机器人将零件放入工装夹具](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/)
+
+**English:** [Volvo trains Hexagon’s AEON to place parts into fixtures at its Ghent plant](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/)
+
+- **发布 / Published:** `2026-11-26T08:00:00Z`
+- **来源 / Source:** [Volvo Cars](https://www.volvocars.com/intl/media/press-releases/CC9EB8A9723DD536/) · `primary`
+- **分类 / Categories:** Embodied AI / 具身智能
+- **标签 / Tags:** `robotics`, `humanoid`, `imitation-learning`, `manipulation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `75/100`
+
+### 摘要 / Summary
+
+沃尔沃汽车和海克斯康正在比利时根特工厂训练 AEON。首项任务是让机器人通过模仿示范，学习把零件准确放入两套工装夹具。沃尔沃计划于 2027 年上半年开展工厂试点。
+
+Volvo Cars and Hexagon are training AEON at Volvo’s Ghent plant in Belgium. Its first task is to learn from demonstrations how to position components precisely in two fixtures. Volvo plans a factory pilot in the first half of 2027.
+
+### 技术点 / Technical points
+
+- AEON 采用轮式底盘，通过相机和其他传感器定位、操作零件，额定载荷为 10 千克。
+  - AEON moves on wheels, uses cameras and other sensors to locate and handle parts, and has a 10 kg payload.
+- 团队计划逐步验证更多零件的搬放，再加入产区内移动以及与现有自动化设备配合的任务。
+  - The team plans to add more types of parts, movement across the production area and interaction with existing automation as it validates each step.
+
+### 为什么重要 / Why it matters
+
+在扩大机器人的生产职责前，团队可以先用两套实际工装检验它能否学会精确放置零件。
+
+The two fixtures give the team a specific placement task to validate on the factory floor before assigning the robot a wider production role.
+
+### 链接 / Links
+
+[Evidence 1](https://news.cision.com/volvo-cars-global/r/volvo-cars-trains-hexagon-robotics--humanoids-for-manufacturing%2Cc4429415)
+
+---
+
 <a id="2026-11-25-roboevo2-robot-policy-learning-from-repairs"></a>
 ## [RoboEvo² 用编程智能体找到的纠错动作训练机器人策略](https://arxiv.org/abs/2611.34675)
 

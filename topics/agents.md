@@ -2,6 +2,78 @@
 
 # Agents / 智能体
 
+<a id="2026-11-27-pydantic-ai-277-history-compaction"></a>
+## [Pydantic AI 2.77 支持应用在智能体运行中请求并跟踪对话压缩](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0)
+
+**English:** [Pydantic AI 2.77 lets applications request and observe conversation compaction](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0)
+
+- **发布 / Published:** `2026-11-27T23:32:31Z`
+- **来源 / Source:** [Pydantic AI](https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `agent-framework`, `context-management`, `open-source`, `event-streaming`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `77/100`
+
+### 摘要 / Summary
+
+Pydantic AI 2.77 允许应用在智能体运行期间请求压缩对话历史。开发者可以通过钩子处理压缩逻辑，并从事件流中获知压缩何时开始、何时结束。
+
+Pydantic AI 2.77 gives applications a way to request a shorter conversation history during a run. A capability hook handles compaction, and the event stream reports when it starts and ends.
+
+### 技术点 / Technical points
+
+- 运行上下文提供 request_compaction() 接口，应用可通过 compact_history() 钩子实现自己的压缩策略。
+  - The run context exposes request_compaction(), and a compact_history() hook can implement the application’s compression strategy.
+- 自动摘要收到异常模型响应时，默认回退机制可以恢复，让父任务继续运行。
+  - The default fallback chain can recover from an unexpected model response during automatic summarization and keep the parent run active.
+
+### 为什么重要 / Why it matters
+
+排查上下文遗漏或长任务停滞时，应用可以在运行记录中定位对话压缩发生的环节。
+
+Applications can now locate a compaction step in a run trace when investigating lost context or a stalled long-running task.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/pydantic/pydantic-ai/pull/11454)
+
+---
+
+<a id="2026-11-27-ree-research-agent-task-release"></a>
+## [REE 公开 100 项科研智能体任务，每项配有可运行的专家基线](https://huggingface.co/datasets/Tokenwave-AI/REE)
+
+**English:** [REE releases 100 research tasks with runnable expert baselines for AI agents](https://huggingface.co/datasets/Tokenwave-AI/REE)
+
+- **发布 / Published:** `2026-11-27T01:06:23Z`
+- **来源 / Source:** [REE / TokenWave](https://huggingface.co/datasets/Tokenwave-AI/REE) · `primary`
+- **分类 / Categories:** Agents / 智能体
+- **标签 / Tags:** `benchmark`, `dataset`, `research-agents`, `evaluation`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `84/100`
+
+### 摘要 / Summary
+
+Research Entrance Exam 团队公开了来自 23 个领域的 100 项开放式问题。每项任务提供可运行的起始方案和开发数据，智能体最多有 12 小时开展实验，改进方案在留出样例上的得分。
+
+The Research Entrance Exam team released 100 open-ended problems drawn from 23 domains. Each gives an agent a working solution and development data, then allows up to 12 hours of experiments to improve its score on held-out cases.
+
+### 技术点 / Technical points
+
+- 每项任务都附有可运行的专家方法，并用相同的留出样例评测，便于将智能体相对起始方案的改进与公开参照进行比较。
+  - Each task includes a runnable expert method evaluated on the same held-out instances, so gains over the starter can be compared with a public reference.
+- 作者对每个智能体在每项任务上运行一次。Claude Opus 5.5 在 86 项任务上超过专家基线，GPT-6.1 Sol 在 81 项上超过基线。
+  - In the authors’ evaluation with one run per task, Claude Opus 5.5 scored above the expert baseline on 86 tasks and GPT-6.1 Sol on 81.
+
+### 为什么重要 / Why it matters
+
+其他团队可以使用这些任务，检验智能体能否在固定时间内改进已有科研方法，也能复现与专家基线的逐项比较。
+
+The task files let other teams test whether an agent can improve an existing scientific method under a fixed time budget and reproduce the paired comparison.
+
+### 链接 / Links
+
+[Evidence 1](https://huggingface.co/datasets/Tokenwave-AI/REE/commit/7f50cd1331c4ee890ed76598b3969a4d12109a45) · [Evidence 2](https://arxiv.org/abs/2611.34646)
+
+---
+
 <a id="2026-11-26-pydantic-ai-276-realtime-tool-discovery"></a>
 ## [Pydantic AI 2.76.0 支持实时智能体在会话途中发现工具](https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0)
 
@@ -35,6 +107,42 @@ A voice agent can start with a small tool list and bring in specialized actions 
 ### 链接 / Links
 
 [Evidence 1](https://github.com/pydantic/pydantic-ai/pull/12440)
+
+---
+
+<a id="2026-11-26-agentmem-four-benchmark-evaluation-release"></a>
+## [AgentMem 发布训练代码，为四个机器人记忆基准提供统一评测工具](https://github.com/utomm/AgentMem-Action-Model)
+
+**English:** [AgentMem releases training code and a common evaluation tool for four robot memory benchmarks](https://github.com/utomm/AgentMem-Action-Model)
+
+- **发布 / Published:** `2026-11-26T13:06:40Z`
+- **来源 / Source:** [AgentMem](https://github.com/utomm/AgentMem-Action-Model) · `primary`
+- **分类 / Categories:** Agents / 智能体, Embodied AI / 具身智能
+- **标签 / Tags:** `memory`, `robotics`, `vla`, `benchmark`
+- **可信度 / Confidence:** `high` · **评分 / Score:** `79/100`
+
+### 摘要 / Summary
+
+AgentMem 发布了视觉语言智能体的训练代码，可将智能体与动作模型配合，在四个操作基准上运行。智能体负责记住此前的步骤，并指示动作模型下一步该做什么。
+
+AgentMem released code to train its vision-language agent and run it with an action model on four manipulation benchmarks. The agent keeps track of earlier steps and tells the action model what to do next.
+
+### 技术点 / Technical points
+
+- 同一评测工具支持 RoboMME、RMBench、RoboDojo-Mem 和 LIBERO-Mem，并分别处理各基准的观测与动作格式。
+  - The evaluation tool supports RoboMME, RMBench, RoboDojo-Mem and LIBERO-Mem with benchmark-specific observation and action handling.
+- 智能体可以发出子任务描述，并在图像上标注抓取、放置或移动位置。动作策略根据 RGB 画面执行，不负责保存回合内的历史。
+  - The agent can send a subtask description and optional image-plane hints for grasping, placing or moving. The RGB action policy executes the motion without carrying memory across the episode.
+
+### 为什么重要 / Why it matters
+
+这套实现便于研究者检查任务进度是否被记住，以及动作模型是否正确执行了指示。
+
+A common implementation makes it easier to test which failures come from remembering a task and which come from translating the instructions into movement.
+
+### 链接 / Links
+
+[Evidence 1](https://github.com/utomm/AgentMem-Action-Model/commit/aa69ff13ec3d23830b67f193cda48de75862b884) · [Evidence 2](https://arxiv.org/abs/2609.11308)
 
 ---
 
